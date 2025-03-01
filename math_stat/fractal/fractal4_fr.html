@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. et Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematiques et Statistique">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2014-12-07">
+<meta name="Keywords" content="mathematiques,statistique,universite,ottawa">
+<meta name="Copyright" content= "&copy; 2014 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="fr-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="mandelbrot.js">
+  document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(fractal4,"fr");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStexte, "MMathSStat");
+</script>
+
+<table class="noB">
+<tr> <td rowspan="1" colspan="1" class="left">
+<a href="fractal3_fr.html"> Page précédente </a> </td>
+<td rowspan="1" colspan="1" class="right"> </td>
+</tr>
+</table>
+
+<a name="mandelbrot"> </a>
+<h3> Les ensembles de Mandelbrot et de Julia </h3>
+
+<p> On ne peut pas se permettre de terminer notre bref introduction
+  aux systèmes de fonctions itératives sans mentionner la figure qui
+  est responsable de toute l'excitation au sujet des images fractales
+  générées par ordinateur; c'est-à-dire, <em> l'ensemble de
+    Mandelbrot</em>. </p>
+
+<p> À la page précédente, on a présenté certaines des propriétés de la
+  fonction logistique.  Plus spécifiquement, on a étudié les
+  itérations de la fonction à valeurs réelles </p>
+
+<center>
+<em class="Equations_Display">
+f<sub>&micro;</sub>(x) = &micro; x ( 1- x)
+</em>
+</center>
+
+<p> pour des valeurs de <em class="Equations">&micro;</em>.  L'étape
+  suivante est d'étudier les itérations de fonctions du plan dans
+  lui-même comme on a fait avec les SIF's.  Si on identifie le plan
+  réel au plan complexe, les fonctions du plan réel dans lui-même
+  correspondent à des fonctions du plan complexe dans lui-même. </p>
+
+<p> Les <em> ensembles de Julia </em> sont produits à partir de la
+  simple fonction à valeurs complexes définie par</p>
+
+<center>
+<em class="Equations_Display">
+f<sub>c</sub>(z) = z<sup>2</sup> + c
+</em>
+</center>
+
+<p>où <em class="Equations">c</em> et <em class="Equations">z</em>
+  sont des nombres complexes.  Plus précisément, étant donné une
+  valeur de <em class="Equations">c</em>, soit
+  <em class="Equations">M</em> l'ensemble des points
+  <em class="Equations">z</em> du plan complexe tels que la suite</p> 
+    
+<center>
+<em class="Equations_Display">
+z<sub>o</sub> = z, &nbsp;
+z<sub>1</sub> = f<sub>c</sub>(z<sub>o</sub>), &nbsp;
+z<sub>2</sub> = f<sub>c</sub>(z<sub>1</sub>), &nbsp;
+z<sub>3</sub> = f<sub>c</sub>(z<sub>2</sub>), ...
+</em>
+</center>
+
+<p> est non-bornée.  L'<em>ensemble de Julia </em> associé à
+  <em class="Equations">c</em> est la frontière de
+  <em class="Equations">M</em>. </p>
+
+<p> Si un point de l'itération qui début avec
+  <em class="Equations">z<sub>o</sub> = z</em> sort du cercle de rayon
+  <em class="Equations">r = max{|c|,2}</em>, alors les itérations
+  donnent une suite non-bornée.  Le point <em class="Equations">z</em>
+  est donc dans l'ensemble <em class="Equations">M</em>.  On dira
+  qu'un point <em class="Equations">z</em> n'appartient pas à
+  l'ensemble <em class="Equations">M</em> si après un nombre choisi
+  d'itérations, la suite d'itérations est toujours à l'intérieur du
+  cercle de rayon <em class="Equations">r</em> centré à l'origine.  Si
+  on choisie un grand nombre d'itérations, on obtient théoriquement
+  une image plus précise de l'ensemble de Julia.  Naturellement, la
+  qualité de l'image est limitée par le nombre de pixels sur l'écran
+  de votre ordinateur.  En particulier, si <em class="Equations">M</em>
+  n'est <q lang="fr">vraiment</q> pas connexe (formé de beaucoup de
+  petites pièces), choisir un grand nombre d'itérations pourrait ne
+  pas produire d'image si la majorité des points de
+  <em class="Equations">M</em> ne sont pas associés à des pixels sur
+  votre écran.</p>
+
+<p> Vous pouvez utiliser l'application suivante pour tracer un
+  ensemble de Julia.  Pour une valeur <em class="Equations">c</em>
+  donnée, les points du plan complexe en noir sont les points sont les
+  points <em class="Equations">z</em> pour lesquelles la suite
+  ci-dessus est bornée.  La frontière de la région en noir est
+  l'<em>ensemble de Julia </em> associé à
+  <em class="Equations">c</em>. </p>
+
+<div class="center">
+<canvas id="julia" width="400" height="400">
+</canvas>
+</div>
+
+<ul>
+  <li> <em class="Equations">Real(c) = </em>
+    <input type="text" value="0.27" id="c_real"> </li>
+  <li> <em class="Equations">Im(c) = </em>
+    <input type="text" value="-0.48" id="c_img"> </li>
+  <li> Nombre d'itérations <input type="text" value="50" id="julia_nbr">
+  </li>
+  <li> <input type="button" value="Débuter" onclick="julia()">
+  </li>
+  <li> <input type="button" value="Effacer" onclick="clearDDS('julia')"> </li>
+</ul>
+
+<p> L'<em>ensemble de Mandelbrot</em> est l'ensemble de tous les
+  points <em class="Equations">c</em> du plan complexe telles que
+  la suite suivante est bornée.</p>
+
+<center>
+<em class="Equations_Display">
+c, &nbsp; c^2 + c, &nbsp; (c^2 + c)^2 + c,
+&nbsp; ((c^2 + c)^2 + c)^2 + c, ...
+</em>
+</center>
+
+<p> L'application suivante peut être utilisée pour produire
+  l'ensemble de Mandelbrot.  Les points en noire forment l'ensemble de
+  Mandelbrot. </p>
+
+<div class="center">
+<canvas id="mandelbrot" width="400" height="400">
+</canvas>
+</div>
+
+<ul>
+  <li> Nombre d'itérations <input type="text" value="200"
+				   id="mandelbrot_nbr"> </li>
+  <li> <input type="button" value="Débuter" onclick="mandelbrot()">
+  </li>
+  <li> <input type="button" value="Effacer" onclick="clearDDS('mandelbrot')">
+  </li>
+</ul>
+
+<p> Si un point de l'itération sort du cercle de rayon
+  <em class="Equations">r</em> défini ci-dessus, alors la suite
+  <em class="Equations"> c, c^2 + c, c^2 + c)^2 + c,
+    ((c^2 + c)^2 + c)^2 + c, ... </em> est non-bornée.   Donc,
+  cet valeur de <em class="Equations">c</em> n'est pas dans l'ensemble
+  de Mandelbrot.   Comme pour l'ensemble de Julia, c'est la règle que
+  l'on a implémenté dans l'application ci-dessus.</p>
+
+<div class="LOOK">
+<p> Vous pouvez aussi agrandir une partie de la figure.  Cliquer
+  avec le bouton gauche de votre sourie dans une région de la 
+  figure va agrandir cet région de l'ensemble de Mandelbrot. </p>
+
+<p> Vous pouvez aussi générer l'ensemble de Julia associé à une valeur
+  de l'ensemble de Mandelbrot en cliquant avec votre sourie sur le
+  point de l'ensemble de Mandelbrot qui vous intéresse tout en pesant
+  sur le touche <em>Alt</em>.  L'ensemble de Julia est dessiné dans la
+  fenêtre de l'application pour les ensembles de julia ci-dessus.</p>
+</div>
+
+<p> L'ensemble de Mandelbrot est aussi appelé le
+  <em> bonhomme de pain d'épices </em>.  Ne trouvez-vous pas que
+  l'ensemble de Mandelbrot ressemble à un bonhomme de pain d'épices?
+  Si vous agrandissez de façon judicieuse, vous allez voir des
+  bonshommes de pain d'épices de plus en plus petits.  Cela peut être
+  comparé à la notion de similitude que l'on a remarquée pour les
+  SIF's. </p>
+
+<p> Il y a une très belle relation entre l'ensemble de Mandelbrot et
+  les ensembles de Julia.  L'ensemble de Mandelbrot est l'ensemble de
+  tous les points <em class="Equations">c</em> qui produise un
+  ensemble de Julia connexe (l'ensemble peut être tracé sans lever le
+  crayon quoi qu'il pourrait prendre un temps infini pour en faire le
+  dessin). </p>
+
+<p> Il y a beaucoup de questions fascinantes qui proviennent de
+  l'étude de l'ensemble de Mandelbrot et des ensembles de Julia.
+  Plusieurs de ces questions n'ont toujours pas été résolues. </p>
+
+<hr>
+
+<script language="javascript"> MyAddress("fr"); </script>
+
+<br><br>
+
+<table class="noB">
+<tr><td rowspan="1" colspan="1" class="left">
+<a href="fractal3_fr.html"> Page
+précédente </a> </td>
+<td rowspan="1" colspan="1" class="right"> </d>
+</tr>
+</table>
+
+<br>
+<hr>
+<br>
+
+</div>  <!-- The content ends here -->
+
+<script language="javascript">
+bottom_function(fractal4,"fr");
+</script>
+
+</body>
+</html>

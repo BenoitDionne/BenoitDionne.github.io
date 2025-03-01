@@ -1,0 +1,281 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. et Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematiques et Statistique">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2014-12-07">
+<meta name="Keywords" content="mathematiques,statistique,universite,ottawa">
+<meta name="Copyright" content= "&copy; 2014 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="fr-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="IFS2.js">
+  document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(fractal2,"fr");
+</script>
+
+<div class="page_contents"> <!-- The contents starts here -->
+
+<script language="javascript">
+main_title( MStexte, "MMathSStat");
+</script>
+
+<table class="noB">
+<tr> <td rowspan="1" colspan="1" class="left">
+<a href="fractal1_fr.html"> Page précédente </a> </td>
+<td rowspan="1" colspan="1" class="right">
+<a href="fractal3_fr.html"> Page suivante </a> </td>
+</tr>
+</table>
+
+<h3> D'autres images produites par des SIF </h3>
+
+<h4> Fougères </h4>
+
+<p> Voici un exemple de fougère produite à l'aide d'un SIF. </p>
+
+<div class="center">
+  <img src="fern_2.png" class="framed" style="width: 400px"
+       alt="Image d'une fougère produite avec un SIF">
+</div>
+
+<p> L'application suivante utilise un SIF qui génère la fougère
+  ci-dessus.  Le SIF est composé de quatre fonctions au lieu de trois
+  pour le triangle de Sierpinski.  Pour visualiser l'action des quatre
+  fonctions, on choisit un ensemble simple comme un carré et on fait
+  une seule itération.  On obtient quatre images qui correspondent
+  à l'action des quatre fonctions sur l'ensemble simple choisi. </p>
+
+<div class="center">
+<canvas id="FERN" width="400" height="400">
+</canvas>
+</div>
+
+<ul>
+  <li> Nombre d'itérations: <input type="text" value="5" id="nbrFERN"> </li>
+  <li> Figure initiale: <select id="initFERN">
+      <option value="0" selected> triangle </option>
+      <option value="1"> carré </option>
+      <option value="2"> losange </option>
+  </select> </li>
+  <li> <input type="button" value="Débuter" onclick="iterateFERN()"> </li>
+  <li> <input type="button" value="Effacer" onclick="clearIFS('FERN')"> </li>
+</ul>
+
+<p> Ne choisissez pas plus de 7 ou 8 itérations.  Avec plus
+  d'itérations, vous risquez de remplir la mémoire alloué par votre
+  ordinateur pour l'application. </p> 
+
+<p> La fougère ci-dessus est générée par les quatre fonctions
+  suivantes. </p>
+
+<ul>
+<li> Première fonction:<br>
+  <em class="Equations">
+    &nbsp; X = 0 <br>
+    &nbsp; Y = 0.16 y
+  </em>
+</li>
+<li> Deuxième fonction: <br>
+  <em class="Equations">
+    &nbsp; X = 0.849 x + 0.0356 y <br>
+    &nbsp; Y = -0.0356 x + 0.849 y + 1.6
+  </em>
+</li>
+<li> Troisième fonction: <br>
+  <em class="Equations">
+    &nbsp; X = 0.197 x - 0.257 y <br>
+    &nbsp; Y = 0.226 x + 0.223 y + 1.6
+  </em>
+</li>
+<li> Quatrième fonction: <br>
+  <em class="Equations">
+    &nbsp; X = -0.15 x + 0.23 y <br>
+    &nbsp; Y = 0.32 x + 0.238 y + 0.44
+  </em>
+</li>
+</ul>
+
+<h4> Feuilles </h4>
+
+<p> Voici une exemple de feuille produit à l'aide d'un SIF.</p>
+
+<div class="center">
+  <img src="leaf_2.png" class="framed" style="width: 400px"
+       alt="Image d'une feuille produite avec un SIF">
+</div>
+
+<p> L'application suivante utilise un SIF qui génère la feuille
+  ci-dessus.  Le SIF est composé de quatre fonctions.  Pour visualiser
+  l'action des quatre fonctions, on choisit un ensemble simple comme
+  un carré et on fait une seule itération.  On obtient quatre images
+  qui correspondent à l'action des quatre fonctions sur l'ensemble
+  simple choisi. </p>
+
+<div class="center">
+<canvas id="LEAF" width="400" height="400">
+</canvas>
+</div>
+
+<ul>
+  <li> Nombre d'itérations: <input type="text" value="5" id="nbrLEAF"> </li>
+  <li> Figure initiale: <select id="initLEAF">
+      <option value="0" selected> triangle </option>
+      <option value="1"> carré </option>
+      <option value="2"> losange </option>
+  </select> </li>
+  <li> <input type="button" value="Débuter" onclick="iterateLEAF()"> </li>
+  <li> <input type="button" value="Effacer" onclick="clearIFS('LEAF')"> </li>
+</ul>
+
+<p> Ne choisissez pas plus de 7 ou 8 itérations car autrement vous
+  risquez de remplir la mémoire alloué pour l'application.</p>
+
+<p> La feuille ci-dessus est générée par les quatre fonctions
+  suivantes. </p> 
+
+<ul>
+<li> Première fonction:<BR>
+  <em class="Equations">
+    &nbsp;  X = 0.6 x + 0.18 <BR>
+    &nbsp;  Y = 0.6 y + 0.36
+  </em>
+</li>
+<li> Deuxième fonction: <BR>
+  <em class="Equations">
+    &nbsp;  X = 0.6 x + 0.18 <BR>
+    &nbsp;  Y = 0.6 y + 0.12
+  </em>
+</li>
+<li> Troisième fonction: <BR>
+  <em class="Equations">
+    &nbsp;  X = 0.4 x + 0.3 y + 0.27 <BR>
+    &nbsp;  Y = -0.3 x + 0.4 y + 0.32
+  </em>
+</li>
+<li> Quatrième fonction: <BR>
+  <em class="Equations">
+    &nbsp;  X = 0.4 x - 0.3 y + 0.27 <BR>
+    &nbsp;  Y = 0.3 x + 0.4 y + 0.09
+  </em>
+</li>
+</ul>
+
+<br>
+<hr>
+<br>
+
+<a name="fractal_objects"> <h3> Dimensions Fractal </h3> </a>
+
+<p> Il n'y a pas de définition précise d'un ensemble fractal.  Benoit
+  B. Mandelbrot (le père de la Géométrie Fractal) défini un ensemble
+  fractal comme un ensemble pour lequel la dimension de Hausdorff est
+  strictement plus grande que la dimension topologique.  Quelques
+  mathématiciens vont aussi demander qu'il y ait similitude (c'est le
+  cas du triangle de Sierpinski). </p> 
+
+<p> On va étudier seulement les notions de <em> dimension avec
+    similitude </em> et <em> dimension de Hausdorff</em>. </p>
+
+<h4> Dimension avec Similitude </h4>
+
+<p> La <em> dimension avec similitude </em> d'un
+  ensemble <em class="Equations"> A</em> est définie par l'équation </p>
+
+<center>
+<em class="Equations_Display">
+    Dimension = log(a) / log(1/s)
+</em>
+</center>
+
+<p> où <em class="Equations">a</em> est le nombre de parties
+  semblables à l'ensemble de départ et <em class="Equations">s</em>
+  est la nouvelle échelle des dimensions spatiales.  Par exemple: </p>
+
+<ul>
+<li>
+La dimension avec similitude d'une droite est 1.  Si
+<em class="Equations">s = 1/4</em>, alors
+<em class="Equations">a = 4</em> et
+<em class="Equations">log(a)/log(1/s) = 1</em>. </li>
+<li>
+La dimension avec similitude d'un cube est 3.  Si
+<em class="Equations">s = 1/2</em>, alors
+<em class="Equations">a = 8</em> et
+<em class="Equations">log(8)/log(2)
+= log<sub>2</sub>(8) = 3</em>. </li>
+<li>
+La dimension avec similitude du triangle de Sierpinski est 1.5850.  Si
+<em class="Equations">s = 1/2</em>, alors
+<em class="Equations">a = 3</em> et
+<em class="Equations">log(3)/log(2) = 1.5850</em>.
+Si <em class="Equations">s = 1/4</em>, alors
+<em class="Equations">a = 9</em> et
+<em class="Equations">log(9)/log(4) = log(3)/log(2) = 1.5850</em>
+(Pourquoi?).
+</li>
+</ul>
+
+<h4> Dimension de Hausdorff </h4>
+
+<p> La <em> dimension de Hausdorff </em> d'un ensemble
+<em class="Equations">A</em> est définie par l'équation </p>
+
+<center>
+<em class="Equations_Display">
+Dimension = lim<sub>&micro;->0</sub> log(N(A,&micro;)) /
+log(1/&micro;)
+</em>
+</center>
+
+<p> où <em class="Equations">N(A,&micro;)</em> est le plus
+petit nombre de boules de rayon <em class="Equations">&micro; > 0</em>
+  nécessaires pour couvrir <em class="Equations">A</em>.</p>
+
+<br><br>
+
+<table class="noB">
+<tr> <td rowspan="1" colspan="1" class="left">
+<a href="fractal1_fr.html"> Page précédente </a> </td>
+<td rowspan="1" colspan="1" class="right">
+<a href="fractal3_fr.html"> Page suivante </a> </td>
+</tr>
+</table>
+
+<br>
+<hr>
+<br>
+
+</div>  <!-- The content ends here -->
+
+<script language="javascript">
+bottom_function(fractal2,"fr");
+</script>
+
+</body>
+</html>

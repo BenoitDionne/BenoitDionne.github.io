@@ -1,0 +1,243 @@
+/********************************************************************/
+/* Default style                                                    */
+/********************************************************************/
+body { margin: 0px; background: #eae8e8 url("images/background7.png") repeat;}
+div.page_contents { margin: 0px; padding: 10px; border: 0px; }
+
+/* Font for entire site */
+* { font-weight: normal; font-size: inherit; color: black; font-style: normal; }
+
+/* The hyperlinks */
+a { color: #8F001A; text-decoration: none; }
+a:visited { color: purple;}
+a:hover { color: blue;}
+
+/* Emphasis */
+em { color: inherit; font-weight: bold; }
+
+/* Does not seem to be defined on Firefox */
+strong { color: inherit; font-weight: bold; }
+
+/* Images */
+img { border: 0px; padding: 0px; margin: 0px; }
+
+/* Headers */
+h1 { text-decoration: none; text-align: center; color: black;
+  font-weight: bold; font-size: 150%; font-style: normal; }
+h2 { text-decoration: none; text-align: center;
+  color: black; font-weight: bold; font-size: 140%; font-style: normal; }
+h3 { text-decoration: none; text-align: center;
+  color: black; font-weight: bold; font-size: 120%; font-style: normal; }
+h4 { text-decoration: none; text-align: left; color: black;
+  font-weight: bold; font-size: 110%; font-style: normal; }
+
+/* Address */
+address { vertical-align: baseline; text-align: left; }
+
+/* Horizontal line */
+hr { width: 90%; height: 2px; background-color: #8F001A;
+  border: 0px; color: #8F001A; }
+
+/* Italic */
+i { text-decoration: none; font-weight: bold; }
+
+/* Ordered and non-ordered list */
+ol { list-style-type: lower-roman; }
+ol > li { }
+ol > li > ol { list-style-type: lower-alpha; }
+
+ol.dec { list-style-type: decimal; }
+ol.dec > li { }
+
+ul {}
+ul li {}
+
+/* Select */
+select { background-color: white; color: black; }
+
+/* Superscripts and subscripts */
+sup { font-size: 70%; font-weight: inherit; color: inherit; }
+sub { font-size: 70%; font-weight: inherit; color: inherit; }
+
+/* Table with border */
+table { padding: 0px; margin: 0px; border: 0px; border-collapse: collapse;
+  empty-cells: show; width: 100%; margin-left: auto; margin-right: auto; }
+table caption { font-weight: bold; text-align: center; }
+table tr { border: 0px; padding: 0px; margin: 0px;
+  background-color: white; border-collapse: collapse; }
+table th { text-align: left; vertical-align: top; padding: 5px;
+  margin: 0px; border: 1px solid black; background-color: #e7d5da;
+  color: black;  font-weight: bold;}
+table td { text-align: left; vertical-align: baseline;
+  padding: 5px; margin: 0px; border: 1px solid black; color: black; }
+
+/* specific formatting */
+table th.center { text-align: center; vertical-align: baseline;
+  padding: 5px; margin: 0px; border: 1px solid black;
+  background-color: #e7d5da; color: black; font-weight: bold;}
+table td.center { text-align: center; vertical-align: baseline;
+  padding: 5px; margin: 0px; border: 1px solid black; color: black; }
+
+/* Table without border */
+table.noB { padding: 0px; margin: 0px; border: 0px;
+  border-collapse: collapse; empty-cells: show; width: 100%;
+  background-color: inherit; }
+table.noB caption { font-weight: bold; text-align: center; }
+table.noB tr { border: 0px; padding: 0px; margin: 0px;
+  border-collapse: collapse; background-color: inherit; }
+table.noB th { text-align: left; background-color: inherit;
+  vertical-align: top; padding: 5px; margin: 0px; border: 0px; color: black;
+  font-weight: bold; }
+table.noB td { text-align: left; vertical-align: baseline;
+  padding: 5px; margin: 0px; border: 0px; color: black; }
+
+/* Specific formatting */
+table.noB th.center { text-align: center; vertical-align: baseline;
+  padding: 5px; margin: 0px; border: 0px; color: black;
+  background-color: inherit; font-weight: bold; }
+table.noB td.center { text-align: center; vertical-align: baseline;
+  padding: 5px; margin: 0px; border: 0px; color: black; }
+table.noB td.right { text-align: right; vertical-align: baseline;
+  padding: 5px; margin: 0px; border: 0px; color: black; }
+
+/********************************************************************/
+/* The top menu                                                     */
+/********************************************************************/ 
+div#header { width: 100%; margin: 0px; padding: 0px; border: 0px;
+  background: #8F001A url("images/header_redblack.png") repeat; }
+
+img#logo { width: 135px; margin: 0px; padding: 2px 30px 5px 10px; }
+
+table.header { border: 0px; margin: 0px; padding: 0px; background:
+  inherit; }
+table.header tr { border: 0px; margin: 0px; padding: 0px; background:
+  inherit; }
+table.header td#logo { border: 0px; margin: 0px; padding: 0px;
+  text-align: center; width: 20%;  background: inherit; }
+table.header td.active { border: 0px; margin: 0px; padding: 0px; 
+  text-align: center; width: 20%;  background: inherit;
+  vertical-align: middle; color: white; }
+table.header td.visited { border: 0px; margin: 0px; padding: 0px; 
+  text-align: center; width: 20%; background: black;
+  vertical-align: middle; color: white; }
+table.header td.activeM { border: 0px; margin: 0px;
+  padding: 10px 10px 10px 30px; text-align: left;
+  background: #484848; font-size: 80%; }
+table.header td.visited a { color: inherit; background: inherit; }
+table.header td.visited:hover { color: black; background: white; }
+table.header td.active a { color: inherit; background: inherit; }
+table.header td.active:hover { background: white; color: black; }
+table.header td.activeM a { color: white; display: block; }
+table.header td.activeM a:hover { background: black; color: white; }
+table.header td.activeM ul { padding: 0px; margin: 0px;
+  border: 0px; list-style-type: disc; }
+table.header td.activeM ul li { padding: 0px;
+  margin: 0px; border: 0px; }
+
+/********************************************************************/
+/*                 Home Page                                        */
+/********************************************************************/
+
+/* For the clock on the home page */
+div.clock { float: right; }
+input.clock { border: 0px; background-color: transparent; font-size: 100%;
+  font-weight: bold; }
+
+/* For the lyric of a song */
+pre.lyric { font-size: 12pt; font-style: normal; font-weight: normal;
+font-family: Verdana, sans-serif; color: black; }
+
+/* For the history display on the home page */
+img.history { border: 1px black solid; margin: 2px; height: 150px; }
+div.history_box { position: relative; float: right; width: 400px;
+  height: 550px; border: solid 2px #8F001A;
+  background-color: white; padding: 5px; margin: 10px;
+}
+div.history_ID { position: absolute; visibility: hidden; padding: 5px;}
+
+/********************************************************************/
+/*                Some special formating                            */
+/********************************************************************/
+
+/* Warning Message */
+div.LOOK { background-color: white;
+  margin: 10px; border: #8F001A 2px solid; padding: 5px; }
+
+div.LOOK2 { border: 1px solid #8F001A; margin: 5px; padding: 5px; 
+  text-align: left; background-color: white; color: black; font-weight:
+bold; vertical-align: top; display: block;  overflow: hidden; }
+
+/* Popup box sometime used to add information to the construction sign */
+div#constructionBox {
+  position: absolute; top: 200px; left: 50px; width: 300px;
+  border: solid 2px #8F001A; visibility: hidden;
+  background-color: white; padding: 10px; }
+
+/* Useful subheader */
+h4.sub { text-decoration: none; text-align: left; color: black;
+  font-weight: bold; font-size: 100%; font-style: normal; }
+
+/* Division to center text */
+div.center { text-align: center; margin: 10px; }
+
+/* images */
+img.framed { border: 1px solid #8F001A; }
+
+/********************************************************************/
+/*      For the equations and definition in mathematics             */
+/********************************************************************/
+
+div.Equations_L { background-color: white; border: 2px solid black;
+  padding: 3px; text-align: left; }
+div.Equations_C { background-color: white; border: 2px solid black;
+  padding: 3px; text-align: center; display: block; }
+em.Equations { color: #8F001A; font-family: "Courier", monospace;
+  font-size: 110%; }
+em.Equations_Display { color: #8F001A; font-family: "Courier", monospace;
+  font-size: 110%; background-color: white; border: 2px solid black;
+  padding: 3px; }
+canvas { border: 1px solid #8F001A; background-color: white; }
+
+em.matlab { color: blue; font-family: "Courier", monospace;
+  font-size: 110%; }
+pre.matlab { font-family: "Courier", monospace; }
+font.matlab { color: blue; font-size: 110%; }
+
+img.MobiusFig { border: 1px  #004870 solid; margin: 0px; padding: 0px;}
+
+/********************************************************************/
+/*               To produce a light printout                        */
+/********************************************************************/
+@media print {
+       body { margin: 0cm; background-color: #FFFFFF;
+       font-size: 8pt; font-weight: normal; color: black;
+       font-style: normal; font-family: "Times New Roman", serif; }
+
+       /* Change the font of the text to something easier to read */
+       font.page_contents { font-weight: normal; font-size: 100%;
+       color: black; font-style: normal;
+       font-family: "Times New Roman", serif; }
+
+       /* Remove the static position of the contents of the page */
+       div.page_contents { position: relative; left:0px; top: 0px; 
+       page-break-inside: auto; }
+
+       /* Hide the menu */
+       div#header { display: none; }
+}
+
+/********************************************************************/
+/*                 quotations                                       */
+/********************************************************************/
+q:lang(en) { quotes: '"' '"' "'" "'"; font: inherit; color: inherit; }
+q:lang(fr) { quotes: "\00AB" "\00BB" "\2039" "\203A"; font: inherit;
+color: inherit; }
+q:before { content: open-quote }
+q:after  { content: close-quote }
+
+/* Smaller text */
+span.small { font-size: 80%; }
+
+div.pictures ul {list-style: none; margin: 0px; padding: 5px;}
+div.pictures ul li {float: left; position: relative; padding-right: 15px;}
+

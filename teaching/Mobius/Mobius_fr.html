@@ -1,0 +1,868 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+math. et stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematiques et Statistique">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2018-08-24">
+<meta name="Keywords" content="benoit,dionne,universite,ottawa">
+<meta name="Copyright" content= "&copy; 2018 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="fr-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(Mobius,"fr");
+</script>
+
+<div class="page_contents"> <!-- The contents starts here -->
+
+<script language="javascript">
+main_title( MStexte, "MMathSStat");
+</script>
+
+<h2> Möbius : Foire aux questions </h2>
+
+<div style="display: block; float: right; width: 20%; padding: 5px;">
+<img src="DigitalEd-logo.png" style="border: 0px;">
+<img src="Mobius-Courseware-green.png" style="border: 0px;">
+<p>(Anciennement Maple TA)</p>
+</div>
+
+<div style="float: left; width: 75%;">
+<div class="LOOK" style="float: left; margin-right: 10px;">
+  <em>Avertissement</em>: Le début des chiffres décimaux est marqué
+  par un <em>point</em> dans Möbius, et non pas par une virgule
+  comme c'est la règle en français.  Donc, il faut écrire
+  <em class="Equations">3.14159</em> au lieu de
+  <em class="Equations">3,14159</em>.
+</div>
+
+<div class="LOOK" style="float: left; margin-right: 10px;"> 
+  Prenez note que le personnel du <em>Centre d'aide</em> n'est pas en
+  mesure de répondre aux questions techniques reliées à Möbius.  Ils
+  n'ont pas les connaissances requises et l'autorisation de le faire.
+  Ils sont là pour vous aider avec les mathématiques.
+</div>
+
+<div class="LOOK" style="float: left; margin-right: 10px;">
+  <em style="font-size: 120%; color: purple;"> Vous devez accéder à
+    vos devoirs seulement à partir des liens dans BrightSpace</em>.
+  Lisez la réponse à la question
+  <script language="javascript"> 
+    buildLinK("#Q4", "Que dois-je faire quand mes notes ne sont pas transférées à BrightSpace?",
+    "MMathSStat", "idQ4", "_top");
+  </script> pour en savoir la raison.
+</div>
+
+<div class="LOOK" style="float: left; margin-right: 10px;"> 
+  Vous pouvez travailler en équipe pour vos devoirs mais vous aurez
+  normalement des questions légèrement différentes pour vous
+  encourager à répondre par vous même aux questions.
+  <em> Donner accès à votre compte Möbius à un autre étudiant ou
+    accéder le compte d'un autre étudiant est une fraude
+    académique.</em>.
+</div>
+
+<div class="LOOK" style="float: left; margin-right: 10px;">
+  <!-- Pour éviter un message d'erreur du type <em>Your request cannot be
+    processed now. The maximum user limit has been reached.  Please
+    try again later. We apologize for the inconvenience.</em>, vous ne
+    devez pas monopoliser les licences de Möbius en gardant votre
+    session de Möbius active quand vous êtes en train de résoudre un
+    problème.  <em>Débranchez vous pour résoudre le problème et brancher
+    vous de nouveau quand vient le temps d'écrire votre
+    réponse.</em> -->
+  Vous devriez télécharger une copie PDF de votre devoir, prendre
+  votre temps pour résoudre soigneusement aux problèmes sans être
+  en ligne, et puis retourner à votre devoir pour écrire vos
+  réponses. </em>
+</div>
+</div>
+
+<ul style="clear: both;">
+  <li><script language="javascript"> 
+      buildLinK("#Q1", "Où puis-je acheter la licence pour accéder à Möbius?",
+      "MMathSStat", "idQ1", "_top");
+  </script> </li>
+  <li><script language="javascript"> 
+      buildLinK("#Q15", "Que dois-je faire si j'obtiens toujours un message d'erreur lorsque j'essaye d'acheter la licence pour accéder à Möbius sur le site de PayPal?",
+      "MMathSStat", "idQ15", "_top");
+    </script> </li>
+  <!--
+  <li><a href="#Q2">J'ai déjà un compte actif pour Möbius, que dois-je
+      faire?</a> </li>
+  -->
+  <li><script language="javascript"> 
+      buildLinK("#Q2", "Que dois-je faire quand j'obtiens toujours la page d'accès de Möbius lorsque je clique sur un lien pour un devoir dans BrightSpace?",
+      "MMathSStat", "idQ2", "_top");
+  </script></li>
+  <li> <script language="javascript"> 
+      buildLinK("#Q16", "Que dois-je faire quand les instructions de Möbius sont dans une langue autre que le français (la langue de mon choix)?",
+      "MMathSStat", "idQ16", "_top");
+  </script> </li>	  
+  <li><script language="javascript"> 
+      buildLinK("#Q4", "Que dois-je faire quand mes notes ne sont pas transférées à BrightSpace?",
+      "MMathSStat", "idQ4", "_top");
+  </script></li>
+  <li><script language="javascript"> 
+      buildLinK("#Q5", "Que dois-je faire quand j'obtiens une <q lang=\"FR\">authorization error</q> ou d'autres erreurs de ce genre?",
+      "MMathSStat", "idQ5", "_top");
+  </script></li>
+  <li><script language="javascript"> 
+      buildLinK("#Q7", "Où trouve-t-on la date d'échéance et les instructions pour chaque devoir sur Möbius?",
+      "MMathSStat", "idQ7", "_top");
+  </script></li>
+  <li><script language="javascript"> 
+      buildLinK("#Q10", "Comment puis-je savoir que j'ai soumis mon devoir?",
+      "MMathSStat", "idQ10", "_top");
+  </script></li>
+  <li><script language="javascript"> 
+      buildLinK("#Q11", "Comment puis-je vérifier mes notes?  Comment doit-on procéder pour obtenir les solutions complètes?",
+      "MMathSStat", "idQ11", "_top");
+  </script></li>
+  <li><script language="javascript"> 
+      buildLinK("#Q8", "Comment ai-je fait?",
+      "MMathSStat", "idQ8", "_top");
+  </script> </li>
+  <li><script language="javascript"> 
+      buildLinK("#Q12", "Doit-on faire confiance à l'éditeur d'équations pour écrire notre solution?",
+      "MMathSStat", "idQ12", "_top");
+  </script> </li>
+  <li><script language="javascript"> 
+      buildLinK("#Q3", "Comment écrit-on cette expression mathématique?",
+      "MMathSStat", "idQ3", "_top");
+  </script></li> 
+  <li><script language="javascript"> 
+      buildLinK("#Q6", "Comment écrit-on cette matrice?",
+      "MMathSStat", "idQ6", "_top");
+  </script></li>
+  <li><script language="javascript"> 
+      buildLinK("#Q14", "Que veut-on dire par <q lang=\"FR\">avec une précision de cinq décimales</q> ou <q lang=\"FR\">avec un précision de cinq chiffres significatifs?</q>",
+      "MMathSStat", "idQ14", "_top");
+  </script></li>
+  <li><script language="javascript"> 
+      buildLinK("#Q9", "Que dois-je faire quand Möbius me dire que j'ai une erreur alors que je sais que je ne me suis pas trompé?",
+      "MMathSStat", "idQ9", "_top");
+  </script></li>
+  <li><script language="javascript"> 
+      buildLinK("#Q13", "À qui devrais-je m'adresser si, après tous ce qui précède, j'ai toujours des problèmes avec Möbius?",
+      "MMathSStat", "idQ13", "_self");
+    </script></li>
+</ul>
+
+<h3 id="Q1">Où puis-je acheter la licence pour accéder à Möbius? </h3>
+
+<p> Le première fois que vous ferez un devoir en ligne, on vous
+  demandera d'acheter la licence.  Il suivit de suivre les
+  <script language="javascript"> 
+    buildLinK("https://digitaled.com/support/help/student/Content/STUD-ENROLL-REGISTER/License-within-Mobius.htm",
+    "instructions (en anglais)", "MMathSStat", "webstore", "_blank");
+  </script> suivantes pour acheter la licence.  Même si cela n'est pas
+  obligatoire, on vous suggère d'utiliser votre adresse courriel à
+  <em>@uottawa.ca</em> sur le formulaire d'inscription. </p>
+
+<p> La licence est valide pour trois sessions incluant la session de
+  l'achat de la licence.  Donc, vous pouvez utiliser la licence pour
+  plus d'un cour MAT. </p>
+
+<h3 id="Q15"> Que dois-je faire si j'obtiens toujours un message d'erreur
+  lorsque j'essaye d'acheter la licence pour accéder à Möbius sur le
+  site de PayPal? </h3>
+
+<p> En premier lieu, votre premier devoir doit apparaître dans une
+  nouvelle onglet de votre fureteur après avoir cliqué sur le lien du
+  devoir dans BrightSpace.  Si le devoir apparaît à l'intérieur de
+  BrightSpace, veuillez demander à votre enseignant.e de modifier le
+  lien pour que le devoir apparaisse dans une nouvelle onglet.</p>
+
+<p> Si vous obtenez toujours un message d'erreur en essayant d'acheter
+  votre licence ou la demande échoue après un certain temps, vous
+  devez: </p>
+<ul>
+<li> Vérifier que vous utilisez un fureteur qui est bien supporté comme
+  Firefox ou Chrome. </li>
+<li> Vérifier que votre fureteur accepte les témoins de navigation
+  (<q lang="FR">cookies</q>) provenant d'un tiers parti.  Pour plus
+  d'information à ce sujet et sur d'autres sujets qui peuvent être des
+  sources de problèmes, veuillez consulter le site
+  <script language="javascript">
+    buildLinK("https://www.digitaled.com/support/help/student/Content/STUD-GEN-FUNCTIONS/Access-using-LMS.htm",
+    "Access Using an LMS", "MMathSStat", "accessLMS", "_blank");
+  </script>.</li>
+<li> Vérifier que votre fureteur accepte les <q lang="fr">pop-ups</q>.</li>
+</ul>
+
+<p> le problème le plus fréquent récemment est au sujet du <em>pays de
+    résidence.</em> lors de l'achat de la licence à l'aide d'une carde
+  de crédit ou d'une carte de débit.  Le pays de résidence est le
+  pays où vous avez obtenu cette carte.  Même après avoir choisie le
+  bon pays, il se peut que vous ayez toujours un message d'erreur.
+  Le problème est que PayPal n'est pas bon en géographie.  Par
+  exemple, un pays comme la France (que tous devraient reconnaître) ne
+  l'est pas nécessairement par PayPal.  Dans un tel cas, vous devez
+  choisir <em>USA-other<em>.</p> 
+
+<p> Si après tous cela vous ne pouvez toujours pas acheter la licence
+  sur le site de PayPal, utilisez <em> Ask the Möbi chatbot </em> sur
+  le site <script language="javascript"> 
+    buildLinK("https://www.digitaled.com/support/help/student/Content/Students-Home.htm",
+    "Möbius Students", "MMathSStat", "MobStud", "_blank");
+  </script>.  Si <em> Möbi chatbot</em> n'est pas en mesure de répondre à
+  votre question, vous aurez l'option de faire suivre votre question
+  au <em>DigitalEd support team<em>.
+  <!--  <script language="javascript">
+    buildLinK("mailto:support@digitaled.com", "DigitalEd support team",
+    "MMathSStat", "suppDED", "_blank");
+    </script> et leur expliquer votre problème.  Attacher à votre
+    courriel une capture d'écran du message d'erreur que vous
+    obtenez. -->
+</p>
+
+<h3 id="Q2">Que dois-je faire quand j'obtiens toujours la page d'accès de
+  Möbius lorsque je clique sur un lien pour un devoir dans
+  BrightSpace? </h3>
+
+<ul>
+<li> Vous devez vérifier que, lorsque vous cliquez sur les liens aux
+  devoirs avec Möbius dans BrightSpace, ils ouvrent dans de nouveaux
+  onglets de votre fureteur.  Si ce n'est pas le cas, demandez à
+  votre enseignant.e de faire le nécessaire pour que ce soit le
+  cas. </li>
+<li> Votre fureteur doit accepter les témoins de navigation
+  (<q lang="FR">cookies</q>) provenant d'un tiers parti comme il est
+  expliqué à la question
+  <script language="javascript"> 
+      buildLinK("#Q15", "Que dois-je faire si j'obtiens toujours un message d'erreur lorsque j'essaye d'acheter la licence pour accéder à Möbius sur le site de PayPal?",
+      "MMathSStat", "Q15b", "_top");
+  </script>.</li>
+<li> Certains fureteurs ne respectent pas les standards comme Safari
+  sur les ordinateurs Mac.  On vous suggère fortement d'utiliser
+  Firefox ou Chrome. </li>
+<li> Vous devez effacer les anciens témoins de navigation
+  (<q lang="FR">cookies</q>) associés à Möbius
+  et DigitalEd avant d'essayer de nouveau d'accéder aux devoirs avec
+  Möbius par l'entremisse des liens dans BrightSpace. </li>
+</ul>
+
+<p>Si vous toujours le même problème après avoir fait tout cela,
+  utilisez <em> Ask the Möbi chatbot </em> sur le site
+  <script language="javascript"> 
+    buildLinK("https://www.digitaled.com/support/help/student/Content/Students-Home.htm",
+    "Möbius Students", "MMathSStat", "MobStud", "_blank");
+  </script>.  Si <em> Möbi chatbot</em> n'est pas en mesure de répondre à
+  votre question, vous aurez l'option de faire suivre votre question
+  au <em>DigitalEd support team<em>. </p>
+
+<!--
+<h3>J'ai déjà un compte actif pour Möbius, que dois-je faire?</h3>
+
+<p>Si l'adresse électronique dans votre profile sur Möbius est
+  exactement votre adresse à <em>@uottawa.ca</em> (incluant les
+  lettres majuscules et minuscules), vous n'avez rien à faire et
+  vous pouvez accéder aux devoirs à partir des liens dans
+  BrightSpace.</p>
+
+<p><em style="font-size: 120%;">Si l'adresse électronique dans votre
+    profile sur Möbius <em>n'est pas exactement</em> votre adresse
+    à <em>@uottawa.ca</em> </em>, vous devez vous brancher à votre
+    compte sur le site  <script language="javascript">
+    buildLinK(Mobius_site.url_fr, Mobius_site.url_fr, "MMathSStat",
+    Mobius_site.id, Mobius_site.target);
+  </script> et changer votre adresse électronique à exactement celle
+  à <em>@uottawa.ca</em>.  Après cela, vous <em>DEVEZ</em> accéder
+  aux devoirs à partir des liens dans BrightSpace.  Vous n'avez plus à
+  retourner à votre compte sur Möbius. </p>
+-->
+
+<h3 id="Q16"> Que dois-je faire quand les instructions de Möbius sont
+  dans une langue autre que le français (la langue de mon choix)?</h3>
+
+<p> Il y a des solutions plus simple que d'apprendre cette nouvelle
+  langue pour résoudre ce problème.</p>
+
+<ol style="list-style-type: decimal;">
+<li> Nous prenons pour acquis que vous utilisez la plus récente version
+  de votre système d'opération et fureteur. </li>
+<li> Premièrement, vérifiez la configuration de votre ordinateur et de
+  votre fureteur pour vous assurer que la langue de préférence est
+  <em>Français</em> ou <em>Français (CA)</em>.  Möbius utilise cette
+  information pour choisir la langue qui sera utilisée pour afficher
+  les instructions. </li>
+<li> À l'occasion, il suffit de repartir votre fureteur en prenant
+  bien soin d'effacer les anciens témoins de navigation
+  (<q lang="FR">cookies</q>) associés à Möbius et DigitalEd. </li>
+<li> Si, après les deux étapes précédentes, vous êtes toujours dans le
+  petit group qui obtiennent toujours les instructions dans une autre langue
+  que le français, essayez un autre fureteur (toujours Firefox ou
+  Chrome).  Si tout fonctionne bien avec ce nouveau fureteur, alors il
+  est possible qu'il est un problème avec votre premier fureteur.  Il
+  est probablement plus simple de réinstaller votre fureteur que
+  d'essayer de trouver le problème exact.  Si vous obtenez toujours
+  les instructions dans une autre langue que le français avec votre
+  deuxième fureteur, alors le problème est probablement au niveau de
+  votre système d'opérations.  Vous devriez demander l'aide d'une
+  personne qui a une expérience considérable avec le système
+  d'opérations que vous utilisez.</li>
+<li> Vous pouvez aussi utiliser <em> Ask the Möbi chatbot </em> sur le
+  site <script language="javascript"> 
+    buildLinK("https://www.digitaled.com/support/help/student/Content/Students-Home.htm",
+    "Möbius Students", "MMathSStat", "MobStud", "_blank");
+  </script>.  Si <em> Möbi chatbot</em> n'est pas en mesure de répondre à
+  votre question, vous aurez l'option de faire suivre votre question
+  au <em>DigitalEd support team</em>.
+  <!-- <script language="javascript"> 
+    buildLinK("mailto:support@digitaled.com",
+    "DigitalEd support team", "MMathSStat", "support", "_blank");
+    </script> -->
+  Ils pourraient avoir d'autres suggestions pour résoudre votre
+  problème.  Ils pourraient être au courant d'un problème avec la
+  version de votre fureteur, ... </li>
+</ol>
+
+<h3 id="Q4">Que dois-je faire quand mes notes ne sont pas transférées à
+  BrightSpace? </h3>
+
+<div class="LOOK" style="width: 70%; margin-left: 15%"> Vous devez
+  toujours accéder à vos devoirs à partir des liens dans
+  BrightSpace. </div>
+
+<p> Si vous ne faite pas cela, vos notes ne seront pas enregistrées
+  dans BrightSpace.  Vous <em style="font-size: 120%;">ne devez
+    pas </em> aller sur le site d'accueil du cours dans Möbius pour
+  accéder à vos devoirs.  Votre enseignant pourrait refuser de
+  transférer les notes de Möbius à BrightSpace et pourrait considérer
+  que les devoirs n'ont pas été remis si vous ne suivez pas ces
+  instructions. </p>
+  
+<h3 id="Q5">Que dois-je faire quand j'obtiens une <q lang="FR">authorization
+    error</q> ou d'autres erreurs de ce genre?</h3>
+
+<p> Si vous obtenez de telles erreurs, la solution la plus fréquente
+  est d'effacer tous les témoins de navigation
+  (<q lang="FR">cookies</q>) associé à Möbius et DigitalEd, et
+  d'essayer de nouveau d'accéder au devoir.</p>
+
+<h3 id="Q7">Où trouve-t-on la date d'échéance et les instructions pour chaque
+  devoir sur Möbius? </h3>
+
+<p> La date d'échéance et les règles (appelées
+  <q lang="FR">politiques</q> sur Möbius) pour chaque devoir se
+  trouvent sur la première page quand vous choisissez un devoir.<p>
+
+<p> La période de disponibilité vous fourni la date de départ et la
+  date d'échéance du devoir.  Vous ne pouvez pas travailler sur le
+  devoir hors de cette période.  C'est votre responsabilité de bien
+  lire cette information.</p>
+
+<p> Pour certains devoirs, on vous permettra plus d'un essai pour le
+  devoir.  C'est-à-dire, il vous sera possible de soumettre votre
+  devoir avant la date d'échéance pour voir votre note, et de demander
+  une nouvelle version du devoir pour essayer d'obtenir une meilleure
+  note.  Les questions de la nouvelle version du devoir seront 
+  légèrement différentes des questions des versions précédentes. </p>
+
+<p> Sauf s'il est indiqué autrement dans les instructions, si on vous
+  permet plus d'un essai pour le devoir, votre note pour le devoir
+  est la meilleure note que vous aurez obtenus pour tous vos essais. </p>
+
+<div class="LOOK" style="width: 80%; margin-left: 10%">
+  Veuillez noter que l'accès au serveur de Möbius sera probablement
+  plus lent lors des périodes d'achalandages (par exemple, quelques
+  heures avant la date d'échéance d'un devoir); soignez prévoyant pour
+  éviter des frustrations. </div>
+
+<h3 id="Q10">Comment puis-je savoir que j'ai soumis mon devoir? </h3>
+
+<p> Après avoir soumis votre devoir, vous recevrez un message
+  confirmant que vos données ont été sauvegardées.</p>
+
+<div class="LOOK" style="width: 80%; margin-left: 10%">
+  Tout devoir qui est encore actif au moment où la date d'échéance du
+  devoir est atteinte, est automatiquement soumis.
+</div>
+
+<h3 id="Q11">Comment puis-je vérifier mes note?  Comment doit-on procéder pour
+  obtenir les solutions complètes?</h3>  
+
+<p> Pour accéder au <em>Gradebook</em> dans Möbius, cliquez sur le
+  lien <em>Carnet de notes</em> dans le module où se trouvent vos
+  devoirs. </p>
+
+<p> Puis, demandez la liste des devoirs <em>1</em> et choisissez les
+  devoirs <em>2</em> pour lesquelles vous désirez les notes et
+  solutions.  Pour les devoirs que vous avez choisis, vous pouvez
+  demander la version pour laquelle vous avez obtenu la meilleure note
+  ou vous pouvez demander toutes les versions <em>3</em>.  Vous pouvez
+  aussi demander seulement les devoirs que vous avez complétés
+  <em>4</em>.</p>
+
+<div class="center">
+  <img src="gradebook_2.png"
+       alt="Image of the menu to select the assignments that you want
+       to look at."
+       style="height: 450px;" class="MobiusFig">
+</div>
+
+<p> Après avoir choisis les options que vous voulez, il suffit de
+  cliquer sur le bouton <em>Search button</em> au bas de la page. </p>
+
+<div class="center">
+  <img src="gradebook_3.png"
+       alt="Image of the search button."
+       style="height: 50px;" class="MobiusFig">
+</div>
+
+<p> La liste des devoirs que vous avez demandés apparaît dans la
+  section <em>View Panel</em> au bas du menu de la figure ci-dessus.
+  Pour voir les solutions complètes d'un devoir, vous n'avez qu'a
+  cliquer sur le lien <em>Details</em> à la droite du titre du
+  devoir. Selon le choix de l'enseignant, ce lien pourrait ne pas être
+  disponible avant la date d'échéance pour remettre un devoir. </p>
+
+<p> Si vous pouvez accéder aux solutions détaillées de vos devoirs,
+  vous obtiendrez une fenêtre qui ressemble à celle ci-dessous. </p>
+
+<div class="center">
+  <img src="gradebook_4.png"
+       alt="Image of the detailed solutions of an assignment."
+       style="height: 450px;" class="MobiusFig">
+</div>
+
+<h3 id="Q8">Comment ai-je fait?</h3>
+
+<p> Pour certains devoirs, le bouton <em>Comment ai-je fait?</em> (au
+  haut à gauche d'une question) sera visible.  Quand vous cliquez sur ce
+  bouton, Möbius vous dit si votre réponse est bonne ou mauvaise.
+  Il n'y a pas de pénalité associé à l'utilisation de cette option (en
+  fait, on vous encourage à l'utiliser quand l'option est disponible).
+  Pour certains devoirs, il y a un nombre maximal de fois que vous
+  pouvez utiliser cette option.  Pour d'autres, vous pouvez utiliser
+  cette option autant de fois que vous désirez. </p>
+
+<h3 id="Q12">Doit-on faire confiance à l'éditeur d'équations pour écrire notre
+  solution? </h3>
+
+<p> Il n'y a pas de courte réponse à cette question.  Quelques
+  étudiants ont indiqué avoir eu des problèmes avec l'éditeur
+  graphique dans le passé mais il a été impossible de répéter de façon
+  systématique ces problèmes.   Vous pourriez obtenir un
+  message semblable à celui qui suit lorsque vous soumettez votre
+  devoir.</p>
+
+<div class="center">
+  <img src="broken_graphic_tool.png"
+       alt="Error message after submitting an assignmenton Möbius"
+       style="height: 170px;" class="MobiusFig">
+</div>
+
+<p> Si c'est le cas, vous devriez alors vérifier la syntaxe de votre
+réponse. </p>
+
+<div class="LOOK" style="width: 80%; margin-left: 10%">
+On recommande fortement l'utilisation de la notation des calculatrices
+scientifiques (voir la question ci-dessous) quand cela est possible
+pour éviter les problèmes avec l'éditeur d'équations.
+</div>
+
+<h3 id="Q3">Comment devrais-je écrire cette expression mathématique?</h3>
+
+<p> Il n'y a pas de courte réponse à cette question.  Nous donnons
+  ci-dessous un peu d'information pour pouvoir commencer à répondre
+  aux questions. </p>
+
+<p> Puisque l'on ne peut pas toujours faire confiance à l'éditeur
+  d'équations, on vous suggère fortement d'utiliser le mode texte et
+  d'écrire votre réponse en format scientifique.  Voici quelques
+  exemples.</p>
+
+<div>
+<table>
+  <tr style="background-color: inherit;">
+    <th> Expression </th>
+    <th> Notation scientifique </th>
+    <td rowspan="5" style="border-bottom: 0px; border-top: 0px;"> &nbsp; </td>
+    <th> Expression </th>
+    <th> Notation scientifique </th>
+  </tr>
+  <tr>
+    <td> \(5 x\) </td>
+    <td> <em class="Equations"> 5 * x </em> </td>
+    <td> \( 3^2\) </td>
+    <td> <em class="Equations"> 3&wedge;2 </em> </td>
+  </tr>
+  <tr>
+    <td> \( (x^2+3 x)^5 \) </td>
+    <td> <em class="Equations"> (x&wedge;2+3 *x)&wedge;5 </em>  </td>
+    <td> \( 6^{1/3} \) </td>
+    <td> <em class="Equations"> 6&wedge;(1/3) </em> </td>
+  </tr>
+  <tr>
+    <td> \( \sqrt{5} \) </td>
+    <td> <em class="Equations"> 5&wedge;(1/2)</em> or
+      <em class="Equations">sqrt(5)</em> </td>
+    <td> \( \sqrt{x^2 + 6} \) </td>
+    <td> <em class="Equations"> (x&wedge;2 + 6)&wedge;(1/2)</em> </td>
+  </tr>
+  <tr>
+    <td> \( \frac{\sqrt{x^2\cos(x) + 5}}{x^{2/3} e^{x^2} +\ln(x+2)} \) </td>
+    <td> <em class="Equations"> sqrt((x&and;2)*cos(x) + 5)/(x&and;(2/3)*e&and;(x^2) + ln(x+2)) </em> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+</table>
+</div>
+
+<p> Les parenthèses sont primordiales quand on a des exposants
+  rationnels. \( x\wedge 1/2 = (x\wedge 1)/2 = x/2 \) au lieu de
+  \(x \wedge (1/2)\) comme il est probablement désiré. Vous devez
+  écrire \( x\wedge (1/2)\) pour obtenir \(x^{1/2}\). Vous devez
+  toujours mettre entre parenthèses les exposants qui sont
+  compliqués.</p>
+
+<div class="LOOK" style="width: 80%; margin-left: 10%">
+  On vous suggère fortement d'utiliser la notation scientifique
+  pour écrire vos réponses.
+</div>
+
+<p> Voici une liste de certaines des fonctions les plus fréquemment
+  utilisées en format scientifique. <p>
+
+<div>
+<table>
+  <tr style="background-color: inherit;">
+    <th> Fonction </th>
+    <th> Format standard </th>
+    <th> Format scientifique </th>
+    <td rowspan="10" style="border-bottom: 0px; border-top: 0px;"> &nbsp; </td>
+    <th> Fonction </th>
+    <th> Format standard </th>
+    <th> Format scientifique </th>
+  </tr>
+  <tr>
+    <td> Le nombre pi </td>
+    <td> \(\pi\) </td>
+    <td> <em class="Equations"> pi</em> </td>
+    <td> Cotangente </td>
+    <td> \(\cot()\) </td>
+    <td> <em class="Equations">cot()</em> </td>
+  </tr>
+  <tr>
+    <td> Le nombre d'Euler </td>
+    <td> \( e\) </td>
+    <td> <em class="Equations"> e</em> </td>
+    <td> Sécante </td>
+    <td> \(\sec()\) </td>
+    <td> <em class="Equations">sec()</em> </td>
+  </tr>
+  <tr>
+    <td> Racine carrée </td>
+    <td> \(\sqrt{\ }\) </td>
+    <td> <em class="Equations"> sqrt()</em> </td>
+    <td> Cosécante </td>
+    <td> \(\csc()\) </td>
+    <td> <em class="Equations">csc()</em> </td>
+  </tr>
+  <tr>
+    <td> Logarithme en base 10 </td>
+    <td> \(\log_{10}()\) </td>
+    <td> <em class="Equations">log()</em> </td>
+    <td> Arcsinus </td>
+    <td> \(\arcsin()\) </td>
+    <td> <em class="Equations">arcsin()</em> </td>
+  </tr>
+  <tr>
+    <td> Logarithme naturel </td>
+    <td> \(\ln()\) </td>
+    <td> <em class="Equations">ln()</em> </td>
+    <td> Arccosinus </td>
+    <td> \(\arccos()\) </td>
+    <td> <em class="Equations">arccos()</em> </td>
+  </tr>
+  <tr>
+    <td> Valeur absolue </td>
+    <td> \(|\ |\) </td>
+    <td> <em class="Equations">abs()</em> </td>
+    <td> Arctangente </td>
+    <td> \(\arctan()\) </td>
+    <td> <em class="Equations">arctan()</em> </td>
+  </tr>
+  <tr>
+    <td> Sinus </td>
+    <td> \(\sin()\) </td>
+    <td> <em class="Equations">sin()</em> </td>
+    <td> Arccotangente </td>
+    <td> \(\text{arccot}()\) </td>
+    <td> <em class="Equations">arccot()</em> </td>
+  </tr>
+  <tr>
+    <td> Cosinus </td>
+    <td> \(\cos()\) </td>
+    <td> <em class="Equations">cos()</em> </td>
+    <td> Arcsécante </td>
+    <td> \(\text{arcsec}()\) </td>
+    <td> <em class="Equations">arcsec()</em> </td>
+  </tr>
+  <tr>
+    <td> Tangente </td>
+    <td> \(\tan()\) </td>
+    <td> <em class="Equations">tan()</em> </td>
+    <td> Arccosécante </td>
+    <td> \(\text{arccsc}()\) </td>
+    <td> <em class="Equations">arccsc()</em> </td>
+  </tr>
+</table>
+</div>
+
+<p>Vous pouvez aussi consulter le site
+  <script language="javascript"> 
+    buildLinK("https://www.digitaled.com/support/help/student/Content/STUD-ENTERING-RESPONSES/Enter-proper-math-syntax.htm",
+    "Enter my response with proper math syntax", "MMathSStat",
+    "EnterSyntax", "_blank");
+  </script> de DigitalEd pour plus d'information.</p>
+
+<h3 id="Q6">Comment écrit-on cette matrice?</h3>
+
+<p>Certaines des questions exigent une matrice comme réponse.  Pour
+  toutes ces questions, vous devrez utiliser l'éditeur d'équations.
+  La réponse à la question suivante est une matrice de dimensions 4
+  par 2 (4 lignes et 2 colonnes).  L'éditeur d'équations apparaît
+  au-dessous de la question. </p>
+
+<div class="center">
+  <img src="matrix_1.png"
+       alt="Image d'une question qui demande une matrice comme solution.  L'éditeur d'équations est en-dessous de la question."
+       style="height: 200px;" class="MobiusFig">
+</div>
+
+<p>Pour écrire votre solution, sélectionnez la grille (voir 1) au haut
+  de l'éditeur d'équations pour obtenir le menu suivant. </p>
+
+<div class="center">
+  <img src="matrix_2.png"
+       alt="Image du menu pour définir les dimension d'une matrice"
+       style="height: 200px;" class="MobiusFig">
+</div>
+
+<p>Il existe quelques matrices prédéfinies: une matrice \(2 \times 1\),
+  \(1 \times 2\), \(2 \times 2\) et \(3 \times 3\) (voir 2).  Si la
+  matrice dont vous avez besoin correspond à une de ces matrices, il
+  suffit de cliquer sur l'icône associé à la matrice dont vous avez
+  besoin.   Pour cet exemple, la matrice dont vous avez besoin n'est
+  pas parmi les matrices prédéfinies.  Vous devez utiliser la partie
+  inférieure du menu (voir 3) pour donner les dimensions de votre
+  matrice (voir 4). </p>
+
+<div class="center">
+  <img src="matrix_3.png"
+       alt="Image du menu pour définir les dimension d'une matrice."
+       style="height: 200px;" class="MobiusFig">
+</div>
+
+<p> Puis, vous pressez le bouton <em>enter</em> pour obtenir la matrice de
+  dimensions \(4 \times 2\) dont vous avez besoin (voir 5). </p>
+
+<div class="center">
+  <img src="matrix_4.png"
+       alt="Image of equation editor including the new 4 by 2 matrix"
+       style="height: 200px;" class="MobiusFig">
+</div>
+
+<p> Il suffit de remplacer les nombres 1, 2, ... par les valeurs
+  requises pour votre réponse. </p>
+
+<h3 id="Q14">Que veut-on dire par <q lag="FR">avec une précision de cinq
+    décimales</q> ou <q lang="FR">avec un précision de cinq chiffres
+    significatifs?</q></h3> 
+
+<p>Si on vous demande de donner une réponse avec une précision
+  de <em>n</em> chiﬀres décimaux, vous devez arrondir votre réponse
+  au <em>n<sup>e</sup></em> chiﬀres qui suit le point des décimales de
+  votre réponse.  Par exemple, le nombre &pi; à quatre chiﬀres
+  décimaux est 3.1416&nbsp;. La fraction 1∕4 à trois décimaux est
+  0.250&nbsp;.  Le nombre 0.03456 à trois chiﬀres décimaux est
+  0.035&nbsp;. <em>Ne pas oublier d’arrondir.</em></p> 
+
+<p>Si on vous demande de donner une réponse à <em>n</em> chiﬀres
+  signiﬁcatifs, vous devez arrondir votre réponse au
+  <em>n<sup>e</sup></em> chiﬀres en contant à partir du premier chiﬀre
+  non-null de votre réponse.  Par exemple, le nombre &pi; à quatre chiﬀres
+  signiﬁcatifs près est 3.142&nbsp;. La fraction 1∕4 à quatre
+  chiﬀres signiﬁcatifs près est 0.2500&nbsp;; vous devez ajouter les
+  deux zéros à la fin pour indiquer qu'ils font parties des quatre
+  chiffres significatifs.  Le nombre 0.03456 à trois chiﬀres
+  signiﬁcatifs est 0.0346. <em>Ne pas oublier d’arrondir.</em></p> 
+
+<p>Pour de grands nombres, il faut utiliser la notation scientifique
+  \(a \text{E} b = a \times 10^b\) avec \(|a| \leq 1\) pour exprimer
+  un nombre avec <em>n</em> chiffres significatifs.  Par 
+  exemple, le nombre 1,345,900.23 à quatre chiffres significatifs est
+  \( 0.1346\text{E}7\).  999,600 à trois chiffres significatifs est
+  \( 1.00\text{E}6 \) ou \( 0.100\text{E}7 \).  Encore, les deux
+  zéros à la fin sont essentiels.  Si vous écrivez 1,000,000&nbsp;,
+  Möbius va possiblement répondre que votre réponse
+  est <em>partiellement exacte</em>. La raison pour laquelle Möbius
+  donne cette réponse est qu'il ne peut pas déterminer combien des
+  zéros dans votre réponse sont des chiffres significatifs. </p>
+ 
+<h3 id="Q9">Que dois-je faire quand Möbius me dire que j'ai une erreur alors
+  que je sais que je ne me suis pas trompé? </h3>
+
+<ul>
+  <li>Premièrement, vérifier votre syntaxe.  Par exemple, si la
+    réponse est \( x^2 \cos(x) \) et vous écrivez \( t^2 \cos(t)\),
+    alors votre réponse sera notée mauvaise par Möbius car vous avez
+    utilisé une variable indépendante (i.e. t) autre que celle demandée
+    (i.e. x). </li>
+  <li>Si la réponse demandée est une <em>valeur numérique</em>, prenez
+    bien soin de fournir une réponse avec la précision demandée (soit
+    la valeur exacte, le bon nombre de chiffres significatifs, le bon
+    nombre de chiffres décimaux, ou le bon pourcentage d'erreur).
+    Presque toutes les réponses numériques vont exiger une précision
+    de deux ou trois chiffres décimaux.  De plus, les questions qui
+    exigent une réponse numérique n'acceptent généralement pas les
+    formules.  Donc, vous devez fournir un nombre.  Par exemple, si la
+    réponse exacte est <em class="Equations">ln(2)</em> et on vous
+    demande de donner une réponse à <em>2 décimales</em> près, alors
+    vous devez répondre <em class="Equations">0.69</em> et non
+    pas <em class="Equations">ln(2)</em> qui est 0.69314718...
+    <div class="LOOK" style="width: 80%; margin-left: 10%">
+      Même si on vous demande de donner votre réponse
+      avec une certaine précision (e.g. à 2 ou 3 décimales près), vous
+      devez effectuer vos calculs avec autant de chiffres décimaux que
+      votre calculatrice permet.  C'est seulement au moment d'écrire
+      votre réponse que vous devez ajuster votre réponse pour
+      satisfaire les exigences de la question.</div>
+  </li>
+  <li>La marge d'erreur ne doit pas être incluse dans une
+    <em>réponse numérique</em>.  Par exemple, si la réponse fournie
+    par Möbius est <em class="Equations">0.333 &plusmn; 0.001</em>,
+    votre réponse doit être une valeur entre
+    <em class="Equations">0.332</em> et <em class="Equations">0.334</em>.
+    Vous ne devez pas écrire <em class="Equations">0.333 &plusmn; 0.001</em>.
+    Möbius ne comprend pas le symbole &plusmn; dans une
+    <em>réponse numérique</em>. </li>
+  <li> Si votre fureteur est configuré pour utiliser la langue
+    anglaise (toutes les instructions de Möbius sont en anglais),
+    alors le point dénote le début des chiffres décimaux.  Si par
+    contre votre fureteur est configuré pour utiliser la langue
+    française (toutes les instructions de Möbius sont en français),
+    alors le point dénote toujours le début des chiffres décimaux --
+    Non pas la virgule comme cela devrait normalement être le cas en
+    français. </li>
+  <li> Pour les <em>réponses algébriques</em>, il y a un lien ou un
+    bouton que vous pouvez cliquer pour voir à l'écran la formule que
+    vous avez écrite.  Si la formule n'est pas correcte, ajoutez les
+    parenthèses nécessaires. </li> 
+  <li> Souvenez-vous que si on demande une réponse exacte ou une formule,
+    alors vous ne pouvez pas répondre <em class="Equations">1.414</em>
+    si la bonne réponse est <em class="Equations">sqrt(2)</em>.  Une
+    approximation décimale est rien de plus qu'une approximation. </li>
+  <li> Si la réponse demandée est une liste, prenez bine soin de
+    vérifier si Möbius exige des virgules (,) ou des points-virgules
+    (;) pour séparer les éléments de votre liste.  Cette information
+    est fournie immédiatement sous la casse pour la réponse. </li>
+  <li> Certaines questions sont de la forme <q lang="en">Donnez toutes
+      les valeurs de x telles que ...</q> ou <q lang="en">donnez une
+      liste de ... </q>.  Möbius dira que votre réponse est mauvaise
+    même s'il n'y a qu'une seule mauvaise valeur dans votre liste ou
+    s'il ne manque qu'une seule valeur dans votre liste.  Möbius ne
+    vous dira pas qu'elle est le problème avec votre liste.
+  </li>
+</ul>
+
+<p> Si Möbius répond "<em>Correct answer not defined</em>", ce qu'il
+  vous dit en fait est qu'aucune réponse n'a été donnée pour
+  l'affichage.  Möbius a la bonne réponse et peut l'utiliser pour
+  déterminer si votre réponse est bonne ou mauvaise.  Vous trouverez
+  la bonne réponse utilisée par Möbius dans la solution détaillée du
+  problème quand on vous y donnera accès.  Voir la réponse aux
+  questions <script language="javascript">
+    buildLinK("#Q11", "Comment puis-je vérifier mes note?  Comment doit-on procéder pour obtenir les solutions complètes?",
+    "MMathSStat","Q11b","_top"); </script> pour obtenir les
+  instructions pour accéder aux solutions détaillées d'un devoir. </p>
+
+<div class="LOOK" style="width: 80%; margin-left: 10%">
+  <q lang="FR"><em>Non, je sais que j'ai la bonne réponse et que Möbius
+      se trompe </em> car j'ai utilisé Wolfram|Alpha (ou un
+    logiciel semblable) pour obtenir la réponse et j'ai copié et collé
+    la réponse sur Möbius.</q>  On va ignorer le fait que cela est
+  appelé une <em>fraude académique</em>.  Quand vous copiez une
+  réponse à partir d'un fureteur ou d'une application graphique, vous
+  copiez des caractères qui ne sont pas produit par votre clavier.
+  Möbius rejette ces caractères et donc votre réponse.
+</div>
+
+<p> Si vous êtes certain qu'aucun des items ci-dessus ne s'applique à
+  votre cas, vous pouvez contacter votre enseignant.  <em> Vous devez
+    consultez</em> la réponse à la question <script language="javascript">
+    buildLinK("#Q13", "À qui devrais-je parler si, après tous ce qui précède, j'ai toujours des problèmes avec Möbius?",
+    "MMathSStat","Q13c","__top"); </script> pour obtenir les
+  instructions pour contacter votre enseignant. </p>
+
+<p> <em>Il pourrait y avoir un <q lang="FR">bug!</q></em> Oui, cela
+  est toujours possible.  Nous testons les questions mais nous sommes
+  humains.  Möbius produit des statistiques sur chacune des questions
+  d'un devoir de façon continue au cours de la période d'accessibilité
+  du devoir.  Si une question est brisée, cette question va présenter
+  un très bas taux de succès.  Cela va nous indiquer qu'il y a un
+  problème avec cette question.  S'il s'avère qu'une question est
+  brisée, vous errez une message (sur le devoir et sur le site
+  Internet du cours) qui vous informera d'ignorer cette question et de
+  simplement compléter le devoir sans cette question.</p>
+
+<p> En conclusion, n'abandonnez pas!  Mais ne passez pas des heures
+  sur une seule question.  Vous pouvez obtenir de l'aide d'ordre
+  mathématique seulement au
+  <script language="javascript">
+    buildLinK(math_help.url_fr, math_help.text_fr, "MMathSStat","hc1","_blank");
+  </script>. </p>
+
+<h3 id="Q13">À qui devrais-je m'adresser si, après tous ce qui précède, j'ai
+  toujours des problèmes avec Möbius?</h3>
+
+<p> Veuillez contacter votre enseignant par courriel si vous ne pouvez
+  pas trouver de solution à votre problème dans la section d'aide de
+  Möbius ou sur le présent site.  Dans votre courriel, vous devez
+  inclure <em>toute</em> l'information suivante: votre adresse
+  à <em>@uottawa.ca</em>, votre <em>numéro d'étudiant.e</em>,
+  le <em>titre du devoir</em> et le <em>numéro de la question</em>.
+  Vous pouvez aussi ajouter une courte description de votre
+  problème. </p>
+
+<br>
+<hr>
+<br>
+
+</div>  <!-- The content ends here -->
+
+<script language="javascript">
+bottom_function(Mobius,"fr");
+</script>
+
+</body>
+</html>

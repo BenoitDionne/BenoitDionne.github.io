@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. et Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematiques et Statistique">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2014-12-07">
+<meta name="Keywords" content="mathematiques,statistique,universite,ottawa">
+<meta name="Copyright" content= "&copy; 2014 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="fr-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="IFS1.js">
+  document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(fractal1,"fr");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStexte, "MMathSStat");
+</script>
+
+<table class="noB">
+<tr> <td rowspan="1" colspan="1" class="left"> </td>
+<td rowspan="1" colspan="1" class="right">
+<a href="fractal2_fr.html"> Page suivante </a> </td>
+</tr>
+</table>
+
+<h2> Géométrie Fractal </h2>
+
+<p> La figure suivante contient le fameux triangle de Sierpisnki. </p>
+
+<div class="center">
+  <img src="sierpinski.png" style="width: 400px"
+       alt="Image du triangle de Sierpinski" class="framed">
+</div>
+
+<p> C'est un exemple typique d'un ensemble fractal.  On défini ce
+  qu'est un objet fractal à la
+  section <a href="fractal2_fr.html#fractal_objects"> dimensions
+  fractal </a> ci dessous.  On n'a pas besoin de cette définition dans
+  la section présente. </p>
+
+<p> Pour sauvegarder cette figure sur un ordinateur, on a besoin de
+  24235 bytes (format png).  En utilisant quelques simples résultats
+  mathématiques (c'est à dire les <em> Systèmes Itératifs de
+  Fonctions (SIF) </em>, cette figure (à n'importe quel degré de
+  précision) peut être sauvegardée en utilisant seulement 552 bytes
+  (un simple programme en Matlab). </p>
+
+<p> La façon traditionnelle de sauvegarder une figure (noir et blanc)
+  est d'entreposer dans l'ordinateur l'information pour chaque pixel
+  de la figure.  À la section suivante, on explique comment créer
+  (dessiner) le triangle de Sierpinski et comment le sauvegarder sur
+  un ordinateur.</p>
+
+<p> Fondamentalement, la technique des SIF utilisée pour créer le
+  triangle de Sierpinski peut être utilisée pour créer d'autres
+  images.   On illustre dans les sections suivantes comment les SIF
+  peuvent être utilisés pour générer d'autres images. </p>
+
+<br>
+<hr>
+<br>
+
+<h3> Triangle de Sierpinski </h3>
+
+<h4> Système itératif de fonctions </h4>
+
+<p> Le triangle de Sierpinski peut être généré a l'aide d'une
+  procédure itérative que l'on décrit ci-dessous. </p>
+
+<ul>
+<li> Premièrement, on choisit un ensemble de points dans un carré: une
+  droite, un triangle, ... font l'affaire. </li>
+<li> Deuxièmement, on réduit de moitié les dimensions du carré. </li>
+<li> Troisièmement, on dessine dans le carré de départ trois copies du
+  carré que l'on vient de réduire, comme il est illustré dans la
+  figure suivante.<br>
+</li>
+</ul>
+
+<div class="center">
+  <img src="step_one_fr.png" class="framed" style="width: 400px"
+       alt="Première itération pour produire le triangle de Sierpinski">
+</div>
+
+<p> On répète les deuxième et troisième étapes ci-dessus plusieurs fois
+  (jusqu'à ce que l'on soit satisfait de la figure que l'on obtient).
+  Voici la second itération des deuxième et troisième étapes du SIF
+  décrit ci-haut. </p>
+
+<div class="center">
+  <img src="step_two_fr.png" class="framed" style="width: 400px"
+       alt="deuxième itération pour produire le triangle de Sierpinski">
+</div>
+
+<p> Indépendemment de l'ensemble de points que vous choisissez au
+  départ, vous obtenez toujours le triangle de Sierpinski. </p>
+
+<p> Pour l'application suivante, vous pouvez choisir un des trois
+  figures initiales qui sont proposées, et le nombre d'itérations que
+  vous voulez exécuter.  Choisissez un petit nombre d'itérations, au
+  maximum 20, pour de pas dépasser les limites de précision de votre
+  écran. </p>
+
+<div class="center">
+<canvas id="SRPK" width="400" height="400">
+</canvas>
+</div>
+
+<ul>
+  <li> Nombre d'itérations: <input type="text" value="5" id="nbrSRPK"> </li>
+  <li> Figure initiale: <select id="initSRPK">
+      <option value="0" selected> triangle </option>
+      <option value="1"> carré </option>
+      <option value="2"> losange </option>
+  </select> </li>
+  <li> <input type="button" value="Débuter" onclick="iterateSRPK2()"> </li>
+  <li> <input type="button" value="Effacer" onclick="clearIFS('SRPK')"> </li>
+</ul>
+</form>
+
+<p> Au lieu de sauvegarder dans l'ordinateur toutes les pixels de la
+  figure du triangle de Sierpinski, on a seulement à sauvegarder en
+  mémoire (utilisant des formules mathématiques) les deuxième et
+  troisième étapes du SIF qui est décrit ci-haut. </p>
+
+<p> Le triangle de Sierpinski sur le carré de côté 1 est généré par
+  les trois fonctions suivantes.  Ils réduisent le carré de côté 1 à
+  un carré de côté 1/2, et copient ce petit carré dans le carré de
+  côté 1 comme on l'a décrit plus haut. </p>
+
+<ul>
+<li> Première fonction: <br>
+  <em class="Equations">
+    &nbsp; X = x/2 <br>
+    &nbsp; Y = y/2 + 1/2
+  </em>
+</li>
+<li> Deuxième fonction: <br>
+  <em class="Equations">
+    &nbsp; X = x/2 + 1/2 <br>
+    &nbsp; Y = y/2
+  </em>
+</li>
+<li> Troisième fonction: <br>
+  <em class="Equations">
+    &nbsp; X = x/2 <br>
+    &nbsp; Y = y/2
+  </em>
+</li>
+</ul>
+
+<p> Il y a une théorème mathématique qui explique pourquoi le SIF du
+  triangle de Sierpinski génère toujours la même image indépendemment
+  de l'ensemble initial que l'on choisit.  En fait, chaque SIF produit
+  une seule image.  Le théorème porte le nom de <em> Théorème du Point
+  Fixe </em>.  Il est facile de comprendre ce théorème dans le
+  contexte du SIF qui est défini par <em> l'application
+    logistique </em> donnée dans les
+  <a href="fractal3_en.html#logistic"> pages qui suivent </a>.
+</p>
+
+<p> <em> Question </em>: Qu'arrive-t-il si la deuxième fonction fait
+  tourner le carré de 90 degrés? </p>
+
+<h4> Modèle probabiliste </h4>
+
+<p> Il y a une façon simple de présenter le triangle de Sierpinski.
+  Soit A le point de coordonnée (0,1), B le point de coordonnée (1,0)
+  et C l'origine (voir la figure ci-dessous).  Supposons que nous
+  avons un dé bien balancé et que 1,6 sont associés à A, 2,5 sont
+  associés à B et 3,4 sont associés à C. </p>
+
+<div class="center">
+  <img src="probability.png" class="framed" style="width: 300px"
+       alt="Quelques itérations du SIF probabiliste pour produire le triangle de Sierpinski.">
+</div>
+
+<ul>
+<li> On choisi un point quelconque <em class="Equations">x0</em> du
+  plan. </li>
+<li> On lance le dé.  Supposons que l'on obtienne un 3. </li>
+<li> Le point <em class="Equations">x1</em> est le milieu de la droite
+  qui joint <em class="Equations">x0</em> et C. </li>
+<li> On lance le dé.  Supposons que l'on obtienne un 1. </li>
+<li> Le point <em class="Equations">x2</em> est le milieu de la droite
+  qui joint <em class="Equations">x1</em> et A. </li>
+<li> Ainsi de suite. </li>
+</ul>
+
+<p> Les points isolés sont invisibles.  On voit seulement les groupes
+  de points.  Ces groupes de points donne une ombre du triangle de
+  Sierpinski.  Pour obtenir une bonne approximation du triangle de
+  Sierpinski, il faut un grand nombre d'itérations et le générateur de
+  nombres aléatoire de votre ordinateur doit être très ... très bon
+  (l'est-il?). </p>
+
+<p>
+<em> Question </em>: Quels sont les points qui forment le triangle de
+Sierpinski? <br> <em> Question </em>: Qu'arrive-t-il si le dé n'est
+pas bien balancé? </p>
+
+<p> Deux bonnes références (pour les étudiants du premier cycle en
+  mathématiques) sont <em> Fractals Everywhere </em> by Micheal
+  Barnsley (Academic press, 1988) et <em> Chaos and Fractals </em> by
+  H.-O. Peitgen, H. J&uuml;rgens and D. Saupe (Springer-Verlag,
+  1992).</p>
+
+<br><br>
+
+<table class="noB">
+<tr> <td rowspan="1" colspan="1" class="left"> </td>
+<td rowspan="1" colspan="1" class="right">
+<a href="fractal2_fr.html"> Page suivante </a> </td>
+</tr>
+</table>
+
+<br>
+<hr>
+<br>
+
+</div> <!-- The content ends here -->
+
+<script language="javascript">
+bottom_function(fractal1,"fr");
+</script>
+
+</body>
+</html>

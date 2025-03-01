@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. et Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematiques et Statistique">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2014-12-07">
+<meta name="Keywords" content="mathematiques,statistique,universite,ottawa">
+<meta name="Copyright" content= "&copy; 2014 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="fr-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="DDS.js">
+  document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(fractal3,"fr");
+</script>
+
+<div class="page_contents"> <!-- The contents starts here -->
+
+<script language="javascript">
+main_title( MStexte, "MMathSStat");
+</script>
+
+<table class="noB">
+<tr> <td rowspan="1" colspan="1" class="left">
+<a href="fractal2_fr.html"> Page précédente </a> </td>
+<td rowspan="1" colspan="1" class="right">
+<a href="fractal4_fr.html"> Page suivante </a> </td>
+</tr>
+</table>
+
+<h3> Les systèmes dynamiques discrets (SDD) </h3>
+
+<p> Les plus simples SIF sont définis par des fonctions à valeur
+  réelles définie sur la droite réelle.  Au lieu d'utiliser
+  plusieurs fonctions du plan dans le plan, on utilise seulement une
+  fonction de la droite réelles à elle même.  De plus, au lieu de
+  partir avec un ensemble (triangle, ...), on part avec un seul
+  point de la droite réelle. </p>
+
+<p> Soit <em class="Equations"> f </em> une fonction à valeurs
+réelles qui est définie sur la droite réelle.  L'équation </p>
+
+<center>
+  <em class="Equations_Display">
+    x<sub>n+1</sub> = f(x<sub>n</sub>)
+  </em>
+</center>
+
+<p> définie un <em> système dynamique discret (SDD)</em>.  Pour
+  tout <em class="Equations">x<sub>o</sub></em> donné, on peut
+  produire une suite </p>
+
+<center>
+  <em class="Equations_Display">
+    x<sub>1</sub> = f(x<sub>o</sub>), &nbsp;
+    x<sub>2</sub> = f(x<sub>1</sub>), &nbsp;
+    x<sub>3</sub> = f(x<sub>2</sub>), &nbsp; ...
+  </em>
+</center>
+
+<p> Nous commencerons par l'étude des systèmes dynamiques
+  discrets pour lesquels la <em> fonction génératrice </em>
+  <em class="Equations">f</em> est la fonction affine </p>
+
+<center>
+  <em class="Equations_Display">  f(x) = m x + b </em>
+</center>
+
+<p> Le paramètre <em class="Equations">m</em> est la pente de la
+  droite représentée par la fonction <em class="Equations">f</em> et
+  <em class="Equations">b</em> est l'abscisse à l'origine de cette
+  droite.</p>
+
+<p> Qu'arrive-t-il aux suites <em class="Equations">x<sub>0</sub>,
+      x<sub>1</sub>, x<sub>2</sub>, ... </em> si on varie les paramètres
+  <em class="Equations">m</em> et <em class="Equations">b</em>? </p>
+
+<p> Le lecteur est invité à explorer à l'aide de l'application
+  suivante le comportement des suites obtenues par itération de
+  <em class="Equations"> f </em> pour différentes
+  valeurs des paramètres <em class="Equations">m</em> et 
+  <em class="Equations">b</em>, et différentes valeurs de la
+  condition initiale <em class="Equations">x<sub>o</sub></em>. </p>  
+
+<div class="center">
+  <canvas id="linearDDS" width="400" height="400">
+  </canvas>
+</div>
+
+<ul>
+  <li> <em class="Equations"> m = </em>
+    <input type="text" value="0.5" id="linear_m"> </li>
+  <li> <em class="Equations"> b = </em>
+    <input type="text" value="2" id="linear_b"> </li>
+  <li> <em class="Equations"> x<sub>0</sub> = </em>
+    <input type="text" value="0.5" id="linear_x"> </li>
+  <li> Nombre d'itérations <input type="text" value="10" id="linear_nbr">
+  </li>
+  <li> <input type="button" value="Débuter" onclick="linearDDS()">
+  </li>
+  <li> <input type="button" value="Effacer" onclick="clearDDS('linearDDS')">
+  </li>
+</ul>
+
+<p> La courbe en bleu est le graphe de la fonction
+  <em class="Equations">f</em> et la ligne diagonale en rouge est la
+  droite <em class="Equations">y = x</em>.  Les points d'intersection
+  de la courbe polygonale en noir (la toile d'araignée) avec la droite
+  <em class="Equations">y = x</em> représentent la suite obtenue par
+  itérations de <em class="Equations">f</em> avec la condition
+  initiale <em class="Equations">x<sub>o</sub></em>. </p>
+
+<p> Le point <em class="Equations">p</em> est tel que
+  <em class="Equations">f(p) = p</em>.  Pour cette raison, le point
+  <em class="Equations">p</em> est appelé un <em>point fixe</em> de
+  <em class="Equations">f</em>.  Pour quelles conditions a-t-on que les
+  suites <em class="Equations">x<sub>0</sub>, x<sub>1</sub>,
+    x<sub>2</sub>, ... </em> convergent vers
+  <em class="Equations">p</em>, s'éloignent de
+  <em class="Equations">p</em>? </p>
+
+<a name="logistic"> </a>
+<h3> La fonction Logistique </h3>
+
+<p> Le plus simple système dynamique discret non-affine est donné par
+  <em> la fonction (ou application) logistique </em>.  Par contre,
+  nous allons voir que le comportement des suites produites par
+  itérations de cette fonction est loin d'être simple.  L'application
+  logistique est définie par </p>
+
+<center>
+<em class="Equations_Display">
+f<sub>&micro;</sub>(x) = &micro; x ( 1- x) &nbsp; ,
+</em>
+</center>
+
+<p> où <em class="Equations">&micro</em> est un paramètre fixe mais
+  arbitraire.  On a une famille de fonctions, une fonction pour chaque
+  valeur de <em class="Equations">&micro;</em>. </p>  
+
+<p> On choisit une valeur positive
+  de <em class="Equations">&micro;</em> et une valeur
+  <em class="Equations">x<sub>o</sub></em> de
+  <em class="Equations">x</em> entre 0 et 1.  Pour
+  <em class="Equations">&micro;</em> entre 1 et 3, indépendemment de
+  la valeur <em class="Equations">x<sub>o</sub></em> que
+  l'on a choisie, les itérations </p>
+
+<center>
+<em class="Equations_Display">
+x<sub>n+1</sub>
+= f<sub>&micro;</sub>(x<sub>n</sub>)
+</em>
+</center>
+
+<p> pour <em class="Equations">n = 0, 1, 2, 3, ... </em> vont
+  converger vers un point unique entre 0 et 1. </p>
+
+<p> Le lecteur est invité à explorer à l'aide de l'application
+  suivante le comportement des itérations pour différentes valeurs du
+  paramètre <em class="Equations">&micro;</em> (entre 1 et 4) et de la
+  condition initiale <em class="Equations">x<sub>o</sub></em> (entre 0
+  et 1). </p>
+
+<div class="center">
+<canvas id="DDS" width="400" height="400">
+</canvas>
+</div>
+
+<ul>
+  <li> <em class="Equations">&micro; =</em>
+    <input type="text" value="3.5" id="logistic_mu">
+    (valeurs entre 1 et 4) </li>
+  <li> <em class="Equations">x<sub>o</sub> = </em>
+    <input type="text" value="0.2" id="logistic_x">
+    (valeurs entre 0 et 1) </li>
+  <li> Nombre d'itérations <input type="text" value="10" id="logistic_nbr">
+  </li>
+  <li> <input type="button" value="Débuter" onclick="logisticDDS('French')">
+  </li>
+  <li> <input type="button" value="Effacer" onclick="clearDDS('DDS')"> </li>
+</ul>
+
+<p> La courbe en bleu est le graphe de
+  <em class="Equations">f<sub>&micro;</sub></em> et la ligne diagonale
+  en rouge est la droite <em class="Equations">y = x</em>.  Les points
+  d'intersection de la courbe polygonale en noir (la toile
+  d'araignée) et de la droite <em class="Equations">y = x</em>
+  représentent les itérations de l'application logistique. </p>
+
+<p> Pour chaque valeur de <em class="Equations">&micro;</em>
+  entre 1 et 3, les itérations convergent vers un point unique
+  <em class="Equations">p</em> entre 0 et 1.  Le 
+  point <em class="Equations">p</em> est tel que
+  <em class="Equations">f<sub>&micro;</sub>(p) = p</em>.  Pour cette
+  raison, le point <em class="Equations">p</em> est appelé un 
+  <em>point fixe</em> de
+  <em class="Equations">f<sub>&micro;</sub></em>. </p>
+
+<p> La convergence des itérations vers <em class="Equations">p</em>
+  est une conséquence du <em>Théorème du Point Fixe</em>.  Ce
+  théorème affirme que si <em class="Equations">f: [a,b] &rarr; [a,b]</em>
+  est une fonction continue, il existe au moins un point fixe
+  <em class="Equations">p</em> dans <em class="Equations">[a,b]</em>.
+  De plus, s'il existe une constante positive
+  <em class="Equations">K <1</em> telle que
+  <em class="Equations">|f&nbsp;'(x)| < K</em> pour tout
+  <em class="Equations">x</em> dans <em class="Equations">[a,b]</em>,
+  alors les itérations commençant à
+  <em class="Equations">x<sub>o</sub></em> dans
+  <em class="Equations">[a,b]</em> convergent vers un point fixe
+  unique <em class="Equations"> p</em> dans
+  <em class="Equations">[a,b]</em>. </p>
+
+<p> La fonction
+  <em class="Equations">f<sub>&micro;</sub>:[0,1] &rarr; [0,1]</em>
+  possède toujours un point fixe à l'origine.  Pour
+  <em class="Equations">&micro; > 1</em>, elle possède un autre
+  point fixe <em class="Equations">p>0</em>.  Si
+  <em class="Equations">1 < &micro; < 3</em>, on peut trouver un
+  intervalle <em class="Equations">[a,b]</em> contenant le point fixe 
+  <em class="Equations">p>0</em> où le Théorème du Point Fixe peut
+  s'appliquer pour montrer que toutes itérations commençant à
+  <em class="Equations">x<sub>o</sub></em> dans l'intervalle
+  <em class="Equations">[a,b]</em> convergent vers
+  <em class="Equations"> p</em>.  Par exemple, si 
+  <em class="Equations">&micro; = 2</em>, l'application ci-dessus
+  montre que le graphe de <em class="Equations">f<sub>2</sub></em>
+  coupe la droite <em class="Equations">y = x</em> en un seul point
+  <em class="Equations">p</em> , c'est le point fixe
+  de <em class="Equations">f<sub>2</sub></em>, et que toutes
+  itérations commençant à
+  <em class="Equations">x<sub>o</sub></em> près de
+  <em class="Equations"> p</em> convergent vers
+  <em class="Equations"> p</em>. </p>
+
+<p> Pour certaines valeurs de <em class="Equations">&micro;</em> (les
+  valeurs entre 3 et 4 sont vraiment intéressantes), les itérations ne
+  convergent pas vers un seul point mais ils <em> convergent </em>
+  vers un ensemble particulier.  Qu'arrive-t-il quand
+  <em class="Equations">&micro;</em> est près de 4?  Les itérations
+  <em class="Equations"><sub>n+1</sub> = f<sub>&micro;</sub>
+    (x<sub>n</sub>)</em> deviennent <em> Chaotiques </em>.  Ceci est
+  un autre sujet d'étude qu'on ne verra pas ici. </p>
+
+<br><br>
+
+<table class="noB">
+<tr><td rowspan="1" colspan="1" class="left">
+<a href="fractal2_fr.html"> Page précédente </a> </td>
+<td rowspan="1" colspan="1" class="right">
+<a href="fractal4_fr.html"> Page suivante </a> </td>
+</tr>
+</table>
+
+<br>
+<hr>
+<br>
+
+</div>  <!-- The content ends here -->
+
+<script language="javascript">
+bottom_function(fractal3,"fr");
+</script>
+
+</body>
+</html>
