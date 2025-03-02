@@ -99,8 +99,11 @@ document.write("<img class=\"MMathSStat\" alt=\"Construction sign\" src=\""
     +"');\"> Previous </button> <button type=\"button\" "
     +"onclick=\"hideElement('historyFrame');hideElement('"+ID
     +"')\"> Hide </button> </div> </div>");
-}
-showElement("history0");
+  }
+  if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  } else {
+    showElement("history0");
+  }
 </script>
 </div>
 
