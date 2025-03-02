@@ -101,6 +101,7 @@ document.write("<img class=\"MMathSStat\" alt=\"Signe de Construction\" src=\""
     +"')\"> Cacher </button> </div> </div>");
   }
   if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    hideElement("historyFrame");
   } else {
     showElement("history0");
   }
