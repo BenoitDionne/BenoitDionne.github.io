@@ -504,7 +504,7 @@ websites[websites_nbr++] = Mobius_site;
  ******************************************************************/
 /* In applied_math_en.html */
 
-/* Societe math. de France (SMF) , only cited in the index of website. */
+/* Societe math. de France (SMF), only cited in the index of website. */
 var SMFrance = new item
     ("Soci&eacute;t&eacute; Math&eacute;matique de France",
      "French Mathematical Society",
@@ -512,7 +512,8 @@ var SMFrance = new item
      null, null, null, "SMFrance", "_blank", "SMFrance");
 websites[websites_nbr++] = SMFrance;
 
-/* Societe de math. appliquees et industrielles de France (SMAI) */
+/* Societe de math. appliquees et industrielles de France (SMAI), only
+   cited in the index of website. */
 var SMAIFrance = new item
     ("Soci&eacute;t&eacute; de math&eacute;matique appliqu&eacute;es et industrielles",
      "Soci&eacute;t&eacute; de math&eacute;matique appliqu&eacute;es et industrielles",
@@ -550,21 +551,19 @@ websites[websites_nbr++] = AMSmoments;
 
 /* Site of the applications of math. by the SIAM */
 var SIAMcounts = new item
-    ("Math Matters, Apply It! from the Society for Industrial "
-     +"and Applied Mathemaitcs (SIAM)",
-     "Math Matters, Apply It! from the Society for Industrial "
-     +"and Applied Mathemaitcs (SIAM)",
-     "http://www.siam.org/careers/matters.php",
-     "http://www.siam.org/careers/matters.php",
+    ("Math Matters, Apply It! from the Society for Industrial and Applied Mathemaitcs (SIAM)",
+     "Math Matters, Apply It! from the Society for Industrial and Applied Mathemaitcs (SIAM)",
+     "https://www.siam.org/programs-initiatives/education-resources/resources-for-k-12-students/math-matters-apply-it/",
+     "https://www.siam.org/programs-initiatives/education-resources/resources-for-k-12-students/math-matters-apply-it/",
      null, null, null, "SIAMcounts", "_blank", "SIAMcounts"); 
 websites[websites_nbr++] = SIAMcounts;
 
-/* Site of the applications of math. by the SIAM */
+/* Site by the MAA */
 var MAAcasestudies = new item
-    ("Industrial Math Case Studies: Solving Real World Problems (MAA)",	  
-     "Industrial Math Case Studies: Solving Real World Problems (MAA)",
-     "http://www.maa.org/programs/faculty-and-departments/pic-math/solving-real-world-problems",
-     "http://www.maa.org/programs/faculty-and-departments/pic-math/solving-real-world-problems",
+    ("Mathematics and the Real World from the Mathematical Society of America (MAA)",	  
+     "Mathematics and the Real World from the Mathematical Society of America (MAA)",
+     "https://maa.org/math-values/mathematics-and-the-real-world/",
+     "https://maa.org/math-values/mathematics-and-the-real-world/",
      null, null, null, "MAAcasestudies", "_blank", "MAAcasestudies"); 
 websites[websites_nbr++] = MAAcasestudies;
 
