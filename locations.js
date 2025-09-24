@@ -499,6 +499,14 @@ var Mobius_site = new item
      "Mobius_site", "_blank", "Mobius_site");
 websites[websites_nbr++] = Mobius_site;
 
+/* Help Center */
+var math_help = new item
+    ("Centre d'aide au premier cycle", "Undergraduate Help Center",
+     "https://www.uottawa.ca/faculte-sciences/carrefour-etudiant/centres-aide#centre%20d&#039;aide%20en%20math%C3%A9matiques%20et%20statistique",
+     "https://www.uottawa.ca/faculty-science/student-hub/help-centres#mathematics%20and%20statistics%20help%20centre",
+     null, null, null, "math_help", "_self", "math_help");
+websites[websites_nbr++] = math_help;
+
 /******************************************************************
  * Items for mathMenu
  ******************************************************************/
