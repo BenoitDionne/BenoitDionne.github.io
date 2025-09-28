@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2023-09-04">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+</head>
+<body>
+
+<script language="javascript">
+top_function(ODE_O1,"en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2> First Order ODE </h2>
+
+<p>In this section, we introduce some of the functions use to solve
+and display solutions of ordinary differential equations (ODE) of
+order one.</p>
+
+<h3> General Solutions </h3>
+
+<p>There are several methods to solve first-order ODE depending of
+their form: separable equations, homogeneous equations, linear ODE,
+reduction of order, ...   Maple can solve almost all these type of
+ODE.</p>
+
+<p>To find the general solution of the first-order ODE</p>
+
+<pre class="matlab">
+> <font class="matlab">eq1:=diff(y(x),x)+y(x)=cos(x);</font>
+</pre>
+
+\[
+eq1 := \frac{\text{d}}{\text{d}x} y(x) + y(x) = \cos(x)
+\]
+
+<p>we use the function <font class="matlab">dsolve(&nbsp;)</font>
+of <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq1,y(x));</font>
+</pre>
+
+\[
+y(x) = \frac{\cos(x)}{2} + \frac{\sin(x)}{2} + e^{-x} \_C1
+\]
+
+<p>In the solution given by <em>Maple</em>,
+<font class="matlab">_C1</font> is an arbitrary parameter.</p>
+
+<p>The homogeneous ODE associated to <font class="matlab">eq1</font>
+above is</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq2 := lhs(eq1) = 0;</font>
+</pre>
+
+\[
+eq2 := \frac{\text{d}}{\text{d}x} y(x) + y(x) = 0
+\]
+
+<p>Its general solution is</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq2,y(x));</font>
+</pre>
+
+\[
+ y(x) = e^{-x} \_C1
+\]
+
+<p>The term with <font class="matlab">_C1</font> in the solution of
+<font class="matlab">eq1</font> is the general solution of
+<font class="matlab">eq2</font>. The rest of the solution of
+<font class="matlab">eq1</font> is a particular solution of
+<font class="matlab">eq1</font>.</p>
+
+<p><em>Examples</em>: Here are a few more examples.</p>
+
+<p>Consider the separable equation</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq3 := diff(y(x),x) = x^2*y(x)^2;</font>
+</pre>
+
+\[
+eq3 = \frac{\text{d}}{\text{d}x} y(x) = x^2 y(x)^2
+\]
+
+<p> Its solution is</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq3,y(x));</font>
+</pre>
+
+\[
+  y(x) = \frac{3}{-x^3 + 3\_C1}
+\]
+
+<p>Consider the homogeneous ODE of degree zero</p>
+
+<pre class="matlab">
+> <font class="matlab">eq4:=(x^2+y(x)^2)*diff(y(x),x)+ x^2-y(x)^2= 0;</font>
+</pre>
+
+\[
+  eq4 := (x^2+y(x)^2) \frac{\text{d}}{\text{d}x} y(x) + x^2 - y(x)^2 = 0
+\]
+
+<p>Its solution is</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq4,y(x));</font>
+</pre>
+
+\[
+    y(x) = RootOf \left(-\int^z \frac{1+\_a^2}{\_a^3 -\_a^2+\_a+1} \text{d}\_a + \ln(x) + \_C1\right) x
+\]
+
+<p><em>Maple</em> seems to have some problems with this one.  We will
+come back on it later.</p>
+
+<p>Finally, we consider the linear ODE</p>
+
+<pre class="matlab">
+> <font class="matlab">eq5:= diff(y(x),x) + x^2*y(x) = x^2;</font>
+</pre>
+
+\[
+ eq5 := \frac{\text{d}}{\text{d}x} y(x) + x^2 y(x) = x^2
+\]
+
+<p>whose solution is</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq5,y(x));</font>
+</pre>
+
+\[
+ y(x) = 1+ e^{-\frac{x^3}{3}} \_C1
+\]
+
+<h3> Initial Value Problems </h3>
+
+<p>We consider the first-order linear ODE <font class="matlab">eq5</font>
+and use <font class="matlab">dsolve(&nbsp;)</font> to solve it with the
+initial condition <font class="matlab">y(2)=3</font>. 
+
+<pre class="matlab">
+> <font class="matlab">sol1:=dsolve({eq5,y(2)=3},y(x));</font>
+</pre>
+
+\[
+sol1 := y(x) = 1+ \frac{2 e^{-\frac{x^3}{3}}}{e^{-\frac{8}{3}}}
+\]
+
+<p>We can use <font class="matlab">plot(&nbsp;)</font> to draw the graph of
+this solution. We fist get the expression for the particular
+solution using <font class="matlab">rhs(sol1)</font>. 
+
+<pre class="matlab">
+> <font class="matlab">plot(rhs(sol1),x=1..5);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_1.png" style="width: 300px"
+       alt="Graph of the solution of eq5 with the initial condition y(2)=3">
+</div>
+
+<p><em>Note</em>: If you need to evaluate the solution of an initial
+value problem at several points, it is advantageous to use the arrow
+operator to write the solution.. 
+
+<pre class="matlab">
+> <font class="matlab">yp:= s -> subs( x=s,rhs(sol1));  evalf(yp(1.5)); </font>
+</pre>
+
+\[
+\begin{split}
+&yp := s \mapsto subs( x=s, rhs(sol1)) \\
+& \qquad 10.34474214
+\end{split}
+\]
+
+<h3> Numerical Solution </h3>
+
+<p>When we talk about a <em>numerical solution</em>, we obviously talk
+about an approximation of a real solution of the ODE.</p>
+
+<p>Since a simple form for the solution of our famous homogeneous ODE
+of degree zero, <font class="matlab">eq4</font>, seems to be out of
+reach, we will find a numerical solution
+to <font class="matlab">eq4</font> with the initial condition
+<font class="matlab">y(0)=2</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">yp := dsolve({ODE,y(0)=1},y(x),type=numeric);</font>
+</pre>
+
+\[
+yp:=proc(x_rkf45) ... end proc
+\]
+
+<p>By default, the numerical method of integration used to solve the
+initial value problem is a Runge-Kutta-Fehlberg method of order 4 with
+error of order 5.  We use the <em>Maple</em> function
+<font class="matlab">odeplot</font> to graph this solution.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(plots); odeplot(yp,-4..4);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_2.png" style="width: 300px"
+       alt="Graph of the solution of eq4 with the initial condition y(0)=2">
+</div>
+
+<p>Since it is not always possible to find a simple form for the
+solution of an ODE, drawing the graph of the numerical solution of
+an initial value problem is often a good alternative.  To get a
+qualitative view of the graphs of solutions of an ODE, one plots the
+<em>slope field</em> of the ODE.</p>
+
+<p>Consider the first-order ODE $y'(x) = f(x,y(x))$.  The right hand
+side $f(x,y(x))$ is the slope of the solution $y(x)$ at every point
+$(x,y(x))$; a point on the graph of the solution $y(x)$.  The get the
+slope field of the ODE, we select many points of the plane.  From
+each one of them, we draw an arrow of slope $f(x,y)$ centred at
+this points. Maple has a nice function to generate the slope field
+of an ODE.</p>
+
+<p>Let's consider our troublesome homogeneous ODE of order one,
+<font class="matlab">eq4</font>.
+
+<pre class="matlab">
+> <font class="matlab">with(DEtools):  DEplot(eq4,y(x),x=-5..5,y=-5..5, arrows=small);</font>
+</pre>
+			      
+<div class="center">
+  <img src="Maple_ode_3.png" style="width: 300px"
+       alt="Slope field of the ODE eq4">
+</div>
+
+<p>We can also draw some solutions with initial conditions on the
+slope field.</p>
+
+<pre class="matlab">
+> <font class="matlab">DEplot(eq4,y(x),x=-5..5,y=-5..5, [[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green], arrows=small);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_4.png" style="width: 300px"
+       alt="Slope field of the ODE eq4 with the graph of three particular solutions associated to y(0)=1, y(0)=-2 and y(0)=2">
+</div>
+
+<p>It is possible to select different numerical algorithm, step size,
+error tolerance, ... for numerical integration and drawing slope
+fields.</p>
+
+<br>
+<hr>
+<br>
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(ODE_O1,"en");
+</script>
+
+</body>
+</html>

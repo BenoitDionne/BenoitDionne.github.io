@@ -1,0 +1,406 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2023-09-04">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(Mbs_structure,"en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2> Möbius Structure </h2>
+
+<h3> Introduction </h3>
+
+<p>The content of this page is probably more relevant for the person
+  who will do the administration of Möbius or will be called upon 
+  to resolve bugs in questions, assignments, ...  Nevertheless, there
+  may be some information useful to the instructors who are more
+  adventurous.</p>
+
+<h3> Course Directories </h3>
+
+<p> If you select the item <em>List Classes</em> under the drop down
+  menu <em>Class Manage</em> at the top of the display, then you will get
+  a display similar to the one below.</p>
+
+<div class="center">
+  <img src="Mobius_structure_1.png" style="width: 600px"
+       alt="Screenshot of the directory structure of the courses on Möbius"
+       class="MobiusFig">
+</div>
+<p>Each course inherits all the questions and assignments of its
+  parent, grant-parent, ...</p>
+
+<h3> Assignment Directories </h3>
+
+<p>If you select the directory <em>Assignments</em> after having
+  accessed the <em>Content Repository</em>, then you get a display like the
+  one below.  In the example below, we also selected the
+  subdirectory <em>Default Unit</em>.</p>
+
+<div class="center">
+  <img src="Mobius_structure_2.png" style="width: 600px"
+       alt="Screenshot of the directory structure of the assignments on Möbius"
+       class="MobiusFig">
+</div>
+<p>There is no more directory level under <em>Assignments</em>.</p>
+
+<p>The directories marked by the green share symbol in front of the
+  directory name are owned by the parent, grand-parent, ... of your
+  course.  You can use any of the assignments already existing in the
+  directories of the parent, grand-parent, ... of your course.  To
+  some extend, you automatically inherits a copy of
+  the <em>initial</em> assignment that was created in the parent,
+  grand-parent, ...</p>
+
+<ul style="list-style-type:disc;">
+<li> Even if the owner of the parent, grand-parent, ... of your
+  course modifies his/her assignment properties, the
+  modifications <em>are not transferred</em> to your copy of the
+  assignment.  Even if you have not looked at or touched your copy
+  of the assignment yet, the modifications <em>are not
+    transferred</em>.</li>
+<li> As long as none of your students has started the assignment, if
+  the owner of the parent, grand-parent, ... of your course modifies
+  the list of question in his/her assignment, then the list of
+  questions in your copy of the assignment <em>will be modified</em>
+  accordingly.  Similarly, if the owner of the parent, grand-parent,
+  ... of your course delete his/her assignment, then your copy of the
+  assignment <em>will be deleted</em>.</li>
+<li> You cannot modify the title and the list of questions of the
+  assignment that you have inherited from the parent, grand-parent,
+  ... to your course.  To do that, you have to clone the assignment.
+  See the section below about cloning.</li>
+</ul>
+
+<p> When students access an assignment, they get a copy of all the
+  questions of the assignment.  It is the same questions that will be
+  used to create new version of the assignment if they request one.
+  Therefore, if you modify a question of an assignment after students
+  have started it, then your modifications will not be reflected in the
+  question of the student's copy of the assignment.  Even if students
+  ask for a new version of the assignment, the question will still be
+  generate from their copy of the question before you modified it.
+  Only the students who had no started at all the assignment will get
+  the question that you have modified.<p>
+
+<p>When you think about it, this philosophy makes perfectly good
+  sense.  You do not want all the assignments, that are using or have
+  used the question that you are about to modify, to be also modified.
+  It is particularly important if it is a question that many courses
+  have inherited.  By modifying a question, you would then be able to
+  modify the assignments in other courses.</p>
+
+<h3> Question Directory </h3>
+
+<p>If you select the directory <em>Questions</em> after having
+  accessed the <em>Content Repository</em>, then you get a display like the
+  one below.  In the example below, we also selected the
+  subdirectory <em>Integrals</em>.</p>
+
+<div class="center">
+  <img src="Mobius_structure_3.png" style="width: 600px"
+       alt="Screenshot of the directory structure of the questions on M&ouml;bius"
+       class="MobiusFig">
+</div>
+<p>You can create as many level of directories as you want under the
+  directory <em>Questions</em>.  You are not limited to one level like
+  for <em>Assignments</em>.</p>
+
+<p>While you can edit an assignment that you inherited from the
+  parent, grand-parent, ... to your course, it is not so for the
+  questions.   You cannot edit inherited questions.  If you want to
+  modify an inherited question, then you have to <em>clone</em> it to get
+  your own copy of the question that you can edit as you wish.</p>
+
+<div class="LOOK" style="width: 80%; margin-left: 10%;">
+  <em>Warning</em>: If you <em>copy</em> a question to another
+  directory, then you do not get a new copy of the question.  To get a new
+  copy, you have to <em>clone</em> the question.  When
+  you <em>copy</em> a question in a new directory, you basically just
+  create another name to access the same question.  If you were to
+  delete the question in one directory, then it would automatically be
+  delete from all the other directories were it appears.  For those
+  familiar to Linux/Unix, what you do when you <em>copy</em> a
+  question is equivalent to creating a hard link to a file.</div>
+
+<h3> Exporting/Importing Questions </h3>
+
+<p>Detailed instructions to export questions and assignments to a zip
+  and to import zip files to a course can be found in the section
+  <script language="javascript">
+    buildLinK(Mbs_management.url_en, Mbs_management.text_en,"MMathSStat",
+    Mbs_management.id, Mbs_management.target);
+  </script>
+  aimed at the user who are not interested in the fine details of the
+  M&ouml;bius directory structure.</p>
+
+<p>You may want to export questions or assignments from one course to
+  the other.   I assume for this discussion that you own two courses
+  that do not have a common parent or, if they have a common parent,
+  you do not own it.</p>
+
+<p>Suppose that you have the following directories of questions
+  in your <em>Content Repository</em>.</p>
+
+<div class="center">
+  <img src="Mobius_structure_4.png" style="width: 700px"
+       alt="Screenshot of the content repository of the first courses on M&ouml;bius"
+       class="MobiusFig">
+</div>
+<p>Moreover, suppose that you want to export the
+  questions <em>ALG2005e-1</em> and <em>ALG2005e-2</em>.</p>
+
+<ol style="list-style-type: decimal;">
+<li> <p>First check the box in front
+    of the name of each question (item <em>1</em> in 
+    the figure above).  A menu will appear at the bottom of the screen
+    after you select a question.</li>
+<li> <p>Then click on <em>Export</em> (item <em>2</em> in the figure
+    above).  You will get a popup window similar to the following one
+    to confirm that you want to download the zip file to your
+    computer.</p>
+  <div class="center">
+    <img src="Mobius_structure_5.png" style="width: 350px"
+	 alt="Screenshot of the popup confirmation window when exporting questions"
+	 class="MobiusFig">
+  </div>
+  <p>By default, the questions that you have selected are stored in the
+    zip file <em>Coursemodule.zip</em>.  The questions are in xml
+    format.  If you select only one question, then Möbius will use the
+    title of the question as the name for the zip file.  You only have
+    to click on <em>OK</em> (item <em>3</em> in the figure above) to
+    complete the operation.  The zip file is saved in the directory on
+    your computer used by your browser when it downloads files.</p>
+</li>
+<li><p> To import the question to your other course, you open
+    the <em>Content Repository</em> of the other course.</p>
+  <div class="center">
+    <img src="Mobius_structure_6.png" style="width: 600px"
+	 alt="Screenshot of the content repository for the second course on M&ouml;bius"
+	 class="MobiusFig">
+</div></li>
+<li> <p>Click on <em>Import</em> (item <em>4</em> in the figure above)
+    to get the following popup window to select the zip file that
+    you want to import.</p>
+  <div class="center">
+    <img src="Mobius_structure_7.png" style="width: 600px"
+	 alt="Screenshot of the popup window that you get after clicking on import"
+	 class="MobiusFig">
+</div></li>
+<li> <p>Click on <em>Browse</em> (item <em>5</em> in the figure above)
+    to select the file that you want to upload to your course.  In the
+    present example, we have selected our zip file
+    <em>Coursemodule.zip</em>.</p>
+  <div class="center">
+    <img src="Mobius_structure_8.png" style="width: 600px"
+	 alt="Screenshot of the popup window, with the name of the selected file, that you get after clicking on import"
+	 class="MobiusFig">
+</div></li>
+<li><p> Then click on <em>Import Content</em> (item <em>6</em> in the
+    figure above) to upload the zip file with the questions to your
+    course. You get another popup window to confirm that the file has
+    been uploaded successively.</p>
+  <div class="center">
+    <img src="Mobius_structure_9.png" style="width: 600px"
+	 alt="Screenshot of the popup window to confirm that the file has been uploaded"
+	 class="MobiusFig">
+</div></li>
+<li> <p>You can select to view the imported question or you can simply
+    click on <em>Done</em> (item <em>7</em> in the figure above) to
+    end the importation procedure.  By default the questions that you
+    have imported are in the root directory of the <em>Questions</em>
+    in the <em>Content Repository</em>.</p>
+  <div class="center">
+    <img src="Mobius_structure_10.png" style="width: 600px"
+	 alt="Screenshot of the Question directory (in the Content Repository of the second course) that contains the questions that have been imported"
+	 class="MobiusFig">
+</div></li>
+</ol>
+
+<h3> Exporting/Importing Assignments </h3>
+
+<p>The procedure to export and import assignment is very similar to
+  the procedure to export and import questions but done from the
+  directory  <em>Assignments</em> of the <em>Content Repository</em>.
+  There are however some differences in the outcome of the procedure.
+  When you export an assignment, you also export all the questions
+  that are part of the assignment.  So, when you import the assignment
+  into another course, you also import all its questions with it.  The
+  assignment will be in the folder <em>Default Unit</em> of the
+  directory <em>Assignments</em> in the <em>Content Repository</em>.
+  All the questions will be in the root directory of the
+  directory <em>Questions</em> in the <em>Content Repository</em>.
+  This is consistent with the philosophy that assignments have their
+  own copies of the questions.</p>
+
+<h3> Subtleties of <q lang="EN">Add to</q> </h3>
+
+<p>Suppose that you want to move the questions that you have just
+  uploaded to a subdirectory of your directory <em>Questions</em> in
+  the <em>Content Repository</em>.  To do that, you proceed as it
+  follows.</p>
+
+<ol style="list-style-type: decimal;">
+<li> <p>Click on the <em>Add to</em> button (item <em>1</em> in
+  the figure below) at the bottom of the window after you have
+  selected the questions that you want to move.</p>
+  <div class="center">
+    <img src="Mobius_structure_11.png" style="width: 400px"
+	 alt="Screenshot of the content repository of the second courses on M&ouml;bius with the two questions that we have imported before in the root directory of the Questions"
+	 class="MobiusFig">
+  </div>
+  <p>You get the following popup window.</p>
+  <div class="center">
+    <img src="Mobius_structure_12.png" style="width: 600px"
+	 alt="Screenshot of the popup window to select the directory where the selected questions will be moved"
+	 class="MobiusFig">
+</div></li>
+<li> <p> Select the subdirectory of the <em>Questions</em> directory
+    where we want to move the selected questions.  The
+    <em>Root Group</em> is in fact the <em>Questions</em> root
+    directory.</p> 
+
+  <p>Suppose that you want to move the questions to the
+  subdirectory <em>Examples</em>, you just have to check the box in
+  front of the directory name (item <em>2</em> in the figure above) and
+  click on <em>Move to</em> at the bottom right corner of the display
+  (item <em>4</em> in the figure above).  You get another popup window
+  to confirm that the move has been done.</p>
+
+  <div class="center">
+    <img src="Mobius_structure_13.png" style="width: 600px"
+	 alt="Screenshot of the popup window to confirm that the questions have been moved successfully"
+	 class="MobiusFig">
+</div></li>
+<li> <p>Click on <em>Done</em> (item <em>5</em> in the figure above) to
+    complete the transfer.</p>
+</li>
+</ol>
+
+<div class="LOOK" style="width: 80%; margin-left: 10%;">
+  <em>Warning</em>: There is another button at the bottom of the
+  display marked <em>Add to</em> (item <em>3</em> in the second figure
+  of this section).  If you were to click on this button instead of
+  <em>Move to</em>, then links to the original questions would be created
+  in the selected subdirectory.  You would be able to reach each
+  question from two <q lang="en">addresses</q> in the
+  <em>Questions</em> directory.   You could then use any of
+  the <q lang="en">addresses</q> of a question to edit it and even
+  delete it.   Be careful, deleting a question using
+  one <q lang="en">address</q> will delete the question and
+  the other address.  The question is really lost.</div>
+
+<h3> Cloning Questions and Assignments </h3>
+
+<p>We have mentioned cloning questions several times in the previous
+  sections.  There is not a lot to say about it though is is a really
+  important feature of Möbius.   As we said earlier, copying a
+  question using the <em>Add to</em> button at the bottom of the
+  display is not doing what you are used to when copying a file.   You
+  do not get a new copy of the question but only a new link to it.  If
+  you want to get a copy that you can modify without damaging the
+  original question, then you have to <em>Clone</em> it.</p>
+
+<ol style="list-style-type: decimal;">
+<li> <p>Suppose that you have selected a question (item <em>1</em> in
+    the figure below) like in the figure of the
+    <em>Content Repository</em> below.</p>
+
+  <div class="center">
+  <img src="Mobius_structure_14.png" style="width: 500px"
+       alt="Screenshot of the Questions directory in the Content Repository with one of the questions selected"
+       class="MobiusFig">
+</div></li>
+<li> <p>After having selected a question, a list of buttons appear a
+    the bottom of the screen.  One of them is the
+    button <em>Clone</em> (item <em>2</em> in the figure above).  If
+    you click on this button, then you get the following popup window
+    confirming the success of the operation.</p>
+  <div class="center">
+  <img src="Mobius_structure_15.png" style="width: 500px"
+       alt="Screenshot of the popup window confirming the operation"
+       class="MobiusFig">
+</div></li>
+<li> <p>The text <em>- clone</em> is appended to the title of the
+    questions that you you have cloned.   You can click on the name of
+    the cloned question to edit it, or you can click on <em>Done</em>
+    (item <em>3</em> in the figure above) to return to the <em>Content
+    Repository</em>.
+</li>
+<li> <p>Suppose that you click on <em>Done</em> (item <em>3</em> in
+	the figure above).   You will first notice that the question
+	does not seem to appear any where.  You have to refresh the
+	display.  One way to do it is to reload the
+	<em>Content Repository</em>.  After that you get the following
+	display.</p>
+  <div class="center">
+    <img src="Mobius_structure_16.png" style="width: 500px"
+	 alt="Screenshot of the Content repository with the cloned question in the root directory of Questions"
+	 class="MobiusFig">
+  </div>
+  <p>The cloned question (item <em>4</em> in the figure above) is
+    located in the root directory of the Questions.   You may
+    used <em>Add to</em> to move it to the directory of your choice and
+    then edit it.</p>
+</li>
+</ol>
+
+<p>Everything that we have just said for the questions apply to the
+  assignments.  The only difference is that, after having been cloned,
+  assignments are stored in the directory <em>Default Unit</em>
+  (item <em>5</em> in the figure below) of the <em>Assignments</em>
+  directory in the <em>Content Repository</em>.</p>
+
+<div class="center">
+  <img src="Mobius_structure_17.png" style="width: 500px"
+       alt="Screenshot of the Assignments directory in the Content repository with the default directory Default Unit"
+       class="MobiusFig">
+</div>
+
+<br>
+<hr>
+<br>
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(Mbs_structure,"en");
+</script>
+
+</body>
+</html>

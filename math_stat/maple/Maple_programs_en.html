@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2023-09-04">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+</head>
+<body>
+
+<script language="javascript">
+top_function(Maple_programs,"en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2> Maple Programmins </h2>
+
+<h3> First Example </h3>
+
+<p>To demonstrate some of the programming techniques in
+<font class="matlab">Maple</font>, we will look at the definition of
+the <em>Reimann integral</em> from a basic calculus point of view..
+So, do not expect a lot of rigour.</p>
+
+<p>We want to use <em>Riemann sums</em> to compute the integral of
+$f(x)= x^4\sin(x^2)$ for $3 \leq x \leq 7$.</p>
+
+<pre class="matlab">
+> <font class="matlab">f:=x->x^4 * sin(x^2);</font>
+</pre>
+
+\[
+ f \mapsto x^4 \sin(x^2)
+\]
+
+<p>Suppose that we use $N$ subintervals and that the
+<q lang="en">height</q> of each rectangle is determined by the value
+of $f$ at the midpoint of the subinterval.   Those midpoints are given
+by</p>
+
+<pre class="matlab">
+> <font class="matlab">x:= (i,N) -> 3+(2*i-1)*(4/(2*N));</font>
+</pre>
+
+\[
+x:= (i,N) \mapsto 3 + \frac{2 (2 i - 1)}{N}
+\]
+
+<p>for $i = 1, 2, \ldots, N$.  The length of the subintervals, $\Delta
+x$, is $4/N$.</p>
+
+<p>The Riemann sum is</p>
+  
+<pre class="matlab">
+> <font class="matlab">S := N -> sum( (f@x)(i,N), i=1..N)*(4/N);</font>
+</pre>
+
+\[
+S := \frac{4 \left( \sum_{i=1}^N (f@x)(imN)\right)}{N}
+\]
+
+<p>The values of the Riemann sums for $N=10, 20, 30$ and $40$ are</p>
+
+<pre class="matlab">
+> <font class="matlab">evalf(S(10)); evalf(S(20)); evalf(S(30)); evalf(S(40));</font>
+
+</pre>
+\[
+\begin{split}
+&176.3042341 \\
+& -86.7922777 \\
+&-76.85654501 \\
+&-73.61449115
+\end{split}
+\]
+
+<p>Using <font class="matlab">int(&nbsp;)</font>, we find that</p>
+
+<pre class="matlab">
+> <font class="matlab">evalf(int(f(x),x=3..7));</font>
+</pre>
+
+\[
+-69.66059111
+\]
+
+<p>We note that the convergence of the Riemann sums toward the exact
+answer is slow.</p>
+
+<p> It is possible to write a simple code that compute Riemann sums
+for any intervals of integration and any number of subintervals.</p>
+
+<pre class="matlab">
+> <font class="matlab">RS:= proc(a,b,N) local i,Delta,R,x,terms: x:=i->a+(2*i-1)*((b-a)/(2*N)): Delta := (b-a)/N: R := sum( (f@x)(i)*Delta, i=1..N): RETURN(evalf(R)); end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& RS := proc (a, b, N)\\
+&\qquad local\ i, Delta, R, x: \\
+& \qquad x := i \mapsto a+(i-1/2)*(b-a)/N \\
+& \qquad Delta := (b-a)/N: \\
+& \qquad R := sum((f@x(i))*Delta, i = 1 .. N); \\
+& \qquad RETURN(evalf(R)) \\
+& end\ proc
+\end{split}
+\]
+
+<p>As expected</p>
+  
+<pre class="matlab">
+> <font class="matlab">Riemann(3,7,40);</font>
+</pre>
+\[
+-73.61449115
+\]
+
+<p>The graph of $f(x)$ for $x \leq x \leq 7$ is given below.</p>
+
+<pre class="matlab">
+> <font class="matlab">plot1 := plot(f(x),x=3..7);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Riemann_1.png" style="width: 300px" alt="Graph of f">
+</div>
+
+<p>The following procedure will plot the area covered by the Riemann
+sums.</p>
+
+<pre class="matlab">
+> <font class="matlab">staircase:=proc(a,b,N)  local i, x, xl, xr, yg, xg, PLOT; x:=i->a+(2*i-1)*((b-a)/(2*N)); xl:=i->a+(i-1)*(b-a)/N; xr:=i->a+i*(b-a)/N; for i from 1 to N do; xg[2*i-1]:=xl(i); xg[2*i]:=xr(i); yg[2*i-1]:=(f@x)(i); yg[2*i]:=yg[2*i-1]; od; PLOT:=plot([[xg[1],0], seq([xg[n],yg[n]],n=1..2*N) ,[xg[2*N],0]], color=blue, filled = [color = "Blue", transparency = .5]): RETURN(PLOT); end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& staircase := proc (a, b, N) \\
+& \qquad local\ i, x, xl, xr, yg, xg, PLOT;\\
+& \qquad x := (i) \mapsto a+(i-1/2)*(b-a)/N; \\
+& \qquad xl := (i) \mapsto a+(i-1)*(b-a)/N; \\
+& \qquad xr := (i) \mapsto a+i*(b-a)/N; \\
+& \qquad for\ i\ to\ N\ do \\
+& \qquad \qquad xg[2*i-1] := xl(i); xg[2*i] := xr(i); yg[2*i-1] := f@x(i); yg[2*i] := yg[2*i-1]; \\
+& \qquad end\ do;\\
+& \qquad PLOT := plot([[xg[1], 0], seq([xg[n], yg[n]], n = 1 .. 2*N), [xg[2*N], 0]], color = blue, \\
+& \qquad \qquad filled = [color = "Blue", transparency = .5]);\\
+& \qquad RETURN(PLOT) \\
+& end\ proc
+\end{split}
+\]
+
+<p>We can draw the the area covered by the Riemann sums for $N=40$ and
+compare with the area delimited by the graph of $f$.</p>
+
+<pre class="matlab">
+> <font class="matlab">plot2:=staircase(3,7,40):</font>
+> <font class="matlab">plots[display]({plot1,plot2});</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Riemann_2.png" style="width: 300px"
+       alt="Graph of f and its Riemann sum for 0 <= x <= 7 and N=40">
+</div>
+
+<h3> Second example </h3>
+
+<p>Maybe one day.</p>
+
+<br>
+<hr>
+<br>
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(Maple_programs,"en");
+</script>
+
+</body>
+</html>

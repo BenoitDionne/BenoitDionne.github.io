@@ -1,0 +1,817 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2023-09-04">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+</head>
+<body>
+
+<script language="javascript">
+top_function(ODE_systems,"en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2> Systems of ODE </h2>
+
+<h3> General Concepts </h3>
+
+<p>Consider the general system of ODE $X'(t) = f(t,X(t))$ where
+$f:\mathbb{R} \times \mathbb{R}^n \to \mathbb{R}^n$. Our goal is to
+find $X:\mathbb{R} \to \mathbb{R}^n$ satisfying this system of ODE
+with an initial condition $X(0) = X_0$. The theory says that there
+is always a solution if $f$ is nice (i.e. Lipshitz continuous) and
+that this solution is unique.  If $f$ does not depend of $t$, we
+say that the system of ODE is autonomous.  If $X$ is a solution of
+the system of ODE, then $f(X(t))$ is the direction and velocity of
+$X$ at time $t$.  In particular, $f(X(t))$ is tangent to $X(t)$.</p>
+
+<p>For autonomous systems in two ODE,  it is traditional to draw the
+vector field associated to the system of ODE to get an idea of its
+global behaviour. Namely, for many (equally spaced) points $X$ in the
+plane, we draw for each of them a vector in the direction
+$(f(X)$. Sometimes the length of the vector drawn is proportional
+to the norm of \(f(X)\).</p>
+
+<h3> Homogeneous Linear Systems </h3>
+
+<p>A system of ODE of the form $X'(t) = A X(t)$, where $A$ is an
+$n \times n)$ matrix is called a (homogeneous) linear system of
+ODE. The theoretical solution of this system is $X(t) = e^{t A} X(0)$,
+where the exponential of a matrix $B$ is defined by
+$e^B = \sum_0^\infty \frac{1}{n!} B^n$.  This series always converges.
+The notion of convergence for series of matrices is defined with any
+of the matrix norms.  Consider the matrix</p>
+
+<pre class="matlab">
+> <font class="matlab">with(LinearAlgebra); A := Matrix([[2,-1],[1,2]]));</font>
+</pre>
+
+\[
+ A := \begin{bmatrix} 2 & -1 \\ 1 & 2 \end{bmatrix}
+\]
+
+<p>The exponential of this matrix is</p>
+
+<pre class="matlab">
+> <font class="matlab"> expA := MatrixExponential(A); </font>
+</pre>
+
+\[
+expA := \begin{bmatrix} e^2 \cos(1) & -e^2 \sin(1) \\ e^2 \sin(1) & e^2 \cos(1) \end{bmatrix}
+\]
+
+<p>and $e^{tA}$ is given by
+
+<pre class="matlab">
+> <font class="matlab"> exptA := MatrixExponential(A,t); </font>
+</pre>
+
+\[
+exptA := \begin{bmatrix} e^{2t} \cos(t) & -e^{2t} \sin(t) \\ e^{2t} \sin(t) & e^{2t} \cos(t) \end{bmatrix}
+\]
+
+<p>We can use <font class="mobius">dsolve(&nbsp;)</font> to solve the system
+of homogeneous linear ODE $X'(t) = A X(t)$.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq1 := {diff(x1(t),t) = 2*x1(t) - x2(t), diff(x2(t),t) = x1(t) + 2*x2(t)};</font>
+</pre>
+
+\[
+eq1 := \left\{ \frac{\text{d}}{\text{d}t} x1(1) = 2 x1(1) - x2(t) , \frac{\text{d}}{\text{d}t} x2(t) = x1(t) + 2 x2(t) \right\}
+\]
+
+<p>The general solution is</p>
+  
+<pre class="matlab">
+> <font class="matlab"> X := dsolve(eq1, {x1(t), x2(t)}); </font>
+</pre>
+
+\[
+X := \left\{ x1(t) = e^{2t} (\_C2 \cos(t) + \_C1 \sin(t), x2(t) = -e^{2t} (  \cos(t)\_C1 - \sin(t) \_C2 \right\}
+\]
+
+<p>where <font class="matlab">_C1</font>
+and <font class="matlab">_C2</font> are arbitrary constants.  This is
+$e^{tA} \begin{bmatrix} \_C2 \\ -\_C1 \end{bmatrix}$.  We can also
+solve $X'(t) = A X(t)$ with the initial condition
+$X(0) = \begin{bmatrix} 2 \\ 3 \end{bmatrix}$.</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq2 := eq1 union {x1(0)=2,x2(0)=3};</font>
+</pre>
+
+\[
+eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1(1) = 2 x1(1) - x2(t) , \frac{\text{d}}{\text{d}t} x2(t) = x1(t) + 2 x2(t) , x1(0) = 2, x2(0) = 3\right\}
+\]
+
+<p>The solution of this system is</p>
+
+<pre class="matlab">
+> <font class="matlab"> X := dsolve(eq2,{x1(t),x2(t)});</font>
+</pre>
+
+\[
+X := \left\{ x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ), x2(t) = -e^{2t} (  -3 \cos(t) - 2 \sin(t) )\right\}
+\]
+
+<p>It is the case with <font class="matlab">_C1 = -3</font> and
+<font class="matlab">_C2 = 2</font> in the general solution.</p>
+
+<p> We can draw the orbit of this solution.</p>
+
+<pre class="matlab">
+> <font class="matlab">X1:=subs(X,x1(t)); X2:=subs(X,x2(t)); plot([X1,X2,t=-1..5],axes=FRAME,labels=['x1','x2']); </font>
+</pre>
+
+\[
+\begin{split} & x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ) \\
+& x2(t) = -e^{2t} (  -3 \cos(t) - 2 \sin(t) )
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_syst_ODE_1.png" style="width: 300px"
+     alt="Drawing of the orbit of the solution of X' = A X with X(0) = (2 ,3)">
+</div>
+
+<h4> Matrix Exponential Solutions </h4>
+
+<p>To evaluate the solution of an homogeneous linear system of ODE at
+various values of the independent variable, one has to evaluate
+$e^{tA} X_0$ at several values of $t$.  In general, it is difficult
+and time consuming to compute the exponential $e^{tA}$ when the
+dimension of the square matrix $A$ is large.  There are however some
+nice results from linear algebra that help us compute this
+exponential.  For instance, it is possible to write $A$ as $A = U D V$,
+where $D$ is a block diagonal matrix (e.g. a Jordan normal form or a real
+canonical form), and U and V are invertible matrices.  We then have
+that $e^{tA} = U e^{tD} V$, where $e^{tD}$ is much easier and faster to
+compute than $e^{tA}$ because $D$ has zero components off the
+(block) diagonal (at lot of zero components). It is easy to multiply
+matrices with a lot of zeros at known locations.</p>
+
+<p>We will not consider the general theory of matrix decomposition in
+this introduction.  We will consider only $2 \times 2$ matrices.</p>
+
+<p>There could be:</p>
+<ul> 
+<li> one or two real eigenvalues with two linearly independent real
+eigenvectors associates to them,</li>
+<li> one real eigenvalues with only one linearly independent real
+eigenvector associated to it, or </li>
+<li> two complex (i.e. in $\mathbb{C} \setminus \mathbb{R}$) conjuagte
+eigenvectors with two linearly independent complex eigenvectors
+ associates to them.</li>
+</ul>
+
+<h4>Two Linearly Independent Real Eigenvectors</h4>
+
+<p>Consider the system of ODE</p>
+
+<pre class="matlab">
+> <font class="matlab">eq3 := {diff(x1(t),t)=-4*x1(t)+ 2*x2(t), diff(x2(t),t)=-1*x1(t)-x2(t)};</font>
+</pre>
+
+\[
+ eq3 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = 4\; x1(t) + 2\; x2(t) ,
+\frac{\text{d}}{\text{d}t} x2(t) = - x1(t) - x2(t) \right\}
+\]
+
+<p>The matrix of coefficients is</p>
+
+<pre class="matlab">
+> <font class="matlab">A := Matrix([[-4,2],[-1,-1]]);</font>
+</pre>
+
+\[
+A := \begin{bmatrix}-4 & 2 \\ -1 & -1 \end{bmatrix}
+\]
+
+<p>The eigenvalues and eigenvectors of A are</p>
+
+<pre class="matlab">
+> <font class="matlab">with(LinearAlgebra): Eigenvectors(A);</font>
+</pre>
+
+\[
+\begin{bmatrix}-3 \\ -2 \end{bmatrix}, \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix}
+\]
+
+<p>We have two eigenvalues $-3$ annd $-2$.  An eigenvector associated
+to $-3$ is given by the first column of the $2\times 2$ matrix
+and an eigenvector associate to $-2$ is given by the second column.
+This $2\times 2$ matrix can be selected as the matrix $U$ in
+the decomposition of $A$ presented above.  One can
+use <font class="mobius">dsolve(&nbsp;)</font> to solve this linear system
+of ODE.  We are more interested in the qualitative aspect of the
+solutions.  So, we plot the vector field associated to this system.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(DEtools): DEplot(eq3,[x1(t),x2(t)],t=0..5, [[x1(0)=0.5,x2(0)=0], [x1(0)=-0.5,x2(0)=-0.1]], linecolor=[blue,red], thickness=1,color=green, arrows=small,stepsize=0.01);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_syst_ODE_2.png" style="width: 300px"
+       alt="Vector field associated to the linear system of ODE eq3">
+</div>
+
+<p>We have also drawn two orbits associated to the solutions with
+initial condition $\begin{bmatrix}0.5 \\ 0 \end{bmatrix}$ (in blue)
+and $\begin{bmatrix} -0.5 \\ 0 \end{bmatrix}$ (in red).
+As can be seen from the vector field, all the solutions converge
+toward the origin.  This is typical of linear system  
+of ODE with two negative eigenvalues.  The origin is called
+a <em>sink</em> or <em>stable node</em>.  If the eigenvalues had both
+been positive, we would have observed that all solutions go away
+from the origin.  The origin is then called a <em>source</em>
+or <em>unstable node</em>.</p>
+
+<p><em>Note</em>: Another way to draw the vector field is with the
+function <font class="matlab">dfieldplot(&nbsp;)</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">dfieldplot(eq3,[x1(t),x2(t)],t=-2..2,x1=-1..1,x2=-1..1):</font>
+</pre>
+
+<p>We let the readers try it for themselves.  We also let the readers
+the pleasure of discovering the qualitative aspect of the linear
+system of ODE when one of the eigenvalues is positive and one is
+negative.  The origin is then called a <em>saddle point</em>.</p>
+
+<h4>Only One Linearly Independent Eigenvector</h4>
+
+<p>We must have an eigenvalue of algebraic multiplicity two and
+geometric multiplicity one.  Consider the homogeneous system of
+linear ODE:</p>
+
+<pre class="matlab">
+> <font class="matlab">eq4:={diff(x1(t),t)=3*x1(t)+x2(t), diff(x2(t),t)=3*x2(t)};</font>
+</pre>
+
+\[
+ eq4 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = 3\; x1(t) + x2(t) ,
+\frac{\text{d}}{\text{d}t} x2(t) = 3\; x2(t) \right\}
+\]
+
+<p>The matrix of coefficients is</p>
+
+<pre class="matlab">
+> <font class="matlab">A := Matrix([[3,1],[0,3]]);</font>
+</pre>
+
+\[
+A := \begin{bmatrix}-4 & 2 \\ -1 & -1 \end{bmatrix}
+\]
+
+<p>The eigenvalues and eigenvectors of A are</p>
+
+<pre class="matlab">
+> <font class="matlab">Eigenvectors(A);</font>
+</pre>
+\[
+    \begin{bmatrix} 3 \\ 3 \end{bmatrix}, \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}
+\]
+
+<p>As expected, there is an eigenvalue of algebraic multiplicity two
+and geometric multiplicity one.  To get an idea of the qualitative
+behaviour of this linear system of ODE, we plot its vector field with
+the orbit of a couple of particular solutions.</p>
+
+<pre class="matlab">
+> <font class="matlab">DEplot(eq4,[x1(t),x2(t)],t=-1..1,[[x1(0)=2,x2(0)=-3],[x1(0)=-2,x2(0)=2]],linecolor=[blue,green],thickness=1,stepsize=0.01);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_3.png" style="width: 300px"
+     alt="Vector field associated to the linear system of ODE eq4">
+</div>
+
+<p> As can be seen from the vector field, all the solutions go away
+from the origin.  The origin is a <me>unstable node</em>.  If the
+eigenvalue had been negative, all the solutions would have converged
+to the origin.  The origin would then have been a <em>stable
+node</em>.</p>
+
+<h4>No Real Eigenvectors</h4>
+
+<p>Consider the homogeneous system of ODE</p>
+
+<pre class="matlab">
+> <font class="matlab">eq5:={diff(x1(t),t)=-2*x1(t)-x2(t), diff(x2(t),t)=x1(t)-2*x2(t)};</font>
+</pre>
+
+\[
+eq5 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = -0.2\; x1(t) - x2(t) ,
+\frac{\text{d}}{\text{d}t} x2(t) =  x1(t) - 0.2\; x2(t) \right\}
+\]
+
+<p>The matrix of the coefficients of this system is</p>
+
+<pre class="matlab">
+> <font class="matlab">A := Matrix([[-1/5,-1],[1,-1/5]]);</font>
+</pre>
+
+\[
+A := \begin{bmatrix} -\frac{1}{5} & -1 \\ 1 & -\frac{1}{5} \end{bmatrix}
+\]
+
+<p>whose eigenvalues and eigenvectors are</p>
+
+<pre class="matlab">
+>  <font class="matlab">with(LinearAlgebra); Eigenvectors(A); </font>
+</pre>
+
+\[
+\begin{bmatrix}-\frac{1}{5} + I \\ -\frac{1}{5} - I \end{bmatrix}, \begin{bmatrix} I & 1 \\ -I & 1 \end{bmatrix}
+\]
+
+<p>There are no real eigenvalues and eigenvectors.  It is taught in a
+basic ODE course that the general solution involves terms of the form
+$e^{-0.2 t}\cos(t($ and $e^{-0.2 t}\sin(t)$.</p>
+
+<pre class="matlab">
+> <font class="matlab"> dsolve(eq5, {x1(t), x2(t)}); </font>
+</pre>
+
+\[
+\left\{ x1(t) = e^{-\frac{t}{5}} (\_C2 \cos(t) + \_C1 \sin(t)), x2(t) = -e^{-\frac{t}{5}} (\cos(t)\_C1 - \sin(t) \_C2) \right\}
+\]
+
+<p>Again, to get an idea of the qualitative behaviour of this system
+of ODE, we plot its vector field.  We also plot some particular
+solutions.</p>
+
+<pre class="matlab">
+> <font class="matlab">DEplot(eq5,[x1(t),x2(t)],t=0..10,[[x1(0)=0.1,x2(0)=-0.1],[x1(0)=-0.1,x2(0)=0.1]],linecolor=[blue,green],thickness=1, stepsize=0.01);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_4.png" style="width: 300px"
+     alt="Vector field associated to the linear system of ODE eq5">
+</div>
+
+<p>As can be seen from the vector field, all the solutions converge
+toward the origin.  The origin is called a <em>stable spiral</em> or
+<em>stable focus</em>.  If the real part of the pair of complex
+eigenvalues had been positive, all the solutions would have gone
+away of the origin.   The original would then be a <em>unstable
+spiral</em> or <em>unstable focus</em>. </p>
+
+<h3> Nonlinear Systems of ODE </h3>
+
+<p>There are no general methods to solve nonlinear systems of ODE
+explicitly.  We often have no choice but to do a qualitative study
+of the system and/or solve the system numerically.</p>
+
+<p>Consider the system of non-autonomous ODE</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq6 := {diff(x1(t),t)=-2*x1(t)-2*x2(t)+sin(2*t), diff(x2(t),t)=4*x1(t)+2*x2(t)+cos(2*t)};</font>
+</pre>
+
+\[
+eq6 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = -2\; x1(t) - 2\; x2(t) + \sin( 2t) ,
+\frac{\text{d}}{\text{d}t} x2(t) = 4\; x1(t) + 2\; x2(t) + \cos(2 t) \right\}
+\]
+
+<p>We can use <font class="matlab">dsolve(&nbsp;)</font> to find the
+general solution of this system of ODE but more interestingly we can
+draw the orbit of some solutions to get a qualitative description of the
+behaviour of the system of ODE.</p>
+
+<pre class="matlab">
+> <font class="matlab"> DEplot(eq6,[x1(t),x2(t)],t=0..5,[[x1(0)=1,x2(0)=-1],[x1(0)=-1,x2(0)=1],[x1(0)=2,x2(0)=2]],linecolor=[blue,green,red],thickness=1,stepsize=0.01,numpoints = 100, method = taylorseries);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_5.png" style="width: 300px"
+     alt="Orbits of some solutions of the system of ODE eq6">
+</div>
+
+<p>It is interesting to note that none of the integration methods of
+<font class="matlab">Maple</font> could properly draw orbits of
+solutions starting near the origin (at least, when these notes were
+written).</p>
+
+<p><em>Note</em>: One can find in basic ODE textbook a method to find
+the explicit solution of system of ODE like the one that we have just
+considered.</p>
+
+<h3> Higher Order ODE </h3>
+
+<p> It is possible to reduce an higher order ODE of the form </p>
+
+\[
+y^{n}(t) + a_{n-1} y^{n-1}(t) + ... + a_1 y'(t) + a_0 y(t) = f(t)
+\]
+
+<p>to a system of first order ODE. It suffices to define
+$X_1(t)= y(t), X_2(t)= y'(t), \ldots, X_n(t)= y^{n-1}(t)$ to get
+the system</p>
+\[
+\begin{split}
+X_1'(t) &= X_2(t) \\
+X_2'(t) &= X_3(t) \\
+\ldots &\qquad  \ldots \\
+X_n'(t) &= y^{n}(t) = -a_{n-1} y^{n-1}(t) - ... - a_1 y'(t) - a_0 y(t) + f(t) \\
+        & = -a_{n-1} X_n(t) - ... - a_1 X_2(t) - a_0 X_1(t) + f(t)
+\end{split}
+\]
+
+<p>We have seen in
+<script language="javascript">
+    buildLinK(ODE_O2_const_coeff.url_en,
+    ODE_O2_const_coeff.text_en,"MMathSStat", ODE_O2_const_coeff.id,
+    ODE_O2_const_coeff.target);
+</script> the second order ODE</p>
+
+\[
+\frac{\text{d}^2}{\text{d}t^2} x(t) + \cos(t) x(t) = 0
+\]
+
+<p>This ODE can be reduced to the system of first-order ODE.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq1:= { diff(x1(t),t)=x2(t), diff(x2(t),t)=-cos(t)*x1(t)};</font>
+</pre>
+
+\[
+  eq1 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = x2(t), \frac{\text{d}}{\text{d} t} x2 = -\cos(t) x1(t) \right\}
+\]
+
+<p>using the technique presented above.  Again, we will not try to
+find the explicit solution using <font class="matlab">dsolve(&nbsp;)</font>
+but focus on the numerical solution given an initial condition.</p>
+
+<pre class="matlab">
+> <font class="matlab"> SYST := eq1 union {x1(0)=0,x2(0)=1}:</font>
+> <font class="matlab">X := dsolve(SYST,{x1(t),x2(t)},type=numeric,output=listprocedure);</font>
+</pre>
+
+\[
+X := [t = proc(t) ... end proc, x1(t) = proc(t) ... end proc, x2(t) = proc(t) ... end proc]
+\]
+
+<p>A parametric plotting of <font class="matlab">(x1(t),x2(t))</font>
+is given by</p>
+
+<pre class="matlab">
+> <font class="matlab">with(plots): odeplot(X,[x1(t),x2(t)],0..4*Pi,labels=[`x(t)`,`x'(t)`]);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_6.png" style="width: 300px"
+     alt="Drawing of the orbit of the particular solution of eq1 witht
+     he initial condition (x1(0),x2(0))=(0,1)">
+</div>
+
+<p>This orbit should be familiar if you compare with the orbit of
+<font class="matlab">(x(t), D(x)(t))</font> for the second order ODE
+given in
+<script language="javascript">
+    buildLinK(ODE_O2_const_coeff.url_en,
+    ODE_O2_const_coeff.text_en,"MMathSStat", ODE_O2_const_coeff.id,
+    ODE_O2_const_coeff.target);
+</script>.</p>
+
+<h3> Applications </h3>
+
+<h4> Van der Pol Equation </h4>
+
+<p>Consider the system of ODE associated to the <em>Van der Pol equation</em>
+$x''(t)+ \epsilon x'(t) (x^2(t)-1) + x(t) = 0$.</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq2 := { diff(x1(t),t) = x2(t), diff(x2(t),t) = -epsilon*x2(t)*(x1(t)^2-1)-x1(t)};</font>
+</pre>
+
+\[
+eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t} x2(t) = -\epsilon x2(t) (x1(t)^2-1)-x1(t) \right\};
+\]
+
+<p>This is a system of non-linear ODE.  Assume that $\epsilon=0.1$.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq3 := subs(epsilon=0.1, eq2);</font>
+</pre>
+
+\[
+eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t} x2(t) = -0.1 x2(t) (x1(t)^2-1)-x1(t) \right\};
+\]
+
+<p>Since it is going to be instructive to plot the solution for many
+initial conditions, we write a procedure to produce these orbits.</p>
+
+<pre class="matlab">
+> <font class="matlab">graph := proc (a, b, T, clr) local X; X := dsolve(eq3 union {x1(0) = a, x2(0) = b}, {x1(t), x2(t)}, type = numeric, output = procedurelist, method = classical[rk4], stepsize = 0.1e-1): RETURN(odeplot(X, [x1(t), x2(t)], 0 .. T, numpoints = floor(30*T), color = clr)): end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& graph := proc (a, b, T, clr)\\
+& \qquad  local\ X;\\
+& \qquad  X := dsolve(eq3\ union\ \{x1(0) = a, x2(0) = b\}, \{x1(t), x2(t)\}, type = numeric, output = procedurelist, \\
+&  \qquad \qquad  method = classical[rk4], stepsize = 0.1e-1);\\
+& \qquad RETURN(plots:-odeplot(X, [x1(t), x2(t)], 0 .. T, numpoints = floor(30*T), color = clr))\\
+&  end\ proc
+\end{split}
+\]
+
+<p>We now solve this system for many initial conditions
+<font class="matlab">(x1(0),x2(0))</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">gr1 := graph(4,1,5*Pi,"red"):</font>
+> <font class="matlab">gr2 := graph(-1,3,5*Pi, "blue"):</font>
+> <font class="matlab">display({gr1,gr2},axes=normal,labels=[`x1`,`x2`]);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_7.png" style="width: 300px"
+     alt="Orbits of the Van der Pol system converging to the periodic
+     orbit from the outside">
+</div>
+
+<pre class="matlab">
+> <font class="matlab">gr3:= graph(0.5,0.5,5*Pi,"red"):</font>
+> <font class="matlab">gr4:= graph(-1,1,5*Pi,"blue"):</font>
+> <font class="matlab">display({gr3,gr4},axes=normal,labels=[`x1`,`x2`]);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_8.png" style="width: 300px"
+     alt="Orbits of the Van der Pol system converging to the periodic
+     orbit from the inside">
+</div>
+
+<p> In the first figure, the orbits of the solutions seem to spiral
+toward the origin. However, in a the second figure they seem to spiral
+toward the infinity. This cannot go on forever because solutions
+cannot intersect and varies smoothly with respect to initial
+conditions.  What is going on?</p>
+
+<p>Let's look at the vector field associated to the system of ODE with
+some orbits of solutions.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(DEtools); DEplot(eq3, [x1(t), x2(t)], t = 0 .. 8*Pi, [[x1(0) = .5, x2(0) = .5], [x1(0) = 2, x2(0) = 2]], linecolor = [blue, red], thickness = 2, color = black, stepsize = 0.1e-1, arrows = small);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_9.png" style="width: 300px"
+     alt="Vector field for the Van der Pol system including the orbits
+     of some particular solutions">
+</div>
+
+<p>All the orbits of solutions converge toward a periodic solution.
+The outside orbit in the previous figure is getting very close to
+this periodic solution.</p> 
+
+<p><em>Note</em>:  There are several other <font class="matlab">Maple</font>
+functions that may be used to plot the vector field:
+<font class="matlab">odeplot(&nbsp;)</font>, and
+<font class="matlab">fieldplot</font>
+if you consider that the right hand side of the system of ODE is a
+vector field.</p>
+
+<h4> Nonlinear Pendulum </h4>
+
+<p>Consider the pendulum made up of a very light rod of length $L$
+with a small ball of mass $m$ at one end. </p>
+
+<pre class="matlab">
+> <font class="matlab">with(plots):with(plottools):</font>
+> <font class="matlab">gr1:=line([0,0], [0,-14], color=black, linestyle=3):</font>
+> <font class="matlab">gr2:=line([0,0], [3,-5], color=black):</font>
+> <font class="matlab">gr3:=disk([3,-5], 0.25, color=green):</font>
+> <font class="matlab">gr4:=arrow([3,-5], [1/2,-13/2], 0.02,0.3,0.2, color=black):</font>
+> <font class="matlab">gr5:=line([1/2,-13/2], [3,-32/3], color=black, linestyle=3):</font>
+> <font class="matlab">gr6:=arrow([3,-5], [3,-32/3], 0.02,0.3,0.1, color=black):</font>
+> <font class="matlab">gr7:=textplot([5,-9,'mg'], font=[COURIER,12],align={LEFT}):</font>
+> <font class="matlab">gr8:=textplot([-2,-4,`mg sin`], font=[COURIER,12],align={LEFT}):</font>
+> <font class="matlab">gr9:=textplot([-1.8,-4,'q'], font=[SYMBOL,12],align={RIGHT}):</font>
+> <font class="matlab">gr10:=arc([3,-35/3],2.5, Pi/2..3*Pi/5):</font>
+> <font class="matlab">gr11:=textplot([2.2,-8,'q'], font=[SYMBOL,12],align={RIGHT}):</font>
+> <font class="matlab">gr12:=arrow([-3,-4.5],[2,-5.4], 0.02,0.3,0.1, color=black):</font>
+> <font class="matlab">gr13:=textplot([2.1,-3,'L'], font=[COURIER,12],align={RIGHT}):</font>
+> <font class="matlab">display({gr1,gr2,gr3,gr4,gr5,gr6, gr7,gr8,gr9,gr10,gr11,gr12,gr13}, view=[-6..6,-14..0.5], axes=none, scaling=constrained);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_10.png" style="width: 300px"
+     alt="Pendulum">
+</div>
+
+<p>Using Newton law <q lang="en">force equals mass times acceleration</q>,
+the angle <font class="matlab">&theta;</font> is governed by the ODE </p>
+
+<pre class="matlab">
+> <font class="matlab">eq4 := m*L*diff(theta(t),t$2) = -k*L*diff(theta(t),t) -m*g*sin(theta(t));</font>
+</pre>
+
+\[
+eq4 := m L \left( \frac{\text{d}^2}{\text{d}t^2} \theta(t) \right) = -k L \left(\frac{\text{d}}{\text{d}t} \theta(t) \right) - m g \sin(\theta(t))
+\]
+
+<p>where <font class="matlab">g = 9.8</font> m/s<sup>2</sup> is the
+acceleration due to gravity and <font class="matlab">k</font> is a
+constant of proportionality between the force due to friction and
+the velocity.  We can write this ODE as a the system of ODE.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq5:={ diff(theta(t),t)=v(t), diff(v(t),t)=-(k*g/m)*v(t) -(g/L)*sin(theta(t))};</font>
+</pre>
+
+\[
+eq5 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\text{d}t} v(t) = -\frac{k g v(t)}{m} - \frac{g \sin(\theta(t))}{L} \right\}
+\]
+
+<p> where <font class="matlab">v(t)</font> is the angular velocity.</p>
+
+<h4> Ideal Pendulum </h4>
+
+<p>The ideal pendulum does not have friction, i.e.
+<font class="matlab">k=0</font>.  Let's suppose that
+<font class="matlab">L=3</font> m and <font class="matlab">m=0.5</font>
+kg (the mass does not matter if there is no friction.)
+
+<pre class="matlab">
+> <font class="matlab">eq6 := subs({k=0, g=9.8, m=0.5, L=3}, eq5);</font>
+</pre>
+
+\[
+eq6 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\text{d}t} v(t) = -3.266666667 \sin(\theta(t)) \right\}
+\]
+
+<p>We will plot the solution for the following two situations:</p>
+
+<ul>
+<li> We let the pendulum loose from an angle of $\pi/4$ so
+<font class="matlab">&theta;(0)=&pi;/4 </font> and
+<font class="matlab">v(0)=0</font>.</li>
+<li> We push the pendulum upward from and angle of $\pi/4$ with a
+velocity of $4$ m/s; so <font class="matlab">&theta;(0)= &pi;/4</font>
+and <font class="matlab">v(0)=4</font> m/s.</li>
+</ul>
+
+<p>Since we will plot the solution for different initial conditions,
+it is useful to re-introduce the procedure (after some small
+modifications) used before.<p>
+
+<pre class="matlab">
+>  <font class="matlab">graph := proc (a, b, T, clr) local X: X := dsolve(eq6 union {theta(0) = a, v(0) = b}, {theta(t), v(t)}, type = numeric, output = procedurelist, method = classical[rk4], stepsize = 0.1e-1): RETURN(odeplot(X, [theta(t), v(t)], 0 .. T, color = clr)): end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& graph := proc (a, b, T, clr)\\
+& \qquad  local\ X;\\
+& \qquad X := dsolve(eq6\ union\ \{theta(0) = a, v(0) = b\},
+\{theta(t), v(t)\}, type = numeric, output = procedurelist,\\
+& \qquad \qquad method = classical[rk4], stepsize = 0.1e-1);\\
+& \qquad  RETURN(plots:-odeplot(X, [theta(t), v(t)], 0 .. T, color = clr))\\
+& end\ proc
+\end{split}
+\]
+
+<p>The orbits of the two solutions are draw in the following
+figure.</p>
+
+<pre class="matlab">
+> <font class="matlab">pendul1 := graph(Pi/4,0,2*Pi,"red"):</font>
+> <font class="matlab">pendul2 := graph(Pi/4,4,Pi,"blue"):</font>
+> <font class="matlab">display({pendul1,pendul2}, axes=normal, labels=[`theta`,`v`]);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_11.png" style="width: 300px"
+     alt="Drawing of two orbits of the system of ODE associated to the
+     motion of the pendulum without friction"> 
+</div>
+
+<p>For the first case (in red), the pendulum oscillates back and forth
+for ever.  For the second case (in blue), the pendulum go around for
+ever because our initial velocity was strong.   Since there is no
+friction, the motion of the pendulum is for ever.</p>
+
+<p>We plot the vector field with the orbits of the solutions.</p>
+
+<pre class="matlab">
+> <font class="matlab">DEplot(eq6,[theta(t),v(t)], t=0..1.5*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=4]], linecolor=[blue,black], thickness=2, color=green, stepsize=0.01, arrows=small);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_12.png" style="width: 300px"
+     alt="Drawing of the vector field of the system of ODE associated to the motion of the pendulum without friction">
+</div>
+
+<h4> Pendulum with Friction </h4>
+
+<p>This time, we do not ignore the friction.  We assume that
+<font class="matlab">k=0.1</font>. We keep
+<font class="matlab">L=3</font> m and <font class="matlab">m=0.5</font> kg.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq6 := subs({m=0.5, g=9.8, L=3, k=0.1},eq5);</font>
+</pre>
+
+\[
+eq6 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\text{d}t} v(t) = -1.960000000 v(t)-3.266666667 \sin(\theta(t)) \right\}
+\]
+
+<p>Because we have kept the name <font class="matlab">eq6</font> for
+this system, the procedure <font class="matlab">graph(&nbsp;)</font>
+defined above is still valid in the present context.</p>
+
+<p>As for the ideal pendulum, we consider two sets of initial
+conditions.</p>
+
+<ul>
+<li> We let the pendulum loose from an angle of $\pi/4$ so
+<font class="matlab">&theta;(0)=&pi;/4 </font>and
+<font class="matlab">v(0)=0</font>.</li>
+<li> We push the pendulum upward from and angle of $\pi/4$ with a
+velocity of $8$ m/s; so <font class="matlab">&theta;(0)= &pi;/4</font>
+and <font class="matlab">v(0)=8</font> m/s.</p>
+
+<p> The orbits of the two solutions are draw in the following figure.</p>
+
+<pre class="matlab">
+> <font class="matlab">pendul1:=graph(Pi/4,0,3*Pi,"red"):</font>
+> <font class="matlab">pendul2:=graph(Pi/4,8,3*Pi, "blue"):</font>
+> <font class="matlab">display({pendul1,pendul2}, axes=normal, labels=[`theta`,`v`]);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_13.png" style="width: 300px"
+     alt="Drawing of two orbits of the solutions of the system of ODE
+     associated to the motion of the pendulum with friction">
+</div>
+
+<p>We plot the vector field with the orbits of the solutions.</p>
+
+<pre class="matlab">
+> <font class="matlab">DEplot(eq6,[theta(t),v(t)], t=0..1.3*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=8]], linecolor=[red,blue], thickness=2, color=black, stepsize=0.01, arrows=small);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_ODE_14.png" style="width: 300px"
+     alt="Drawing of the vector field of the system of ODE associated
+     to the motion of the pendulum with friction">
+</div>
+
+<p>In the first case (in red), the oscillation of the pendulum is
+dying down.  In the second case (in blue), after a complete
+rotation, the pendulum starts to oscillate and its oscillation
+is also dying down.</p>
+
+<br>
+<hr>
+<br>
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(ODE_systems,"en");
+</script>
+
+</body>
+</html>

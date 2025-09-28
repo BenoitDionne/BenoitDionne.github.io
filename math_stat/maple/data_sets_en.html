@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2023-09-04">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+</head>
+<body>
+
+<script language="javascript">
+top_function(data_sets,"en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2>Manipulating Data Sets</h2>
+
+<p>In this section, we briefly explain how to manipulate date sets; in
+particular if you have a large among of data in a file that you
+would like to analyze.</p>
+
+<h3>Reading and Writing Files</h3>
+
+<p>The basic two functions are <font class="matlab">readdata()</font>
+and <font class="matlab">writedata()</font>.<p>
+
+Suppose that we have a file <em>data1.txt</em> that contains the
+following lines.
+
+<pre class="matlab">
+  1 2 3 4
+  5 6 7 8
+  10 20 30 40
+  0.1 0.2 0.3 0.4
+</pre>
+
+<p>To read the file <em>data1.txt</em>, we use the function
+<font class="matlab">readdata()</font>.  The second argument <em>4</em>
+is the number of elements per row to be read.  It doesn't have to match
+the number of elements per row in the file.  You can read fewer
+element per row that there are per row in the file.  By default, the
+data are assumed to be floating point numbers (float).<p> 
+
+<pre class="matlab">
+> <font class="matlab">A:=readdata(`data1.txt`,4);</font>
+</pre>
+
+\[
+A := [[1., 2., 3., 4.], [5., 6., 7., 8.], [10., 20., 30., 40.], [.1, .2, .3, .4]]
+\]
+
+<p> <font class="matlab">A</font> is not a matrix (or an array). It is
+a list.  But <font class="matlab">A</font> can be converted into a
+matrix.</p>
+
+<pre class="matlab">
+  > <font class="matlab">B:=convert(A,'Matrix');</font>
+</pre>
+\[
+\begin{bmatrix}1. & 2. & 3. & 4. \\
+5. & 6. & 7. & 8. \\
+10. & 20. & 30. & 40. \\
+.1 & .2 & .3 & .4
+\end{bmatrix}
+\]
+
+<p>If you read the file <em>data1.txt</em>, assuming that the data are
+integers, we get</p>
+
+<pre class="matlab">
+  > <font class="matlab">C:=readdata(`data1`,integer,4); E := convert(C, 'Matrix') </font>
+</pre>
+
+\[
+\begin{split}
+& C := [[1, 2, 3, 4], [5, 6, 7, 8], [10, 20, 30, 40], [0]] \\
+& E := \begin{bmatrix} 1 & 2 & 3 & 4 \\ 5 & 6 & 7 & 8 \\ 10 & 20 & 30 & 40 \\
+0 & 0 & 0 & 0\end{bmatrix}
+\end{split}
+\]
+
+<p>As you can see, Maple did not read the non integer number (Maple
+did not even transform them to 0.)</p>
+
+<p> Consider the array</p>
+  
+<pre class="matlab">
+  > <font class="matlab">A := array([ [1,-1,1],[2,-2,3], [-3,-2,-1],[0,0,1]]);</font>
+</pre>
+
+\[
+A := \begin{pmatrix} 1 & -1 & 1 \\ 2 & -2 & 3 \\ -3 & -2 & -1 \\ 0 & 0 & 1 \end{pmatrix}
+\]
+
+<p>To store the array <font class="matlab">A</font> into the
+file <em>data2.txt</em>, one use the function
+<font class="matlab">writedata()</font>.
+
+<pre class="matlab">
+> <font class="matlab">writedata("data2.txt",A,float);</font>
+</pre>
+
+<p><em>Note</em>: the Maple objects <font class="matlab">Matrix</font>
+and <font class="matlab">Vector</font> cannot be used with
+<font class="matlab">writedate()</font>.  But, you can use
+<font class="matlab">array</font>, <font class="matlab">list</font>,
+... </p>
+
+<h3> Plotting Data </h3>
+
+<p><em>Example</em>: The data file <em>data3.txt</em> contains the
+following two rows:</p>
+
+<pre class="matlab">
+  600 800 1000 1500 2000 4000 6000 8000 10000 20000 30000 40000
+  2 6 10 12 14 20 30 40 50 55 57 60
+</pre>
+
+<p>The first row has different fluid viscosity and the second row is
+the reduction in percent of the pumping speed associated to the
+viscosity of the first row. We first read these data from the file
+<em>data3.txt</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab">pData:=readdata(`data3.txt`,12);</font>
+</pre>
+
+\[
+\begin{split}
+& pData := [[600., 800., 1000., 1500., 2000., 4000., 6000., 8000., 10000., 20000., \\ 
+&\qquad \qquad 30000., 40000.], [2., 6., 10., 12., 14., 20., 30., 40., 50., 55., 57., 60.]]
+\end{split}
+\]
+
+<p>We use the Maple function <font class="matlab">plot()</font> to plot
+the reduction in percent of the pumping speed as a function of the
+viscosity.  To do so, we need to create a list of points of the
+form $[[x_1,y_1],[x_2,y_2],...]$ that we will give as
+arguments to <font class="matlab">plot()</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">plist:=[seq([pData[1][i],pData[2][i]],i=1..12)];</font>
+</pre>
+
+\[
+\begin{split}
+& plist := [[600., 2.], [800., 6.], [1000., 10.], [1500., 12.], [2000., 14.], [4000., 20.], \\
+& \qquad \qquad [6000., 30.], [8000., 40.], [10000., 50.], [20000., 55.], [30000., 57.], [40000., 60.]]
+\end{split}
+\]
+
+<pre class="matlab">
+> <font class="matlab">plot( plist, style=POINT, symbol=circle,labels=['viscosity','reduction']); </font>
+</pre>
+
+<div class="center">
+  <img src="Maple_data_1.png" style="width: 300px"
+       alt="Graph of the percent of reduction of the pumping speed in function of the viscosity">
+</div>
+
+<p>We may use a spline to approximate the function of the reduction in
+percent of pumping speed in terms of the viscosity.  To use the
+Maple function <font class="matlab">spline()</font>, we need to
+transform the list <font class="matlab">pData</font> into
+a <font class="matlab">Matrix</font> with the viscosity in the first
+column and the associated reduction in percent of pumping speed in the
+second column.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(LinearAlgebra):</font>
+> <font class="matlab">ptData := Transpose( convert(pData,'Matrix') );</font>
+</pre>
+
+\[
+ptData := \begin{bmatrix} 12 x 2 Matrix \\ Data Type: anything \\ Storage: rectangular\\ Order: Fortran\_order \end{bmatrix}
+\]
+
+<p>When the matrix is too big to be displayed (according to Maple), you get
+only a description of the matrix.   We know that it is a
+$12 \times 2$ matrix.</p>
+
+<p>We define the spline that interpolate through all the data points
+that we have and plot it.</p>
+
+<pre class="matlab">
+> <font class="matlab">pSpline:= x-> spline(Column(ptData,1), Column(ptData,2), x, cubic):</font>
+> <font class="matlab">plot(pSpline(x),x=600..40000);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_data_2.png" style="width: 300px"
+       alt="Graph of the spline interpolation of our data points">
+</div>
+
+<p>I am guessing that a spline interpolation is not the right tool to
+fit through the data because the graph is not strictly increasing
+as expected.</p>
+
+<p><em>Example</em>: The components of a $n\times n$ matrix $A$ can be
+interpreted as the values of a function defined on the set
+$\{ (i,j) : 1 \leq i, j \leq n \}$; namely, $(i,j) \mapsto A(i,j)$.
+Consider the matrix defined in the data file <em>data1.txt</em>. 
+
+<pre class="matlab">
+> <font class="matlab">A:=readdata(`data1,txt`,4);</font>
+</pre>
+
+\[ A := [[1., 2., 3., 4.], [5., 6., 7., 8.], [10., 20., 30., 40.], [.1, .2, .3, .4]] \]
+
+<p>We define the list of points</p>
+\[
+[ [ [1,1,A(1,1)],...[1,4,A(1,4)] ] , [
+[2,1,A(2,1)],...[2,4,A(2,4)] ], ..., [ [4,1,A(4,1)],...[4,4,A(4,4)] ]
+]
+\]
+<p>that we will feed to the Maple function <font class="matlab">
+surfdata()</font> in the library <font class="matlab">plots</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">Alist:=[seq( [seq([i,j,A[i][j]],j=1..4)] , i=1..4)];</font>
+</pre>
+
+\[
+\begin{split}
+& Alist := [[[1, 1, 1.], [1, 2, 2.], [1, 3, 3.], [1, 4, 4.]], [[2, 1, 5.], [2, 2, 6.], [2, 3, 7.],\\
+& [2, 4, 8.]], [[3, 1, 10.], [3, 2, 20.], [3, 3, 30.], [3, 4, 40.]], [[4, 1, .1], [4, 2, .2], \\
+& [4, 3, .3], [4, 4, .4]]]
+\end{split}
+\]
+
+<pre class="matlab">
+> <font class="matlab">with(plots):</font>
+> <font class="matlab">surfdata(Alist, axes=frame, labels=[x,y,z]);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_data_3.png" style="width: 300px"
+       alt="Graph of the surface produced by the matrix A">
+</div>
+
+<br>
+<hr>
+<br>
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(data_sets,"en");
+</script>
+
+</body>
+</html>

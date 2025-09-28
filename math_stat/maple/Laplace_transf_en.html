@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2023-09-04">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+</head>
+<body>
+
+<script language="javascript">
+top_function(Laplace_transf,"en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2> Laplace Transforms </h2>
+
+<p>We provide a very short introduction to the Laplace transform on
+<em>Maple</em>.  In particular, how to use it to solve linear ODE with
+constant coefficients.  We don't plan to give a rigorous presentation.</p>
+
+<h3> The Laplace Transform </h3>
+
+<p>The <em>Laplace transform</em> of a function $f(t)$ is defined by</p>
+  
+\[
+F(s) = L( f(t) ) = \int_0^\infty f(t) e^{-s t} \text{d} t
+\]
+
+<p>for the values of $s$ where the integral converges.  <em>Maple</em>
+can compute Laplace transforms for us.  We need to load the library
+<font class="matlab">inttrans</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(inttrans):</font>
+</pre>
+
+<p>The Laplace transform of $f(t) = e^{-3 t}\sin(5 t)$ is compute as
+follows.</p>
+
+<pre class="matlab">
+> <font class="matlab">ft := exp(-3*t)*sin(5*t); Fs:=laplace(ft,t,s);</font>
+</pre>
+
+\[
+\begin{split}
+  & ft := e^{-3t} \sin(5t) \\
+  & Fs := \frac{5}{(s+3)^2 + 25}
+\end{split}
+\]
+
+<p>The <em>inverse Laplace transform</em> of a function $F(s)$ is a
+function $f(t)$ such that $L( f(t) ) = F(s)$.  We write
+$L^{-1}( F(s) ) = f(t)$.   There is an integral formula to compute the
+inverse Laplace transform but we can live without it in this introduction.</p>
+
+<p>The inverse Laplace transform of $H(s) = \frac{1}{s^2-4}$ is
+computed as follows.</p>
+
+<pre class="matlab">
+> <font class="matlab">Hs := 1/(s^2-4); ht:=invlaplace(Hs,s,t);</font>
+</pre>
+
+\[
+\begin{split}
+  &Hs := \frac{1}{s^2-4} \\
+  &ht := \frac{\text{sinh}(2 t)}{2}
+\end{split}
+\]
+
+<p>The <em>Heaviside Function</em> is define by</p>
+
+\[
+H(t) = \begin{cases} 1 & \text{ if } t > 0 \\
+0 & \text{ if } t < 0
+\end{cases}
+\]
+
+<p>It is the function <font class="matlab">Heaviside()</font> in Maple.
+The Laplace transform of this function is  
+
+<pre class="matlab">
+> <font class="matlab">laplace(Heaviside(t),t,s);</font>
+</pre>
+
+\[
+\frac{1}{s}
+\]
+
+<p>It is usual to shift the Heaviside Function such that the jump is
+  at a value other than the origin.</p>
+
+<pre class="matlab">
+> <font class="matlab">H4t := t->Heaviside(t-4); H4s := laplace(H4(t),t,s);</font>
+</pre>
+
+\[
+\begin{split}
+& H4t := t \mapsto Heaviside(t - 4) \\
+& H4s := \frac{e^{-4s}}{s}
+\end{split}
+\]
+
+<p>The Heaviside function has some interesting properties. For instance,
+$L( H(t-a) f(t-a) ) = e^{-a s} F(s)$ where $F(s) = L( f(t) )$.</p>
+
+<p>The <em>Dirac Delta Function</em> is <q lang="en">defined</q> by
+$\delta(t) = 0$ for $t \neq 0$ and
+$\int_{-a}^a f(t) \delta(t) \text{d}t = f(0)$ for all functions $f$
+and all $a > 0$.  The Dirac Delta Function is not a function as one
+discovers in a course on measure theory.  It is denoted
+<font class="matlab">Dirac(&nbsp;)</font> in <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab">laplace(Dirac(t),t,s);</font>
+</pre>
+
+\[
+1
+\]
+
+<h3> Solving ODE with Laplace Transforms </h3>
+
+<p>Let's suppose that you want to solve the ODE</p>
+
+\[
+y''(t) + 4 y(t) = \cos(2t)
+\]
+
+<p>with the initial conditions $y(0)=2$ and $y'(0)=3$.  The idea is
+really simple.  We apply the Laplace Transform on both sides of the
+ODE to transform it into an algebraic equation in $Y(s) = L ( y(t) )$.
+We solve this algebraic equation to find $Y(s)$. Finally, we
+use the inverse Laplace transform to transform $Y(s)$ into the solution
+$y(t)$ that we are looking for.</p>
+
+<p>The ODE is transformed into an algebraic equation (no more
+derivatives) because the Laplace Transform eliminates the
+derivatives. In fact, $L( y'(t) ) = s Y(s)- y(0)$, 
+$L( y''(t) ) = s^2 Y(s) - s y(0) -y'(0)$ and in general</p>
+
+\[
+L( y^{n}(t) ) = s^n Y(s) - s^(n-1) y(0) -s^(n-2) y'(0)- \ldots - y^{(n-1)}(0)
+\]
+
+<p>These formulae can be proved with integration by parts.</p>
+
+<p><em>Example</em:  Consider the ODE</p>
+
+<pre class="matlab">
+> <font class="matlab">eq1 := diff(y(t),t$2) + 4*y(t)=cos(2*t);</font>
+</pre>
+
+\[
+  eq1 := \frac{\text{d}^2}{\text{d}t^2} y(t) + 4 y(t) = \cos(2t)
+\]
+
+<p>We have</p>
+
+<pre class="matlab">
+> <font class="matlab">eq2 := laplace(eq1,t,s); Ys:=solve(eq2,laplace(y(t),t,s)); yt := invlaplace(Ys,s,t); yt := subs({y(0)=2,D(y)(0)=3},yt);</font>
+</pre>
+
+\[
+\begin{split}
+& eq2 := s^2\,laplace(y(t),t,s) -D(y)(0) - s y(0)  +4\,laplace(y(t),t,s) = \frac{s}{s^2 + 4} \\
+& Ys := \frac{ y(0) s^3+ 4 s y(0) + D(y)(0) s^2 + 4 D(y)(0)+s}{ (s^2 + 4)^2} \\
+& yt := y(0) cos(2 t) \frac{sin(2t) )t + 2*D(y)(0)}{4}\\
+& yt := 2 cos(2 t) \frac{sin(2t) )t + 6}{4}
+\end{split}
+\]
+
+<p>All the work to solve the initial value problem in the previous
+example can be done with one Maple command.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve({eq1,y(0)=2,D(y)(0)=3},y(t),method=laplace);</font>
+</pre>
+
+\[
+yt = 2 cos(2 t) \frac{sin(2t) )t + 6}{4}
+\]
+
+<h3> Applications </h3>
+
+<p>Laplace transforms are often introduced when studying electrical
+circuit.  Consider the following <em>RLC circuit</em>.
+
+<div class="center">
+  <img src="Maple_RLC_circuit.png" style="width: 300px"
+       alt="Drawing of a standard RLC circuit">
+</div>
+
+<p>where $R$ is the resistance (in ohms) of a resistor, $L$ is the
+inductance (in henys) of an inductor, and $C$ is the capacitance
+(in farads) of a capacitor.  $v_s(t)$ is the strength of the voltage
+source (in volts).  According to Kirchoff's voltage law
+$v_s + Ri = v_C + v_L$, where $v_C$ is the voltage at the capacitor,
+$v_L$ is the voltage at the inductor, and $i$ is the current.  The RLC
+  circuit is governed by the ODE</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq3 := L*C*diff(v(t),t$2) + R*C*diff(v(t),t) + v(t)=VS(t);</font>
+</pre>
+
+\[
+eq3 := L C \left( \frac{\text{d}^2}{\text{d}t^2} v(t)\right) + R C \left( \frac{\text{d}}{\text{d}t} v(t)\right) + v(t) = VS(t)
+\]
+
+<p>where <font class="matlab">v(t)</font> is the voltage across the
+capacitor that we have denoted by $C$ in the figure.</p>
+
+<p>Suppose that <font class="matlab">R=2</font> ohms,
+<font class="matlab">C=0.15</font> farads,
+<font class="matlab">L=2</font> henys and
+<font class="matlab">VS(t) = Dirac(t)</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq4 := subs({R=2, C=0.15, L=2, VS(t)=Dirac(t)},eq3);</font>
+</pre>
+
+\[
+eq4 := 0.30 \frac{\text{d}^2}{\text{d}t^2} v(t) + 0.30 \frac{\text{d}}{\text{d}t} v(t) + v(t) = Dirac(t)
+\]
+
+<p>If the initial conditions are <font class="matlab">v(0)=1</font> and
+<font class="matlab">D(v)(0)=0</font>, we have:</p>
+
+<pre class="matlab">
+  > <font class="matlab">dsolve({eq4, v(0) = 1, (D(v))(0) = 0}, v(t), method = laplace);</font>
+</pre>
+
+\[
+v(t) = \frac{e^{-\frac{t}{2}} \left( 111\cos\left(\frac{\sqrt{111} t}{6}\right) + 23 \sqrt{111} \sin\left(\frac{\sqrt{111} t}{6}\right)\right)}{111}
+\]
+
+<p>The graph of the voltage <font class="matlab">v(t)</font>is</p>
+
+<pre class="matlab">
+> <font class="matlab">plot(rhs(%), t = 0 .. 20);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_laplace_1.png" style="width: 300px"
+       alt="Graph of v(t)">
+</div>
+
+<br>
+<hr>
+<br>
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(Laplace_transf,"en");
+</script>
+
+</body>
+</html>

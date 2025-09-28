@@ -1,0 +1,766 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2023-09-04">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(Mbs_algo_maple,"en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2> Algorithm with Maple </h2>
+
+<h3> Introduction </h3>
+
+<p>You can use Maple commands to define a variable with a code of the
+  form</p>
+
+<pre class="matlab">
+<font class="matlab">
+  $variable_name = maple(" Maple code ");
+</font>
+</pre>
+
+<p>You can have a full Maple program as
+  <font class="matlab">Maple code</font>.  The last statement of the
+  code returns the value given to the variable.</p>
+
+<h3> Simple Calls to Maple </h3>
+
+<p>This is obviously not an exhaustive list of Maple functions but
+  they have been useful in authoring questions. For a more complete
+  introduction to Maple, please consult the website
+  <script language="javascript">
+    buildLinK(maple.url_en, maple.text_en,"MMathSStat", maple.id, maple.target);
+  </script>.</p>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">diff(f(x),x)</font>
+  computes the derivative of the
+  function <font class="matlab">f(x)</font> with respect to the
+  variable <font class="matlab">x</font>.</p>  For instance</p>
+
+<pre class="matlab">
+<font class="matlab">
+$b = maple("diff(cos(x) * sin(x),x);");
+</font>
+</pre>
+
+<p>gives <em>-sin(x)^2+cos(x)^2</em>.</p>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">int(f(x),x)</font> computes the integral of the
+  function <font class="matlab">f(x)</font> with respect to the
+  variable <font class="matlab">x</font>.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a = 5;
+$b = maple("int(ln(x+($a)),x);");
+</font>
+</pre>
+
+<p>gives <em>ln(x+5)*(x+5)-x-5</em>.  Maple does not add a
+  constant of integration.</p>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">int(f(x), x=a..b)</font> computes the definite
+  integral of the function <font class="matlab">f(x)</font> with respect
+  to the variable <font class="matlab">x</font> on the interval
+  \([a,b]\).</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a = 5;
+$b = maple("int(ln(x+($a)),x=-1..10);");
+</font>
+</pre>
+
+<p>gives <em>-11-8*ln(2)+15*ln(3)+15*ln(5)</em>.</p>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">simplify(expression)</font> simplify
+algebraically the given <font class="matlab">expression</font>.
+
+<pre class="matlab">
+<font class="matlab">
+$a = 9; $b = 16; $c = 3; $d = 4;
+$e = maple("simplify( ($a*x^2 - ($b))/($c*x + ($d)) );");
+</font>
+</pre>
+
+<p>gives  <em>3*x - 4</em>.</p>
+
+<h3> Graphs and Figures </h3>
+
+<p>We give only a couple of examples on how to draw the graph of a
+  function.  There are too many options to plot graphs in Maple to be
+  able to cover all of them in our short survey.  The procedure to
+  call Maple from Möbius to draw graphs or figures is always the
+  same.  You have to use the command
+  <font class="matlab">plotmaple</font> in Möbius.</p>
+
+<p><em>Example</em>:</p>
+
+<p>The following code is used to draw the graph of \(\sin(x)\) for \(x\)
+  between \(-\pi\) and \(\pi\).</p>
+
+<pre class="matlab">
+<font class="matlab">$myplot=plotmaple("plot(sin(x), x=-Pi..Pi), plotdevice='gif',
+         plotoptions='height=250, width=250'");
+</font>
+</pre>
+
+<p>It suffices to insert the variable
+  <font class="matlab">$myplot</font> in your text to get the graph
+  displayed at that location.</p> 
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">plot(f(x),x=a..b)</font> plots the graph of
+  the function <font class="matlab">f(x)</font> on the interval
+  \( a \leq x \leq b\).</p>
+
+<pre class="matlab">
+<font class="matlab">
+$A = plotmaple("plot(sin(x),x=-Pi..Pi);");
+</font>
+</pre>
+
+<p>gives the figure below at the location of
+  <font class="matlab">$A</font> in the text.</p>
+
+<div class="center">
+  <img src="Mobius_graph_of_sin.png" style="width: 300px"
+       alt="Graph of sin(x) for -pi < x < pi"
+       class="MobiusFig">
+</div>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">plot([f1(x),f2(x), ..., fN(x)], x=a..b,
+    color=[color1,color2, ...,colorN], thickness=''thickness'')</font>
+  plots the graphs of the functions <font class="matlab">f1(x)</font>,
+  <font class="matlab">f2(x)</font>,...,<font class="matlab">fN(x)</font>
+  on the interval \(a \leq x \leq b\).  Each graph gets its own
+  colour.  It is also possible to modify the thickness of the line
+  used to draw the graphs.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$A = plotmaple("plot([sin(x),cos(x)], x=-Pi..Pi, color=[black,blue],thickness=2);");
+</font>
+</pre>
+
+<p>gives the figure below at the location
+  of <font class="matlab">$A</font> in the text.</p>
+
+<div class="center">
+  <img src="Mobius_graph_of_sin_cos.png" style="width: 300px"
+       alt="Graph of sin(x) and cos(x) for -pi < x < pi"
+       class="MobiusFig">
+</div>
+
+<p><em>Example</em>:</p>
+
+<p>You can create an animation if you want the graph of a function to
+  evolve when the value of a parameter varies.   Suppose that
+  you would like to see how  \(\sin(ax)\)  evolves when \(a\)
+  increases from 1 to 4.  The code would look like this one.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$myanimation = plotmaple("plots[animate](sin(a*x), x=-Pi..Pi, a=1..4),
+plotdevice='gif', plotoptions='height=200, width=200'");
+</font>
+</pre>
+
+<p>The graph of \(\sin(ax)\) will evolve continuously as \(a\) goes
+  from 1 to 4, and this will be repeated for ever.</p>
+
+<h3> MathML and \(\LaTeX\) </h3>
+
+<p>If you want to write a mathematical formula in
+  your <em>Question</em> area or in the section <em>Feedback</em>,
+  then you may use \(\LaTeX\) with the following convention: expressions
+  between dollar signs $ must be written between \<span></span>( and
+  \<span></span>), expressions between double dollar signs $$ must be
+  written between \<span></span>[ and \<span></span>].   However, you
+  may also ask Maple to format your mathematical expressions in
+  \(\LaTeX\) or <em>MathML</em>.  Here are a few examples.</p>
+
+<p><em>Example</em>:</p>
+
+<p>How can you nicely format the result of a computation done by
+  Maple?  Maple has a command to translate mathematical expressions in
+  MathML.
+  <font class="matlab">MathML[ExportPresentation](Maple code)</font>
+  writes the result of the <font class="matlab">Maple code</font> in
+  MathML format.</p>
+
+<p>The code</p>
+
+<pre class="matlab">
+<font class="matlab">
+$m = maple("MathML[ExportPresentation](x^2-3*x+2)");
+</font>
+</pre>
+
+<p>generates the MathML code that translates into \(x^2 - 3 x +2\)
+  where you introduce <font class="matlab">$m</font> in your text.
+The code</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a = 5;
+$b = maple("MathML[ExportPresentation](exp($a*x)/x)");
+</font>
+</pre>
+
+<p>gives the MathMl code to produce \(\displaystyle \frac{e^{5x}}{x}\).</p>
+
+<p><em>Example</em>:</p>
+
+<p>If you want to introduce the result of a computation done by Maple
+  into a \(\LaTeX\) expression, then you should use the command
+  <font class="matlab">latex</font> in Maple.</p>
+
+<p>The code</p>
+
+<pre class="matlab">
+<font class="matlab">
+$myLaTeX = maple("latex(x^2-3*x+2)");
+</font>
+</pre>
+
+<p>generates the \(\LaTeX\) code to produce <em>{x}^{2}-3\,x+2</em>.</p>
+
+<h3> Conditional Statement in Maple </h3>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">if (condition1) then commands1; elif
+    (condition2) then commands2; else commands3; fi;");</font> execute
+  the set of commands associated to the condition that is satisfied.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a = 2;
+$b = maple("if ($a=1) then 1; elif ($a=2) then 2; else 3; fi;");
+</font>
+</pre>
+
+<p>gives 2.</p>
+
+<h3> Reducing the Number of Calls to Maple </h3>
+
+<p><em>Example</em>:</p>
+
+<p>You may want to limit the number of call to Maple because it may
+  slow down the loading of a question.  Though, this seems to be no
+  longer an issue.  Nevertheless, avoid writing code like this
+  one.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a1 = 1;  $a2 = maple("$a1+1");  $a3 = maple("$a2+1");
+$a4 = maple("$a3+1");  $a5 = maple("$a4+1");  $a6 = maple("$a5+1");
+$a7 = maple("$a6+1");  $a8 = maple("$a7+1");  $a9 = maple("$a8+1");
+$a10 = maple("$a9+1");  $a11 = maple("$a10+1"); ...
+$a160 = maple("$a159+1");
+</font>
+</pre>
+
+<p>when you can simply write</p>
+
+<pre class="matlab">
+<font class="matlab">
+$B = maple("A:=Vector(160); a:=0; for j from 1 to 160 do a := a+1; A[j] := a;
+    end do; map(rcurry(convert,string),convert(A,list))");
+$a1 = switch(0,$B);
+$a2 = switch(1,$B);
+$a3 = switch(2,$B);
+$a4 = switch(3,$B);
+  ...
+$a160 = switch(159,$B);
+</font>
+</pre>
+
+<p>to save 158 calls to Maple.  The command
+  <font class="matlab">switch()</font> gives you access to the elements of
+  a list of strings like <font class="matlab">$B</font>.</p> 
+
+<p><em>Example</em>:</p>
+
+<p>Here is another example of the use of the Maple command
+  <font class="matlab">map(rcurry(convert,string),convert( ,list))</font>.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a=1;  $h=0.5;  $c=5;
+$N = maple("A :=Vector(15); for j from 1 to 7 do A[j]:= $a+(j-1)*\$h); end do;
+     for j from 8 to 14 do A[j]:= round(3*($c)+30/(($c)+j-8)); end do;
+     A[15]:=($h)*(A[8]+2*add(A[k],k=9..13)+A[14])/2;
+     map(rcurry(convert,string),convert(A,list))");
+$R=switch(14,$N);
+</font>
+</pre>
+
+<p>The value of <font class="matlab">$R</font> in the code above is
+  56.75; the value of <font class="matlab">A[15]</font>.  It is also
+  possible to decompose the vector <font class="matlab">A</font> into
+  its operands using the command </p>
+
+<pre class="matlab">
+<font class="matlab">
+  map(rcurry(convert,string),map(op,convert(A ,list)));
+</font>
+</pre>
+
+<p>If you had used this command in the previous code,
+  then <font class="matlab">switch(14,$N)}</font> would have given
+  5675000000 and <font class="matlab">switch(15,$N)}</font> would have
+  given -8 because <font class="matlab">A[15] = 5675000000 E-8</font>.
+  There is two operands.  Note that <font class="matlab">A[j]</font>
+  for 0 &le; j < 14 are integers and so represent only one operand
+  each.</p>
+
+<p><em>Example</em>:</p>
+
+<p>The following example deal with the product of matrices.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$N = maple("f:=(x,y)->evalf(sin(x+y));
+     M:=Matrix(2,3,[[f(1,1),f(1,2),f(1,3)],[f(2,1),f(2,2),f(2,3)]]);
+     map(rcurry(convert,string),convert(M,list))");
+$m23 = switch(3*(2-1)+(3-1), $N);
+</font>
+</pre>
+
+<p>In the previous code, the command
+  <font class="matlab">convert(M,list)</font> converts the matrix
+  <font class="matlab">M</font> into the list
+  <font class="matlab">[f(1,1),f(1,2),f(1,3),f(2,1),f(2,2),f(2,3)]</font>.
+  The command <font class="matlab">map(rcurry(convert,string),...)</font>
+  converts each numerical element of the list into a string of
+  characters that can be handled by <font class="matlab">switch()</font>. 
+  <font class="matlab">$m23</font> is the element in the second row
+  and third column.<p> 
+
+<p>To be honest, the previous code could be replaced by</p>
+
+<pre class="matlab">
+<font class="matlab">
+$N = maple("f:=(x,y)->evalf(sin(x+y));
+      M:=Matrix(2,3,[[f(1,1),f(1,2),f(1,3)],[f(2,1),f(2,2),f(2,3)]]); M;");
+$m23 = maple("$N[2,3];");
+</font>
+</pre>
+
+<p>which is simpler and probably as fast as the previous one since
+  only two calls to maple are used.</p>
+
+<h3> Random Selection Using Maple </h3>
+
+<p><em>Example</em>:</p>
+
+<p>Suppose that you have a complete graph with vertices A, B, C, D and
+  E.  You want to randomly select a path that links all the vertices
+  without going to the same vertex twice.  To do that, you want to
+  list the edges that go from the first selected vertex to the last one.
+  The following code do just that.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$vertices = "ABCDE";
+$nbr = 5;
+$edges = maple("with(combinat): randomize(): L:=String($vertices):
+     LL:=[seq(L[i],i=1..$nbr)]: LLL:=randperm(LL):
+     [seq(cat(LLL[i],LLL[i+1]),i=1..$nbr-1),cat(LLL[1],LLL[$nbr])];"];
+$edge1 = switch(0,$edges);
+$edge2 = switch(1,$edges);
+$edge3 = switch(2,$edges);
+$edge4 = switch(4,$edges);
+$sum = switch(4,$edges);
+</font>
+</pre>
+
+<p>The result of the maple call will be a list of edges like
+  <font class="matlab"> ["AC","CE","EB","BD","AD"]</font>.  Then we
+  use the switch command to retrieve each edges.</p>
+
+<p><em>Example</em>:</p>
+
+<p>If, in the previous example, you would like to randomly select only
+  three of the vertices to create the path, then you will use a code
+  similar to the following one.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$vertices = "ABCDE";
+$nbr = 5;
+$nbr1 = 3;
+$edges = maple("with(combinat): randomize(): L:=String($vertices):
+     LL:=[seq(L[i],i=1..$nbr)]: LLL:=randperm(randcomb(LL,$nbr1)):
+     [seq(cat(LLL[i],LLL[i+1]),i=1..$nbr1-1),cat(LLL[1],LLL[$nbr1]) ];"];
+$edge1 = switch(0,$edges);
+$edge2 = switch(1,$edges);
+$sum = switch(3,$edges);
+</font>
+</pre>
+
+<p>In the previous code, we have used
+  <font class="matlab"> randperm(randcomb(LL,$nbr1)) </font> because
+  <font class="matlab"> randcomb() </font> always give a combination
+  in increasing order.  We use <font class="matlab">randperm()</font>
+  to shuffle these combinations.</p>
+
+<h3> Truth Table </h3>
+
+<p><em>Example</em>:</p>
+
+<p>Suppose that the variable <font class="matlab">$exp</font> produced
+  in the section <em>Algorithm</em> of your question holds a
+  proposition of the form <font class="matlab"> (($p1) $o1 ($p2))
+    $o2 ($p3)</font>, where <font class="matlab">$o1</font>
+  and <font class="matlab">$o2</font> are two connectives
+  (e.g. &and;, &or; &not;, &rarr; or &harr;),
+  and  <font class="matlab">$p1</font>, <font class="matlab">$p2</font>
+  and <font class="matlab">$p3</font> are
+  three <q lang="en">simple</q> propositions.   All of the
+  propositions are formed from the atomic propositions \(P\), \(Q\)
+  and \(R\).</p>
+
+<p>You give below the example of a code that could be used to generate
+the expression <font class="matlab">$exp</font>.</p>
+
+<pre class="matlab">
+<font class="matlab">
+#randomly choose a first binary operation
+$ro1 = rint(2);
+
+# op code for maple
+$o1 = switch($ro1, "&and", "&or");
+
+# op code for latex
+$o1tex = switch($ro1, "\land", "\lor");
+
+#randomly choose a second binary operation
+$ro2 = rint(2);
+
+# op code for maple
+$o2 = switch($ro2, "&implies", "&or");
+
+# op code for latex
+$o2tex = switch($ro2, "\to", "\lor");
+
+# randomly choose unary operations
+$rp1 = rint(2);
+$rp2 = rint(2);
+$rp3 = rint(2);
+
+# negation code for maple
+$p1 = switch($rp1, "&amp;not P", "P");
+$p2 = switch($rp2, "&amp;not Q", "Q");
+$p3 = switch($rp3, "&amp;not R", "R");
+
+# negation code for latex
+$p1tex = switch($rp1, "\neg P", "P");
+$p2tex = switch($rp2, "\neg Q", "Q");
+$p3tex = switch($rp3, "\neg R", "R");
+
+# expression for maple
+$exp = "(($p1) $o1 ($p2)) $o2 ($p3)";
+
+# expression for latex
+$exptex= "($p1tex $o1tex $p2tex) $o2tex $p3tex";
+</font>
+</pre>
+
+<p> The expression <font class="matlab">$exptex</font> contains the
+  \(\LaTeX\) code to write the expression
+  <font class="matlab">$exp</font> in your question and in
+  the section <em>Feedback</em>.</p>
+
+<p>Suppose that you would like students to produce the truth table for
+  the proposition <font class="matlab">$exp</font> that also
+  includes <font class="matlab">p1</font>, <font class="matlab">p2</font>
+  and <font class="matlab">p3</font>.  Namely, you would like students
+  to complete the following truth table.</p>
+
+<table style="width: 80%;">
+<col style="width: 14%"> <col style="width: 14%">
+<col style="width: 14%"> <col style="width: 14%">
+<col style="width: 14%"> <col style="width: 16%">
+<col style="width: 14%">
+<tr>
+<th> P </th><th> Q </th><th> R </th><th> p1D </th><th> p2D </th><th>
+p3D </th><th> expD </th>
+</tr>
+<tr><td> \(T\) </td><td> \(T\) </td><td> \(T\) </td><td> \(A_{1,1}\)
+  </td><td> \(A_{1,2}\) </td><td> \(A_{1,3}\) </td><td> \(A_{1,4}\)
+</td></tr>
+<tr><td> \(T\) </td><td> \(T\) </td><td> \(F\) </td><td> \(A_{2,1}\)
+  </td><td> \(A_{2,2}\) </td><td> \(A_{2,3}\) </td><td> \(A_{2,4}\)
+</td></tr>
+<tr><td> \(T\) </td><td> \(F\) </td><td> \(T\) </td><td> \(A_{3,1}\)
+  </td><td> \(A_{3,2}\) </td><td> \(A_{3,3}\) </td><td> \(A_{3,4}\)
+</td></tr>
+<tr><td> \(T\) </td><td> \(F\) </td><td> \(F\) </td><td> \(A_{4,1}\)
+  </td><td> \(A_{4,2}\) </td><td> \(A_{4,3}\) </td><td> \(A_{4,4}\)
+</td></tr>
+<tr><td> \(F\) </td><td> \(T\) </td><td> \(T\) </td><td> \(A_{5,1}\)
+  </td><td> \(A_{5,2}\) </td><td> \(A_{5,3}\) </td><td> \(A_{5,4}\)
+</td></tr>
+<tr><td> \(F\) </td><td> \(T\) </td><td> \(F\) </td><td> \(A_{6,1}\)
+  </td><td> \(A_{6,2}\) </td><td> \(A_{6,3}\) </td><td> \(A_{6,4}\)
+</td></tr>
+<tr><td> \(F\) </td><td> \(F\) </td><td> \(T\) </td><td> \(A_{7,1}\)
+  </td><td> \(A_{7,2}\) </td><td> \(A_{7,3}\) </td><td> \(A_{7,4}\)
+</td></tr>
+<tr><td> \(F\) </td><td> \(F\) </td><td> \(F\) </td><td> \(A_{8,1}\)
+  </td><td> \(A_{8,2}\) </td><td> \(A_{8,3}\) </td><td> \(A_{8,4}\)
+</td></tr>
+</table>
+
+<p>where \( p1D\), \(p2D\), \(p3D\) and \(expD\) are replaced by the
+  \(\LaTeX\) expressions for <font class="matlab">$p1</font>,
+  <font class="matlab">$p2</font>, <font class="matlab">$p3</font>
+  and <font class="matlab">$exp</font> respectively.  Students must
+  submit the matrix</p>
+
+\[ A = \begin{pmatrix} A_{1,1} &amp; A_{1,2} &amp; \ldots \\ A_{2,1}
+&amp; A_{2,2} &amp; \ldots \\ \vdots &amp; \vdots &amp; \ddots
+\end{pmatrix}\]
+
+<p> where the entries of the matrix are \(T\) or \(F\).  You can find
+  an example of a <em>Maple Graded</em> question whose answer is a
+  matrix in the section <em>Matrix Format</em> of the site
+  <script language="javascript">
+    buildLinK(Mbs_maple_graded.url_en, Mbs_maple_graded.text_en,"MMathSStat",
+    Mbs_maple_graded.id, Mbs_maple_graded.target);
+  </script>.</p>
+
+<p> The section <em>Algorithm</em> will contain the following
+      instructions.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$exp = "$p1 $o1 $p2 $o2 $p3";
+$truthtable = maple("with(Logic): with(LinearAlgebra):
+     T1:=TruthTable( $p1, [P,Q,R],  output=Matrix);
+     T2:=TruthTable( $p2, [P,Q,R], output=Matrix);
+     T3:=TruthTable( $p3, [P,Q,R], output=Matrix);
+     T4:=TruthTable( $exp, [P,Q,R], output=Matrix);
+     T5:=Matrix([Column(T1,4), Column(T2,4),Column(T3,4),Column(T4,4)]);
+     T6:=ArrayTools:-FlipDimension(T5,1);
+     f:=(i,j) -> if ( T6[i][j] ) then T else F fi;
+     Matrix(8,4,f); ");
+$truthtableD = maple("printf(MathML[ExportPresentation]( $truthtable ));");
+</font>
+</pre>
+
+<p><font class="matlab">T1</font>, <font class="matlab">T2</font>,
+  <font class="matlab">T3</font> and <font class="matlab">T4</font>
+  hold the truth tables for <font class="matlab">p1</font>,
+  <font class="matlab">p2</font>, <font class="matlab">p3</font> and
+  <font class="matlab">$exp</font> respectively. In these truth
+  tables, 1 means true and 0 means false.  <font class="matlab">T5</font>
+  is a (8 &times; 4)-matrix that contains the last column
+  of <font class="matlab">T1</font>, <font class="matlab">T2</font>,
+  <font class="matlab">T3</font> and <font class="matlab">T4</font>;
+  the columns for \(P\), \(Q\) and \(R\) have been discarded.   Since
+  the order of the true assignments in the truth tables produced by Maple  
+  (i.e. \(FFF\), \(FFT\), ...  ) is the opposite of the order of the
+  true assignments used at the University of Ottawa
+  (i.e. \(TTT\), \(TTF\), ...), we use the command
+  <font class="matlab"> T6:=ArrayTools:-FlipDimension(T5,1);</font> to
+  inverse the order of the rows in the matrix <font class="matlab">T5</font>.
+  The last part of the code for <font class="matlab">$truthtable</font>
+  replaces all the ones in <font class="matlab">T6</font> by \(T\) and
+  the zeros by \(F\).<p>
+
+<p>The variable <font class="matlab">$truthtableD</font> is
+  the <em>MathML</em> presentation of the
+  matrix <font class="matlab">$truthtable</font> that can be used
+  in the section <em>Feedback</em> of the question.</p>
+
+<p><em>Example</em>:</p>
+
+<p>Suppose that you want to ask students to determine if a given
+  proposition is a contradiction and, if it is not, to identify the
+  truth assignments that make the given proposition true.  We assume
+  that your proposition has been randomly generated in
+  the section <em>Algorithm</em> of the question, and that it is stored
+  in the variable <font class="matlab"> $esp </font>.   The
+  question would have two answer boxes: one <em>true or false box</em>
+  where the student will answer if <font class="matlab"> $exp </font>
+  is a contradiction, and a <em>multi-selection box</em> where
+  students have to select the true assignments if any that make
+  <font class="matlab"> $exp </font> true.</p>
+
+<p>Suppose that <font class="matlab"> $exp </font> has three
+  atomic propositions: \(P\), \(Q\) and \(R\).   To keep with the
+  tradition at the University of Ottawa, the <em>multi-selection box</em>
+  will have the elements:</p>
+
+<table style="width: 80%;">
+<col style="width: 25%"> <col style="width: 25%">
+<col style="width: 25%"> <col style="width: 25%">
+<tr> <th> Number </th><th> P </th><th> Q </th><th> R </th> </tr>
+<tr><td> 1 </td><td> \(T\) </td><td> \(T\) </td><td> \(T\) </td></tr>
+<tr><td> 2 </td><td> \(T\) </td><td> \(T\) </td><td> \(F\) </td></tr>
+<tr><td> 3 </td><td> \(T\) </td><td> \(F\) </td><td> \(T\) </td></tr>
+<tr><td> 4 </td><td> \(T\) </td><td> \(F\) </td><td> \(F\) </td></tr>
+<tr><td> 5 </td><td> \(F\) </td><td> \(T\) </td><td> \(T\) </td></tr>
+<tr><td> 6 </td><td> \(F\) </td><td> \(T\) </td><td> \(F\) </td></tr>
+<tr><td> 7 </td><td> \(F\) </td><td> \(F\) </td><td> \(T\) </td></tr>
+<tr><td> 8 </td><td> \(F\) </td><td> \(F\) </td><td> \(F\) </td></tr>
+</table>
+
+<p>Maple uses the opposite order (i.e. \(FFF\), \(FFT\), ...  ) when
+  it generates truth tables.</p>
+
+<p>The section <em>Algorithm</em> of the question will contain the
+  following code.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$truthtable = maple("with(Logic): with(LinearAlgebra): T1:=TruthTable( $exp, [P,Q,R],
+      form=MOD2, output=Matrix); T2:= T1[1..8,4];   ArrayTools[FlipDimension](T2,1);");
+$ans2 = maple("with(LinearAlgebra): with(ListTools): T3:= $truthtable;
+      S := SearchAll(1, T3); if ( numelems([S]) > 0 ) then S; else 9; end if; ");
+$ans1=if(eq($ans2,9), 2, 1);
+$truthtableD = maple("with(LinearAlgebra): T3 := $truthtable;
+      f:= i -> if ( T3[i] = 1 ) then T else F fi;
+      T4 := Vector(8,f); map(rcurry(convert,string),convert(T4,list));");
+$rowc1=switch(0,$truthtableD);
+$rowc2=switch(1,$truthtableD);
+$rowc3=switch(2,$truthtableD);
+$rowc4=switch(3,$truthtableD);
+$rowc5=switch(4,$truthtableD);
+$rowc6=switch(5,$truthtableD);
+$rowc7=switch(6,$truthtableD);
+$rowc8=switch(7,$truthtableD);
+$statement=if(eq($ans1,2), "the compound proposition is a contradiction since for every truth assignment the proposition is false.",
+      "the compound proposition is not a contradiction since there exists a truth assignment where the proposition is true.");
+</font>
+</pre>
+
+<p>In the definition of <font class="matlab"> $truthtable</font>,
+  <font class="matlab"> T2</font> is the last column of the truth
+  table for <font class="matlab"> $exp </font> with the value 1 if the
+  statement is true and 0 if it is false.  We have to
+  use <font class="matlab">  ArrayTools[FlipDimension](T2,1);</font>
+  to reverse the order of the elements in <font class="matlab">
+  T2</font> to match the order of the true assignments used at the
+  University of Ottawa.  <font class="matlab"> $ans2 </font> will
+  contain the numbers of the true assignments that
+  make <font class="matlab"> $exp </font> true if
+  any.   <font class="matlab"> $ans </font> will be 2 (not a
+  contradiction) if <font class="matlab"> $ans1 </font> is not empty
+  and 1 (a contradiction) otherwise.</p>
+
+<p><font class="matlab"> $truthtableD </font>,
+  <font class="matlab"> $rowc1 </font>, <font class="matlab"> $rowc2 </font>,
+  ..., <font class="matlab"> $rowc8 </font> and
+  <font class="matlab"> $statement </font> are used in the section
+  <em>Feedback</em> of the question.  To be more precise, the
+  code for the section <em>Feedback</em> will look like this.</p>
+
+<pre class="matlab">
+&lt;center&gt;
+&lt;table class="UOtable"&gt;
+&lt;tr&gt;
+&lt;th&gt; \(P\) &lt;/th&gt;
+&lt;th&gt; \(Q\) &lt;/th&gt;
+&lt;th&gt; \(R\) &lt;/th&gt;
+&lt;th&gt; \(&extex\) &lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; \(T\) &lt;/td&gt;
+&lt;td&gt; \(T\) &lt;/td&gt;
+&lt;td&gt; \(T\) &lt;/td&gt;
+&lt;td&gt; \($row1) &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; \(T\) &lt;/td&gt;
+&lt;td&gt; \(T\) &lt;/td&gt;
+&lt;td&gt; \(F\) &lt;/td&gt;
+&lt;td&gt; \($row2\) &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    .
+    .
+    .
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; \(F\) &lt;/td&gt;
+&lt;td&gt; \(F\) &lt;/td&gt;
+&lt;td&gt; \(F\) &lt;/td&gt;
+&lt;td&gt; \($row8\) &lt;/td&gt;
+&lt;/tr&gt;
+&lt;table&gt;
+&lt;/center&gt;
+
+&lt;p&gt; Based on the truth table above, $statement&lt;/p&gt;
+</PRE>
+
+<p><font class="matlab">&extex</font> in the table above is the
+  \(\LaTeX\) version of the statement <font class="matlab">&exp</font>
+  that you will have generated in the section <em>Algorithm</em>.</p>
+
+<br>
+<hr>
+<br>
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(Mbs_algo_maple,"en");
+</script>
+
+</body>
+</html>

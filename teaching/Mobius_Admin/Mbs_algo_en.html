@@ -1,0 +1,699 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2023-09-04">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(Mbs_algo,"en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2> Algorithm Section </h2>
+
+<h3> Introduction </h3>
+
+<p>You may use random variables and mathematical formulae, graphs
+  (static or animation) produced with Maple, and event text formatted in
+  MathML or \(\LaTeX\) to create your questions.  You do all of that
+  in the section <em>Algorithm</em> of your question.  The general form
+  of the expressions in this section <em>Algorithm</em> is</p>
+<pre class="matlab">
+<font class="matlab">
+$variable_name = </font> code <font class="matlab">;</font>
+</pre>
+
+<p>You can use the <em>object</em> that you have created in the
+  section <em>Algorithm</em> in the statement of your question, in
+  the <em>Answer</em> box and the box <em>Grading Code</em> of the form
+  to create a <em>Maple Graded</em> question, in the
+  section <em>Feedback</em>, etc.  You only have to
+  write <font class="matlab">$variable_name</font> and the result of
+  the code associated to this variable is inserted in your
+  document.</p>
+
+<p>This document covers only the functions existing in Möbius.
+  To use Maple in the section <em>Algorithm</em>, please consult the
+  site <script language="javascript">
+    buildLinK(Mbs_algo_maple.url_en, Mbs_algo_maple.text_en,"MMathSStat",
+    Mbs_algo_maple.id, Mbs_algo_maple.target);
+  </script>.</p>
+
+<h3> Random Variables </h3>
+
+<p>The following examples illustrate the principal functions used to
+  generate <q lang="en">random numbers</q>.</p>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">rint(n)</font> randomly selects an integer
+  between \(0\) and \(n-1\) inclusively, where \(n \geq 0\).  For instance,
+  <font class="matlab">$a = rint(10);</font> is one of \(0, 1,\ldots ,9\).</p>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">rint(m,n)</font> randomly selects an integer
+  between m and n-1 inclusively, where n &gt; m.  For instance,
+  <font class="matlab">%a = rint(1,10);</font> is one of 1, 2,..., 9.</p>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">range(m,n)</font> randomly selects an integer
+  between \(m\) and \(n\) inclusively, where \(n \geq m\).  For instance,
+  <font class="matlab">$a = range(1,10);</font> is one of
+  \(1, 2,\ldots, 10\).</p>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">range(m,n,p)</font> randomly selects an
+  integer among \(m, m + p, m + 2p,\ldots , m + k p\), where \(k\) is
+  the largest integer \(\geq (n-m)/p\) and \(m \leq n\).  For instance,
+  <font class="matlab">$a = range(1,10,2);</font> is one of
+  \(1, 3, 5, 7, 9\).</p>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">rand(m,n,b)</font> randomly selects a real
+  number between \(m\) and \(n\) inclusively with \(b\) significant
+  digits, \(m \leq n\).  For instance,
+  <font class="matlab">$a = rand(2,3,2);</font>
+  is one of \(2.0, 2.1, \ldots, 3.0\).</p>
+
+<p>In the present document, the number of significant digits is the
+  number of digits in a number excluding the zero digits that may
+  appear at the beginning of the number.  Hence \(30.1\), \(030.1\)
+  and \(30.0\) have three significant digits, and \(31\) and \(3.1\)
+  have two significant digits.  If there were zeros at the end
+  of the number, then it is assumed that these digits are exact and count
+  in determining the number of significant digits.</p>
+
+<p><em>Example</em>:</p>
+
+<p>To get a random real number between \(a\) and \(b\) inclusively
+  with \(k\) decimals, one uses a formula like</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a = decimal(k, rand(a,b,m));
+</font>
+</pre>
+
+  <p>where \(m\) minus the number of digits in
+    <font class="matlab">int(b)</font> is at least equal to \(k\). </p>
+
+<h3> Switch and Conditions </h3>
+
+<p>The following commands are often used to either add some
+  restrictions or generate other random objects than number.</p>
+
+<p><em>Example</em>:</p>
+
+<p><font class="matlab">switch(rint(k), m1, m2, ... ,mk)</font>
+  randomly selects an element among m1, m2, ..., mk.  The
+  result of</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a = switch(rint(3),"sin","cos","tan");
+</font>
+</pre>
+
+<p>is one of <font class="matlab">sin</font>, <font class="matlab">cos</font>
+  or <font class="matlab">tan</font>.</p>
+
+<p><em>Example</em>:</p>
+
+<ul style="list-style-type:disc;">
+<li> <font class="matlab">condition: eq($a,$b)</font> means that the
+  values of the variables <font class="matlab">$a</font>
+  and <font class="matlab">$b</font> must be equal.</li>
+<li> <font class="matlab">condition: ne($a,$b)</font> means that the
+  variables <font class="matlab">$a</font>
+  and <font class="matlab">$b</font> must take different values.</li>
+<li> <font class="matlab">condition: gt($a,$b)</font> means that
+  <font class="matlab">$a</font> must be larger than
+  <font class="matlab">$b</font>.</li>
+<li> <font class="matlab">condition: lt($a,$b)</font> means that
+  <font class="matlab">$a</font> must be less than
+  <font class="matlab">$b</font>.</li>
+</ul>
+
+<p> For instance,</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a = range(-5,5);
+condition: ne($a,0);
+</font>
+</pre>
+
+<p>generate a non zero random number between \(-5\) and \(5\) inclusively.
+  Another way to get the same result without using
+  <font class="matlab">condition</font> is as follows.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a = range(-1,1,2)*range(1,5);
+</font>
+</pre>
+
+<h3> Formatting a Fraction </h3>
+
+<h4> Rational Numbers </h4>
+
+<p>Suppose that you want to display the reduced form of the fraction
+  \(a/b\), where \(a\) and \(b\) are integers.  If you use</p>
+
+<pre class="matlab">
+<font class="matlab">
+$ab = frac(a,b);
+</font>
+</pre>
+
+<p> then you will get a fraction of the form \(m/n\) corresponding to the
+  reduced form of \(a/b\).  For instance,</p>
+
+<pre class="matlab">
+<font class="matlab">
+$ab = frac(9,6);
+</font>
+</pre>
+
+<p> yields \(3/2\).  There are two options to get the \(\LaTeX\)
+  representation of the reduced form of \(a/b\).   The first option is
+  to start by reducing the fraction before generating the
+  \(\LaTeX\) expression for the reduced fraction,    This is the
+  approach used in the following code.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$z = gcd(a,b);
+$m = a/$z;
+$n = b/$z;
+$mn = if(eq($n,1), "$m", "\frac{$m}{$n}");
+</font>
+</pre>
+
+<p>This code yields <font class="matlab">$m</font> if the denominator
+  of the reduced fraction <font class="matlab">$m/$n</font> is 1
+  and <font class="matlab">\frac{$m}{$n}</font> otherwise.  There is a
+  second option using Maple.  The command</p>
+
+<pre class="matlab">
+<font class="matlab">
+$mn = maple("latex(a/b)");
+</font>
+</pre>
+
+<p> <q \lang="en">generally</q> yields the same result as the
+  previous code.  We say <q class="en">generally</q> because the
+  \{\LaTeX\) code produce by Maple may not be the \(\LaTeX\) code that
+  you wanted.   For instance,
+  <font class="matlab">maple("latex(1/2)")</font> will yield
+  \(1/2\) which is a perfectly correct \(\LaTeX\)  expression.
+  There is no way to tell the function
+  <font class="matlab">latex(&nbsp;)</font> that you would have
+  preferred an answer in the format <em>\frac{}{}</em>.</p>
+
+<h4> General Fractions </h4>
+
+<p>Everything that we have said so far is fine if you have a ratio
+  of integers.  However, how should we proceed to write a fraction of
+  the form \(\displaystyle \frac{a\sqrt{b}}{c}\) in a simplified form?
+  We cannot use the function <font class="matlab"> frac(a,b) </font>
+  because it is only valid for integers \(a\) and \(b\).  If you use
+  the command <font class="matlab"> maple("latex( a \sqrt{b} /
+  c);")</font>, then you will get a simplified form of the fraction but
+  there is no guarantee that the command <em>\frac{}{}</em> will be
+  used to format it.  In fact, \(\LaTeX\) expressions generated
+  by such a call are often really awful like \( 1/2\ 2^{1/2} \) for
+  \(\displaystyle \frac{\sqrt{2}}{2}\). We have to proceed
+  differently to get a nice fraction.  We first use Maple to simplify
+  the fraction (it is really good at that), and get the denominator
+  and numerator in \(\LaTeX\) format.  Then we create
+  the \(\LaTeX\) expression for the reduced fraction.  In the
+  following example, <font class="matlab">$pq</font> is a fraction
+  like \(\displaystyle \frac{7\sqrt{24}}{10}\) which is not
+  necessarily in reduced form.</p>
+
+<pre class="matlab">
+<font class="matlab">
+$mfrac = maple("pq:=simplify($pq): p:=numer(pq): q:= denom(pq):
+            [latex(p, output=string), latex(q,output=string)];");
+$p = switch(0,$mfrac);
+$q = switch(1,$mfrac);
+$pqD = "\frac{$p}{$q}";
+</font>
+</pre>
+
+<p>For instance, if <font class="matlab"> $pq = "7*sqrt(24)/10";</font>,
+  then the value of <font class="matlab">$pqD</font> produced by this code
+  will be <em>\frac{7\sqrt{6}}{5}<em>.</p>
+
+<h3> Formatting a Year </h3>
+
+<p>Möbius uses commas to separate thousands, millions, etc.
+  This is the normal practice for large numbers with one exception.
+  For the years, the comma is not used to separate thousands.   You do
+  not write the year <q lang="en">2,020</q> but the year
+  <q lang="en">2020</q>.  So, you need to format the years
+  that you display in questions.   Suppose
+  that <font class="matlab">$y = 2,020</font>.  The command</p>
+
+<pre class="matlab">
+<font class="matlab">
+$year = numfmt( "#", $y);
+</font>
+</pre>
+
+<p>yields <font class="matlab">$year = 2020</font>.</p>
+
+<h3> Constants, operators and Functions </h3>
+
+<p>We list below some of the important constants, operators and
+  functions that you can use in the section <em>Algorithm</em> and that
+  students may use in their answers if the
+  <em>Expression Type</em> is <em>Formula - e.g. e^x sin(x^e)</em>.</p>
+
+<table style="width: 80%;">
+<col style="width: 12%"> <col style="width: 20%">
+<col style="width: 12%"> <col style="width: 2%">
+<col style="width: 12%"> <col style="width: 20%">
+<col style="width: 12%">
+<tr style="background-color: inherit;">
+<th> Valid constants, operators and functions </th>
+<th> Name </th>
+<th> Symbol </th>
+<td rowspan="13" style="border-bottom: 0px; border-top: 0px;"> </td>
+<th> Valid constants, operators and functions </th>
+<th> Name </th>
+<th> Symbol </th>
+</tr>
+<tr>
+<td> \(e\) </td><td> Euler's Constant </td>
+<td> <font class="matlab">e</font></td>
+<td> \(\cos \) </td><td> cosine </td>
+<td> <font class="matlab">cos(&nbsp) </font></td>
+</tr>
+<tr>
+<td> \(\pi\) </td><td> pi </td>
+<td> <font class="matlab">pi</font></td>
+<td> \(\tan\) </td><td> tangent </td>
+<td> <font class="matlab">tan(&nbsp) </font></td>
+</tr>
+<tr>
+<td> \(+\) </td><td>Addition </td>
+<td> <font class="matlab">+</font></td>
+<td> \( \cot\) </td><td> cotangent </td>
+<td> <font class="matlab">cot(&nbsp;)</font></td>
+</tr>
+<tr>
+<td> \(-\) </td> <td> Subtraction </td>
+<td> <font class="matlab">-</font></td>
+<td> \(\sec\) </td><td> secant </td>
+<td> <font class="matlab">sec(&nbsp;) </font></td>
+</tr>
+<tr>
+<td> \(\times\) </td><td> Multiplication </td>
+<td> <font class="matlab">*</font></td>
+<td> \(\csc\) </td><td> cosecant </td>
+<td> <font class="matlab">csc(&nbsp)</font></td>
+</tr>
+<tr>
+<td> \(/\) or \(\div\) </td><td> Division </td>
+<td> <font class="matlab">/</font></td>
+<td> \(\arcsin\) </td><td> arcsine </td>
+<td> <font class="matlab">arcsin(&nbsp;)</font></td>
+</tr>
+<tr>
+<td> </td><td> Exponent </td>
+<td> <font class="matlab">^</font></td>
+<td> \(\arccos\) </td><td> arccosine </td>
+<td> <font class="matlab">arccos(&nbsp;)</font></td>
+</tr>
+<tr>
+<td> \( \sqrt{ } \)</td> <td> Square root </td>
+<td> <font class="matlab">sqrt(&nbsp)</font></td>
+<td> \(\arctan\) </td><td> arctangent </td>
+<td> <font class="matlab">arctan(&nbsp;)</font></td>
+</tr>
+<tr>
+<td> \(\text{log}_{10}\) </td><td> Logarithm, base 10 </td>
+<td> <font class="matlab">log(&nbsp)</font></td> 
+<td> \(\text{arccot}\) </td><td> arccotangent </td>
+<td> <font class="matlab">arccot(&nbsp;)</font></td>
+</tr>
+<tr>
+<td> \(\ln \) </td><td> Natural logarithm </td>
+<td> <font class="matlab">ln(&nbsp)</font></td>
+<td> \(\text{arcsec}\) </td><td> arcsecant </td>
+<td> <font class="matlab">arcsec(&nbsp;)</font></td>
+</tr>
+<tr><td> \( |\ |\) </td><td> Absolute value </td>
+<td> <font class="matlab">abs(&nbsp) </font></td>
+<td> \(\text{arccsc}\) </td><td> arccosecant </td>
+<td> <font class="matlab">arccsc(&nbsp;)</font></td>
+</tr>
+<tr>
+<td> \(\sin\) </td> <td> sine </td>
+<td> <font class="matlab">sin(&nbsp) </font></td>
+<td></td><td></td><td></td>
+</tr>
+</table>
+
+<p>In addition of the previous constants, operators and functions, the
+  following constants and functions can be used in Maple code.  They
+  can also be used by students to write their answers if
+  the <em>Expression Type</em> is
+  <em>Maple Syntax - e.g. diff(2*f(x),x)</em>.</p>
+
+<table style="width: 80%;">
+<col style="width: 12%"> <col style="width: 20%">
+<col style="width: 12%"> <col style="width: 2%">
+<col style="width: 12%"> <col style="width: 20%">
+<col style="width: 12%">
+<tr style="background-color: inherit;">
+<th> Valid constants and functions </th>
+<th> Name </th>
+<th> Symbol </th>
+<td rowspan="5" style="border-bottom: 0px; border-top: 0px;"> </td>
+<th> Valid constants and functions </th>
+<th> Name </th>
+<th> Symbol </th>
+</tr>
+<tr>
+<td> \( \pi \) </td> <td> pi </td>
+<td> <font class="matlab">Pi</font> </td>
+<td> \(\ln\) </td> <td> Natural logarithm </td>
+<td> <font class="matlab">log</font> </td>
+</tr>
+<tr>
+<td> \(i\) </td> <td> the imaginary number \(i^2 = -1\) </td>
+<td> <font class="matlab">I</font> </td>
+<td> \( \int f(x) \text{d}x \) </td> <td> Integral </td>
+<td> <font class="matlab">int(f(x),x) </font> </td>
+</tr>
+<tr>
+<td> </td> <td> Exponential Function </td>
+<td> <font class="matlab">exp(&nbsp;) </font> </td>
+<td> \(\displaystyle \lim_{x\to a}f(x) \) </td> <td> Limit </td>
+<td> <font class="matlab">lim(f(x),x=a)</font> </td>
+</tr>
+<tr>
+<td> \(\text{log}_{10} \) </td> <td> Logarithm, base 10 </td>
+<td> <font class="matlab">log10</font> </td>
+<td> \( f'(x) \) </td> <td> Derivative </td>
+<td> <font class="matlab">diff(f(x),x) </font> </td>
+</tr>
+</table>
+
+<h3> A lot more Functions </h3>
+
+<p>We list below all the functions that can be used in
+  the <em>Algorithm</em> section.</p>
+
+<h4> condition </h4>
+
+<p><font class="matlab">condition: stm</font> imposes the condition
+  defined by statement <font class="matlab">stm</font>, which is
+  typically constructed using one or more of the
+  functions <font class="matlab">eq</font>, <font class="matlab">ge</font>,
+  <font class="matlab">gt</font>, <font class="matlab">le</font>,
+  <font class="matlab">lt</font>  and <font class="matlab">ne</font>.</p>
+
+<h4>binomial</h4>
+
+<p><font class="matlab">binomial(n, r)</font> computes the
+  r<sup>th</sup> binomial coefficient of degree \(n\).  In probability,
+  this is the number of ways of choosing \(r\) objects among \(n\), ignoring
+  order.</p>
+
+<h4> decimal </h4>
+
+<p><font class="matlab">decimal(n, x)</font> returns \(x\) expressed as a
+  floating-point number rounded to \(n\) decimal places.  When \(n = 0\),
+  commas are inserted to separate powers of \(10^3\).
+  Trailing zeros are truncated.</p>
+
+<h4> eq, gt, ge, lt, le, ne </h4>
+
+<ul style="list-style-type:none;">
+<li><font class="matlab">eq(a,b)</font> returns 1 if \(a = b\) and 0
+  otherwise.</li>
+<li><font class="matlab">ge(a,b)</font> returns 1 if \(a \geq b\) and 0
+  otherwise.</li>
+<li><font class="matlab">gt(a, b)</font> returns 1 if \(a > b\) and 0
+  otherwise.</li>
+<li><font class="matlab">le(a,b)</font> returns 1 if \(a \leq b\) and 0
+  otherwise.</li>
+<li><font class="matlab">lt(a, b)</font> returns 1 if \(a < b\) and 0
+  otherwise.</li> 
+<li><font class="matlab">ne(a,b)</font> returns 1 if \(a \neq b\) and 0
+  otherwise.<li>
+</ul>
+
+<h4> erf </h4>
+
+<p><font class="matlab">erf(x)</font> is the value of the error
+  function at \(x\).  This is the probability that the random variable \(X\)
+  with a normal distribution of mean 0 and variance 1 be \(\leq x\).</p>
+
+<h4> fact </h4>
+
+<p> <font class="matlab">fact(n)</font> returns \(n!\).  It can be
+  used if \(n\) is not a non-negative integer but it should not be because
+  the behaviour is not predictable. </p>
+
+<h4> frac </h4>
+
+<p><font class="matlab">frac(a, b)</font> returns the string form of
+  the reduced fraction \(a/b\).</p>
+
+<h4> gcd </h4>
+
+<p><font class="matlab">gcd(a, b)</font> returns the greatest common
+  divisor of \(a\) and \(b\).</p>
+
+<h4>if</h4>
+
+<p><font class="matlab">if(a, b, c)</font> return the value of \(b\)
+  if \(a\) is nonzero and the value of \(b\) otherwise.</p>
+
+<h4>indexof</h4>
+
+<p><font class="matlab">indexof(k, a, b, c, d, ...)</font> returns the
+  index of the item k within the list of items a, b, c, ...
+  &nbsp; Item a is in position 0, item b in position 1, ...</p>
+
+<h4>int</h4>
+
+<p><font class="matlab">int(x)</font> returns the integer part of \(x\).</p>
+
+<h4>inverf</h4>
+
+<p><font class="matlab">inverf(z)</font> is the inverse function of
+  <font class="matlab">erf(x)</font>.  Thus, this is the value \(x\)
+  such that the probability that the random variable \(X\) with a
+  normal distribution of mean 0 and variance 1 be \(\leq x\) is equal
+  to \(z\).</p>
+
+<h4>invstudentst</h4>
+
+<p><font class="matlab">invstudentst(k, z)</font> is the inverse
+  function of studentst(x).  Thus, this is the value \(x\) such that the
+  probability that the random variable \(X\) with a Students-t
+  distribution of \(k\) degrees of freedom be \(\leq x\) is equal to
+  \(z\).</p>
+
+<h4>java</h4>
+
+<p><font class="matlab">java(cn, a, b, c, d, ...)</font> evaluate a
+  fully qualified java operator cn that takes as argument an array of
+  strings [a,b,c,...].</p>
+
+<h4>lsu</h4>
+
+<p><font class="matlab">lsu(n, x)</font> returns the unit in the
+  \(n^{th}\) significant place of \(x\).  This is not the integer in
+  the \(n^{th}\) significant place of a number.  For instance,</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a = lsu(3, 3.14159);
+</font>
+</pre>
+
+<p> is \(0.01\).  This is the unit of the digit \(4\) in the third
+  place of \(\pi\).</p>
+
+<h4>maple</h4>
+
+<p><font class="matlab">maple(code)</font> get the value produced by
+  the last line of the Maple <font class="matlab">code</font>.</p>
+
+<h4>mathml</h4>
+
+<p><font class="matlab">mathml(f)</font> returns a string consisting
+  of the formula \(f\) typesetted in MathML.  By default,
+  <font class="matlab">mathml(f)</font> automatically simplifies the
+  formula.  To prevent auto-simplification, use the
+  option <em>nosimplify</em>.   For instance,</p>
+
+<pre class="matlab">
+<font class="matlab">
+$a = mathml("4/6", "nosimplify");
+</font>
+</pre>
+
+<p>returns \(\displaystyle \frac{4}{6}\).</p>
+
+<h4>max, min</h4>
+
+<ul style="list-style-type:none;">
+<li><font class="matlab">max(a, b, c, d, ...)</font> returns the
+  maximum value among \(a\), \(b\), \(c\), ...</li>
+<li><font class="matlab">min(a, b, c, d, ...)</font> returns the
+  minimum value among \(a\), \(b\), \(c\), ...</li>
+</ul>
+
+<h4>not</h4>
+
+<p><font class="matlab">not(a)</font> returns 1 if \(a = 0\) and 0
+  otherwise.</p>
+
+<h4>numfmt</h4>
+
+<p><font class="matlab">numfmt(fmt, x)</font> returns the value of \(x\)
+  formatted according to the format used in the java command
+  java.text.DecimalFormat.  For
+  instance, <font class="matlab">numfmt("#.###",3.14159)</font> yields
+  \(3.142\), <font class="matlab">numfmt(".###",3.14159)</font> also
+  yields \(3.142\), <font class="matlab">numfmt("00.###",3.14159)</font>
+  yields \(03.142\), and so on.</p>
+
+<h4>plotmaple</h4>
+
+<p><font class="matlab">plotmaple(code)</font> call maple to plot the
+  graph produce by the Maple <font class="matlab">code</font>.
+  Consult the Maple documentation for all the possible types of graphs
+  that can be produced with Maple.</p>
+
+<h4>rand</h4>
+
+<ul style="list-style-type:none;">
+<li><font class="matlab">rand(m,n)</font> returns a random real number
+  between \(m\) and \(n\) inclusively.</li>
+<li><font class="matlab">rand(m,n,k)</font> returns a random real
+  number between \(m\) and \(n\) inclusively with \(k\) (a positive integer)
+  significant digits.</li>
+</ul>
+
+<h4>range</h4>
+
+<ul style="list-style-type:none;">
+<li><font class="matlab">range(n)</font> generates a random integer
+  between 1 and <font class="matlab">int(n)</font> inclusively, where
+  \(n > 0\);</li>
+<li> <font class="matlab">range(m,n)</font> generates a random integer
+  between m and <font class="matlab">int(n)</font> inclusively, where
+  \(n > m\).<li>
+<li><font class="matlab">range(m,n,k)</font> chooses randomly an
+  integer among \(m, m+k, m+2k, \ldots, m+rk\), where \(n > m\)
+  and \(r\) is the value <font class="matlab">int((n-m)/k)</font>.</li>
+</ul>
+
+<h4>rank</h4>
+
+<p><font class="matlab">rank(n, a, b, c, d, ...)</font> returns the
+  n<sup>th</sup> (n>0) largest item from the list \(a, b, c, \ldots\) </p>
+
+<h4>rint</h4>
+
+<ul style="list-style-type:none;">
+<li><font class="matlab">rint(n)</font> generates a random integer
+  between \(0\) and \(n-1\) inclusively, where \(n > 0\).</li>
+<li><font class="matlab">rint(m,n)</font> generates a random integer
+  between \(m\) and \(n-1\) inclusively, where \(n > m\). </li>
+<li><font class="matlab">rint(m,n,k)</font> chooses randomly an
+  integer among \(m, m+k, m+2k, \ldots, m+rk\), where \(n > m\) and
+  \(r\) is the value <font class="matlab">int((n-1-m)/k)</font>.</li>
+</ul>
+
+<h4>sig</h4>
+
+<p><font class="matlab">sig(n, x)</font> returns \(x\) expressed as a
+  floating-point number rounded to \(n\) significant digits.  Scientific
+  notation is used if needed (for very large or small numbers).</p>
+
+<h4>strcat</h4>
+
+<p><font class="matlab">strcat(a, b, c, d, ...)</font> returns the
+  concatenation of the strings a, b, c, ...</p>
+
+<h4>studentst</h4>
+
+<p><font class="matlab">studentst(k, x)</font> is the probability that
+  the random variable \(X\) with a Students-t distribution of \(k\) degrees
+  of freedom be \(\leq x\). </p>
+
+<h4>sum</h4>
+
+<p><font class="matlab">sum(v, m, n, f)</font> sums the result of \(f(v)\)
+  for \(v = m, m+1, \ldots, n\).</p>
+
+<h4>switch</h4>
+
+<p><font class="matlab">switch(n, a, b, c, ...)</font> returns the
+  n<sup>th</sup> item in the list a, b, c, ..., where a is in position
+  0, b in position 1, ..., and \(n\) must be smaller than the number of
+  items in the list.</p>
+
+
+<br>
+<hr>
+<br>
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(Mbs_algo,"en");
+</script>
+
+</body>
+</html>

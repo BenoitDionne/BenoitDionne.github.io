@@ -1,0 +1,465 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2023-09-04">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+</head>
+<body>
+
+<script language="javascript">
+top_function(maple,"en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2> Introduction to Maple </h2>
+
+<div style="float: left; margin-right: 10px">
+  <img src="Maple_Logo_Icon.png" style="width: 200px" alt="Logo of Maple">
+</div>
+
+<p>This is a brief introduction to <em>Maple</em>.  I hope that there
+is enough details to get you started with Maple in no time.  There
+is a vast library of functions that you may want to explore.  Use
+the <em>Help</em> menu in Maple for that.  In the text below, Maple
+code is highlighted text in blue.</p>
+
+<div style="clear: both;"></div>
+
+<h3> Basic Algebraic Operations </h3>
+
+<p>Consider the traditional basic polynomial:</p>
+
+<pre class="matlab">
+> <font class="matlab">(x+y)^2;</font>
+</pre>
+
+\[(x + y)^2\]
+
+<p>The symbol <font class="matlab">%</font> holds the result of the
+previous operation.  So, you can use it to retrieve the result of
+the previous operation.</p>
+
+<pre class="matlab">
+> <font class="matlab">expand(%);</font>
+</pre>
+
+\[ x^2 + 2 x y + y^2\]
+
+<p>We have used the command <font class="matlab">expand</font> to
+compute the square.  We can do any basic algebraic polynomial
+operations.</p>
+
+<pre class="matlab">
+> <font class="matlab">%-4*x*y;</font>
+</pre>
+
+\[x^2 - 2 x y + y^2\]
+
+<pre class="matlab">
+> <font class="matlab">factor(%);</font>
+</pre>
+
+\[ (x-y)^2\]
+
+<p>As expected, the command <font class="matlab">factor</font>
+factorize the polynomial.</p>
+
+<p>If we want to refer to the basic polynomial $(x+y)^2$, we do no
+have to rewrite it each time.  We can assign $(x+y)^2$ to
+a variable.</p>
+
+<pre class="matlab">
+> <font class="matlab">u:= (x+y)^2;</font>
+</pre>
+
+\[u := (x + y)^2\]
+
+<p>We can now do any basic polynomial operations with
+<font class="matlab">u</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">expand(u*x);</font>
+</pre>
+
+\[x^3 + 2 x^2 y + x y^2\]
+
+<h3> Functions </h3>
+
+<p>There are basically two ways to define a function. Each way has its
+own advantages and disadvantages according to the use that you may
+want to make of the function.  Consider the function
+$f(x) = \sin(x^2+1)$. The first way to define a function is as
+follows:</p>
+
+<pre class="matlab">
+> <font class="matlab">f := sin(x^2+1);</font>
+</pre>
+
+\[ f := \sin(x^2 + 1)\]
+
+<p>To evaluate $f$ at $x=4$, we have to proceed as follows:</p>
+
+<pre class="matlab">
+  > <font class="matlab">x:=4;</font>
+</pre>
+
+\[x := 4\]
+
+<pre class="matlab">
+> <font class="matlab">f; evalf(f);</font>
+</pre>
+\[
+\begin{split}
+& \sin(17)\\
+&-.9613974919
+\end{split}
+\]
+
+<p>We have used the function <font class="matlab">evalf</font> to get
+the numerical approximation of $\sin(17)$.  Don't forget that Maple
+always work in radians.  To evaluate $f$ for other values of $x$,
+one has to repeat the previous two operations with the new value of
+$x$.</p>
+
+<p>Another possibility is to use the Maple function
+<font class="matlab">subs</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">x:='x': f := sin(x^2+1);</font>
+</pre>
+
+\[f := \sin(x^2 + 1) \]
+
+<pre class="matlab">
+> <font class="matlab">subs(x=4,f); subs(x=6,f);</font>
+</pre>
+
+\[
+\begin{split}
+& \sin(17) \\
+& \sin(37)
+\end{split}
+\]
+
+<p>We have used <font class="matlab">x := 'x';</font> to clear the
+value $4$ of $x$ left by the previous operations.  If we had not
+done that, we will have had
+<font class="matlab">f := sin(4^2+1);</font>, a constant value.</p>
+
+<p>Using <font class="matlab">:=</font> to define explicitly a function
+is the right way to define a function if we want to add algebraic
+functions, compute derivative, ..., but this is not really the best
+way if we want to evaluate this functions at many points.  Moreover,
+not all functions are given by algebraic, trigonometric, ...
+functions.  The second way to define a function is to use
+a <q>procedure</q>. The simplest form of procedure is as follows:</p>
+
+<pre class="matlab">
+> <font class="matlab">f:= x->sin(x^2+1);</font>
+</pre>
+
+\[f := x \mapsto \sin(x^2 + 1)\]
+
+<p>We can now easily evaluate $f$ at $x=4$ and $x=6$.</p>
+
+<pre class="matlab">
+> <font class="matlab">f(4); evalf(f(4)) ; f(6); evalf(f(6));</font>
+</pre>
+
+\[
+\begin{split}
+& \sin(17) \\
+&-.9613974919 \\
+& \sin(37)\\
+&-.6435381334
+\end{split}
+\]
+
+<h3> Derivatives and integrals </h3>
+
+Consider the function
+
+<pre class="matlab">
+> <font class="matlab">f:=x/(y*x^2+1);</font>
+</pre>
+
+\[ f := \frac{x}{y x^2 + 1} \]
+
+<p>The first derivative of $f$ with respect to $x$ is
+<font class="matlab">diff(f,x)</font>.  The second derivative of $f$
+with respect to $x$ is <font class="matlab">diff(f,x$2)</font>, and
+so on for higher order derivatives.  We can also compute the mixed
+derivatives. The mixed derivative of $f$ with respect to $x$ and $y$
+of order two is <font class="matlab">diff(f,x,y)</font>.  The reader
+has probably gotten the idea on how to compute derivatives.</p>
+
+<p>The indefinite integral of $f$ is <font class="matlab">int(f,x)</font>.
+The definite integral of $f$ between $0$ and $4$ with $y = 4$ is
+
+<pre class="matlab">
+>  <font class="matlab">y := 4; int(f, x = 0 .. 4); evalf(%);</font>
+</pre>
+
+\[
+\begin{split}
+& y := 4 \\
+& \frac{\ln(5)}{8} + \frac{\ln(13)}{8} \\
+& 0.5217984086
+& \end{split}
+\]
+
+<h3> Graphs of Functions </h3>
+
+<h4> Two Dimensional Plots </h4>
+
+<p>The graph of the function $x\sin(x)$ for $x$ between $0$ and $2\pi$
+  is given by </p>
+
+<pre class="matlab">
+> <font class="matlab">plot(x*sin(x),x=0..2*Pi, gridlines=true);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_1.png" style="width: 300px" alt="Graph of x*sin(x)">
+</div>
+
+<p>Sometime it is useful to plot the graph of two functions in the
+same figure.  Suppose that we want to plot the graphs
+of $x \mapsto x\sin(x)$ and $x \mapsto x\cos(x)$ for $x$ between
+$-2\pi$ and $2\pi$ in the same figure.  We first plot the graph
+of $x \mapsto x\sin(x)$ in red and store this graph.  We end the
+Maple command with a colon instead of a semicolon to cancel the
+display of the result.  We plot the graph of $x \mapsto x\cos(x)$ in
+blue and also store the result.  Finally, we combine both plots on
+the same coordinate system using the function
+<font class="matlab">display()</font> of the
+library <font class="matlab">plots</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">plot1:=plot(x*sin(x),x=-2*Pi..2*Pi,color=red):</font>
+> <font class="matlab">plot2:=plot(x*cos(x),x=-2*Pi..2*Pi,color=blue):</font>
+> <font class="matlab">plots[display]({plot1,plot2});</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_2.png" style="width: 300px"
+       alt="Graph of x*sin(x) and x*cos(x) in the same figure">
+</div>
+
+<p>We could have used the command</p>
+
+<pre class="matlab">
+>  <font class="matlab">plot([x*sin(x), x*cos(x)], x = -2*Pi .. 2*Pi, color = [red, blue]);</font>
+</pre>
+
+<p>to obtain the same result.  The advantage of the previous approach
+is the greater flexibility to mix graphs of different styles.</p>
+
+<p>For the next example, suppose that we want to plot the
+points $(x,x^2)$ for $x=1,2,\ldots,20$.  To do that, we have to
+provide a matrix or a list of points to the
+<font class="matlab">plot</font> command.  If we provide a
+matrix, the first column should be the $x$ coordinates of the
+points and the second column the corresponding $y$ coordinates.
+We select the option <font class="matlab">style = point</font> to get
+the graph of the points only.  By default, Maple draws a straight
+line from one point to the next one; this is the standard procedure
+used by Maple to plot the graph of a function.</p>
+
+<pre class="matlab">
+> <font class="matlab"> a := seq(x, x = 1 .. 20): </font>
+> <font class="matlab"> b := seq(x^2, x = 1 .. 20): </font>
+> <font class="matlab"> plot(&lt;&lt;a>|&lt;b>>, style = point, symbol = circle, gridlines=true); </font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_discrete.png" style="width: 300px"
+       alt="Graph of the points (x,x^2) for x=1,2,3,...,20">
+</div>
+
+<p>We have also used the option
+<font class="matlab"> symbol = circle </font> to represent each point
+by a cycle.  We could have used other symbols like
+<font class="matlab">box, cross, solidcircle, ...</font> </p>
+
+<p>Instead of a matrix, we may have used a list of points like in the
+following command.</p>
+
+<pre class="matlab">
+> <font class="matlab"> plot([seq([x, x^2], x = 1 .. 20)], style = point, symbol = circle, gridlines=true); </font>
+</pre>
+
+<h4> Three Dimensional Plots </h4>
+
+<p> To plot the graph of the function $f(x,y) = x\sin(x)\sin(y)$ for
+$x$ and $y$ between $0$ and $4\pi$, we use the function
+<font class="matlab">plot3d()</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">plot3d(x*cos(x)*sin(y),x=0..4*Pi,y=0..4*Pi,axes=FRAME,labels= [`x`,`y`,`z`],title = `x*cos(x)*sin(y)`);
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_3.png" style="width: 300px"
+       alt="Graph of x*cos(x)*sin(y)">
+</div>
+
+<p>Note the options that we have used.  There are many more option.
+Please, consult the help menu of Maple to find all the information
+about the options available.</p>
+
+<p>Two other methods to visualize a function of two variables is the
+contour and density plots. The Maple functions that we need
+are <font class="matlab">densityplot()</font>
+and <font class="matlab">contourplot()</font> in the
+library <font class="matlab">plots</font>. 
+
+<pre class="matlab">
+> <font class="matlab">plots[densityplot](x*cos(x)*sin(y),x=0..4*Pi,y=0..4*Pi);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_4.png" style="width: 300px"
+       alt="Density plot of x*cos(x)*sin(y)">
+</div>
+
+<pre class="matlab">
+> <font class="matlab">plots[contourplot](x*cos(x)*sin(y),x=0..4*Pi,y=0..4*Pi,contours=15);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_5.png" style="width: 300px"
+       alt="Contour plot of x*cos(x)*sin(y)">
+</div>
+
+<p>To end this section, we show that functions defined with a
+procedure can also be plotted.  We illustrate this with the
+function $f(x,y) = \sin(x+y)+\cos(x+y)$.</p>
+
+<pre class="matlab">
+> <font class="matlab">f:=(x,y)->sin(x+y)+cos(x+y):</font>
+> <font class="matlab">plot3d(f(x,y),x=0..2*Pi,y=0..2*Pi,axes=FRAME,labels=[`x`,`y`,`z`],title = `f(x,y)`,orientation=[20,45]);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_6.png" style="width: 300px"
+       alt="Graph of sin(x+y)+cos(x+y)">
+</div>
+
+<h3> More Advanced Topics </h3>
+
+<p>In the next sections, we present some of the libraries that Maple
+offers.</p>
+
+<p>We have already used the library <font class="matlab">plots</font>
+above.  Instead of calling each function of a library with an
+expression like <font class="matlab">Library_Name[Function_Name]();</font>
+as we did for <font class="matlab">plots[contourplot]()</font> above, it is
+possible to use only <font class="matlab">Function_Name();</font> by
+adding the entire library to a session on Maple with the
+command <font class="matlab">with(Library_Name);</font> at the
+beginning of the session.  This is done in the documents below.</p> 
+
+<ul>
+<li>
+<script language="javascript">
+    buildLinK(lin_alg.url_en, lin_alg.text_en,"MMathSStat", lin_alg.id,
+    lin_alg.target);
+</script> (<font class="matlab">LinearAlgebra</font>) </li>
+<li>
+<script language="javascript">
+    buildLinK(solv_equ.url_en, solv_equ.text_en,"MMathSStat", solv_equ.id,
+    solv_equ.target);
+</script> (<font class="matlab">plots</font>) </li>
+<li>
+<script language="javascript">
+    buildLinK(data_sets.url_en, data_sets.text_en,"MMathSStat", data_sets.id,
+    data_sets.target);
+</script> (<font class="matlab">LenearAlgebra, plots</font>) </li>
+<li>
+<script language="javascript">
+  buildLinK(ODE_O1.url_en, ODE_O1.text_en,"MMathSStat", ODE_O1.id,
+  ODE_O1.target);
+</script> (<font class="matlab">plots, DEtools</font>) </li>
+<li>
+<script language="javascript">
+  buildLinK(ODE_O2_const_coeff.url_en, ODE_O2_const_coeff.text_en,
+  "MMathSStat", ODE_O2_const_coeff.id, ODE_O2_const_coeff.target);
+</script> (<font class="matlab">VectorCalculus, LinearAlgebra,
+  plots</font>) </li>
+<li> <script language="javascript">
+    buildLinK(Laplace_transf.url_en, Laplace_transf.text_en,"MMathSStat",
+    Laplace_transf.id, Laplace_transf.target);
+  </script> (<font class="matlab">inttrans</font>) </li>
+<li> <script language="javascript">
+    buildLinK(ODE_systems.url_en, ODE_systems.text_en,"MMathSStat",
+    ODE_systems.id, ODE_systems.target);
+  </script> (<font class="matlab">LinearAlgebra, DEtools, plots</font>
+  and programming) </li>
+<li> <script language="javascript">
+    buildLinK(Fourier_series.url_en, Fourier_series.text_en,"MMathSStat",
+    Fourier_series.id, Fourier_series.target);
+  </script> (<font class="matlab">plots</font> and programming) </li>
+<li> <script language="javascript">
+    buildLinK(ODE_O2_var_coeff.url_en, ODE_O2_var_coeff.text_en,"MMathSStat",
+    ODE_O2_var_coeff.id, ODE_O2_var_coeff.target);
+  </script> <font class="matlab">plots</font>) </li>
+<li> <script language="javascript">
+    buildLinK(PDE.url_en, PDE.text_en,"MMathSStat", PDE.id,
+    PDE.target);
+  </script> (<font class="matlab">plots</font> and programming) </li>
+<li> <script language="javascript">
+    buildLinK(Maple_programs.url_en, Maple_programs.text_en,"MMathSStat",
+    Maple_programs.id, Maple_programs.target);
+  </script> </li>
+</ul>
+
+<br>
+<hr>
+<br>
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(maple,"en");
+</script>
+
+</body>
+</html>
