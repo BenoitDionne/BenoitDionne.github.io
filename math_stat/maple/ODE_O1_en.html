@@ -231,7 +231,7 @@ to <font class="matlab">eq4</font> with the initial condition
 <font class="matlab">y(0)=2</font>.</p>
 
 <pre class="matlab">
-> <font class="matlab">yp := dsolve({ODE,y(0)=1},y(x),type=numeric);</font>
+> <font class="matlab">yp := dsolve({eq4,y(0)=2},y(x),type=numeric);</font>
 </pre>
 
 \[
@@ -244,7 +244,7 @@ error of order 5.  We use the <em>Maple</em> function
 <font class="matlab">odeplot</font> to graph this solution.</p>
 
 <pre class="matlab">
-> <font class="matlab">with(plots); odeplot(yp,-4..4);</font>
+> <font class="matlab">with(plots): odeplot(yp,-4..4);</font>
 </pre>
 
 <div class="center">
@@ -266,8 +266,8 @@ each one of them, we draw an arrow of slope $f(x,y)$ centred at
 this points. Maple has a nice function to generate the slope field
 of an ODE.</p>
 
-<p>Let's consider our troublesome homogeneous ODE of order one,
-<font class="matlab">eq4</font>.
+<p>Consider our troublesome homogeneous ODE of order one,
+<font class="matlab">eq4</font>.  Its slope field is drawn below.</p>
 
 <pre class="matlab">
 > <font class="matlab">with(DEtools):  DEplot(eq4,y(x),x=-5..5,y=-5..5, arrows=small);</font>
@@ -278,8 +278,8 @@ of an ODE.</p>
        alt="Slope field of the ODE eq4">
 </div>
 
-<p>We can also draw some solutions with initial conditions on the
-slope field.</p>
+<p>We can also draw on the slope field some solutions with initial
+conditions.</p>
 
 <pre class="matlab">
 > <font class="matlab">DEplot(eq4,y(x),x=-5..5,y=-5..5, [[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green], arrows=small);</font>
@@ -294,6 +294,54 @@ slope field.</p>
 error tolerance, ... for numerical integration and drawing slope
 fields.</p>
 
+<p><em>Remark</em>: Consider the ordinary defferential equation</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq3 := diff(y(x),x)+x^2*y(x)=x^2;</font>
+</pre>
+
+\[
+eq3 := \frac{\text{d}}{\text{d} x} \,y(x) + x^{2}\,y(x)=x^{2}
+\]
+
+<p>We can draw its slope field and some solutions with given initial
+conditions.</p>
+
+<pre class="matlab">
+> <font class="matlab"> DEplot(eq3,y(x),x=-10..10,y=-10..10,[[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green],method=classical[foreuler],stepsize=.1);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_11.png" style="width: 300px"
+       alt="Slope field of the ODE eq3 with the graph of three particular solutions associated to y(0)=1, y(0)=-2 and y(0)=2">
+</div>
+
+<p> There seems to be something wrong with the graphs of the solutions
+for $y(0)=-2$ and $y(0)=2$ when $x$ is greater than $8$.  The solutions are not
+tangent to the slope field as the should be. </p>
+
+<p> This is the danger with numerical integration.  To get logical and
+more accurate results, we may have to adjust the step size or use an
+appropriate numerical method.  It is therefore important to have a
+theoretical and qualitative understanding of the differential equation before
+diving into enormous computations.  The problem here comes from the
+Euler method which is not a very accurate method of integration and
+the large step size.  If we use the default method of integration
+(i.e. a Runge-Kutta-Fehlberg method), we get. </p>
+
+<pre class="matlab">
+> <font class="matlab"> DEplot(eq3,y(x),x=-5..5,y=-5..5,[[y(0)=1],[y(0)=-2],[y(0)=2]], linecolor=[red,blue,green]);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_12.png" style="width: 300px"
+       alt="Slope field of the ODE eq3 with the graph of three particular solutions associated to y(0)=1, y(0)=-2 and y(0)=2">
+</div>
+
+<p>This is much better.</p>
+  
 <br>
 <hr>
 <br>

@@ -90,7 +90,7 @@ y(x) = \_C1 e^x + \_C2 e^x x
 <p>Consider the second order non-homogeneous linear ODE</p>
 
 <pre class="matlab">
-> <font class="matlab">eq2 := diff(y(x),x$2)-2*diff(y(x),x)+y(x)=0 = exp(x);</font>
+> <font class="matlab">eq2 := diff(y(x),x$2)-2*diff(y(x),x)+y(x) = exp(x);</font>
 </pre>
 
 \[
@@ -127,29 +127,36 @@ we compute the determinant of the matrix</p>
 \begin{bmatrix} y_1(x) & y_2(x) \\ y_1'(x) & y_2'(x) \end{bmatrix}
 \]
 <p>This matrix is called the <em>Wronskian</em>.  If the determinant
-is different of zero (at one point), then the two solutions are
-linearly independent.  If the determinant is zero (at one point),
+is different than zero at one point, then the two solutions are
+linearly independent.  If the determinant is zero at one point,
 then they are dependent.</p>
 
-<p><em>WARNING</em>: In general, you cannot conclude that two
-functions are linearly independent because their Wronskian is non-zero
-at one point.  You have to make sure that it is non-zero at
-every point of the domain before being able to claim that they are
-linearly independent.</p>
+<p><em>WARNING</em>: If the determinant of the Wronskian of two
+solutions of an ordinary differential equation of order two with
+constant coefficients is non-zero at one point then it is
+non-zero at all points in the domain of the two solutions.
+Likewise, if the determinant of the Wronskian of two solutions is
+zero at one point than it is zero at all points in the domain of the
+two solutions.  This is not true for two arbitrary functions.
+You cannot conclude that two arbitrary functions are linearly
+independent because the determinant of their Wronskian is non-zero at
+one point.  You have to make sure that it is non-zero at every point
+of their domain before being able to claim that they are linearly
+independent.</p>
 
 <p>Let's check that the two solutions of the homogeneous ODE are
 linearly independent.</p>
 
 <pre class="matlab">
-> <font class="matlab">with(VectorCalculus): with(LinearAlgebra): Determinant(Wronskian([e^x, x*e^x], x))</font>
+> <font class="matlab">with(VectorCalculus): with(LinearAlgebra): Determinant(Wronskian([exp(x), x*exp(x)], x))</font>
 </pre>
 
 \[
 (e^x)^2
 \]
 
-<p>Since $e^{2x}$ is different of $0$ at any point, the two solutions
-are linearly independent.</p>
+<p>Since $e^{2x}$ is different than $0$ at one point, and so at all
+points, the two solutions are linearly independent.</p>
 
 <p><em>Example</em>: Consider the ODE
 
@@ -376,7 +383,7 @@ P := \arctan\left(\frac{2 \theta}{\theta^2 - 1}\right)
 
 <pre class="matlab">
 > <font class="matlab">plot1:=plot(A,theta=0..2*Pi,color=red):</font>
-> <font class="matlab">plot2:=plot(P,yheta=0..2*Pi,color=blue,discont=true):</font>
+> <font class="matlab">plot2:=plot(P,theta=0..2*Pi,color=blue,discont=true):</font>
 > <font class="matlab">plots[display](plot1,plot2);</font>
 </pre>
 

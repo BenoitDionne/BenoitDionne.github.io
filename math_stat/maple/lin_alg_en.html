@@ -121,7 +121,7 @@ respects the rules about dimensions.</p>
 and <font class="matlab">v</font> is given by</p>
 
 <pre class="matlab">
-> <font class="matlab"> DotProduct(u,v); </font>;
+> <font class="matlab"> DotProduct(u,v); </font>
 </pre>
 
 \[ 16 \]
@@ -169,7 +169,7 @@ may have their own function to create them.  Here are some
 examples.</p>
 
 <pre class="matlab">
-> <font class="matlab">Id : = IdentityMatrix(3);</font>
+> <font class="matlab">Id: = IdentityMatrix(3);</font>
 </pre>
 
 \[ \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} \]
@@ -195,7 +195,7 @@ column. </p>
 > <font class="matlab">D := <<1| 4 > ,<3| 7>>;</font>
 </pre>
 
-\[ D := \begin{bmatrix} 1 & 4 \\ 3 & 7 \end{bmatrix}  \]
+\[ C := \begin{bmatrix} 1 & 4 \\ 3 & 7 \end{bmatrix}  \]
 
 <p>There are more sophisticated methods to create matrices.</p>
 
@@ -220,7 +220,7 @@ column. </p>
 \[ C := \begin{bmatrix} 1 & 4 \\ 3 & 7 \end{bmatrix} \]
 
 <pre class="matlab">
-> <font class="matlab">P, L, U := LUDecomposition(A); P L U ; </font>
+> <font class="matlab">P, L, U := LUDecomposition(A); P.L.U ; </font>
 </pre>
 
 \[
@@ -258,7 +258,7 @@ associated to the eigenvalue.</p>
 or vector. Consider the following function.</p>
 
 <pre class="matlab">
-> <font class="matlab">nf:= x-> x^3-x;</font>
+> <font class="matlab">mf:= x-> x^3-x;</font>
 </pre>
 
 \[  mf := x \mapsto x^3 - x \]

@@ -17,7 +17,7 @@ if ( index_loc_full >=0 )
 else
     loc = loc_full;
 if ( loc.search("/home/bdionne/") != -1 ) {
-    location_bd = "file:///home/bdionne/public_html/";
+    location_bd = "file:///home/bdionne/public_html/BenoitDionne.github.io/";
 }
 
 /* Location of almost all the images. */

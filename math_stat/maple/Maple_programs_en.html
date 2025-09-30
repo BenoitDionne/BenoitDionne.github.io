@@ -91,7 +91,7 @@ x$, is $4/N$.</p>
 </pre>
 
 \[
-S := \frac{4 \left( \sum_{i=1}^N (f@x)(imN)\right)}{N}
+S := \frac{4 \left( \sum_{i=1}^N (f@x)(i,N)\right)}{N}
 \]
 
 <p>The values of the Riemann sums for $N=10, 20, 30$ and $40$ are</p>
@@ -144,10 +144,10 @@ for any intervals of integration and any number of subintervals.</p>
 <p>As expected</p>
   
 <pre class="matlab">
-> <font class="matlab">Riemann(3,7,40);</font>
+> <font class="matlab">RS(3,7,40);</font>
 </pre>
 \[
--73.61449115
+-73.61449124
 \]
 
 <p>The graph of $f(x)$ for $x \leq x \leq 7$ is given below.</p>
