@@ -28,9 +28,10 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
-<script type="text/x-mathjax-config">
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
+-->
 <script type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
@@ -52,35 +53,35 @@ main_title( MStext, "MMathSStat");
 
 <h3> General Concepts </h3>
 
-<p>Consider the general system of ODE $X'(t) = f(t,X(t))$ where
-$f:\mathbb{R} \times \mathbb{R}^n \to \mathbb{R}^n$. Our goal is to
-find $X:\mathbb{R} \to \mathbb{R}^n$ satisfying this system of ODE
-with an initial condition $X(0) = X_0$. The theory says that there
-is always a solution if $f$ is nice (i.e. Lipshitz continuous) and
-that this solution is unique.  If $f$ does not depend of $t$, we
-say that the system of ODE is autonomous.  If $X$ is a solution of
-the system of ODE, then $f(X(t))$ is the direction and velocity of
-$X$ at time $t$.  In particular, $f(X(t))$ is tangent to $X(t)$.</p>
+<p>Consider the general system of ODE \(X'(t) = f(t,X(t))\) where
+\(f:\mathbb{R} \times \mathbb{R}^n \to \mathbb{R}^n\). Our goal is to
+find \(X:\mathbb{R} \to \mathbb{R}^n\) satisfying this system of ODE
+with an initial condition \(X(0) = X_0\). The theory says that there
+is always a solution if \(f\) is <em>Lipshitz continuous</em> and
+that this solution is unique.  If \(f\) does not depend of the time \(t\), we
+say that the system of ODE is autonomous.  If \(X\) is a solution of
+the system of ODE, then \(f(X(t))\) is the direction and velocity of
+\(X\) at time \(t\).  In particular, \(f(X(t))\) is tangent to \(X\)
+at \(t\).</p>
 
 <p>For autonomous systems in two ODE,  it is traditional to draw the
 vector field associated to the system of ODE to get an idea of its
-global behaviour. Namely, for many (equally spaced) points $X$ in the
-plane, we draw for each of them a vector in the direction
-$(f(X)$. Sometimes the length of the vector drawn is proportional
+global behaviour. Namely, for many (equally spaced) points \(X\) in the
+plane, we draw from each of them a vector in the direction
+\((f(X)\). Sometimes the length of the vector drawn is proportional
 to the norm of \(f(X)\).</p>
 
-<h3> Homogeneous Linear Systems </h3>
-
-<p>A system of ODE of the form $X'(t) = A X(t)$, where $A$ is an
-$n \times n)$ matrix is called a (homogeneous) linear system of
-ODE. The theoretical solution of this system is $X(t) = e^{t A} X(0)$,
-where the exponential of a matrix $B$ is defined by
-$e^B = \sum_0^\infty \frac{1}{n!} B^n$.  This series always converges.
+<p>A system of ODE of the form \(X'(t) = A X(t)\), where \(A\) is an
+\(n \times n)\) matrix is called a (homogeneous) linear system of
+ODE. The theoretical solution of this system is \(X(t) = e^{t A} X(0)\),
+where the exponential of a matrix \(B\) is defined by
+\(\displaystyle e^B = \sum_0^\infty \frac{1}{n!} B^n\).  This series
+always converges. 
 The notion of convergence for series of matrices is defined with any
 of the matrix norms.  Consider the matrix</p>
 
 <pre class="matlab">
-> <font class="matlab">with(LinearAlgebra); A := Matrix([[2,-1],[1,2]]));</font>
+> <font class="matlab">with(LinearAlgebra): A := Matrix([[2,-1],[1,2]]);</font>
 </pre>
 
 \[
@@ -97,7 +98,7 @@ of the matrix norms.  Consider the matrix</p>
 expA := \begin{bmatrix} e^2 \cos(1) & -e^2 \sin(1) \\ e^2 \sin(1) & e^2 \cos(1) \end{bmatrix}
 \]
 
-<p>and $e^{tA}$ is given by
+<p>and \(e^{tA}\) is given by
 
 <pre class="matlab">
 > <font class="matlab"> exptA := MatrixExponential(A,t); </font>
@@ -108,7 +109,7 @@ exptA := \begin{bmatrix} e^{2t} \cos(t) & -e^{2t} \sin(t) \\ e^{2t} \sin(t) & e^
 \]
 
 <p>We can use <font class="mobius">dsolve(&nbsp;)</font> to solve the system
-of homogeneous linear ODE $X'(t) = A X(t)$.</p>
+of homogeneous linear ODE \(X'(t) = A X(t)\).</p>
 
 <pre class="matlab">
 > <font class="matlab">eq1 := {diff(x1(t),t) = 2*x1(t) - x2(t), diff(x2(t),t) = x1(t) + 2*x2(t)};</font>
@@ -130,9 +131,9 @@ X := \left\{ x1(t) = e^{2t} (\_C2 \cos(t) + \_C1 \sin(t), x2(t) = -e^{2t} (  \co
 
 <p>where <font class="matlab">_C1</font>
 and <font class="matlab">_C2</font> are arbitrary constants.  This is
-$e^{tA} \begin{bmatrix} \_C2 \\ -\_C1 \end{bmatrix}$.  We can also
-solve $X'(t) = A X(t)$ with the initial condition
-$X(0) = \begin{bmatrix} 2 \\ 3 \end{bmatrix}$.</p>
+\(e^{tA} \begin{bmatrix} \_C2 \\ -\_C1 \end{bmatrix}\).  We can also
+solve \(X'(t) = A X(t)\) with the initial condition
+\(X(0) = \begin{bmatrix} 2 \\ 3 \end{bmatrix}\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> eq2 := eq1 union {x1(0)=2,x2(0)=3};</font>
@@ -176,20 +177,20 @@ X := \left\{ x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ), x2(t) = -e^{2t} (  -3 \cos
 
 <p>To evaluate the solution of an homogeneous linear system of ODE at
 various values of the independent variable, one has to evaluate
-$e^{tA} X_0$ at several values of $t$.  In general, it is difficult
-and time consuming to compute the exponential $e^{tA}$ when the
-dimension of the square matrix $A$ is large.  There are however some
+\(e^{tA} X_0\) at several values of \(t\).  In general, it is difficult
+and time consuming to compute the exponential \(e^{tA}\) when the
+dimension of the square matrix \(A\) is large.  There are however some
 nice results from linear algebra that help us compute this
-exponential.  For instance, it is possible to write $A$ as $A = U D V$,
-where $D$ is a block diagonal matrix (e.g. a Jordan normal form or a real
-canonical form), and U and V are invertible matrices.  We then have
-that $e^{tA} = U e^{tD} V$, where $e^{tD}$ is much easier and faster to
-compute than $e^{tA}$ because $D$ has zero components off the
+exponential.  For instance, it is possible to write \(A\) as \(A = U D V\),
+where \(D\) is a block diagonal matrix (e.g. a Jordan normal form or a real
+canonical form), and \(U\) and \(V\) are invertible matrices.  We then have
+that \(e^{tA} = U e^{tD} V\), where \(e^{tD}\) is much easier and faster to
+compute than \(e^{tA}\) because \(D\) has zero components off the
 (block) diagonal (at lot of zero components). It is easy to multiply
 matrices with a lot of zeros at known locations.</p>
 
 <p>We will not consider the general theory of matrix decomposition in
-this introduction.  We will consider only $2 \times 2$ matrices.</p>
+this introduction.  We will consider only \(2 \times 2\) matrices.</p>
 
 <p>There could be:</p>
 <ul> 
@@ -197,7 +198,7 @@ this introduction.  We will consider only $2 \times 2$ matrices.</p>
 eigenvectors associates to them,</li>
 <li> one real eigenvalues with only one linearly independent real
 eigenvector associated to it, or </li>
-<li> two complex (i.e. in $\mathbb{C} \setminus \mathbb{R}$) conjuagte
+<li> two complex (i.e. in \(\mathbb{C} \setminus \mathbb{R}\)) conjuagte
 eigenvectors with two linearly independent complex eigenvectors
  associates to them.</li>
 </ul>
@@ -235,11 +236,11 @@ A := \begin{bmatrix}-4 & 2 \\ -1 & -1 \end{bmatrix}
 \begin{bmatrix}-3 \\ -2 \end{bmatrix}, \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix}
 \]
 
-<p>We have two eigenvalues $-3$ annd $-2$.  An eigenvector associated
-to $-3$ is given by the first column of the $2\times 2$ matrix
-and an eigenvector associate to $-2$ is given by the second column.
-This $2\times 2$ matrix can be selected as the matrix $U$ in
-the decomposition of $A$ presented above.  One can
+<p>We have two eigenvalues \(-3\) and \(-2\).  An eigenvector associated
+to \(-3\) is given by the first column of the \(2\times 2\) matrix
+and an eigenvector associate to \(-2\) is given by the second column.
+This \(2\times 2\) matrix can be selected as the matrix \(U\) in
+the decomposition of \(A\) presented above.  One can
 use <font class="mobius">dsolve(&nbsp;)</font> to solve this linear system
 of ODE.  We are more interested in the qualitative aspect of the
 solutions.  So, we plot the vector field associated to this system.</p>
@@ -254,9 +255,9 @@ solutions.  So, we plot the vector field associated to this system.</p>
 </div>
 
 <p>We have also drawn two orbits associated to the solutions with
-initial condition $\begin{bmatrix}0.5 \\ 0 \end{bmatrix}$ (in blue)
-and $\begin{bmatrix} -0.5 \\ 0 \end{bmatrix}$ (in red).
-As can be seen from the vector field, all the solutions converge
+initial condition \(\displaystyle \begin{bmatrix}0.5 \\ 0 \end{bmatrix}\)
+(in blue) and \(\displaystyle \begin{bmatrix} -0.5 \\ 0 \end{bmatrix}\)
+(in red). As can be seen from the vector field, all the solutions converge
 toward the origin.  This is typical of linear system  
 of ODE with two negative eigenvalues.  The origin is called
 a <em>sink</em> or <em>stable node</em>.  If the eigenvalues had both
@@ -356,7 +357,7 @@ A := \begin{bmatrix} -\frac{1}{5} & -1 \\ 1 & -\frac{1}{5} \end{bmatrix}
 <p>whose eigenvalues and eigenvectors are</p>
 
 <pre class="matlab">
->  <font class="matlab">with(LinearAlgebra); Eigenvectors(A); </font>
+>  <font class="matlab">with(LinearAlgebra): Eigenvectors(A); </font>
 </pre>
 
 \[
@@ -365,7 +366,7 @@ A := \begin{bmatrix} -\frac{1}{5} & -1 \\ 1 & -\frac{1}{5} \end{bmatrix}
 
 <p>There are no real eigenvalues and eigenvectors.  It is taught in a
 basic ODE course that the general solution involves terms of the form
-$e^{-0.2 t}\cos(t($ and $e^{-0.2 t}\sin(t)$.</p>
+\(e^{-0.2 t}\cos(t)\) and \(e^{-0.2 t}\sin(t)\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> dsolve(eq5, {x1(t), x2(t)}); </font>
@@ -444,7 +445,7 @@ y^{n}(t) + a_{n-1} y^{n-1}(t) + ... + a_1 y'(t) + a_0 y(t) = f(t)
 \]
 
 <p>to a system of first order ODE. It suffices to define
-$X_1(t)= y(t), X_2(t)= y'(t), \ldots, X_n(t)= y^{n-1}(t)$ to get
+\(X_1(t)= y(t), X_2(t)= y'(t), \ldots, X_n(t)= y^{n-1}(t)\) to get
 the system</p>
 \[
 \begin{split}
@@ -490,8 +491,7 @@ but focus on the numerical solution given an initial condition.</p>
 X := [t = proc(t) ... end proc, x1(t) = proc(t) ... end proc, x2(t) = proc(t) ... end proc]
 \]
 
-<p>A parametric plotting of <font class="matlab">(x1(t),x2(t))</font>
-is given by</p>
+<p>A plot of \(t \mapsto (x1(t),x2(t))\) is given by</p>
 
 <pre class="matlab">
 > <font class="matlab">with(plots): odeplot(X,[x1(t),x2(t)],0..4*Pi,labels=[`x(t)`,`x'(t)`]);</font>
@@ -503,9 +503,8 @@ is given by</p>
      he initial condition (x1(0),x2(0))=(0,1)">
 </div>
 
-<p>This orbit should be familiar if you compare with the orbit of
-<font class="matlab">(x(t), D(x)(t))</font> for the second order ODE
-given in
+<p>This orbit should be familiar if you compare with the plot of
+\( t \mapsto (x(t), x'(t))\) for the second order ODE given in</p>
 <script language="javascript">
     buildLinK(ODE_O2_const_coeff.url_en,
     ODE_O2_const_coeff.text_en,"MMathSStat", ODE_O2_const_coeff.id,
@@ -517,7 +516,7 @@ given in
 <h4> Van der Pol Equation </h4>
 
 <p>Consider the system of ODE associated to the <em>Van der Pol equation</em>
-$x''(t)+ \epsilon x'(t) (x^2(t)-1) + x(t) = 0$.</p>
+\(x''(t)+ \epsilon x'(t) (x^2(t)-1) + x(t) = 0\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> eq2 := { diff(x1(t),t) = x2(t), diff(x2(t),t) = -epsilon*x2(t)*(x1(t)^2-1)-x1(t)};</font>
@@ -527,7 +526,7 @@ $x''(t)+ \epsilon x'(t) (x^2(t)-1) + x(t) = 0$.</p>
 eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t} x2(t) = -\epsilon x2(t) (x1(t)^2-1)-x1(t) \right\};
 \]
 
-<p>This is a system of non-linear ODE.  Assume that $\epsilon=0.1$.</p>
+<p>This is a system of non-linear ODE.  Assume that \(\epsilon=0.1\).</p>
 
 <pre class="matlab">
 > <font class="matlab">eq3 := subs(epsilon=0.1, eq2);</font>
@@ -614,8 +613,8 @@ vector field.</p>
 
 <h4> Nonlinear Pendulum </h4>
 
-<p>Consider the pendulum made up of a very light rod of length $L$
-with a small ball of mass $m$ at one end. </p>
+<p>Consider the pendulum made up of a very light rod of length \(L\)
+with a small ball of mass \(m\) at one end. </p>
 
 <pre class="matlab">
 > <font class="matlab">with(plots):with(plottools):</font>
@@ -625,14 +624,15 @@ with a small ball of mass $m$ at one end. </p>
 > <font class="matlab">gr4:=arrow([3,-5], [1/2,-13/2], 0.02,0.3,0.2, color=black):</font>
 > <font class="matlab">gr5:=line([1/2,-13/2], [3,-32/3], color=black, linestyle=3):</font>
 > <font class="matlab">gr6:=arrow([3,-5], [3,-32/3], 0.02,0.3,0.1, color=black):</font>
-> <font class="matlab">gr7:=textplot([5,-9,'mg'], font=[COURIER,12],align={LEFT}):</font>
-> <font class="matlab">gr8:=textplot([-2,-4,`mg sin`], font=[COURIER,12],align={LEFT}):</font>
-> <font class="matlab">gr9:=textplot([-1.8,-4,'q'], font=[SYMBOL,12],align={RIGHT}):</font>
-> <font class="matlab">gr10:=arc([3,-35/3],2.5, Pi/2..3*Pi/5):</font>
-> <font class="matlab">gr11:=textplot([2.2,-8,'q'], font=[SYMBOL,12],align={RIGHT}):</font>
-> <font class="matlab">gr12:=arrow([-3,-4.5],[2,-5.4], 0.02,0.3,0.1, color=black):</font>
-> <font class="matlab">gr13:=textplot([2.1,-3,'L'], font=[COURIER,12],align={RIGHT}):</font>
-> <font class="matlab">display({gr1,gr2,gr3,gr4,gr5,gr6, gr7,gr8,gr9,gr10,gr11,gr12,gr13}, view=[-6..6,-14..0.5], axes=none, scaling=constrained);</font>
+> <font class="matlab">gr7:=textplot([4,-9,"mg"], font=[COURIER,12],align={LEFT}):</font>
+> <font class="matlab">gr8:=textplot([-2,-4,"mg sin("], font=[COURIER,12],align={LEFT}):</font>
+> <font class="matlab">gr9:=textplot([-1.8,-4,'q'], font=[SYMBOL,12],align={LEFT}):</font>
+> <font class="matlab">gr10:=textplot([-1.6, -4, ")"], font = [COURIER, 12], align = {LEFT}):</font>
+> <font class="matlab">gr11:=arc([3,-35/3],2.5, Pi/2..3*Pi/5):</font>
+> <font class="matlab">gr12:=textplot([2.2,-8,'q'], font=[SYMBOL,12],align={RIGHT}):</font>
+> <font class="matlab">gr13:=arrow([-3,-4.5],[2,-5.4], 0.02,0.3,0.1, color=black):</font>
+> <font class="matlab">gr14:=textplot([2.1,-3,'L'], font=[COURIER,12],align={RIGHT}):</font>
+> <font class="matlab">display({gr1,gr2,gr3,gr4,gr5,gr6, gr7,gr8,gr9,gr10,gr11,gr12,gr13,gr14}, view=[-6..6,-14..0.5], axes=none, scaling=constrained);</font>
 </pre>
 
 <div class="center">
@@ -684,11 +684,11 @@ eq6 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\tex
 <p>We will plot the solution for the following two situations:</p>
 
 <ul>
-<li> We let the pendulum loose from an angle of $\pi/4$ so
+<li> We let the pendulum loose from an angle of \(\pi/4\) so
 <font class="matlab">&theta;(0)=&pi;/4 </font> and
 <font class="matlab">v(0)=0</font>.</li>
-<li> We push the pendulum upward from and angle of $\pi/4$ with a
-velocity of $4$ m/s; so <font class="matlab">&theta;(0)= &pi;/4</font>
+<li> We push the pendulum upward from an angle of \(\pi/4\) with a
+velocity of \(4\) m/s; so <font class="matlab">&theta;(0)= &pi;/4</font>
 and <font class="matlab">v(0)=4</font> m/s.</li>
 </ul>
 
@@ -735,6 +735,7 @@ friction, the motion of the pendulum is for ever.</p>
 <p>We plot the vector field with the orbits of the solutions.</p>
 
 <pre class="matlab">
+> <font class="matlab">with(DEtools):</font>
 > <font class="matlab">DEplot(eq6,[theta(t),v(t)], t=0..1.5*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=4]], linecolor=[blue,black], thickness=2, color=green, stepsize=0.01, arrows=small);</font>
 </pre>
 
@@ -765,11 +766,11 @@ defined above is still valid in the present context.</p>
 conditions.</p>
 
 <ul>
-<li> We let the pendulum loose from an angle of $\pi/4$ so
+<li> We let the pendulum loose from an angle of \(\pi/4\) so
 <font class="matlab">&theta;(0)=&pi;/4 </font>and
 <font class="matlab">v(0)=0</font>.</li>
-<li> We push the pendulum upward from and angle of $\pi/4$ with a
-velocity of $8$ m/s; so <font class="matlab">&theta;(0)= &pi;/4</font>
+<li> We push the pendulum upward from an angle of \(\pi/4\) with a
+velocity of \(8\) m/s; so <font class="matlab">&theta;(0)= &pi;/4</font>
 and <font class="matlab">v(0)=8</font> m/s.</p>
 
 <p> The orbits of the two solutions are draw in the following figure.</p>

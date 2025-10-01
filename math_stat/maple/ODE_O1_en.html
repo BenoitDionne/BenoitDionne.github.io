@@ -28,9 +28,10 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
-<script type="text/x-mathjax-config">
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
+-->
 <script type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
@@ -258,13 +259,12 @@ an initial value problem is often a good alternative.  To get a
 qualitative view of the graphs of solutions of an ODE, one plots the
 <em>slope field</em> of the ODE.</p>
 
-<p>Consider the first-order ODE $y'(x) = f(x,y(x))$.  The right hand
-side $f(x,y(x))$ is the slope of the solution $y(x)$ at every point
-$(x,y(x))$; a point on the graph of the solution $y(x)$.  The get the
-slope field of the ODE, we select many points of the plane.  From
-each one of them, we draw an arrow of slope $f(x,y)$ centred at
-this points. Maple has a nice function to generate the slope field
-of an ODE.</p>
+<p>Consider the first-order ODE \(y'(x) = f(x,y(x))\).  The right hand
+side \(f(x,y(x))\) is the slope of the solution \(y\) at every point
+\((x,y(x))\); a point on the graph of the solution \(y\).  The get the
+slope field of the ODE, we select many points of the plane and
+draw an arrow of slope \(f(x,y)\) from each one of them.  Maple has a
+nice function to generate the slope field of an ODE.</p>
 
 <p>Consider our troublesome homogeneous ODE of order one,
 <font class="matlab">eq4</font>.  Its slope field is drawn below.</p>
@@ -318,8 +318,8 @@ conditions.</p>
 </div>
 
 <p> There seems to be something wrong with the graphs of the solutions
-for $y(0)=-2$ and $y(0)=2$ when $x$ is greater than $8$.  The solutions are not
-tangent to the slope field as the should be. </p>
+for \(y(0)=-2\) and \(y(0)=2\) when \(x\) is greater than \(8\).  The
+solutions are not tangent to the slope field as the should be. </p>
 
 <p> This is the danger with numerical integration.  To get logical and
 more accurate results, we may have to adjust the step size or use an

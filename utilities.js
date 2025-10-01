@@ -669,7 +669,8 @@ function srow_function(ITEM, LANG, NBC) {
 }
 
 function bottom_function(ITEM, LANG) {
-    ;  /* does nothing for now */
+    document.write("<p class=\"footnote\">This work is licensed under the Creative Commons Attribution-NonCommercial-Share Alike 4.0 International (CC BY-NC-SA 4.0)<br><a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en\" target=\"_blank\">https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en</a></p>");
+    ;  /* does nothing else for now */
 }
 
 

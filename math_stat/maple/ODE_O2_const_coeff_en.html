@@ -28,9 +28,10 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
-<script type="text/x-mathjax-config">
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
+-->
 <script type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
@@ -72,8 +73,8 @@ eq1 := \frac{\text{d}^2}{\text{d}x^2} y(x) - 2 \frac{\text{d}}{\text{d}x} y(x) +
 \]
 
 <p>You have probably seen that the general solution of this ODE is of
-the form $y(x) = a_1 y_1(x) + a_2 y_2(x)$, where $a_1$ and
-$a_2$ are two arbitrary constants, and $y_1(x)$ and $y_2(x)$
+the form \(y(x) = a_1 y_1(x) + a_2 y_2(x)\), where \(a_1\) and
+\(a_2\) are two arbitrary constants, and \(y_1(x)\) and \(y_2(x)\)
 are two linearly independent solutions of ODE.  If we use
 <em>Maple</em> to solve this ODE, we get</p>
 
@@ -98,8 +99,8 @@ eq2 := \frac{\text{d}^2}{\text{d}x^2} y(x) - 2 \frac{\text{d}}{\text{d}x} y(x) +
 \]
 
 <p>The general solution of such an ODE is of the form
-$y(x) = y_g(x) + y_p(x)$ where $y_g(x)$ is the general solution of the
-associated homogeneous ODE and $y_p(x)$ is any particular solution.</p>
+\(y(x) = y_g(x) + y_p(x)\) where \(y_g(x)\) is the general solution of the
+associated homogeneous ODE and \(y_p(x)\) is any particular solution.</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq2,y(x));</font>
@@ -109,7 +110,7 @@ associated homogeneous ODE and $y_p(x)$ is any particular solution.</p>
  y(x) = e^x \_C2 + e^x x \_C1 + \frac{x^2 e^x}{2}
 \]
 
-<p>One can check that $\frac{x^2 e^x}{2}$ is a particular solution.</p>
+<p>One can check that \(\frac{x^2 e^x}{2}\) is a particular solution.</p>
 
 <pre class="matlab">
 > <font class="matlab">eval(subs(y(x)=x^2*exp(x)/2,eq2));</font>
@@ -121,7 +122,7 @@ associated homogeneous ODE and $y_p(x)$ is any particular solution.</p>
 
 <p><em>Note</em>: Two functions are linearly independent if we can not
 write one as a multiple of the other. To determine if two solutions
-$y_1(x)$ and $y_2(x)$ of an homogeneous ODE are linearly independent,
+\(y_1(x)\) and \(y_2(x)\) of an homogeneous ODE are linearly independent,
 we compute the determinant of the matrix</p>
 \[
 \begin{bmatrix} y_1(x) & y_2(x) \\ y_1'(x) & y_2'(x) \end{bmatrix}
@@ -155,7 +156,7 @@ linearly independent.</p>
 (e^x)^2
 \]
 
-<p>Since $e^{2x}$ is different than $0$ at one point, and so at all
+<p>Since \(e^{2x}\) is different than \(0\) at one point, and so at all
 points, the two solutions are linearly independent.</p>
 
 <p><em>Example</em>: Consider the ODE
@@ -193,12 +194,13 @@ a piston is described by the following ODE.</p>
 eq4 := \frac{\text{d}^2}{\text{d}x^2} y(x) + \beta \frac{\text{d}}{\text{d}x} y(x) + \omega^2 y(x) = 0
 \]
 
-<p>where $\omega = K/m$, with $K$ a constant and $m$ is the mass of the
-object, is the spring constant . $\beta$ is the damping coefficient.</p> 
+<p>where \(\omega = K/m\), with \(K\) a constant and \(m\) is the mass of the
+object, is the spring constant. The constant \(\beta\) is the damping
+coefficient.</p>
 
-<p>If the object is released from rest at a distance of $1$ m from
-its equilibrium position, the initial conditions are $y(0)=1$ and
-$y'(0)=0$. The solution of <font class="matlab">eq4</font> with
+<p>If the object is released from rest at a distance of \(1\) m from
+its equilibrium position, the initial conditions are \(y(0)=1\) and
+\(y'(0)=0\). The solution of <font class="matlab">eq4</font> with
 these initial conditions is obtained as it follows:</p>
 
 <pre class="matlab">
@@ -207,17 +209,17 @@ these initial conditions is obtained as it follows:</p>
 
 <p>We let the reader run the previous command with a semicolon if they
 really want to see the long solution.  It suffices to note that the
-solution involves $\sqrt{ \beta^2 + 4 \alpha^2}$ and a division by
-$\beta^2 - 4 \alpha^2$.  For $\beta^2 + 4 \alpha^2 < 0$, the solution
+solution involves \(\sqrt{ \beta^2 + 4 \alpha^2}\) and a division by
+\(\beta^2 - 4 \alpha^2\).  For \(\beta^2 + 4 \alpha^2 < 0\), the solution
 has cosine and sine terms that are responsible for oscillations.   For
-$\beta^2 + 4 \alpha^2 > 0$, the solution has exponential terms with
-negative exponents for $x > 0$ and we have no more oscillation,  We
-have over damping.  Finally, for $\beta^2 + 4 \alpha^2 = 0$, the
+\(\beta^2 + 4 \alpha^2 > 0\), the solution has exponential terms with
+negative exponents for \(x > 0\) and we have no more oscillation,  We
+have over damping.  Finally, for \(\beta^2 + 4 \alpha^2 = 0\), the
 previous solution in not valid.  We will show below that there is also
 no more oscillations.  The system is critically damped.</p>
 
-<p>We plot this solution for $\omega=1$ and
-$\beta = 0, 0.75, 1.5, 2.25, 3$.</p>
+<p>We plot this solution for \(\omega=1\) and
+\(\beta = 0, 0.75, 1.5, 2.25, 3\).</p>
 
 <pre class="matlab">
 > <font class="matlab">yp:=(xx,bb)->subs({omega=1,x=xx,beta=bb},rhs(sol));</font>
@@ -249,12 +251,12 @@ yp := (xx, bb) \mapsto subs({\beta = bb, \omega = 1, x = xx}, rhs(sol))
 </pre>
   
 <p>will have produce the same figure with one important difference.
-The colours seems to be randomly associated to the values of $\beta$.
+The colours seems to be randomly associated to the values of \(\beta\).
 This is not convenient when referring to the each graph.</p>
 
 <p>As we can see, without damping the spring has the same motion
 forever. If you add damping, the motion of the spring dies down.
-The system is critically damped when $\beta=2$ and $\omega=1$,
+The system is critically damped when \(\beta=2\) and \(\omega=1\),
 the solution of ODE above is not valid for these values.  There is a
 division by zero.  For these values, the ODE
 <font class="matlab">eq4</font> becomes</p>
@@ -279,7 +281,7 @@ yp := y(x) = e^{-x} + e^{-x} x
 
 <p>there are no more oscillations of the spring.</p>
 
-<p> Starting with a damping of $\beta \geq 2$, there are no more
+<p> Starting with a damping of \(\beta \geq 2\), there are no more
 oscillations of the spring.</p>
 
 <h4> Forced Spring Motion </h4>
@@ -296,8 +298,8 @@ following ODE.</p>
 eq6 := \frac{\text{d}^2}{\text{d}x^2} y(x) + \beta \frac{\text{d}}{\text{d}x} y(x) + \omega^2 y(x) = \cos(\theta x)
 \]
 
-<p>$\omega$ and $\beta$ have the same meaning as before.  We consider
-the previous critical damping case, $\beta=2$ and $\omega=1$.</p>
+<p>\(\omega\) and \(\beta\) have the same meaning as before.  We consider
+the previous critical damping case, \(\beta=2\) and \(\omega=1\).</p>
 
 <pre class="matlab">
 > <font class="matlab">eq7 := subs({omega=1,beta=2},eq6);</font>
@@ -308,7 +310,7 @@ eq7 := \frac{\text{d}^2}{\text{d}x^2} y(x) + 2 \frac{\text{d}}{\text{d}x} y(x) +
 \]
 
 <p>We assume that the object starts from rest at its equilibrium
-point; so $y(0)=0$ and $y'(0)=0$. The solution is given by</p>
+point; so \(y(0)=0\) and \(y'(0)=0\). The solution is given by</p>
 
 <pre class="matlab">
 > <font class="matlab">sol := dsolve({eq7,y(0)=0,D(y)(0)=0},y(x));</font>
@@ -320,7 +322,7 @@ sol := y(x) = \frac{e^{-x} (\theta^2 -1)}{\theta^4 + 2 \theta^2 +1}
 \]
 
 <p>We plot the graph of the solution for
-$\theta = 0, 0.75, 1.5, 2.25, 3$.</p>
+\(\theta = 0, 0.75, 1.5, 2.25, 3\).</p>
 
 <pre class="matlab">
 > <font class="matlab">yp:=(xx,tt)->subs({x=xx,theta=tt},rhs(sol));</font>
@@ -346,8 +348,8 @@ yp := (xx, tt) \mapsto subs({theta = tt, x = xx}, rhs(sol))
 
 <p>The period of the spring motion gets closer and closer to the
 forcing period.  We now estimate the amplitude and phase of the
-solution when $x$ is <q lang="en">really</q> large. Since $e^{-x} \to 0$
-as $x \to \infty$, the dominant part of the solution is</p>
+solution when \(x\) is <q lang="en">really</q> large. Since \(e^{-x} \to 0\)
+as \(x \to \infty\), the dominant part of the solution is</p>
 
 <pre class="matlab">
 > <font class="matlab">dom := coeff(expand(rhs(sol)*exp(x)), exp(x));</font>
@@ -358,8 +360,8 @@ dom := -\frac{\cos(\theta x) \theta^2}{(\theta^2 +1)^2}  + \frac{2 \theta \sin(\
 \]
 
 <p>To determine the amplitude and phase of an expression of the form
-$a_1 \cos(\theta x) + a_2 \sin(\theta x)$, we rewrite this expression
-as $A \cos(\theta x + P)$, where $A$ is the amplitude and $P$ is the
+\(a_1 \cos(\theta x) + a_2 \sin(\theta x)\), we rewrite this expression
+as \(A \cos(\theta x + P)\), where \(A\) is the amplitude and \(P\) is the
 phase.</p>
 
 <pre class="matlab">
@@ -379,7 +381,7 @@ A := \frac{1}{\theta^2 + 1}
 P := \arctan\left(\frac{2 \theta}{\theta^2 - 1}\right)
 \]
 
-<p>We plot the amplitude and phase in function of $\theta$.</p>
+<p>We plot the amplitude and phase in function of \(\theta\).</p>
 
 <pre class="matlab">
 > <font class="matlab">plot1:=plot(A,theta=0..2*Pi,color=red):</font>
@@ -393,8 +395,8 @@ P := \arctan\left(\frac{2 \theta}{\theta^2 - 1}\right)
 </div>
 
 <p>The amplitude is in red and the phase in blue.  Is the phase really
-discontinuous?  No, it isn't if we compute modulo $\pi$ (the period
-of the tangent) and set $\arctan(\infty) = \pi/2$.</p>
+discontinuous?  No, it isn't if we compute modulo \(\pi\) (the period
+of the tangent) and set \(\arctan(\infty) = \pi/2\).</p>
 
 <h3> Numerical Solutions of Second Order ODE </h3>
 

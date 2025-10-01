@@ -28,9 +28,11 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
+<!--  Use this code if you want to use the dollar sign for inline math formulae.
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
+-->
 <script type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
@@ -103,7 +105,7 @@ matrix.</p>
 integers, we get</p>
 
 <pre class="matlab">
-  > <font class="matlab">C:=readdata(`data1`,integer,4); E := convert(C, 'Matrix') </font>
+  > <font class="matlab">C:=readdata(`data1.txt`,integer,4); E := convert(C, 'Matrix') </font>
 </pre>
 
 \[
@@ -170,7 +172,7 @@ viscosity of the first row. We first read these data from the file
 <p>We use the Maple function <font class="matlab">plot()</font> to plot
 the reduction in percent of the pumping speed as a function of the
 viscosity.  To do so, we need to create a list of points of the
-form $[[x_1,y_1],[x_2,y_2],...]$ that we will give as
+form \([[x_1,y_1],[x_2,y_2],...]\) that we will give as
 arguments to <font class="matlab">plot()</font>.</p>
 
 <pre class="matlab">
@@ -212,7 +214,7 @@ ptData := \begin{bmatrix} 12 x 2 Matrix \\ Data Type: anything \\ Storage: recta
 
 <p>When the matrix is too big to be displayed (according to Maple), you get
 only a description of the matrix.   We know that it is a
-$12 \times 2$ matrix.</p>
+\(12 \times 2\) matrix.</p>
 
 <p>We define the spline that interpolate through all the data points
 that we have and plot it.</p>
@@ -231,13 +233,13 @@ that we have and plot it.</p>
 fit through the data because the graph is not strictly increasing
 as expected.</p>
 
-<p><em>Example</em>: The components of a $n\times n$ matrix $A$ can be
+<p><em>Example</em>: The components of a \(n\times n\) matrix \(A\) can be
 interpreted as the values of a function defined on the set
-$\{ (i,j) : 1 \leq i, j \leq n \}$; namely, $(i,j) \mapsto A(i,j)$.
+\(\{ (i,j) : 1 \leq i, j \leq n \}\); namely, \((i,j) \mapsto A(i,j)\).
 Consider the matrix defined in the data file <em>data1.txt</em>. 
 
 <pre class="matlab">
-> <font class="matlab">A:=readdata(`data1,txt`,4);</font>
+> <font class="matlab">A:=readdata(`data1.txt`,4);</font>
 </pre>
 
 \[ A := [[1., 2., 3., 4.], [5., 6., 7., 8.], [10., 20., 30., 40.], [.1, .2, .3, .4]] \]

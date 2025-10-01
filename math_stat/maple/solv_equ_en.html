@@ -28,9 +28,10 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
-<script type="text/x-mathjax-config">
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
+-->
 <script type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
@@ -72,7 +73,7 @@ nonlinear equations and find extremum.</p>
 given by Maple because it occupies several lines.  Try the operations
 above to find for yourself.</p>
 
-<p>The floating point representation (to $10$ decimal places) of these
+<p>The floating point representation (to \(10\) decimal places) of these
 roots is given by the command</p>
 
 <pre class="matlab">
@@ -109,7 +110,7 @@ of the following two functions.</p>
 \end{split}
 \]
 
-<p>We first find the values of $x$ where the curves intersect.</p>
+<p>We first find the values of \(x\) where the curves intersect.</p>
 
 <pre class="matlab">
 > <font class="matlab">xs := evalf(solve(f1=f2,x));</font>
@@ -178,7 +179,7 @@ system of two equations.</p>
 \]
 
 <p>Let's plot these two curves in the plan to find approximately
-their intersections.  We assume that $-3 < x , y < 3$.</p>
+their intersections.  We assume that \(-3 < x , y < 3\).</p>
 
 <pre class="matlab">
 > <font class="matlab">with(plots):</font>
@@ -216,8 +217,8 @@ where <font class="matlab">fsolve()</font> should look into.</p>
 
 <p>We get another solution.  The other solutions can be found using
 the same procedure or simply by using the reflective symmetry through
-the origin $(x,y) \to (-x,-y)$ of both equations.  So the other
-solutions are just $-1$ times the two solutions that we have found.</p>
+the origin \((x,y) \to (-x,-y)\) of both equations.  So the other
+solutions are just \(-1\) times the two solutions that we have found.</p>
 
 <br>
 <hr>

@@ -478,6 +478,13 @@ var Maple_programs = new item
      null, null, null, "Maple_programs", "_top", "Maple_programs");
 websites[websites_nbr++] = Maple_programs;
 
+var Complex_anal = new item
+    ("Analyse Complexe", "Complex Analysis",
+     location_bd+"math_stat/maple/complex_anal_fr.html",
+     location_bd+"math_stat/maple/complex_anal_en.html",
+     null, null, null, "Complex_anal", "_top", "Complex_anal");
+websites[websites_nbr++] = Complex_anal;
+
 /******************************************************************
  *  under plan
  ******************************************************************/
@@ -756,7 +763,9 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 	    mapleLinks[maple_nbr++]
 		= initItem(PDE, mathLinks[math_nbr], mapleLinks, null); 
 	    mapleLinks[maple_nbr++]
-		= initItem(Maple_programs, mathLinks[math_nbr], mapleLinks, null); 
+		= initItem(Maple_programs, mathLinks[math_nbr], mapleLinks, null);
+	    mapleLinks[maple_nbr++]
+		= initItem(Complex_anal, mathLinks[math_nbr], mapleLinks, null);
 	}
 	math_nbr++;
     }

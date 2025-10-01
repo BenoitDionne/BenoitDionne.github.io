@@ -28,9 +28,10 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
-<script type="text/x-mathjax-config">
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
+-->
 <script type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
@@ -56,7 +57,7 @@ main_title( MStext, "MMathSStat");
 on <em>Fourier series</em>.  For a rigorous introduction, the reader
 should consult one of the excellent textbooks in analysis.</p>
 
-<p>The <em>Fourier series</em> of $f [-L,L] \to \mathbb{R}$ is the
+<p>The <em>Fourier series</em> of \(f [-L,L] \to \mathbb{R}\) is the
 series</p>
 
 \[
@@ -74,22 +75,22 @@ series</p>
 b_n = \frac{1}{L} \int_{-L}^L f(x) \sin(n\pi x/L) \text{d}x
 \]
 
-<p> If $f$ is piecewise continuous on $[-L,L]$, we have that</p>
+<p> If \(f\) is piecewise continuous on \([-L,L]\), we have that</p>
 
 \[
   \frac{f(x^+) + f(x^-)}{2}
   = a_0 + \sum_1^\infty ( a_n \cos(n\pi x/L) + b_n \sin(n\pi x/L) )
 \]
 
-<p>for all $x \in [-L,L]$.  In particular, if $f$ is continuous at
-$x$, then the series converges pointwise to $f(x)$.</p>
+<p>for all \(x \in [-L,L]\).  In particular, if \(f\) is continuous at
+\(x\), then the series converges pointwise to \(f(x)\).</p>
 
-<p>If $f :\mathbb{R} \to \mathbb{R}$ is periodic of period $2L$, the
+<p>If \(f :\mathbb{R} \to \mathbb{R}\) is periodic of period \(2L\), the
 integrals above can be computed on any interval of the form
-$[a-L,a+L]$.</p>
+\([a-L,a+L]\).</p>
 
-<p>If $f$ is an even function (i.e. $f(-x) = f(x)$ for all $x$), then
-$b_n = 0$ for all $n$ and the Fourier series becomes the
+<p>If \(f\) is an even function (i.e. \(f(-x) = f(x)\) for all \(x\)), then
+\(b_n = 0\) for all \(n\) and the Fourier series becomes the
 <em>Fourier cosine series</em></p>
 
 \[
@@ -100,15 +101,15 @@ $b_n = 0$ for all $n$ and the Fourier series becomes the
   
 \[
   a_0 = \frac{1}{L} \int_0^L f(x) \text{d}x \quad , \quad
-  a_n = \frac{2}{L} \int_o^L f(x) \cos(n\pi x/L)\text{d}x
+  a_n = \frac{2}{L} \int_0^L f(x) \cos(n\pi x/L)\text{d}x
 \]
 
 <p><em>Note</em>: We can always extend a function
-$f:[0,L] \to \mathbb{R}$ to an even function defined on $[-L.L]$ by
-$f(x) = f(-x)$ for $x \in [-L,0]$.</p>
+\(f:[0,L] \to \mathbb{R}\) to an even function defined on \([-L.L]\) by
+\(f(x) = f(-x)\) for \(x \in [-L,0]\).</p>
 
-<p>If $f$ is an odd function (i.e. $f(-x) = -f(x)$ for all $x$), then
-$a_n = 0$ for all $n$, and the Fourier series becomes the
+<p>If \(f\) is an odd function (i.e. \(f(-x) = -f(x)\) for all \(x\)), then
+\(a_n = 0\) for all \(n\), and the Fourier series becomes the
 <em>Fourier sine series</em></p> 
 
 \[
@@ -118,12 +119,12 @@ $a_n = 0$ for all $n$, and the Fourier series becomes the
 <p>where</p>
   
 \[
-  b_n = \frac{2}{L} \int_o^L f(x)\sin(n \pi x/L) \text{d} x
+  b_n = \frac{2}{L} \int_0^L f(x)\sin(n \pi x/L) \text{d} x
 \]
 
 <p><em>Note</em>: We can always extend a function
-$f:]0,L] \to \mathbb{R}$ to an odd function defined on
-$[-L.L]$ by $f(x) = -f(-x)$ for $x \in [-L,0[$ and $f(0)=0$.</p>
+\(f:]0,L] \to \mathbb{R}\) to an odd function defined on
+\([-L.L]\) by \(f(x) = -f(-x)\) for \(x \in [-L,0[\) and \(f(0)=0\).</p>
 
 <h3> Computations of Fourier Series </h3>
 
@@ -176,9 +177,9 @@ fe := x \mapsto \begin{cases} 1 & \qquad |x| -2 \lfloor \frac{|x|}{2} \rfloor \l
 </div>
 
 <p>From the graph of <font class="matlab">fe</font>, we see that it is
-periodic of period $2$ (so $L=1$) and it is an even function.  We will
+periodic of period \(2\) (so \(L=1\)) and it is an even function.  We will
 approximate this function with a Fourier cosine series.  Since we
-will need to integrate only on the interval $[0,1]$, we don't need the
+will need to integrate only on the interval \([0,1]\), we do not need the
 complete definition of <font class="matlab">fe</font>, we can only consider
 
 <pre class="matlab">
@@ -191,7 +192,7 @@ fe := x \mapsto \begin{cases} 1 & \qquad x \leq \frac{1}{2}  \\
 \end{cases}
 \]
 
-<p>which is equal to <font class="matlab">fe</font> on $[0,L]$.  It is
+<p>which is equal to <font class="matlab">fe</font> on \([0,L]\).  It is
 not necessary to consider <font class="matlab">fe0L</font> but, if
 you have many computation to do, it is always nice to have the
 simplest form possible to do the job.</p>
@@ -214,7 +215,7 @@ simplest form possible to do the job.</p>
 \end{split}
 \]
 
-<p>We compute and store the first $11$ coefficients that we will use
+<p>We compute and store the first \(11\) coefficients that we will use
 later.</p>
 
 <pre class="matlab">
@@ -227,7 +228,7 @@ AN := .5000000000, .6366197722, 0., -.2122065907, 0., .1273239544, 0., -0.909456
 
 <p>Note that the sequence <font class="matlab">AN</font> starts a one.
 This will have an effect on the formula for the Fourier series.  The
-Fourier cosine series (truncated after $n+1$ terms) is 
+Fourier cosine series (truncated after \(n+1\) terms) is 
 
 <pre class="matlab">
 > <font class="matlab">FCS:=(x,n)->sum(AN[j+1]*cos(j*Pi*x),j=0..n);</font>
@@ -239,7 +240,7 @@ FCS := (x, n) \mapsto \sum_{j=0}^{n} AN_{j+1} \cos(j\pi x)
 
 <p>We now draw, on the same figure, the graphs of
 <font class="matlab">fe(&nbsp;)</font> and the Fourier cosine series
-with $n = 5$; the first six terms of the series.</p>
+with \(n = 5\); the first six terms of the series.</p>
 
 <pre class="matlab">
 > <font class="matlab">plot1:=plot(fe(x),x=-4..4,color=blue):</font>
@@ -254,7 +255,7 @@ with $n = 5$; the first six terms of the series.</p>
 </div>
 
 <p><em>Note</em>: We observe the <em>Gibb's phenomena</em>.  No
-matter how many terms you keep in the Fourier series, near a
+matter how many terms you keep in the Fourier series, near a point of
 discontinuity of the function, the difference between the function
 and the truncated Fourier series never decreases below a fixed
 value.</p>
@@ -305,16 +306,16 @@ about <font class="matlab">(fe(x-)+fe(x+))/2</font> as expected.</p>
 </div>
 
 <p>From the graph, we see that <font class="matlab">ff</font> is a
-periodic function of period $3$ but it is neither an odd nor an even
+periodic function of period \(3\) but it is neither an odd nor an even
 function.  We will use the full Fourier series to approximate
 <font class="matlab">ff</font>.</p>
 
 <p>As we did in the previous example, we could define a relatively
 simpler function <font class="matlab">ff0L</font> which is equal to 
 <font class="matlab">ff</font> on the interval of integration
-$[-1.5,1.5]$.  However, since <font class="matlab">ff(x) = 0</font>
-for $x\in [-1.5,0]$, the integrals need to be computed on the interval
-$[0, 1.5]$ only.  So, we may simply consider
+\([-1.5,1.5]\).  However, since <font class="matlab">ff(x) = 0</font>
+for \(x\in [-1.5,0]\), the integrals need to be computed on the interval
+\([0, 1.5]\) only.  So, we may simply consider
 <font class="matlab">ff0L</font> defined by</p>
 
 <pre class="matlab">
@@ -348,7 +349,7 @@ $[0, 1.5]$ only.  So, we may simply consider
 bn := proc(n)\ RETURN(2/3*(int(ff0L*sin(2/3*n*Pi*x), x = 0 .. 1.5)))\ end\ proc
 \]
 
-<p>We compute and store the first $21$ coefficients that we will use
+<p>We compute and store the first \(21\) coefficients that we will use
   later.</p>
 
 <pre class="matlab">
@@ -357,7 +358,7 @@ bn := proc(n)\ RETURN(2/3*(int(ff0L*sin(2/3*n*Pi*x), x = 0 .. 1.5)))\ end\ proc
 </pre>
 
 <p>The Fourier series of
-<font class="matlab">ff</font> (truncated after $2n+1$ terms) is given by</p>
+<font class="matlab">ff</font> (truncated after \(2n+1\) terms) is given by</p>
 
 <pre class="matlab">
 > <font class="matlab">FS:=(x,n)-> sum(AN[j+1]*cos(2*j*Pi*x/3),j=0..n) + sum(BN[j]*sin(2*j*Pi*x/3),j=1..n);</font>
@@ -369,12 +370,11 @@ x}{3}\right) )+ \sum_{j=1}^n BN_j \sin\left(\frac{2j\pi x}{3}\right)
 \]
 
 <p>We now draw, on the same figure, the graphs of
-<font class="matlab">ff</font> and its Fourier series with $n =
-10$.</p>
+<font class="matlab">ff</font> and its Fourier series with \(n =10\).</p>
 
 <pre class="matlab">
 > <font class="matlab">plot1:=plot(ff(x),x=-4..4,color=blue):</font>
-> <font class="matlab">plot2:=plot('FS(x,5)',x=-4..4,color=red):</font>
+> <font class="matlab">plot2:=plot('FS(x,10)',x=-4..4,color=red):</font>
 > <font class="matlab">plots[display]({plot1,plot2},labels=[`x`,`y`]);</font>
 </pre>
 

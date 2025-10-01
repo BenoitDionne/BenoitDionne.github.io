@@ -28,9 +28,10 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
-<script type="text/x-mathjax-config">
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
+-->
 <script type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
@@ -69,7 +70,7 @@ eq1 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 <p>The form of the solutions depend on the the parameters
 <font class="matlab">b</font> and <font class="matlab">c</font>.  The
 basic idea is to suppose that a solution of this ODE is of the from
-$y(x) = x^r$.  If we make this substitute </p>
+\(y(x) = x^r\).  If we make this substitute </p>
 
 <pre class="matlab">
 > <font class="matlab">eq2 := eval( subs(y(x)=x^r, eq1) );</font>
@@ -80,7 +81,7 @@ eq2 := x^2 \left( \frac{x^r r^2}{x^2} - \frac{x^r r}{x^2}  \right)
 + b x^r r  c x^r = 0
 \]
 
-<p>and divide both side by $x^r$, we get</p>
+<p>and divide both side by \(x^r\), we get</p>
 
 <pre class="matlab">
 > <font class="matlab">simplify( eq2/x^r );</font>
@@ -91,13 +92,13 @@ r^2+ (b-1) r+c = 0
 \]
 
 <p>The <em>indicial equation</em> for the Cauchy-Euler equation is
-$r^2+(b-1)r+c=0$. The solution depends on the roots of this equation.</p>
+\(r^2+(b-1)r+c=0\). The solution depends on the roots of this equation.</p>
 
 <p><em>Note</em>: The Cauchy Euler equation can be reduced to the
 second order linear ODE with constant coefficients
-$y''(t) +(b-1) y'(t) +c y(t) = 0$ with the substitution
-$x = e^t$. If $y(t)$ is a solution of this ODE, then
-$y(\ln(x))$ is a solution for the Cauchy Euler equation.  The indicial
+\(y''(t) +(b-1) y'(t) +c y(t) = 0\) with the substitution
+\(x = e^t\). If \(y(t)\) is a solution of this ODE, then
+\(y(\ln(x))\) is a solution for the Cauchy Euler equation.  The indicial
 equation for the Cauchy Euler equation is the
 <em>characteristic equation</em> for the second order linear
 ODE with constant coefficients.  It therefore follows that the
@@ -105,13 +106,13 @@ solutions of the Cauchy Euler equation are of three types as the
 solutions of the second order linear ODE with constant coefficients.</p>
 
 <ul>
-<li> $y(t) = c_1 x^{r_1} + c_2 x^{r_2}$ if the indicial equation has
-two distinct real roots $r_1$ and $r_2$. </li>
-<li> $y(t) = c_1 x^r + c_2 x^r \ln(x)$ if the indicial equation has
-only one real root $r$.</li>
-<li> $y(t) = c_1 x^a \cos(b\ln(x)) + c_2 x^a \sin(b\ln(x))$ if the
+<li> \(y(t) = c_1 x^{r_1} + c_2 x^{r_2}\) if the indicial equation has
+two distinct real roots \(r_1\) and \(r_2\). </li>
+<li> \(y(t) = c_1 x^r + c_2 x^r \ln(x)\) if the indicial equation has
+only one real root \(r\).</li>
+<li> \(y(t) = c_1 x^a \cos(b\ln(x)) + c_2 x^a \sin(b\ln(x))\) if the
 indicial equation has the pair of complex conjugate roots
-$a \pm b i$ with $b \neq 0$.</li>
+\(a \pm b i\) with \(b \neq 0\).</li>
 </ul>
 
 <p>Suppose that <font class="matlab">b=c=1</font> in the Cauchy Euler
@@ -126,8 +127,8 @@ eq3 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 + x \left( \frac{\text{d}}{\text{d} x} y(x)\right) + y(x) = 0
 \]
 
-<p>The indicial equation is $r^2 + 1 = 0$ and has two distinct complex
-  roots (i.e. $\pm i$ ).  The general solution is</p>
+<p>The indicial equation is \(r^2 + 1 = 0\) and has two distinct complex
+  roots (i.e. \(\pm i\) ).  The general solution is</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq3 ,y(x));</font>
@@ -144,7 +145,7 @@ eq3 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 <p> To study some partial differential equations (PDE), it is
   important to study Boundary Value Problems for the Cauchy Euler
   equation.  For instance, consider the Cauchy Euler equation with the
-  boundary conditions $y(1)=1$ and $y(3)=2$.  In theory, we have to find
+  boundary conditions \(y(1)=1\) and \(y(3)=2\).  In theory, we have to find
   the values of <font class="matlab">_C1</font>
   and <font class="matlab">_C2</font> such that these conditions are
   satisfied.  The function  
@@ -158,7 +159,7 @@ eq3 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 y(x) = -\frac{(-2+\cos(\ln(3))) \sin(ln(x))}{\sin(\ln(3))} + \cos(\ln(x))
 \]
 
-<p>Suppose now that $-b=c=1$ in the Cauchy Euler equation.</p>
+<p>Suppose now that \(-b=c=1\) in the Cauchy Euler equation.</p>
 
 <pre class="matlab">
 > <font class="matlab"> eq4 := subs({b=-1,c=1},eq1);</font>
@@ -169,8 +170,8 @@ eq4 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 - x \left( \frac{\text{d}}{\text{d} x} y(x)\right) + y(x) = 0
 \]
 
-<p>The indicial equation is $(r-1)^2 = 0$.  There is a single real
-  root $r = 1$.  The general solution is, as expected,</p>
+<p>The indicial equation is \((r-1)^2 = 0\).  There is a single real
+  root \(r = 1\).  The general solution is, as expected,</p>
 
 <pre class="matlab">
 > <font class="matlab"> dsolve(eq4 ,y(x));</font>
@@ -204,9 +205,9 @@ eq5 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 + x \left( \frac{\text{d}}{\text{d}x} \right) y(x) + (-p^2 + x^2) y(x) = 0
 \]
 
-<p>The indicial equation is $r^2-p^2 =0$ -- Solutions by power
+<p>The indicial equation is \(r^2-p^2 =0\) -- Solutions by power
 series are needed to deduce this indicial equation. It has two
-distinct roots when $p \neq 0$.  The general solution is </p>
+distinct roots when \(p \neq 0\).  The general solution is </p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq5,y(x));</font>
@@ -217,9 +218,9 @@ distinct roots when $p \neq 0$.  The general solution is </p>
 \]
 
 <p><font class="matlab">BesselJ(p,x)</font> is the Bessel function of
-the first kind of order $p$, and
+the first kind of order \(p\), and
 <font class="matlab">BesselY(p,x)</font> is the Bessel function of the
-second kind of order $p$.  The Bessel functions of the first kind can
+second kind of order \(p\).  The Bessel functions of the first kind can
 be expressed as infinite series around the origin but the Bessel
 functions of the second kind cannot (the origin is a singularity).
 The Bessel function of the first king of order
@@ -234,8 +235,8 @@ near the origin.
 1 - \frac{1}{4} x^2 + \frac{1}{64} x^4 - \frac{1}{2304} x^6 + O(x^8)
 \]
 
-<p>The graphs of the Bessel functions of the first kind of order $0$
-and $1$ are</p>
+<p>The graphs of the Bessel functions of the first kind of order \(0\)
+and \(1\) are</p>
 
 <pre class="matlab">
 > <font class="matlab"> with(plots):</font>
@@ -249,12 +250,12 @@ and $1$ are</p>
        alt="Graph of the Bessel functions of the first kind of order 0 and 1">
 </div>
 
-<p>Except for the Bessel functions of the first kind of order $0$ that
-is $1$ at the origin, all the Bessel functions of the first kind are
-$0$ at the origin.</p>
+<p>Except for the Bessel functions of the first kind of order \(0\) that
+is \(1\) at the origin, all the Bessel functions of the first kind are
+\(0\) at the origin.</p>
 
-<p>The graphs of the Bessel functions of the second kind of order $0$
-and $1$ are</p>
+<p>The graphs of the Bessel functions of the second kind of order \(0\)
+and \(1\) are</p>
 
 <pre class="matlab">
 > <font class="matlab"> Y0 := plot(BesselY(0,x),x=0.1..10, color="red"):</font>
