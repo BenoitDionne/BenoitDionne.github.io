@@ -8,7 +8,7 @@ div.page_contents { margin: 0px; padding: 10px; border: 0px; }
 * { font-weight: normal; font-size: inherit; color: black; font-style: normal; }
 
 /* Footnote font */
-p.footnote { font-weight: normal; font-size: 70%; color: black; font-style: normal; padding: 15px;}
+p.footnote { font-weight: normal; font-size: 70%; color: black; font-style: normal; padding-left: 15px;}
 
 /* The hyperlinks */
 a { color: #8F001A; text-decoration: none; }
