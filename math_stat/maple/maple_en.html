@@ -370,9 +370,9 @@ library <font class="matlab">plots</font>.
        alt="Contour plot of x*cos(x)*sin(y)">
 </div>
 
-<p>To end this section, we show that functions defined with a
-procedure can also be plotted.  We illustrate this with the
-function \(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
+<p>We now show that functions defined with a procedure can also be
+plotted.  We illustrate this with the function
+\(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=(x,y)->sin(x+y)+cos(x+y):</font>
@@ -383,6 +383,184 @@ function \(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
   <img src="Maple_graph_6.png" style="width: 300px"
        alt="Graph of sin(x+y)+cos(x+y)">
 </div>
+
+<h4> More Three Dimensional Plots </h4>
+
+<p>Maple has some libraries specifically designed to draw figures in
+  three dimensions. <font class="matlab">plottools</font> and
+<font class="matlab">geom3d</em> are two of them.</p>
+
+<p>It is possible with <font class="matlab">plottools</font> to
+visualise three dimensional objects.  To draw the (surface of the)
+hemisphere of radius \(3\) centred at \((4,3,4)\) and such that
+\(z\geq 4\), we proceed as follows.  We first
+create the basic hemisphere of radius \(3\) centered at \((4,3,4)\)
+and open upward.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(plottools): </font>
+> <font class="matlab">tmp:= hemisphere([4,3,4],3, color=green,capped=false):
+</font>
+</pre>
+
+<p> We reflect the previous hemisphere with respect to the plane \(z=4\).
+This plane is uniquely defined by three non-colinear points on it.</p>
+
+<pre class="matlab">
+> <font class="matlab">Hemi:=reflect(tmp,[[0,0,4],[1,1,4],[1,0,4]]):
+</font>
+</pre>
+    
+<p>The only think left is to display the resulting hemisphere.</p>
+
+<pre class="matlab">
+> <font class="matlab">display(Hemi,style=patch,axes=NORMAL,labels=['x','y','z'],scaling=constrained,orientation=[-25,80]);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_7.png" style="width: 400px"
+       alt="Graph of the hemisphere">
+</div>
+
+<p> Suppose that we want to draw the intersection of our hemisphere with
+the plane \(x/2 + y/4 - z = -3\).  Since the library
+<font class="matlab">plottools</font> does not have a function to
+draw planes, we use the standard technique to draw planes.</p>
+
+<pre class="matlab">
+> <font class="matlab">pl:= plot3d(x/2+y/4+3,x=-1..7, y=-1..7,color=red):
+</font>
+</pre>
+
+<p>We display the plane and the previous hemisphere in the same
+figure.</p>
+
+<pre class="matlab">
+> <font class="matlab">display({Hemi,pl},style=patch,axes=NORMAL,labels=['x','y','z'],scaling=constrained,orientation=[-25,80]);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_8.png" style="width: 400px"
+       alt="Graph of the hemisphere and the plane intersecting the hemisphere">
+</div>
+
+<p>Much more can be done with the library
+<font class="matlab">plottools</font>.  Our only intention was to
+mention its existence and dispaly some of its potential.  It is left to
+the reader to read the documentation of this library and to play with
+it.</p>
+
+<p> The Maple library <font class="matlab">geom3d</font> may also be
+use to visualise \(3\)-dimensional objects.  It is more elaborated
+than <font class="matlab">plottools</font>.  We will simply illustrate
+its potential with two examples.</p>
+
+<p>For comparison with the library <font class="matlab">plottools</font>, 
+we use the library <font class="matlab">geom3d</font> to draw the
+intersection of the sphere of radius \(3\) centred at \((4,3,4)\)
+with the plane \(x/2 + y/4 - z = -3\).
+We begin by drawing the sphere of radius \(3\) centred at \((4,3,4)\).
+The center of the sphere is </p>
+
+<pre class="matlab">
+> <font class="matlab">restart: with(geom3d):</font>
+> <font class="matlab">point(ce,[4,3,4]);</font>
+</pre>
+
+\[
+ce
+\]
+
+<p> The sphere is defined by </p>
+
+<pre class="matlab">
+> <font class="matlab">sphere(sp,[ce,3],['x','y','z']); </font>
+</pre>
+
+\[
+sp
+\]
+
+<p> and this sphere is drawn with </p>
+
+<pre class="matlab">
+> <font class="matlab">draw(sp(color=blue), orientation=[-45,70],axes=normal);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_9.png" style="width: 400px"
+       alt="Graph of the sphere">
+</div>
+
+<p> Consider the plane \(x/2 + y/4 - z = -3\). <p>
+
+<pre class="matlab">
+> <font class="matlab">plane(pl,x/2+y/4-z=-2,[x,y,z]);
+</font>
+</pre>
+
+\[
+pl
+\]
+
+<p>We can draw the sphere and the plane in the same figure with</p>
+
+<pre class="matlab">
+> <font class="matlab">draw({sp(color=yellow),pl(color=red)},orientation=[-45,70],axes=normal);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_10.png" style="width: 400px"
+       alt="Graph of the sphere and the plane intersecting the sphere">
+</div>
+
+<p> The function <font class="matlab">intersection()</font>
+of the library <font class="matlab">geom3d</font> can find the
+intersection of two planes.  Consider another plane. </p>
+
+<pre class="matlab">
+> <font class="matlab">plane(pll,x/2-y/4-z=-2,[x,y,z]);
+</font>
+</pre>
+
+\[
+pll
+\]
+
+<p> The intersection of the planes <font class="matlab">pl</font> and
+<font class="matlab">pll</font> is given by</p>
+
+<pre class="matlab">
+> <font class="matlab">intersection(inter,pl,pll);
+</font>
+</pre>
+
+\[
+inter
+\]
+
+<pre class="matlab">
+> <font class="matlab">detail(inter);
+</font>
+</pre>
+
+\[
+\begin{split}
+\text{Warning, assume that}&\text{ the name of the parameter in the parametric equations is _t}\\
+&\text{name of the object: inter}\\
+&\text{form of the object: line3d}\\
+&\text{equation of the line:}\ \left[x = -4-\frac{\_t}{2}, y = 0, z =
+-\frac{\_t}{4} \right]
+\end{split}
+\]
+
+<p>Since the two planes are not parallel, we find as expected that
+the intersection of the two planes is a line.  Maple gives us
+the parametric representation of the line.</p>
 
 <h3> More Advanced Topics </h3>
 

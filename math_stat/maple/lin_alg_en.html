@@ -209,7 +209,7 @@ column. </p>
 <p>Here are some of the operations on matrices:</p>
 
 <pre class="matlab">
-> <font class="matlab">C := InverseMatrix(B);</font>
+> <font class="matlab">C := MatrixInverse(B);</font>
 </pre>
 
 \[ C := \begin{bmatrix} -\frac{7}{5} & \frac{3}{5} \\ \frac{4}{5} & -\frac{1}{5} \end{bmatrix} \]
@@ -233,8 +233,8 @@ column. </p>
 \end{split}
 \]
 
-<p>There are a lot more functions in the
-<font class="matlab">LinearAlgebra</font> library: 
+<p>There are a lot more functions in the library
+<font class="matlab">LinearAlgebra</font>: 
 <font class="matlab">Adjoint</font>, <font class="matlab">Basis</font>,
 <font class="matlab">CharacteristicPolynomial</font>,
 <font class="matlab">ColumnDimension</font>,
@@ -246,17 +246,177 @@ column. </p>
 <font class="matlab">GramSchmidt</font>, <font class="matlab">JordanForm</font>,
 <font class="matlab">MatrixExponential</font>,
 <font class="matlab">NullSpace</font>,
-<font class="matlab">ReducedRowEchelonForm</font>, and many more.</p>
+<font class="matlab">ReducedRowEchelonForm</font>, and many more.
+We illuatrate only two of these functions below.</p>
 
-<p><em>Note</em>: The function <font class="matlab">Eigenvectors</font>
-with the option <font class="matlab">output = 'list'</font> returns a
-list where each element of the list is associated to a distinct
-eigenvalue.  Each element of the list is formed of an eigenvalue, its
-algebraic multiplicity and an independent set of eigenvectors
-associated to the eigenvalue.</p>
+<p> We consider the matrix \(A\) defined by</p>
 
-<p>It is possible to apply any function to each component of a matrix
-or vector. Consider the following function.</p>
+<pre class="matlab">
+> <font class="matlab">A:=Matrix([[4,15/7,-4/7],[-6,27/7,18/7],[16,-30/7,29/7]]); </font>
+</pre>
+
+\[
+A :=  \begin{bmatrix}4 & \displaystyle \frac{15}{7} & \displaystyle
+-\frac{4}{7} \\-6 & \displaystyle \frac{27}{7} & \displaystyle
+\frac{18}{7} \\ 16 & \displaystyle -\frac{30}{7} & \displaystyle
+\frac{29}{7} \end{bmatrix}
+\]
+}
+
+<p>The eigenvalues of the matrix \(A\) are given by the following
+Maple function. </p>
+
+<pre class="matlab">
+> <font class="matlab"> eigva:=Eigenvalues(A); </font>
+</pre>
+
+\[
+eigva := \begin{bmatrix} 6 \\ 3 - 6\, I \\ 3 + 6\, I \end{bmatrix}
+\]
+
+<p>The eigenvalues and some eigenvectors of \(A\) are given by the
+Maple function <font class="matlab">Eigenvectors()</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab"> eigvec:=Eigenvectors(A); </font>
+</pre>
+
+\[
+eigvec := \begin{bmatrix} 6 \\ 3 + 6\, I \\ 3 - 6\, I \end{bmatrix} ,
+\begin{bmatrix}
+\displaystyle \frac{1}{4} & \displaystyle -\frac{2}{13} + \frac{3\, I}{13}
+& \displaystyle -\frac{2}{13} - \frac{3\, I}{13} \\
+\displaystyle \frac{1}{2} & \displaystyle -\frac{4}{13} - \frac{7\, I}{13}
+& \displaystyle -\frac{4}{13} + \frac{7\, I}{13} \\
+1 & 1 & 1
+\end{bmatrix}
+\]
+
+<p>This function returns the list of eigenvalues (repeated \(k\) times
+if the algebraic multiplicity of the eigenvalue is \(k\)) and a matrix
+where each column is an eigenvector (or a column of zeros if the
+geometric multiplicity is less than the algebraic multiplicity)
+associated to the eigenvalue in the list occupying the same 
+rank.  For instance, the first column is an eigenvector associated to
+the eigenvalue in the first row of the first matrix, the second column
+is an eigenvector associated to the eigenvalue in the second row of
+the first matrix, and so on.  In the previous example,
+\(\displaystyle \begin{pmatrix} 1/4 \\ 1/2 \\ 1 \end{pmatrix} \) is an
+eigenvector of \(A\) associated to \(6\), 
+\(\begin{pmatrix} -2/13 + 3i/13 \\ -4/13 - 7i/13 \\ 1 \end{pmatrix}\)
+is an eigenvector of \(A\) associated to \(3 -6i\), and
+\(\begin{pmatrix} -2/13 - 3i/13 \\ -4/13 + 7i/13 \\ 1 \end{pmatrix}\)
+is an eigenvector of \(A\) associated to \(3 + 6i\).</p>
+
+<p> There is a more natural way to present the information, in
+particular when there are eigenvalues of algebraic multiplicity greater than
+their geometric multiplicity.   With the option
+<font class="matlab">output=list</font>, each element of the returned
+list is associated to a distinct eigenvalue.  Each element of the list
+is formed of an eigenvalue, its algebraic multiplicity and an
+independent set of eigenvectors associated to the eigenvalue. </p>
+
+<pre class="matlab">
+> <font class="matlab">eigvec := Eigenvectors(A,output=list)); </font>
+</pre>
+
+\[
+eigvec := \left[ \left[ 3 + 6\,I, 1, \left[ 
+\begin{bmatrix} \displaystyle -\frac{2}{13} + \frac{3\,I}{13} \\
+\displaystyle -\frac{4}{13} - \frac{7\,I}{13} \\ 1 \end{bmatrix}
+\right]\right],
+\left[ 3 - 6\,I, 1, \left[ 
+\begin{bmatrix} \displaystyle -\frac{2}{13} - \frac{3\,I}{13} \\
+\displaystyle -\frac{4}{13} + \frac{7\,I}{13} \\ 1 \end{bmatrix}
+\right]\right],
+\left[ 6 , 1 , \left[
+\begin{bmatrix} \displaystyle \frac{1}{4} \\
+\displaystyle \frac{1}{2} \\ 1 \end{bmatrix} \right]\right] \right]
+\]
+
+<p>It often happens that the exact values of the eigenvalues and eigenvectors
+are very complicated expressions.  If it is sufficient, then we may
+only request real/complex approximations of the eigenvalues and
+eigenvectors.  For instance, consider the following matrix \(A\).</p>
+
+<pre class="matlab">
+> <font class="matlab">A:=Matrix([[2,5,4],[-4,2,1],[2,-1,1]]); </font>
+</pre>
+
+\[
+A :=  \begin{bmatrix} 2 & 5 & 4 \\-4 & 2 & 1 \\ 2 & -1 & 1 \end{bmatrix}
+\]
+
+<p> If we use <font class="matlab">Eigenvalues(A);</font> or
+<font class="matlab">Eigenvectors (A);</font> we get very ugly
+expressions even after simplifications using
+<font class="matlab">simplify</font>.  It is then better too use the
+following commands. </p>
+
+<pre class="matlab">
+> <font class="matlab">evalf(Eigenvalues(A)); evalf(Eigenvectors(A)); </font>
+</pre>
+
+\[
+\begin{split}
+&\begin{bmatrix} 2.440084089 \\ 1.279957957 + 3.621504875\, I\\
+1.279957957 - 3.621504875\,I \end{bmatrix} \\
+& \begin{bmatrix} 2.440084089 \\
+1.279957957 + 3.621504875\, I \\
+1.279957957 - 3.621504875\, I \end{bmatrix} , \\
+& \begin{bmatrix}
+0.3347749572 & -0.7298875032 + 1.442553403 \, I &
+- 0.7298875032 - 1.442553403 \, I \\
+-0.7705341740 & -1.739732898 - 0.7363980506 \, I &
+-1.739732898 + 0.7363980506 \, I \\
+1 & 1 & 1 \end{bmatrix}
+\end{split}
+\]
+
+<p>It is even better to define \(A\) using real numbers by adding the
+decimal point.  Then, all the computations are done with real/complex
+numbers and we automatically get the approximations of the eigenvalues
+and eigenvectors. </p>
+
+<pre class="matlab">
+> <font class="matlab">A:=Matrix([[2.0,5,4],[-4,2,1],[2,-1,1]]); </font>
+</pre>
+
+\[
+A :=  \begin{bmatrix}2.0 & 5 & 4 \\-4 & 2 & 1 \\ 2 & -1 & 1 \end{bmatrix}
+\]
+
+<pre class="matlab">
+> <font class="matlab">evalf(Eigenvalues(A)); evalf(Eigenvectors(A)); </font>
+</pre>
+
+\[
+\begin{split}
+&\begin{bmatrix}
+1.2799579558670642 + 3.6215048733491346\,I\\
+1.2799579558670642 - 3.6215048733491346\,I \\
+2.4400840882658694 + 0\, I
+\end{bmatrix} \\
+& \begin{bmatrix}
+1.27995795586706 + 3.62150487334913\,I \\
+1.27995795586706 - 3.62150487334913\,I \\
+2.44008408826587 + 0\,I \end{bmatrix} , \\
+&\begin{bmatrix}
+-0.0409862692988133 + 0.601839188895029\,I &
+-0.0409862692988133 - 0.601839188895029\,I &
+0.256323997021917 + 0\,I \\
+-0.704900923320764 + 0\,I & -0.704900923320764 + 0\,I &
+-0.589967663075411 + 0\,I \\
+0.343613224543820 - 0.145445373454335\,I &
+0.343613224543820 + 0.145445373454335\,I &
+0.765660606976777 + 0\,I \end{bmatrix}
+\end{split}
+\]
+
+<h3>Operations on the Elements of a Matrix </h3>
+
+<p>It is possible to apply any function to each element of a matrix or
+vector. Consider the following function.</p> 
 
 <pre class="matlab">
 > <font class="matlab">mf:= x-> x^3-x;</font>
@@ -300,7 +460,7 @@ the determinant of the matrix formed of the coefficients.</p>
 
 \[ -10 \]
 
-<p>Since the determinant is different of zero, there is a unique
+<p>Since the determinant is different than zero, there is a unique
 solution.  To find the solution, we use</p>
 
 <pre class="matlab">
@@ -325,15 +485,184 @@ z &:= -\frac{27}{10}
 \end{split}
 \]
 
-<!--
+<p><em>Note</em>: We can solve the first and second equation for \(x\) and
+\(z\) in terms of \(y\).</p>
 
-We can solve the first and second equation for x and z in terms of y.
+<pre class="matlab">
+> <font class="matlab">solve({eq1,eq2},{x,z});</font>
+</pre>
 
-> solve({eq1,eq2},{x,z});
+\[
+\left\{x = -2\,y+\frac{1}{2}, z = -4\,y+\frac{1}{2}\right\}
+\]
 
-{z = -4*y+1/2, x = -2*y+1/2}
+<h3> Norm of a Matrix </h3>
 
--->
+<p>We can compute the induce norms of a square matrix.  Consider the
+matrix \(C\) defined below.</p>
+
+<pre class="matlab">
+> <font class="matlab">C:=Matrix([ [2,-1,0,0],[-1,2,-1,0],[0,-1,2,-1],
+[0,0,-1,2]]); </font>
+</pre>
+
+\[
+C := \begin{bmatrix} 2& -1 & 0 & 0\\ -1 & 2& -1& 0 \\
+1 & -1 & 2 &-1\\ 0 & 0& -1& 2 \end{bmatrix}
+\]
+
+<p> The induce \(1\)-norm, \(2\)-norm and infinite norm of \(C\) are
+given by:</p>
+
+<pre class="matlab">
+> <font class="matlab"> Norm(C,1);  Norm(C,2);  Norm(C,infinity);</font>
+</pre>
+
+\[
+\begin{split}
+& 4 \\
+&\sqrt{ RootOf(\_Z^{4}-23\,\_Z^3 + 130\_Z^2 - 176\_Z + 49, index =4)} \\
+& 5
+\end{split}
+\]
+
+<p>The floating point representation of the \(2\)-norm is </p>
+
+<pre class="matlab">
+> <font class="matlab">evalf(Norm(C,2));</font>
+</pre>
+
+\[
+3.897563191
+\]
+
+<p>How are the induced norm computed?  It can be shown that the
+\(1\)-norm of a \(n \times n\) matrix \(C\) is the maximum of
+\(\displaystyle \sum_{i=1}^n |c_{i,j}|\) for
+\(j=1, 2, \ldots, n\)$.  Hence, the \(1\)-norm of \(C\) above is</p>
+
+<pre class="matlab">
+> <font class="matlab">max( seq( add(abs(C[i,j]),i=1..4 ), j=1..4) );</font>
+</pre>
+
+\[
+4
+\]
+
+<p> An equivalent formulation for the previous formula is</p>
+
+<pre class="matlab">
+> <font class="matlab">max(seq( Norm(SubMatrix(C,1..4,i),1),i=1..4));</font>
+</pre>
+
+\[
+4
+\]
+
+<p>The function <font class="matlab">SubMatrix()</font> is used to
+extract a sub-matrix from a given matrix.  In the formula above,
+<font class="matlab">SubMatrix(C,1..4,i)</font> gives the
+\(i^{th}\) column of the matrix \(C\).  The function
+<font class="matlab">Norm()</font> with the option \(1\) compute the
+\(1\)-norm of each (vector) column obtained from \(C\); namely, compute
+the sum in absolute value of the elements in each column of \(C\).</p>
+
+<p>Similarly, It can be shown that the infinite norm of a
+\(n \times n\) matrix \(A\) is the maximum of
+\(\displaystyle \sum_{j=1}^n |c_{i,j}|\) for \(i=1, 2, \ldots, n\).
+Hence, the infinite norm of \(C\) above is</p>
+
+<pre class="matlab">
+> <font class="matlab">max( seq(add(abs(C[i,j]), j=1..4), i=1..4) );</font>
+</pre>
+
+\[
+4
+\]
+
+<p>Finally, with a little bit more work than for the previous two
+norms, one can show that the \(2\)-norm of a \(n \times n\) matrix
+\(A\) is the square root of the largest eigenvalue in absolute value
+of \(\displaystyle A^\ast A\).  Hence, the \(2\)-norm of the matrix \(C\) above
+is</p>
+
+<pre class="matlab">
+> <font class="matlab">tmp:=evalf(Eigenvalues(C.Transpose(C))):</font>
+> <font class="matlab">sqrt(max(seq(abs(tmp[i]),i=1..4)));</font>
+</pre>
+
+\[
+3.897563191
+\]
+
+<p><em>Example (Conditioning Number)</em>: 
+If \(A\vec{y} - \vec{b}\) is small, does this mean that \(\vec{y}\) is
+closed to the solution of \(A\vec{x} = \vec{b}\)?</p>
+
+<p>For instance, consider the matrix \(A\) defined by</p>
+
+<pre class="matlab">
+> <font class="matlab">A:=Matrix([[3,6],[2.9999,6]]);</font>
+</pre>
+
+\[
+A := \begin{bmatrix} 3& 6\\ 2.9999 & 6 \end{bmatrix}
+\]
+
+<p> and the vector \(\vec{b}\) defined by</p>
+
+<pre class="matlab">
+> <font class="matlab">b := Matrix([[9],[8.9999]]);</font>
+</pre>
+
+\[
+b := \begin{bmatrix} 9 \\ 8.9999 \end{bmatrix}
+\]
+
+<p>The vector \(\vec{y}\) defined by</p>
+
+<pre class="matlab">
+> <font class="matlab">y:=Matrix([[3],[0]]);</font>
+</pre>
+
+\[
+y := \begin{bmatrix} 3\\ 0\end{bmatrix}
+\]
+
+<p>seems to be a good approximation of the solution
+\(\vec{x}\) of \(A\vec{x} = \vec{b}\) because
+\(\| A \vec{y} - \vec{b}\|_\infty\) is small.  Maple gives the small
+value. </p>
+
+<pre class="matlab">
+> <font class="matlab">Norm( A.y-b, infinity);</font>
+</pre>
+
+\[
+0.000200000000001310241
+\]
+
+<p> However, this is not true because the real solution is obviously
+\(\displaystyle \vec{x} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}\).
+The reason behind this behaviour is the large size of the conditioning number
+of the matrix \(A\).  The conditioning number of \(A\) using the
+infinite norm is defined as \(\| A^{-1} \|_\infty \|A \|_\infty\).
+The condition number is a way to compare the size in absolute value of
+the smaller eigenvalue with the largest eigenvalue of \(C\).  The larger
+the condition number, the larger the difference between these two
+eigenvalues.  This has a very significant effect when solving linear
+systems.  For our matrix \(A\) above, this number is</p>
+
+<pre class="matlab">
+> <font class="matlab">cond:=Norm(A,infinity)*Norm(MatrixInverse(A),infinity); </font>
+</pre>
+
+\[
+cond := 180000.0000
+\]
+
+<p>Since the condition number of \(A\) is large, we say that \(A\) is
+ill-conditioned.</p>
 
 <br>
 <hr>
