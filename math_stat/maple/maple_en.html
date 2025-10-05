@@ -334,7 +334,7 @@ following command.</p>
 <font class="matlab">plot3d()</font>.</p>
 
 <pre class="matlab">
-> <font class="matlab">plot3d(x*cos(x)*sin(y),x=0..4*Pi,y=0..4*Pi,axes=FRAME,labels= [`x`,`y`,`z`],title = `x*cos(x)*sin(y)`);
+> <font class="matlab">plot3d(x*cos(x)*sin(y),x=0..4*Pi,y=0..4*Pi,axes=FRAME,labels=[`x`,`y`,`z`],title = `x*cos(x)*sin(y)`); </font>
 </pre>
 
 <div class="center">
@@ -350,7 +350,7 @@ about the options available.</p>
 contour and density plots. The Maple functions that we need
 are <font class="matlab">densityplot()</font>
 and <font class="matlab">contourplot()</font> in the
-library <font class="matlab">plots</font>. 
+library <font class="matlab">plots</font>. </p>
 
 <pre class="matlab">
 > <font class="matlab">plots[densityplot](x*cos(x)*sin(y),x=0..4*Pi,y=0..4*Pi);</font>
@@ -388,7 +388,7 @@ plotted.  We illustrate this with the function
 
 <p>Maple has some libraries specifically designed to draw figures in
   three dimensions. <font class="matlab">plottools</font> and
-<font class="matlab">geom3d</em> are two of them.</p>
+<font class="matlab">geom3d</font> are two of them.</p>
 
 <p>It is possible with <font class="matlab">plottools</font> to
 visualise three dimensional objects.  To draw the (surface of the)
