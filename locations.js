@@ -750,7 +750,8 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 		= initItem(ODE_O2_const_coeff, mathLinks[math_nbr], mapleLinks,
 			   null); 
 	    mapleLinks[maple_nbr++]
-		= initItem(ODE_systems, mathLinks[math_nbr], mapleLinks, null); 
+		= initItem(ODE_O2_var_coeff, mathLinks[math_nbr], mapleLinks,
+			   null);
 	    mapleLinks[maple_nbr++]
 		= initItem(Laplace_transf, mathLinks[math_nbr], mapleLinks,
 			   null); 
@@ -758,14 +759,13 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 		= initItem(Fourier_series, mathLinks[math_nbr], mapleLinks,
 			   null); 
 	    mapleLinks[maple_nbr++]
-		= initItem(ODE_O2_var_coeff, mathLinks[math_nbr], mapleLinks,
-			   null); 
+		= initItem(ODE_systems, mathLinks[math_nbr], mapleLinks, null); 
 	    mapleLinks[maple_nbr++]
 		= initItem(PDE, mathLinks[math_nbr], mapleLinks, null); 
 	    mapleLinks[maple_nbr++]
-		= initItem(Maple_programs, mathLinks[math_nbr], mapleLinks, null);
-	    mapleLinks[maple_nbr++]
 		= initItem(Complex_anal, mathLinks[math_nbr], mapleLinks, null);
+	    mapleLinks[maple_nbr++]
+		= initItem(Maple_programs, mathLinks[math_nbr], mapleLinks, null);
 	}
 	math_nbr++;
     }

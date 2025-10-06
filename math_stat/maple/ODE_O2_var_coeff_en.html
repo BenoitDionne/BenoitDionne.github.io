@@ -51,8 +51,139 @@ main_title( MStext, "MMathSStat");
 
 <h2> Second Order ODE with Variable Coefficients </h2>
 
-<p> We consider two classical second order ODE with variable
-  coeeficients.  There are many more.</p>
+<p><em>Example</em>: Consider the second order ODE with variable
+coefficients </p>
+\[
+\frac{\text{d}^2 x}{\text{d} t^2} + \cos(t)\, x = 0 \ .
+\]
+<p> In Maple, we get</p>
+
+<pre class="matlab">
+> <font class="matlab">ODE:=diff(x(t),t$2) + cos(t)*x(t)=0;</font>
+</pre>
+
+\[
+ODE := \frac{\partial^{2}}{\partial t^{2}}\, x(t)
++ \cos(t)\,x(t)=0
+\]
+
+<p> To solve this ODE with the initial conditions \(x(0)=0\) and
+\(x'(0)=1\), we proceed as follows.</p>
+
+<pre class="matlab">
+> <font class="matlab">ODEic:= { ODE } union {x(0)=0,D(x)(0)=1}; </font>
+</pre>
+
+\[
+ODEic := \left\{ \frac{\partial^{2}}{\partial t^{2}}\,
+x(t) + \cos(t)\,x(t)=0, \,x(0)=0, \,\text{D}(x)(0)=1 \right\}
+\]
+
+<pre class="matlab">
+> <font class="matlab">dsolve(ODEic,x(t)); </font>
+</pre>
+
+\[
+x(t) =2\, MathieuS\left(0,-2,\frac{t}{2} \right)
+\]
+
+<p> The answer given by Maple is in terms of the <em>Mathieu
+function</em> <font class="matlab">MathieuS(a, q, s)</font>.  This is
+a series solutions of the Mathiew differential equation </p>
+\[
+\frac{\text{d}^2 x}{\text{d} t^2} + (a - 2 q \cos(2 s)) u = 0 \, .
+\]
+<p> If we do not want to learn about another special functions, we may
+ask Maple to give a series solution of the ODE above with \(x(0)=0\)
+and \(x'(0)=1\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> Order:=14; dsolve(ODEic,x(t),type='series'); </font>
+</pre>
+
+\[
+\begin{split}
+& Order := 14 \\
+& x(t) = t-1/6\,t^{3}+1/30\,t^{5}- \frac{19}{5040}\,t^{7}+
+\frac{29}{72576}\,t^{9}
+-\frac {713}{19958400}\,t^{11} +\frac{3539}{1245404160}\,t^{13}
++O\left(t^{14}\right)
+\end{split}
+\]
+
+<p> The command <font class="matlab">Order :=14</font> set the order
+of the series solutions requested.  By default,
+<font class="matlab">Order</font> is \(6\).  To get some information
+on the integration methods used, we can use the command
+<font class="matlab">infolevel[dsolve]:=3</font> before using
+<font class="matlab">dsolve()</font>.  Level 1 is the normal level.
+It can go up to level 5.</p>
+
+<p>Since the solution in terms of the Mathieu function or the series
+solution are not simple functions, we may as well solve the ODE above
+with \(x(0)=0\) and \(x'(0)=1\) numerically.</p>
+
+<pre class="matlab">
+> <font class="matlab">xs:=dsolve(ODEic, x(t),type=numeric, output=procedurelist, method=rkf45, range=0..30*Pi);</font>
+</pre>
+
+\[
+xs := \text{proc}\left(x\_rkf45\right)...\text{end proc}
+\]
+
+<p>If we evaluate this function at un point \(t\), then we get the
+list \(t, x(t) , x'(t) \).</p>
+
+<pre class="matlab">
+> <font class="matlab">xs(2.5);</font>
+</pre>
+
+\[
+\left[ t=2.5, \,x(t)=1.811145669678303, \,{\frac{\text{d}}{\text{d} t}}\,
+x(t)=1.107676186986299\right]
+\]
+
+<p> We can use <font class="matlab">xs</font> to plot the graph of
+\(x\) and \(x'\). </p>
+
+<pre class="matlab">
+> <font class="matlab">with(plots):</font>
+> <font class="matlab">odeplot(xs,[t,x(t)],0..3*Pi,axes=BOXED,labels=[`t`,`x(t)`],refine=2, gridlines=true);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Mathieu_1.png" style="width: 300px"
+       alt="Graph of the x(t) as a function of t">
+</div>
+
+<pre class="matlab">
+> <font class="matlab">odeplot(xs,[t,diff(x(t),t)],0..3*Pi,axes=BOXED,labels=[`t`,`x'(t)`],refine=2, gridlines=true);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Mathieu_2.png" style="width: 300px"
+       alt="Graph of the x'(t) as a function of t">
+</div>
+
+<p> We may also plot parts of the orbit
+\(\{ (x(t), x'(t)) : t \in \mathbb{R} \}\).</p>
+
+<pre class="matlab">
+> <font class="matlab">odeplot(xs,[x(t),diff(x(t),t)],0..3*Pi,axes=BOXED,labels=[`x(t)`,`x'(t)`],refine=2, gridlines=true);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Mathieu_3.png" style="width: 300px"
+       alt="Graph of the orbit (x(t),x'(t)) for t between 0 and 30 pi">
+</div>
+
+<p> Looking at the graphs above, could we tell how \(x(t)\) and
+\(x'(t)\) behave as \(t\) converges to plus infinity?  Vary the length
+of the interval of integration and observe what happen to the graphs.</p>
+
+<p> For the rest of this section, we consider two classical second
+order ODE with variable coeeficients, the Cauchy-Euler equation and
+the Bessel equation.  There are many more.</p> 
 
 <h3> Cauchy-Euler Equation </h3>
 
@@ -140,8 +271,8 @@ eq3 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 
 <p>as expected.</p>
 
-<h4> Boundary value Problems for ODE </h4>
-  
+<h3> Boundary value Problems for ODE </h3>
+
 <p> To study some partial differential equations (PDE), it is
   important to study Boundary Value Problems for the Cauchy Euler
   equation.  For instance, consider the Cauchy Euler equation with the
