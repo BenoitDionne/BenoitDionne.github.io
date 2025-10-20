@@ -143,8 +143,8 @@ priority, <em>Matlab</em> performs the operations from left to right.
 The exponentiation is the exception because <em>Matlab</em> performs
 these operations from right to left. </p> 
 
-<p><em>Example</em>: To compute \(16.07(42.5 + 387 / 23.8) + 3.62^2\),
-type in</p>
+<p><em>Example</em>: To compute
+\(\displaystyle 16.07(42.5 + 387 / 23.8) + 3.62^2\), we type in</p>
 
 <pre class="matlab">
 >> <font class="matlab"> 16.07*(42.5+387/23.8) + 3.6^2 </font>
@@ -517,7 +517,8 @@ usual to take \(N + 1\) equally spaced points in the interval
 <font class="matlab"> h = (b-a)/N</font>.  Another way is to use the
 command <font class="matlab">x = linspace(a,b,N+1)</font>. </p>
 
-<p><em>Example</em>: We consider the function \(f\) defined by \(f(x) = x^3\)
+<p><em>Example</em>: We consider the function \(f\) defined by
+\(\displaystyle f(x) = x^3\)
 on the interval \([0,1]\).  The following two examples show how to
 generate \(11\) equally spaced points (\(10\) subintervals) including
 the end points of the interval.</p>
@@ -542,7 +543,7 @@ x = <br>
      0.7000    0.8000    0.9000    1.0000
 </pre>
 
-<p>To evaluate the function \(f\) defined by \(f(x) = x^3\) at the
+<p>To evaluate the function \(f\) defined by \(\displaystyle f(x) = x^3\) at the
 \(11\) points generated above, a simple array operation can be used.</p>
 
 <pre class="matlab">
@@ -607,9 +608,9 @@ the previous figure containing the graph of \(f\).</p>
 expression <font class="matlab"> z = x + 2</font> is to add the
 value \(2\) to each component of <font class="matlab">x</font> and store the
 results in the variable <font class="matlab">z</font>.
-The \(i^{th}\) component of 
-<font class="matlab">z</font> is the sum of the \(i^{th}\) component of
-<font class="matlab">x</font> with \(2\).  This is one of
+The \(\displaystyle i^{th}\) component of 
+<font class="matlab">z</font> is the sum of the \(\displaystyle i^{th}\)
+component of <font class="matlab">x</font> with \(2\).  This is one of
 the <em>unnatural behaviours</em> of <em>Matlab</em>.</p>
 
 <p>The option <font class="matlab">'r'</font> of the previous
@@ -716,10 +717,13 @@ w = <br>
        0.6665    0.0000
 </pre>
 
-<p>The \(k^{th}\) component of <font class="matlab">w</font> is the value of the
-linear interpolation of the function \(f\) at the \(k^{th}\) component
+<p>The \(\displaystyle k^{th}\) component
+of <font class="matlab">w</font> is the value of the 
+linear interpolation of the function \(f\) at the
+\(\displaystyle k^{th}\) component
 of <font class="matlab">z</font>.  The following commands plot the points
-with coordinates \((x,y)\) where \(x\) and \(y\) are the \(k^{th}\)
+with coordinates \((x,y)\) where \(x\) and \(y\) are the
+\(\displaystyle k^{th}\)
 components of <font class="matlab">z</font> and
 <font class="matlab">w</font> respectively
 for \(k = 1, 2, \ldots, 11\).</p>
@@ -756,7 +760,7 @@ and <font class="matlab">quadl</font>.</p>
 method to approximate the integral of a function.</p>
 
 <p><em>Example</em>: We use the trapezoidal method to approximate the
-area under the curve \(y = x sin(x)\) for \(0 < x < \pi\) with \(10\)
+area under the curve \(y = x \sin(x)\) for \(0 < x < \pi\) with \(10\)
 subintervals.  We use the \(11\) equally spaced points given in the
 following list. </p> 
 
@@ -769,7 +773,7 @@ x = <br>
     2.1991    2.5133    2.8274    3.1416
 </pre>
 
-<p> The next step is to evaluate \(x sin(x)\) at each of the components
+<p> The next step is to evaluate \(x \sin(x)\) at each of the components
 of the list <font class="matlab">x</font> (the components of
 <font class="matlab">x</font> are the mesh points of the partition of the
 interval \([0.\pi]\).)
@@ -802,7 +806,7 @@ illustrate how to create a function.</p>
 
 <p><em>Example</em>: The following example explains how to create the
 function <font class="matlab">funct1</font> which is defined by
-\(x \mapsto x sin(x)\).</p>
+\(x \mapsto x \sin(x)\).</p>
 
 <p>First, a file named <font>funct1.m</font> is created using any ascii
 text editor.  The first line of this file contains the statement
@@ -836,7 +840,7 @@ of <em>Matlab</em>), then our new function <em>funct1</em> can be
 called as any other <em>Matlab</em> function as it is shown in the
 following example.</p>
 
-<p><em>Example</em>: The value of \(x sin(x)\) for \(x=5\) is given by the
+<p><em>Example</em>: The value of \(x \sin(x)\) for \(x=5\) is given by the
 following command.</p>
 
 <pre class="matlab">
@@ -890,7 +894,8 @@ not be used.   <em>Matlab</em> will not complain if such names are
 used but then the original functions will no longer be available.</li>
 </ul>
 
-<p>The m-files can be saved in any directory.  However, <em>Matlab</em> must
+<p>The <em>m-files</em> can be saved in any directory.
+However, <em>Matlab</em> must 
 know where the <em>m-files</em> are stored.  <em>Matlab</em> has a
 list of directory paths where it looks for <em>m-files</em>.  To check
 if the directory path of the directory containing a <em>m-file</em>
@@ -933,9 +938,9 @@ is given by <font class="matlab">@funct1</font>.</p>
 <font class="matlab">quadl</font> using this new concept.</p>
 
 <p><em>Example</em>: To approximate the area under the curve
-\(y = x sin(x)\) for \(0 < x < \pi\), we use our function
+\(y = x \sin(x)\) for \(0 < x < \pi\), we use our function
 <font class="matlab">funct1</font>.  To evaluate numerically the
-integral of \(x sin(x)\) over the interval \(0 < x < \pi\),
+integral of \(x \sin(x)\) over the interval \(0 < x < \pi\),
 we only have to execute the following command.</p>
 
 <pre class="matlab">
@@ -950,8 +955,9 @@ ans = <br>
 where <font class="matlab">Funct</font> is the name of the function
 defined for \(a \leq x \leq b\), the interval of integration.  The
 result is an approximation of the exact result with a relative error
-of about \(10^{-3}\).  To specify a different tolerance, it suffices
-to use command <font class="matlab">quadl(@Funct,a,b,tol)</font>, where
+of about \(\displaystyle 10^{-3}\).  To specify a different tolerance,
+it suffices to use command
+<font class="matlab">quadl(@Funct,a,b,tol)</font>, where
 <font class="matlab">tol</font> is the new bound on the relative error.</p>
 
 <p>A function <em>handle</em> can be used instead of the name of the
@@ -996,7 +1002,7 @@ session.  Function <em>handles</em> can be used to eliminate the need
 to create an <em>m-file</em>.</p> 
 
 <p><em>Example</em>: We want to approximate the value of the integral
-of \(f(x) = x^3 + 2 x^2 + 1\) for \(3 \leq x \leq 5\).</p>
+of \(\displaystyle f(x) = x^3 + 2 x^2 + 1\) for \(3 \leq x \leq 5\).</p>
 
 <p>Instead of creating an <em>m-file</em> for the function \(f\), we
 define an <em>anonymous function</em> which is only represented by its
@@ -1084,15 +1090,18 @@ for each initial condition.</p>
 <font class="matlab">yy</font> returned by <font class="matlab">ode45</font>
 have the same number of rows.  The number of columns of the
 matrix <font class="matlab">yy</font> is equal to the length
-of the row vector <font class="matlab">y0</font>.  The \(i^{th}\) column of
+of the row vector <font class="matlab">y0</font>.  The
+\(\displaystyle i^{th}\) column of
 <font class="matlab">yy</font> is an approximation at each component of 
 <font class="matlab">xx</font> of the solution \(y\) of
-\(y'(x) = \text{yprime}(x,y)\) with initial condition given by the \(i^{th}\)
+\(y'(x) = \text{yprime}(x,y)\) with initial condition given by the
+\(\displaystyle i^{th}\)
 component of <font class="matlab">y0</font> at
 <font class="matlab">x_zero</font>.
-The \(k^{th}\) row of <font class="matlab">yy</font> is the
+The \(\displaystyle k^{th}\) row of <font class="matlab">yy</font> is the
 approximation of the solution \(y\) of 
-\(y'(x) = \text{yprime}(x,y)\) evaluated at the \(k^{th}\) component of
+\(y'(x) = \text{yprime}(x,y)\) evaluated at the
+\(\displaystyle k^{th}\) component of
 <font class="matlab">xx</font> for each initial condition given by
 the components of <font class="matlab">y0</font> at
 <font class="matlab">x_zero</font>.</p>
@@ -1111,10 +1120,11 @@ been included in the previous example but there are many more options
 that can be included according to the ODE solver used.</p>
 
 <p><em>Example</em>: We use the solver <font class="matlab">ode45</font> to
-approximate the solution of \(y'(x) = f(x) = x sin(x)\) for
+approximate the solution of \(y'(x) = f(x) = x \sin(x)\) for
 \(0 \leq x \leq \pi\).
 The initial condition is \(y(0) = 0\) and the upper bound on the
-relative tolerance is \(10^{-5}\).  We have already defined in the 
+relative tolerance is \(\displaystyle 10^{-5}\).  We have already
+defined in the  
 <em>m-file</em> <em>funct1.m</em> a function \(x \mapsto x \sin(x) \).
 However, the function <font class="matlab">funct1</font> cannot 
 be used with the ODE solver <font class="matlab">ode45</font>
@@ -1139,7 +1149,7 @@ end </font>
 </pre>
 
 <p>The only option given to the solver <font class="matlab">ode45</font> is the
-upper bound \(10^{-5}\) for the relative tolerance.</p>
+upper bound \(\displaystyle 10^{-5}\) for the relative tolerance.</p>
 
 <pre class="matlab">
 >> <font class="matlab">options = odeset('reltol',10^(-5));</font>
@@ -1277,7 +1287,8 @@ example will illustrate how this could be done for the fixed point
 method.  The approach is similar for other iterative methods.</p>
 
 <p><em>Example</em>: We want to sue the fixed point method to
-approximate the solution of the equation \(-(x^2/8) - x/4 + 1/2 = x\) in the
+approximate the solution of the equation
+\(\displaystyle -(x^2/8) - x/4 + 1/2 = x\) in the
 interval \([0,1]\).  We start the iterations with \(x = 0.5\).  A
 possible solution of this problem is to execute a little <em>m-file</em>
 containing the following code.</p>
@@ -1306,8 +1317,8 @@ but this example is enough to understand the basic of programming in
 
 <p>If we run <font class="matlab">fxpt1</font> in <em>Matlab</em>,
 then it executes \(20\) iterations of the function
-\(x \mapsto -(x^2/8) - x/4 + 1/2\) starting with \(x = 0.5\) and return the
-\(20^{th}\) iteration.</p>
+\(\displaystyle x \mapsto -(x^2/8) - x/4 + 1/2\) starting with
+\(x = 0.5\) and return the \(\displaystyle 20^{th}\) iteration.</p>
 
 <pre class="matlab">
 >> <font class="matlab">fxpt1</font><br>
@@ -1339,7 +1350,8 @@ end  </font>
 </pre>
 
 <p>To execute \(20\) iterations of the function
-\(f(x) = -(x^2/8) - x/4 + 1/2\) starting with \(x = 0.5\), we define
+\(\displaystyle f(x) = -(x^2/8) - x/4 + 1/2\) starting with
+\(x = 0.5\), we define 
 the function <font class="matlab">funct3</font> by creating the
 <em>m-file</em> <script language="javascript">
 buildLinK("funct3.m", "funct3.m","MMathSStat", "id5", "_blank");
@@ -1394,7 +1406,7 @@ the current directory.</td></tr>
 <tr><td><font class="matlab"> type file_name </font> </td><td> Display
 the content of the m-file <em> file_name.m</em>.</td></tr> 
 <tr><td><font class="matlab"> delete file_name </font> </td><td> Delete
-the m-file <em>file_name.m</em>.</td></tr> 
+the <em>m-file</em> <em>file_name.m</em>.</td></tr> 
 <tr><td><font class="matlab"> cd path </font> </td><td> Change the
 current directory to the directory/folder given by <em>path</em>.</td></tr> 
 <tr><td><font class="matlab"> cd </font> </td><td> Show present

@@ -55,17 +55,18 @@ main_title( MStext, "MMathSStat");
   <img src="Maple_Logo_Icon.png" style="width: 200px" alt="Logo of Maple">
 </div>
 
-<p>This is a brief introduction to <em>Maple</em>.  We hope that there
-is enough details to get the reader started with Maple in no time.  There
-is a vast library of functions that the reader may want to explore.  Use
-the <em>Help</em> menu in Maple for that.  In the text below, Maple
-codes are highlighted in blue.</p>
+<p>This is a <q>brief</q> introduction to <em>Maple</em>.  We hope that there
+is enough information to get the reader started with <em>Maple</em> in no
+time.  There is a vast library of functions that the reader may want
+to explore.  It suffices to use the <em>Help</em> menu
+in <em>Maple</em> for that.  In the text below, <em>Maple</em> codes
+are highlighted in blue.</p> 
 
 <div style="clear: both;"></div>
 
 <h3> Basic Algebraic Operations </h3>
 
-<p>Consider the traditional basic polynomial:</p>
+<p>Consider the traditional basic polynomial</p>
 
 <pre class="matlab">
 > <font class="matlab">(x+y)^2;</font>
@@ -74,8 +75,8 @@ codes are highlighted in blue.</p>
 \[(x + y)^2\]
 
 <p>The symbol <font class="matlab">%</font> holds the result of the
-previous operation.  So, we can use it to retrieve the result of
-the previous operation.</p>
+previous operation.  So, we can expand the result of the previous
+operation with the command.</p> 
 
 <pre class="matlab">
 > <font class="matlab">expand(%);</font>
@@ -84,8 +85,8 @@ the previous operation.</p>
 \[ x^2 + 2 x y + y^2\]
 
 <p>We have used the command <font class="matlab">expand</font> to
-compute the square.  We can do any basic algebraic polynomial
-operations.</p>
+compute the square.  We can do any basic algebraic operations on the
+polynomials.</p>
 
 <pre class="matlab">
 > <font class="matlab">%-4*x*y;</font>
@@ -102,9 +103,10 @@ operations.</p>
 <p>As expected, the command <font class="matlab">factor</font>
 factorize the polynomial.</p>
 
-<p>If we want to refer to the basic polynomial \((x+y)^2\), we do no
-have to rewrite it each time.  We can assign \((x+y)^2\) to
-a variable.</p>
+<p>If we want to refer to the basic polynomial
+\(\displaystyle (x+y)^2\), we do no
+have to rewrite it each time we want to use it.  We can assign
+\(\displaystyle (x+y)^2\) to a variable.</p>
 
 <pre class="matlab">
 > <font class="matlab">u:= (x+y)^2;</font>
@@ -112,8 +114,8 @@ a variable.</p>
 
 \[u := (x + y)^2\]
 
-<p>We can now do any basic polynomial operations with
-<font class="matlab">u</font>.</p>
+<p>We can now do any basic polynomial operations on
+\(\displaystyle (x+y)^2\) using <font class="matlab">u</font>.</p>
 
 <pre class="matlab">
 > <font class="matlab">expand(u*x);</font>
@@ -123,11 +125,12 @@ a variable.</p>
 
 <h3> Functions </h3>
 
-<p>There are basically two ways to define a function. Each way has its
+<p>There are basically two ways to define a function
+in <em>Maple</em>.  Each way has its
 own advantages and disadvantages according to the use that we may
 want to make of the function.  Consider the function
-\(f(x) = \sin(x^2+1)\). The first way to define a function is as
-follows:</p>
+\(\displaystyle f(x) = \sin(x^2+1)\). The first way to define a function is as
+follows.</p>
 
 <pre class="matlab">
 > <font class="matlab">f := sin(x^2+1);</font>
@@ -135,7 +138,7 @@ follows:</p>
 
 \[ f := \sin(x^2 + 1)\]
 
-<p>To evaluate \(f\) at \(x=4\), we have to proceed as follows:</p>
+<p>To evaluate \(f\) at \(x=4\), we have to proceed as follows.</p>
 
 <pre class="matlab">
   > <font class="matlab">x:=4;</font>
@@ -154,12 +157,12 @@ follows:</p>
 \]
 
 <p>We have used the function <font class="matlab">evalf</font> to get
-the numerical approximation of \(\sin(17)\).  Don't forget that Maple
-always work in radians.  To evaluate \(f\) for other values of \(x\),
-one has to repeat the previous two operations with the new value of
-\(x\).</p>
+the numerical approximation of \(\sin(17)\).  The reader must not
+forget that <em>Maple</em> always works in radians.  To evaluate \(f\)
+for other values of \(x\), We have to repeat the previous two
+operations with the new value of \(x\).</p>
 
-<p>Another possibility is to use the Maple function
+<p>Another possibility is to use the <em>Maple</em> function
 <font class="matlab">subs</font>.</p>
 
 <pre class="matlab">
@@ -179,18 +182,18 @@ one has to repeat the previous two operations with the new value of
 \end{split}
 \]
 
-<p>We have used <font class="matlab">x := 'x';</font> to clear the
+<p>We have used the command <font class="matlab">x := 'x';</font> to clear the
 value \(4\) of \(x\) left by the previous operations.  If we had not
-done that, we will have had
+done that, we will have that
 <font class="matlab">f := sin(4^2+1);</font>, a constant value.</p>
 
 <p>Using <font class="matlab">:=</font> to define explicitly a function
 is the right way to define a function if we want to add algebraic
-functions, compute derivative, ..., but this is not really the best
-way if we want to evaluate this functions at many points.  Moreover,
-not all functions are given by algebraic, trigonometric, ...
-functions.  The second way to define a function is to use
-a <q>procedure</q>. The simplest form of procedure is as follows:</p>
+functions, compute derivatives, etc, but this is not really the best
+way if we want to evaluate these functions at many points.  Moreover,
+not all functions are given by algebraic, trigonometric, ...,
+expressions.  The second way to define a function is to use
+<q>procedures</q>. The simplest form of procedure is as it follows.</p>
 
 <pre class="matlab">
 > <font class="matlab">f:= x->sin(x^2+1);</font>
@@ -198,7 +201,7 @@ a <q>procedure</q>. The simplest form of procedure is as follows:</p>
 
 \[f := x \mapsto \sin(x^2 + 1)\]
 
-<p>We can now easily evaluate \(f\) at \(x=4\) and \(x=6\).</p>
+<p>We can now evaluate \(f\) at \(x=4\) and \(x=6\) in a natural way.</p>
 
 <pre class="matlab">
 > <font class="matlab">f(4); evalf(f(4)) ; f(6); evalf(f(6));</font>
@@ -215,7 +218,7 @@ a <q>procedure</q>. The simplest form of procedure is as follows:</p>
 
 <h3> Derivatives and integrals </h3>
 
-Consider the function
+<p> Consider the function</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=x/(y*x^2+1);</font>
@@ -223,26 +226,30 @@ Consider the function
 
 \[ f := \frac{x}{y x^2 + 1} \]
 
-<p>The first derivative of \(f\) with respect to \(x\) is
-<font class="matlab">diff(f,x)</font>.  The second derivative of \(f\)
-with respect to \(x\) is <font class="matlab">diff(f,x$2)</font>, and
+<p>The first order derivative of \(f\) with respect to \(x\) is
+computed by the command <font class="matlab">diff(f,x)</font>.  The
+second order derivative of \(f\) with respect to \(x\) is computed by
+the command <font class="matlab">diff(f,x$2)</font>, and
 so on for higher order derivatives.  We can also compute the mixed
-derivatives. The mixed derivative of \(f\) with respect to \(x\) and \(y\)
-of order two is <font class="matlab">diff(f,x,y)</font>.  The reader
-has probably gotten the idea on how to compute derivatives.</p>
+derivatives. The mixed derivative of order two of \(f\) with respect
+to \(x\) and \(y\) is computed by the command
+<font class="matlab">diff(f,x,y)</font>.  By now, the reader has
+probably grasped how to compute derivatives using <em>Maple</em>.</p>
 
-<p>The indefinite integral of \(f\) is <font class="matlab">int(f,x)</font>.
-The definite integral of \(f\) between \(0\) and \(4\) with \(y = 4\) is
+<p>The indefinite integral of \(f\) is compute by the command
+<font class="matlab">int(f,x)</font>.
+The definite integral of \(f\) between \(0\) and \(4\) with \(y = 5\)
+is computed by the command</p>
 
 <pre class="matlab">
->  <font class="matlab">y := 4; int(f, x = 0 .. 4); evalf(%);</font>
+>  <font class="matlab">y := 5; int(f, x = 0 .. 4); evalf(%);</font>
 </pre>
 
 \[
 \begin{split}
-& y := 4 \\
-& \frac{\ln(5)}{8} + \frac{\ln(13)}{8} \\
-& 0.5217984086
+& y := 5 \\
+& \frac{2\ln(3)}{5} \\
+& 0.4394449156
 & \end{split}
 \]
 
@@ -250,8 +257,8 @@ The definite integral of \(f\) between \(0\) and \(4\) with \(y = 4\) is
 
 <h4> Two Dimensional Plots </h4>
 
-<p>The graph of the function \(x\sin(x)\) for \(x\) between \(0\) and \(2\pi\)
-  is given by </p>
+<p>The graph of the function \(x\mapsto x\sin(x)\) for \(x\) between
+\(0\) and \(2\pi\) is generated by the command </p>
 
 <pre class="matlab">
 > <font class="matlab">plot(x*sin(x),x=0..2*Pi, gridlines=true);</font>
@@ -262,14 +269,14 @@ The definite integral of \(f\) between \(0\) and \(4\) with \(y = 4\) is
 </div>
 
 <p>Sometime it is useful to plot the graph of two functions in the
-same figure.  Suppose that we want to plot the graphs
-of \(x \mapsto x\sin(x)\) and \(x \mapsto x\cos(x)\) for \(x\) between
+same figure.  Suppose that we want to plot the graphs of the functions
+\(x \mapsto x\sin(x)\) and \(x \mapsto x\cos(x)\) for \(x\) between
 \(-2\pi\) and \(2\pi\) in the same figure.  We first plot the graph
-of \(x \mapsto x\sin(x)\) in red and store this graph.  We end the
-Maple command with a colon instead of a semicolon to cancel the
-display of the result.  We plot the graph of \(x \mapsto x\cos(x)\) in
-blue and also store the result.  Finally, we combine both plots on
-the same coordinate system using the function
+of the function \(x \mapsto x\sin(x)\) in red and store this graph.  We end the
+<em>Maple</em> command with a colon instead of a semicolon to cancel the
+display of the graph.  After, we plot the graph of the function
+\(x \mapsto x\cos(x)\) in blue and also store this graph.  Finally, we
+combine both graphs on the same coordinate system using the function
 <font class="matlab">display()</font> of the
 library <font class="matlab">plots</font>.</p>
 
@@ -284,25 +291,26 @@ library <font class="matlab">plots</font>.</p>
        alt="Graph of x*sin(x) and x*cos(x) in the same figure">
 </div>
 
-<p>We could have used the command</p>
+<p>We could as well have used the command</p>
 
 <pre class="matlab">
 >  <font class="matlab">plot([x*sin(x), x*cos(x)], x = -2*Pi .. 2*Pi, color = [red, blue]);</font>
 </pre>
 
 <p>to obtain the same result.  The advantage of the previous approach
-is the greater flexibility to mix graphs of different styles.</p>
+is the greater flexibility to combine graphs of different styles.</p>
 
-<p>For the next example, suppose that we want to plot the
-points \((x,x^2)\) for \(x=1,2,\ldots,20\).  To do that, we have to
-provide a matrix or a list of points to the
-<font class="matlab">plot</font> command.  If we provide a
-matrix, the first column should be the \(x\) coordinates of the
-points and the second column the corresponding \(y\) coordinates.
+<p>For the next example, we want to plot the
+points \(\displaystyle (x,x^2)\) for \(x=1,2,\ldots,20\).  To do that,
+we have to provide a matrix or a list of points to the function
+<font class="matlab">plot</font>.  If we provide a
+matrix, the first column should contains the \(x\) coordinates of the
+points and the second column should contain the corresponding \(y\)
+coordinates.
 We select the option <font class="matlab">style = point</font> to get
-the graph of the points only.  By default, Maple draws a straight
-line from one point to the next one; this is the standard procedure
-used by Maple to plot the graph of a function.</p>
+the graph of the points only.  By default, <em>Maple</em> draws a straight
+line from one point to the next one; linear interpolation is the
+standard procedure used by <em>Maple</em> to plot the graph of a function.</p>
 
 <pre class="matlab">
 > <font class="matlab"> a := seq(x, x = 1 .. 20): </font>
@@ -320,8 +328,8 @@ used by Maple to plot the graph of a function.</p>
 by a cycle.  We could have used other symbols like
 <font class="matlab">box, cross, solidcircle, ...</font> </p>
 
-<p>Instead of a matrix, we may have used a list of points like in the
-following command.</p>
+<p>Instead of a matrix, we may have used a list of points as it is
+done in the following command.</p>
 
 <pre class="matlab">
 > <font class="matlab"> plot([seq([x, x^2], x = 1 .. 20)], style = point, symbol = circle, gridlines=true); </font>
@@ -342,13 +350,14 @@ following command.</p>
        alt="Graph of x*cos(x)*sin(y)">
 </div>
 
-<p>Note the options that we have used.  There are many more option.
-Please, consult the help menu of Maple to find all the information
-about the options available.</p>
+<p>The reader should particularly look at the options that we have
+used.  There are many more options.  Please, consult the <em>help</em> menu
+of <em>Maple</em> to get all the information about the available options
+for the fonction <font class="matlab">plot3d</font>.</p> 
 
 <p>Two other methods to visualize a function of two variables is the
-contour and density plots. The Maple functions that we need
-are <font class="matlab">densityplot()</font>
+contour and density plots. The <em>Maple</em> functions thaxot implement
+these methods are <font class="matlab">densityplot()</font>
 and <font class="matlab">contourplot()</font> in the
 library <font class="matlab">plots</font>. </p>
 
@@ -370,9 +379,8 @@ library <font class="matlab">plots</font>. </p>
        alt="Contour plot of x*cos(x)*sin(y)">
 </div>
 
-<p>We now show that functions defined with a procedure can also be
-plotted.  We illustrate this with the function
-\(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
+<p>A function defined with by procedure can also be plotted.
+We illustrate this with the function \(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=(x,y)->sin(x+y)+cos(x+y):</font>
@@ -386,16 +394,16 @@ plotted.  We illustrate this with the function
 
 <h4> More Three Dimensional Plots </h4>
 
-<p>Maple has some libraries specifically designed to draw figures in
-  three dimensions. <font class="matlab">plottools</font> and
+<p><em>Maple</em> has some libraries specifically designed to draw
+some geometric figures in three dimensions.
+<font class="matlab">plottools</font> and 
 <font class="matlab">geom3d</font> are two of them.</p>
 
 <p>It is possible with <font class="matlab">plottools</font> to
-visualise three dimensional objects.  To draw the (surface of the)
+visualize three dimensional geometric figures.  To draw the (surface of the)
 hemisphere of radius \(3\) centred at \((4,3,4)\) and such that
-\(z\geq 4\), we proceed as follows.  We first
-create the basic hemisphere of radius \(3\) centered at \((4,3,4)\)
-and open upward.</p>
+\(z\geq 4\), we proceed as follows.  We first draw the hemisphere of
+radius \(3\) centred at \((4,3,4)\) and open upward.</p>
 
 <pre class="matlab">
 > <font class="matlab">with(plottools): </font>
@@ -403,8 +411,9 @@ and open upward.</p>
 </font>
 </pre>
 
-<p> We reflect the previous hemisphere with respect to the plane \(z=4\).
-This plane is uniquely defined by three non-colinear points on it.</p>
+<p> After, we reflect the previous hemisphere through the
+plane \(z=4\).  This plane is uniquely defined by any three non-colinear
+points on it.</p>
 
 <pre class="matlab">
 > <font class="matlab">Hemi:=reflect(tmp,[[0,0,4],[1,1,4],[1,0,4]]):
@@ -420,7 +429,7 @@ This plane is uniquely defined by three non-colinear points on it.</p>
 
 <div class="center">
   <img src="Maple_graph_7.png" style="width: 400px"
-       alt="Graph of the hemisphere">
+       alt="Drawing of the hemisphere">
 </div>
 
 <p> Suppose that we want to draw the intersection of our hemisphere with
@@ -433,7 +442,7 @@ draw planes, we use the standard technique to draw planes.</p>
 </font>
 </pre>
 
-<p>We display the plane and the previous hemisphere in the same
+<p>We display this plane and our previous hemisphere in the same
 figure.</p>
 
 <pre class="matlab">
@@ -443,26 +452,26 @@ figure.</p>
 
 <div class="center">
   <img src="Maple_graph_8.png" style="width: 400px"
-       alt="Graph of the hemisphere and the plane intersecting the hemisphere">
+       alt="Drawing of the hemisphere and the plane that intersects it">
 </div>
 
 <p>Much more can be done with the library
 <font class="matlab">plottools</font>.  Our only intention was to
-mention its existence and dispaly some of its potential.  It is left to
-the reader to read the documentation of this library and to play with
-it.</p>
+mention its existence and display some of its potential.  It is left to
+the reader to read the documentation of this library and to experiment
+with it.</p>
 
-<p> The Maple library <font class="matlab">geom3d</font> may also be
-use to visualise \(3\)-dimensional objects.  It is more elaborated
-than <font class="matlab">plottools</font>.  We will simply illustrate
-its potential with two examples.</p>
+<p> The <em>Maple</em> library <font class="matlab">geom3d</font> may also be
+use to visualize three-dimensional geometric figures.  This library is
+more elaborated than the library <font class="matlab">plottools</font>.  We will
+simply illustrate its potential with two examples.</p>
 
 <p>For comparison with the library <font class="matlab">plottools</font>, 
 we use the library <font class="matlab">geom3d</font> to draw the
 intersection of the sphere of radius \(3\) centred at \((4,3,4)\)
 with the plane \(x/2 + y/4 - z = -3\).
 We begin by drawing the sphere of radius \(3\) centred at \((4,3,4)\).
-The center of the sphere is </p>
+The centre of the sphere is defined by</p>
 
 <pre class="matlab">
 > <font class="matlab">restart: with(geom3d):</font>
@@ -473,7 +482,7 @@ The center of the sphere is </p>
 ce
 \]
 
-<p> The sphere is defined by </p>
+<p> The sphere is defined by</p>
 
 <pre class="matlab">
 > <font class="matlab">sphere(sp,[ce,3],['x','y','z']); </font>
@@ -483,7 +492,7 @@ ce
 sp
 \]
 
-<p> and this sphere is drawn with </p>
+<p> and draw by the command </p>
 
 <pre class="matlab">
 > <font class="matlab">draw(sp(color=blue), orientation=[-45,70],axes=normal);
@@ -492,7 +501,7 @@ sp
 
 <div class="center">
   <img src="Maple_graph_9.png" style="width: 400px"
-       alt="Graph of the sphere">
+       alt="Drawing of the sphere">
 </div>
 
 <p> Consider the plane \(x/2 + y/4 - z = -3\). <p>
@@ -506,7 +515,8 @@ sp
 pl
 \]
 
-<p>We can draw the sphere and the plane in the same figure with</p>
+<p>We can draw the previous sphere and the plane in the same figure
+with the following command.</p>
 
 <pre class="matlab">
 > <font class="matlab">draw({sp(color=yellow),pl(color=red)},orientation=[-45,70],axes=normal);
@@ -515,12 +525,13 @@ pl
 
 <div class="center">
   <img src="Maple_graph_10.png" style="width: 400px"
-       alt="Graph of the sphere and the plane intersecting the sphere">
+       alt="Drawing of the sphere and the plane intersecting it">
 </div>
 
 <p> The function <font class="matlab">intersection()</font>
 of the library <font class="matlab">geom3d</font> can find the
-intersection of two planes.  Consider another plane. </p>
+intersection of two planes.  Consider a second plane defined by
+\(x/2-y/4-z=-2\). </p>
 
 <pre class="matlab">
 > <font class="matlab">plane(pll,x/2-y/4-z=-2,[x,y,z]);
@@ -531,8 +542,8 @@ intersection of two planes.  Consider another plane. </p>
 pll
 \]
 
-<p> The intersection of the planes <font class="matlab">pl</font> and
-<font class="matlab">pll</font> is given by</p>
+<p> The intersection of the planes defined by <font class="matlab">pl</font> and
+<font class="matlab">pll</font> is given by the following command.</p>
 
 <pre class="matlab">
 > <font class="matlab">intersection(inter,pl,pll);
@@ -559,22 +570,25 @@ inter
 \]
 
 <p>Since the two planes are not parallel, we find as expected that
-the intersection of the two planes is a line.  Maple gives us
-the parametric representation of the line.</p>
+their intersection is a straight line.  <em>Maple</em> gives us
+the parametric representation of this line.</p>
 
-<h3> More Advanced Topics </h3>
+<h3> Advanced Topics </h3>
 
-<p>In the next sections, we present some of the libraries that Maple
-offers.</p>
+<p>In the sections listed below, we present some of the libraries
+that <em>Maple</em> offers.</p>
 
 <p>We have already used the library <font class="matlab">plots</font>
-above.  Instead of calling each function of a library with an
-expression like <font class="matlab">Library_Name[Function_Name]();</font>
+above.  Instead of calling each function of a library with a command
+of the form  <font class="matlab">Library_Name[Function_Name]();</font>
 as we did for <font class="matlab">plots[contourplot]()</font> above, it is
-possible to use only <font class="matlab">Function_Name();</font> by
-adding the entire library to a session on Maple with the
+possible to use only a command of the form
+<font class="matlab">Function_Name();</font> by
+adding the entire library <font class="matlab">plots</font> to the
+context of our session on <em>Maple</em> with the
 command <font class="matlab">with(Library_Name);</font> at the
-beginning of the session.  This is done in the documents below.</p> 
+beginning of the session.  This is generally done in the sections
+below.</p>  
 
 <ul>
 <li>

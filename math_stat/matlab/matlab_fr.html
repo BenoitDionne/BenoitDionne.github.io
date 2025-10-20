@@ -145,7 +145,8 @@ de priorité suivant.</p>
 L'exponentiel est une exception car <em>Matlab</em> exécute ces
 opérations de droite à gauche. </p>
 
-<p><em>Exemple</em>: Pour calculer \(16.07(42.5 + 387 / 23.8) + 3.62^2\),
+<p><em>Exemple</em>: Pour calculer
+\(\displaystyle 16.07(42.5 + 387 / 23.8) + 3.62^2\),
 tapez</p>
 
 <pre class="matlab">
@@ -536,7 +537,7 @@ cela est d'utiliser la commande
 <font class="matlab">x = linspace(a,b,N+1)</font>.</p>
 
 <p><em>Exemple</em>: On considère la fonction \(f\) définie par
-\(y = f(x) = x^3\) sur l'intervalle \([0,1]\).  Les deux exemples
+\(\displaystyle y = f(x) = x^3\) sur l'intervalle \([0,1]\).  Les deux exemples
 suivants illustrent comment générer \(11\) points également distancés
 (\(10\) sous-intervalles) incluant les deux points limites de
 l'intervalle.</p>
@@ -561,7 +562,7 @@ x = <br>
      0.7000    0.8000    0.9000    1.0000
 </pre>
 
-<p>Pour évaluer la fonction \(f\) définie par \(f(x) = x^3\) aux
+<p>Pour évaluer la fonction \(f\) définie par \(\displaystyle f(x) = x^3\) aux
 \(11\) points que l'on vient de générer, une simple opération sur les
 tableaux suffit.</p>
 
@@ -629,8 +630,9 @@ graphe de \(f\).</p>
 est d'additionner la valeur \(2\) à chacune des composantes de
 <font class="matlab">x</font> et d'emmagasiner les
 résultats dans la variable <font class="matlab">z</font>.  La
-\(i^{e}\) composante de  
-<font class="matlab">z</font> est la somme de la \(i^{e}\) composante
+\(\displaystyle i^{e}\) composante de  
+<font class="matlab">z</font> est la somme de la
+\(\displaystyle i^{e}\) composante
 de <font class="matlab">x</font> et de \(2\). C'est un
 des <em>comportement anormal</em> de <em>Matlab</em>.</p>
 
@@ -741,11 +743,12 @@ w = <br>
        0.6665    0.0000
 </pre>
 
-<p>La \(k^{e}\) composante de <font class="matlab">w</font> est la
+<p>La \(\displaystyle k^{e}\) composante de <font class="matlab">w</font> est la
 valeur de l'interpolation linéaire de la fonction \(f\) à la
-\(k^{e}\) composante de <font class="matlab">z</font>.  Les commandes
-suivantes trace les points de coordonnées \((x,y)\) où \(x\) et \(y\)
-sont les \(k^{e}\) composantes de <font class="matlab">z</font> et
+\(\displaystyle k^{e}\) composante de <font class="matlab">z</font>.
+Les commandes suivantes tracent les points de coordonnées \((x,y)\) où
+\(x\) et \(y\) sont les \(\displaystyle k^{e}\) composantes
+de <font class="matlab">z</font> et 
 <font class="matlab">w</font> respectivement pour
 \(k = 1, 2, \ldots, 11\).</p>
 
@@ -782,7 +785,7 @@ et <font class="matlab">quadl</font>.</p>
 des trapèzes pour estimer l'intégral d'une fonction .</p>
 
 <p><em>Exemple</em>: Nous utilisons la méthode des trapèzes pour
-estimer l'aire sous la courbe \(y = x sin(x)\) pour \(0 < x < \pi\)
+estimer l'aire sous la courbe \(y = x \sin(x)\) pour \(0 < x < \pi\)
 avec \(10\) sous-intervalles.  Nous utilisons les \(11\) points
 également distancés donnés dans la liste suivante.</p> 
 
@@ -795,7 +798,7 @@ x = <br>
     2.1991    2.5133    2.8274    3.1416
 </pre>
 
-<p> L'étape suivante consiste à évaluer \(x sin(x)\) à chacune des
+<p> L'étape suivante consiste à évaluer \(x \sin(x)\) à chacune des
 composantes de la liste <font class="matlab">x</font> (les composantes
 de <font class="matlab">x</font> sont les points du maillage de
 l'intervalle \([0.\pi]\).) 
@@ -828,7 +831,7 @@ L'exemple suivant illustre comment créer une fonction. </p>
 
 <p><em>Exemple</em>: L'exemple suivant explique comment créer la
 fonction <font class="matlab">funct1</font> qui est définie par
-\(x \mapsto x sin(x)\).</p>
+\(x \mapsto x \sin(x)\).</p>
 
 <p>Premièrement, un fichier nommé <font>funct1.m</font> est créé à
 l'aide d'un éditeur de texte ascii.  La première ligne contient
@@ -864,7 +867,7 @@ le menu de <em>Matlab</em>), alors notre nouvelle fonction
 <em>funct1</em> peut être utilisée comme toutes les autres fonctions
 de <em>Matlab</em> comme on le démontre dans l'exemple suivant.</p>
 
-<p><em>Exemple</em>: La valeur de \(x sin(x)\) pour \(x=5\) est donnée
+<p><em>Exemple</em>: La valeur de \(x \sin(x)\) pour \(x=5\) est donnée
 par la commande suivante.</p>
 
 <pre class="matlab">
@@ -963,10 +966,10 @@ l'<em>adresse</em> de la fonction <font class="matlab">funct1</font> .</p>
 <font class="matlab">quad</font> et <font class="matlab">quadl</font>
 à l'aide de ce nouveau concept.</p>
 
-<p><em>Exemple</em>: Pour estimer l'aire sous la courbe \(y = x sin(x)\) pour
+<p><em>Exemple</em>: Pour estimer l'aire sous la courbe \(y = x \sin(x)\) pour
 \(0 < x < \pi\), nous utilisons notre fonction
 <font class="matlab">funct1</font>.
-Pour évaluer numériquement l'intégrale de \(x sin(x)\) sur l'intervalle
+Pour évaluer numériquement l'intégrale de \(x \sin(x)\) sur l'intervalle
 \(0 < x < \pi\), nous utilisons la commande suivante.</p>
 
 <pre class="matlab">
@@ -981,7 +984,7 @@ ans = <br>
 <font class="matlab">Funct</font> est le nom de la fonction définie
 pour \(a \leq x \leq b\), l'intervalle d'intégration.  Le résultat est
 une estimation de la valeur exacte avec une erreur relative d'environ
-\(10^{-3}\).  Pour spécifier une différente tolérance, il faut
+\(\displaystyle 10^{-3}\).  Pour spécifier une différente tolérance, il faut
 utiliser la commande suivant
 <font class="matlab">quadl(@Funct,a,b,tol)</font> où
 <font class="matlab">tol</font> est la nouvelle limite pour l'erreur
@@ -1030,7 +1033,7 @@ peut être utilisée pour éliminer le besoin de créer un
 <em>fichier m</em>.</p>
 
 <p><em>Exemple</em>: Nous voulons estimer la valeur de l'intégrale de
-\(f(x) = x^3 + 2 x^2 + 1\) pour \(3 \leq x \leq 5\).</p>
+\(\displaystyle f(x) = x^3 + 2 x^2 + 1\) pour \(3 \leq x \leq 5\).</p>
 
 <p>Au lieu de créer un <em>fichier m</em> pour la fonction \(f\), nous
 définissons une <em>fonction anonyme</em> qui est seulement représentée
@@ -1119,15 +1122,16 @@ chacune des conditions initiales.</p>
 <font class="matlab">yy</font> que <font class="matlab">ode45</font>
 retourne ont le même nombre de rangées. Le nombre de colonnes de la matrice
 <font class="matlab">yy</font> est égale à la longueur du vecteur
-rangée <font class="matlab">y0</font>.  La \(i^{e}\) colonne de
+rangée <font class="matlab">y0</font>.  La \(\displaystyle i^{e}\) colonne de
 <font class="matlab">yy</font> est l'estimé à chacune des valeurs de
 <font class="matlab">xx</font> de la solution \{y\} de
 \(y'(x) = \text{yprime}(x,y)\) avec la condition initiale donnée par
-la \(i^{e}\) composante de <font class="matlab">y0</font> à
+la \(\displaystyle i^{e}\) composante de <font class="matlab">y0</font> à
 <font class="matlab">x_zero</font>.
-La \(k^{e}\) rangée de <font class="matlab">yy</font> est une
+La \(\displaystyle k^{e}\) rangée de <font class="matlab">yy</font> est une
 approximation de la solution \(y\) de \(y'(x) = \text{yprime}(x,y)\)
-évaluée à la \(k^{e}\) composante de <font class="matlab">xx</font>
+évaluée à la \(\displaystyle k^{e}\) composante
+de <font class="matlab">xx</font>
 pour chacune des conditions initiales données par les composantes de
 <font class="matlab">y0</font> à <font class="matlab">x_zero</font>.</p>
 
@@ -1150,7 +1154,8 @@ résoudre numériquement l'EDO.</p>
 \(y'(x) = f(x,y) = x \sin(x)\) pur \(0 \leq x \leq \pi\) à l'aide du solveur
 <font class="matlab">ode45</font>.  La condition initial est
 \(y(0) = 0\) et la limite sur la tolérance relative est de 
-\(10^{-5}\).  Nous avons déjà définie à l'aide du <em>fichier m</em>
+\(\displaystyle 10^{-5}\).  Nous avons déjà définie à l'aide
+du <em>fichier m</em>
 <em>funct1.m</em> une fonction \(x \mapsto x \sin(x)\).  Cependant, la
 fonction <font class="matlab">funct1</font> ne peut pas être utilisé avec
 <font class="matlab">ode45</font> car la fonction
@@ -1176,8 +1181,8 @@ end </font>
 </pre>
 
 <p>La seule option qui est fournie au solveur
-<font class="matlab">ode45</font> est la borne supérieure \(10^{-5}\)
-pour la tolérance relative.</p> 
+<font class="matlab">ode45</font> est la borne supérieure
+\(\displaystyle 10^{-5}\) pour la tolérance relative.</p> 
 
 <pre class="matlab">
 >> <font class="matlab">options = odeset('reltol',10^(-5));</font>
@@ -1317,7 +1322,7 @@ L'approche est semblable pour d'autres méthodes itératives.</p>
 
 <p><em>Exemple</em>: Nous voulons utiliser la méthode du point fixe
 pour estimer la valeur de la solution de l'équation
-\(-(x^2/8) - x/4 + 1/2 = x\) dans l'intervalle \([0,1]\).  Nous
+\(\displaystyle -(x^2/8) - x/4 + 1/2 = x\) dans l'intervalle \([0,1]\).  Nous
 commençons les itérations avec \(x = 0.5\).  Une solution possible
 pour ce problème est d'exécuter un petit <em>fichier m</em> qui
 contient le code suivant.</p>
@@ -1346,8 +1351,8 @@ de la programmation dans <em>Matlab</em>.</p>
 
 <p>Si nous exécutons <font class="matlab">fxpt1</font> dans <em>Matlab</em>,
 alors il exécute \(20\) itérations de la fonction
-\(x \mapsto -(x^2/8) - x/4 + 1/2\) à partir de \(x = 0.5\) et affiche
-la \(20^{e}\) itération.</p>
+\(\displaystyle x \mapsto -(x^2/8) - x/4 + 1/2\) à partir de
+\(x = 0.5\) et affiche la \(\displaystyle 20^{e}\) itération.</p>
 
 <pre class="matlab">
 >> <font class="matlab">fxpt1</font><br>
@@ -1380,7 +1385,7 @@ end  </font>
 </pre>
 
 <p>Pour exécuter \(20\) itérations de la fonction
-\(f(x) = -(x^2/8) - x/4 + 1/2\) à partir de \(x = 0.5\), nous
+\(\displaystyle f(x) = -(x^2/8) - x/4 + 1/2\) à partir de \(x = 0.5\), nous
 définissons la fonction <font class="matlab">funct3</font> en créant le
 <em>fichier m</em> <script language="javascript">
 buildLinK("funct3.m", "funct3.m","MMathSStat", "id5", "_blank");
