@@ -60,11 +60,11 @@ main_title( MStexte, "MMathSStat");
 <p> Ce document explique à l'aide d'exemples comment exécuter à l'aide
 de <em>Matlab</em> plusieurs types de calculs et cela inclue la résolution
 d'équations différentielles ordinaires.  Une description détaillée de
-<em>Matlab</em> (fonctions, commandes, librairie, ...) se trouve sous
+<em>Matlab</em> (fonctions, commandes, librairies, ...) se trouve sous
 le menu d'aide de <em>Matlab</em>.  Nous pouvons aussi obtenir de
 l'aide à partir de la fenêtre de commande de <em>Matlab</em> en tapant
 la commande <font class="matlab">help sujet</font> après le prompt
-de <em>Matlab</em> suivi de la touche retour.  Le
+de <em class="matlab">Matlab</em> suivi de la touche retour.  Le
 mot <font>sujet</font> peut être le nom d'une fonction, d'une commande
 ou d'une librairie.  La commande <font class="matlab">help</font>
 affiche les noms de fonctions en lettres majuscules (e.g. QUADL,
@@ -136,8 +136,8 @@ de priorité suivant.</p>
 <ol style="list-style-type:decimal;">
 <li> Parenthèses </li>
 <li> Exponentiel </li>
-<li> Multiplications and Divisions </li>
-<li> Additions and soustractions </li>
+<li> Multiplications et divisions </li>
+<li> Additions et soustractions </li>
 </ol>
 
 <p> Quand deux opérations sont au même niveau de priorité,
@@ -146,7 +146,7 @@ L'exponentiel est une exception car <em>Matlab</em> exécute ces
 opérations de droite à gauche. </p>
 
 <p><em>Exemple</em>: Pour calculer
-\(\displaystyle 16.07(42.5 + 387 / 23.8) + 3.62^2\),
+\(\displaystyle 16.07(42.5 + 387 / 23.8) + 3.6^2\),
 tapez</p>
 
 <pre class="matlab">
@@ -278,13 +278,14 @@ de les utiliser plus tard pour produire une session dans
 d'une session), il suffit d'exécuter la commande
 <font class="matlab">diary</font>.  Après cela, <em>Matlab</em>
 sauvegarde toutes les commandes et résultats dans un fichier qui
-normalement porte le nom de diary.  Pour sauvegarder les commandes et
-résultats dans un fichier appelé <font>devoir1</font> par exemple, il
+normalement porte le nom de <em>diary</em>.  Pour sauvegarder les commandes et
+résultats dans un fichier appelé <em>devoir1</em> par exemple, il
 suffit d'exécuter la commande <font class="matlab">diary devoir1</font>.
 Après cela, toutes les commandes et résultats sont sauvegardés dans le
-fichier <em>devoir1</em> dans le répertoire d'où <em>Matlab</em> a
-démarré.  Pour arrêter de sauvegarder les commandes et résultats, il
-suffit d'exécuter <font class="matlab">diary off</font>.  Pour
+fichier <em>devoir1</em> qui se trouve dans le répertoire
+d'où <em>Matlab</em> a démarré.  Pour arrêter de sauvegarder les
+commandes et résultats, il suffit
+d'exécuter <font class="matlab">diary off</font>.  Pour
 reprendre la sauvegarde des commandes et résultats dans le fichier
 <em>devoir1</em>, il suffit d'exécuter la commande
 <font class="matlab">diary on</font>.  Les nouvelles commandes et
@@ -301,16 +302,16 @@ nombre \(5\) dans <em>Matlab</em> est une matrice de dimension
 <p>Pour définir une matrice dans <em>Matlab</em>, il suffit de taper
 toutes les composantes de la matrice entre une pair de crochets
 (parenthèses carrées).  La virgule et l'espace sont utilisés pour
-séparer les composantes d'une rangé, et le point-virgule et le
-changement de ligne sont utilisés pour séparer les rangés de la
+séparer les composantes d'une rangée, et le point-virgule et le
+changement de ligne sont utilisés pour séparer les rangées de la
 matrice.</p>
 
-<p><em>Exemple</em>: Pour définir la matrice \(A\) de dimension
-\(2\times 3\) ci-dessous</p>
+<p><em>Exemple</em>: Pour définir dans <em>Matlab</em> la matrice </p>
 \[
-A = \begin{pmatrix} 1 & \pi & 0 \\ 0 & 4 & 5 \end{pmatrix} \ ,
+A = \begin{pmatrix} 1 & \pi & 0 \\ 0 & 4 & 5 \end{pmatrix}
 \]
-<p>il suffit de taper une des commandes suivantes:</p>
+<p> de dimension \(2\times 3\),
+il suffit de taper une des commandes suivantes:</p>
 
 <pre class="matlab">
 >> <font class="matlab">A = [ 1 pi 0; 0 4 5 ] </font><br>
@@ -332,7 +333,7 @@ A = <br>
 <p>La commande <font class="matlab">size</font> peut être utilisé pour
 obtenir les dimensions d'une matrice.</p>
 
-<p><em>Exemple</em>: Si on utilise la matrice \(A\) de l'exemple
+<p><em>Exemple</em>: Si nous utilisons la matrice \(A\) de l'exemple
 précédent, on obtient</p>
 
 <pre class="matlab">
@@ -344,7 +345,7 @@ ans = <br>
 <h3> Les vecteurs sont des matrices spéciales </h3>
 
 <p>Les vecteurs sont des matrices avec une seule rangée ou colonne.
-Nous les appelons des vecteurs rangées ou vecteurs colonnes respectivement.</p>
+Nous les appelons des vecteurs rangées et vecteurs colonnes respectivement.</p>
 
 <p><em>Exemple</em>: Le vecteur suivant est un vecteur colonne.</p>
 
@@ -404,7 +405,9 @@ parenthèses </td></tr>
 <col style="width: 20%"> <col style="width: 80%">
 <tr> <th> Opération </th> <th> Description </th> </tr>
 <tr><td class="center"> <font class="matlab">/</font></td><td> \(A/B\) est
-\(A\) multiplié par l'inverse \(B\). </td></tr>
+\(A\) multiplié par l'inverse de \(B\) si cette dernière matrice est
+inversible et si le nombre de colonnes de \(A\) égale le nombre de
+rangées de \(B\). </td></tr>
 <tr><td class="center"> <font class="matlab">\</font></td><td>
 \(A\backslash B\) est la matrice \(X\) qui est la solution (à l'aide
 de la méthode d'élimination de Gauss) de \(AX = B\) quand \(A\) est
@@ -417,7 +420,7 @@ le menu d'aide pour obtenir plus d'information. </td></tr>
 </div>
 
 <p><em>Exemple</em>: En plus des matrices et vecteurs définis
-précédemment, soit</p> 
+précédemment, nous considérons les matrices suivantes:</p> 
 
 <pre class="matlab">
 >> <font class="matlab">C = [-1 -2 0 ; 0 1 2 ; 1 0 3]</font><br>
@@ -434,7 +437,7 @@ B = <br>
       0     1     2
 </pre>
 
-<p>Nous obtenons</p>
+<p>Voici quelques opérations sur les matrices.</p>
 
 <pre class="matlab">
 >> <font class="matlab">D = B + C</font><br>
@@ -452,11 +455,10 @@ W = <br>
 </pre>
 
 <p>D'autres opérations sur les matrices peuvent être exécutées avec
-<em>Matlab</em>.  Par exemple, l'inverse et le déterminant d'une
-matrice sont calculés dans l'exemple suivant.</p>
+<em>Matlab</em>.</p>
 
-<p><em>Exemple</em>: À l'aide des matrices définies précédemment, on
-obtient</p>
+<p><em>Exemple</em>: L'inverse et le déterminant de la matrice \(B\)
+qui a été définie ci-dessus sont calculés par les commandes suivantes.</p>
 
 <pre class="matlab">
 >> <font class="matlab">inv(B)</font><br>
@@ -472,7 +474,7 @@ ans = <br>
 <h3> Opérations sur les tableaux </h3>
 
 <p> Les <em>opérations sur les tableaux</em> sont des opérations sur
-les matrices qui agissent composantes par composantes.</p>
+les matrices qui agissent composante par composante.</p>
 
 <ul style="list-style-type:none;">
 <li> <font class="matlab">.*</font>&nbsp; Multiplication de deux
@@ -511,8 +513,8 @@ Cela veut dire que lorsque que l'argument d'une fonction est une
 matrice \(A\) alors la fonction est évaluée à chacune des composantes de la
 matrice \(A\).</p>
 
-<p><em>Exemple</em>: À l'aide de la matrice \(A\) définie ci-dessus,
-nous avons </p>
+<p><em>Exemple</em>: Si nous utilisons la matrice \(A\) définie
+ci-dessus et calculons \(sin(A)\), nous obtenons le résultat suivant. </p>
 
 <pre class="matlab">
 >> <font class="matlab">sin(A)</font><br>
@@ -530,10 +532,10 @@ définie sur un intervalle \([a,b]\).</p>
 <font class="matlab">x</font> dont les composantes forment une
 partition de l'intervalle \([a,b]\).  Nous utilisons bien souvent \(N + 1\)
 points également distancés de l'intervalle \([a,b]\).  Une façon de
-faire cela est de taper la commande
+créer une telle liste est avec la commande
 <font class="matlab">x = a : h : b </font> où
-<font class="matlab"> h = (b-a)/N</font>.  Une autre façon de faire
-cela est d'utiliser la commande
+<font class="matlab"> h = (b-a)/N</font>.  Une autre façon de créer
+une telle liste est avec la commande
 <font class="matlab">x = linspace(a,b,N+1)</font>.</p>
 
 <p><em>Exemple</em>: On considère la fonction \(f\) définie par
@@ -581,7 +583,7 @@ cube de la composante corresponde de
 fonction <font class="matlab">plot</font> de <em>Matlab</em> pour
 tracer le graphe de \(f\) sur l'intervalle \([0,1]\).  La fonction
 <font class="matlab">plot</font> utilise une interpolation linéaire
-entre les \(11\) également distancés pour approcher le graphe de la
+entre les \(11\) points également distancés pour approcher le graphe de la
 fonction \(f\).</p>
 
 <pre class="matlab">
@@ -592,13 +594,13 @@ fonction \(f\).</p>
 avec une figure contenant le graphe de la fonction.</p> 
 
 <div class="center">
-  <img src="Matlab_figure1.gif" style="width: 400px" alt="Graphe de x^3">
+  <img src="Matlab_figure1.gif" style="width: 300px" alt="Graphe de x^3">
 </div>
 
-<p>On obtiens un graphe plus précis de la fonction en utilisant plus de
-point également distancés.</p> 
+<p>Nous obtenons un graphe plus précis de la fonction en utilisant plus de
+points également distancés.</p> 
 
-<p>Il est possible de tracer le graphe de plus d'une fonction sur la
+<p>Il est possible de tracer le graphe de plus d'une fonction dans la
 même figure.  La commande <font class="matlab">hold on</font> après
 avoir produit la première figure force <em>Matlab</em> à tracer
 les graphes suivants dans la figure existante.
@@ -621,7 +623,7 @@ graphe de \(f\).</p>
 <p> La figure est maintenant </p>
 
 <div class="center">
-  <img src="Matlab_figure2.gif" style="width: 400px"
+  <img src="Matlab_figure2.gif" style="width: 300px"
        alt="Graphes x^3 et de x + 2">
 </div>
 
@@ -649,7 +651,7 @@ utiliser ces fonctions.</p>
  
 <p><em>Exemple</em>: Supposons que les commandes suivantes font
 parties de la session qui a produit la figure précédente et que
-cette figure existe toujours(i.e. elle n'a pas été fermée).</p>
+cette figure existe toujours (i.e. elle n'a pas été fermée).</p>
 
 <pre class="matlab">
 >> <font class="matlab">title('sample plotting with MATLAB')</font>
@@ -662,8 +664,8 @@ cette figure existe toujours(i.e. elle n'a pas été fermée).</p>
 aux axes de la figure précédente pour obtenir la figure suivante.</p>
 
 <div class="center">
-  <img src="Matlab_figure5.gif" style="width: 400px"
-  alt="Graphe de x^3 et x+2 avec un titre et des étiquettes">
+  <img src="Matlab_figure5.gif" style="width: 300px"
+       alt="Graphe de x^3 et x+2 avec un titre et des étiquettes">
 </div>
 
 <h3> Interpolation </h3>
@@ -696,9 +698,9 @@ y = <br>
 </pre>
 
 <p>Il est en fait plus facile de tracer l'interpolation linéaire de
-\(\f\) que d'évaluer \(f\) à des points. Si nous assumons que la
+\(f\) que d'évaluer \(f\) à des points. Si nous assumons que la
 figure précédente n'est plus présente (ou que la commande
-<font class="matlab">hold off</font> a été utilisé), alors la commande
+<font class="matlab">hold off</font> a été utilisée), alors la commande
 suivante trace l'interpolation linéaire de \(f\).</p> 
 
 <pre class="matlab">
@@ -709,7 +711,7 @@ suivante trace l'interpolation linéaire de \(f\).</p>
 la figure ci-dessous.</p> 
 
 <div class="center">
-  <img src="Matlab_figure7.png" style="width: 400px"
+  <img src="Matlab_figure7.png" style="width: 300px"
        alt="Graphe de l'approximation linéaire de f">
 </div>
 
@@ -719,7 +721,7 @@ de <em>Matlab</em>.  Supposons que nous voulions évaluer
 l'interpolation linéaire de la fonction \(f\) aux points
  \(0, \pi/10 , \pi/5 , 3\pi/10, \ldots, \pi\).  Nous pouvons
 représenter ces points dans <em>Matlab</em> à l'aide de la liste
-suivante: </p>  
+suivante.</p>  
 
 <pre class="matlab">
 >> <font class="matlab">z = linspace(0,pi,11)</font><br>
@@ -758,8 +760,8 @@ de <font class="matlab">z</font> et
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure8.png" style="width: 400px"
-     alt="Graphe de l'interpolation linéaire de f est des points ci-dessus">
+  <img src="Matlab_figure8.png" style="width: 300px"
+       alt="Graphe de l'interpolation linéaire de f est des points ci-dessus">
 </div>
 
 <p>Le troisième argument de <font class="matlab">plot</font> ci-dessus
@@ -779,9 +781,8 @@ de comparer ces méthodes. </p>
 <p>Il y a trois principales fonctions de <em>Matlab</em> pour
 l'intégration numérique d'une fonction: <font class="matlab">trapz</font>,
 <font class="matlab">quad</font>
-et <font class="matlab">quadl</font>.</p>
-
-<p>La fonction <font class="matlab">trapz</font> utilise la méthode
+et <font class="matlab">quadl</font>.
+La fonction <font class="matlab">trapz</font> utilise la méthode
 des trapèzes pour estimer l'intégral d'une fonction .</p>
 
 <p><em>Exemple</em>: Nous utilisons la méthode des trapèzes pour
@@ -800,8 +801,8 @@ x = <br>
 
 <p> L'étape suivante consiste à évaluer \(x \sin(x)\) à chacune des
 composantes de la liste <font class="matlab">x</font> (les composantes
-de <font class="matlab">x</font> sont les points du maillage de
-l'intervalle \([0.\pi]\).) 
+de <font class="matlab">x</font> sont les points qui forment la
+partition de l'intervalle \([0.\pi]\).) 
 
 <pre class="matlab">
 >> <font class="matlab">y = x .* sin(x);</font>
@@ -821,7 +822,8 @@ la méthode adaptative de Simpson et la fonction
 <font class="matlab">quadl</font> est une version de la méthode
 adaptative de Newton-Cotes.  Afin d'utiliser ces deux fonctions, il
 faut être en mesure de définir de nouvelles fonctions à l'aide des
-<em>fichiers m</em>.  C'est le sujet de la prochaine section.</p>
+<em>fichiers m</em> ou de définir des <em>fonctions anonymes</em>.
+Ce sont les sujets des deux prochaines sections.</p>
 
 <h3> Fichiers m </h3>
 
@@ -883,7 +885,7 @@ trouvent avant la ligne
 <em>funct1.m</em>.  Un <em>fichier m</em> devrait toujours
 débuter avec des commentaires qui décrivent la fonction définie dans le
 <em>fichier m</em>, qu'est-ce que la fonction fait, et comment
-utiliser cette fonctions avec la liste et descriptions de ses
+utiliser cette fonctions avec la liste et description de ses
 arguments.</p>
 
 <pre class="matlab">
@@ -952,7 +954,7 @@ dans la liste.</p>
 
 <p>Pour certaines fonctions de <em>Matlab</em>, le nom d'une
 fonction doit être donné parmi leurs arguments.  Par exemple, la fonction
-<font class="matlab">quadl</font> que l'on a utilisée précédemment
+<font class="matlab">quadl</font> que l'on a introduite précédemment
 exige que le nom de la fonction qui doit être intégrée soit un des arguments.
 Au lieu de donner le nom de la fonction, il est souvent plus pratique
 de donner l'<em>adresse</em> de la fonction.</p>
@@ -967,10 +969,10 @@ l'<em>adresse</em> de la fonction <font class="matlab">funct1</font> .</p>
 à l'aide de ce nouveau concept.</p>
 
 <p><em>Exemple</em>: Pour estimer l'aire sous la courbe \(y = x \sin(x)\) pour
-\(0 < x < \pi\), nous utilisons notre fonction
+\(0 \leq x \leq \pi\), nous utilisons notre fonction
 <font class="matlab">funct1</font>.
 Pour évaluer numériquement l'intégrale de \(x \sin(x)\) sur l'intervalle
-\(0 < x < \pi\), nous utilisons la commande suivante.</p>
+\(0 \leq x \leq \pi\), nous utilisons la commande suivante.</p>
 
 <pre class="matlab">
 >> <font class="matlab">quadl(@funct1,0,pi)</font>
@@ -978,16 +980,16 @@ ans = <br>
     3.1416
 </pre>
 
-<p> Le format essentiel des fonctions <font class="matlab">quadl</font> et
+<p> Le format minimal des fonctions <font class="matlab">quadl</font> et
 <font class="matlab">quad</font> est
 <font class="matlab">quadl(@Funct, a, b);</font> où
 <font class="matlab">Funct</font> est le nom de la fonction définie
 pour \(a \leq x \leq b\), l'intervalle d'intégration.  Le résultat est
-une estimation de la valeur exacte avec une erreur relative d'environ
-\(\displaystyle 10^{-3}\).  Pour spécifier une différente tolérance, il faut
-utiliser la commande suivant
+une estimation de la valeur exacte avec une erreur relative d'au plus
+\(\displaystyle 10^{-3}\).  Pour spécifier une différente borne
+supérieure sur l'erreur relative, il faut utiliser la commande
 <font class="matlab">quadl(@Funct,a,b,tol)</font> où
-<font class="matlab">tol</font> est la nouvelle limite pour l'erreur
+<font class="matlab">tol</font> est la nouvelle borne sur l'erreur
 relative.</p>
 
 <p>L'<em>adresse</em> d'une fonction peut être utilisée au lieu du nom
@@ -1016,14 +1018,15 @@ ans = <br>
 <p><font class="matlab">hand</font> contient l'<em>adresse</em> de la
 fonction <font class="matlab">funct1</font>.  Ainsi,
 <font class="matlab">hand(10)</font> est identique à la commande
-<font class="matlab">funct1(10)</font>.  <font class="matlab">hands</font>
-est une liste (ordonnée) de deux <em>adresses</em>: l'<em>adresse</em> 
+<font class="matlab">funct1(10)</font>.  La variable
+<font class="matlab">hands</font> représente une liste (ordonnée) de
+deux <em>adresses</em>: l'<em>adresse</em>
 de la fonction <font class="matlab">funct1</font> et
 l'<em>adresse</em> de la fonction <font class="matlab">sin</font>
 de <em>Matlab</em> qui est la fonction trigonométrique sinus.
 <font class="matlab">hands{1}(10)</font> est équivalent à la commande
 <font class="matlab">funct1(10)</font> et
-<font class="matlab">hands{2}(10)</font> est équivalent 7a! la commande
+<font class="matlab">hands{2}(10)</font> est équivalent à la commande
 <font class="matlab">sin(10)</font>.</p>
 
 <p>Il est occasionnellement fastidieux de créer un <em>fichier m</em>
@@ -1098,8 +1101,8 @@ Runge-Kutta.  Ils font partis de la famille de solveurs d'EDO
 de <em>Matlab</em>.  Pour obtenir de l'aide au sujet de ces solveurs
 et une liste des autres solveurs de <em>Matlab</em> pour résoudre les EDO,
 il suffit d'utiliser la commande <font class="matlab">help ode23 </font>
-par exemple.  <font class="matlab">ode23</font> peut être remplacé par
-tout autre nom de solveur d'EDO de <em>Matlab</em>. </p>
+par exemple.  Le nom <font class="matlab">ode23</font> peut être
+remplacé par tout autre nom de solveur d'EDO de <em>Matlab</em>. </p>
 
 <p>Nous allons seulement expliquer la procédure pour utiliser le
 solveur <font class="matlab">ode45</font>.  Cependant, la procédure pour
@@ -1111,10 +1114,10 @@ utiliser les autres solveurs d'EDO de <em>Matlab</em> est très semblable. </p>
 
 <p> La fonction <font class="matlab">yprime</font> (qui dépend de
 \(x\) et \(y\)) est le côté droit de l'EDO \(y'(x) = \text{yprime}(x,y)\).
-<font class="matlab">x_zero</font> est le temps initial and
-<font class="matlab">x_final</font> est le temps quand arrêter
-l'intégration numérique.  <font class="matlab">y0</font> est un vecteur
-rangée avec les valeurs initiales de \(y\) à
+La valeur <font class="matlab">x_zero</font> est le temps initial et
+la valeur <font class="matlab">x_final</font> est le temps quand arrêter
+l'intégration numérique.  L'expression <font class="matlab">y0</font>
+est un vecteur rangée avec les valeurs initiales de \(y\) à
 <font class="matlab">x_zero</font>.  Une solution est calculée pour
 chacune des conditions initiales.</p>
 
@@ -1124,10 +1127,10 @@ retourne ont le même nombre de rangées. Le nombre de colonnes de la matrice
 <font class="matlab">yy</font> est égale à la longueur du vecteur
 rangée <font class="matlab">y0</font>.  La \(\displaystyle i^{e}\) colonne de
 <font class="matlab">yy</font> est l'estimé à chacune des valeurs de
-<font class="matlab">xx</font> de la solution \{y\} de
-\(y'(x) = \text{yprime}(x,y)\) avec la condition initiale donnée par
-la \(\displaystyle i^{e}\) composante de <font class="matlab">y0</font> à
-<font class="matlab">x_zero</font>.
+<font class="matlab">xx</font> de la solution \(y\) de
+\(y'(x) = \text{yprime}(x,y)\) avec la condition initiale à
+<font class="matlab">x_zero</font> donnée par
+la \(\displaystyle i^{e}\) composante de <font class="matlab">y0</font>.
 La \(\displaystyle k^{e}\) rangée de <font class="matlab">yy</font> est une
 approximation de la solution \(y\) de \(y'(x) = \text{yprime}(x,y)\)
 évaluée à la \(\displaystyle k^{e}\) composante
@@ -1153,12 +1156,12 @@ résoudre numériquement l'EDO.</p>
 <p><em>Exemple</em>: Nous voulons estimer la solution de l'EDO
 \(y'(x) = f(x,y) = x \sin(x)\) pur \(0 \leq x \leq \pi\) à l'aide du solveur
 <font class="matlab">ode45</font>.  La condition initial est
-\(y(0) = 0\) et la limite sur la tolérance relative est de 
-\(\displaystyle 10^{-5}\).  Nous avons déjà définie à l'aide
+\(y(0) = 0\) et la borne supérieure sur la tolérance relative est de 
+\(\displaystyle 10^{-5}\).  Nous avons déjà défini à l'aide
 du <em>fichier m</em>
-<em>funct1.m</em> une fonction \(x \mapsto x \sin(x)\).  Cependant, la
+<em>funct1.m</em> une fonction \(x \mapsto x \sin(x)\).  Cependant, cette
 fonction <font class="matlab">funct1</font> ne peut pas être utilisé avec
-<font class="matlab">ode45</font> car la fonction
+le solveur <font class="matlab">ode45</font> car la fonction
 <font class="matlab">funct1</font> dépend seulement de \(x\).  Le côté
 droit d'une EDO \(y'(x)= \ldots\) doit être une fonction de \(x\) et
 \(y\).</p>
@@ -1190,7 +1193,7 @@ end </font>
 
 <p> Finalement, nous pouvons utiliser le solveur
 <font class="matlab">ode45</font> pour résoudre numériquement l'EDO
-\(y' = \text{funct2}(x,y)\) pour \(0 \leq x\leq \pi\)
+\(y' = f(x,y)\) pour \(0 \leq x\leq \pi\)
 avec la condition initiale \(y(0) = 0\).</p>
 
 <pre class="matlab">
@@ -1292,7 +1295,7 @@ fournies par <font class="matlab">[xx,yy]</font>.</p>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure4.gif" style="width: 400px"
+  <img src="Matlab_figure4.gif" style="width: 300px"
        alt="Graphe de la solution de l'EDO">
 </div>
 
@@ -1304,7 +1307,7 @@ solution de l'EDO \(y' = x\sin(x)\) et l'intégral de la fonction
 fournies par <font class="matlab">[xx,yy]</font>, nous pouvons estimer
 la valeur de la solution de l'EDO à tous points de l'intervalle
 \([0,\pi]\).  Par exemple, le valeur approximative de la solution de
-l'EDO à \(x=2\) est donnée par:</p>
+l'EDO à \(x=2\) est donnée par la comande</p>
 
 <pre class="matlab">
 >> <font class="matlab">w = interp1(xx,yy,2,'linear')</font> <br>
@@ -1343,7 +1346,7 @@ end </font> <br>
 
 <p>Ce <em>fichier m</em> est nommé <script language="javascript">
 buildLinK("fxpt1.m", "fxpt1.m","MMathSStat", "id3", "_blank");
-</script>,.  Ce n'est pas une fonction mais simple script que
+</script>,.  Ce n'est pas une fonction mais un simple script que
 <em>Matlab</em> peut exécuter.  Avec une plus profonde connaissance de
 <em>Matlab</em>, nous pouvons écrire des programmes beaucoup plus
 sophistiqués mais cet exemple est suffisant pour comprendre la base
@@ -1362,7 +1365,7 @@ x = <br>
 
 <p>Cependant, le programme ci-dessus n'est pas pratique car nous
 devons modifier le fichier <em>fxpt1.m</em> à chaque fois que l'on
-doit modifier la fonction à itérer, la valeur initiale ou le nombre
+change la fonction à itérer, la valeur initiale ou le nombre
 d'itérations.</p>
 
 <p>La fonction <font class="matlab">fxpt2</font> définie dans le
@@ -1385,7 +1388,7 @@ end  </font>
 </pre>
 
 <p>Pour exécuter \(20\) itérations de la fonction
-\(\displaystyle f(x) = -(x^2/8) - x/4 + 1/2\) à partir de \(x = 0.5\), nous
+\(\displaystyle x \mapsto -(x^2/8) - x/4 + 1/2\) à partir de \(x = 0.5\), nous
 définissons la fonction <font class="matlab">funct3</font> en créant le
 <em>fichier m</em> <script language="javascript">
 buildLinK("funct3.m", "funct3.m","MMathSStat", "id5", "_blank");
@@ -1402,7 +1405,7 @@ end </font>
 </pre>
 
 <p> La fonction
-<font class="matlab">fxpt2</font> peut être invoqué avec les arguments
+<font class="matlab">fxpt2</font> peut être invoquée avec les arguments
 <font class="matlab">@funct3</font>,
 <font class="matlab">0.5</font> et <font class="matlab">20</font>.</p>
 
@@ -1413,8 +1416,8 @@ ans = <br>
 </pre>
 
 <p> Au lieu de définir <font class="matlab">funct3</font> à l'aide
-d'un <em>fichier m</em>, nous pourrions simplement définir un fonction
-anonyme comme il se suit. </p> 
+d'un <em>fichier m</em>, nous pourrions simplement définir une
+<em> fonction anonyme</em> comme il se suit. </p> 
 
 <pre class="matlab">
 >> <font class="matlab">Hfunct3 = @(x) -(x.^2/8) - x/4 + 1/2;</font>
@@ -1429,7 +1432,7 @@ qui doit être itérée . </p>
 qui permet à l'utilisateur d'énumérer, de lire et de supprimer les
 <em>fichiers m</em>, de lire le contenu d'un répertoire, de changer le
 répertoire présentement utilisé, etc.  Un résumé de certaines commandes est
-fournie dans le tableau ci-dessous.</p>
+fourni dans le tableau ci-dessous.</p>
 
 <div class="center" style="width: 100%">
 <table style="width: 70%;">
@@ -1451,7 +1454,7 @@ l'<em>emplacement</em> donné.</td></tr>
 répertoire présentement utilisé .</td></tr> 
 <tr><td><font class="matlab"> which nom_de_la_fonction </font> </td><td>
 Affiche l'emplacement du <em>fichier m</em>
-<font class="matlab">nom_de_la_fonction.m</font>.</td></tr>
+<em>nom_de_la_fonction.m</em>.</td></tr>
 </table>
 </div>
 
@@ -1459,7 +1462,7 @@ Affiche l'emplacement du <em>fichier m</em>
 en <q lang="fr">batch mode</q> sur un ordinateur dont le système
 d'opération est Linux/Unix.  Par exemple, pour exécuter le script
 </em>my_code.m</em> en <q lang="fr">batch mode</q>, il suffit
-d'exécuter la commande suivante au prompt d'un terminal.</p>
+d'exécuter la commande suivante après le prompt d'un terminal.</p>
 
 <pre class="matlab">
 % nice +19 matlab -nosplash < my_code.m > my_code.log
