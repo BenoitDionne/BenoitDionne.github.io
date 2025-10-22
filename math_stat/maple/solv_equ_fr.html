@@ -28,6 +28,14 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+-->
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 </head>
 <body>
 
@@ -43,13 +51,183 @@ main_title( MStexte, "MMathSStat");
 
 <h2> Résoudre des équations </h2>
 
-<p> Le contenu de ce site n'a malheureusement pas encore été traduit
-en français.  Veuillez consulter le site en anglais
-<script language="javascript">
-    buildLinK(solve_equ.url_en, solve_equ.text_en,"MMathSStat", solve_equ.id,
-    solve_equ.target);
-</script>.
-</p>
+<p> Dans ce document, nous expliquons comment utiliser <em>Maple</em>
+pour résoudre des (systèmes d') équations non-linéaires et des valeurs
+extrêmes.</p>
+
+<h3> Racines des polynômes </h3>
+
+<p>Nous commençons par chercher les racines du polynôme suivant.</p>
+
+<pre class="matlab">
+> <font class="matlab">pe := x^3-x^2+5*x-6=0; spe := solve(pe,x);</font>
+</pre>
+
+\[
+\begin{split}
+& pe := x^3 - x^2 + 5 x - 6 = 0  \\
+& spe := \ldots
+\end{split}
+\]
+
+<p>Nous n'avons par affichée la solution exacte donnée par <em>Maple</em>
+dans la variable <font class="matlab">spe</font> car elle occupe
+plusieurs lignes.  Le lecteur devrait exécuter les commandes ci-dessus
+pour obtenir le long résultat.</p>
+
+<p>La représentation en virgule flottante (avec \(10\) chiffres
+décimaux) des racines est donnée par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">fspe:=evalf(spe);</font>
+</pre>
+
+\[ 1.157720809, -0.0788604043 + 2.275165423 I, -0.0788604043 - 2.275165423 I \]
+
+<p>Pour obtenir les valeurs exactes de cette liste, nous utilisons le
+commandes suivantes.</p>
+
+<pre class="matlab">
+> <font class="matlab">x1 := fspe[1]; x2 := fspe[2]; x3 := fspe[3]; </font>
+</pre>
+
+\[
+\begin{split}
+& x1 := 1.157720809 \\
+& x2 := -0.0788604043 + 2.275165423 I \\
+& x3 := -0.0788604043 - 2.275165423 I
+\end{split}
+\]
+
+<p><em>Exemple</em>: Le but est de trouver les points d'intersection
+des graphes des deux fonctions définies ci-dessous.</p>
+
+<pre class="matlab">
+> <font class="matlab">f1:=1/(x^2-8); f2:=x^2+4*x+2;</font>
+</pre>
+
+\[
+\begin{split}
+& f1 := \frac{1}{x^2-8} \\
+& f2 := x^2+4x+2
+\end{split}
+\]
+
+<p>Nous cherchons premièrement les valeurs de \(x\) où les graphes se
+coupent.</p>
+
+<pre class="matlab">
+> <font class="matlab">xs := evalf(solve(f1=f2,x));</font>
+</pre>
+
+\[ xs := 2.836678210, -.6331032006, -2.707918475, -3.495656534 \]
+
+<p>Il y a quatre racines (voir la figure ci-dessous).  Nous aurions pu
+aussi chercher les racines du polynôme de degré quatre
+<font class="matlab"> f2(x) / f1(x)  - 1 = 0</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">plot1:=plot(f1(x),x=-4..4,-4..25,discont=true,color=red):</font>
+> <font class="matlab">plot2:=plot(f2(x),x=-4..4,-4..25,color=blue):</font>
+> <font class="matlab">with(plots):</font>
+> <font class="matlab">display({plot1,plot2});</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_equation_1.png" style="width: 300px"
+       alt="Graphes de f1 et f2 dans la même figure">
+</div>
+
+<p>Pour déterminer les coordonnées des points d'intersection, Nous
+calculons les valeurs de <font class="matlab">f2</font> (Nous aurions
+pu aussi bien choisir <font class="matlab">f1</font>) à chacune des
+valeurs de la liste <font class="matlab">xs</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">f2f := x -> x^2+4*x+2:</font>
+> <font class="matlab">ys := seq(f2f(xs[i]), i=1..4);</font>
+</pre>
+
+\[ ys := 21.39345611, -.131593139, -1.498851433, .23698846 \]
+
+<p>Nous obtenons les quatre points d'intersection suivant.</p>
+
+<pre class="matlab">
+> <font class="matlab">seq([xs[i], ys[i]], i = 1 .. 4);</font>
+</pre>
+
+\[
+\begin{split}
+& [2.836678210, 21.39345611], [-0.6331032006, -0.131593139], \\
+& \qquad \qquad  [-2.707918475, -1.498851433], [-3.495656534, 0.23698846]
+\end{split}
+\]
+
+<p>Nous avons utilisé la commande <font class="matlab">seq()</font>
+de <em>Maple</em> pour générer la liste de valeurs ci-dessus.</p>
+
+<h3> Systèmes d'équations non-linéaires </h3>
+
+<p><em>Exemple</em>: Nous voulons trouver les solutions du système
+suivant composé de deux équations non-linéaires.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq1 := 2*x^2-x*y+y^2 = 1; eq2 := x^2+y^2=1; </font>
+</pre>
+
+\[
+\begin{split}
+& eq1 := 2x^2-xy+y^2 = 1 \\
+& eq2 := x^2+y^2 = 1
+\end{split}
+\]
+
+<p>Nous traçons ces deux courbes dans le plan afin d'estimer la
+position de leurs points d'intersection.  Nous assumons que
+\(-3 < x , y < 3\).</p>
+
+<pre class="matlab">
+> <font class="matlab">with(plots):</font>
+> <font class="matlab">imp1 := implicitplot(eq1,x=-3..3,y=-3..3,grid=[40,40],color=red):</font>
+> <font class="matlab">imp2 := implicitplot(eq2,x=-3..3,y=-3..3,grid=[40,40],color=blue):</font>
+> <font class="matlab">display({imp1,imp2});</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_equation_2.png" style="width: 300px"
+       alt="Figure avec les deux courbes représentées par eq1 et eq2">
+</div>
+
+<p>Il semble bien y avoir quatre points d'intersection (i.e. Les
+solutions du système d'équations linéaires).  Nous demandons
+à <em>Maple</em> de trouver ces points.</p> 
+
+<pre class="matlab">
+> <font class="matlab">fsolve({eq1,eq2},{x,y});</font>
+</pre>
+
+\[  \{y = -1.000000000, x = 0.\} \]
+
+<p>Trois des points manques.  La fonction
+<font class="matlab">fsolve()</font> utilise une méthode itérative
+pour trouver les solutions.  L'usage de la fonction
+<font class="matlab">solve()</font> ne donne pas plus d'information.
+Le lecteur devrait l'essayer.  Pour trouver les autres solution, 
+nous devons fournir une petite région où la fonction
+<font class="matlab">fsolve()</font> devra chercher pour une solution.</p>
+
+<pre class="matlab">
+> <font class="matlab">fsolve({eq1,eq2},{x,y},{x=0.6..0.8,y=0.6..0.8});</font>
+</pre>
+
+\[ \{x = .7071067812, y = .7071067812 \} \]
+
+<p>Nous obtenons une autre solution.  Les autres solutions peuvent
+  être trouvées en suivant la même procédure ou simplement en
+  utilisant la réflexion par rapport à l'origine 
+(i.e. \((x,y) \mapsto (-x,-y)\)) des deux équations.  Donc, les autres
+solutions sont données en multipliant les deux solutions ci-dessus
+par \(-1\).</p>
 
 <br>
 <hr>

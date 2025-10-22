@@ -51,12 +51,12 @@ main_title( MStext, "MMathSStat");
 
 <h2> Solving Equations </h2>
 
-<p> In this section, we show how to use Maple to solve systems of
-nonlinear equations and find extremum.</p>
+<p> In this document, we show how to use <em>Maple</em> to solve
+(systems of) nonlinear equations and find extrema.</p>
 
 <h3> Roots of Polynomials </h3>
 
-<p>We start by finding the roots of a polynomial.</p>
+<p>We start by finding the roots of the following polynomial.</p>
 
 <pre class="matlab">
 > <font class="matlab">pe := x^3-x^2+5*x-6=0; spe := solve(pe,x);</font>
@@ -69,12 +69,13 @@ nonlinear equations and find extremum.</p>
 \end{split}
 \]
 
-<p>We did not write the exact solutions <font class="matlab">spe</font>
-given by Maple because it occupies several lines.  The reader should
-run the operations above to get the long output.</p>
+<p>We did not display the exact solutions given by <em>Maple</em> in
+the variable <font class="matlab">spe</font> because it
+occupies several lines.  The reader should run the commands above to
+get the long output.</p>
 
 <p>The floating point representation (to \(10\) decimal places) of these
-roots is given by the command</p>
+roots is given by the following command.</p>
 
 <pre class="matlab">
 > <font class="matlab">fspe:=evalf(spe);</font>
@@ -82,7 +83,8 @@ roots is given by the command</p>
 
 \[ 1.157720809, -0.0788604043 + 2.275165423 I, -0.0788604043 - 2.275165423 I \]
 
-<p>To extract the values from this list, we may used</p>
+<p>To extract the values from this list, we may used the following
+commands. </p>
 
 <pre class="matlab">
 > <font class="matlab">x1 := fspe[1]; x2 := fspe[2]; x3 := fspe[3]; </font>
@@ -96,8 +98,8 @@ roots is given by the command</p>
 \end{split}
 \]
 
-<p><em>Example</em>: Find the intersections of the graphs
-of the following two functions.</p>
+<p><em>Example</em>: The goal is to find the points of intersection
+of the graphs of the following two functions.</p>
 
 <pre class="matlab">
 > <font class="matlab">f1:=1/(x^2-8); f2:=x^2+4*x+2;</font>
@@ -110,7 +112,7 @@ of the following two functions.</p>
 \end{split}
 \]
 
-<p>We first find the values of \(x\) where the curves intersect.</p>
+<p>We first find the values of \(x\) where the graphs intersect.</p>
 
 <pre class="matlab">
 > <font class="matlab">xs := evalf(solve(f1=f2,x));</font>
@@ -118,9 +120,9 @@ of the following two functions.</p>
 
 \[ xs := 2.836678210, -.6331032006, -2.707918475, -3.495656534 \]
 
-<p>There are four real roots (see the graph below). Note that we could
-have solved instead the polynomial of degree
-four <font class="matlab"> f2(x) / f1(x)  - 1 = 0</font>. 
+<p>There are four real roots (see the figure below).  We could instead
+have looked for the roots of the polynomial of degree four
+<font class="matlab"> f2(x) / f1(x)  - 1 = 0</font>.</p>
 
 <pre class="matlab">
 > <font class="matlab">plot1:=plot(f1(x),x=-4..4,-4..25,discont=true,color=red):</font>
@@ -134,10 +136,10 @@ four <font class="matlab"> f2(x) / f1(x)  - 1 = 0</font>.
        alt="Graphs of f1 and f2 in the same figure">
 </div>
 
-<p>To determine the coordinates of the intersection points, we compute
+<p>To determine the coordinates of the points of intersection, we compute
 the values of <font class="matlab">f2</font> (we could as well have
 chosen <font class="matlab">f1</font>) at each of the values
-of <font class="matlab">xs</font>.</p>
+of the list <font class="matlab">xs</font>.</p>
 
 <pre class="matlab">
 > <font class="matlab">f2f := x -> x^2+4*x+2:</font>
@@ -146,7 +148,7 @@ of <font class="matlab">xs</font>.</p>
 
 \[ ys := 21.39345611, -.131593139, -1.498851433, .23698846 \]
 
-<p>to get the four intersection points:</p>
+<p>We get the following four intersection points.</p>
 
 <pre class="matlab">
 > <font class="matlab">seq([xs[i], ys[i]], i = 1 .. 4);</font>
@@ -159,13 +161,13 @@ of <font class="matlab">xs</font>.</p>
 \end{split}
 \]
 
-<p>We have used the Maple command <font class="matlab">seq()</font> to
-generate a sequence of value.</p>
+<p>We have used the <em>Maple</em> command <font class="matlab">seq()</font> to
+generate the list of values above.</p>
 
 <h3> Systems of Nonlinear Equations </h3>
 
 <p><em>Example</em>: We want to find the solutions of the following
-system of two equations.</p>
+system of two nonlinear equations.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq1 := 2*x^2-x*y+y^2 = 1; eq2 := x^2+y^2=1; </font>
@@ -178,8 +180,8 @@ system of two equations.</p>
 \end{split}
 \]
 
-<p>Let's plot these two curves in the plan to find approximately
-their intersections.  We assume that \(-3 < x , y < 3\).</p>
+<p>We plot these two curves in the plan to locate approximately
+their points of intersection.  We assume that \(-3 < x , y < 3\).</p>
 
 <pre class="matlab">
 > <font class="matlab">with(plots):</font>
@@ -190,11 +192,11 @@ their intersections.  We assume that \(-3 < x , y < 3\).</p>
 
 <div class="center">
   <img src="Maple_equation_2.png" style="width: 300px"
-       alt="Display the curves represented by eq1 and eq2">
+       alt="Figure with the curves represented by eq1 and eq2">
 </div>
 
-<p>There seems to be four intersections (i.e. solutions of our
-system). Let see what maple gives.</p> 
+<p>There seems to be four points of intersection (i.e. solutions of our
+system of linear equations).  We first ask <em>Maple</em> to find them. </p> 
 
 <pre class="matlab">
 > <font class="matlab">fsolve({eq1,eq2},{x,y});</font>
@@ -202,12 +204,13 @@ system). Let see what maple gives.</p>
 
 \[  \{y = -1.000000000, x = 0.\} \]
 
-<p>Three of the solutions seems to be missing
-<font class="matlab">fsolve()</font> probably uses a fixed point method
-to find a root.  Using <font class="matlab">solve()</font> will not
-give more information (try it).  To be able to find the other
-solutions, we need to provide a small area
-where <font class="matlab">fsolve()</font> should look into.</p>
+<p>Three of the solutions are missing.  The function
+<font class="matlab">fsolve()</font> uses an iterative method
+to find the solutions.  Using <font class="matlab">solve()</font> does
+not give more information.  The reader should try it.  To be able to
+find the other solutions, we need to provide a small area
+where the function <font class="matlab">fsolve()</font> will have to
+look for a solution.</p>
 
 <pre class="matlab">
 > <font class="matlab">fsolve({eq1,eq2},{x,y},{x=0.6..0.8,y=0.6..0.8});</font>
@@ -217,8 +220,9 @@ where <font class="matlab">fsolve()</font> should look into.</p>
 
 <p>We get another solution.  The other solutions can be found using
 the same procedure or simply by using the reflective symmetry through
-the origin \((x,y) \to (-x,-y)\) of both equations.  So the other
-solutions are just \(-1\) times the two solutions that we have found.</p>
+the origin (i.e. \((x,y) \mapsto (-x,-y)\) ) of both equations.  So the other
+solutions are just \(-1\) times the two solutions that we have found
+above.</p>
 
 <br>
 <hr>
