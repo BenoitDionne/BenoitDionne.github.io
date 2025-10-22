@@ -55,7 +55,7 @@ main_title( MStexte, "MMathSStat");
   <img src="Maple_Logo_Icon.png" style="width: 200px" alt="Icone de Maple">
 </div>
 
-<p>Ce document est une <q lang="fr">brève</q> introduction
+<p>Ce document fourni une <q lang="fr">brève</q> introduction
 à <em>Maple</em>.  Nous espérons qu'il y a assez d'information pour que
 le lecteur puisse rapidement commencer à utiliser <em>Maple</em>.  Il
 y a une vaste librairie de fonctions que le lecteur pourrait être
@@ -67,7 +67,7 @@ les codes en <em>Maple</em> sont mis en emphase en bleu..</p>
 
 <h3> Opérations algébriques de base</h3>
 
-<p>Considérons le polynôme élémentaire </p>
+<p>Considérons le polynôme</p>
 
 <pre class="matlab">
 > <font class="matlab">(x+y)^2;</font>
@@ -75,9 +75,12 @@ les codes en <em>Maple</em> sont mis en emphase en bleu..</p>
 
 \[(x + y)^2\]
 
-<p>Le symbole <font class="matlab">%</font> contient le résultat de
-l'opération précédente.  Donc, nous pouvons développer le résultat de
-l'opération précédent à l'aide de la commande suivante.</p>
+<p>Notons que les commandes de <em>Maple</em> se terminent toujours
+par un point-virgule.  La commande est exécutée après avoir
+pressé la touche retour.
+Le symbole <font class="matlab">%</font> contient le résultat de
+l'opération précédente.  Donc, nous pouvons développer le polynôme
+défini ci-dessus à l'aide de la commande suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">expand(%);</font>
@@ -87,7 +90,7 @@ l'opération précédent à l'aide de la commande suivante.</p>
 
 <p>Nous avons utilisé la commande <font class="matlab">expand</font>
 pour calculer le carré.  Nous pouvons exécuter toutes les opérations
-algébriques sur les polynômes.</p>
+algébriques biens connues sur les polynômes.</p>
 
 <pre class="matlab">
 > <font class="matlab">%-4*x*y;</font>
@@ -114,7 +117,9 @@ Nous pouvons assigner \(\displaystyle (x+y)^2\) à une variable.</p>
 
 \[u := (x + y)^2\]
 
-<p>Nous pouvons maintenant exécuter toutes les opérations algébriques
+<p> Le symbole <font class="matlab">:=</font> est utilisé pour
+assigner le contenu à droite de ce signe à la variable à gauche de ce
+signe.   Nous pouvons maintenant exécuter toutes les opérations algébriques
 sur \(\displaystyle (x+y)^2\) en utilisant <font class="matlab">u</font>.</p>
 
 <pre class="matlab">
@@ -128,7 +133,7 @@ sur \(\displaystyle (x+y)^2\) en utilisant <font class="matlab">u</font>.</p>
 <p>Il y a fondamentalement deux façons de définir une fonction
 dans <em>Maple</em>.  Chacune des façons a ses avantages et
 désavantages selon l'utilisation que l'on veut faire de la
-fonction.  Considérons la fonction
+fonction.  Considérons la fonction \(f\) définie par
 \(\displaystyle f(x) = \sin(x^2+1)\).  La première façon de définir
 cette fonction est de la façon suivante.</p>
 
@@ -208,7 +213,7 @@ suivante.</p>
 complètement naturelle.</p>
 
 <pre class="matlab">
-> <font class="matlab">f(4); evalf(f(4)) ; f(6); evalf(f(6));</font>
+> <font class="matlab">f(4); evalf(f(4)); f(6); evalf(f(6));</font>
 </pre>
 
 \[
@@ -230,18 +235,18 @@ complètement naturelle.</p>
 
 \[ f := \frac{x}{y x^2 + 1} \]
 
-<p>La dérivée du premier ordre de \(f\) par rapport à \(x\) est
+<p>La dérivée d'ordre un de \(f\) par rapport à \(x\) est
 calculée par la commande <font class="matlab">diff(f,x)</font>.  La dérivée
 d'ordre deux de \(f\) par rapport à \(x\) est calculée par
 <font class="matlab">diff(f,x$2)</font>, et ainsi de suite pour les
-dérivées d'ordre supérieures.  Nous pouvons aussi calculer les
+dérivées d'ordres supérieures.  Nous pouvons aussi calculer les
 dérivées mixes.  La dérivées mixes d'ordre deux de \(f\) par rapport à
 \(x\) et \(y\) est calculée par <font class="matlab">diff(f,x,y)</font>.
 Le lecteur a probablement compris à présent comment
 utiliser <em>Maple</em> pour calculer les dérivées.</p>
 
 <p> L'intégrale indéfinie de \(f\) est calculée par la commande
-<font class="matlab">int(f,x)</font>. L'intégrale définie 
+<font class="matlab">int(f,x)</font>. L'intégrale définie de
 \(f\) entre \(0\) et \(4\) avec \(y = 5\) est calculée par la
 commande</p>
 
@@ -272,7 +277,7 @@ commande</p>
   <img src="Maple_graph_1.png" style="width: 300px" alt="Graphe de x*sin(x)">
 </div>
 
-<p>Il est utile à l'occasion de tracer les graphes de deux fonctions sur
+<p>Il est utile à l'occasion de tracer les graphes de deux fonctions dans
 la même figure.  Supposons que nous voulions tracer les graphes des
 fonctions \(x \mapsto x\sin(x)\) et \(x \mapsto x\cos(x)\) pour \(x\)
 entre \(-2\pi\) et \(2\pi\) dans la même figure.  Premièrement, nous
@@ -280,7 +285,7 @@ traçons le graphe de \(x \mapsto x\sin(x)\) en rouge et sauvegardons
 ce graphe.  Nous terminons la commande de <em>Maple</em> avec
 deux-points au lieu d'un point-virgule pour annuler l'affichage du
 graphe.  Deuxièmement, nous traçons le graphe de la fonction
-\(x \mapsto x\cos(x)\) et sauvegardons ce graphe.  Finalement, on
+\(x \mapsto x\cos(x)\) en bleu et sauvegardons ce graphe.  Finalement, on
 combine les deux graphes sur le même système de coordonnées à l'aide
 de la fonction <font class="matlab">display()</font> de la librairie
 <font class="matlab">plots</font>.</p>
@@ -303,16 +308,16 @@ de la fonction <font class="matlab">display()</font> de la librairie
 </pre>
 
 <p>pour obtenir le même résultat.  L'avantage de l'approche
-précédente est sa plus grande flexibilité pour combiner des graphes de
-styles différents.</p>
+précédente est sa plus grande flexibilité pour combiner différents
+genres de dessins.</p>
 
 <p>Pour le prochain exemple, nous voulons tracer les points
 \(\displaystyle (x,x^2)\) pour \(x=1,2,\ldots,20\).  Pour ce faire,
 nous devons fournir une matrice ou une liste de points à la fonction
 <font class="matlab">plot</font>.  Si on fournie une matrice,
-La première colonne doit contenir les premières coordonnées (selon l'axe des
-\(x\)) des points et la deuxième colonne doit contenir les secondes coordonnées
-(selon l'axe des \(y\)) correspondantes.
+La première colonne doit contenir les premières coordonnées
+(i.e. selon l'axe des \(x\)) des points et la deuxième colonne doit
+contenir les secondes coordonnées (i.e. selon l'axe des \(y\)) correspondantes.
 Nous avons choisi l'option <font class="matlab">style = point</font>
 pour obtenir seulement le graphe des points.  Par
 défaut, <em>Maple</em> dessine une ligne droite entre un point et le
@@ -335,6 +340,12 @@ utilisée par <em>Maple</em> pour tracer le graphe d'une fonction</p>
 des points par un cercle.  Nous aurions pu utiliser d'autres symboles
 comme <font class="matlab">box, cross, solidcircle, ...</font> </p>
 
+<p>Nous allons expliquer dans un prochain document (voir
+<script language="javascript">
+    buildLinK(lin_alg.url_fr, lin_alg.text_fr,"MMathSStat", lin_alg.id,
+    lin_alg.target);
+</script>) la notation matricielle dans <em>Maple</em>.</p>
+  
 <p>Au lieu d'une matrice, mous pouvons aussi utiliser une liste de
 points comme il est fait dans la commande suivante.</p>
 
@@ -344,9 +355,9 @@ points comme il est fait dans la commande suivante.</p>
 
 <h4> Dessins en trois dimensions </h4>
 
-<p> Pour tracer le graphe de la fonction \(f(x,y) = x\sin(x)\sin(y)\) pour
+<p> Pour tracer le graphe de la fonction \((x,y) \mapsto x\sin(x)\sin(y)\) pour
 \(x\) et \(y\) entre \(0\) et \(4\pi\), nous utilisons la fonction
-<font class="matlab">plot3d()</font>.</p>
+<font class="matlab">plot3d()</font> de <em>Maple</em>.</p>
 
 <pre class="matlab">
 > <font class="matlab">plot3d(x*cos(x)*sin(y),x=0..4*Pi,y=0..4*Pi,axes=FRAME,labels=[`x`,`y`,`z`],title = `x*cos(x)*sin(y)`); </font>
@@ -360,7 +371,7 @@ points comme il est fait dans la commande suivante.</p>
 <p>Le lecteur devrait porter une attention toute particulière aux
 options que nous avons utilisées.  Il y a beaucoup plus
 d'options. Veuilliez consulter le menu <em>help</em> de <em>Maple</em>
-pour obtenir toute l'information au sjet des options disponibles pour
+pour obtenir toute l'information au sujet des options disponibles pour
 la fonction <font class="matlab">plot3d</font>.</p>
 
 <p>Deux autres méthodes pour visualiser une fonction de deux variables
@@ -389,8 +400,8 @@ librairie <font class="matlab">plots</font>.</p>
 </div>
 
 <p> On peut aussi tracer le graphe de fonctions définies par des
-procédures.  Nous illustrons ceci à l'aide de la fonction
-\(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
+procédures.  Nous illustrons ceci à l'aide de la fonction \(f\)
+définie par \(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=(x,y)->sin(x+y)+cos(x+y):</font>
@@ -405,7 +416,7 @@ procédures.  Nous illustrons ceci à l'aide de la fonction
 <h4> Encore plus sur les dessins en trois dimensions </h4>
 
 <p><em>Maple</em> possède certaines librairies qui sont spécialement
-conçues pour dessiner des figures en trois dimensions.
+conçues pour dessiner des figures géométriques en trois dimensions.
 <font class="matlab">plottools</font> et
 <font class="matlab">geom3d</font> sont deux de ces librairies.</p>
 
@@ -424,7 +435,7 @@ centré en \((4,3,4)\) qui est ouverte vers le haut.</p>
 
 <p> Puis, nous fessons la réflexion de l'hémisphère précédente par
 rapport au plan \(z=4\).  Ce plan est défini de façon unique par trois
-points non-colinéares quelconques de ce plan.</p>
+points non-colinéares quelconques du plan.</p>
 
 <pre class="matlab">
 > <font class="matlab">Hemi:=reflect(tmp,[[0,0,4],[1,1,4],[1,0,4]]):
@@ -439,7 +450,7 @@ points non-colinéares quelconques de ce plan.</p>
 </pre>
 
 <div class="center">
-  <img src="Maple_graph_7.png" style="width: 400px"
+  <img src="Maple_graph_7.png" style="width: 300px"
        alt="Dessin de l'hémisphère">
 </div>
 
@@ -463,7 +474,7 @@ figure .</p>
 </pre>
 
 <div class="center">
-  <img src="Maple_graph_8.png" style="width: 400px"
+  <img src="Maple_graph_8.png" style="width: 300px"
        alt="Dessin de l'hémisphère et du plan qui la coupe">
 </div>
 
@@ -513,7 +524,7 @@ sp
 </pre>
 
 <div class="center">
-  <img src="Maple_graph_9.png" style="width: 400px"
+  <img src="Maple_graph_9.png" style="width: 300px"
        alt="Dessin de la sphère">
 </div>
 
@@ -537,7 +548,7 @@ figure à l'aide de la commande suivante.</p>
 </pre>
 
 <div class="center">
-  <img src="Maple_graph_10.png" style="width: 400px"
+  <img src="Maple_graph_10.png" style="width: 300px"
        alt="Dessin de la sphère et du plan qui la coupe">
 </div>
 
@@ -588,7 +599,7 @@ la représentation paramétrique de cette droite.</p>
 
 <h3> Sujets avancés </h3>
 
-<p>Dans les sections énumérées ci-dessous, nous présentons
+<p>Dans les documents énumérés ci-dessous, nous présentons
 quelques-unes des librairies que <em>Maple</em> offre.</p>
 
 <p>Nous avons déjà utilisé la librairie <font class="matlab">plots</font>
@@ -602,7 +613,7 @@ possible d'utiliser seulement une commande de la forme
 librairie <font class="matlab">plots</font> au contexte de notre
 session dans <em>Maple</em> à l'aide de la commande
 <font class="matlab">with(nom_de_la_librairie);</font> au début de la
-session.  C'est ce qui est généralement fait dans les sections
+session.  C'est ce qui est généralement fait dans les documents
 ci-dessous.</p>
 
 <ul>

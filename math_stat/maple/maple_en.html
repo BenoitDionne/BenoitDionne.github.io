@@ -55,10 +55,10 @@ main_title( MStext, "MMathSStat");
   <img src="Maple_Logo_Icon.png" style="width: 200px" alt="Logo of Maple">
 </div>
 
-<p>This is a <q>brief</q> introduction to <em>Maple</em>.  We hope that there
-is enough information to get the reader started with <em>Maple</em> in no
-time.  There is a vast library of functions that the reader may want
-to explore.  It suffices to use the <em>Help</em> menu
+<p>This document is a <q>brief</q> introduction to <em>Maple</em>.  We
+hope that there is enough information to get the reader started
+with <em>Maple</em> in no time.  There is a vast library of functions
+that the reader may want to explore.  It suffices to use the <em>Help</em> menu
 in <em>Maple</em> for that.  In the text below, <em>Maple</em> codes
 are highlighted in blue.</p> 
 
@@ -66,7 +66,7 @@ are highlighted in blue.</p>
 
 <h3> Basic Algebraic Operations </h3>
 
-<p>Consider the traditional basic polynomial</p>
+<p>Consider the polynomial</p>
 
 <pre class="matlab">
 > <font class="matlab">(x+y)^2;</font>
@@ -74,9 +74,11 @@ are highlighted in blue.</p>
 
 \[(x + y)^2\]
 
-<p>The symbol <font class="matlab">%</font> holds the result of the
-previous operation.  So, we can expand the result of the previous
-operation with the command.</p> 
+<p>We note that the commands in <em>Maple</em> are always ended by a
+semi-colon.  The command is executed after having pressed the return key.
+The symbol <font class="matlab">%</font> holds the result of the
+previous operation.  So, we can expand the polynomial defined above
+with the following command.</p>  
 
 <pre class="matlab">
 > <font class="matlab">expand(%);</font>
@@ -85,8 +87,8 @@ operation with the command.</p>
 \[ x^2 + 2 x y + y^2\]
 
 <p>We have used the command <font class="matlab">expand</font> to
-compute the square.  We can do any basic algebraic operations on the
-polynomials.</p>
+compute the square.  We can perform all well known algebraic
+operations on the polynomials.</p>
 
 <pre class="matlab">
 > <font class="matlab">%-4*x*y;</font>
@@ -114,7 +116,9 @@ have to rewrite it each time we want to use it.  We can assign
 
 \[u := (x + y)^2\]
 
-<p>We can now do any basic polynomial operations on
+<p> The symbol <font class="matlab">:=</font> is used to assign the
+content on the right of this sign to the variable on the left of this
+sign.   We can now perform any polynomial operations on
 \(\displaystyle (x+y)^2\) using <font class="matlab">u</font>.</p>
 
 <pre class="matlab">
@@ -128,9 +132,9 @@ have to rewrite it each time we want to use it.  We can assign
 <p>There are basically two ways to define a function
 in <em>Maple</em>.  Each way has its
 own advantages and disadvantages according to the use that we may
-want to make of the function.  Consider the function
-\(\displaystyle f(x) = \sin(x^2+1)\). The first way to define a function is as
-follows.</p>
+want to make of the function.  Consider the function \(f\) defined by
+\(\displaystyle f(x) = \sin(x^2+1)\).  The first way to define a
+function is as it follows.</p>
 
 <pre class="matlab">
 > <font class="matlab">f := sin(x^2+1);</font>
@@ -138,7 +142,7 @@ follows.</p>
 
 \[ f := \sin(x^2 + 1)\]
 
-<p>To evaluate \(f\) at \(x=4\), we have to proceed as follows.</p>
+<p>To evaluate \(f\) at \(x=4\), we have to proceed as it follows.</p>
 
 <pre class="matlab">
   > <font class="matlab">x:=4;</font>
@@ -193,7 +197,8 @@ functions, compute derivatives, etc, but this is not really the best
 way if we want to evaluate these functions at many points.  Moreover,
 not all functions are given by algebraic, trigonometric, ...,
 expressions.  The second way to define a function is to use
-<q>procedures</q>. The simplest form of procedure is as it follows.</p>
+<q>procedures</q>. The simplest form of procedure is the following
+form.</p>
 
 <pre class="matlab">
 > <font class="matlab">f:= x->sin(x^2+1);</font>
@@ -204,7 +209,7 @@ expressions.  The second way to define a function is to use
 <p>We can now evaluate \(f\) at \(x=4\) and \(x=6\) in a natural way.</p>
 
 <pre class="matlab">
-> <font class="matlab">f(4); evalf(f(4)) ; f(6); evalf(f(6));</font>
+> <font class="matlab">f(4); evalf(f(4)); f(6); evalf(f(6));</font>
 </pre>
 
 \[
@@ -298,7 +303,7 @@ library <font class="matlab">plots</font>.</p>
 </pre>
 
 <p>to obtain the same result.  The advantage of the previous approach
-is the greater flexibility to combine graphs of different styles.</p>
+is the greater flexibility to combine different type of drawings.</p>
 
 <p>For the next example, we want to plot the
 points \(\displaystyle (x,x^2)\) for \(x=1,2,\ldots,20\).  To do that,
@@ -328,6 +333,12 @@ standard procedure used by <em>Maple</em> to plot the graph of a function.</p>
 by a cycle.  We could have used other symbols like
 <font class="matlab">box, cross, solidcircle, ...</font> </p>
 
+<p>We will explain in a future document (see
+<script language="javascript">
+buildLinK(lin_alg.url_en, lin_alg.text_en,"MMathSStat", "lin_alg_id",
+    lin_alg.target);
+</script>) the matrix notation in <em>Maple</em>.</p>
+
 <p>Instead of a matrix, we may have used a list of points as it is
 done in the following command.</p>
 
@@ -337,9 +348,9 @@ done in the following command.</p>
 
 <h4> Three Dimensional Plots </h4>
 
-<p> To plot the graph of the function \(f(x,y) = x\sin(x)\sin(y)\) for
+<p> To plot the graph of the function \((x,y) \mapsto x\sin(x)\sin(y)\) for
 \(x\) and \(y\) between \(0\) and \(4\pi\), we use the function
-<font class="matlab">plot3d()</font>.</p>
+<font class="matlab">plot3d()</font> of <em>Maple</em>.</p>
 
 <pre class="matlab">
 > <font class="matlab">plot3d(x*cos(x)*sin(y),x=0..4*Pi,y=0..4*Pi,axes=FRAME,labels=[`x`,`y`,`z`],title = `x*cos(x)*sin(y)`); </font>
@@ -380,7 +391,8 @@ library <font class="matlab">plots</font>. </p>
 </div>
 
 <p>A function defined with by procedure can also be plotted.
-We illustrate this with the function \(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
+We illustrate this with the function \(f\) defined by
+\(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=(x,y)->sin(x+y)+cos(x+y):</font>
@@ -428,7 +440,7 @@ points on it.</p>
 </pre>
 
 <div class="center">
-  <img src="Maple_graph_7.png" style="width: 400px"
+  <img src="Maple_graph_7.png" style="width: 300px"
        alt="Drawing of the hemisphere">
 </div>
 
@@ -451,7 +463,7 @@ figure.</p>
 </pre>
 
 <div class="center">
-  <img src="Maple_graph_8.png" style="width: 400px"
+  <img src="Maple_graph_8.png" style="width: 300px"
        alt="Drawing of the hemisphere and the plane that intersects it">
 </div>
 
@@ -500,7 +512,7 @@ sp
 </pre>
 
 <div class="center">
-  <img src="Maple_graph_9.png" style="width: 400px"
+  <img src="Maple_graph_9.png" style="width: 300px"
        alt="Drawing of the sphere">
 </div>
 
@@ -524,7 +536,7 @@ with the following command.</p>
 </pre>
 
 <div class="center">
-  <img src="Maple_graph_10.png" style="width: 400px"
+  <img src="Maple_graph_10.png" style="width: 300px"
        alt="Drawing of the sphere and the plane intersecting it">
 </div>
 
@@ -575,7 +587,7 @@ the parametric representation of this line.</p>
 
 <h3> Advanced Topics </h3>
 
-<p>In the sections listed below, we present some of the libraries
+<p>In the documents listed below, we present some of the libraries
 that <em>Maple</em> offers.</p>
 
 <p>We have already used the library <font class="matlab">plots</font>
@@ -587,7 +599,7 @@ possible to use only a command of the form
 adding the entire library <font class="matlab">plots</font> to the
 context of our session on <em>Maple</em> with the
 command <font class="matlab">with(Library_Name);</font> at the
-beginning of the session.  This is generally done in the sections
+beginning of the session.  This is generally done in the documents
 below.</p>  
 
 <ul>

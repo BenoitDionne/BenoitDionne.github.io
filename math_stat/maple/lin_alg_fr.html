@@ -28,6 +28,14 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+-->
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 </head>
 <body>
 
@@ -43,13 +51,647 @@ main_title( MStexte, "MMathSStat");
 
 <h2> Algèbre linéaire </h2>
 
-<p> Le contenu de ce site n'a malheureusement pas encore été traduit
-en français.  Veuillez consulter le site en anglais
-<script language="javascript">
-    buildLinK(lin_alg.url_en, lin_alg.text_en,"MMathSStat", lin_alg.id,
-    lin_alg.target);
-</script>.
-</p>
+<p>Dans ce document, nous offrons une courte introduction à la librairie
+<font class="matlab">LinearAlgebra</font> qui nous permet d'exécuter
+les opérations traditionnelles en algèbre linéaire.</p>
+
+<h3> La base </h3>
+
+<p>Les fonctions de <em>Maple</em> pour l'algèbre linéaire se trouvent
+dans la librairie suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(LinearAlgebra):</font>
+</pre>
+
+<p>Remplacez les deux-points à la fin de la commande précédente par un
+point-virgule pour obtenir une liste complète des fonctions dans
+cette librairie. </p>
+
+<p>Il est facile de créer des vecteurs (colonnes) et des matrices.</p>
+
+<pre class="matlab">
+> <font class="matlab">v := Vector([3, 2, -1]);</font>
+</pre>
+
+\[ v := \begin{bmatrix} 3 \\ 2 \\ -1 \end{bmatrix} \]
+
+<pre class="matlab">
+> <font class="matlab">A := Matrix([[1 , 2 ,3],[2 ,3 ,4],[3,4,5]]);</font>
+</pre>
+
+\[ A := \begin{bmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \\ 3 & 4 & 5 \end{bmatrix} \]
+
+<p>Nous pouvons additionner et multiplier des vecteurs et des matrices
+temps et aussi longtemps que l'on respect les règles pour les dimensions.</p>
+
+<pre class="matlab">
+> <font class="matlab"> u := A v;</font>
+</pre>
+
+\[ u := \begin{bmatrix} 4 \\ 8 \\ 12 \end{bmatrix} \]
+
+<pre class="matlab">
+> <font class="matlab">w := u + 2*v;</font>
+</pre>
+
+\[ w := \begin{bmatrix} 10 \\ 12 \\ 10 \end{bmatrix} \]
+
+<p>Il est aussi facile de récupérer et de modifier les composantes des
+vecteurs et matrices. </p>
+
+<pre class="matlab">
+> <font class="matlab">w[2]; A[2.3]; </font>
+</pre>
+
+\[
+\begin{split}
+& 12 \\
+& 4
+\end{split}
+\]
+
+<pre class="matlab">
+> <font class="matlab">A[2,3] := 7; A; </font>
+</pre>
+
+\[
+\begin{split}
+& A_{2,3} := 7 \\
+& \begin{bmatrix} 1 & 2 & 3 \\ 2 & 3 & 7 \\ 3 & 4 & 5 \end{bmatrix}
+\end{split}
+\]
+
+<h3> Géométrie Euclidienne </h3>
+
+<p>Le produit scalaire des vecteurs <font class="matlab">u</font>
+et <font class="matlab">v</font> est calculé à l'aide de la commande
+suivante. </p>
+
+<pre class="matlab">
+> <font class="matlab"> DotProduct(u,v); </font>
+</pre>
+
+\[ 16 \]
+
+<p>La norme Euclidienne, la norme \(1\) et la norme infinie du
+vecteur <font class="matlab">v</font> sont:</p>
+
+<pre class="matlab">
+> <font class="matlab">norm(v, 2); norm(v, 1); norm(v, infinity); </font>
+</pre>
+
+\[
+\begin{split}
+\sqrt{14} \\
+6 \\
+3
+\end{split}
+\]
+
+<p>Le produit vectoriel des vecteurs <font class="matlab">u</font>
+est <font class="matlab">v</font> est calculé par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">w := CrossProduct(u,v);</font>
+</pre>
+
+\[ w := \begin{bmatrix} -31 \\ 40 \\-16 \end{bmatrix} \]
+
+<p>Il est bien connu que <font class="matlab">w</font> est orthogonal
+à <font class="matlab">u</font> et <font class="matlab">v</font>. 
+
+<pre class="matlab">
+> <font class="matlab">DotProduct(w,u); DotProduct(w,v);</font>
+</pre>
+
+\[
+\begin{split} & 0 \\ & 0 \end{split}
+\]
+
+<h3> Opérations sur les matrices </h3>
+
+<p>Nous avons donné ci-dessus la méthode de base pour définir des
+matrices dans <em>Maple</em>.  Il y a plusieurs autres méthodes pour
+définir des matrices.  Les matrices particulières ont souvent leurs
+propres fonctions de <em>Maple</em> pour les définir.  En voici
+quelques exemples.</p>
+
+<pre class="matlab">
+> <font class="matlab">Id: = IdentityMatrix(3);</font>
+</pre>
+
+\[ \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} \]
+
+<pre class="matlab">
+> <font class="matlab">Matrix(3, 4, {(1, 2) = 3, (1, 3) = 5, (3, 4) = 7}, fill = 1);</font>
+</pre>
+
+\[ \begin{bmatrix} 1 & 3 & 5 & 1 \\ 1 & 1 & 1& 1 \\ 1 & 1 & 1 & 7 \end{bmatrix}  \]
+
+<p>Il existe aussi une courte formulation pour définir les matrices
+colonne par colonne. </p>
+
+<pre class="matlab">
+> <font class="matlab">B := <<1, 4> |<3, 7>>;</font>
+</pre>
+
+\[ B := \begin{bmatrix} 1 & 3 \\ 4 & 7 \end{bmatrix}  \]
+
+<p>Ou rangée par rangée.</p>
+
+<pre class="matlab">
+> <font class="matlab">D := <<1| 4 > ,<3| 7>>;</font>
+</pre>
+
+\[ C := \begin{bmatrix} 1 & 4 \\ 3 & 7 \end{bmatrix}  \]
+
+<p>Il existe des méthodes plus sophistiquées pour créer des matrices.</p>
+
+<pre class="matlab">
+> <font class="matlab">DiagonalMatrix([A, B]);</font>
+</pre>
+
+\[ \begin{bmatrix} 1 & 2 & 3 & 0 & 0 \\ 2 & 3 & 7 & 0 & 0 \\ 3 & 4 & 5 & 0 & 0 \\ 0 & 0 & 0 & 1 & 3 \\ 0 & 0 & 0 & 4 & 7 \end{bmatrix}  \]
+
+<p>Voici quelques unes des opérations sur les matrices.</p>
+
+<pre class="matlab">
+> <font class="matlab">C := MatrixInverse(B);</font>
+</pre>
+
+\[ C := \begin{bmatrix} -\frac{7}{5} & \frac{3}{5} \\ \frac{4}{5} & -\frac{1}{5} \end{bmatrix} \]
+
+<pre class="matlab">
+> <font class="matlab">Transpose(B);</font>
+</pre>
+
+\[ C := \begin{bmatrix} 1 & 4 \\ 3 & 7 \end{bmatrix} \]
+
+<pre class="matlab">
+> <font class="matlab">P, L, U := LUDecomposition(A); P.L.U ; </font>
+</pre>
+
+\[
+\begin{split}
+& P, L, U := \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} ,
+\begin{bmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 3 & 2 & 1 \end{bmatrix} ,
+\begin{bmatrix} 1 & 2 & 3 \\ 0 & -1 & 1 \\ 0 & 0 & 6 \end{bmatrix}  \\
+& \qquad \qquad \begin{bmatrix} 1 & 2 & 3 \\ 2 & 3 & 7 \\ 3 & 4 & 5 \end{bmatrix}
+\end{split}
+\]
+
+<p>Il y a beaucoup plus de fonctions dans la librairie
+<font class="matlab">LinearAlgebra</font>:
+<font class="matlab">Adjoint</font>, <font class="matlab">Basis</font>,
+<font class="matlab">CharacteristicPolynomial</font>,
+<font class="matlab">ColumnDimension</font>,
+<font class="matlab">ColumnSpace</font>,
+<font class="matlab">Determinant</font>,
+<font class="matlab">Eigenvalues</font>,
+<font class="matlab">Eigenvectors</font>,
+<font class="matlab">GaussianElimination</font>,
+<font class="matlab">GramSchmidt</font>, <font class="matlab">JordanForm</font>,
+<font class="matlab">MatrixExponential</font>,
+<font class="matlab">NullSpace</font>,
+<font class="matlab">ReducedRowEchelonForm</font>, etc.
+Nous illustrons seulement deux de ces fonctions ci-dessous.</p>
+
+<p> Nous considérons la matrice \(A\) définie par la commande</p>
+
+<pre class="matlab">
+> <font class="matlab">A:=Matrix([[4,15/7,-4/7],[-6,27/7,18/7],[16,-30/7,29/7]]); </font>
+</pre>
+
+\[
+A :=  \begin{bmatrix}4 & \displaystyle \frac{15}{7} & \displaystyle
+-\frac{4}{7} \\-6 & \displaystyle \frac{27}{7} & \displaystyle
+\frac{18}{7} \\ 16 & \displaystyle -\frac{30}{7} & \displaystyle
+\frac{29}{7} \end{bmatrix}
+\]
+}
+
+<p>Les valeurs propres de la matrice \(A\) sont données par la
+fonction de <em>Maple</em> suivante. </p>
+
+<pre class="matlab">
+> <font class="matlab"> eigva:=Eigenvalues(A); </font>
+</pre>
+
+\[
+eigva := \begin{bmatrix} 6 \\ 3 - 6\, I \\ 3 + 6\, I \end{bmatrix}
+\]
+
+<p>Les valeurs propres et quelques vecteurs propres de la matrice
+\(A\) sont donnés par la fonction <font class="matlab">Eigenvectors()</font>
+de <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab"> eigvec:=Eigenvectors(A); </font>
+</pre>
+
+\[
+eigvec := \begin{bmatrix} 6 \\ 3 + 6\, I \\ 3 - 6\, I \end{bmatrix} ,
+\begin{bmatrix}
+\displaystyle \frac{1}{4} & \displaystyle -\frac{2}{13} + \frac{3\, I}{13}
+& \displaystyle -\frac{2}{13} - \frac{3\, I}{13} \\
+\displaystyle \frac{1}{2} & \displaystyle -\frac{4}{13} - \frac{7\, I}{13}
+& \displaystyle -\frac{4}{13} + \frac{7\, I}{13} \\
+1 & 1 & 1
+\end{bmatrix}
+\]
+
+<p>Cette fonction affiche la liste des valeurs propres (répétées \(k\)
+fois si la multiplicité algébrique d'une valeur propre est \(k\)) et
+une matrice où chacune des colonnes est un vecteur propre (ou une
+colonne de zéros si la multiplicité géométrique d'une valeur propre
+est inférieure à sa multiplicité algébrique) associé à la valeur
+propre de la liste qui occupe le même rang.  L'ensemble des vecteurs
+propres est linéairement indépendant.  Par exemple, la première
+colonne est un vecteur propre associé à la première valeur propre,
+la deuxième colonne est un vecteur propre associé à la deuxième valeur
+propre, ainsi de suite.  Dans l'exemple précédent,
+\(\displaystyle \begin{pmatrix} 1/4 \\ 1/2 \\ 1 \end{pmatrix} \) est
+un vecteur propre de \(A\) associé à la valeur propre \(6\), 
+\(\begin{pmatrix} -2/13 + 3i/13 \\ -4/13 - 7i/13 \\ 1 \end{pmatrix}\)
+est un vecteur propre de \(A\) associé à la valeur propre \(3 -6i\), et
+\(\begin{pmatrix} -2/13 - 3i/13 \\ -4/13 + 7i/13 \\ 1 \end{pmatrix}\)
+est un vecteur propre de \(A\) associé à la valeur propre \(3 + 6i\).</p>
+
+<p> Il existe une façon plus naturelle de présenter l'information
+précédente, en particulier quand il y a des valeur propres dont
+leur multiplicité géométrique est inférieure à leur multiplicité
+algébrique.  Avec l'option <font class="matlab">output=list</font>,
+chaque élément de la liste qui est affiché est associé à une valeur
+propre distincte.  Chaque élément de la liste comprend
+une valeur propre, sa multiplicité algébrique, et un ensemble
+linéairement indépendant de vecteurs propres associés à la valeur
+propre. </p>
+
+<pre class="matlab">
+> <font class="matlab">eigvec := Eigenvectors(A,output=list)); </font>
+</pre>
+
+\[
+eigvec := \left[ \left[ 3 + 6\,I, 1, \left[ 
+\begin{bmatrix} \displaystyle -\frac{2}{13} + \frac{3\,I}{13} \\
+\displaystyle -\frac{4}{13} - \frac{7\,I}{13} \\ 1 \end{bmatrix}
+\right]\right],
+\left[ 3 - 6\,I, 1, \left[ 
+\begin{bmatrix} \displaystyle -\frac{2}{13} - \frac{3\,I}{13} \\
+\displaystyle -\frac{4}{13} + \frac{7\,I}{13} \\ 1 \end{bmatrix}
+\right]\right],
+\left[ 6 , 1 , \left[
+\begin{bmatrix} \displaystyle \frac{1}{4} \\
+\displaystyle \frac{1}{2} \\ 1 \end{bmatrix} \right]\right] \right]
+\]
+
+<p>Les valeurs exactes des valeurs propres et vecteurs propres sont
+souvent des expressions algébriques très complexes.  Si cela est suffisant,
+alors nous pouvons demander des estimations réelles / complexes des
+valeurs propres et vecteurs propres.  Par exemple, soit la matrice
+\(A\) suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">A:=Matrix([[2,5,4],[-4,2,1],[2,-1,1]]); </font>
+</pre>
+
+\[
+A :=  \begin{bmatrix} 2 & 5 & 4 \\-4 & 2 & 1 \\ 2 & -1 & 1 \end{bmatrix}
+\]
+
+<p> Si nous utilisons les commandes
+<font class="matlab">Eigenvalues(A);</font> ou
+<font class="matlab">Eigenvectors(A);</font>, alors nous obtenons des
+expressions très complexes même après simplification avec la fonction
+<font class="matlab">simplify</font>.  Il est donc préférable
+d'utiliser les commandes suivantes.</p>
+
+<pre class="matlab">
+> <font class="matlab">evalf(Eigenvalues(A)); evalf(Eigenvectors(A)); </font>
+</pre>
+
+\[
+\begin{split}
+&\begin{bmatrix} 2.440084089 \\ 1.279957957 + 3.621504875\, I\\
+1.279957957 - 3.621504875\,I \end{bmatrix} \\
+& \begin{bmatrix} 2.440084089 \\
+1.279957957 + 3.621504875\, I \\
+1.279957957 - 3.621504875\, I \end{bmatrix} , \\
+& \begin{bmatrix}
+0.3347749572 & -0.7298875032 + 1.442553403 \, I &
+- 0.7298875032 - 1.442553403 \, I \\
+-0.7705341740 & -1.739732898 - 0.7363980506 \, I &
+-1.739732898 + 0.7363980506 \, I \\
+1 & 1 & 1 \end{bmatrix}
+\end{split}
+\]
+
+<p>Il est encore mieux de définir \(A\) avec des nombres réels en
+ajoutant un point décimal.  Alors, tous les calculs sont fait de façon
+numérique et nous obtenons automatiquement un estimé des valeurs et
+vecteurs propres. </p>
+
+<pre class="matlab">
+> <font class="matlab">A:=Matrix([[2.0,5,4],[-4,2,1],[2,-1,1]]); </font>
+</pre>
+
+\[
+A :=  \begin{bmatrix}2.0 & 5 & 4 \\-4 & 2 & 1 \\ 2 & -1 & 1 \end{bmatrix}
+\]
+
+<pre class="matlab">
+> <font class="matlab">Eigenvalues(A); Eigenvectors(A); </font>
+</pre>
+
+\[
+\begin{split}
+&\begin{bmatrix}
+1.2799579558670642 + 3.6215048733491346\,I\\
+1.2799579558670642 - 3.6215048733491346\,I \\
+2.4400840882658694 + 0\, I
+\end{bmatrix} \\
+& \begin{bmatrix}
+1.27995795586706 + 3.62150487334913\,I \\
+1.27995795586706 - 3.62150487334913\,I \\
+2.44008408826587 + 0\,I \end{bmatrix} , \\
+&\begin{bmatrix}
+-0.0409862692988133 + 0.601839188895029\,I &
+-0.0409862692988133 - 0.601839188895029\,I &
+0.256323997021917 + 0\,I \\
+-0.704900923320764 + 0\,I & -0.704900923320764 + 0\,I &
+-0.589967663075411 + 0\,I \\
+0.343613224543820 - 0.145445373454335\,I &
+0.343613224543820 + 0.145445373454335\,I &
+0.765660606976777 + 0\,I \end{bmatrix}
+\end{split}
+\]
+
+<h3>Opérations sur les composantes d'une matrice </h3>
+
+<p>Il est possible d'évaluer une fonction à chacune des composantes
+d'une matrice ou d'un vecteur. Nous considérons la fonction suivante.</p> 
+
+<pre class="matlab">
+> <font class="matlab">mf:= x-> x^3-x;</font>
+</pre>
+
+\[  mf := x \mapsto x^3 - x \]
+
+<p>Pour évaluer la fonction <font class="matlab">mf</font> à chacune
+des composantes de <font class="matlab">B</font>, nous utilisons la
+fonction <font class="matlab">map()</font> de <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab">map(mf,B);</font>
+</pre>
+
+\[ \begin{bmatrix} 0 & 24 \\ 60 & 336 \end{bmatrix} \]
+
+<h3> Systèmes d'équations linéaires </h3>
+
+<p>Nous considérons les système d'équations linéaires suivant.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq1 := 3*x+2*y-z=1; eq2 := -x+2*y+z=0; eq3 := -x-y-z=3;</font>
+</pre>
+
+\[
+\begin{split}
+eq1 &:= 3 x+2 y-z = 1 \\
+eq2 &:= -x+2 y+z = 0 \\
+eq3 &:= -x-y-z = 3
+\end{split}
+\]
+
+<p>Pour déterminer si le système à une solution unique, nous pouvons
+calculer le déterminant de la matrice formée des coefficients.</p>
+
+<pre class="matlab">
+> <font class="matlab">A : <<3,-1,-1>|<2,2,-1>|<-1,1,-1>>:</font>
+> <font class="matlab">Determinat(A)</font>
+</pre>
+
+\[ -10 \]
+
+<p>Puisque le déterminant est non-nul, il existe une solution unique.
+Pour trouver cette solution, nous utilisons la fonction
+<font class="matlab">solve()</font> de <em>Maple</em>.</p> 
+
+<pre class="matlab">
+> <font class="matlab">sol:=solve({eq1,eq2,eq3},{x,y,z});</font>
+</pre>
+
+\[ sol := \left\{z = -\frac{27}{10}, y = \frac{4}{5}, x = -\frac{11}{10} \right\} \]
+
+<p>Pour récupérer les valeurs <font class="matlab">x</font>,
+<font class="matlab">y</font> et <font class="matlab">z</font> de cet
+ensemble, nous utilisons la fonction <font class="matlab">subs()</font>
+de <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab">x := subs(sol,x); y := subs(sol,y); z := subs(sol,z);</font>
+</pre>
+
+\[
+\begin{split}
+x &:= -\frac{11}{10} \\
+y &:= \frac{4}{5} \\
+z &:= -\frac{27}{10}
+\end{split}
+\]
+
+<p> la fonction <font class="matlab">solve()</font> de <em>Maple</em>
+peut faire beaucoup plus que ce que nous avons illustré ci-dessus.
+Par exemple, nous pouvons résoudre les deux premières équations
+pour \(x\) et \(z\) en fonction de \(y\).</p>
+
+<pre class="matlab">
+> <font class="matlab">solve({eq1,eq2},{x,z});</font>
+</pre>
+
+\[
+\left\{x = -2\,y+\frac{1}{2}, z = -4\,y+\frac{1}{2}\right\}
+\]
+
+<h3> La norme d'une matrice </h3>
+
+<p>Nous pouvons calculer la norme induite d'une matrice carrée
+Soit la matrice \(C\) définie ci-dessous.</p>
+
+<pre class="matlab">
+> <font class="matlab">C:=Matrix([ [2,-1,0,0],[-1,2,-1,0],[0,-1,2,-1],
+[0,0,-1,2]]); </font>
+</pre>
+
+\[
+C := \begin{bmatrix} 2& -1 & 0 & 0\\ -1 & 2& -1& 0 \\
+1 & -1 & 2 &-1\\ 0 & 0& -1& 2 \end{bmatrix}
+\]
+
+<p> La norme \(1\), la norme \(2\) et la norme infinie de la matrice 
+\(C\) sont données par les commandes suivantes.</p>
+
+<pre class="matlab">
+> <font class="matlab"> Norm(C,1);  Norm(C,2);  Norm(C,infinity);</font>
+</pre>
+
+\[
+\begin{split}
+& 4 \\
+&\sqrt{ RootOf(\_Z^{4}-23\,\_Z^3 + 130\_Z^2 - 176\_Z + 49, index =4)} \\
+& 5
+\end{split}
+\]
+
+<p>La représentation en virgule flottante (un estimé) de la norme
+\(2\) de \(c\) est </p>
+
+<pre class="matlab">
+> <font class="matlab">evalf(Norm(C,2));</font>
+</pre>
+
+\[
+3.897563191
+\]
+
+<p>Comment les normes induites sont-elles calculées?  Il peut être
+démontré que la norme \(1\) d'une matrice \(C\) de dimensions
+\(n \times n\) est le maximum de \(\displaystyle \sum_{i=1}^n |c_{i,j}|\) pour
+\(j=1, 2, \ldots, n\)$.  Ainsi, la norme \(1\) de la matrice \(C\)
+ci-dessus est</p>
+
+<pre class="matlab">
+> <font class="matlab">max( seq( add(abs(C[i,j]),i=1..4 ), j=1..4) );</font>
+</pre>
+
+\[
+4
+\]
+
+<p> Une formulation équivalente de la commande précédente est</p>
+
+<pre class="matlab">
+> <font class="matlab">max(seq( Norm(SubMatrix(C,1..4,i),1),i=1..4));</font>
+</pre>
+
+\[
+4
+\]
+
+<p>La fonction <font class="matlab">SubMatrix()</font> est utilisée
+pour extraire une sous-matrice d'une matrice donnée.  Dans la commande
+ci-dessus, <font class="matlab">SubMatrix(C,1..4,i)</font> donne la
+\(i^{e}\) colonne de la matrice \(C\).  La fonction
+<font class="matlab">Norm()</font> avec l'option \(1\) calcul la norme
+\(1\) de chaque vecteur (colonne) obtenu de la matrice \(C\);
+c'est-à-dire, calcul la somme en valeur absolue des composantes de
+chaque colonne de la matrice \(C\).</p>
+
+<p>De façon semblable, il est possible de démontrer que la norme
+infinie d'une matrice \(A\) de dimensions \(n \times n\) est le
+maximum de \(\displaystyle \sum_{j=1}^n |c_{i,j}|\)
+pour \(i=1, 2, \ldots, n\).
+Ainsi, la norme infinie de la matrice \(C\) ci-dessus est</p>
+
+<pre class="matlab">
+> <font class="matlab">max( seq(add(abs(C[i,j]), j=1..4), i=1..4) );</font>
+</pre>
+
+\[
+4
+\]
+
+<p>Finalement, avec un peu plus de travail que pour les deux normes
+précédentes, il est possible de démontrer que la norme \(2\) 
+d'une matrice \(A\) de dimension \(n \times n\) est la racine carré de
+la plus grande valeur propre en valeur absolue de la matrice
+\(\displaystyle A^\ast A\).  Ainsi, la norme \(2\) de la matrice 
+\(C\) ci-dessus est</p>
+
+<pre class="matlab">
+> <font class="matlab">tmp:=evalf(Eigenvalues(C.Transpose(C))):</font>
+> <font class="matlab">sqrt(max(seq(abs(tmp[i]),i=1..4)));</font>
+</pre>
+
+\[
+3.897563191
+\]
+
+<p><em>Exemple (Nombre de conditionnement)</em>: 
+Si \(A\vec{y} - \vec{b}\) est petit, alors est-ce que cela signifie 
+que \(\vec{y}\) est proche de la solution de \(A\vec{x} = \vec{b}\)?</p>
+
+<p>Par exemple, Nous considérons la matrice \(A\) définie par la
+commande </p>
+
+<pre class="matlab">
+> <font class="matlab">A:=Matrix([[3,6],[2.9999,6]]);</font>
+</pre>
+
+\[
+A := \begin{bmatrix} 3& 6\\ 2.9999 & 6 \end{bmatrix}
+\]
+
+<p> et le vecteur \(\vec{b}\) définie par la commande</p>
+
+<pre class="matlab">
+> <font class="matlab">b := Matrix([[9],[8.9999]]);</font>
+</pre>
+
+\[
+b := \begin{bmatrix} 9 \\ 8.9999 \end{bmatrix}
+\]
+
+<p>Le vecteur \(\vec{y}\) définie par la commande</p>
+
+<pre class="matlab">
+> <font class="matlab">y:=Matrix([[3],[0]]);</font>
+</pre>
+
+\[
+y := \begin{bmatrix} 3\\ 0\end{bmatrix}
+\]
+
+<p>semble être une bonne estimée de la solution \(\vec{x}\) de
+\(A\vec{x} = \vec{b}\) car
+\(\| A \vec{y} - \vec{b}\|_\infty\) est petit.  En fait,
+<em>Maple</em> donne la petite valeur suivante. </p>
+
+<pre class="matlab">
+> <font class="matlab">Norm( A.y-b, infinity);</font>
+</pre>
+
+\[
+0.000200000000001310241
+\]
+
+<p> Cependant, ce n'est pas vrai car la solution est
+\(\displaystyle \vec{x} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}\).
+La raison de ce comportement est la grande valeur du nombre de
+conditionnement de la matrice \(A\).  Le nombre de conditionnement de
+la matrice \(A\), si on utilise la norme infinie, est définie par la
+formule \(\| A^{-1} \|_\infty \|A \|_\infty\).
+Le nombre de conditionnement est une façon de comparer en valeur
+absolue la plus grande valeur propre avec la plus petite valeur propre
+de la matrice \(A\).  Plus le nombre de conditionnement d'une matrice
+est grand, plus la différence en valeur absolue de ces deux valeurs
+propres est grande.  Cela a un effet significatif lors de la
+résolution d'un système d'équations linéaires.  Un petit changement du
+côté droit du système d'équations linéaires peut avoir un grand
+effet sur la solution.  Le nombre de conditionnement de la matrice
+\(A\) ci-dessus est</p> 
+
+<pre class="matlab">
+> <font class="matlab">cond:=Norm(A,infinity)*Norm(MatrixInverse(A),infinity); </font>
+</pre>
+
+\[
+cond := 180000.0000
+\]
+
+<p>Puisque le nombre de conditionnement de la matrice \(A\) est grand,
+nous disons que la matrice \(A\) est <em> mal conditionnée</em>.</p>
 
 <br>
 <hr>
