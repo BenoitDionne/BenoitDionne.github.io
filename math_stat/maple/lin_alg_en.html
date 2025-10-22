@@ -53,7 +53,14 @@ main_title( MStext, "MMathSStat");
 
 <p>In this document, we briefly introduce the
 <font class="matlab">LinearAlgebra</font> library that helps us
-perform standard operations in Linear Algebra.</p>
+perform standard operations in Linear Algebra.  There is a sub-package
+to the <font class="matlab">LinearAlgebra</font> library that can be
+used for teaching linear algebra.  It is called
+<font class="matlab">Student:-LinearAlgebra</font>.  This package
+has some limitations.  In particular, numerical computations are not
+performed with the maximal accuracy normally used by <em>Maple</em>
+libraries.  We will not talk about this sub-package in the present
+document. </p>
 
 <h3> Basic </h3>
 
@@ -84,11 +91,22 @@ to get a complete list of the functions in that library.</p>
 <p>We can add and multiply vectors and matrices as long as we
 respects the rules about dimensions.</p>
 
+<p><em>Note</em>: As expected, there is always an exception to the
+rules.  We can add a scalar \(s\) to a matrix \(A\).  The result is a
+matrix that has the same dimensions than the matrix \(A\) and where
+every component of the new matrix is the result of adding the scalar
+\(s\) to the every component of the matrix \(A\).</p>  
+
 <pre class="matlab">
-> <font class="matlab"> u := A v;</font>
+> <font class="matlab"> u := A.v;</font>
 </pre>
 
 \[ u := \begin{bmatrix} 4 \\ 8 \\ 12 \end{bmatrix} \]
+
+<p>The use of the dot (.) to denote the multiplication of matrices and
+vectors is optional but strongly recommended.  The dot must not be confused
+with the star (*) which denotes the component by component product of
+matrices and vectors of the same dimensions. </p>
 
 <pre class="matlab">
 > <font class="matlab">w := u + 2*v;</font>
@@ -131,6 +149,15 @@ command.</p>
 </pre>
 
 \[ 16 \]
+
+<p><em>Note</em>: Again, there is always an exception to the
+rules.  The dot (.) can be used to denote the scalar product of two
+vectors of the same dimensions.   For this reason, if we really want a
+vector rwo (column) to be treated as a matrix with one row
+(column), then we must define it as matrix.  In the previous case, If
+<font class="matlab">u</font> and <font class="matlab">v</font> had
+been matrices with one row, then their product would not have been
+possible.</p>
 
 <p>The Euclidean norm, the 1-norm and the infinite norm of the
 vector <font class="matlab">v</font> are:</p>
@@ -240,7 +267,7 @@ column. </p>
 \]
 
 <p>There are a lot more functions in the library
-<font class="matlab">LinearAlgebra</font>: 
+<font class="matlab">LinearAlgebra</font>.  For instance,
 <font class="matlab">Adjoint</font>, <font class="matlab">Basis</font>,
 <font class="matlab">CharacteristicPolynomial</font>,
 <font class="matlab">ColumnDimension</font>,
@@ -267,7 +294,6 @@ A :=  \begin{bmatrix}4 & \displaystyle \frac{15}{7} & \displaystyle
 \frac{18}{7} \\ 16 & \displaystyle -\frac{30}{7} & \displaystyle
 \frac{29}{7} \end{bmatrix}
 \]
-}
 
 <p>The eigenvalues of the matrix \(A\) are given by the following
 <em>Maple</em> function. </p>
@@ -311,9 +337,9 @@ the first matrix, and so on.  In the previous example,
 \(\displaystyle \begin{pmatrix} 1/4 \\ 1/2 \\ 1 \end{pmatrix} \) is an
 eigenvector of \(A\) associated to the eigenvalue \(6\), 
 \(\begin{pmatrix} -2/13 + 3i/13 \\ -4/13 - 7i/13 \\ 1 \end{pmatrix}\)
-is an eigenvector of \(A\) associated to the eigenvalue \(3 -6i\), and
+is an eigenvector of \(A\) associated to the eigenvalue \(3 + 6i\), and
 \(\begin{pmatrix} -2/13 - 3i/13 \\ -4/13 + 7i/13 \\ 1 \end{pmatrix}\)
-is an eigenvector of \(A\) associated to the eigenvalue \(3 + 6i\).</p>
+is an eigenvector of \(A\) associated to the eigenvalue \(3 - 6i\).</p>
 
 <p> There is a more natural way to present the previous information, in
 particular when there are eigenvalues whose algebraic
@@ -355,9 +381,9 @@ A :=  \begin{bmatrix} 2 & 5 & 4 \\-4 & 2 & 1 \\ 2 & -1 & 1 \end{bmatrix}
 \]
 
 <p> If we use the commands <font class="matlab">Eigenvalues(A);</font> or
-<font class="matlab">Eigenvectors (A);</font>, then we get very ugly
+<font class="matlab">Eigenvectors(A);</font>, then we get very ugly
 expressions even after simplifications with the function
-<font class="matlab">simplify</font>.  It is then better to use the
+<font class="matlab">simplify()</font>.  It is then better to use the
 following commands. </p>
 
 <pre class="matlab">
@@ -506,7 +532,7 @@ solve the first two equations for \(x\) and \(z\) in terms of \(y\).</p>
 \left\{x = -2\,y+\frac{1}{2}, z = -4\,y+\frac{1}{2}\right\}
 \]
 
-<h3> Norm of a Matrix </h3>
+<h3> Induced Norm of a Matrix </h3>
 
 <p>We can compute the induced norms of a square matrix.  Consider the
 matrix \(C\) defined below.</p>
@@ -550,7 +576,7 @@ C := \begin{bmatrix} 2& -1 & 0 & 0\\ -1 & 2& -1& 0 \\
 <p>How are the induced norms computed?  It can be shown that the
 \(1\)-norm of a \(n \times n\) matrix \(C\) is the maximum of
 \(\displaystyle \sum_{i=1}^n |c_{i,j}|\) for
-\(j=1, 2, \ldots, n\)$.  Hence, the \(1\)-norm of the matrix \(C\) above is</p>
+\(j=1, 2, \ldots, n\).  Hence, the \(1\)-norm of the matrix \(C\) above is</p>
 
 <pre class="matlab">
 > <font class="matlab">max( seq( add(abs(C[i,j]),i=1..4 ), j=1..4) );</font>
@@ -595,7 +621,7 @@ Hence, the infinite norm of \(C\) above is</p>
 <p>Finally, with a little bit more work than for the previous two
 norms, it can be shown that the \(2\)-norm of a \(n \times n\) matrix
 \(A\) is the square root of the largest eigenvalue in absolute value
-of the matrix \(\displaystyle A^\ast A\).  Hence, the \(2\)-norm of
+of the matrix \(\displaystyle A A^\ast \).  Hence, the \(2\)-norm of
 the matrix \(C\) above is</p>
 
 <pre class="matlab">
@@ -664,9 +690,9 @@ the smaller eigenvalue with the largest eigenvalue of the matrix
 \(A\).  The larger the condition number, the larger the difference
 in absolute value between these two eigenvalues.  This has a very
 significant effect when solving systems of linear equations.  A small
-change on the right hand side of the system of linear equations may
-have a very large impact on the solution.  The condition number of
-the matrix \(A\) above is</p>  
+change on the right hand side of the system of linear equations
+(i.e. \(\vec{b}\)) may have a very large impact on the solution.  The
+condition number of the matrix \(A\) above is</p>  
 
 <pre class="matlab">
 > <font class="matlab">cond:=Norm(A,infinity)*Norm(MatrixInverse(A),infinity); </font>

@@ -54,6 +54,14 @@ main_title( MStexte, "MMathSStat");
 <p>Dans ce document, nous offrons une courte introduction à la librairie
 <font class="matlab">LinearAlgebra</font> qui nous permet d'exécuter
 les opérations traditionnelles en algèbre linéaire.</p>
+Il existe un sous-ensemble de la librairie
+<font class="matlab">LinearAlgebra</font> qui peut être utilisé pour
+l'enseignement de l'algèbre linéaire.  Il porte le nom de
+<font class="matlab">Student:-LinearAlgebra</font>.  Cet ensemble
+comporte certaines contraintes.  En particulier, les calculs
+numériques ne sont pas fait avec toute la précision qui est
+normalement utilisée pour les librairies de <em>Maple</em>.  Cet
+sous-ensemble ne sera pas inclus dans la présentation ci-dessous.</p>
 
 <h3> La base </h3>
 
@@ -82,14 +90,27 @@ cette librairie. </p>
 
 \[ A := \begin{bmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \\ 3 & 4 & 5 \end{bmatrix} \]
 
-<p>Nous pouvons additionner et multiplier des vecteurs et des matrices
-temps et aussi longtemps que l'on respect les règles pour les dimensions.</p>
+<p>Nous pouvons additionner et multiplier les vecteurs et matrices
+temps et aussi longtemps que nous respectons les règles pour les
+dimensions.</p> 
+
+<p><em>Note</em>: Comme nous devons nous y attende, il y a toujours
+une exception aux règles,   Nous pouvons additionner un scalaire \(s\)
+à une matrice \(A\).  Le résultat est une matrice qui possède les
+mêmes dimensions que la matrice \(A\) et dont chaque composante de la
+nouvelle matrice est le résultat de l'addition du scalaire \(s\) à
+chaque composante de la matrice \(A\).</p>  
 
 <pre class="matlab">
-> <font class="matlab"> u := A v;</font>
+> <font class="matlab"> u := A.v;</font>
 </pre>
 
 \[ u := \begin{bmatrix} 4 \\ 8 \\ 12 \end{bmatrix} \]
+
+<p>L'usage du point (.) pour dénoter la multiplication de matrices et
+vecteurs est optionnel mais fortement suggéré.  Le point ne doit pas
+être mélangé avec l'étoile (*) qui dénote le produit composante par
+composante de matrices de même dimensions.</p>
 
 <pre class="matlab">
 > <font class="matlab">w := u + 2*v;</font>
@@ -134,6 +155,15 @@ suivante. </p>
 
 \[ 16 \]
 
+<p><em>Note</em>: Encore, il y a une exception aux règles.  Le point
+(.) peut être utilisé pour dénoter le produit scalaire de deux vecteurs
+de même dimensions.   Pour cette raison, si nous voulons qu'un vecteur
+rangée (colonne) soit traité comme une matrice avec une rangée
+(colonne), alors nous devons le définir comme une matrice.  Dans le
+cas précédent, si <font class="matlab">u</font>
+et <font class="matlab">v</font> auraient été des matrices avec une
+rangée, alors leur produit n'aurait pas été possible.</p>
+
 <p>La norme Euclidienne, la norme \(1\) et la norme infinie du
 vecteur <font class="matlab">v</font> sont:</p>
 
@@ -173,8 +203,8 @@ est <font class="matlab">v</font> est calculé par la commande suivante.</p>
 
 <p>Nous avons donné ci-dessus la méthode de base pour définir des
 matrices dans <em>Maple</em>.  Il y a plusieurs autres méthodes pour
-définir des matrices.  Les matrices particulières ont souvent leurs
-propres fonctions de <em>Maple</em> pour les définir.  En voici
+définir des matrices.  Les matrices particulières ont souvent leur
+propre fonction de <em>Maple</em> pour les définir.  Voici
 quelques exemples.</p>
 
 <pre class="matlab">
@@ -242,7 +272,7 @@ colonne par colonne. </p>
 \]
 
 <p>Il y a beaucoup plus de fonctions dans la librairie
-<font class="matlab">LinearAlgebra</font>:
+<font class="matlab">LinearAlgebra</font>.  Par exemple,
 <font class="matlab">Adjoint</font>, <font class="matlab">Basis</font>,
 <font class="matlab">CharacteristicPolynomial</font>,
 <font class="matlab">ColumnDimension</font>,
@@ -269,7 +299,6 @@ A :=  \begin{bmatrix}4 & \displaystyle \frac{15}{7} & \displaystyle
 \frac{18}{7} \\ 16 & \displaystyle -\frac{30}{7} & \displaystyle
 \frac{29}{7} \end{bmatrix}
 \]
-}
 
 <p>Les valeurs propres de la matrice \(A\) sont données par la
 fonction de <em>Maple</em> suivante. </p>
@@ -314,9 +343,9 @@ propre, ainsi de suite.  Dans l'exemple précédent,
 \(\displaystyle \begin{pmatrix} 1/4 \\ 1/2 \\ 1 \end{pmatrix} \) est
 un vecteur propre de \(A\) associé à la valeur propre \(6\), 
 \(\begin{pmatrix} -2/13 + 3i/13 \\ -4/13 - 7i/13 \\ 1 \end{pmatrix}\)
-est un vecteur propre de \(A\) associé à la valeur propre \(3 -6i\), et
+est un vecteur propre de \(A\) associé à la valeur propre \(3 +6i\), et
 \(\begin{pmatrix} -2/13 - 3i/13 \\ -4/13 + 7i/13 \\ 1 \end{pmatrix}\)
-est un vecteur propre de \(A\) associé à la valeur propre \(3 + 6i\).</p>
+est un vecteur propre de \(A\) associé à la valeur propre \(3 - 6i\).</p>
 
 <p> Il existe une façon plus naturelle de présenter l'information
 précédente, en particulier quand il y a des valeur propres dont
@@ -364,7 +393,7 @@ A :=  \begin{bmatrix} 2 & 5 & 4 \\-4 & 2 & 1 \\ 2 & -1 & 1 \end{bmatrix}
 <font class="matlab">Eigenvalues(A);</font> ou
 <font class="matlab">Eigenvectors(A);</font>, alors nous obtenons des
 expressions très complexes même après simplification avec la fonction
-<font class="matlab">simplify</font>.  Il est donc préférable
+<font class="matlab">simplify()</font>.  Il est donc préférable
 d'utiliser les commandes suivantes.</p>
 
 <pre class="matlab">
@@ -450,7 +479,7 @@ fonction <font class="matlab">map()</font> de <em>Maple</em>.</p>
 
 <h3> Systèmes d'équations linéaires </h3>
 
-<p>Nous considérons les système d'équations linéaires suivant.</p>
+<p>Nous considérons le système d'équations linéaires suivant.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq1 := 3*x+2*y-z=1; eq2 := -x+2*y+z=0; eq3 := -x-y-z=3;</font>
@@ -469,7 +498,7 @@ calculer le déterminant de la matrice formée des coefficients.</p>
 
 <pre class="matlab">
 > <font class="matlab">A : <<3,-1,-1>|<2,2,-1>|<-1,1,-1>>:</font>
-> <font class="matlab">Determinat(A)</font>
+> <font class="matlab">Determinant(A)</font>
 </pre>
 
 \[ -10 \]
@@ -514,9 +543,9 @@ pour \(x\) et \(z\) en fonction de \(y\).</p>
 \left\{x = -2\,y+\frac{1}{2}, z = -4\,y+\frac{1}{2}\right\}
 \]
 
-<h3> La norme d'une matrice </h3>
+<h3> La norme induite d'une matrice </h3>
 
-<p>Nous pouvons calculer la norme induite d'une matrice carrée
+<p>Nous pouvons calculer la norme induite d'une matrice carrée.
 Soit la matrice \(C\) définie ci-dessous.</p>
 
 <pre class="matlab">
@@ -544,8 +573,8 @@ C := \begin{bmatrix} 2& -1 & 0 & 0\\ -1 & 2& -1& 0 \\
 \end{split}
 \]
 
-<p>La représentation en virgule flottante (un estimé) de la norme
-\(2\) de \(c\) est </p>
+<p>La représentation en virgule flottante (une estimé) de la norme
+\(2\) de \(C\) est </p>
 
 <pre class="matlab">
 > <font class="matlab">evalf(Norm(C,2));</font>
@@ -558,7 +587,7 @@ C := \begin{bmatrix} 2& -1 & 0 & 0\\ -1 & 2& -1& 0 \\
 <p>Comment les normes induites sont-elles calculées?  Il peut être
 démontré que la norme \(1\) d'une matrice \(C\) de dimensions
 \(n \times n\) est le maximum de \(\displaystyle \sum_{i=1}^n |c_{i,j}|\) pour
-\(j=1, 2, \ldots, n\)$.  Ainsi, la norme \(1\) de la matrice \(C\)
+\(j=1, 2, \ldots, n\).  Ainsi, la norme \(1\) de la matrice \(C\)
 ci-dessus est</p>
 
 <pre class="matlab">
@@ -606,7 +635,7 @@ Ainsi, la norme infinie de la matrice \(C\) ci-dessus est</p>
 précédentes, il est possible de démontrer que la norme \(2\) 
 d'une matrice \(A\) de dimension \(n \times n\) est la racine carré de
 la plus grande valeur propre en valeur absolue de la matrice
-\(\displaystyle A^\ast A\).  Ainsi, la norme \(2\) de la matrice 
+\(\displaystyle A A^\ast\).  Ainsi, la norme \(2\) de la matrice 
 \(C\) ci-dessus est</p>
 
 <pre class="matlab">
@@ -678,9 +707,9 @@ de la matrice \(A\).  Plus le nombre de conditionnement d'une matrice
 est grand, plus la différence en valeur absolue de ces deux valeurs
 propres est grande.  Cela a un effet significatif lors de la
 résolution d'un système d'équations linéaires.  Un petit changement du
-côté droit du système d'équations linéaires peut avoir un grand
-effet sur la solution.  Le nombre de conditionnement de la matrice
-\(A\) ci-dessus est</p> 
+côté droit du système d'équations linéaires (i.e \(\vec{b}\)) peut
+avoir un grand effet sur la solution.  Le nombre de conditionnement de
+la matrice \(A\) ci-dessus est</p> 
 
 <pre class="matlab">
 > <font class="matlab">cond:=Norm(A,infinity)*Norm(MatrixInverse(A),infinity); </font>
