@@ -52,7 +52,7 @@ main_title( MStext, "MMathSStat");
 <h2> Solving Equations </h2>
 
 <p> In this document, we show how to use <em>Maple</em> to solve
-(systems of) nonlinear equations and find extrema.</p>
+(systems of) nonlinear equations.</p>
 
 <h3> Roots of Polynomials </h3>
 
@@ -136,6 +136,12 @@ have looked for the roots of the polynomial of degree four
        alt="Graphs of f1 and f2 in the same figure">
 </div>
 
+<p>We have used the option <font class="matlab">discont=true</font> to
+produce the graph of the function defined by <font class="matlab">f1</font>
+because it is a discontinuous function.  In fact, there are values of
+\(x\) where the function is not defined and we have vertical
+asymptotes.</p>
+  
 <p>To determine the coordinates of the points of intersection, we compute
 the values of <font class="matlab">f2</font> (we could as well have
 chosen <font class="matlab">f1</font>) at each of the values
@@ -181,7 +187,7 @@ system of two nonlinear equations.</p>
 \]
 
 <p>We plot these two curves in the plan to locate approximately
-their points of intersection.  We assume that \(-3 < x , y < 3\).</p>
+their points of intersection.  We assume that \(-3 \leq x , y \leq 3\).</p>
 
 <pre class="matlab">
 > <font class="matlab">with(plots):</font>
@@ -195,7 +201,7 @@ their points of intersection.  We assume that \(-3 < x , y < 3\).</p>
        alt="Figure with the curves represented by eq1 and eq2">
 </div>
 
-<p>There seems to be four points of intersection (i.e. solutions of our
+<p>There seems to be four points of intersection (i.e. the solutions of our
 system of linear equations).  We first ask <em>Maple</em> to find them. </p> 
 
 <pre class="matlab">
@@ -204,13 +210,13 @@ system of linear equations).  We first ask <em>Maple</em> to find them. </p>
 
 \[  \{y = -1.000000000, x = 0.\} \]
 
-<p>Three of the solutions are missing.  The function
+<p>Three of the solutions are missing.  Using the fonction
+<font class="matlab">solve()</font> does not give more information.
+The reader should try it.   The function
 <font class="matlab">fsolve()</font> uses an iterative method
-to find the solutions.  Using <font class="matlab">solve()</font> does
-not give more information.  The reader should try it.  To be able to
-find the other solutions, we need to provide a small area
-where the function <font class="matlab">fsolve()</font> will have to
-look for a solution.</p>
+to find the solutions.  To find the other solutions, we need to
+provide a small area where the function
+<font class="matlab">fsolve()</font> will look for a solution.</p>
 
 <pre class="matlab">
 > <font class="matlab">fsolve({eq1,eq2},{x,y},{x=0.6..0.8,y=0.6..0.8});</font>
@@ -218,9 +224,10 @@ look for a solution.</p>
 
 \[ \{x = .7071067812, y = .7071067812 \} \]
 
-<p>We get another solution.  The other solutions can be found using
-the same procedure or simply by using the reflective symmetry through
-the origin (i.e. \((x,y) \mapsto (-x,-y)\) ) of both equations.  So the other
+<p>We get another solution.  The other two solutions can be found using
+the same procedure or simply by using the fact that both equations
+are invariant with respect to the reflective symmetry through
+the origin (i.e. \((x,y) \mapsto (-x,-y)\) ).  So the other
 solutions are just \(-1\) times the two solutions that we have found
 above.</p>
 

@@ -52,10 +52,9 @@ main_title( MStexte, "MMathSStat");
 
 <h2> Manipuler des ensembles de données </h2>
 
-<p>Dans ce document, nous donnons une brève explication de comment
-manipuler des ensembles de données; en particulier si nous voulons
-analyser une grande quantité de données qui se trouvent dans un
-fichier. </p>
+<p>Ce document explique comment manipuler des ensembles de données; en
+particulier si nous voulons analyser une grande quantité de données
+qui se trouvent dans un fichier. </p>
 
 <h3>Lire et écrire des fichiers</h3>
 
@@ -92,8 +91,9 @@ A := [[1., 2., 3., 4.], [5., 6., 7., 8.], [10., 20., 30., 40.], [0.5, 0.3, 1.1, 
 \]
 
 <p> <font class="matlab">A</font> n'est pas une matrice ni un
-tableau.  C'est une liste.  Par contre, <font class="matlab">A</font>
-peut être converti en une matrice. </p>
+tableau.  C'est une liste.  Par contre, les liste peuvent être
+converti en des matrices à l'aide de la fonction
+<font class="matlab">convert()</font> de <em>Maple</em>. </p>
 
 <pre class="matlab">
   > <font class="matlab">B:=convert(A,'Matrix');</font>
@@ -136,7 +136,7 @@ A := \begin{pmatrix} 1 & -1 & 1 \\ 2 & -2 & 3 \\ -3 & -2 & -1 \\ 0 & 0 & 1 \end{
 \]
 
 <p>Pour sauvegarder le tableau <font class="matlab">A</font> dans le
-fichier <em>data2.txt</em>, Nous utilisons la fonction 
+fichier <em>data2.txt</em>, il suffit d'utiliser la fonction 
 <font class="matlab">writedata()</font>.
 
 <pre class="matlab">
@@ -144,7 +144,7 @@ fichier <em>data2.txt</em>, Nous utilisons la fonction
 </pre>
 
 <p><em>Note</em>: Les objets <font class="matlab">Matrix</font>
-et <font class="matlab">Vector</font> dans <em>Maple</em> ne peuvent
+et <font class="matlab">Vector</font> dans <em>Maple</em> ne peuvent pas
 être utilisés par la fonction <font class="matlab">writedate()</font>.
 Par contre, nous pouvons utiliser les objets
 <font class="matlab">array</font>, <font class="matlab">list</font>,
@@ -183,7 +183,7 @@ ligne.  Nous commençons par lire les données dans le fichier
 <em>Maple</em> pour tracer la réduction en pourcentage de la vitesse
 de pompage en fonction de la viscosité.  À cette fin, nous devons
 créer une liste de points de la forme
-\([[x_1,y_1],[x_2,y_2],...]\) que nous fournirons comme argument à la
+\([[x_1,y_1],[x_2,y_2],...]\) que nous fournissons comme argument à la
 fonction <font class="matlab">plot()</font>.</p>
 
 <pre class="matlab">
@@ -267,7 +267,7 @@ fichier <em>data1.txt</em>.
 [2,1,A(2,1)],...[2,4,A(2,4)] ], ..., [ [4,1,A(4,1)],...[4,4,A(4,4)] ]
 ]
 \]
-<p>qui sera donnée comme argument à la fonction
+<p>qui est donnée comme argument à la fonction
 <font class="matlab">surfdata()</font> qui se trouve dans la librairie
 <font class="matlab">plots</font> de <em>Maple</em>.</p>
 

@@ -52,8 +52,7 @@ main_title( MStexte, "MMathSStat");
 <h2> Résoudre des équations </h2>
 
 <p> Dans ce document, nous expliquons comment utiliser <em>Maple</em>
-pour résoudre des (systèmes d') équations non-linéaires et des valeurs
-extrêmes.</p>
+pour résoudre des (systèmes d') équations non-linéaires. </p>
 
 <h3> Racines des polynômes </h3>
 
@@ -70,7 +69,7 @@ extrêmes.</p>
 \end{split}
 \]
 
-<p>Nous n'avons par affichée la solution exacte donnée par <em>Maple</em>
+<p>Nous n'avons par affiché la solution exacte donnée par <em>Maple</em>
 dans la variable <font class="matlab">spe</font> car elle occupe
 plusieurs lignes.  Le lecteur devrait exécuter les commandes ci-dessus
 pour obtenir le long résultat.</p>
@@ -84,7 +83,7 @@ décimaux) des racines est donnée par la commande suivante.</p>
 
 \[ 1.157720809, -0.0788604043 + 2.275165423 I, -0.0788604043 - 2.275165423 I \]
 
-<p>Pour obtenir les valeurs exactes de cette liste, nous utilisons le
+<p>Pour obtenir les valeurs exactes de cette liste, nous utilisons les
 commandes suivantes.</p>
 
 <pre class="matlab">
@@ -138,6 +137,13 @@ aussi chercher les racines du polynôme de degré quatre
        alt="Graphes de f1 et f2 dans la même figure">
 </div>
 
+<p>Nous avons utilisé l'option
+<font class="matlab">discont=true</font> pour produire le
+graphe de la fonction définie par <font class="matlab">f1</font>
+car cette fonction est discontinue.  En fait, il y a des valeurs de
+\(x\) pour lesquelles la fonction n'est pas définie et où l'on a des
+asymptotes verticales.</p>
+
 <p>Pour déterminer les coordonnées des points d'intersection, Nous
 calculons les valeurs de <font class="matlab">f2</font> (Nous aurions
 pu aussi bien choisir <font class="matlab">f1</font>) à chacune des
@@ -184,7 +190,7 @@ suivant composé de deux équations non-linéaires.</p>
 
 <p>Nous traçons ces deux courbes dans le plan afin d'estimer la
 position de leurs points d'intersection.  Nous assumons que
-\(-3 < x , y < 3\).</p>
+\(-3 \leq x , y \leq 3\).</p>
 
 <pre class="matlab">
 > <font class="matlab">with(plots):</font>
@@ -198,7 +204,7 @@ position de leurs points d'intersection.  Nous assumons que
        alt="Figure avec les deux courbes représentées par eq1 et eq2">
 </div>
 
-<p>Il semble bien y avoir quatre points d'intersection (i.e. Les
+<p>Il semble bien y avoir quatre points d'intersection (i.e. les
 solutions du système d'équations linéaires).  Nous demandons
 à <em>Maple</em> de trouver ces points.</p> 
 
@@ -208,13 +214,13 @@ solutions du système d'équations linéaires).  Nous demandons
 
 \[  \{y = -1.000000000, x = 0.\} \]
 
-<p>Trois des points manques.  La fonction
-<font class="matlab">fsolve()</font> utilise une méthode itérative
-pour trouver les solutions.  L'usage de la fonction
+<p>Trois des points manques.  L'usage de la fonction
 <font class="matlab">solve()</font> ne donne pas plus d'information.
-Le lecteur devrait l'essayer.  Pour trouver les autres solution, 
+Le lecteur devrait l'essayer.  La fonction
+<font class="matlab">fsolve()</font> utilise une méthode itérative
+pour trouver les solutions.    Pour trouver les autres solution, 
 nous devons fournir une petite région où la fonction
-<font class="matlab">fsolve()</font> devra chercher pour une solution.</p>
+<font class="matlab">fsolve()</font> va chercher une solution.</p>
 
 <pre class="matlab">
 > <font class="matlab">fsolve({eq1,eq2},{x,y},{x=0.6..0.8,y=0.6..0.8});</font>
@@ -222,12 +228,12 @@ nous devons fournir une petite région où la fonction
 
 \[ \{x = .7071067812, y = .7071067812 \} \]
 
-<p>Nous obtenons une autre solution.  Les autres solutions peuvent
-  être trouvées en suivant la même procédure ou simplement en
-  utilisant la réflexion par rapport à l'origine 
-(i.e. \((x,y) \mapsto (-x,-y)\)) des deux équations.  Donc, les autres
-solutions sont données en multipliant les deux solutions ci-dessus
-par \(-1\).</p>
+<p>Nous obtenons une autre solution.  Les deux autres solutions peuvent
+être trouvées en suivant la même procédure ou simplement en utilisant
+le fait que les deux équations sont invariantes sous l'action de la
+réflexion par rapport à l'origine (i.e. \((x,y) \mapsto (-x,-y)\)).
+Donc, les autres solutions sont données en multipliant les deux
+solutions ci-dessus par \(-1\).</p>
 
 <br>
 <hr>

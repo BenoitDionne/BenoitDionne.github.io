@@ -52,8 +52,8 @@ main_title( MStext, "MMathSStat");
 
 <h2>Manipulating Data Sets</h2>
 
-<p>In this document, we briefly explain how to manipulate date sets; in
-particular if we wish to analyze a large among of data given in a file.</p>
+<p>This document explains how to manipulate date sets; in
+particular if we wish to analyze a large amount of data given in a file.</p>
 
 <h3>Reading and Writing Files</h3>
 
@@ -88,9 +88,10 @@ floating point numbers (float).<p>
 A := [[1., 2., 3., 4.], [5., 6., 7., 8.], [10., 20., 30., 40.], [0.5, 0.3, 1.1, 1.6]]
 \]
 
-<p> <font class="matlab">A</font> is not a matrix (nor an array). It is
-a list.  But <font class="matlab">A</font> can be converted into a
-matrix.</p>
+<p> The object associated to the variable <font class="matlab">A</font>
+is not a matrix (nor an array). It is a list.  But the lists can be
+converted into matrices with the <em>Maple</em> function
+<font class="matlab">convert()</font>.</p>
 
 <pre class="matlab">
   > <font class="matlab">B:=convert(A,'Matrix');</font>
@@ -132,7 +133,7 @@ A := \begin{pmatrix} 1 & -1 & 1 \\ 2 & -2 & 3 \\ -3 & -2 & -1 \\ 0 & 0 & 1 \end{
 \]
 
 <p>To store the array <font class="matlab">A</font> into the
-file <em>data2.txt</em>, we use the function
+file <em>data2.txt</em>, it suffices to use the function
 <font class="matlab">writedata()</font>.
 
 <pre class="matlab">
@@ -177,8 +178,8 @@ viscosities on the first row.  We first read these data from the file
 <font class="matlab">plot()</font> to plot 
 the reduction in percent of the pumping speed as a function of the
 viscosity.  To do so, we need to create a list of points of the
-form \([[x_1,y_1],[x_2,y_2],...]\) that we will give as
-arguments to the function <font class="matlab">plot()</font>.</p>
+form \([[x_1,y_1],[x_2,y_2],...]\) that we give as
+argument to the function <font class="matlab">plot()</font>.</p>
 
 <pre class="matlab">
 > <font class="matlab">plist:=[seq([pData[1][i],pData[2][i]],i=1..12)];</font>
@@ -256,7 +257,7 @@ We consider the matrix defined in the data file <em>data1.txt</em>.
 [2,1,A(2,1)],...[2,4,A(2,4)] ], ..., [ [4,1,A(4,1)],...[4,4,A(4,4)] ]
 ]
 \]
-<p>that we will given as argument to the function
+<p>that is given as argument to the function
 <font class="matlab">surfdata()</font> in the
 library <font class="matlab">plots</font> of <em>Maple</em>.</p> 
 
