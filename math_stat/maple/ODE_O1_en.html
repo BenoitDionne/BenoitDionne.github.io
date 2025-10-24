@@ -106,11 +106,11 @@ eq2 := \frac{\text{d}}{\text{d}x} y(x) + y(x) = 0
  y(x) = e^{-x} \_C1
 \]
 
-<p>The term with <font class="matlab">_C1</font> in the solution of
-<font class="matlab">eq1</font> is the general solution of
-<font class="matlab">eq2</font>. The other terms of the solution of
-<font class="matlab">eq1</font> form a particular solution of
-<font class="matlab">eq1</font>.</p>
+<p>The term with the symbol <font class="matlab">_C1</font> in the solution of
+the ODE given by <font class="matlab">eq1</font> is the general solution of
+the ODE given by <font class="matlab">eq2</font>. The other terms of
+the solution of the ODE given by <font class="matlab">eq1</font> form
+a particular solution of the ODE given by <font class="matlab">eq1</font>.</p>
 
 <p><em>Examples</em>: Here are a few more examples.</p>
 
@@ -211,7 +211,9 @@ before calling the function <font class="matlab">plot()</font>.</p>
 
 <p><em>Note</em>: If we need to evaluate the solution of an initial
 value problem at several points, then it is preferable to use
-a procedure to write this solution.</p>
+a procedure to write this solution.   For instance, we can evaluate the
+solution given by <font class="matlab">sol1</font> at \(x = 1.5\) as
+it follows..</p>
 
 <pre class="matlab">
 > <font class="matlab">yp:= s -> subs( x=s,rhs(sol1));  evalf(yp(1.5)); </font>
@@ -229,10 +231,10 @@ a procedure to write this solution.</p>
 <p>When we talk about the <em>numerical solution</em> of an ODE, we
 obviously talk about an approximation of the real solution of the ODE.</p>
 
-<p>Since a simple form for the solution of our famous homogeneous ODE
-given by <font class="matlab">eq4</font> seems to be out of reach, we
-find a numerical solution to this ODE with the initial condition
-\(y(0)=2\).</p>
+<p>Since it does not seem to be possible to find a simple form for the
+solution of our famous homogeneous ODE given by
+<font class="matlab">eq4</font>, we seek a numerical solution to this
+ODE with the initial condition \(y(0)=2\).</p>
 
 <pre class="matlab">
 > <font class="matlab">yp := dsolve({eq4,y(0)=2},y(x),type=numeric);</font>
@@ -265,11 +267,12 @@ qualitative view of the graphs of solutions of an ODE, we may draw a
 <p>Consider the first-order ODE \(y'(x) = f(x,y(x))\).  The right hand
   side \(f(x,y(x))\) is the slope of the solution \(y\) at every point
 \((x,y(x))\); a point on the graph of the solution \(y\).  The draw a
-slope field of the ODE, we select many points equally spaced of the plane and
-draw an arrow of slope \(f(x,y)\) from each one of them.  <em>Maple</em> has a
+slope field of the ODE, we select many points \((x,y)\) equally
+spaced of the plane and draw an arrow of slope \(f(x,y)\) from each
+one of them.  <em>Maple</em> has a 
 nice function to generate the slope fields of an ODE.</p>
 
-<p>Consider our troublesome homogeneous ODE of order one defined by
+<p>Consider our troublesome homogeneous ODE of order one given by
 <font class="matlab">eq4</font>.  A slope field of this ODE is drawn
 below.</p>
 
@@ -312,7 +315,8 @@ in <em>Maple</em>.</p>
 eq5 := \frac{\text{d}}{\text{d} x} \,y(x) + x^{2}\,y(x)=x^{2}
 \]
 
-<p>We can draw a slope field of this ODE including the graphs of the particular
+<p>We have already solved this ODE in a previous example.
+We can draw a slope field of this ODE including the graphs of the particular
 solutions associated to the initial conditions \(y(0)=1\), \(y(0)=-2\) and
 \(y(0)=2\).  We use the simple <em>Euler</em> method with a step size
 of \(0.1\).</p>

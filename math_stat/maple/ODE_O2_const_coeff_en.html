@@ -51,11 +51,11 @@ main_title( MStext, "MMathSStat");
 
 <h2> Second Order ODE with Constant Coefficients </h2>
 
-<p>In this section, we introduce some of the functions use to solve
-and display solutions of ODE of order higher than one; more precisely,
-we will only consider second order ODE with constant coefficients.
-The reader should be familiar with the material presented in the section
-<script language="javascript">
+<p>In this document, we introduce some of the <em>Maple</em> functions
+to solve and draw solutions of ODE of order higher than one;
+more precisely, we consider linear second order ODE with constant coefficients.
+We assume that the reader is familiar with the material presented in
+the document <script language="javascript">
     buildLinK(ODE_O1.url_en, ODE_O1.text_en,"MMathSStat", ODE_O1.id,
     ODE_O1.target);
 </script>.</p>
@@ -75,8 +75,9 @@ eq1 := \frac{\text{d}^2}{\text{d}x^2} y(x) - 2 \frac{\text{d}}{\text{d}x} y(x) +
 <p>The reader has probably seen that the general solution of this ODE is of
 the form \(y(x) = a_1 y_1(x) + a_2 y_2(x)\), where \(a_1\) and
 \(a_2\) are two arbitrary constants, and \(y_1(x)\) and \(y_2(x)\)
-are two linearly independent solutions of ODE.  If we use
-<em>Maple</em> to solve this ODE, we get</p>
+are two linearly independent solutions of the ODE.  If we use
+<em>Maple</em> to solve the ODE given by <font class="matlab">eq1</font>,
+then we get the following result.</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq1,y(x));</font>
@@ -86,9 +87,9 @@ are two linearly independent solutions of ODE.  If we use
 y(x) = \_C1 e^x + \_C2 e^x x
 \]
 
-<p>Maple seems to have passed its basic ODE course.</p>
+<p><em>Maple</em> seems to have passed its introductory ODE course.</p>
 
-<p>Consider the second order non-homogeneous linear ODE</p>
+<p>Consider the following second order non-homogeneous linear ODE.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq2 := diff(y(x),x$2)-2*diff(y(x),x)+y(x) = exp(x);</font>
@@ -110,7 +111,8 @@ associated homogeneous ODE and \(y_p(x)\) is any particular solution.</p>
  y(x) = e^x \_C2 + e^x x \_C1 + \frac{x^2 e^x}{2}
 \]
 
-<p>One can check that \(\frac{x^2 e^x}{2}\) is a particular solution.</p>
+<p>We can check that \(\frac{x^2 e^x}{2}\) is a particular solution of
+the ODE given by <font class="matlab">eq2</font>.</p>
 
 <pre class="matlab">
 > <font class="matlab">eval(subs(y(x)=x^2*exp(x)/2,eq2));</font>
@@ -122,31 +124,30 @@ associated homogeneous ODE and \(y_p(x)\) is any particular solution.</p>
 
 <p><em>Note</em>: Two functions are linearly independent if we can not
 write one as a multiple of the other. To determine if two solutions
-\(y_1(x)\) and \(y_2(x)\) of an homogeneous ODE are linearly independent,
-we compute the determinant of the matrix</p>
+\(y_1(x)\) and \(y_2(x)\) of an homogeneous ODE of order two with constant
+coefficients are linearly independent, we compute the determinant of
+the matrix</p> 
 \[
 \begin{bmatrix} y_1(x) & y_2(x) \\ y_1'(x) & y_2'(x) \end{bmatrix}
 \]
-<p>This matrix is called the <em>Wronskian</em>.  If the determinant
-is different than zero at one point, then the two solutions are
-linearly independent.  If the determinant is zero at one point,
-then they are dependent.</p>
+<p>This matrix is called the <em>Wronskian</em> of the two solutions.
+If this determinant is different than zero at one point (i.e. for one
+value of \(x\)), then the two solutions are linearly independent.  If
+this determinant is zero at one point, then they are dependent.</p>
 
 <p><em>WARNING</em>: If the determinant of the Wronskian of two
-solutions of an ordinary differential equation of order two with
-constant coefficients is non-zero at one point then it is
-non-zero at all points in the domain of the two solutions.
-Likewise, if the determinant of the Wronskian of two solutions is
-zero at one point than it is zero at all points in the domain of the
-two solutions.  This is not true for two arbitrary functions.
-We cannot conclude that two arbitrary functions are linearly
-independent because the determinant of their Wronskian is non-zero at
-one point.  We have to make sure that it is non-zero at every point
-of their domain before being able to claim that they are linearly
-independent.</p>
+solutions of a linear homogeneous ODE of order two with constant
+coefficients is non-zero at one point, then it is non-zero at all
+points in the domain of the two solutions.  Likewise, if the
+determinant of the Wronskian of two solutions is zero at one point,
+then it is zero at all points in the domain of the two solutions.
+This is not true for two arbitrary functions.  We cannot conclude that
+two arbitrary functions are linearly independent because the
+determinant of their Wronskian is non-zero at one point. </p>
 
-<p>We verify that the two solutions of the homogeneous ODE are
-linearly independent.</p>
+<p>We verify that the two solutions \(\displaystyle e^x\) and
+\(\displaystyle x e^x\) of the ODE given by
+<font class="matlab">eq1</font> are linearly independent.</p>
 
 <pre class="matlab">
 > <font class="matlab">with(VectorCalculus): with(LinearAlgebra): Determinant(Wronskian([exp(x), x*exp(x)], x))</font>
@@ -159,7 +160,7 @@ linearly independent.</p>
 <p>Since \(e^{2x}\) is different than \(0\) at one point, and so at all
 points, the two solutions are linearly independent.</p>
 
-<p><em>Example</em>: Consider the ODE
+<p><em>Example</em>: Consider the following ODE. </p>
 
 <pre class="matlab">
 > <font class="matlab">eq3 := diff(y(x),x$2)-4*diff(y(x),x)+13*y(x)=0;</font>
@@ -169,7 +170,7 @@ points, the two solutions are linearly independent.</p>
  eq3 := \frac{\text{d}^2}{\text{d}x^2} y(x) - 4 \frac{\text{d}}{\text{d}x} y(x) + 13 y(x) = 0
 \]
 
-<p>Its solution is</p>
+<p>Its solution is given by the following command.</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq3,y(x));</font>
@@ -184,16 +185,16 @@ y(x) = \_C1 e^{2x} \sin(3x)+ \_C2 e^{2x} \cos(3x)
 a y''(x) + b y'(x) + c y(x) = 0
 \]
 <p> where \(a,b\) and \(c\) are constants.  If we suppose that a
-solution is of the form \(e^{\lambda x}\) for some \(\lambda\), then
-we get \( a \lambda^2 + b \lambda + c = 0 \) after deviding by
-\(e^{\lambda x}\).  The polynomial
-\(p(\lambda) = a \lambda^2 + b \lambda + c\)
-is the <em> characteristic polynomial</em> associated to the ODE.
+solution is of the form \(e^{\lambda x}\) for some constant
+\(\lambda\) and substitute this expression into the ODE, then
+we get \( a \lambda^2 + b \lambda + c = 0 \) after dividing by
+\(e^{\lambda x}\).  The polynomial \(p(\lambda) = a \lambda^2 + b \lambda + c\)
+is called the <em> characteristic polynomial</em> associated to the ODE.
 The general solution of the ODE is determined by the roots of this
 polynomial.</p>
 
 <ol>
-<li> If \(\lambda_1\) and \(\lambda_2\) are two distinct real roots of
+<li> <p>If \(\lambda_1\) and \(\lambda_2\) are two distinct real roots of
 the characteristic polynomial, then \(e^{\lambda_1 x}\) and
 \(e^{\lambda_2 x}\) are two linearly independent solutions of the
 homogeneous ODE.  The general solution of the homogeneous ODE is of
@@ -201,29 +202,29 @@ the form </p>
 \[
 y(x) = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x} \ .
 \]
-<p>Test this result with the following ODE.
-
+<p>The reader should verify this conclusion by running the following
+commands for the given ODE.</p>
 <pre class="matlab">
 > <font class="matlab">ODE:=diff(y(x),x$2) -4*diff(y(x),x)+3*y(x) =0;</font>
 > <font class="matlab">dsolve(ODE,y(x));</font>
 </pre>
 </li>
-<li> If \(\lambda\) is the only real root of the characteristic
+<li> <p>If \(\lambda\) is the only real root of the characteristic
 polynomial, then \(e^{\lambda x}\) and \(x e^{\lambda x}\) are two
 linearly independent solutions of the homogeneous ODE.  The general
-solution of the homogeneous ODE is of the form 
+solution of the homogeneous ODE is of the form</p>
 \[
 y(x) = C_1 e^{\lambda x} + C_2 x e^{\lambda x} \ .
 \]
-<p> The root \(\lambda\) is of algebraic multiplicity two.  
-Test this result with the following ODE.
-
+<p> The root \(\lambda\) is of algebraic multiplicity \(2\).
+The reader should verify this conclusion by running the following
+commands for the given ODE.</p>
 <pre class="matlab">
 > <font class="matlab">ODE:=diff(y(x),x$2) - 4*diff(y(x),x) + 4*y(x) = 0;</font>
 > <font class="matlab">dsolve(ODE,y(x));</font>
 </pre>
 </li>
-<li> Finally, if \(\lambda = \alpha \pm \beta i\) with
+<li> <p>Finally, if \(\lambda = \alpha \pm \beta i\) with
 \(\beta \neq 0\) are two complex roots of the characteristic
 polynomial, then \(e^{\alpha x} \cos(\beta x)\) and 
 \(e^{\alpha x} \sin(\beta x)\) are two linearly independent solutions
@@ -232,18 +233,20 @@ the form </p>
 \[
 y(x) = C_1 e^{\alpha x}\cos(\beta x) + C_2 e^{\alpha x}\sin(\beta x) \ .
 \]
-<p>Test this result with the following ODE.
-
+<p>The reader should verify this conclusion by running the following
+commands for the given ODE.</p>
 <pre class="matlab">
 > <font class="matlab">ODE:=diff(y(x),x$2)-4*diff(y(x),x)+13*y(x)=0;</font>
 > <font class="matlab">dsolve(ODE,y(x));</font>
 </pre>
+</li>
+</ol>
 
 <h3> Applications </h3>
 
 <h4> Damped Spring Motion </h4>
 
-<p>The damped motion of an object attached to a spring and damped with
+<p>The linear motion of an object attached to a spring and damped with
 a piston is described by the following ODE.</p>
 
 <pre class="matlab">
@@ -254,31 +257,35 @@ a piston is described by the following ODE.</p>
 eq4 := \frac{\text{d}^2}{\text{d}x^2} y(x) + \beta \frac{\text{d}}{\text{d}x} y(x) + \omega^2 y(x) = 0
 \]
 
-<p>where \(\omega = K/m\), with \(K\) a constant and \(m\) is the mass of the
-object, is the spring constant. The constant \(\beta\) is the damping
-coefficient.</p>
+<p>where the spring constant \(\omega\) is defined by
+\(\omega = K/m\) for a constant \(K\) and the mass \(m\) of the
+object.  The constant \(\beta\) is the damping coefficient.</p>
 
 <p>If the object is released from rest at a distance of \(1\) m from
-its equilibrium position, the initial conditions are \(y(0)=1\) and
-\(y'(0)=0\). The solution of <font class="matlab">eq4</font> with
-these initial conditions is obtained as it follows:</p>
+its equilibrium position, then the initial conditions are \(y(0)=1\) and
+\(y'(0)=0\). The solution of the ODE given
+by <font class="matlab">eq4</font> with these initial conditions is
+obtained with the following command.</p> 
 
 <pre class="matlab">
 > <font class="matlab">sol:=dsolve({eq4,D(y)(0)=0,y(0)=1},y(x)):</font>
 </pre>
 
-<p>We let the reader run the previous command with a semicolon if they
-really want to see the long solution.  It suffices to note that the
-solution involves \(\sqrt{ \beta^2 + 4 \alpha^2}\) and a division by
-\(\beta^2 - 4 \alpha^2\).  For \(\beta^2 + 4 \alpha^2 < 0\), the solution
-has cosine and sine terms that are responsible for oscillations.   For
-\(\beta^2 + 4 \alpha^2 > 0\), the solution has exponential terms with
-negative exponents for \(x > 0\) and we have no more oscillation,  We
-have over damping.  Finally, for \(\beta^2 + 4 \alpha^2 = 0\), the
-previous solution in not valid.  We will show below that there is also
-no more oscillations.  The system is critically damped.</p>
+<p>We let the readers run the previous command with a semicolon
+instead of a colon at the end of it if they really want to see the
+long solution.  It suffices to note that the solution involves the
+expression \(\sqrt{ \beta^2 + 4 \alpha^2}\) and a division by
+\(\beta^2 - 4 \alpha^2\).  For \(\beta^2 + 4 \alpha^2 < 0\), the terms
+of the solution contain cosine or sine functions which are
+responsible for the oscillations.  For \(\beta^2 + 4 \alpha^2 > 0\), the terms
+of the solution contain exponential functions with a negative exponent
+for \(x > 0\) and there are no oscillations,  There is over damping.
+Finally, for \(\beta^2 + 4 \alpha^2 = 0\), the formula given
+by <em>Maple</em> is not a solution of the ODE.  We will show below
+that there is also no oscillation.  The system is critically damped.</p> 
 
-<p>We plot this solution for \(\omega=1\) and
+<p>We plot the graph of the solution of the ODE given by
+<font class="matlab">eq4</font> for \(\omega=1\) and
 \(\beta = 0, 0.75, 1.5, 2.25, 3\).</p>
 
 <pre class="matlab">
@@ -300,8 +307,7 @@ yp := (xx, bb) \mapsto subs({\beta = bb, \omega = 1, x = xx}, rhs(sol))
 
 <div class="center">
   <img src="Maple_ode_5.png" style="width: 300px"
-       alt="Graph of the solutions of eq4 for &omega; = 1 and different
-       values of &beta;">
+       alt="Graph of the solutions of eq4 for &omega; = 1 and &beta; = 0, 0.75, 1.5, 2.25, 3">
 </div>
 
 <p><em>Note</em>: The command</p>
@@ -312,14 +318,16 @@ yp := (xx, bb) \mapsto subs({\beta = bb, \omega = 1, x = xx}, rhs(sol))
   
 <p>will have produce the same figure with one important difference.
 The colours seems to be randomly associated to the values of \(\beta\).
-This is not convenient when referring to the each graph.</p>
+This is not convenient if the colour assigned to each graph is not the
+one expected.</p>
 
-<p>As we can see, without damping the spring has the same motion
-forever. If we add damping, the motion of the spring dies down.
-The system is critically damped when \(\beta=2\) and \(\omega=1\),
-the solution of ODE above is not valid for these values.  There is a
-division by zero.  For these values, the ODE
-<font class="matlab">eq4</font> becomes</p>
+<p>As we can see, without damping, the spring has the same oscillatory
+motion forever. If we add damping, the oscillatory motion of the
+spring dies down.  The system is critically damped when \(\beta=2\)
+and \(\omega=1\).  The formula given by <font class="matlab">sol</font>
+is not a solution of the ODE.  There is a division by zero in this
+formula.  For these values of \(beta\) and \(\omega\), the ODE given by
+<font class="matlab">eq4</font> becomes the ODE given below.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq5:= subs({omega=1,beta=2},eq4);</font>
@@ -339,14 +347,14 @@ eq5 := \frac{\text{d}^2}{\text{d}x^2} y(x) + 2 \frac{\text{d}}{\text{d}x} y(x) +
 yp := y(x) = e^{-x} + e^{-x} x
 \]
 
-<p>there are no more oscillations of the spring.</p>
+<p>There are no oscillations of the spring.</p>
 
-<p> Starting with a damping of \(\beta \geq 2\), there are no more
+<p> Starting with a damping of \(\beta \geq 2\), there are no
 oscillations of the spring.</p>
 
 <h4> Forced Spring Motion </h4>
 
-<p>The motion of an object attached to a spring subject to a periodic
+<p>The linear motion of an object attached to a spring subject to a periodic
 driving force of the form \(\cos(\theta x)\) is governed by the
 following ODE.</p>
 
@@ -358,8 +366,10 @@ following ODE.</p>
 eq6 := \frac{\text{d}^2}{\text{d}x^2} y(x) + \beta \frac{\text{d}}{\text{d}x} y(x) + \omega^2 y(x) = \cos(\theta x)
 \]
 
-<p>\(\omega\) and \(\beta\) have the same meaning as before.  We consider
-the previous critical damping case, \(\beta=2\) and \(\omega=1\).</p>
+<p>The parameters \(\omega\) and \(\beta\) have the same meaning as
+before.  We use the parameter values \(\beta=2\) and \(\omega=1\)
+associated to the critical damping case for the non-forced spring
+motion that we have studied above.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq7 := subs({omega=1,beta=2},eq6);</font>
@@ -370,7 +380,8 @@ eq7 := \frac{\text{d}^2}{\text{d}x^2} y(x) + 2 \frac{\text{d}}{\text{d}x} y(x) +
 \]
 
 <p>We assume that the object starts from rest at its equilibrium
-point; so \(y(0)=0\) and \(y'(0)=0\). The solution is given by</p>
+point; so \(y(0)=0\) and \(y'(0)=0\). The solution of the ODE is given
+by the following command.</p>
 
 <pre class="matlab">
 > <font class="matlab">sol := dsolve({eq7,y(0)=0,D(y)(0)=0},y(x));</font>
@@ -381,7 +392,7 @@ sol := y(x) = \frac{e^{-x} (\theta^2 -1)}{\theta^4 + 2 \theta^2 +1}
 - \frac{e^{-x} x}{\theta^2 + 1} + \frac{-\cos(\theta x) \theta^2 + 2 \theta \sin(\theta x) + \cos(\theta x)}{(\theta^2 +1)^2}
 \]
 
-<p>We plot the graph of the solution for
+<p>We plot the graph of the solution of the ODE for
 \(\theta = 0, 0.75, 1.5, 2.25, 3\).</p>
 
 <pre class="matlab">
@@ -441,7 +452,7 @@ A := \frac{1}{\theta^2 + 1}
 P := \arctan\left(\frac{2 \theta}{\theta^2 - 1}\right)
 \]
 
-<p>We plot the amplitude and phase in function of \(\theta\).</p>
+<p>We plot the graphs of the amplitude and phase in function of \(\theta\).</p>
 
 <pre class="matlab">
 > <font class="matlab">plot1:=plot(A,theta=0..2*Pi,color=red):</font>
@@ -454,92 +465,10 @@ P := \arctan\left(\frac{2 \theta}{\theta^2 - 1}\right)
        alt="Graph of the amplitude and phase in function of &theta;">
 </div>
 
-<p>The amplitude is in red and the phase in blue.  Is the phase really
-discontinuous?  No, it isn't if we compute modulo \(\pi\) (the period
-of the tangent) and set \(\arctan(\infty) = \pi/2\).</p>
-
-<h3> Numerical Solutions of Second Order ODE </h3>
-
-<p>Consider the second order ODE with non-constant coefficients</p>
-
-<pre class="matlab">
-> <font class="matlab">eq1 := diff(x(t),t$2) + cos(t)*x(t)=0;</font>
-</pre>
-
-\[
-eq1 := \frac{\text{d}^2}{\text{d}t^2} x(t) + \cos(t) x(t) = 0
-\]
-
-<p>We may use <font class="matlab">dsolve()</font> to find the general
-solution of this ODE.  If we also have an initial condition and are
-not interested in the explicit solution, we may also
-use <font class="matlab">dsolve()</font> with the option numeric
-to <q>numerically</q> solve the ODE.  For instance</p> 
-
-<pre class="matlab">
-> <font class="matlab">SYST := { eq1 } union {x(0)=0,D(x)(0)=1}:</font>
-> <font class="matlab">xs := dsolve(SYST, x(t),type=numeric, output=procedurelist);</font>
-</pre>
-  
-\[
-xs := proc(x_rkf45) ... end proc
-\]
-
-<p><font class="matlab"> xs(t)</font> is a function that return the
-vector <font class="matlab">[ t, x(t) , D(x)(t) ]</font> for all
-<font class="matlab">t</font>.
-
-<pre class="matlab">
-> <font class="matlab"> xs(2.5);</font>
-</pre>
-
-\[
-[t = 2.5, x(t) = 1.81114646856115, \frac{\text{d}}{\text{d}t} x(t) = 1.10767665005579]
-\]
-
-<p>We can use <font class="matlab">xs</font> to draw the graph of
-<font class="matlab">x(t)</font> and <font class="matlab">D(x)(t)</font>
-in function of <font class="matlab">t</font>.</p>
-
-<pre class="matlab">
-> <font class="matlab">with(plots): odeplot(xs,[t,x(t)],0..4*Pi, labels=[`t`,`x(t)`]);</font>
-</pre>
-  
-<div class="center">
-<img src="Maple_ode_8.png" style="width: 300px" alt="Graph of x(t)">
-</div>
-
-<pre class="matlab">
-> <font class="matlab">odeplot(xs,[t,D(x)(t)],0..4*Pi,labels=[`t`,`x'(t)`]);</font>
-</pre>
-  
-<div class="center">
-<img src="Maple_ode_9.png" style="width: 300px" alt="Graph of x'(t)">
-</div>
-
-<p>We can also draw a parametric plot of
-<font class="matlab">(x(t), D(x)(t)</font>.</p>
-
-<pre class="matlab">
-> <font class="matlab">odeplot(xs,[x(t),D(x)(t)],0..4*Pi,labels=[`x(t)`,`x'(t)`]);</font>
-</pre>
-
-<div class="center">
-  <img src="Maple_ode_10.png" style="width: 300px"
-       alt="orbit of (x(y),x'(t)) for t>0">
-</div>
-
-<p>In which direction is the positive motion along the curve?</p>
-
-<p><em>Note</em>: To get some information on the integration methods
-used</p>
-
-<pre class="matlab">
-> <font class="matlab">infolevel[dsolve]:= 3:</font>
-</pre>
-  
-<p>before running <font class="matlab">dsolve()</font>. Level 1 is the
-normal level. It goes up to level 5.</p>
+<p>The graph of the amplitude is in red and the graph of the phase
+in blue.  Is the phase really discontinuous?  No, it is not if we
+compute modulo \(\pi\) (the period of the tangent) and set
+\(\arctan(\infty) = \pi/2\).</p>
 
 <br>
 <hr>

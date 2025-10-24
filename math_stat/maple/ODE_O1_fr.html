@@ -96,7 +96,7 @@ est</p>
 eq2 := \frac{\text{d}}{\text{d}x} y(x) + y(x) = 0
 \]
 
-<p>Ça solution générale est donnée par la commande suivante.</p>
+<p>Sa solution générale est donnée par la commande suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq2,y(x));</font>
@@ -106,11 +106,12 @@ eq2 := \frac{\text{d}}{\text{d}x} y(x) + y(x) = 0
  y(x) = e^{-x} \_C1
 \]
 
-<p>Le terme contenant <font class="matlab">_C1</font> dans la solution
-de <font class="matlab">eq1</font> est la solution générale de
-<font class="matlab">eq2</font>.  Les autres termes de la solution
-de <font class="matlab">eq1</font> forme une solution particulière de
-<font class="matlab">eq1</font>.</p>
+<p>Le terme contenant le symbole <font class="matlab">_C1</font> dans
+la solution de l'EDO donnée par <font class="matlab">eq1</font> est la
+solution générale de l'EDO donnée par <font class="matlab">eq2</font>.
+Les autres termes de la solution de l'EDO donnée par
+<font class="matlab">eq1</font> forme une solution particulière de
+l'EDO donnée par <font class="matlab">eq1</font>.</p>
 
 <p><em>Exemples</em>: Voici quelques exemples supplémentaires.</p>
 
@@ -124,7 +125,7 @@ de <font class="matlab">eq1</font> forme une solution particulière de
 eq3 = \frac{\text{d}}{\text{d}x} y(x) = x^2 y(x)^2
 \]
 
-<p> Ça solution est donnée par la commande suivante.</p>
+<p> Sa solution est donnée par la commande suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq3,y(x));</font>
@@ -144,7 +145,7 @@ eq3 = \frac{\text{d}}{\text{d}x} y(x) = x^2 y(x)^2
   eq4 := (x^2+y(x)^2) \frac{\text{d}}{\text{d}x} y(x) + x^2 - y(x)^2 = 0
 \]
 
-<p>Ça solution est <q lang="fr">donnée</q> par la commande suivante.</p>
+<p>Sa solution est <q lang="fr">donnée</q> par la commande suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq4,y(x));</font>
@@ -167,7 +168,7 @@ Nous y reviendrons plus tard.</p>
  eq5 := \frac{\text{d}}{\text{d}x} y(x) + x^2 y(x) = x^2
 \]
 
-<p>Ça solution est donnée par la commande suivante.</p>
+<p>Sa solution est donnée par la commande suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq5,y(x));</font>
@@ -209,9 +210,11 @@ avant de faire appel à la fonction <font class="matlab">plot()</font>.</p>
        alt="Graphe de la solution de l'EDO eq5 avec la condition initial y(2)=3">
 </div>
 
-<p><em>Note</em>: Si nous devons évaluer la solution d'une problème
+<p><em>Note</em>: Si nous devons évaluer la solution d'un problème
 aux valeurs initiales à plusieurs points, alors il est préférable
-d'utiliser une procédure pour définir la solution.</p>
+d'utiliser une procédure pour définir la solution.  Par exemple, nous
+pouvons évaluer la solution donnée par
+<font class="matlab">sol1</font> à \(x = 1.5\) de la façon suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">yp:= s -> subs( x=s,rhs(sol1));  evalf(yp(1.5)); </font>
@@ -230,8 +233,8 @@ d'utiliser une procédure pour définir la solution.</p>
 nous parlons naturellement d'une approximation de la vrai solution
 de l'EDO.</p>
 
-<p>Puisque qu'une forme simple de la solution de l'EDO homogène donnée
-par <font class="matlab">eq4</font> ne semble pas possible, nous
+<p>Puisque qu'il ne semble pas être possible de trouver une forme simple de
+la solution de l'EDO homogène donnée par <font class="matlab">eq4</font>, nous
 cherchons une solution numérique de cette EDO avec la condition
 initiale \(y(0)=2\).</p>
 
@@ -262,17 +265,18 @@ graphe de la solution ci-dessus.</p>
 pour la solution d'une EDO, tracer le graphe de la solution numérique
 d'une problème aux valeurs initiales est souvent une bonne
 alternative.  Pour obtenir un aperçu qualitatif des graphes des
-solutions d'une EDO, nous pouvons tracer un <em>slope field</em> de l'EDO. </p>
+solutions d'une EDO, nous pouvons tracer un
+<em>champ de pentes</em> de l'EDO. </p>
 
 <p>Considérons l'EDO d'ordre un \(y'(x) = f(x,y(x))\).  Le côté droit
 \(f(x,y(x))\) est la pente de la solution \(y\) à chaque point
 \((x,y(x))\); un point sur le graphe de la solution \(y\).  Pour
 tracer un champ de pentes pour une EDO, nous choisissons plusieurs
-points également distancés du plan et traçons une flèche de pente
+points \((x,y)\) également distancés du plan et traçons une flèche de pente
 \(f(x,y)\) à partir de chacun de ces points.  <em>Maple</em> a une
 jolie fonction pour générer les champs de pentes d'une EDO.</p>
 
-<p>Considérons notre fameuse EDO homogène d'ordre définie par
+<p>Considérons notre fameuse EDO homogène d'ordre un donnée par
 <font class="matlab">eq4</font>.  Un champ de pentes pour cette EDO
 est tracé ci-dessous.</p>
 
@@ -316,7 +320,8 @@ dans <em>Maple</em>.</p>
 eq5 := \frac{\text{d}}{\text{d} x} \,y(x) + x^{2}\,y(x)=x^{2}
 \]
 
-<p>Nous pouvons tracer un champ de pentes de cet EDO qui contient les
+<p>Nous avons déjà résolu cette EDO dans un exemple précédent.
+Nous pouvons tracer un champ de pentes de cet EDO qui contient les
 graphes des solutions particulières associées aux conditions initiales
 \(y(0)=1\), \(y(0)=-2\) et \(y(0)=2\).  Nous utilisons la simple
 méthode de <em>Euler</em> avec un pas de \(0.1\).</p>
@@ -333,8 +338,8 @@ méthode de <em>Euler</em> avec un pas de \(0.1\).</p>
 
 <p> Il semble y avoir un problème avec les graphes des solutions
 particulières associées aux conditions initiales
-\(y(0)=-2\) and \(y(0)=2\) lorsque \(x\) est plus grand que \(8\).
-Les graphes des solutions ne sont pas tangent au champ de pentes comme
+\(y(0)=-2\) et \(y(0)=2\) lorsque \(x\) est plus grand que \(8\).
+Les graphes de ses solutions ne sont pas tangents au champ de pentes comme
 cela devrait être le cas. </p>
 
 <p> Cet exemple illustre le danger associé à l'utilisation d'une
@@ -342,7 +347,7 @@ méthode d'intégration numérique.  Pour obtenir des résultats qui sont
 réalistes et plus précis, il est souvent nécessaire de choisir un pas
 différent ou une méthode numérique plus appropriée.  Il est donc
 important d'avoir une connaissance théorique et qualitative  
-de l'EDO avant d'entreprendre d'énormes calculs  Le problème dans le
+de l'EDO avant d'entreprendre d'énormes calculs.  Le problème dans le
 cas présent provient de la méthode d'Euler qui n'est pas une méthode
 d'intégration très précise et du pas qui est trop grand.  Si nous
 utilisons la méthode numérique que <font class="matlab"> DEplot()</font>

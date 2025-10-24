@@ -28,6 +28,14 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+-->
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 </head>
 <body>
 
@@ -43,14 +51,434 @@ main_title( MStexte, "MMathSStat");
 
 <h2> EDO d'ordre deux avec coefficients constants </h2>
 
-<p> Le contenu de ce site n'a malheureusement pas encore été traduit
-en français.  Veuillez consulter le site en anglais
+<p>Dans ce document, nous présentons quelques unes de fonctions
+de <em>Maple</em> pour résoudre et tracer les solutions d'EDO d'ordre
+plus grand que un; plus précisément, nous considérons les EDO
+linéaires d'ordre deux avec des coefficients constants.
+Nous prenons pour acquis que le lecteur est connaît le contenu
+du document
 <script language="javascript">
-    buildLinK(ODE_O2_const_coeff.url_en,
-    ODE_O2_const_coeff.text_en,"MMathSStat", ODE_O2_const_coeff.id,
-    ODE_O2_const_coeff.target);
-</script>.
+    buildLinK(ODE_O1.url_fr, ODE_O1.text_fr,"MMathSStat", ODE_O1.id,
+    ODE_O1.target);
+</script>.</p>
+
+<h3> Solutions générales </h3>
+
+<p>Considérons l'EDO linéaire d'autre deux suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq1 := diff(y(x),x$2)-2*diff(y(x),x)+y(x)=0;</font>
+</pre>
+
+\[
+eq1 := \frac{\text{d}^2}{\text{d}x^2} y(x) - 2 \frac{\text{d}}{\text{d}x} y(x) + y(x) = 0
+\]
+
+<p>Le lecteur a probable appris que la solution générale de cette EDO
+est de la forme \(y(x) = a_1 y_1(x) + a_2 y_2(x)\) où \(a_1\) et
+\(a_2\) sont deux constantes arbitraires, et \(y_1(x)\) et \(y_2(x)\)
+sont deux solutions linéairement indépendantes de l'EDO.  Si nous
+utilisons <em>Maple</em> pour résoudre l'EDO donnée par
+<font class="matlab">eq1</font>, alors nous obtenons le résultat suivant.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq1,y(x));</font>
+</pre>
+
+\[
+y(x) = \_C1 e^x + \_C2 e^x x
+\]
+
+<p><em>Maple</em> semble avoir passé son cours d'introduction aux EDO.</p>
+
+<p>Considérons l'EDO linéaire non-homogène suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq2 := diff(y(x),x$2)-2*diff(y(x),x)+y(x) = exp(x);</font>
+</pre>
+
+\[
+eq2 := \frac{\text{d}^2}{\text{d}x^2} y(x) - 2 \frac{\text{d}}{\text{d}x} y(x) + y(x) = e^x
+\]
+
+<p>La solution générale d'une telle EDO est de la forme
+\(y(x) = y_g(x) + y_p(x)\) où \(y_g(x)\) est la solution générale de
+l'EDO homogène associée et \(y_p(x)\) est une solution particulière.
 </p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq2,y(x));</font>
+</pre>
+
+\[
+ y(x) = e^x \_C2 + e^x x \_C1 + \frac{x^2 e^x}{2}
+\]
+
+<p>Nous pouvons vérifier que \(\frac{x^2 e^x}{2}\) est une solution
+particulière de l'ODE donnée par <font class="matlab">eq2</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">eval(subs(y(x)=x^2*exp(x)/2,eq2));</font>
+</pre>
+
+\[
+ e^x = e^x
+\]
+
+<p><em>Note</em>: Deux fonctions sont linéairement indépendantes si
+une n'est pas un multiple de l'autre.  Pour déterminer si deux
+solutions \(y_1(x)\) et \(y_2(x)\) d'une EDO d'ordre deux homogène avec des
+coefficients constants sont linéairement indépendantes, nous calculons
+le déterminant de la matrice </p>
+\[
+\begin{bmatrix} y_1(x) & y_2(x) \\ y_1'(x) & y_2'(x) \end{bmatrix}
+\]
+<p>Cette matrice est appelée le <em>Wronskian</em> des deux solutions.
+Si ce déterminant est différent de \(0\) en un point (i.e. pour une
+valeur de \(x\)), alors les deux solutions sont linéairement indépendantes.
+Si ce déterminant est égale à \(0\) en un point, alors les deux
+solutions sont linéairement dépendantes. </p>
+
+<p><em>AVERTISSEMENT</em>: Si le déterminant du Wronskian de deux
+solutions d'une EDO linéaire homogène avec des coefficients constants
+est non-nul en un point, alors il est non-nul à tous points du domaine
+des deux solutions.  De même, si le déterminant du Wronskian de deux
+solutions est nul en un point, alors il est nul à tous points du domaine
+des deux solutions.  Ceci n'est pas vrai pour deux fonctions
+quelconques.  Nous ne pouvons pas conclure que deux fonctions
+arbitraires sont linéairement indépendantes parce que le déterminant
+de leur Wronskian est non-nul en un point.</p>
+
+<p>Vérifions que les deux solutions \(\displaystyle e^x\) et
+\(\displaystyle x e^x\) de l'EDO donnée par <font class="matlab">eq1</font>
+sont linéairement indépendantes.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(VectorCalculus): with(LinearAlgebra): Determinant(Wronskian([exp(x), x*exp(x)], x))</font>
+</pre>
+
+\[
+(e^x)^2
+\]
+
+<p>Puisque \(e^{2x}\) est différent de \(0\) en un point, et donc en
+tous points, les deux solutions sont linéairement indépendantes. </p>
+
+<p><em>Exemple</em>: Considérons l'EDO suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq3 := diff(y(x),x$2)-4*diff(y(x),x)+13*y(x)=0;</font>
+</pre>
+
+\[
+ eq3 := \frac{\text{d}^2}{\text{d}x^2} y(x) - 4 \frac{\text{d}}{\text{d}x} y(x) + 13 y(x) = 0
+\]
+
+<p>Sa solution est donnée par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq3,y(x));</font>
+</pre>
+
+\[
+y(x) = \_C1 e^{2x} \sin(3x)+ \_C2 e^{2x} \cos(3x)
+\]
+
+<p> Considérons l'EDO homogène </p>
+\[
+a y''(x) + b y'(x) + c y(x) = 0
+\]
+<p> où \(a,b\) et \(c\) sont des constantes.  Si on suppose qu'il y a
+une solution de la forme \(e^{\lambda x}\) pour une constante
+\(\lambda\) et que nous la substituons dans l'EDO, alors nous obtenons 
+\( a \lambda^2 + b \lambda + c = 0 \) après division par
+\(e^{\lambda x}\).  Le polynôme \(p(\lambda) = a \lambda^2 + b \lambda + c\)
+est appelé le <em>polynôme caractéristique</em> associé à l'EDO.
+La solution générale de cet EDO est déterminée par les racines de ce
+polynôme.</p>
+
+<ol>
+<li> <p>Si \(\lambda_1\) et \(\lambda_2\) sont deux racines du polynôme
+caractéristique, alors \(e^{\lambda_1 x}\) et
+\(e^{\lambda_2 x}\) sont deux solutions linéairement indépendantes de
+l'EDO homogène.  La solution générale de l'EDO homogène est de la forme
+</p>
+\[
+y(x) = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x} \ .
+\]
+<p>Le lecteur est invité à vérifier cette conclusion en exécutant
+les commandes ci-dessous pour l'EDO donnée.</p>
+<pre class="matlab">
+> <font class="matlab">ODE:=diff(y(x),x$2) -4*diff(y(x),x)+3*y(x) =0;</font>
+> <font class="matlab">dsolve(ODE,y(x));</font>
+</pre>
+</li>
+<li> <p>Si \(\lambda\) est la seule racine réelle du polynôme
+caractéristique, alors \(e^{\lambda x}\) et \(x e^{\lambda x}\) sont
+deux solutions linéairement indépendantes de l'EDO homogène.  La
+solution générale de l'EDO est de la forme </p>
+\[
+y(x) = C_1 e^{\lambda x} + C_2 x e^{\lambda x} \ .
+\]
+<p> La racine \(\lambda\) est de multiplicité algébrique \(2\).  
+Le lecteur est invité à vérifier cette conclusion en exécutant les
+commandes suivantes pour l'EDO donnée.</p>
+<pre class="matlab">
+> <font class="matlab">ODE:=diff(y(x),x$2) - 4*diff(y(x),x) + 4*y(x) = 0;</font>
+> <font class="matlab">dsolve(ODE,y(x));</font>
+</pre>
+</li>
+<li> <p>Finalement, si \(\lambda = \alpha \pm \beta i\) avec
+\(\beta \neq 0\) sont les deux racines du polynôme caractéristique,
+alors \(e^{\alpha x} \cos(\beta x)\) and 
+\(e^{\alpha x} \sin(\beta x)\) sont deux solutions linéairement
+indépendantes de l'EDO homogène.  La solution générale de l'EDO
+homogène est de la forme</p>
+\[
+y(x) = C_1 e^{\alpha x}\cos(\beta x) + C_2 e^{\alpha x}\sin(\beta x) \ .
+\]
+<p>Le lecteur est invité à vérifier cette conclusion en exécutant les
+commandes suivantes pour l'EDO donnée.</p>
+<pre class="matlab">
+> <font class="matlab">ODE:=diff(y(x),x$2)-4*diff(y(x),x)+13*y(x)=0;</font>
+> <font class="matlab">dsolve(ODE,y(x));</font>
+</pre>
+</li>
+</ol>
+
+<h3> Applications </h3>
+
+<h4> Mouvement d'un ressort amorti </h4>
+
+<p>Le mouvement rectiligne d'un objet attaché à un ressort et amorti par un
+piston est décrit par l'EDO suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq4 := diff(y(x),x$2)+beta*diff(y(x),x)+omega^2*y(x)=0;</font>
+</pre>
+
+\[
+eq4 := \frac{\text{d}^2}{\text{d}x^2} y(x) + \beta \frac{\text{d}}{\text{d}x} y(x) + \omega^2 y(x) = 0
+\]
+
+<p>où la constant du ressort \(\omega\) est définie par
+\(\omega = K/m\) pour a constant \(K\) et la masse \(m\) de
+l'objet.   Le constante \(\beta\) est le coefficient d'amortissement.</p>
+
+<p>Si l'objet est relâché à partir d'une distance de \(1\) m de son
+point d'équilibre, alors les conditions initiales sont \(y(0)=1\) et
+  \(y'(0)=0\).  La solution de l'EDO donnée par
+<font class="matlab">eq4</font> avec ces conditions initiales est
+fournie par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">sol:=dsolve({eq4,D(y)(0)=0,y(0)=1},y(x)):</font>
+</pre>
+
+<p>Nous laissons aux lecteurs le choix d'exécuter la commande
+précédente avec un point-virgule au lieu de deux points à la fin de la
+commande s'ils veulent vraiment voir la longue solution
+Il suffit de remarquer que la solution contient l'expression
+\(\sqrt{ \beta^2 + 4 \alpha^2}\) et une division par
+\(\beta^2 - 4 \alpha^2\).  Pour \(\beta^2 + 4 \alpha^2 < 0\), les
+termes de la solution contiennent les fonctions cosinus ou sinus qui
+sont responsable pour les oscillations.   Pour \(\beta^2 + 4 \alpha^2 > 0\),
+les termes de la solution contiennent la fonction exponentiel avec
+des exposants négatifs pour \(x > 0\) et il n'y a pas d'oscillations,
+Il y a sur-amortissement.  Finalement, pour \(\beta^2 + 4 \alpha^2 = 0\),
+la formule donnée par <em>Maple</em> n'est pas une solution de l'EDO.
+Nous allons montrer ci-dessous qu'il n'y aussi pas d'oscillations.  Le
+système est amorti de façon critique.</p>
+
+<p>Nous traçons le graphe de la solution de l'EDO donnée par
+<font class="matlab">eq4</font> pour \(\omega=1\) et
+\(\beta = 0, 0.75, 1.5, 2.25, 3\).</p>
+
+<pre class="matlab">
+> <font class="matlab">yp:=(xx,bb)->subs({omega=1,x=xx,beta=bb},rhs(sol));</font>
+</pre>
+
+\[
+yp := (xx, bb) \mapsto subs({\beta = bb, \omega = 1, x = xx}, rhs(sol))
+\]
+
+<pre class="matlab">
+> <font class="matlab">plot1:=plot(yp(x,0),x=0..6*Pi,color=red):</font>
+> <font class="matlab">plot2:=plot(yp(x,0.75),x=0..6*Pi,color=blue):</font>
+> <font class="matlab">plot3:=plot(yp(x,1.5),x=0..6*Pi,color=green):</font>
+> <font class="matlab">plot4:=plot(yp(x,2.25),x=0..6*Pi,color=yellow):</font>
+> <font class="matlab">plot5:=plot(yp(x,3),x=0..6*Pi,color=brown):</font>
+> <font class="matlab">plots[display](plot1,plot2,plot3,plot4,plot5);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_5.png" style="width: 300px"
+       alt="Graphe de la solution de eq4 pour &omega; = 1 et &beta; = 0, 0.75, 1.5, 2.25, 3">
+</div>
+
+<p><em>Note</em>: La commande</p>
+
+<pre class="matlab">
+> <font class="matlab">plot({seq(yp(x,beta),beta=[0,0.75,1.5,2.25,3])},x=0..6*Pi,color=[red,green,blue,yellow,brown]);</font>
+</pre>
+  
+<p>aurait produit la même figure avec une importante différence.
+Les couleurs semblent être associées de façon aléatoire aux valeurs
+de \(\beta\).  Ceci n'est pas pratique si la couleur associée à chaque
+graphe n'est pas celle désirée.</p>
+
+<p>Comme nous pouvons constater, sans amortissement, le ressort a le
+même mouvement oscillatoire pour toujours.  Si nous ajoutons de
+l'amortissement, le mouvement oscillatoire du ressort va en diminuant.
+Le système est amorti de façon critique pour \(\beta=2\) et \(\omega=1\).
+La formule donnée par <font class="matlab">sol</font> n'est pas une
+solution valide de l'EDO.  Il y a une division par \(0\) dans cette
+formule.  Pour ces valeurs de \(\beta\) et \(\omega\), l'EDO donnée
+par <font class="matlab">eq4</font> devient l'EDO donnée ci-dessous.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq5:= subs({omega=1,beta=2},eq4);</font>
+</pre>
+
+\[
+eq5 := \frac{\text{d}^2}{\text{d}x^2} y(x) + 2 \frac{\text{d}}{\text{d}x} y(x) + y(x) = 0
+\]
+
+<p>dont la solution</p>
+
+<pre class="matlab">
+> <font class="matlab">yp:=dsolve({eq5,D(y)(0)=0,y(0)=1},y(x));</font>
+</pre>
+
+\[
+yp := y(x) = e^{-x} + e^{-x} x
+\]
+
+<p>Il n'y a pas d'oscillations du ressort.</p>
+
+<p> À partir d'un amortissement de \(\beta \geq 2\), il n'y a pas
+d'oscillations du ressort.</p> 
+
+<h4> Mouvement forcé d'un ressort </h4>
+
+<p>Le mouvement rectiligne d'un objet attaché à un ressort qui est
+soumis à une force motrice périodique de la forme \(\cos(\theta x)\) est
+décrit par l'EDO suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq6 := diff(y(x),x$2)+beta*diff(y(x),x)+omega^2*y(x)=cos(theta*x);</font>
+</pre>
+
+\[
+eq6 := \frac{\text{d}^2}{\text{d}x^2} y(x) + \beta \frac{\text{d}}{\text{d}x} y(x) + \omega^2 y(x) = \cos(\theta x)
+\]
+
+<p>Les paramètres \(\omega\) et \(\beta\) ont les mêmes significations
+que précédemment.  Nous utilisons les valeurs paramétriques
+\(\beta=2\) et \(\omega=1\) associées au système amorti de façon
+critique pour le mouvement non-forcé d'un ressort que nous avons
+analysé ci-dessus.</p> 
+
+<pre class="matlab">
+> <font class="matlab">eq7 := subs({omega=1,beta=2},eq6);</font>
+</pre>
+
+\[
+eq7 := \frac{\text{d}^2}{\text{d}x^2} y(x) + 2 \frac{\text{d}}{\text{d}x} y(x) + y(x) = \cos(\theta x)
+\]
+
+<p>Nous supposons que l'objet est initialement au repos à son point
+d'équilibre; donc \(y(0)=0\) et \(y'(0)=0\). La solution de l'EDO
+est donnée par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">sol := dsolve({eq7,y(0)=0,D(y)(0)=0},y(x));</font>
+</pre>
+
+\[
+sol := y(x) = \frac{e^{-x} (\theta^2 -1)}{\theta^4 + 2 \theta^2 +1}
+- \frac{e^{-x} x}{\theta^2 + 1} + \frac{-\cos(\theta x) \theta^2 + 2 \theta \sin(\theta x) + \cos(\theta x)}{(\theta^2 +1)^2}
+\]
+
+<p>Nous traçons le graphe de la solution de l'EDO pour
+\(\theta = 0, 0.75, 1.5, 2.25, 3\).</p>
+
+<pre class="matlab">
+> <font class="matlab">yp:=(xx,tt)->subs({x=xx,theta=tt},rhs(sol));</font>
+</pre>
+
+\[
+yp := (xx, tt) \mapsto subs({theta = tt, x = xx}, rhs(sol))
+\]
+
+<pre class="matlab">
+> <font class="matlab">plot1:=plot(yp(x,0),x=0..6*Pi,color=red):</font>
+> <font class="matlab">plot2:=plot(yp(x,0.75),x=0..6*Pi,color=blue):</font>
+> <font class="matlab">plot3:=plot(yp(x,1.5),x=0..6*Pi,color=green):</font>
+> <font class="matlab">plot4:=plot(yp(x,2.25),x=0..6*Pi,color=yellow):</font>
+> <font class="matlab">plot5:=plot(yp(x,3),x=0..6*Pi,color=brown):</font>
+> <font class="matlab">plots[display](plot1,plot2,plot3,plot4,plot5);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_6.png" style="width: 300px"
+       alt="Graph of the solutions of eq7 for different values of &beta;">
+</div>
+
+<p>La période du mouvement du ressort approche de plus en plus la
+période de la force motrice périodique.  Nous estimons l'amplitude et
+la phase de la solution quand \(x\) est <q lang="fr">très</q>
+grand.  Puisque \(e^{-x} \to 0\) lorsque \(x \to \infty\), la partie
+dominante de la solutions est</p>
+
+<pre class="matlab">
+> <font class="matlab">dom := coeff(expand(rhs(sol)*exp(x)), exp(x));</font>
+</pre>
+
+\[
+dom := -\frac{\cos(\theta x) \theta^2}{(\theta^2 +1)^2}  + \frac{2 \theta \sin(\theta x)}{ (\theta^2 +1)^2} + \frac{\cos(\theta x)}{(\theta^2 +1)^2}
+\]
+
+<p>Pour déterminer l'amplitude et la phase d'une expression de la
+forme \(a_1 \cos(\theta x) + a_2 \sin(\theta x)\), nous réécrivons cette
+expression sous la forme \(A \cos(\theta x + P)\) où \(A\) est
+l'amplitude et \(P\) est la phase.</p>
+
+<pre class="matlab">
+> <font class="matlab">a1 := coeff(dom,cos(theta*x)): a2 := coeff(dom,sin(theta*x)):</font>
+> <font class="matlab">A := simplify(sqrt(a1^2+a2^2), assume = positive);</font>
+</pre>
+
+\[
+A := \frac{1}{\theta^2 + 1}
+\]
+
+<pre class="matlab">
+> <font class="matlab"> P := simplify(arctan(-a2/a1));</font>
+</pre>
+
+\[
+P := \arctan\left(\frac{2 \theta}{\theta^2 - 1}\right)
+\]
+
+<p>Nous traçons les graphes de l'amplitude et de la phase en fonction
+de \(\theta\).</p>
+
+<pre class="matlab">
+> <font class="matlab">plot1:=plot(A,theta=0..2*Pi,color=red):</font>
+> <font class="matlab">plot2:=plot(P,theta=0..2*Pi,color=blue,discont=true):</font>
+> <font class="matlab">plots[display](plot1,plot2);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_ode_7.png" style="width: 300px"
+       alt="Graph of the amplitude and phase in function of &theta;">
+</div>
+
+<p>Le graphe de l'amplitude est en rouge et celui de la phase en bleu.
+Est-ce que la phase est vraiment discontinue?  Non, elle ne l'est pas si
+nous effectuons les calculs modulo \(\pi\) (la période de la tangente)
+et posons \(\arctan(\infty) = \pi/2\).</p>
 
 <br>
 <hr>
