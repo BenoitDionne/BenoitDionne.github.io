@@ -591,7 +591,7 @@ var root_nbr = 0;
 
 /* This is a fictive item for the root of the menu only */
 var ROOT_item = new item(null, null, null, null, null, null, ROOT,
-			 "ROOT", "ROOT", "ROOT");
+			 "ROOT", null, "ROOT");
 
 /**/
 var welcomeLinks = new Array();

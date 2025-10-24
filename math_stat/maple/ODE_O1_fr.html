@@ -28,6 +28,14 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+-->
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
 </head>
 <body>
 
@@ -41,16 +49,317 @@ top_function(ODE_O1,"fr");
 main_title( MStexte, "MMathSStat");
 </script>
 
-<h2> ODE d'ordre un </h2>
+<h2> EDO d'ordre un </h2>
 
-<p> Le contenu de ce site n'a malheureusement pas encore été traduit
-en français.  Veuillez consulter le site en anglais
-<script language="javascript">
-    buildLinK(ODE_O1.url_en,
-    ODE_O1.text_en,"MMathSStat", ODE_O1.id,
-    ODE_O1.target);
-</script>.
-</p>
+<p>Ce document présente quelques unes des fonctions de <em>Maple</em>
+qui sont utilisées pour résoudre et tracer les solutions des équations
+différentielles ordinaires (EDO) d'ordre un.</p>
+
+<h3> Solutions générales </h3>
+
+<p>Il y a plusieurs méthodes pour résoudre les EDO d'ordre un selon
+quelles sont séparables, homogènes, linéaires, etc.   <em>Maple</em>
+peut résoudre presque tous ces genres d'EDO.</p>
+
+<p>Pour trouver la solution générale de l'EDO d'ordre un suivante</p>
+
+<pre class="matlab">
+> <font class="matlab">eq1:=diff(y(x),x)+y(x)=cos(x);</font>
+</pre>
+
+\[
+eq1 := \frac{\text{d}}{\text{d}x} y(x) + y(x) = \cos(x)
+\]
+
+<p>il suffit d'utiliser la
+fonction <font class="matlab">dsolve()</font> de <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq1,y(x));</font>
+</pre>
+
+\[
+y(x) = \frac{\cos(x)}{2} + \frac{\sin(x)}{2} + e^{-x} \_C1
+\]
+
+<p>Dans la solution donnée par <em>Maple</em>, le symbole
+<font class="matlab">_C1</font> désigne une constante arbitraire.</p>
+
+<p>L'EDO homogène associée à l'EDO <font class="matlab">eq1</font> ci-dessus
+est</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq2 := lhs(eq1) = 0;</font>
+</pre>
+
+\[
+eq2 := \frac{\text{d}}{\text{d}x} y(x) + y(x) = 0
+\]
+
+<p>Ça solution générale est donnée par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq2,y(x));</font>
+</pre>
+
+\[
+ y(x) = e^{-x} \_C1
+\]
+
+<p>Le terme contenant <font class="matlab">_C1</font> dans la solution
+de <font class="matlab">eq1</font> est la solution générale de
+<font class="matlab">eq2</font>.  Les autres termes de la solution
+de <font class="matlab">eq1</font> forme une solution particulière de
+<font class="matlab">eq1</font>.</p>
+
+<p><em>Exemples</em>: Voici quelques exemples supplémentaires.</p>
+
+<p>Considérons l'EDO séparable suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq3 := diff(y(x),x) = x^2*y(x)^2;</font>
+</pre>
+
+\[
+eq3 = \frac{\text{d}}{\text{d}x} y(x) = x^2 y(x)^2
+\]
+
+<p> Ça solution est donnée par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq3,y(x));</font>
+</pre>
+
+\[
+  y(x) = \frac{3}{-x^3 + 3\_C1}
+\]
+
+<p>Considérons l'EDO homogène suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq4:=(x^2+y(x)^2)*diff(y(x),x)+ x^2-y(x)^2= 0;</font>
+</pre>
+
+\[
+  eq4 := (x^2+y(x)^2) \frac{\text{d}}{\text{d}x} y(x) + x^2 - y(x)^2 = 0
+\]
+
+<p>Ça solution est <q lang="fr">donnée</q> par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq4,y(x));</font>
+</pre>
+
+\[
+    y(x) = RootOf \left(-\int^z \frac{1+\_a^2}{\_a^3 -\_a^2+\_a+1} \text{d}\_a + \ln(x) + \_C1\right) x
+\]
+
+<p><em>Maple</em> semble avoir des problèmes à résoudre cette EDO.
+Nous y reviendrons plus tard.</p>
+
+<p>Finalement, considérons l'EDO linéaire suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq5:= diff(y(x),x) + x^2*y(x) = x^2;</font>
+</pre>
+
+\[
+ eq5 := \frac{\text{d}}{\text{d}x} y(x) + x^2 y(x) = x^2
+\]
+
+<p>Ça solution est donnée par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq5,y(x));</font>
+</pre>
+
+\[
+ y(x) = 1+ e^{-\frac{x^3}{3}} \_C1
+\]
+
+<h3> Problèmes aux valeurs initiales </h3>
+
+<p>Nous considérons l'EDO linéaire d'ordre un
+\(\displaystyle y'(x) + x^2 y(x) = x^2\)
+et utilisons la fonction <font class="matlab">dsolve()</font> pour
+résoudre cette EDO avec la condition initiale \(y(2)=3\).
+La variable <font class="matlab">eq5</font> définie ci-dessus
+contient la version <em>Maple</em> de cette EDO.</p>
+
+<pre class="matlab">
+> <font class="matlab">sol1:=dsolve({eq5,y(2)=3},y(x));</font>
+</pre>
+
+\[
+sol1 := y(x) = 1+ \frac{2 e^{-\frac{x^3}{3}}}{e^{-\frac{8}{3}}}
+\]
+
+<p>Nous pouvons utiliser la fonction
+<font class="matlab">plot()</font> pour tracer le graphe de cette
+solution.  Nous récupérons la formule pour cette solution
+particulière à l'aide de la commande <font class="matlab">rhs(sol1)</font>
+avant de faire appel à la fonction <font class="matlab">plot()</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">plot(rhs(sol1),x=1..5);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_1.png" style="width: 300px"
+       alt="Graphe de la solution de l'EDO eq5 avec la condition initial y(2)=3">
+</div>
+
+<p><em>Note</em>: Si nous devons évaluer la solution d'une problème
+aux valeurs initiales à plusieurs points, alors il est préférable
+d'utiliser une procédure pour définir la solution.</p>
+
+<pre class="matlab">
+> <font class="matlab">yp:= s -> subs( x=s,rhs(sol1));  evalf(yp(1.5)); </font>
+</pre>
+
+\[
+\begin{split}
+&yp := s \mapsto subs( x=s, rhs(sol1)) \\
+& \qquad 10.34474214
+\end{split}
+\]
+
+<h3> Solutions numériques </h3>
+
+<p>Lorsque nous parlons de la <em>solution numérique</em> d'une EDO,
+nous parlons naturellement d'une approximation de la vrai solution
+de l'EDO.</p>
+
+<p>Puisque qu'une forme simple de la solution de l'EDO homogène donnée
+par <font class="matlab">eq4</font> ne semble pas possible, nous
+cherchons une solution numérique de cette EDO avec la condition
+initiale \(y(0)=2\).</p>
+
+<pre class="matlab">
+> <font class="matlab">yp := dsolve({eq4,y(0)=2},y(x),type=numeric);</font>
+</pre>
+
+\[
+yp:=proc(x\_rkf45) ... end proc
+\]
+
+<p>Par défaut, la méthode numérique utilisé pour résoudre un problème
+aux valeurs initiales est la méthode de Runge-Kutta-Fehlberg d'ordre 4
+avec une erreur d'ordre 5.  Nous utilisons la fonction
+<font class="matlab">odeplot</font> de <em>Maple</em> pour tracer le
+graphe de la solution ci-dessus.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(plots): odeplot(yp,-4..4);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_2.png" style="width: 300px"
+       alt="Graphe de la solution de l'EDO eq4 avec la condition initiale y(0)=2">
+</div>
+
+<p>Puisqu'il n'est pas toujours possible d'obtenir une forme simple
+pour la solution d'une EDO, tracer le graphe de la solution numérique
+d'une problème aux valeurs initiales est souvent une bonne
+alternative.  Pour obtenir un aperçu qualitatif des graphes des
+solutions d'une EDO, nous pouvons tracer un <em>slope field</em> de l'EDO. </p>
+
+<p>Considérons l'EDO d'ordre un \(y'(x) = f(x,y(x))\).  Le côté droit
+\(f(x,y(x))\) est la pente de la solution \(y\) à chaque point
+\((x,y(x))\); un point sur le graphe de la solution \(y\).  Pour
+tracer un champ de pentes pour une EDO, nous choisissons plusieurs
+points également distancés du plan et traçons une flèche de pente
+\(f(x,y)\) à partir de chacun de ces points.  <em>Maple</em> a une
+jolie fonction pour générer les champs de pentes d'une EDO.</p>
+
+<p>Considérons notre fameuse EDO homogène d'ordre définie par
+<font class="matlab">eq4</font>.  Un champ de pentes pour cette EDO
+est tracé ci-dessous.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(DEtools):  DEplot(eq4,y(x),x=-5..5,y=-5..5, arrows=small);</font>
+</pre>
+			      
+<div class="center">
+  <img src="Maple_ode_3.png" style="width: 300px"
+       alt="Champ de pente pour l'EDO eq4">
+</div>
+
+<p>Nous pouvons aussi tracer les graphes des solutions associées à des
+conditions initiales sur le champ de pentes ci-dessus.  Dans la figure
+ci-dessous, nous avons inclus les graphes des solutions particulières
+associées aux conditions initiales \(y(0)=1\), \(y(0)=-2\) and
+\(y(0)=2\). </p>
+
+<pre class="matlab">
+> <font class="matlab">DEplot(eq4,y(x),x=-5..5,y=-5..5, [[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green], arrows=small);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_4.png" style="width: 300px"
+       alt="Champ de pente de l'EDO eq4 incluant les graphes des trois solutions associées aux conditions initiales y(0)=1, y(0)=-2 et y(0)=2">
+</div>
+
+<p>Il est possible de choisir une méthode numérique différent, un pas
+différent, une erreur de tolérance différente, ... pour les fonctions
+<font class="matlab">dsolve()</font> et
+<font class="matlab">DEplot()</font>.</p>
+
+<p><em>Exemple</em>: Considérons l'EDO définie de la façon suivante
+dans <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq5 := diff(y(x),x)+x^2*y(x)=x^2;</font>
+</pre>
+
+\[
+eq5 := \frac{\text{d}}{\text{d} x} \,y(x) + x^{2}\,y(x)=x^{2}
+\]
+
+<p>Nous pouvons tracer un champ de pentes de cet EDO qui contient les
+graphes des solutions particulières associées aux conditions initiales
+\(y(0)=1\), \(y(0)=-2\) et \(y(0)=2\).  Nous utilisons la simple
+méthode de <em>Euler</em> avec un pas de \(0.1\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> DEplot(eq5,y(x),x=-10..10,y=-10..10,[[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green],method=classical[foreuler],stepsize=.1);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_11.png" style="width: 300px"
+       alt="Champ de pentes de l'EDO ODE eq5 qui contient les graphes des solutions particulières associées aux conditions initiales y(0)=1, y(0)=-2 et y(0)=2">
+</div>
+
+<p> Il semble y avoir un problème avec les graphes des solutions
+particulières associées aux conditions initiales
+\(y(0)=-2\) and \(y(0)=2\) lorsque \(x\) est plus grand que \(8\).
+Les graphes des solutions ne sont pas tangent au champ de pentes comme
+cela devrait être le cas. </p>
+
+<p> Cet exemple illustre le danger associé à l'utilisation d'une
+méthode d'intégration numérique.  Pour obtenir des résultats qui sont
+réalistes et plus précis, il est souvent nécessaire de choisir un pas
+différent ou une méthode numérique plus appropriée.  Il est donc
+important d'avoir une connaissance théorique et qualitative  
+de l'EDO avant d'entreprendre d'énormes calculs  Le problème dans le
+cas présent provient de la méthode d'Euler qui n'est pas une méthode
+d'intégration très précise et du pas qui est trop grand.  Si nous
+utilisons la méthode numérique que <font class="matlab"> DEplot()</font>
+utilise par défaut (i.e. la méthode de Runge-Kutta-Fehlberg), nous
+obtenons alors le résultat suivant. </p>
+
+<pre class="matlab">
+> <font class="matlab"> DEplot(eq5,y(x),x=-5..5,y=-5..5,[[y(0)=1],[y(0)=-2],[y(0)=2]], linecolor=[red,blue,green]);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_ode_12.png" style="width: 300px"
+       alt="Champ de pentes de l'EDO ODE eq5 qui contient les graphes des solutions particulières associées aux conditions initiales y(0)=1, y(0)=-2 et y(0)=2">
+</div>
+
+<p>Ce résultat est beaucoup mieux.</p>
 
 <br>
 <hr>
