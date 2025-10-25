@@ -97,7 +97,7 @@ une solution en série de puissances de l'EDO de Mathieu </p>
 étudier cette fonction spéciale.  Alors, nous pouvons simplement
 demander à <em>Maple</em> de nous fournir une solution en série de
 puissances de l'EDO ci-dessus avec les conditions initiales \(x(0)=0\)
-e \(x'(0)=1\).</p>
+et \(x'(0)=1\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> Order:=14; dsolve(ODEic,x(t),type='series'); </font>
@@ -123,7 +123,7 @@ la fonction <font class="matlab">dsolve()</font>.  Le niveau normal
 est 1.  Il peut aller jusqu'à 5.</p>
 
 <p>Puisque la solution en terme de la fonction de Mathieu ou la
-solution en série de puissances n'est pas une expression simple, nous
+solution en série de puissances ne sont pas des expressions simples, nous
 pouvons aussi bien résoudre numériquement l'EDO ci-dessus avec les
 conditions initiales \(x(0)=0\) et \(x'(0)=1\).</p>
 
@@ -136,7 +136,7 @@ xs := \text{proc}\left(x\_rkf45\right)...\text{end proc}
 \]
 
 <p>Si nous évaluons cette fonction à un point \(t=a\), nous obtenons
-alors la liste \(a, x(a) , x'(a) \) comme on peut voir ci-dessous.</p>
+alors la liste \(a, x(a) , x'(a) \) comme nous pouvons voir ci-dessous.</p>
 
 <pre class="matlab">
 > <font class="matlab">xs(2.5);</font>
@@ -187,9 +187,9 @@ comportement de \(x(t)\) et \(x'(t)\) lorsque \(t\) converges vers
 observez ce qui arrive aux graphes de \(x\) et \(x'\).</p>
 
 <p> Pour le reste de ce document, nous considérons deux EDO d'ordre
-deux avec des coefficients variables qui sont classiques: l'équation de
-Cauchy-Euler et l'équation de Bessel.  Il y en a bien d'autres mais
-ces deux EDO sont très importantes.</p> 
+deux avec des coefficients variables qui sont des examples classiques:
+l'équation de Cauchy-Euler et l'équation de Bessel.  Il y en a bien
+d'autres mais ces deux EDO sont très importantes.</p> 
 
 <h3> Équation de Cauchy-Euler </h3>
 
@@ -197,7 +197,7 @@ ces deux EDO sont très importantes.</p>
 \[
 x^2 y''(x) + b x y'(x) + c y(x)=0
 \]
-<p>où \(b\) et \(b\) sont des constantes.  Cette EDO est définie
+<p>où \(b\) et \(c\) sont des constantes.  Cette EDO est définie
 dans <em>Maple</em> de la façon suivante. </p>
 
 <pre class="matlab">
@@ -247,16 +247,16 @@ est une solution de cette EDO, alors
 \(x \mapsto y(x) = \tilde{y}(\ln(x))\) est une solution de
 l'équation de Cauchy-Euler.  L'équation indicielle de l'équation de 
 Cauchy-Euler est l'équation caractéristique de l'EDO linéaire
-d'ordre deux avec des coefficients constants.  Il en découle qu'il y a
-trois types de solutions pour l'équation de Cauchy-Euler comme c'est
-le cas pour l'EDO linéaire d'ordre deux avec des coefficients
-constants précédente.</p>
+d'ordre deux avec des coefficients constants précédente.  Il en
+découle qu'il y a trois types de solutions pour l'équation de
+Cauchy-Euler comme c'est le cas pour l'EDO linéaire d'ordre deux avec
+des coefficients constants précédente.</p>
 
 <ul>
 <li> \(\displaystyle y(x) = c_1 x^{r_1} + c_2 x^{r_2}\) si l'équation
 indicielle possède deux racines réelles distinctes, \(r_1\) et \(r_2\). </li>
 <li> \(\displaystyle y(x) = c_1 x^r + c_2 x^r \ln(x)\) si l'équation
-indicielle possère une seule racine réelle, \(r\).</li>
+indicielle possède une seule racine réelle, \(r\).</li>
 <li> \(\displaystyle y(x) = c_1 x^a \cos(b\ln(x)) + c_2 x^a \sin(b\ln(x))\) si
 l'équation indicielle possède une paire de racines complexes conjuguées,
 \(a \pm b i\) avec \(b \neq 0\).</li>
@@ -334,7 +334,7 @@ y(x) = \_C1 x+ \_C2 x \ln(x)
 \]
 
 <p>Si nous résolvons l'équation de Cauchy-Euler avec les mêmes
-conditions aux limites que précédemment, Nous obtenons la solution
+conditions aux limites que précédemment, nous obtenons la solution
 suivante.</p>
 
 <pre class="matlab">
@@ -346,7 +346,7 @@ y(x) = x - \frac{x \ln(x)}{3 \ln(3)}
 \]
 
 <p>Ainsi, nous avons que \(c_1 = 1\) et
-\(\displaystyle c_2 = (3\ln(3)^{-1}\).</p>
+\(\displaystyle c_2 = -(3\ln(3)^{-1}\).</p>
 
 <h3> Équation de Bessel </h3>
 
@@ -367,7 +367,7 @@ eq5 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 \]
 
 <p>L'<em>équation indicielle</em> pour l'équation de Bessel est
-s \(r^2-p^2 =0\).  Nous ne présenterons pas la théorie qui conduit à
+\(r^2-p^2 =0\).  Nous ne présenterons pas la théorie qui conduit à
 cette équation indicielle mais nous allons seulement mentionner que
 les solutions en séries de puissances sont requises pour déduire cette
 équation indicielle.  L'équation indicielle a deux racines réelles
@@ -383,7 +383,7 @@ ci-dessous.</p>
 \]
 
 <p><font class="matlab">BesselJ(p,x)</font> est la fonction de Bessel
-de première espèce d'ordre \(p\), et
+de première espèce d'ordre \(p\) et
 <font class="matlab">BesselY(p,x)</font> est la fonction de Bessel de
 deuxième espèce d'ordre \(p\).  Les fonctions de Bessel de première
 espèce peut être exprimées en série de puissance à l'origine.  Ce n'est
@@ -392,7 +392,7 @@ est une singularité pour les fonctions de Bessel de deuxième espèce.</p>
 
 <p>Nous pouvons utiliser <em>Maple</em> pour obtenir les premiers
 termes de la série de puissance de la fonction de Bessel de première
-espèce d'ordre \(0)\ à l'origine.</p>
+espèce d'ordre \(0\) à l'origine.</p>
 
 <pre class="matlab">
 > <font class="matlab">taylor(BesselJ(0,x),x=0,8);</font>

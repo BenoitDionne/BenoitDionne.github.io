@@ -243,10 +243,10 @@ substitution \(\displaystyle x = e^t\).  If \(t \mapsto \tilde{y}(t)\)
 is a solution of this ODE, then \(x \mapsto y(x)= \tilde{y}(\ln(x))\)
 is a solution for the Cauchy-Euler equation.  The indicial equation of
 the Cauchy-Euler equation is the characteristic equation for the
-second order linear ODE with constant coefficients.  It therefore
+second order linear ODE with constant coefficients above.  It therefore
 follows that there are three types of solutions for the Cauchy-Euler
-equation as it is so for the previous second order linear ODE with
-constant coefficients.</p> 
+equation as it is so for the second order linear ODE with
+constant coefficients above.</p> 
 
 <ul>
 <li> \(\displaystyle y(x) = c_1 x^{r_1} + c_2 x^{r_2}\) if the
@@ -338,7 +338,7 @@ conditions than before, we get the following solution.</p>
 y(x) = x - \frac{x \ln(x)}{3 \ln(3)}
 \]
 
-<p>Hence, we have \(c_1 = 1\) and \(\displaystyle c_2 = (3\ln(3)^{-1}\).</p>
+<p>Hence, we have \(c_1 = 1\) and \(\displaystyle c_2 = -(3\ln(3)^{-1}\).</p>
 
 <h3> Bessel Equation </h3>
 
@@ -373,7 +373,7 @@ when \(p \neq 0\).  The general solution is given below.</p>
 \]
 
 <p><font class="matlab">BesselJ(p,x)</font> is the Bessel function of
-the first kind of order \(p\), and
+the first kind of order \(p\) and
 <font class="matlab">BesselY(p,x)</font> is the Bessel function of the
 second kind of order \(p\).  The Bessel functions of the first kind can
 be expressed as a power series at the origin but the Bessel
@@ -382,7 +382,7 @@ the Bessel functions of the second kind.</p>
 
 <p>We can use <em>Maple</em> to get the first terms of the power
 series expansion of the Bessel function of the first king of order
-<font class="matlab">0</font> at the origin.</p>
+\(0\) at the origin.</p>
 
 <pre class="matlab">
 > <font class="matlab">taylor(BesselJ(0,x),x=0,8);</font>
