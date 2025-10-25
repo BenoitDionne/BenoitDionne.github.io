@@ -56,7 +56,7 @@ coefficients </p>
 \[
 \frac{\text{d}^2 x}{\text{d} t^2} + \cos(t)\, x = 0 \ .
 \]
-<p> In Maple, we get</p>
+<p> It is defined in <em>Maple</em> as it follows.</p>
 
 <pre class="matlab">
 > <font class="matlab">ODE:=diff(x(t),t$2) + cos(t)*x(t)=0;</font>
@@ -68,7 +68,7 @@ ODE := \frac{\partial^{2}}{\partial t^{2}}\, x(t)
 \]
 
 <p> To solve this ODE with the initial conditions \(x(0)=0\) and
-\(x'(0)=1\), we proceed as follows.</p>
+\(x'(0)=1\), we proceed as it follows.</p>
 
 <pre class="matlab">
 > <font class="matlab">ODEic:= { ODE } union {x(0)=0,D(x)(0)=1}; </font>
@@ -87,15 +87,16 @@ x(t) + \cos(t)\,x(t)=0, \,x(0)=0, \,\text{D}(x)(0)=1 \right\}
 x(t) =2\, MathieuS\left(0,-2,\frac{t}{2} \right)
 \]
 
-<p> The answer given by Maple is in terms of the <em>Mathieu
+<p> The answer given by <em>Maple</em> is in terms of the <em>Mathieu
 function</em> <font class="matlab">MathieuS(a, q, s)</font>.  This is
-a series solutions of the Mathiew differential equation </p>
+a power series solution of the Mathieu ODE </p>
 \[
 \frac{\text{d}^2 x}{\text{d} t^2} + (a - 2 q \cos(2 s)) u = 0 \, .
 \]
-<p> If we do not want to learn about another special functions, we may
-ask Maple to give a series solution of the ODE above with \(x(0)=0\)
-and \(x'(0)=1\).</p>
+<p> Assuming that we do not want to spend a lot of time studying
+this special function, we may simply ask <em>Maple</em> to give a
+power series solution of the ODE above with the initial conditions
+\(x(0)=0\) and \(x'(0)=1\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> Order:=14; dsolve(ODEic,x(t),type='series'); </font>
@@ -112,16 +113,16 @@ and \(x'(0)=1\).</p>
 \]
 
 <p> The command <font class="matlab">Order :=14</font> set the order
-of the series solutions requested.  By default,
-<font class="matlab">Order</font> is \(6\).  To get some information
-on the integration methods used, we can use the command
-<font class="matlab">infolevel[dsolve]:=3</font> before using
-<font class="matlab">dsolve()</font>.  Level 1 is the normal level.
+of the power series solutions that <em>Maple</em> will provide.  By default,
+<font class="matlab">Order</font> is equal to \(6\).  To get some information
+on the integration methods used by <em>Maple</em>, we can use the command
+<font class="matlab">infolevel[dsolve]:=3</font> before using the
+function <font class="matlab">dsolve()</font>.  The normal Level is 1.
 It can go up to level 5.</p>
 
-<p>Since the solution in terms of the Mathieu function or the series
-solution are not simple functions, we may as well solve the ODE above
-with \(x(0)=0\) and \(x'(0)=1\) numerically.</p>
+<p>Since the solution in terms of the Mathieu function or the power series
+solution are not simple expressions, we may as well numerically solve
+the ODE above with the initial conditions \(x(0)=0\) and \(x'(0)=1\).</p>
 
 <pre class="matlab">
 > <font class="matlab">xs:=dsolve(ODEic, x(t),type=numeric, output=procedurelist, method=rkf45, range=0..30*Pi);</font>
@@ -131,8 +132,8 @@ with \(x(0)=0\) and \(x'(0)=1\) numerically.</p>
 xs := \text{proc}\left(x\_rkf45\right)...\text{end proc}
 \]
 
-<p>If we evaluate this function at un point \(t\), then we get the
-list \(t, x(t) , x'(t) \).</p>
+<p>If we evaluate this function at a point \(t=a\), then we get the
+list \(a, x(a) , x'(a) \) as shown below.</p>
 
 <pre class="matlab">
 > <font class="matlab">xs(2.5);</font>
@@ -143,7 +144,7 @@ list \(t, x(t) , x'(t) \).</p>
 x(t)=1.107676186986299\right]
 \]
 
-<p> We can use <font class="matlab">xs</font> to plot the graph of
+<p> We can use <font class="matlab">xs</font> to plot the graphs of
 \(x\) and \(x'\). </p>
 
 <pre class="matlab">
@@ -153,7 +154,7 @@ x(t)=1.107676186986299\right]
 
 <div class="center">
   <img src="Maple_Mathieu_1.png" style="width: 300px"
-       alt="Graph of the x(t) as a function of t">
+       alt="Graph of x as a function of t">
 </div>
 
 <pre class="matlab">
@@ -162,7 +163,7 @@ x(t)=1.107676186986299\right]
 
 <div class="center">
   <img src="Maple_Mathieu_2.png" style="width: 300px"
-       alt="Graph of the x'(t) as a function of t">
+       alt="Graph of x' as a function of t">
 </div>
 
 <p> We may also plot parts of the orbit
@@ -174,20 +175,27 @@ x(t)=1.107676186986299\right]
 
 <div class="center">
   <img src="Maple_Mathieu_3.png" style="width: 300px"
-       alt="Graph of the orbit (x(t),x'(t)) for t between 0 and 30 pi">
+       alt="Graph of the orbit (x(t),x'(t)) for t between 0 and 30 &pi;">
 </div>
 
-<p> Looking at the graphs above, could we tell how \(x(t)\) and
-\(x'(t)\) behave as \(t\) converges to plus infinity?  Vary the length
-of the interval of integration and observe what happen to the graphs.</p>
+<p> Just by looking at the figures above, could we predict the
+behaviour of \(x(t)\) and \(x'(t)\) as \(t\) converges to \(\infty\)?
+Vary the length of the interval of integration and observe what happen
+to the graphs.</p> 
 
-<p> For the rest of this section, we consider two classical second
-order ODE with variable coeeficients, the Cauchy-Euler equation and
-the Bessel equation.  There are many more.</p> 
+<p> For the rest of this document, we consider two classical second
+order ODE with variable coefficients: the Cauchy-Euler equation and
+the Bessel equation.  There are many more but these two ODE are
+really important.</p>
 
 <h3> Cauchy-Euler Equation </h3>
 
-<p>The Cauchy-Euler equation is</p>
+<p> The Cauchy-Euler equation is</p>
+\[
+x^2 y''(x) + b x y'(x) + c y(x)=0
+\]
+<p>where \(b\) and \(c\) are constants.  This ODE is defined
+in <em>Maple</em> as it follows.</p> 
 
 <pre class="matlab">
 > <font class="matlab"> eq1 := x^2*diff(y(x),x$2) + b*x*diff(y(x),x)+c*y(x)=0;</font>
@@ -198,10 +206,11 @@ eq1 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 + b x \left( \frac{\text{d}}{\text{d} x} y(x)\right) + c y(x) = 0
 \]
 
-<p>The form of the solutions depend on the the parameters
-<font class="matlab">b</font> and <font class="matlab">c</font>.  The
-basic idea is to suppose that a solution of this ODE is of the from
-\(y(x) = x^r\).  If we make this substitute </p>
+<p>The form of the solutions of this ODE depend on the values of the
+parameters \(b\) and \(c\).  The basic idea to find the solutions of
+this ODE is to suppose that a solution of this ODE is of the from
+\(\displaystyle y(x) = x^r\).  If we substitute this expression in the
+ODE, we get the following equation. </p>
 
 <pre class="matlab">
 > <font class="matlab">eq2 := eval( subs(y(x)=x^r, eq1) );</font>
@@ -209,10 +218,11 @@ basic idea is to suppose that a solution of this ODE is of the from
 
 \[
 eq2 := x^2 \left( \frac{x^r r^2}{x^2} - \frac{x^r r}{x^2}  \right)
-+ b x^r r  c x^r = 0
++ b x^r r +  c x^r = 0
 \]
 
-<p>and divide both side by \(x^r\), we get</p>
+<p>After dividing both sides of the equality by \(x^r\), we get the
+following equation.</p> 
 
 <pre class="matlab">
 > <font class="matlab">simplify( eq2/x^r );</font>
@@ -222,32 +232,34 @@ eq2 := x^2 \left( \frac{x^r r^2}{x^2} - \frac{x^r r}{x^2}  \right)
 r^2+ (b-1) r+c = 0
 \]
 
-<p>The <em>indicial equation</em> for the Cauchy-Euler equation is
-\(r^2+(b-1)r+c=0\). The solution depends on the roots of this equation.</p>
+<p>The <em>indicial equation</em> of the Cauchy-Euler equation is
+\(\displaystyle r^2+(b-1)r+c=0\). The solutions of the Cauchy-Euler
+equation depend on the roots of the indicial equation.</p> 
 
-<p><em>Note</em>: The Cauchy Euler equation can be reduced to the
+<p><em>Note</em>: The Cauchy-Euler equation can be reduced to the
 second order linear ODE with constant coefficients
-\(y''(t) +(b-1) y'(t) +c y(t) = 0\) with the substitution
-\(x = e^t\). If \(y(t)\) is a solution of this ODE, then
-\(y(\ln(x))\) is a solution for the Cauchy Euler equation.  The indicial
-equation for the Cauchy Euler equation is the
-<em>characteristic equation</em> for the second order linear
-ODE with constant coefficients.  It therefore follows that the
-solutions of the Cauchy Euler equation are of three types as the
-solutions of the second order linear ODE with constant coefficients.</p>
+\(\tilde{y}''(t) +(b-1) \tilde{y}'(t) +c \tilde{y}(t) = 0\) with the
+substitution \(\displaystyle x = e^t\).  If \(t \mapsto \tilde{y}(t)\)
+is a solution of this ODE, then \(x \mapsto y(x)= \tilde{y}(\ln(x))\)
+is a solution for the Cauchy-Euler equation.  The indicial equation of
+the Cauchy-Euler equation is the characteristic equation for the
+second order linear ODE with constant coefficients.  It therefore
+follows that there are three types of solutions for the Cauchy-Euler
+equation as it is so for the previous second order linear ODE with
+constant coefficients.</p> 
 
 <ul>
-<li> \(y(t) = c_1 x^{r_1} + c_2 x^{r_2}\) if the indicial equation has
-two distinct real roots \(r_1\) and \(r_2\). </li>
-<li> \(y(t) = c_1 x^r + c_2 x^r \ln(x)\) if the indicial equation has
-only one real root \(r\).</li>
-<li> \(y(t) = c_1 x^a \cos(b\ln(x)) + c_2 x^a \sin(b\ln(x))\) if the
-indicial equation has the pair of complex conjugate roots
+<li> \(\displaystyle y(x) = c_1 x^{r_1} + c_2 x^{r_2}\) if the
+indicial equation has two distinct real roots, \(r_1\) and \(r_2\). </li>
+<li> \(\displaystyle y(x) = c_1 x^r + c_2 x^r \ln(x)\) if the indicial
+equation has only one real root, \(r\).</li>
+<li> \(\displaystyle y(x) = c_1 x^a \cos(b\ln(x)) + c_2 x^a \sin(b\ln(x))\)
+if the indicial equation has a pair of complex conjugate roots,
 \(a \pm b i\) with \(b \neq 0\).</li>
 </ul>
 
-<p>Suppose that <font class="matlab">b=c=1</font> in the Cauchy Euler
-equation.</p>
+<p><em>Example</em>: Suppose that <font class="matlab">b=c=1</font> in
+the Cauchy-Euler equation.</p>
 
 <pre class="matlab">
 > <font class="matlab"> eq3 := subs({b=1,c=1},eq1);</font>
@@ -259,7 +271,8 @@ eq3 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 \]
 
 <p>The indicial equation is \(r^2 + 1 = 0\) and has two distinct complex
-  roots (i.e. \(\pm i\) ).  The general solution is</p>
+roots; namely, \(\pm i\).  <em>Maple</em> gives the following
+general solution for this ODE.</p> 
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq3 ,y(x));</font>
@@ -269,17 +282,17 @@ eq3 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
   y(x) = \_C1 \sin(ln(x)) + \_C2 \cos(ln(x))
 \]
 
-<p>as expected.</p>
+<p>This is the expected general solution.</p>
 
 <h3> Boundary value Problems for ODE </h3>
 
 <p> To study some partial differential equations (PDE), it is
-  important to study Boundary Value Problems for the Cauchy Euler
+  important to study Boundary Value Problems for the Cauchy-Euler
   equation.  For instance, consider the Cauchy Euler equation with the
   boundary conditions \(y(1)=1\) and \(y(3)=2\).  In theory, we have to find
-  the values of <font class="matlab">_C1</font>
-  and <font class="matlab">_C2</font> such that these conditions are
-  satisfied.  The function  
+  the values for the constants \(c_1\) and \(c_2) in the general
+  solution of the Cauchy-Euler equation such that these boundary
+  conditions are satisfied.  The function  
   <font class="matlab">dsolve(&nbsp;)</font> can do that for us.</p>
 
 <pre class="matlab">
@@ -290,7 +303,8 @@ eq3 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 y(x) = -\frac{(-2+\cos(\ln(3))) \sin(ln(x))}{\sin(\ln(3))} + \cos(\ln(x))
 \]
 
-<p>Suppose now that \(-b=c=1\) in the Cauchy Euler equation.</p>
+<p><em>Example</em>: Suppose now that \(-b=c=1\) in the Cauchy-Euler
+equation.</p> 
 
 <pre class="matlab">
 > <font class="matlab"> eq4 := subs({b=-1,c=1},eq1);</font>
@@ -302,7 +316,8 @@ eq4 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 \]
 
 <p>The indicial equation is \((r-1)^2 = 0\).  There is a single real
-  root \(r = 1\).  The general solution is, as expected,</p>
+root.  This root is \(r = 1\).  As expected, the general solution is the
+following one.</p>
 
 <pre class="matlab">
 > <font class="matlab"> dsolve(eq4 ,y(x));</font>
@@ -312,8 +327,8 @@ eq4 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 y(x) = \_C1 x+ \_C2 x \ln(x)
 \]
 
-<p>If we solve the Cauchy Euler equation with the same boundary
-  conditions than before, the solution is</p>
+<p>If we solve the Cauchy-Euler equation with the same boundary
+conditions than before, we get the following solution.</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve({eq4,y(1)=1,y(3)=2},y(x));</font>
@@ -323,10 +338,17 @@ y(x) = \_C1 x+ \_C2 x \ln(x)
 y(x) = x - \frac{x \ln(x)}{3 \ln(3)}
 \]
 
+<p>Hence, we have \(c_1 = 1\) and \(\displaystyle c_2 = (3\ln(3)^{-1}\).</p>
+
 <h3> Bessel Equation </h3>
 
 <p> We now consider the Bessel equation</p>
-  
+\[
+x^2 y''(x) + x y'(x) + (x^2-p^2) y(x)=0
+\]
+<p>where \(p\) is a constant.  This ODE is defined
+in <em>Maple</em> as it follows.</p> 
+
 <pre class="matlab">
 > <font class="matlab"> eq5 := x^2*diff(y(x),x$2)+x*diff(y(x),x) + (x^2-p^2)*y(x)=0;</font>
 </pre>
@@ -336,9 +358,11 @@ eq5 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
 + x \left( \frac{\text{d}}{\text{d}x} \right) y(x) + (-p^2 + x^2) y(x) = 0
 \]
 
-<p>The indicial equation is \(r^2-p^2 =0\) -- Solutions by power
-series are needed to deduce this indicial equation. It has two
-distinct roots when \(p \neq 0\).  The general solution is </p>
+<p>The <em>indicial equation</em> of the Bessel equation is \(r^2-p^2 =0\).
+We will not present the theory that leads to this indicial equation but
+we will only mention that power series solutions are needed to deduce
+the indicial equation.  The indicial equation has two distinct roots
+when \(p \neq 0\).  The general solution is given below.</p> 
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq5,y(x));</font>
@@ -352,11 +376,13 @@ distinct roots when \(p \neq 0\).  The general solution is </p>
 the first kind of order \(p\), and
 <font class="matlab">BesselY(p,x)</font> is the Bessel function of the
 second kind of order \(p\).  The Bessel functions of the first kind can
-be expressed as infinite series around the origin but the Bessel
-functions of the second kind cannot (the origin is a singularity).
-The Bessel function of the first king of order
-<font class="matlab">0</font> has the following series expansion
-near the origin.
+be expressed as a power series at the origin but the Bessel
+functions of the second kind cannot.  The origin is a singularity for
+the Bessel functions of the second kind.</p>
+
+<p>We can use <em>Maple</em> to get the first terms of the power
+series expansion of the Bessel function of the first king of order
+<font class="matlab">0</font> at the origin.</p>
 
 <pre class="matlab">
 > <font class="matlab">taylor(BesselJ(0,x),x=0,8);</font>
@@ -367,7 +393,7 @@ near the origin.
 \]
 
 <p>The graphs of the Bessel functions of the first kind of order \(0\)
-and \(1\) are</p>
+and \(1\) are drawn below.</p>
 
 <pre class="matlab">
 > <font class="matlab"> with(plots):</font>
@@ -382,11 +408,11 @@ and \(1\) are</p>
 </div>
 
 <p>Except for the Bessel functions of the first kind of order \(0\) that
-is \(1\) at the origin, all the Bessel functions of the first kind are
-\(0\) at the origin.</p>
+takes the value \(1\) at the origin, all the Bessel functions of the
+first kind are \(0\) at the origin.</p>
 
 <p>The graphs of the Bessel functions of the second kind of order \(0\)
-and \(1\) are</p>
+and \(1\) are drawn below.</p>
 
 <pre class="matlab">
 > <font class="matlab"> Y0 := plot(BesselY(0,x),x=0.1..10, color="red"):</font>

@@ -28,6 +28,14 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+-->
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 </head>
 <body>
 
@@ -43,13 +51,389 @@ main_title( MStexte, "MMathSStat");
 
 <h2> EDO d'ordre deux avec coefficients variables </h2>
 
-<p> Le contenu de ce site n'a malheureusement pas encore été traduit
-en français.  Veuillez consulter le site en anglais
-<script language="javascript">
-    buildLinK(ODE_O2_var_coeff.url_en, ODE_O2_var_coeff.text_en,"MMathSStat",
-	    ODE_O2_var_coeff.id, ODE_O2_var_coeff.target);
-</script>.
-</p>
+<p><em>Exemple</em>: Considérons l'EDO d'ordre deux avec des
+coefficients variables </p>
+\[
+\frac{\text{d}^2 x}{\text{d} t^2} + \cos(t)\, x = 0 \ .
+\]
+<p> Elle est définie dans <em>Maple</em> de la façon suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">ODE:=diff(x(t),t$2) + cos(t)*x(t)=0;</font>
+</pre>
+
+\[
+ODE := \frac{\partial^{2}}{\partial t^{2}}\, x(t)
++ \cos(t)\,x(t)=0
+\]
+
+<p> Nous procédons de la façon suivante pour résoudre cette EDO avec
+les conditions initiales \(x(0)=0\) et \(x'(0)=1\).</p>
+
+<pre class="matlab">
+> <font class="matlab">ODEic:= { ODE } union {x(0)=0,D(x)(0)=1}; </font>
+</pre>
+
+\[
+ODEic := \left\{ \frac{\partial^{2}}{\partial t^{2}}\,
+x(t) + \cos(t)\,x(t)=0, \,x(0)=0, \,\text{D}(x)(0)=1 \right\}
+\]
+
+<pre class="matlab">
+> <font class="matlab">dsolve(ODEic,x(t)); </font>
+</pre>
+
+\[
+x(t) =2\, MathieuS\left(0,-2,\frac{t}{2} \right)
+\]
+
+<p> La réponse donnée par <em>Maple</em> est en termes de la <em>fonction
+de Mathieu</em> <font class="matlab">MathieuS(a, q, s)</font>.  C'est
+une solution en série de puissances de l'EDO de Mathieu </p>
+\[
+\frac{\text{d}^2 x}{\text{d} t^2} + (a - 2 q \cos(2 s)) u = 0 \, .
+\]
+<p> Assumons que nous ne voulons pas passer beaucoup de temps à
+étudier cette fonction spéciale.  Alors, nous pouvons simplement
+demander à <em>Maple</em> de nous fournir une solution en série de
+puissances de l'EDO ci-dessus avec les conditions initiales \(x(0)=0\)
+e \(x'(0)=1\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> Order:=14; dsolve(ODEic,x(t),type='series'); </font>
+</pre>
+
+\[
+\begin{split}
+& Order := 14 \\
+& x(t) = t-1/6\,t^{3}+1/30\,t^{5}- \frac{19}{5040}\,t^{7}+
+\frac{29}{72576}\,t^{9}
+-\frac {713}{19958400}\,t^{11} +\frac{3539}{1245404160}\,t^{13}
++O\left(t^{14}\right)
+\end{split}
+\]
+
+<p> La commande <font class="matlab">Order :=14</font> fixe l'ordre de
+la série de puissances que <em>Maple</em> va fournir.  Par défaut,
+<font class="matlab">Order</font> est égale à \(6\).  Pour obtenir de
+l'information sur la méthode d'intégration utilisée par <em>Maple</em>,
+nous pouvons utiliser la commande
+<font class="matlab">infolevel[dsolve]:=3</font> avant d'utiliser
+la fonction <font class="matlab">dsolve()</font>.  Le niveau normal
+est 1.  Il peut aller jusqu'à 5.</p>
+
+<p>Puisque la solution en terme de la fonction de Mathieu ou la
+solution en série de puissances n'est pas une expression simple, nous
+pouvons aussi bien résoudre numériquement l'EDO ci-dessus avec les
+conditions initiales \(x(0)=0\) et \(x'(0)=1\).</p>
+
+<pre class="matlab">
+> <font class="matlab">xs:=dsolve(ODEic, x(t),type=numeric, output=procedurelist, method=rkf45, range=0..30*Pi);</font>
+</pre>
+
+\[
+xs := \text{proc}\left(x\_rkf45\right)...\text{end proc}
+\]
+
+<p>Si nous évaluons cette fonction à un point \(t=a\), nous obtenons
+alors la liste \(a, x(a) , x'(a) \) comme on peut voir ci-dessous.</p>
+
+<pre class="matlab">
+> <font class="matlab">xs(2.5);</font>
+</pre>
+
+\[
+\left[ t=2.5, \,x(t)=1.811145669678303, \,{\frac{\text{d}}{\text{d} t}}\,
+x(t)=1.107676186986299\right]
+\]
+
+<p> Nous pouvons utiliser <font class="matlab">xs</font> pour tracer
+les graphes de \(x\) et \(x'\) en fonction de \(t\). </p>
+
+<pre class="matlab">
+> <font class="matlab">with(plots):</font>
+> <font class="matlab">odeplot(xs,[t,x(t)],0..3*Pi,axes=BOXED,labels=[`t`,`x(t)`],refine=2, gridlines=true);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Mathieu_1.png" style="width: 300px"
+       alt="Graphe de x en fonction de t">
+</div>
+
+<pre class="matlab">
+> <font class="matlab">odeplot(xs,[t,diff(x(t),t)],0..3*Pi,axes=BOXED,labels=[`t`,`x'(t)`],refine=2, gridlines=true);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Mathieu_2.png" style="width: 300px"
+       alt="Graphe de x' en fonction de t">
+</div>
+
+<p> Nous pouvons aussi tracer une partie de l'orbite
+\(\{ (x(t), x'(t)) : t \in \mathbb{R} \}\).</p>
+
+<pre class="matlab">
+> <font class="matlab">odeplot(xs,[x(t),diff(x(t),t)],0..3*Pi,axes=BOXED,labels=[`x(t)`,`x'(t)`],refine=2, gridlines=true);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Mathieu_3.png" style="width: 300px"
+       alt="Graphe de l'orbite (x(t),x'(t)) pour t entre 0 et 30 &pi;">
+</div>
+
+<p> Juste en regardant les figures ci-dessus, pouvez-vous prédire le
+comportement de \(x(t)\) et \(x'(t)\) lorsque \(t\) converges vers
+\(\infty\)?  Variez la longueur de l'intervalle d'intégration et
+observez ce qui arrive aux graphes de \(x\) et \(x'\).</p>
+
+<p> Pour le reste de ce document, nous considérons deux EDO d'ordre
+deux avec des coefficients variables qui sont classiques: l'équation de
+Cauchy-Euler et l'équation de Bessel.  Il y en a bien d'autres mais
+ces deux EDO sont très importantes.</p> 
+
+<h3> Équation de Cauchy-Euler </h3>
+
+<p>L'équation de Cauchy-Euler est</p>
+\[
+x^2 y''(x) + b x y'(x) + c y(x)=0
+\]
+<p>où \(b\) et \(b\) sont des constantes.  Cette EDO est définie
+dans <em>Maple</em> de la façon suivante. </p>
+
+<pre class="matlab">
+> <font class="matlab"> eq1 := x^2*diff(y(x),x$2) + b*x*diff(y(x),x)+c*y(x)=0;</font>
+</pre>
+
+\[
+eq1 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
++ b x \left( \frac{\text{d}}{\text{d} x} y(x)\right) + c y(x) = 0
+\]
+
+<p>La forme des solutions de cette EDO dépend des valeurs des paramètres
+\(b\) et \(c\).  L'idée principale pour trouver les solutions de cette
+EDO est de supposer qu'une solution de cette EDO est de la forme
+\(\displaystyle y(x) = x^r\).  Si nous substituons cette expression
+dans l'EDO, nous obtenons l'équation suivante. </p>
+
+<pre class="matlab">
+> <font class="matlab">eq2 := eval( subs(y(x)=x^r, eq1) );</font>
+</pre>
+
+\[
+eq2 := x^2 \left( \frac{x^r r^2}{x^2} - \frac{x^r r}{x^2}  \right)
++ b x^r r  + c x^r = 0
+\]
+
+<p>Après avoir divisé par \(x^r\) des deux côtés de l'égalité, nous
+obtenons l'équation suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">simplify( eq2/x^r );</font>
+</pre>
+
+\[
+r^2+ (b-1) r+c = 0
+\]
+
+<p>L'<em>équation indicielle</em> de l'équation de Cauchy-Euler est
+\(\displaystyle r^2+(b-1)r+c=0\).  Les solutions de l'équation de
+Cauchy-Euler dépendent des racines de l'équation indicielle.</p>
+
+<p><em>Note</em>: L'équation de Cauchy-Euler peut être réduite à
+l'EDO linéaire d'ordre deux avec des coefficients constant 
+\(\tilde{y}''(t) +(b-1) \tilde{y}'(t) +c \tilde{y}(t) = 0\) grâce à la
+substitution \(\displaystyle x = e^t\).  Si \(t\mapsto \tilde{y}(t)\)
+est une solution de cette EDO, alors
+\(x \mapsto y(x) = \tilde{y}(\ln(x))\) est une solution de
+l'équation de Cauchy-Euler.  L'équation indicielle de l'équation de 
+Cauchy-Euler est l'équation caractéristique de l'EDO linéaire
+d'ordre deux avec des coefficients constants.  Il en découle qu'il y a
+trois types de solutions pour l'équation de Cauchy-Euler comme c'est
+le cas pour l'EDO linéaire d'ordre deux avec des coefficients
+constants précédente.</p>
+
+<ul>
+<li> \(\displaystyle y(x) = c_1 x^{r_1} + c_2 x^{r_2}\) si l'équation
+indicielle possède deux racines réelles distinctes, \(r_1\) et \(r_2\). </li>
+<li> \(\displaystyle y(x) = c_1 x^r + c_2 x^r \ln(x)\) si l'équation
+indicielle possère une seule racine réelle, \(r\).</li>
+<li> \(\displaystyle y(x) = c_1 x^a \cos(b\ln(x)) + c_2 x^a \sin(b\ln(x))\) si
+l'équation indicielle possède une paire de racines complexes conjuguées,
+\(a \pm b i\) avec \(b \neq 0\).</li>
+</ul>
+
+<p><em>Exemple</em>: Supposons que <font class="matlab">b=c=1</font>
+dans l'équation de Cauchy-Euler.</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq3 := subs({b=1,c=1},eq1);</font>
+</pre>
+
+\[
+eq3 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
++ x \left( \frac{\text{d}}{\text{d} x} y(x)\right) + y(x) = 0
+\]
+
+<p>L'équation indicielle est \(r^2 + 1 = 0\) et elle possède une paire
+de racines complexes conjuguées; c'est-à-dire, \(\pm i\).
+<em>Maple</em> donne la solution générale suivante pour cette
+EDO.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq3 ,y(x));</font>
+</pre>
+
+\[
+  y(x) = \_C1 \sin(ln(x)) + \_C2 \cos(ln(x))
+\]
+
+<p>C'est la solution générale à laquelle nous nous attendions.</p>
+
+<h3> Problèmes aux valeurs limites pour les EDO </h3>
+
+<p> Pour l'étude des équations aux dérivées partielles (EDP), il est
+très important d'étudier le problème de valeurs aux limites pour
+l'équation de Cauchy-Euler.  Par exemple, considérons l'équation de
+Cauchy-Euler avec les conditions aux limites \(y(1)=1\) et \(y(3)=2\).
+En théorie, nous devons trouver des valeurs pour les constantes
+\(c_1\) et \(c_2\) dans la solution générale de l'équation de
+Cauchy-Euler telles que les conditions aux limites sont satisfaites.
+La fonction <font class="matlab">dsolve(&nbsp;)</font> peut faire cela
+pour nous.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve({ eq3,y(1)=1,y(3)=2},y(x));</font>
+</pre>
+
+\[
+y(x) = -\frac{(-2+\cos(\ln(3))) \sin(ln(x))}{\sin(\ln(3))} + \cos(\ln(x))
+\]
+
+<p><em>Exemple</em>: Supposons que \(-b=c=1\) dans l'équation de
+Cauchy-Euler.</p> 
+
+<pre class="matlab">
+> <font class="matlab"> eq4 := subs({b=-1,c=1},eq1);</font>
+</pre>
+
+\[
+eq4 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
+- x \left( \frac{\text{d}}{\text{d} x} y(x)\right) + y(x) = 0
+\]
+
+<p>L'équation indicielle est \((r-1)^2 = 0\).  Il n'y a qu'une seule
+racine réelle.  Cette racine est \(r = 1\).  Comme nous nous y attendons, la
+solution générale est la suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab"> dsolve(eq4 ,y(x));</font>
+</pre>
+
+\[
+y(x) = \_C1 x+ \_C2 x \ln(x)
+\]
+
+<p>Si nous résolvons l'équation de Cauchy-Euler avec les mêmes
+conditions aux limites que précédemment, Nous obtenons la solution
+suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve({eq4,y(1)=1,y(3)=2},y(x));</font>
+</pre>
+
+\[
+y(x) = x - \frac{x \ln(x)}{3 \ln(3)}
+\]
+
+<p>Ainsi, nous avons que \(c_1 = 1\) et
+\(\displaystyle c_2 = (3\ln(3)^{-1}\).</p>
+
+<h3> Équation de Bessel </h3>
+
+<p> Nous considérons l'équation de Bessel</p>
+\[
+x^2 y''(x) + x y'(x) + (x^2-p^2) y(x)=0
+\]
+<p> où \(p\) est une constante.  Cette EDO est définie
+dans <em>Maple</em> de la façon suivante. </p>
+
+<pre class="matlab">
+> <font class="matlab"> eq5 := x^2*diff(y(x),x$2)+x*diff(y(x),x) + (x^2-p^2)*y(x)=0;</font>
+</pre>
+
+\[
+eq5 := x^2 \left( \frac{\text{d}^2}{\text{d} x^2} y(x) \right)
++ x \left( \frac{\text{d}}{\text{d}x} \right) y(x) + (-p^2 + x^2) y(x) = 0
+\]
+
+<p>L'<em>équation indicielle</em> pour l'équation de Bessel est
+s \(r^2-p^2 =0\).  Nous ne présenterons pas la théorie qui conduit à
+cette équation indicielle mais nous allons seulement mentionner que
+les solutions en séries de puissances sont requises pour déduire cette
+équation indicielle.  L'équation indicielle a deux racines réelles
+distinctes quand \(p \neq 0\).  La solution générale est donnée
+ci-dessous.</p> 
+
+<pre class="matlab">
+> <font class="matlab">dsolve(eq5,y(x));</font>
+</pre>
+
+\[
+  y(x) = \_C1 BesselJ(p,x) + \_C2 BesselY(p,x)
+\]
+
+<p><font class="matlab">BesselJ(p,x)</font> est la fonction de Bessel
+de première espèce d'ordre \(p\), et
+<font class="matlab">BesselY(p,x)</font> est la fonction de Bessel de
+deuxième espèce d'ordre \(p\).  Les fonctions de Bessel de première
+espèce peut être exprimées en série de puissance à l'origine.  Ce n'est
+pas le cas pour les fonctions de Bessel de deuxième espèce.  L'origine
+est une singularité pour les fonctions de Bessel de deuxième espèce.</p>
+
+<p>Nous pouvons utiliser <em>Maple</em> pour obtenir les premiers
+termes de la série de puissance de la fonction de Bessel de première
+espèce d'ordre \(0)\ à l'origine.</p>
+
+<pre class="matlab">
+> <font class="matlab">taylor(BesselJ(0,x),x=0,8);</font>
+</pre>
+
+\[
+1 - \frac{1}{4} x^2 + \frac{1}{64} x^4 - \frac{1}{2304} x^6 + O(x^8)
+\]
+
+<p>Les graphes des fonctions de Bessel de première espèce d'ordre \(0\)
+  et \(1\) sont tracés ci-dessous.</p>
+
+<pre class="matlab">
+> <font class="matlab"> with(plots):</font>
+> <font class="matlab"> J0 := plot(BesselJ(0,x),x=0..10, color="red"):</font>
+> <font class="matlab"> J1 := plot(BesselJ(1,x),x=0..10, color="blue"):</font>
+> <font class="matlab"> display({J0,J1});</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Bessel_1.png" style="width: 300px"
+       alt="Graphe des fonctions de Bessel de première espèce d'ordre 0 et 1">
+</div>
+
+<p>Sauf pour la fonction de Bessel de première espèce d'ordre \(0\)
+qui prend la valeur \(1\) à l'origine, toutes les fonctions de
+Bessel de première espèce sont nuls à l'origine. </p>
+
+<p>Les graphes des fonctions de Bessel de deuxième espèce d'ordre \(0\)
+et \(1\) sont tracés ci-dessous.</p>
+
+<pre class="matlab">
+> <font class="matlab"> Y0 := plot(BesselY(0,x),x=0.1..10, color="red"):</font>
+> <font class="matlab"> Y1 := plot(BesselY(1,x),x=0.1..10, color="blue"):</font>
+> <font class="matlab"> display({Y0,Y1});</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Bessel_2.png" style="width: 300px"
+       alt="Graphe des fonctions de Bessel de deuxième espèce d'ordre 0 et 1">
+</div>
 
 <br>
 <hr>
