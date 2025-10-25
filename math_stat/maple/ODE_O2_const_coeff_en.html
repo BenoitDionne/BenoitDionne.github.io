@@ -72,9 +72,10 @@ the document <script language="javascript">
 eq1 := \frac{\text{d}^2}{\text{d}x^2} y(x) - 2 \frac{\text{d}}{\text{d}x} y(x) + y(x) = 0
 \]
 
-<p>The reader has probably seen that the general solution of this ODE is of
-the form \(y(x) = a_1 y_1(x) + a_2 y_2(x)\), where \(a_1\) and
-\(a_2\) are two arbitrary constants, and \(y_1(x)\) and \(y_2(x)\)
+<p>The reader has probably learned in an introductory course on ODE
+that the general solution of this ODE is of 
+the form \(y = a_1 y_1 + a_2 y_2\), where \(a_1\) and
+\(a_2\) are two arbitrary constants, and \(y_1\) and \(y_2\)
 are two linearly independent solutions of the ODE.  If we use
 <em>Maple</em> to solve the ODE given by <font class="matlab">eq1</font>,
 then we get the following result.</p>
@@ -100,8 +101,8 @@ eq2 := \frac{\text{d}^2}{\text{d}x^2} y(x) - 2 \frac{\text{d}}{\text{d}x} y(x) +
 \]
 
 <p>The general solution of such an ODE is of the form
-\(y(x) = y_g(x) + y_p(x)\) where \(y_g(x)\) is the general solution of the
-associated homogeneous ODE and \(y_p(x)\) is any particular solution.</p>
+\(y = y_g + y_p\) where \(y_g\) is the general solution of the
+associated homogeneous ODE and \(y_p\) is any particular solution.</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve(eq2,y(x));</font>
@@ -111,7 +112,7 @@ associated homogeneous ODE and \(y_p(x)\) is any particular solution.</p>
  y(x) = e^x \_C2 + e^x x \_C1 + \frac{x^2 e^x}{2}
 \]
 
-<p>We can check that \(\frac{x^2 e^x}{2}\) is a particular solution of
+<p>We can check that \(\displaystyle x^2 e^x/2\) is a particular solution of
 the ODE given by <font class="matlab">eq2</font>.</p>
 
 <pre class="matlab">
@@ -124,11 +125,11 @@ the ODE given by <font class="matlab">eq2</font>.</p>
 
 <p><em>Note</em>: Two functions are linearly independent if we can not
 write one as a multiple of the other. To determine if two solutions
-\(y_1(x)\) and \(y_2(x)\) of an homogeneous ODE of order two with constant
+\(y_1\) and \(y_2\) of a linear homogeneous ODE of order two with constant
 coefficients are linearly independent, we compute the determinant of
 the matrix</p> 
 \[
-\begin{bmatrix} y_1(x) & y_2(x) \\ y_1'(x) & y_2'(x) \end{bmatrix}
+\begin{pmatrix} y_1(x) & y_2(x) \\ y_1'(x) & y_2'(x) \end{pmatrix}
 \]
 <p>This matrix is called the <em>Wronskian</em> of the two solutions.
 If this determinant is different than zero at one point (i.e. for one
@@ -138,12 +139,12 @@ this determinant is zero at one point, then they are dependent.</p>
 <p><em>WARNING</em>: If the determinant of the Wronskian of two
 solutions of a linear homogeneous ODE of order two with constant
 coefficients is non-zero at one point, then it is non-zero at all
-points in the domain of the two solutions.  Likewise, if the
+points in the domain of the two solutions.  Equivalently, if the
 determinant of the Wronskian of two solutions is zero at one point,
 then it is zero at all points in the domain of the two solutions.
 This is not true for two arbitrary functions.  We cannot conclude that
 two arbitrary functions are linearly independent because the
-determinant of their Wronskian is non-zero at one point. </p>
+determinant of their Wronskian is non-zero at only one point. </p>
 
 <p>We verify that the two solutions \(\displaystyle e^x\) and
 \(\displaystyle x e^x\) of the ODE given by
@@ -157,8 +158,8 @@ determinant of their Wronskian is non-zero at one point. </p>
 (e^x)^2
 \]
 
-<p>Since \(e^{2x}\) is different than \(0\) at one point, and so at all
-points, the two solutions are linearly independent.</p>
+<p>Since \(\displaystyle e^{2x}\) is different than \(0\) at one
+point, and so at all points, the two solutions are linearly independent.</p>
 
 <p><em>Example</em>: Consider the following ODE. </p>
 
@@ -185,20 +186,20 @@ y(x) = \_C1 e^{2x} \sin(3x)+ \_C2 e^{2x} \cos(3x)
 a y''(x) + b y'(x) + c y(x) = 0
 \]
 <p> where \(a,b\) and \(c\) are constants.  If we suppose that a
-solution is of the form \(e^{\lambda x}\) for some constant
+solution is of the form \(\displaystyle e^{\lambda x}\) for some constant
 \(\lambda\) and substitute this expression into the ODE, then
-we get \( a \lambda^2 + b \lambda + c = 0 \) after dividing by
-\(e^{\lambda x}\).  The polynomial \(p(\lambda) = a \lambda^2 + b \lambda + c\)
+we get \(\displaystyle a \lambda^2 + b \lambda + c = 0 \) after dividing by
+\(\displaystyle e^{\lambda x}\).  The polynomial
+\(\displaystyle p(\lambda) = a \lambda^2 + b \lambda + c\)
 is called the <em> characteristic polynomial</em> associated to the ODE.
 The general solution of the ODE is determined by the roots of this
 polynomial.</p>
 
 <ol>
 <li> <p>If \(\lambda_1\) and \(\lambda_2\) are two distinct real roots of
-the characteristic polynomial, then \(e^{\lambda_1 x}\) and
-\(e^{\lambda_2 x}\) are two linearly independent solutions of the
-homogeneous ODE.  The general solution of the homogeneous ODE is of
-the form </p>
+the characteristic polynomial, then \(\displaystyle e^{\lambda_1 x}\) and
+\(\displaystyle e^{\lambda_2 x}\) are two linearly independent solutions of the
+ODE.  The general solution of the ODE is of the form </p>
 \[
 y(x) = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x} \ .
 \]
@@ -210,9 +211,10 @@ commands for the given ODE.</p>
 </pre>
 </li>
 <li> <p>If \(\lambda\) is the only real root of the characteristic
-polynomial, then \(e^{\lambda x}\) and \(x e^{\lambda x}\) are two
-linearly independent solutions of the homogeneous ODE.  The general
-solution of the homogeneous ODE is of the form</p>
+polynomial, then \(\displaystyle e^{\lambda x}\) and
+\(\displaystyle x e^{\lambda x}\) are two
+linearly independent solutions of the ODE.  The general
+solution of the ODE is of the form</p>
 \[
 y(x) = C_1 e^{\lambda x} + C_2 x e^{\lambda x} \ .
 \]
@@ -226,10 +228,10 @@ commands for the given ODE.</p>
 </li>
 <li> <p>Finally, if \(\lambda = \alpha \pm \beta i\) with
 \(\beta \neq 0\) are two complex roots of the characteristic
-polynomial, then \(e^{\alpha x} \cos(\beta x)\) and 
-\(e^{\alpha x} \sin(\beta x)\) are two linearly independent solutions
-of the homogeneous ODE.  The general solution of the homogeneous ODE is of
-the form </p>
+polynomial, then \(\displaystyle e^{\alpha x} \cos(\beta x)\) and 
+\(\displaystyle e^{\alpha x} \sin(\beta x)\) are two linearly
+independent solutions of the ODE.  The general solution of
+the ODE is of the form </p>
 \[
 y(x) = C_1 e^{\alpha x}\cos(\beta x) + C_2 e^{\alpha x}\sin(\beta x) \ .
 \]
@@ -258,8 +260,9 @@ eq4 := \frac{\text{d}^2}{\text{d}x^2} y(x) + \beta \frac{\text{d}}{\text{d}x} y(
 \]
 
 <p>where the spring constant \(\omega\) is defined by
-\(\omega = K/m\) for a constant \(K\) and the mass \(m\) of the
-object.  The constant \(\beta\) is the damping coefficient.</p>
+\(\omega = K/m\) for a constant \(K\) that depends of the spring and
+the mass \(m\) of the object.  The constant \(\beta\) is the damping
+coefficient.</p> 
 
 <p>If the object is released from rest at a distance of \(1\) m from
 its equilibrium position, then the initial conditions are \(y(0)=1\) and
@@ -274,13 +277,15 @@ obtained with the following command.</p>
 <p>We let the readers run the previous command with a semicolon
 instead of a colon at the end of it if they really want to see the
 long solution.  It suffices to note that the solution involves the
-expression \(\sqrt{ \beta^2 + 4 \alpha^2}\) and a division by
-\(\beta^2 - 4 \alpha^2\).  For \(\beta^2 + 4 \alpha^2 < 0\), the terms
+expression \(\displaystyle \sqrt{ \beta^2 + 4 \alpha^2}\) and a division by
+\(\displaystyle \beta^2 - 4 \alpha^2\).  For
+\(\displaystyle \beta^2 + 4 \alpha^2 < 0\), the terms
 of the solution contain cosine or sine functions which are
-responsible for the oscillations.  For \(\beta^2 + 4 \alpha^2 > 0\), the terms
+responsible for the oscillations.  For
+\(\displaystyle \beta^2 + 4 \alpha^2 > 0\), the terms
 of the solution contain exponential functions with a negative exponent
 for \(x > 0\) and there are no oscillations,  There is over damping.
-Finally, for \(\beta^2 + 4 \alpha^2 = 0\), the formula given
+Finally, for \(\displaystyle \beta^2 + 4 \alpha^2 = 0\), the formula given
 by <em>Maple</em> is not a solution of the ODE.  We will show below
 that there is also no oscillation.  The system is critically damped.</p> 
 
@@ -321,7 +326,7 @@ The colours seems to be randomly associated to the values of \(\beta\).
 This is not convenient if the colour assigned to each graph is not the
 one expected.</p>
 
-<p>As we can see, without damping, the spring has the same oscillatory
+<p>As we can see, without damping, the spring keeps the same oscillatory
 motion forever. If we add damping, the oscillatory motion of the
 spring dies down.  The system is critically damped when \(\beta=2\)
 and \(\omega=1\).  The formula given by <font class="matlab">sol</font>
@@ -369,7 +374,7 @@ eq6 := \frac{\text{d}^2}{\text{d}x^2} y(x) + \beta \frac{\text{d}}{\text{d}x} y(
 <p>The parameters \(\omega\) and \(\beta\) have the same meaning as
 before.  We use the parameter values \(\beta=2\) and \(\omega=1\)
 associated to the critical damping case for the non-forced spring
-motion that we have studied above.</p>
+motion that we have studied before.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq7 := subs({omega=1,beta=2},eq6);</font>
@@ -417,9 +422,11 @@ yp := (xx, tt) \mapsto subs({theta = tt, x = xx}, rhs(sol))
        alt="Graph of the solutions of eq7 for different values of &beta;">
 </div>
 
-<p>The period of the spring motion gets closer and closer to the
-forcing period.  We now estimate the amplitude and phase of the
-solution when \(x\) is <q lang="en">really</q> large. Since \(e^{-x} \to 0\)
+<p>The <q land="en">period</q> of the spring motion gets closer and
+closer to the forcing period as \(x \to \infty\).  We now estimate the
+amplitude and phase of the solution when \(x\) is
+o<q lang="en">really</q> large (i.e. when \(x \to \infty\)).
+Since \(\displaystyle e^{-x} \to 0\)
 as \(x \to \infty\), the dominant part of the solution is</p>
 
 <pre class="matlab">

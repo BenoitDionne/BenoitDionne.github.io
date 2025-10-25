@@ -51,11 +51,11 @@ main_title( MStexte, "MMathSStat");
 
 <h2> EDO d'ordre deux avec coefficients constants </h2>
 
-<p>Dans ce document, nous présentons quelques unes de fonctions
+<p>Dans ce document, nous présentons quelques unes des fonctions
 de <em>Maple</em> pour résoudre et tracer les solutions d'EDO d'ordre
 plus grand que un; plus précisément, nous considérons les EDO
 linéaires d'ordre deux avec des coefficients constants.
-Nous prenons pour acquis que le lecteur est connaît le contenu
+Nous prenons pour acquis que le lecteur connaît le contenu
 du document
 <script language="javascript">
     buildLinK(ODE_O1.url_fr, ODE_O1.text_fr,"MMathSStat", ODE_O1.id,
@@ -64,7 +64,7 @@ du document
 
 <h3> Solutions générales </h3>
 
-<p>Considérons l'EDO linéaire d'autre deux suivante.</p>
+<p>Considérons l'EDO linéaire homogène d'autre deux suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq1 := diff(y(x),x$2)-2*diff(y(x),x)+y(x)=0;</font>
@@ -74,9 +74,10 @@ du document
 eq1 := \frac{\text{d}^2}{\text{d}x^2} y(x) - 2 \frac{\text{d}}{\text{d}x} y(x) + y(x) = 0
 \]
 
-<p>Le lecteur a probable appris que la solution générale de cette EDO
-est de la forme \(y(x) = a_1 y_1(x) + a_2 y_2(x)\) où \(a_1\) et
-\(a_2\) sont deux constantes arbitraires, et \(y_1(x)\) et \(y_2(x)\)
+<p>Le lecteur a probable appris dans un cours d'introduction aux EDO
+que la solution générale de cette EDO 
+est de la forme \(y = a_1 y_1 + a_2 y_2\) où \(a_1\) et
+\(a_2\) sont deux constantes arbitraires, et \(y_1\) et \(y_2\)
 sont deux solutions linéairement indépendantes de l'EDO.  Si nous
 utilisons <em>Maple</em> pour résoudre l'EDO donnée par
 <font class="matlab">eq1</font>, alors nous obtenons le résultat suivant.</p>
@@ -102,8 +103,8 @@ eq2 := \frac{\text{d}^2}{\text{d}x^2} y(x) - 2 \frac{\text{d}}{\text{d}x} y(x) +
 \]
 
 <p>La solution générale d'une telle EDO est de la forme
-\(y(x) = y_g(x) + y_p(x)\) où \(y_g(x)\) est la solution générale de
-l'EDO homogène associée et \(y_p(x)\) est une solution particulière.
+\(y = y_g + y_p\) où \(y_g\) est la solution générale de
+l'EDO homogène associée et \(y_p\) est une solution particulière.
 </p>
 
 <pre class="matlab">
@@ -114,7 +115,7 @@ l'EDO homogène associée et \(y_p(x)\) est une solution particulière.
  y(x) = e^x \_C2 + e^x x \_C1 + \frac{x^2 e^x}{2}
 \]
 
-<p>Nous pouvons vérifier que \(\frac{x^2 e^x}{2}\) est une solution
+<p>Nous pouvons vérifier que \(\displaystyle x^2 e^x/2\) est une solution
 particulière de l'ODE donnée par <font class="matlab">eq2</font>.</p>
 
 <pre class="matlab">
@@ -127,11 +128,11 @@ particulière de l'ODE donnée par <font class="matlab">eq2</font>.</p>
 
 <p><em>Note</em>: Deux fonctions sont linéairement indépendantes si
 une n'est pas un multiple de l'autre.  Pour déterminer si deux
-solutions \(y_1(x)\) et \(y_2(x)\) d'une EDO d'ordre deux homogène avec des
+solutions \(y_1\) et \(y_2\) d'une EDO linéaire homogène d'ordre deux avec des
 coefficients constants sont linéairement indépendantes, nous calculons
 le déterminant de la matrice </p>
 \[
-\begin{bmatrix} y_1(x) & y_2(x) \\ y_1'(x) & y_2'(x) \end{bmatrix}
+\begin{pmatrix} y_1(x) & y_2(x) \\ y_1'(x) & y_2'(x) \end{pmatrix}
 \]
 <p>Cette matrice est appelée le <em>Wronskian</em> des deux solutions.
 Si ce déterminant est différent de \(0\) en un point (i.e. pour une
@@ -140,14 +141,15 @@ Si ce déterminant est égale à \(0\) en un point, alors les deux
 solutions sont linéairement dépendantes. </p>
 
 <p><em>AVERTISSEMENT</em>: Si le déterminant du Wronskian de deux
-solutions d'une EDO linéaire homogène avec des coefficients constants
-est non-nul en un point, alors il est non-nul à tous points du domaine
-des deux solutions.  De même, si le déterminant du Wronskian de deux
+solutions d'une EDO linéaire homogène d'irdre deux avec des
+coefficients constants est non-nul en un point, alors il est non-nul à
+tous points du domaine des deux solutions.  De façon équivalente, si
+le déterminant du Wronskian de deux 
 solutions est nul en un point, alors il est nul à tous points du domaine
 des deux solutions.  Ceci n'est pas vrai pour deux fonctions
 quelconques.  Nous ne pouvons pas conclure que deux fonctions
-arbitraires sont linéairement indépendantes parce que le déterminant
-de leur Wronskian est non-nul en un point.</p>
+arbitraires sont linéairement indépendantes sur la base que le déterminant
+de leur Wronskian est non-nul en un seul point.</p>
 
 <p>Vérifions que les deux solutions \(\displaystyle e^x\) et
 \(\displaystyle x e^x\) de l'EDO donnée par <font class="matlab">eq1</font>
@@ -161,8 +163,9 @@ sont linéairement indépendantes.</p>
 (e^x)^2
 \]
 
-<p>Puisque \(e^{2x}\) est différent de \(0\) en un point, et donc en
-tous points, les deux solutions sont linéairement indépendantes. </p>
+<p>Puisque \(\displaystyle e^{2x}\) est différent de \(0\) en un
+point, et donc en tous points, les deux solutions sont linéairement
+indépendantes. </p> 
 
 <p><em>Exemple</em>: Considérons l'EDO suivante.</p>
 
@@ -189,20 +192,21 @@ y(x) = \_C1 e^{2x} \sin(3x)+ \_C2 e^{2x} \cos(3x)
 a y''(x) + b y'(x) + c y(x) = 0
 \]
 <p> où \(a,b\) et \(c\) sont des constantes.  Si on suppose qu'il y a
-une solution de la forme \(e^{\lambda x}\) pour une constante
+une solution de la forme \(\displaystyle e^{\lambda x}\) pour une constante
 \(\lambda\) et que nous la substituons dans l'EDO, alors nous obtenons 
-\( a \lambda^2 + b \lambda + c = 0 \) après division par
-\(e^{\lambda x}\).  Le polynôme \(p(\lambda) = a \lambda^2 + b \lambda + c\)
+\(\displaystyle  a \lambda^2 + b \lambda + c = 0 \) après division par
+\(\displaystyle e^{\lambda x}\).  Le polynôme
+\(\displaystyle p(\lambda) = a \lambda^2 + b \lambda + c\)
 est appelé le <em>polynôme caractéristique</em> associé à l'EDO.
-La solution générale de cet EDO est déterminée par les racines de ce
+La solution générale de cette EDO est déterminée par les racines de ce
 polynôme.</p>
 
 <ol>
-<li> <p>Si \(\lambda_1\) et \(\lambda_2\) sont deux racines du polynôme
-caractéristique, alors \(e^{\lambda_1 x}\) et
-\(e^{\lambda_2 x}\) sont deux solutions linéairement indépendantes de
-l'EDO homogène.  La solution générale de l'EDO homogène est de la forme
-</p>
+<li> <p>Si \(\lambda_1\) et \(\lambda_2\) sont deux racines réelles
+distinctes du polynôme
+caractéristique, alors \(\displaystyle e^{\lambda_1 x}\) et
+\(\displaystyle e^{\lambda_2 x}\) sont deux solutions linéairement
+indépendantes de l'EDO.  La solution générale de l'EDO est de la forme</p>
 \[
 y(x) = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x} \ .
 \]
@@ -214,8 +218,9 @@ les commandes ci-dessous pour l'EDO donnée.</p>
 </pre>
 </li>
 <li> <p>Si \(\lambda\) est la seule racine réelle du polynôme
-caractéristique, alors \(e^{\lambda x}\) et \(x e^{\lambda x}\) sont
-deux solutions linéairement indépendantes de l'EDO homogène.  La
+caractéristique, alors \(\displaystyle e^{\lambda x}\) et
+\(\displaystyle x e^{\lambda x}\) sont
+deux solutions linéairement indépendantes de l'EDO.  La
 solution générale de l'EDO est de la forme </p>
 \[
 y(x) = C_1 e^{\lambda x} + C_2 x e^{\lambda x} \ .
@@ -230,10 +235,9 @@ commandes suivantes pour l'EDO donnée.</p>
 </li>
 <li> <p>Finalement, si \(\lambda = \alpha \pm \beta i\) avec
 \(\beta \neq 0\) sont les deux racines du polynôme caractéristique,
-alors \(e^{\alpha x} \cos(\beta x)\) and 
-\(e^{\alpha x} \sin(\beta x)\) sont deux solutions linéairement
-indépendantes de l'EDO homogène.  La solution générale de l'EDO
-homogène est de la forme</p>
+alors \(\displaystyle e^{\alpha x} \cos(\beta x)\) and 
+\(\displaystyle e^{\alpha x} \sin(\beta x)\) sont deux solutions linéairement
+indépendantes de l'EDO.  La solution générale de l'EDO est de la forme</p>
 \[
 y(x) = C_1 e^{\alpha x}\cos(\beta x) + C_2 e^{\alpha x}\sin(\beta x) \ .
 \]
@@ -262,8 +266,9 @@ eq4 := \frac{\text{d}^2}{\text{d}x^2} y(x) + \beta \frac{\text{d}}{\text{d}x} y(
 \]
 
 <p>où la constant du ressort \(\omega\) est définie par
-\(\omega = K/m\) pour a constant \(K\) et la masse \(m\) de
-l'objet.   Le constante \(\beta\) est le coefficient d'amortissement.</p>
+\(\omega = K/m\) pour une constante \(K\) qui dépend du ressort et la
+masse \(m\) de l'objet.   Le constante \(\beta\) est le coefficient
+d'amortissement.</p> 
 
 <p>Si l'objet est relâché à partir d'une distance de \(1\) m de son
 point d'équilibre, alors les conditions initiales sont \(y(0)=1\) et
@@ -277,15 +282,18 @@ fournie par la commande suivante.</p>
 
 <p>Nous laissons aux lecteurs le choix d'exécuter la commande
 précédente avec un point-virgule au lieu de deux points à la fin de la
-commande s'ils veulent vraiment voir la longue solution
+commande s'ils veulent vraiment voir la longue solution.
 Il suffit de remarquer que la solution contient l'expression
-\(\sqrt{ \beta^2 + 4 \alpha^2}\) et une division par
-\(\beta^2 - 4 \alpha^2\).  Pour \(\beta^2 + 4 \alpha^2 < 0\), les
+\(\displaystyle \sqrt{ \beta^2 + 4 \alpha^2}\) et une division par
+\(\displaystyle \beta^2 - 4 \alpha^2\).  Pour
+\(\displaystyle \beta^2 + 4 \alpha^2 < 0\), les
 termes de la solution contiennent les fonctions cosinus ou sinus qui
-sont responsable pour les oscillations.   Pour \(\beta^2 + 4 \alpha^2 > 0\),
+sont responsables pour les oscillations.   Pour
+\(\displaystyle \beta^2 + 4 \alpha^2 > 0\),
 les termes de la solution contiennent la fonction exponentiel avec
 des exposants négatifs pour \(x > 0\) et il n'y a pas d'oscillations,
-Il y a sur-amortissement.  Finalement, pour \(\beta^2 + 4 \alpha^2 = 0\),
+Il y a sur-amortissement.  Finalement, pour
+\(\displaystyle \beta^2 + 4 \alpha^2 = 0\),
 la formule donnée par <em>Maple</em> n'est pas une solution de l'EDO.
 Nous allons montrer ci-dessous qu'il n'y aussi pas d'oscillations.  Le
 système est amorti de façon critique.</p>
@@ -327,12 +335,12 @@ Les couleurs semblent être associées de façon aléatoire aux valeurs
 de \(\beta\).  Ceci n'est pas pratique si la couleur associée à chaque
 graphe n'est pas celle désirée.</p>
 
-<p>Comme nous pouvons constater, sans amortissement, le ressort a le
+<p>Comme nous pouvons constater, sans amortissement, le ressort maintient le
 même mouvement oscillatoire pour toujours.  Si nous ajoutons de
 l'amortissement, le mouvement oscillatoire du ressort va en diminuant.
 Le système est amorti de façon critique pour \(\beta=2\) et \(\omega=1\).
 La formule donnée par <font class="matlab">sol</font> n'est pas une
-solution valide de l'EDO.  Il y a une division par \(0\) dans cette
+solution de l'EDO.  Il y a une division par \(0\) dans cette
 formule.  Pour ces valeurs de \(\beta\) et \(\omega\), l'EDO donnée
 par <font class="matlab">eq4</font> devient l'EDO donnée ci-dessous.</p>
 
@@ -377,7 +385,7 @@ eq6 := \frac{\text{d}^2}{\text{d}x^2} y(x) + \beta \frac{\text{d}}{\text{d}x} y(
 que précédemment.  Nous utilisons les valeurs paramétriques
 \(\beta=2\) et \(\omega=1\) associées au système amorti de façon
 critique pour le mouvement non-forcé d'un ressort que nous avons
-analysé ci-dessus.</p> 
+analysé précédemment.</p> 
 
 <pre class="matlab">
 > <font class="matlab">eq7 := subs({omega=1,beta=2},eq6);</font>
@@ -425,10 +433,12 @@ yp := (xx, tt) \mapsto subs({theta = tt, x = xx}, rhs(sol))
        alt="Graph of the solutions of eq7 for different values of &beta;">
 </div>
 
-<p>La période du mouvement du ressort approche de plus en plus la
-période de la force motrice périodique.  Nous estimons l'amplitude et
+<p>La <q lanf="fr">période</q> du mouvement du ressort approche de
+plus en plus la période de la force motrice périodique lorsque
+\(x \to \infty\).  Nous estimons l'amplitude et
 la phase de la solution quand \(x\) est <q lang="fr">très</q>
-grand.  Puisque \(e^{-x} \to 0\) lorsque \(x \to \infty\), la partie
+grand (i.e. quand \(x \to \infty\)).  Puisque
+\(\displaystyle e^{-x} \to 0\) lorsque \(x \to \infty\), la partie
 dominante de la solutions est</p>
 
 <pre class="matlab">
