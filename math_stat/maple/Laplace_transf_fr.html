@@ -28,6 +28,15 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
+<!--  Use this code if you want to use the dollar sign for inline math formulae.
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+-->
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
 </head>
 <body>
 
@@ -43,14 +52,265 @@ main_title( MStexte, "MMathSStat");
 
 <h2> Transformations de Laplace </h2>
 
-<p> Le contenu de ce site n'a malheureusement pas encore été traduit
-en français.  Veuillez consulter le site en anglais
-<script language="javascript">
-    buildLinK(Laplace_transf.url_en,
-    Laplace_transf.text_en,"MMathSStat", Laplace_transf.id,
-    Laplace_transf.target);
-</script>.
-</p>
+<p>Nous présentons une très courte introduction aux transformations de
+Laplace avec <em>Maple</em>.  En particulier, nous expliquons comment
+résoudre des EDO linéaires avec des coefficients constants.</p>
+
+<h3> La transformée de Laplace </h3>
+
+<p>La <em>transformée de Laplace</em> d'un fonction \(f\) est la
+fonction \(F\) définie par</p>
+
+\[
+F(s) = \mathcal{L}(f)(s) = \int_0^\infty f(t) e^{-s t} \text{d} t
+\]
+
+<p>pour les valeurs de \(s\) où l'intégrale converge.  <em>Maple</em>
+peut calculer les transformées de Laplace pour nous.  Nous devons
+inclure la librairie des transformations par intégrales
+<font class="matlab">inttrans</font> à notre session
+sur <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(inttrans):</font>
+</pre>
+
+<p>La transformée de Laplace de la fonction \(f\) définie par
+\(\displaystyle f(t) = e^{-3 t}\sin(5 t)\) est calculée de la façon
+suivante.</p> 
+
+<pre class="matlab">
+> <font class="matlab">ft := exp(-3*t)*sin(5*t); Fs:=laplace(ft,t,s);</font>
+</pre>
+
+\[
+\begin{split}
+  & ft := e^{-3t} \sin(5t) \\
+  & Fs := \frac{5}{(s+3)^2 + 25}
+\end{split}
+\]
+
+<p>La <em>transformée inverse de Laplace</em> d'une fonction \(F\) est
+une fonction \(f\) telle que \(\mathcal{L}(f)(s) = F(s)\)
+pour <q lang="fr">tous</q> \(s\) dans le domaine de \(F\).  Nous
+écrivons \(\displaystyle \mathcal{L}^{-1}(F) = f\).   Il existe une formule
+intégrale pour calculer la transformée inverse de Laplace d'une
+fonction mais nous pouvons procéder sans cette formule dans cette
+introduction.</p>
+
+<p>La transformée inverse de Laplace de la fonction \(H\) définie par
+\(\displaystyle H(s) = \frac{1}{s^2-4}\) est calculée de la façon suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">Hs := 1/(s^2-4); ht:=invlaplace(Hs,s,t);</font>
+</pre>
+
+\[
+\begin{split}
+  &Hs := \frac{1}{s^2-4} \\
+  &ht := \frac{\text{sinh}(2 t)}{2}
+\end{split}
+\]
+
+<p>La fonction de <em>Heaviside Function</em> est définie par</p>
+
+\[
+H(t) = \begin{cases} 1 & \text{ if } t > 0 \\
+0 & \text{ if } t < 0
+\end{cases}
+\]
+
+<p>C'est la fonction <font class="matlab">Heaviside()</font> dans
+<em>Maple</em>.  La transformée de Laplace de cette fonction est
+donnée ci-dessous.</p>  
+
+<pre class="matlab">
+> <font class="matlab">laplace(Heaviside(t),t,s);</font>
+</pre>
+
+\[
+\frac{1}{s}
+\]
+
+<p>Il est fréquent d'avoir à décaler la fonction de Heaviside de
+telle sorte que le saut soit à un autre point qu'à l'origine..</p>
+
+<pre class="matlab">
+> <font class="matlab">H4t := t->Heaviside(t-4); H4s := laplace(H4t(t),t,s);</font>
+</pre>
+
+\[
+\begin{split}
+& H4t := t \mapsto Heaviside(t - 4) \\
+& H4s := \frac{e^{-4s}}{s}
+\end{split}
+\]
+
+<p>La fonction de Heaviside a certaines propriétés intéressantes.
+Par exemple,
+\(\mathcal{L}( t \mapsto H(t-a) f(t-a) )(s) = e^{-a s} F(s)\) où
+\(F = \mathcal{L}(f)\).</p>
+
+<p>La <em>fonction Delta de Dirac</em> est <q lang="fr">définie</q> par
+\(\delta(t) = 0\) pour \(t \neq 0\) et
+\(\displaystyle \int_{-a}^a f(t) \delta(t) \text{d}t = f(0)\) pour
+toutes fonctions \(f\) et valeurs \(a > 0\).  Le lecteur peut
+apprendre dans un cours sur la théorie de la mesure qu'en fait la
+fonction Delta de Dirac n'est pas une fonction.  Nous n'élaborons pas
+sur ce sujet fascinant.  La fonction delta de Dirac est dénotée
+<font class="matlab">Dirac()</font> dans <em>Maple</em>.   Il découle
+de sa définition que La transformée de Laplace de la fonction Delta de
+Dirac est l'expression donné ci-dessous. </p>
+
+<pre class="matlab">
+> <font class="matlab">laplace(Dirac(t),t,s);</font>
+</pre>
+
+\[
+1
+\]
+
+<h3> Résolution d'EDO avec les transformations de Laplace </h3>
+
+<p>Supposons que nous voulions résoudre l'EDO</p>
+
+\[
+y''(t) + 4 y(t) = \cos(2t)
+\]
+
+<p>avec les condition initiales \(y(0)=2\) et \(y'(0)=3\).  La méthode
+qui utilise les transformations de Laplace pour résoudre les EDO
+linéaires avec coefficients constants est simple.  Nous calculons la
+transformée de Laplace de chaque côté de l'EDO pour obtenir une
+équation algébrique en fonction de \(Y = \mathcal{L}(y)\).
+Nous résolvons cette équation algébrique en fonction de \(Y\).
+Finalement, nous calculons la transformée inverse de Laplace de \(Y\)
+pour obtenir la solution \(y\) de l'EDO avec les conditions initiales.
+Le diagramme commutatif suivant résume la procédure pour résoudre les
+EDO linéaires avec les transformations de Laplace.</p>
+
+<div class="center">
+  <img src="Maple_laplace_2_fr.png" style="width: 300px"
+       alt="Diagramme commutatif">
+</div>
+
+<p>L'EDO est transformée en une équation algébrique (aucune dérivée)
+car les transformations de Laplace éliminent les dérivées.  En fait,
+\(\mathcal{L}(y')(s) = s Y(s)- y(0)\), 
+\(\mathcal{L}(y'')(s) = s^2 Y(s) - s y(0) -y'(0)\) et en général</p>
+\[
+\mathcal{L}(y^{n})(s) = s^n Y(s) - s^{(n-1)} y(0) -s^{(n-2)} y'(0)- \ldots - y^{(n-1)}(0)
+\]
+
+<p>Ces formules peuvent être démontrées à l'aide d'intégrations par
+parties.</p> 
+
+<p><em>Exemple</em>: Considérons l'EDO définis par la commande suivante
+dans <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq1 := diff(y(t),t$2) + 4*y(t)= cos(2*t);</font>
+</pre>
+
+\[
+  eq1 := \frac{\text{d}^2}{\text{d}t^2} y(t) + 4 y(t) = \cos(2t)
+\]
+
+<p>Si nous utilisons la procédure pour résoudre les EDO à l'aide des
+transformations de Laplace, alors nous exécutons les opérations.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq2 := laplace(eq1,t,s); Ys:=solve(eq2,laplace(y(t),t,s)); yt := invlaplace(Ys,s,t); yt := subs({y(0)=2,D(y)(0)=3},yt);</font>
+</pre>
+
+\[
+\begin{split}
+& eq2 := s^2\,laplace(y(t),t,s) -D(y)(0) - s y(0)  +4\,laplace(y(t),t,s) = \frac{s}{s^2 + 4} \\
+& Ys := \frac{ y(0) s^3+ 4 s y(0) + D(y)(0) s^2 + 4 D(y)(0)+s}{ (s^2 + 4)^2} \\
+& yt := y(0)\, \cos(2 t) + \frac{\sin(2t) (t + 2*D(y)(0))}{4}\\
+& yt := 2 \cos(2 t) + \frac{\sin(2 t) (t + 6)}{4}
+\end{split}
+\]
+
+<p>Tout le travail fait pour résoudre l'EDO linéaire avec les conditions
+initiales de l'exemple précédent peut être fait par une seule commande
+de <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab">dsolve({eq1,y(0)=2,D(y)(0)=3},y(t),method=laplace);</font>
+</pre>
+
+\[
+yt = 2 \cos(2 t) + \frac{\sin(2t)(t + 6)}{4}
+\]
+
+<h3> Applications </h3>
+
+<p>Les transformations de Laplace sont souvent utilisées pour l'étude
+des circuits électriques.  Considérons le <em>circuit LRC</em>
+suivant.</p>
+
+<div class="center">
+  <img src="Maple_RLC_circuit.png" style="width: 300px"
+       alt="Dessin d'un circuit LRC standard">
+</div>
+
+<p>La constante \(R\) est la résistance (en ohms) du résisteur, \(L\) est
+l'inductance (en henrys) de l'inducteur, et \(C\) est la capacité
+(en farads) du condensateur.  La valeur \(v_s(t)\) est la force du
+voltage (en volts) à la source.  D'après la première lois de Kirchoff
+\(v_s + Ri = v_C + v_L\) où \(v_C\) est le voltage au condensateur,
+\(v_L\) est le voltage à l'inducteur, et \(i\) est le courant (en
+ampères).  Le circuit LRC est décrit par l'EDO suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq3 := L*C*diff(v(t),t$2) + R*C*diff(v(t),t) + v(t)=VS(t);</font>
+</pre>
+
+\[
+eq3 := L C \left( \frac{\text{d}^2}{\text{d}t^2} v(t)\right) + R C \left( \frac{\text{d}}{\text{d}t} v(t)\right) + v(t) = VS(t)
+\]
+
+<p>La valeur <font class="matlab">v(t)</font> est le voltage dans le
+circuit au temps \(t\) et <font class="matlab">VS</em> représente
+dans <em>Maple</em> la fonction \(v_s\).</p>
+
+<p>Supposons que <font class="matlab">R=2</font> ohms,
+<font class="matlab">C=0.15</font> farads,
+<font class="matlab">L=2</font> henrys et
+<font class="matlab">VS(t) = Dirac(t)</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq4 := subs({R=2, C=0.15, L=2, VS(t)=Dirac(t)},eq3);</font>
+</pre>
+
+\[
+eq4 := 0.30 \frac{\text{d}^2}{\text{d}t^2} v(t) + 0.30 \frac{\text{d}}{\text{d}t} v(t) + v(t) = Dirac(t)
+\]
+
+<p>Si les conditions initiales sont <font class="matlab">v(0)=1</font> and
+<font class="matlab">D(v)(0)=0</font>, alors nous obtenons la solution
+suivante.</p>
+
+<pre class="matlab">
+  > <font class="matlab">dsolve({eq4, v(0) = 1, (D(v))(0) = 0}, v(t), method = laplace);</font>
+</pre>
+
+\[
+v(t) = \frac{e^{-\frac{t}{2}} \left( 111\cos\left(\frac{\sqrt{111} t}{6}\right) + 23 \sqrt{111} \sin\left(\frac{\sqrt{111} t}{6}\right)\right)}{111}
+\]
+
+<p>Le graphe du voltage <font class="matlab">v</font> en fonction de
+temps est tracé ci-dessous.</p>
+
+<pre class="matlab">
+> <font class="matlab">plot(rhs(%), t = 0 .. 20);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_laplace_1.png" style="width: 300px"
+       alt="Graphe de v en fonction de t">
+</div>
 
 <br>
 <hr>

@@ -50,30 +50,32 @@ top_function(Laplace_transf,"en");
 main_title( MStext, "MMathSStat");
 </script>
 
-<h2> Laplace Transforms </h2>
+<h2> Laplace Transformations </h2>
 
 <p>We provide a very short introduction to the Laplace transform on
-<em>Maple</em>.  In particular, how to use it to solve linear ODE with
-constant coefficients.  We do not plan to give a rigorous presentation.</p>
+<em>Maple</em>.  In particular, we explain how to use it to solve
+linear ODE with constant coefficients.</p>
 
 <h3> The Laplace Transform </h3>
 
-<p>The <em>Laplace transform</em> of a function \(f(t)\) is defined by</p>
+<p>The <em>Laplace transform</em> of a function \(f\) is the function
+\(F\) defined by</p>
 
 \[
-F(s) = \mathcal{L}( f(t) ) = \int_0^\infty f(t) e^{-s t} \text{d} t
+F(s) = \mathcal{L}(f)(s) = \int_0^\infty f(t) e^{-s t} \text{d} t
 \]
 
 <p>for the values of \(s\) where the integral converges.  <em>Maple</em>
 can compute Laplace transforms for us.  We need to load the library of
-integral transforms <font class="matlab">inttrans</font>.</p>
+integral transforms <font class="matlab">inttrans</font> to
+our <em>Maple</em> session.</p>
 
 <pre class="matlab">
 > <font class="matlab">with(inttrans):</font>
 </pre>
 
-<p>The Laplace transform of \(f(t) = e^{-3 t}\sin(5 t)\) is compute as
-follows.</p>
+<p>The Laplace transform of the function \(f|) defined by
+\(\displaystyle f(t) = e^{-3 t}\sin(5 t)\) is computed as it follows.</p>
 
 <pre class="matlab">
 > <font class="matlab">ft := exp(-3*t)*sin(5*t); Fs:=laplace(ft,t,s);</font>
@@ -86,14 +88,15 @@ follows.</p>
 \end{split}
 \]
 
-<p>The <em>inverse Laplace transform</em> of a function \(F(s)\) is a
-function \(f(t)\) such that \(\mathcal{L}( f(t) ) = F(s)\).  We write
-\(\mathcal{L}^{-1}( F(s) ) = f(t)\).   There is an integral formula to
-compute the inverse Laplace transform but we can live without it in
-this introduction.</p> 
+<p>The <em>inverse Laplace transform</em> of a function \(F\) is a
+function \(f\) such that \(\mathcal{L}(f)(s) = F(s)\)
+for <q lang="en">all</q> in the domain of \(F\).  We write
+\(\displaystyle \mathcal{L}^{-1}(F) = f\).   There is an integral formula to
+compute the inverse Laplace transform of a function but we can manage
+without it in this introduction.</p>
 
-<p>The inverse Laplace transform of \(H(s) = \frac{1}{s^2-4}\) is
-computed as follows.</p>
+<p>The inverse Laplace transform of the function \(H\) defined by
+\(\displaystyle H(s) = \frac{1}{s^2-4}\) is computed as it follows.</p>
 
 <pre class="matlab">
 > <font class="matlab">Hs := 1/(s^2-4); ht:=invlaplace(Hs,s,t);</font>
@@ -106,7 +109,7 @@ computed as follows.</p>
 \end{split}
 \]
 
-<p>The <em>Heaviside Function</em> is define by</p>
+<p>The <em>Heaviside Function</em> is defined by</p>
 
 \[
 H(t) = \begin{cases} 1 & \text{ if } t > 0 \\
@@ -114,8 +117,8 @@ H(t) = \begin{cases} 1 & \text{ if } t > 0 \\
 \end{cases}
 \]
 
-<p>It is the function <font class="matlab">Heaviside()</font> in Maple.
-The Laplace transform of this function is  
+<p>It is the function <font class="matlab">Heaviside()</font> in <em>Maple</em>.
+The Laplace transform of this function is given below.</p>
 
 <pre class="matlab">
 > <font class="matlab">laplace(Heaviside(t),t,s);</font>
@@ -125,8 +128,8 @@ The Laplace transform of this function is
 \frac{1}{s}
 \]
 
-<p>It is usual to shift the Heaviside Function such that the jump is
-  at a value other than the origin.</p>
+<p>We often have to shift the Heaviside Function such that the jump is
+at a value other than the origin.</p>
 
 <pre class="matlab">
 > <font class="matlab">H4t := t->Heaviside(t-4); H4s := laplace(H4t(t),t,s);</font>
@@ -140,15 +143,19 @@ The Laplace transform of this function is
 \]
 
 <p>The Heaviside function has some interesting properties. For instance,
-\(\mathcal{L}( H(t-a) f(t-a) ) = e^{-a s} F(s)\) where
-\(F(s) = \mathcal{L}( f(t) )\).</p>
+\(\displaystyle \mathcal{L}(t \mapsto H(t-a) f(t-a) )(s) = e^{-a s} F(s)\) where
+\(F = \mathcal{L}(f)\).</p>
 
 <p>The <em>Dirac Delta Function</em> is <q lang="en">defined</q> by
 \(\delta(t) = 0\) for \(t \neq 0\) and
 \(\displaystyle \int_{-a}^a f(t) \delta(t) \text{d}t = f(0)\) for all
-functions \(f\) and all \(a > 0\).  The Dirac Delta Function is not a
-function as one learns in a course on measure theory.  It is denoted
-<font class="matlab">Dirac(&nbsp;)</font> in <em>Maple</em>.</p>
+functions \(f\) and all \(a > 0\).  The reader may learn in a course
+on measure theory that in fact the Dirac Delta Function is not a
+function.  We will not elaborate on this fascinating subject.  The
+Dirac Delta function is denoted <font class="matlab">Dirac()</font>
+in <em>Maple</em>.  It follows from its definition that the
+Laplace transform of the Dirac Delta function is the expression given
+below.</p>
 
 <pre class="matlab">
 > <font class="matlab">laplace(Dirac(t),t,s);</font>
@@ -158,7 +165,7 @@ function as one learns in a course on measure theory.  It is denoted
 1
 \]
 
-<h3> Solving ODE with Laplace Transforms </h3>
+<h3> Solving ODE with Laplace Transformations </h3>
 
 <p>Suppose that we want to solve the ODE</p>
 
@@ -166,32 +173,35 @@ function as one learns in a course on measure theory.  It is denoted
 y''(t) + 4 y(t) = \cos(2t)
 \]
 
-<p>with the initial conditions \(y(0)=2\) and \(y'(0)=3\).  The idea is
-really simple.  We apply the Laplace Transform on both sides of the
-ODE to transform it into an algebraic equation in
-\(Y(s) = \mathcal{L} ( y(t) )\).
-We solve this algebraic equation to find \(Y(s)\). Finally, we
-use the inverse Laplace transform to transform \(Y(s)\) into the solution
-\(y(t)\) that we are looking for.  The following commutative diagram
-summaize the procedure used to solve ODE with Laplace transforms.</p>
+<p>with the initial conditions \(y(0)=2\) and \(y'(0)=3\).  The method
+using Laplace transformations to solve linear ODE with constant
+coefficients is simple.  We compute the Laplace Transform of both
+sides of the ODE to obtain an algebraic equation in function of
+\(Y = \mathcal{L}(y)\).  We solve this algebraic equation in function
+of \(Y\). Finally, we compute the inverse Laplace transform of \(Y\)
+to get the solution \(y\) of the ODE with the initial conditions.
+The following commutative diagram summarizes the procedure to solve linear
+ODE with Laplace transformations.</p> 
 
 <div class="center">
   <img src="Maple_laplace_2.png" style="width: 300px"
-       alt="Commutative graph">
+       alt="Commutative diagram">
 </div>
 
 <p>The ODE is transformed into an algebraic equation (no more
-derivatives) because the Laplace Transform eliminates the
-derivatives. In fact, \(\mathcal{L}( y'(t) ) = s Y(s)- y(0)\), 
-\(\mathcal{L}( y''(t) ) = s^2 Y(s) - s y(0) -y'(0)\) and in general</p>
+derivatives) because the Laplace Transformations eliminate the
+derivatives. In fact, \(\mathcal{L}(y')(s) = s Y(s)- y(0)\), 
+\(\displaystyle \mathcal{L}(y'')(s) = s^2 Y(s) - s y(0) -y'(0)\) and
+in general</p> 
 
 \[
-\mathcal{L}( y^{n}(t) ) = s^n Y(s) - s^{(n-1)} y(0) -s^{(n-2)} y'(0)- \ldots - y^{(n-1)}(0)
+\mathcal{L}(y^{n})(s) = s^n Y(s) - s^{(n-1)} y(0) -s^{(n-2)} y'(0)- \ldots - y^{(n-1)}(0)
 \]
 
 <p>These formulae can be proved with integration by parts.</p>
 
-<p><em>Example</em>:  Consider the ODE</p>
+<p><em>Example</em>: Consider the ODE defined by the following
+command in <em>Maple</em></p>
 
 <pre class="matlab">
 > <font class="matlab">eq1 := diff(y(t),t$2) + 4*y(t)=cos(2*t);</font>
@@ -201,7 +211,8 @@ derivatives. In fact, \(\mathcal{L}( y'(t) ) = s Y(s)- y(0)\),
   eq1 := \frac{\text{d}^2}{\text{d}t^2} y(t) + 4 y(t) = \cos(2t)
 \]
 
-<p>If we follow the procedure to solve ODE with Laplace transform, we have</p>
+<p>If we follow the procedure to solve ODE with Laplace
+transformations, then we perform the following operations.</p> 
 
 <pre class="matlab">
 > <font class="matlab">eq2 := laplace(eq1,t,s); Ys:=solve(eq2,laplace(y(t),t,s)); yt := invlaplace(Ys,s,t); yt := subs({y(0)=2,D(y)(0)=3},yt);</font>
@@ -211,39 +222,40 @@ derivatives. In fact, \(\mathcal{L}( y'(t) ) = s Y(s)- y(0)\),
 \begin{split}
 & eq2 := s^2\,laplace(y(t),t,s) -D(y)(0) - s y(0)  +4\,laplace(y(t),t,s) = \frac{s}{s^2 + 4} \\
 & Ys := \frac{ y(0) s^3+ 4 s y(0) + D(y)(0) s^2 + 4 D(y)(0)+s}{ (s^2 + 4)^2} \\
-& yt := y(0) cos(2 t) \frac{sin(2t) )t + 2*D(y)(0)}{4}\\
-& yt := 2 cos(2 t) \frac{sin(2t) )t + 6}{4}
+& yt := y(0)\, \cos(2 t) + \frac{\sin(2t) (t + 2*D(y)(0))}{4}\\
+& yt := 2 \cos(2 t) + \frac{\sin(2t) (t + 6)}{4}
 \end{split}
 \]
 
-<p>All the work to solve the initial value problem in the previous
-example can be done with one Maple command.</p>
+<p>All the work to solve the linear ODE with initial conditions of the
+previous example can be done with one <em>Maple</em> command.</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve({eq1,y(0)=2,D(y)(0)=3},y(t),method=laplace);</font>
 </pre>
 
 \[
-yt = 2 cos(2 t) \frac{sin(2t) )t + 6}{4}
+yt = 2 \cos(2 t) + \frac{\sin(2t)(t + 6)}{4}
 \]
 
 <h3> Applications </h3>
 
-<p>Laplace transforms are often introduced when studying electrical
-circuit.  Consider the following <em>RLC circuit</em>.
+<p>Laplace transformations are often used when studying electrical
+circuit.  Consider the following <em>RLC circuit</em>.</p>
 
 <div class="center">
   <img src="Maple_RLC_circuit.png" style="width: 300px"
        alt="Drawing of a standard RLC circuit">
 </div>
 
-<p>where \(R\) is the resistance (in ohms) of a resistor, \(L\) is the
-inductance (in henys) of an inductor, and \(C\) is the capacitance
-(in farads) of a capacitor.  \(v_s(t)\) is the strength of the voltage
-source (in volts).  According to Kirchoff's voltage law
-\(v_s + Ri = v_C + v_L\), where \(v_C\) is the voltage at the capacitor,
-\(v_L\) is the voltage at the inductor, and \(i\) is the current.  The RLC
-circuit is governed by the ODE</p>
+<p>The constant \(R\) is the resistance (in ohms) of a resistor, \(L\) is the
+inductance (in henrys) of an inductor, and \(C\) is the capacitance
+(in farads) of a capacitor.  The value \(v_s(t)\) is the strength
+of the voltage source (in volts) at time \(t\).  According to
+Kirchoff's voltage law \(v_s + Ri = v_C + v_L\) where \(v_C\) is the
+voltage at the capacitor, \(v_L\) is the voltage at the inductor, and
+\(i\) is the current (in amperes).  The RLC circuit is governed by the
+following ODE.</p> 
 
 <pre class="matlab">
 > <font class="matlab"> eq3 := L*C*diff(v(t),t$2) + R*C*diff(v(t),t) + v(t)=VS(t);</font>
@@ -253,12 +265,13 @@ circuit is governed by the ODE</p>
 eq3 := L C \left( \frac{\text{d}^2}{\text{d}t^2} v(t)\right) + R C \left( \frac{\text{d}}{\text{d}t} v(t)\right) + v(t) = VS(t)
 \]
 
-<p>where \(v(t)\) is the voltage in the circuit at time \(t\) and
-\(VS = v_s\).</p> 
+<p>The value <font class="matlab">v(t)</font> is the voltage in the
+circuit at time \(t\) and <font class="matlab">VS</font> represents
+in <em>Maple</em> the function \(v_s\).</p> 
 
 <p>Suppose that <font class="matlab">R=2</font> ohms,
 <font class="matlab">C=0.15</font> farads,
-<font class="matlab">L=2</font> henys and
+<font class="matlab">L=2</font> henrys and
 <font class="matlab">VS(t) = Dirac(t)</font>.</p>
 
 <pre class="matlab">
@@ -270,7 +283,7 @@ eq4 := 0.30 \frac{\text{d}^2}{\text{d}t^2} v(t) + 0.30 \frac{\text{d}}{\text{d}t
 \]
 
 <p>If the initial conditions are <font class="matlab">v(0)=1</font> and
-<font class="matlab">D(v)(0)=0</font>, we have:</p>
+<font class="matlab">D(v)(0)=0</font>, then we get the following solution.</p>
 
 <pre class="matlab">
   > <font class="matlab">dsolve({eq4, v(0) = 1, (D(v))(0) = 0}, v(t), method = laplace);</font>
@@ -280,7 +293,8 @@ eq4 := 0.30 \frac{\text{d}^2}{\text{d}t^2} v(t) + 0.30 \frac{\text{d}}{\text{d}t
 v(t) = \frac{e^{-\frac{t}{2}} \left( 111\cos\left(\frac{\sqrt{111} t}{6}\right) + 23 \sqrt{111} \sin\left(\frac{\sqrt{111} t}{6}\right)\right)}{111}
 \]
 
-<p>The graph of the voltage <font class="matlab">v(t)</font> is</p>
+<p>The graph of the voltage <font class="matlab">v</font> in
+function of the time is drawn below.</p>
 
 <pre class="matlab">
 > <font class="matlab">plot(rhs(%), t = 0 .. 20);</font>
@@ -288,7 +302,7 @@ v(t) = \frac{e^{-\frac{t}{2}} \left( 111\cos\left(\frac{\sqrt{111} t}{6}\right) 
 
 <div class="center">
   <img src="Maple_laplace_1.png" style="width: 300px"
-       alt="Graph of v(t)">
+       alt="Graph of v as a function of t">
 </div>
 
 <br>
