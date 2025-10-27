@@ -115,12 +115,12 @@ introduction.</p>
 <p>La fonction de <em>Heaviside Function</em> est définie par</p>
 
 \[
-H(t) = \begin{cases} 1 & \text{ if } t > 0 \\
-0 & \text{ if } t < 0
+H(t) = \begin{cases} 1 & \text{ si } t \geq 0 \\
+0 & \text{ si } t < 0
 \end{cases}
 \]
 
-<p>C'est la fonction <font class="matlab">Heaviside()</font> dans
+<p>Cette fonction est dénotée <font class="matlab">Heaviside()</font> dans
 <em>Maple</em>.  La transformée de Laplace de cette fonction est
 donnée ci-dessous.</p>  
 
@@ -157,10 +157,10 @@ Par exemple,
 toutes fonctions \(f\) et valeurs \(a > 0\).  Le lecteur peut
 apprendre dans un cours sur la théorie de la mesure qu'en fait la
 fonction Delta de Dirac n'est pas une fonction.  Nous n'élaborons pas
-sur ce sujet fascinant.  La fonction delta de Dirac est dénotée
+sur ce sujet fascinant.  La fonction Delta de Dirac est dénotée
 <font class="matlab">Dirac()</font> dans <em>Maple</em>.   Il découle
-de sa définition que La transformée de Laplace de la fonction Delta de
-Dirac est l'expression donné ci-dessous. </p>
+de sa définition que la transformée de Laplace de la fonction Delta de
+Dirac est la fonction donnée ci-dessous. </p>
 
 <pre class="matlab">
 > <font class="matlab">laplace(Dirac(t),t,s);</font>
@@ -181,7 +181,7 @@ y''(t) + 4 y(t) = \cos(2t)
 <p>avec les condition initiales \(y(0)=2\) et \(y'(0)=3\).  La méthode
 qui utilise les transformations de Laplace pour résoudre les EDO
 linéaires avec coefficients constants est simple.  Nous calculons la
-transformée de Laplace de chaque côté de l'EDO pour obtenir une
+transformée de Laplace des deux côtés de l'EDO pour obtenir une
 équation algébrique en fonction de \(Y = \mathcal{L}(y)\).
 Nous résolvons cette équation algébrique en fonction de \(Y\).
 Finalement, nous calculons la transformée inverse de Laplace de \(Y\)
@@ -205,7 +205,7 @@ car les transformations de Laplace éliminent les dérivées.  En fait,
 <p>Ces formules peuvent être démontrées à l'aide d'intégrations par
 parties.</p> 
 
-<p><em>Exemple</em>: Considérons l'EDO définis par la commande suivante
+<p><em>Exemple</em>: Considérons l'EDO définie par la commande suivante
 dans <em>Maple</em>.</p>
 
 <pre class="matlab">
@@ -217,7 +217,7 @@ dans <em>Maple</em>.</p>
 \]
 
 <p>Si nous utilisons la procédure pour résoudre les EDO à l'aide des
-transformations de Laplace, alors nous exécutons les opérations.</p>
+transformations de Laplace, alors nous exécutons les opérations suivantes.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq2 := laplace(eq1,t,s); Ys:=solve(eq2,laplace(y(t),t,s)); yt := invlaplace(Ys,s,t); yt := subs({y(0)=2,D(y)(0)=3},yt);</font>
@@ -258,7 +258,8 @@ suivant.</p>
 <p>La constante \(R\) est la résistance (en ohms) du résisteur, \(L\) est
 l'inductance (en henrys) de l'inducteur, et \(C\) est la capacité
 (en farads) du condensateur.  La valeur \(v_s(t)\) est la force du
-voltage (en volts) à la source.  D'après la première lois de Kirchoff
+voltage (en volts) à la source au temps \(t\).
+D'après la première lois de Kirchoff
 \(v_s + Ri = v_C + v_L\) où \(v_C\) est le voltage au condensateur,
 \(v_L\) est le voltage à l'inducteur, et \(i\) est le courant (en
 ampères).  Le circuit LRC est décrit par l'EDO suivante.</p>
@@ -272,7 +273,7 @@ eq3 := L C \left( \frac{\text{d}^2}{\text{d}t^2} v(t)\right) + R C \left( \frac{
 \]
 
 <p>La valeur <font class="matlab">v(t)</font> est le voltage dans le
-circuit au temps \(t\) et <font class="matlab">VS</em> représente
+circuit au temps \(t\) et <font class="matlab">VS</font> représente
 dans <em>Maple</em> la fonction \(v_s\).</p>
 
 <p>Supposons que <font class="matlab">R=2</font> ohms,

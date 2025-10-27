@@ -28,6 +28,14 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+-->
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
 </head>
 <body>
 
@@ -43,14 +51,368 @@ main_title( MStexte, "MMathSStat");
 
 <h2> Séries de Fourier </h2>
 
-<p> Le contenu de ce site n'a malheureusement pas encore été traduit
-en français.  Veuillez consulter le site en anglais
+<p>Nous n'avons pas l'intention d'être excessivement rigoureux dans ce
+document sur les <em>séries de Fourier</em>.  Pour un traitement
+rigoureux, le lecteur devrait consulter un des excellents manuels
+d'analyse.</p>
+
+<p>La <em>série de Fourier</em> d'une fonction
+\(f:[-L,L] \to \mathbb{R}\) est la série</p>
+
+\[
+  a_0 + \sum_1^\infty ( a_n \cos(n\pi x/L) + b_n \sin(n\pi x/L) )
+\]
+
+<p>où</p>
+  
+\[
+  a_0 = \frac{1}{2L} \int_{-L}^L f(x) \text{d}x \quad , \quad
+  a_n = \frac{1}{L} \int_{-L}^L f(x) \cos(n\pi x/L) \text{d}x
+\]
+<p>et</p>
+\[
+b_n = \frac{1}{L} \int_{-L}^L f(x) \sin(n\pi x/L) \text{d}x
+\]
+
+<p> Si \(f\) est une fonction continue par morceaux sur l'intervalle
+\([-L,L]\), nous avons que </p> 
+
+\[
+  \frac{f(x^+) + f(x^-)}{2}
+  = a_0 + \sum_1^\infty ( a_n \cos(n\pi x/L) + b_n \sin(n\pi x/L) )
+\]
+
+<p>pour tous \(x \in [-L,L]\).  En particulier, si \(f\) est continue
+au point \(x =a\), alors la série converge ponctuellement vers \(f(a)\).</p>
+
+<p>Si \(f :\mathbb{R} \to \mathbb{R}\) est une fonction périodique de
+période \(2L\), alors les intégrales ci-dessus peuvent être calculées
+sur tous intervalles de la forme \([a-L,a+L]\).</p>
+
+<p>Si \(f\) est une fonction paire (i.e. \(f(-x) = f(x)\) pour tous \(x\)),
+alors \(b_n = 0\) pour tous \(n\) et la série de Fourier devient la
+<em>série de Fourier en cosinus</em></p>
+
+\[
+  a_0 + \sum_1^\infty a_n \cos(n\pi x/L)
+\]
+
+<p> où </p>
+  
+\[
+  a_0 = \frac{1}{L} \int_0^L f(x) \text{d}x \quad , \quad
+  a_n = \frac{2}{L} \int_0^L f(x) \cos(n\pi x/L)\text{d}x
+\]
+
+<p><em>Note</em>: Nous pouvons toujours prolonger une fonction
+\(f:[0,L] \to \mathbb{R}\) à une fonction paire sur l'intervalle
+\([-L.L]\) par \(f(x) = f(-x)\) pour \(x \in [-L,0[\).</p>
+
+<p>Si \(f\) est une fonction impaire (i.e. \(f(-x) = -f(x)\) pour tous
+\(x\)), alors \(a_n = 0\) pour tous \(n\) et la série de Fourier
+devient la <em>série de Fourier en cosinus</em></p> 
+
+\[
+  \sum_1^\infty b_n \sin(n\pi x/L)
+\]
+
+<p>où</p>
+  
+\[
+  b_n = \frac{2}{L} \int_0^L f(x)\sin(n \pi x/L) \text{d} x
+\]
+
+<p><em>Note</em>: Nous pouvons toujours prolonger une fonction
+\(f:]0,L] \to \mathbb{R}\) à une fonction impaire définie sur
+l'intervalle \([-L.L]\) par \(f(x) = -f(-x)\) pour \(x \in [-L,0[\)
+et \(f(0)=0\).  On peut modifier la valeur d'une fonction à l'origine
+(en un point) sans changer les valeurs des intégrales ci-dessus.</p>
+
+<h3> Calculs des séries de Fourier </h3>
+
+<p> Il existe des librairies dans <em>Maple</em> pour calculer les
+séries de Fourier. Cependant, elles ne font pas parties de la
+distribution officielle de <em>Maple</em>.  Elles se trouvent dans 
 <script language="javascript">
-    buildLinK(Fourier_series.url_en,
-    Fourier_series.text_en,"MMathSStat", Fourier_series.id,
-    Fourier_series.target);
-</script>.
-</p>
+buildLinK("https://www.maplesoft.com/Applications/Default.aspx",
+"Maple Application Center", "MMathSStat", "MAPid", "_blank");
+</script>.  Une de ces librairies est <font class="matlab">
+OrthogonalExpansions</font>.  Nous n'utiliserons pas de librairies
+spécialisées dans ce document.  Il est facile de calculer les séries
+de Fourier sans faire usage d'une librairie spécialisée.</p>
+
+<p><em>Exemple</em>: Considérons la fonction continue par morceaux
+définie par la procédure suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">fe := proc(x) local y: if type(x,numeric) then y:=abs(x)-floor(abs(x)/2)*2: if ( y < 1/2 or y > 3/2 ) then RETURN(1); else RETURN(0); fi; else 'fe'(x); fi; end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& fe := proc (x)\\
+& \qquad local\ y: \\
+& \qquad if\ type(x, numeric)\ then \\
+& \qquad \qquad y := abs(x)-2*floor((1/2)*abs(x))\\
+& \qquad \qquad if\ y < 1/2\ or\ 3/2 < y\ then\ RETURN(1)\ else\ RETURN(0)\ end\ if \\
+& \qquad else \\
+& \qquad \qquad ('fe')(x) \\
+& \qquad end\ if \\
+& end\ proc
+\end{split}
+\]
+
+<p>La procédure ci-dessus est la définition la moins fragile d'une
+fonction mais nous n'avons pas à être si rigoureux si notre fonction
+est pour une tâche spécifique et un usage limité, et que nous
+connaissons le type d'arguments qui seront fournis à la fonction.
+Une autre façon plus simple de définir
+<font class="matlab">fe</font> est avec la fonction
+<font class="matlab">piecewise</font> de <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab">fe := x -> piecewise( abs(x)-floor(abs(x)/2)*2 <= 1/2 or   abs(x)-floor(abs(x)/2)*2 > 3/2,1,0);</font>
+</pre>
+
+\[
+fe := x \mapsto \begin{cases} 1 & \qquad |x| -2 \lfloor \frac{|x|}{2} \rfloor \leq \frac{1}{2}  \text{ or } \frac{3}{2} < |x| -2 \lfloor \frac{|x|}{2} \rfloor \\
+0 & \qquad \qquad \text{otherwise}
+\end{cases}
+\]
+
+<p>Le graphe de cette fonction est tracé ci-dessous.</p>
+
+<pre class="matlab">
+> <font class="matlab">plot(fe(x), x = -4 .. 5, thickness = 3, discont = true, gridlines = true, view = [-4 .. 5, -.2 .. 1.2]);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Fourier_1.png" style="width: 300px"
+       alt="Graphe de la fonction continue par morceaux fe">
+</div>
+
+<p>En regardant le graphe de <font class="matlab">fe</font>, nous
+constatons que la fonction est périodique de période \(2\) (donc
+\(L=1\)) et c'est une fonction paire. Ainsi, nous cherchons une
+approximation de cette fonction à l'aide d'une série de Fourier en
+cosinus.  Puisque nous avons seulement besoin d'intégrer sur
+l'intervalle \([0,1]\), nous n'avons pas besoin de la définition
+complète de <font class="matlab">fe</font>,  Nous pouvons 
+plutôt utiliser la fonction suivante .</p>
+
+<pre class="matlab">
+> <font class="matlab">fe0L := x->piecewise(x<=1/2,1,0);</font>
+</pre>
+
+\[
+fe := x \mapsto \begin{cases} 1 & \qquad x \leq \frac{1}{2}  \\
+0 & \qquad \text{otherwise}
+\end{cases}
+\]
+
+<p>Cette fonction est égale à la fonction  <font class="matlab">fe</font>
+sur le domaine d'intégration \([0,L]\).  Il n'est pas nécessaire
+d'utiliser la fonction <font class="matlab">fe0L</font> mais, si
+nous avons beaucoup de calculs à faire. il est toujours bon d'avoir la forme
+la plus simple pour faire les calculs.</p>
+
+<p>Les coefficients de la série de Fourier en cosinus sont donnés par
+la procédure suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">an:=proc(n) if (n=0) then RETURN( int(fe0L(x),x=0..1) ); else RETURN( 2*int(fe0L(x)*cos(n*Pi*x),x=0..1)); fi; end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& an := proc (n) \\
+& \qquad if\ n = 0\ then \\
+& \qquad \qquad RETURN(int(fe0L(x), x = 0 .. 1)) \\
+& \quad else \\
+& \qquad \qquad RETURN(2*(int(fe0L(x)*cos(n*Pi*x), x = 0 .. 1))) \\
+& \qquad end\ if \\
+& end\ proc;
+\end{split}
+\]
+
+<p>Nous calculons les \(11\) premiers coefficients que nous
+sauvegardons dans la variable <font class="matlab">AN</font> pour un
+usage ultérieur.</p>
+
+<pre class="matlab">
+> <font class="matlab">AN:= seq( evalf(an(i)),i=0..10);</font>
+</pre>
+
+\[
+AN := .5000000000, .6366197722, 0., -.2122065907, 0., .1273239544, 0., -0.9094568174e-1, 0., 0.7073553024e-1, 0.
+\]
+
+<p>Notons que les indices de la séquence <font class="matlab">AN</font>
+débutent à \(1\) selon les règles de <em>Maple</em>.
+Cela aura un effet sur l'énoncée des formules pour les séries de Fourier
+  dans <em>Maple</em>.</p>
+
+<p>La série de Fourier en cosinus tronquée à \(n+1\) termes est donnée
+par la procédure ci-dessous.</p>  
+
+<pre class="matlab">
+> <font class="matlab">FCS:=(x,n)->sum(AN[j+1]*cos(j*Pi*x),j=0..n);</font>
+</pre>
+
+\[
+FCS := (x, n) \mapsto \sum_{j=0}^{n} AN_{j+1} \cos(j\pi x)
+\]
+
+<p>Nous traçons dans une même figure le graphe de la fonction
+<font class="matlab">fe</font> et sa série de Fourier en cosinus
+tronquée à six termes; c'est-à-dire, \(n = 5\).</p>
+
+<pre class="matlab">
+> <font class="matlab">plot1:=plot(fe(x),x=-4..4,color=blue):</font>
+> <font class="matlab">plot2:=plot(FCS(x,5),x=-4..4,color=red):</font>
+> <font class="matlab">plots[display]({plot1,plot2},labels=[`x`,`y`]);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Fourier_2.png" style="width: 300px"
+       alt="Graphe de la fonction continue par morceaux fe et de sa série de Fourier en cosinus tronquée à six termes">
+</div>
+
+<p><em>Note</em>: Nous observons le <em>phénomène de Gibb</em>.  
+Peux importe le nombre de termes que nous utilisons pour la série de
+Fourier, près d'un point de discontinuité, la différence entre la
+valeur de la fonction et la série de Fourier tronquée n'est
+jamais plus petite qu'une certaine valeur fixe qui dépend de la
+fonction.</p> 
+
+<pre class="matlab">
+> <font class="matlab">plot3:=plot('FCS(x,10)',x=-4..4,color=red):</font>
+> <font class="matlab">plots[display]({plot1,plot3},labels=[`x`,`y`]);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Fourier_3.png" style="width: 300px"
+       alt="Graphe de la fonction continue par morceaux fe et de sa série de Fourier en cosinus tronquée à 11 termes">
+</div>
+
+<p><em>Note</em>: La valeur de la série de Fourier en cosinus à un
+point \(x=a\) où <font class="matlab">fe</font> est discontinue
+est <font class="matlab">(fe(x-)+fe(x+))/2</font> comme il est prédit.</p> 
+
+<p><em>Exemple</em>: Nous considérons maintenant la fonction définie
+dans <em>Maple</em> par la procédure suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">ff := proc(x) local y: if type(x,numeric) then y:=x - floor(x/3)*3; if   ( y<3/2 ) then RETURN(3 - 2*y); else RETURN(0); fi; else 'ff'(x); fi; end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& ff := proc (x) \\
+&\qquad local\ y;\\
+&\qquad if\ type(x, numeric)\ then\\
+&\qquad \qquad y := x-3*floor((1/3)*x); if\ y < 3/2\ then\ RETURN(3-2*y)\ else\ RETURN(0)\ end\ if\\
+& else\\
+& \qquad\qquad ('ff')(x)\\
+& end\ if\\
+& end proc
+\end{split}
+\]
+						
+<p>Le graphe de cette fonction est tracé ci-dessous</p>
+
+<pre class="matlab">
+> <font class="matlab">plot('ff(x)', x = -4 .. 5, thickness = 3, discont = true, gridlines = true, view = [-4 .. 5, -.2 .. 3.2]);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Fourier_4.png" style="width: 300px"
+       alt="Graphe de la fonction continue par morceaux ff">
+</div>
+
+<p>En regardant le graphe de la fonction <font class="matlab">ff</font>,
+nous constatons que la fonction est périodique de période \(3\) mais
+elle n'est pas paire ou impaire.  Nous utilisons la complète séries de
+Fourier pour trouver une approximation de la fonction
+<font class="matlab">ff</font>.</p>
+
+<p>Comme nous avons fait pour l'exemple précédent, nous pourrions
+définir une fonction <font class="matlab">ff0L</font> un peu plus simple
+qui est égale à la fonction <font class="matlab">ff</font> sur
+l'intervalle d'intégration \([-1.5,1.5]\). Cependant, puisque
+<font class="matlab">ff(x) = 0</font> pour \(x\in [-1.5,0]\), les
+intégrales ont seulement besoin d'être évaluées sur l'intervalle
+\([0, 1.5]\).  Donc, nous pouvons seulement utiliser la fonction
+<font class="matlab">ff0L</font> définie ci-dessous.</p>
+
+<pre class="matlab">
+> <font class="matlab">ff0L := 3-2*x:</font>
+</pre>
+
+<p>Les coefficients de Fourier sont calculés par les procédures
+suivantes. </p>
+
+<pre class="matlab">
+> <font class="matlab">an:=proc(n) if (n=0) then RETURN((1/3)*int(ff0L,x=0..1.5)); else RETURN((2/3)*int((ff0L)*cos(2*n*Pi*x/3) ,x=0..1.5)); fi; end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& an := proc(n)\\
+&\qquad if\ n = 0\ then \\
+&\qquad \qquad RETURN(1/3*int(ff0L, x = 0 .. 1.5))\\
+&\qquad else \\
+&\qquad \qquad RETURN(2/3*int(ff0L*cos(2/3*n*Pi*x), x = 0
+    .. 1.5)) \\
+&\qquad end\ if\\
+& end\ proc
+\end{split}
+\]
+
+<pre class="matlab">
+> <font class="matlab">bn:=proc(n) RETURN((2/3)*int((ff0L)*sin(2*n*Pi*x/3), x=0..1.5)); end proc;</font>
+</pre>
+
+\[
+bn := proc(n)\ RETURN(2/3*(int(ff0L*sin(2/3*n*Pi*x), x = 0 .. 1.5)))\ end\ proc
+\]
+
+<p>Nous calculons les \(21\) premiers coefficients que nous
+sauvegardons dans les variables <font class="matlab">AN</font>
+et <font class="matlab">BN</font> pour un usage ultérieur.</p>
+
+<pre class="matlab">
+> <font class="matlab">AN:=seq(evalf( an(i) ),i=0..10):</font>
+> <font class="matlab">BN:=seq(bn(i),i=1..10):</font>
+</pre>
+
+<p>La série de Fourier de la fonction
+<font class="matlab">ff</font> tronquée à \(2n+1\) termes est donnée
+par la procédure suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">FS:=(x,n)-> sum(AN[j+1]*cos(2*j*Pi*x/3),j=0..n) + sum(BN[j]*sin(2*j*Pi*x/3),j=1..n);</font>
+</pre>
+
+\[
+FS := (x, n) \mapsto \sum_{j=0}^n AN_{j+1} \cos\left(\frac{2j \pi
+x}{3}\right) )+ \sum_{j=1}^n BN_j \sin\left(\frac{2j\pi x}{3}\right)
+\]
+
+<p>Nous traçons dans une même figure le graphe de la fonction
+<font class="matlab">ff</font> et sa série de Fourier
+tronquée à 21 termes; c'est-à-dire, \(n = 10\).</p>
+
+<pre class="matlab">
+> <font class="matlab">plot1:=plot(ff(x),x=-4..4,color=blue):</font>
+> <font class="matlab">plot2:=plot('FS(x,10)',x=-4..4,color=red):</font>
+> <font class="matlab">plots[display]({plot1,plot2},labels=[`x`,`y`]);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Fourier_5.png" style="width: 300px"
+       alt="Graphe de la fonction continue par morceaux ff et de sa série de Fourier tronquée à 21 termes">
+</div>
 
 <br>
 <hr>

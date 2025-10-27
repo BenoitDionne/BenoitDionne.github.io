@@ -53,11 +53,11 @@ main_title( MStext, "MMathSStat");
 
 <h2> Introduction </h2>
 
-<p>We do not plan to be overly rigorous in this section
+<p>We do not plan to be overly rigorous in this document
 on <em>Fourier series</em>.  For a rigorous introduction, the reader
 should consult one of the excellent textbooks in analysis.</p>
 
-<p>The <em>Fourier series</em> of \(f [-L,L] \to \mathbb{R}\) is the
+<p>The <em>Fourier series</em> of a function \(f:[-L,L] \to \mathbb{R}\) is the
 series</p>
 
 \[
@@ -75,7 +75,7 @@ series</p>
 b_n = \frac{1}{L} \int_{-L}^L f(x) \sin(n\pi x/L) \text{d}x
 \]
 
-<p> If \(f\) is piecewise continuous on \([-L,L]\), we have that</p>
+<p> If \(f\) is piecewise continuous function on \([-L,L]\), we have that</p>
 
 \[
   \frac{f(x^+) + f(x^-)}{2}
@@ -83,10 +83,10 @@ b_n = \frac{1}{L} \int_{-L}^L f(x) \sin(n\pi x/L) \text{d}x
 \]
 
 <p>for all \(x \in [-L,L]\).  In particular, if \(f\) is continuous at
-\(x\), then the series converges pointwise to \(f(x)\).</p>
+\(x=a\), then the series converges pointwise to \(f(a)\).</p>
 
-<p>If \(f :\mathbb{R} \to \mathbb{R}\) is periodic of period \(2L\), the
-integrals above can be computed on any interval of the form
+<p>If \(f :\mathbb{R} \to \mathbb{R}\) is periodic function of period
+\(2L\), them the integrals above can be computed on any interval of the form
 \([a-L,a+L]\).</p>
 
 <p>If \(f\) is an even function (i.e. \(f(-x) = f(x)\) for all \(x\)), then
@@ -105,11 +105,11 @@ integrals above can be computed on any interval of the form
 \]
 
 <p><em>Note</em>: We can always extend a function
-\(f:[0,L] \to \mathbb{R}\) to an even function defined on \([-L.L]\) by
-\(f(x) = f(-x)\) for \(x \in [-L,0]\).</p>
+\(f:[0,L] \to \mathbb{R}\) to an even function defined on the interval
+\([-L.L]\) by \(f(x) = f(-x)\) for \(x \in [-L,0[\).</p>
 
 <p>If \(f\) is an odd function (i.e. \(f(-x) = -f(x)\) for all \(x\)), then
-\(a_n = 0\) for all \(n\), and the Fourier series becomes the
+\(a_n = 0\) for all \(n\) and the Fourier series becomes the
 <em>Fourier sine series</em></p> 
 
 \[
@@ -123,16 +123,25 @@ integrals above can be computed on any interval of the form
 \]
 
 <p><em>Note</em>: We can always extend a function
-\(f:]0,L] \to \mathbb{R}\) to an odd function defined on
-\([-L.L]\) by \(f(x) = -f(-x)\) for \(x \in [-L,0[\) and \(f(0)=0\).</p>
+\(f:]0,L] \to \mathbb{R}\) to an odd function defined on the interval
+\([-L.L]\) by \(f(x) = -f(-x)\) for \(x \in [-L,0[\) and \(f(0) = 0\).  We can
+modify the value of \(f\) at the origin (at one point) without affecting the
+values of the integrals above.</p>
 
 <h3> Computations of Fourier Series </h3>
 
-<p><em>Example 1</em>: There exists some package in
-<font class="matlab">Maple</font> to compute Fourier series. 
-We present them below.</p>
+<p> There exists some package in <em>Maple</em> to compute Fourier
+series.  However, they are not parts of the official distribution
+of <em>Maple</em>.  They can be found in the <script language="javascript">
+buildLinK("https://www.maplesoft.com/Applications/Default.aspx",
+"Maple Application Center", "MMathSStat", "MAPid", "_blank");
+</script>.  One of this packages is <font class="matlab">
+OrthogonalExpansions</font>.  We will not use any special package in this
+document.  It is easy to compute Fourier series without having to use
+a special package.</p> 
 
-<p>Consider the following piecewise continuous function</p>
+<p><em>Example</em>: Consider the piecewise continuous
+function defined by the following <em>Maple</em> procedure.</p>
 
 <pre class="matlab">
 > <font class="matlab">fe := proc(x) local y: if type(x,numeric) then y:=abs(x)-floor(abs(x)/2)*2: if ( y < 1/2 or y > 3/2 ) then RETURN(1); else RETURN(0); fi; else 'fe'(x); fi; end proc;</font>
@@ -152,8 +161,12 @@ We present them below.</p>
 \end{split}
 \]
 
-<p>Another way to define <font class="matlab">fe</font> is with the
-function <font class="matlab">piecewise</font>. 
+<p>The procedure above is the less fragile definition of a function
+but we do not need to be that rigorous if our function is for a very
+specific and limited use, and we know the type of arguments that will
+be given to the function.  Another simpler way to define
+<font class="matlab">fe</font> is with the function
+<font class="matlab">piecewise</font> of <em>Maple</em>.</p>
 
 <pre class="matlab">
 > <font class="matlab">fe := x -> piecewise( abs(x)-floor(abs(x)/2)*2 <= 1/2 or   abs(x)-floor(abs(x)/2)*2 > 3/2,1,0);</font>
@@ -165,7 +178,7 @@ fe := x \mapsto \begin{cases} 1 & \qquad |x| -2 \lfloor \frac{|x|}{2} \rfloor \l
 \end{cases}
 \]
 
-<p>The graph of this function is</p>
+<p>The graph of this function is drawn below.</p>
 
 <pre class="matlab">
 > <font class="matlab">plot(fe(x), x = -4 .. 5, thickness = 3, discont = true, gridlines = true, view = [-4 .. 5, -.2 .. 1.2]);</font>
@@ -173,14 +186,15 @@ fe := x \mapsto \begin{cases} 1 & \qquad |x| -2 \lfloor \frac{|x|}{2} \rfloor \l
 
 <div class="center">
   <img src="Maple_Fourier_1.png" style="width: 300px"
-       alt="Graph of the piecewise function fe">
+       alt="Graph of the piecewise continuous function fe">
 </div>
 
-<p>From the graph of <font class="matlab">fe</font>, we see that it is
-periodic of period \(2\) (so \(L=1\)) and it is an even function.  We will
-approximate this function with a Fourier cosine series.  Since we
-will need to integrate only on the interval \([0,1]\), we do not need the
-complete definition of <font class="matlab">fe</font>, we can only consider
+<p>From the graph of <font class="matlab">fe</font>, we see that this
+function is periodic of period \(2\) (so \(L=1\)) and it is an even
+function.  Thus, we approximate this function with a Fourier cosine
+series.  Since we only need to integrate on the interval \([0,1]\), we
+do not need the complete definition of <font class="matlab">fe</font>,
+we can use the following function instead.</p>
 
 <pre class="matlab">
 > <font class="matlab">fe0L := x->piecewise(x<=1/2,1,0);</font>
@@ -192,12 +206,14 @@ fe := x \mapsto \begin{cases} 1 & \qquad x \leq \frac{1}{2}  \\
 \end{cases}
 \]
 
-<p>which is equal to <font class="matlab">fe</font> on \([0,L]\).  It is
-not necessary to consider <font class="matlab">fe0L</font> but, if
-we have many computation to do, it is always nice to have the
-simplest form possible to do the job.</p>
+<p>This function is equal to the function <font class="matlab">fe</font> on the
+domain of integration \([0,L]\).  It is not necessary to use the function
+<font class="matlab">fe0L</font> but, if we have a lot of computations to
+do, it is always nice to have the simplest form possible to do
+the computations.</p>
 
-<p>The coefficients of the Fourier cosine series are given by</p>
+<p>The coefficients of the Fourier cosine series are given by the
+following procedure.</p>
 
 <pre class="matlab">
 > <font class="matlab">an:=proc(n) if (n=0) then RETURN( int(fe0L(x),x=0..1) ); else RETURN( 2*int(fe0L(x)*cos(n*Pi*x),x=0..1)); fi; end proc;</font>
@@ -215,8 +231,8 @@ simplest form possible to do the job.</p>
 \end{split}
 \]
 
-<p>We compute and store the first \(11\) coefficients that we will use
-later.</p>
+<p>We compute the first \(11\) coefficients and store them in the
+variable <font class="matlab">AN</font> to use them later.</p>
 
 <pre class="matlab">
 > <font class="matlab">AN:= seq( evalf(an(i)),i=0..10);</font>
@@ -226,9 +242,13 @@ later.</p>
 AN := .5000000000, .6366197722, 0., -.2122065907, 0., .1273239544, 0., -0.9094568174e-1, 0., 0.7073553024e-1, 0.
 \]
 
-<p>Note that the sequence <font class="matlab">AN</font> starts a one.
-This will have an effect on the formula for the Fourier series.  The
-Fourier cosine series (truncated after \(n+1\) terms) is 
+<p>Note that the indices of the sequence <font class="matlab">AN</font>
+start at \(1\) according to <em>Maple</em> rules.
+This will affect the statement of the formulae for the Fourier series in
+<em>Maple</em>.</p>
+
+<p>The Fourier cosine series truncated to \(n+1\) terms is given by
+the procedure below.</p>
 
 <pre class="matlab">
 > <font class="matlab">FCS:=(x,n)->sum(AN[j+1]*cos(j*Pi*x),j=0..n);</font>
@@ -238,9 +258,9 @@ Fourier cosine series (truncated after \(n+1\) terms) is
 FCS := (x, n) \mapsto \sum_{j=0}^{n} AN_{j+1} \cos(j\pi x)
 \]
 
-<p>We now draw, on the same figure, the graphs of
-<font class="matlab">fe(&nbsp;)</font> and the Fourier cosine series
-with \(n = 5\); the first six terms of the series.</p>
+<p>We now draw in the same figure the graphs of the function
+<font class="matlab">fe</font> and its Fourier cosine series
+truncated to six terms; namely \(n = 5\).</p>
 
 <pre class="matlab">
 > <font class="matlab">plot1:=plot(fe(x),x=-4..4,color=blue):</font>
@@ -250,15 +270,14 @@ with \(n = 5\); the first six terms of the series.</p>
 
 <div class="center">
   <img src="Maple_Fourier_2.png" style="width: 300px"
-       alt="Graph of the piecewise function fe and its truncate
-       Fourier cosine series with six terms">
+       alt="Graph of the piecewise continuous function fe and its truncate Fourier cosine series to six terms">
 </div>
 
 <p><em>Note</em>: We observe the <em>Gibb's phenomena</em>.  No
 matter how many terms we keep in the Fourier series, near a point of
 discontinuity of the function, the difference between the function
-and the truncated Fourier series never decreases below a fixed
-value.</p>
+and the truncated Fourier series is never smaller than a fixed
+value depending on the function.</p>
 
 <pre class="matlab">
 > <font class="matlab">plot3:=plot('FCS(x,10)',x=-4..4,color=red):</font>
@@ -267,15 +286,15 @@ value.</p>
 
 <div class="center">
   <img src="Maple_Fourier_3.png" style="width: 300px"
-       alt="Graph of the piecewise function fe and its truncate
-       Fourier cosine series with 11 terms">
+       alt="Graph of the piecewise continuous function fe and its truncate Fourier cosine series to 11 terms">
 </div>
 
 <p><em>Note</em>: The value of the Fourier cosine series at a point
-where <font class="matlab">fe</font> is discontinuous is
-about <font class="matlab">(fe(x-)+fe(x+))/2</font> as expected.</p>
+\(x=a\) where <font class="matlab">fe</font> is discontinuous is
+<font class="matlab">(fe(a-)+fe(a+))/2</font> as expected.</p>
 
-<p><em>Example 2</em>: We now consider the function</p>
+<p><em>Example</em>: We now consider the function defined
+in <em>Maple</em> by the following procedure.</p>
 
 <pre class="matlab">
 > <font class="matlab">ff := proc(x) local y: if type(x,numeric) then y:=x - floor(x/3)*3; if   ( y<3/2 ) then RETURN(3 - 2*y); else RETURN(0); fi; else 'ff'(x); fi; end proc;</font>
@@ -294,7 +313,7 @@ about <font class="matlab">(fe(x-)+fe(x+))/2</font> as expected.</p>
 \end{split}
 \]
 						
-<p>The graph of this function is</p>
+<p>The graph of this function is drawn below.</p>
 
 <pre class="matlab">
 > <font class="matlab">plot('ff(x)', x = -4 .. 5, thickness = 3, discont = true, gridlines = true, view = [-4 .. 5, -.2 .. 3.2]);</font>
@@ -302,27 +321,27 @@ about <font class="matlab">(fe(x-)+fe(x+))/2</font> as expected.</p>
 
 <div class="center">
   <img src="Maple_Fourier_4.png" style="width: 300px"
-       alt="Graph of the piecewise function ff">
+       alt="Graph of the piecewise continuous function ff">
 </div>
 
-<p>From the graph, we see that <font class="matlab">ff</font> is a
-periodic function of period \(3\) but it is neither an odd nor an even
-function.  We will use the full Fourier series to approximate
-<font class="matlab">ff</font>.</p>
+<p>From the graph of the function <font class="matlab">ff</font>, we see that
+the function is periodic of period \(3\) but it is neither
+an odd nor an even function.  We use the full Fourier series to
+approximate the function <font class="matlab">ff</font>.</p>
 
 <p>As we did in the previous example, we could define a relatively
-simpler function <font class="matlab">ff0L</font> which is equal to 
-<font class="matlab">ff</font> on the interval of integration
+simpler function <font class="matlab">ff0L</font> which is equal to
+the function <font class="matlab">ff</font> on the interval of integration
 \([-1.5,1.5]\).  However, since <font class="matlab">ff(x) = 0</font>
-for \(x\in [-1.5,0]\), the integrals need to be computed on the interval
-\([0, 1.5]\) only.  So, we may simply consider
-<font class="matlab">ff0L</font> defined by</p>
+for \(x\in [-1.5,0]\), the integrals need only to be computed on the interval
+\([0, 1.5]\).  So, we may simply consider the function
+<font class="matlab">ff0L</font> defined below.</p>
 
 <pre class="matlab">
 > <font class="matlab">ff0L := 3-2*x:</font>
 </pre>
 
-<p>The Fourier coefficients are given by:</p>
+<p>The Fourier coefficients are computed by the following procedures.</p>
 
 <pre class="matlab">
 > <font class="matlab">an:=proc(n) if (n=0) then RETURN((1/3)*int(ff0L,x=0..1.5)); else RETURN((2/3)*int((ff0L)*cos(2*n*Pi*x/3) ,x=0..1.5)); fi; end proc;</font>
@@ -349,16 +368,18 @@ for \(x\in [-1.5,0]\), the integrals need to be computed on the interval
 bn := proc(n)\ RETURN(2/3*(int(ff0L*sin(2/3*n*Pi*x), x = 0 .. 1.5)))\ end\ proc
 \]
 
-<p>We compute and store the first \(21\) coefficients that we will use
-  later.</p>
+<p>We compute the first \(21\) coefficients and store them in the
+variables <font class="matlab">AN</font>
+and <font class="matlab">BN</font> to use them later.</p> 
 
 <pre class="matlab">
 > <font class="matlab">AN:=seq(evalf( an(i) ),i=0..10):</font>
 > <font class="matlab">BN:=seq(bn(i),i=1..10):</font>
 </pre>
 
-<p>The Fourier series of
-<font class="matlab">ff</font> (truncated after \(2n+1\) terms) is given by</p>
+<p>The Fourier series of the function
+<font class="matlab">ff</font> truncated to \(2n+1\) terms is given
+by following procedure.</p>
 
 <pre class="matlab">
 > <font class="matlab">FS:=(x,n)-> sum(AN[j+1]*cos(2*j*Pi*x/3),j=0..n) + sum(BN[j]*sin(2*j*Pi*x/3),j=1..n);</font>
@@ -369,8 +390,9 @@ FS := (x, n) \mapsto \sum_{j=0}^n AN_{j+1} \cos\left(\frac{2j \pi
 x}{3}\right) )+ \sum_{j=1}^n BN_j \sin\left(\frac{2j\pi x}{3}\right)
 \]
 
-<p>We now draw, on the same figure, the graphs of
-<font class="matlab">ff</font> and its Fourier series with \(n =10\).</p>
+<p>We now draw in the same figure the graphs of the function
+<font class="matlab">ff</font> and its Fourier series
+truncated to 21 terms; namely \(n = 10\).</p>
 
 <pre class="matlab">
 > <font class="matlab">plot1:=plot(ff(x),x=-4..4,color=blue):</font>
@@ -380,8 +402,7 @@ x}{3}\right) )+ \sum_{j=1}^n BN_j \sin\left(\frac{2j\pi x}{3}\right)
 
 <div class="center">
   <img src="Maple_Fourier_5.png" style="width: 300px"
-       alt="Graph of the piecewise function ff and its truncate
-       Fourier cosine series with 21 terms">
+       alt="Graph of the piecewise continuous function ff and its truncate Fourier series with 21 terms">
 </div>
 
 <br>
