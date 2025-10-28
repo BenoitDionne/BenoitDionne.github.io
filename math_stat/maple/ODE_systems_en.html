@@ -453,8 +453,6 @@ solution of a system of non-homogeneous linear ODE like the one that we
 have just considered.  The reader can find it in most introductory textbook on
 ODE. </p>
 
-HERE
-
 <h3> Higher Order ODE </h3>
 
 <p> It is possible to reduce an higher order ODE of the form </p>
@@ -464,8 +462,7 @@ y^{n}(t) + a_{n-1} y^{n-1}(t) + ... + a_1 y'(t) + a_0 y(t) = f(t)
 \]
 
 <p>to a system of first order ODE. It suffices to define
-\(X_1(t)= y(t), X_2(t)= y'(t), \ldots, X_n(t)= y^{n-1}(t)\) to get
-the system</p>
+\(X_1= y, X_2= y', \ldots, X_n= y^{n-1}\) to get the system</p>
 \[
 \begin{split}
 X_1'(t) &= X_2(t) \\
@@ -476,7 +473,7 @@ X_n'(t) &= y^{n}(t) = -a_{n-1} y^{n-1}(t) - ... - a_1 y'(t) - a_0 y(t) + f(t) \\
 \end{split}
 \]
 
-<p>We have seen in
+<p>We have seen in the document
 <script language="javascript">
     buildLinK(ODE_O2_var_coeff.url_en,
     ODE_O2_var_coeff.text_en,"MMathSStat", ODE_O2_var_coeff.id,
@@ -484,10 +481,11 @@ X_n'(t) &= y^{n}(t) = -a_{n-1} y^{n-1}(t) - ... - a_1 y'(t) - a_0 y(t) + f(t) \\
 </script> the second order ODE</p>
 
 \[
-\frac{\text{d}^2}{\text{d}t^2} x(t) + \cos(t) x(t) = 0
+x''(t) + \cos(t) x(t) = 0 \ .
 \]
 
-<p>This ODE can be reduced to the system of first-order ODE.</p>
+<p>This ODE can be reduced to the system of first-order ODE with the
+substitution \(x_1 = x\) and \(x_2 = x'\).</p>  
 
 <pre class="matlab">
 > <font class="matlab">eq1:= { diff(x1(t),t)=x2(t), diff(x2(t),t)=-cos(t)*x1(t)};</font>
@@ -497,9 +495,10 @@ X_n'(t) &= y^{n}(t) = -a_{n-1} y^{n-1}(t) - ... - a_1 y'(t) - a_0 y(t) + f(t) \\
   eq1 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = x2(t), \frac{\text{d}}{\text{d} t} x2 = -\cos(t) x1(t) \right\}
 \]
 
-<p>using the technique presented above.  Again, we will not try to
-find the explicit solution using <font class="matlab">dsolve(&nbsp;)</font>
-but focus on the numerical solution given an initial condition.</p>
+<p> As usual, we will not find the explicit solution using the
+function <font class="matlab">dsolve()</font> but we will instaed
+find the numerical solution given an initial condition in order to
+plot this solution.</p>
 
 <pre class="matlab">
 > <font class="matlab"> SYST := eq1 union {x1(0)=0,x2(0)=1}:</font>
@@ -507,24 +506,25 @@ but focus on the numerical solution given an initial condition.</p>
 </pre>
 
 \[
-X := [t = proc(t) ... end proc, x1(t) = proc(t) ... end proc, x2(t) = proc(t) ... end proc]
+X := [t = proc(t) ... end\, proc, x1(t) = proc(t) ... end\, proc, x2(t) = proc(t) ... end\, proc]
 \]
 
-<p>A plot of \(t \mapsto (x1(t),x2(t))\) is given by</p>
+<p>We plot the orbit \( \{ (x_1(t),x_2(t)) : 0 \leq t \leq 3\pi\} \)
+associated to the intinial condition \( (x_1(0),x_2(0)) = (0,1) \).</p>
 
 <pre class="matlab">
-> <font class="matlab">with(plots): odeplot(X,[x1(t),x2(t)],0..4*Pi,labels=[`x(t)`,`x'(t)`]);</font>
+> <font class="matlab">with(plots): odeplot(X,[x1(t),x2(t)],0..3*Pi,labels=[`x(t)`,`x'(t)`]);</font>
 </pre>
 
 <div class="center">
 <img src="Maple_syst_ODE_6.png" style="width: 300px"
-     alt="Drawing of the orbit of the particular solution of eq1 witht
-     he initial condition (x1(0),x2(0))=(0,1)">
+     alt="Drawing of the orbit of the ODE given by eq1 with the initial condition (x1(0),x2(0))=(0,1)">
 </div>
 
-<p>This orbit has already been observed.  It is the plot of
-\( t \mapsto (x(t), x'(t))\) for the intrudoctory example of second
-order ODE given in</p>
+<p>We have already encountered this orbit before.  It is the plot of
+a part of the orbit \( \{ (x(t), x'(t)) : t\in \mathbb{\R} \} \)
+associated to the initial \(x(0) = 0\) et \(x'(0 = 1\) for the second
+ordre ODE that we presented in the first example of the document
 <script language="javascript">
     buildLinK(ODE_O2_var_coeff.url_en,
     ODE_O2_var_coeff.text_en,"MMathSStat", ODE_O2_var_coeff.id,
@@ -537,11 +537,10 @@ order ODE given in</p>
 often have no choice but to do a qualitative study of the system
 and/or to solve the system numerically.</p> 
 
-<h3> Applications </h3>
-
 <h4> Van der Pol Equation </h4>
 
-<p>Consider the system of ODE associated to the <em>Van der Pol equation</em>
+<p>Consider the system of first order ODE associated to the
+<em>Van der Pol equation</em>
 \(\displaystyle x''(t)+ \epsilon x'(t) (x^2(t)-1) + x(t) = 0\).</p>
 
 <pre class="matlab">
@@ -552,7 +551,7 @@ and/or to solve the system numerically.</p>
 eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t} x2(t) = -\epsilon x2(t) (x1(t)^2-1)-x1(t) \right\};
 \]
 
-<p>This is a system of non-linear ODE.  Assume that \(\epsilon=0.1\).</p>
+<p>This is a system of nonlinear ODE.  Assume that \(\epsilon=0.1\).</p>
 
 <pre class="matlab">
 > <font class="matlab">eq3 := subs(epsilon=0.1, eq2);</font>
@@ -562,8 +561,9 @@ eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t}
 eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t} x2(t) = -0.1 x2(t) (x1(t)^2-1)-x1(t) \right\};
 \]
 
-<p>Since it is going to be instructive to plot the solution for many
-initial conditions, we write a procedure to produce these orbits.</p>
+<p>Since it is going to be instructive to plot the orbits associated
+to many initial conditions, we have written a procedure to draw these
+orbits.</p>  
 
 <pre class="matlab">
 > <font class="matlab">graph := proc (a, b, T, clr) local X; X := dsolve(eq3 union {x1(0) = a, x2(0) = b}, {x1(t), x2(t)}, type = numeric, output = procedurelist, method = classical[rk4], stepsize = 0.1e-1): RETURN(odeplot(X, [x1(t), x2(t)], 0 .. T, numpoints = floor(30*T), color = clr)): end proc;</font>
@@ -580,7 +580,7 @@ initial conditions, we write a procedure to produce these orbits.</p>
 \end{split}
 \]
 
-<p>We now solve this system for many initial conditions
+<p>We now solve the system of ODE for many initial conditions
 <font class="matlab">(x1(0),x2(0))</font>.</p>
 
 <pre class="matlab">
@@ -591,8 +591,7 @@ initial conditions, we write a procedure to produce these orbits.</p>
 
 <div class="center">
 <img src="Maple_syst_ODE_7.png" style="width: 300px"
-     alt="Orbits of the Van der Pol system converging to the periodic
-     orbit from the outside">
+     alt="Orbits of the Van der Pol system converging to the periodic orbit from the outside of the periodic orbit">
 </div>
 
 <pre class="matlab">
@@ -603,18 +602,17 @@ initial conditions, we write a procedure to produce these orbits.</p>
 
 <div class="center">
 <img src="Maple_syst_ODE_8.png" style="width: 300px"
-     alt="Orbits of the Van der Pol system converging to the periodic
-     orbit from the inside">
+     alt="Orbits of the Van der Pol system converging to the periodic orbit from the inside the periodic orbit">
 </div>
 
 <p> In the first figure, the orbits of the solutions seem to spiral
 toward the origin. However, in a the second figure they seem to spiral
-toward the infinity. This cannot go on forever because solutions
+away from the origin.  This cannot go on forever because orbits
 cannot intersect and varies smoothly with respect to initial
 conditions.  What is going on?</p>
 
-<p>Let's look at the vector field associated to the system of ODE with
-some orbits of solutions.</p>
+<p>We need to look at the vector field associated to this system of
+ODE.  We also include some orbits.</p>
 
 <pre class="matlab">
 > <font class="matlab">with(DEtools); DEplot(eq3, [x1(t), x2(t)], t = 0 .. 8*Pi, [[x1(0) = .5, x2(0) = .5], [x1(0) = 2, x2(0) = 2]], linecolor = [blue, red], thickness = 2, color = black, stepsize = 0.1e-1, arrows = small);</font>
@@ -622,25 +620,27 @@ some orbits of solutions.</p>
 
 <div class="center">
 <img src="Maple_syst_ODE_9.png" style="width: 300px"
-     alt="Vector field for the Van der Pol system including the orbits
-     of some particular solutions">
+     alt="Vector field for the Van der Pol system including some orbits">
 </div>
 
-<p>All the orbits of solutions converge toward a periodic solution.
+<p>All the orbits converge toward a periodic solution.
 The outside orbit in the previous figure is getting very close to
-this periodic solution.</p> 
+this periodic solution.  We admit that this is not a proof of the
+existence of a (unique) periodic orbit but this is certainly a good
+indication of its existence.</p> 
 
 <p><em>Note</em>:  There are several other <em>Maple</em>
-functions that may be used to plot the vector field:
-<font class="matlab">odeplot(&nbsp;)</font>, and
-<font class="matlab">fieldplot</font>
-if we consider that the right hand side of the system of ODE is a
+functions that may be used to draw vector fields:
+<font class="matlab">odeplot()</font> and even
+<font class="matlab">fieldplot()</font>
+if we consider that the right hand side of a system of ODE is a
 vector field.</p>
 
 <h4> Nonlinear Pendulum </h4>
 
 <p>Consider the pendulum made up of a very light rod of length \(L\)
-with a small ball of mass \(m\) at one end. </p>
+with a small ball of mass \(m\) attached at one end of the rod as in
+the figure below. </p>
 
 <pre class="matlab">
 > <font class="matlab">with(plots):with(plottools):</font>
@@ -663,11 +663,12 @@ with a small ball of mass \(m\) at one end. </p>
 
 <div class="center">
 <img src="Maple_syst_ODE_10.png" style="width: 300px"
-     alt="Pendulum">
+     alt="Drawing of the pendulum">
 </div>
 
 <p>Using Newton law <q lang="en">force equals mass times acceleration</q>,
-the angle <font class="matlab">&theta;</font> is governed by the ODE </p>
+we find that the angle <font class="matlab">&theta;</font> is governed
+by the ODE which is defined by the following command in <em>Maple</em>.</p> 
 
 <pre class="matlab">
 > <font class="matlab">eq4 := m*L*diff(theta(t),t$2) = -k*L*diff(theta(t),t) -m*g*sin(theta(t));</font>
@@ -677,10 +678,11 @@ the angle <font class="matlab">&theta;</font> is governed by the ODE </p>
 eq4 := m L \left( \frac{\text{d}^2}{\text{d}t^2} \theta(t) \right) = -k L \left(\frac{\text{d}}{\text{d}t} \theta(t) \right) - m g \sin(\theta(t))
 \]
 
-<p>where <font class="matlab">g = 9.8</font> m/s<sup>2</sup> is the
+<p>We have that <font class="matlab">g = 9.8</font> m/s<sup>2</sup> is the
 acceleration due to gravity and <font class="matlab">k</font> is a
 constant of proportionality between the force due to friction and
-the velocity.  We can write this ODE as a the system of ODE.</p>
+the velocity.  We can rewrite this ODE as a the system of ODE of order
+one.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq5:={ diff(theta(t),t)=v(t), diff(v(t),t)=-(k*g/m)*v(t) -(g/L)*sin(theta(t))};</font>
@@ -690,14 +692,15 @@ the velocity.  We can write this ODE as a the system of ODE.</p>
 eq5 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\text{d}t} v(t) = -\frac{k g v(t)}{m} - \frac{g \sin(\theta(t))}{L} \right\}
 \]
 
-<p> where <font class="matlab">v(t)</font> is the angular velocity.</p>
+<p>In the formula above, <font class="matlab">v(t)</font> is the
+angular velocity at time \(t\).</p> 
 
 <h4> Ideal Pendulum </h4>
 
-<p>The ideal pendulum does not have friction, i.e.
-<font class="matlab">k=0</font>.  Let's suppose that
+<p>The ideal pendulum does not have friction; namely.
+<font class="matlab">k=0</font>.  We assume that
 <font class="matlab">L=3</font> m and <font class="matlab">m=0.5</font>
-kg (the mass does not matter if there is no friction.)
+kg.  The mass does not matter if there is no friction.
 
 <pre class="matlab">
 > <font class="matlab">eq6 := subs({k=0, g=9.8, m=0.5, L=3}, eq5);</font>
@@ -707,19 +710,19 @@ kg (the mass does not matter if there is no friction.)
 eq6 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\text{d}t} v(t) = -3.266666667 \sin(\theta(t)) \right\}
 \]
 
-<p>We will plot the solution for the following two situations:</p>
+<p>We plan to plot the orbits for the following two situations:</p>
 
 <ul>
-<li> We let the pendulum loose from an angle of \(\pi/4\) so
+<li> We let the pendulum loose from an angle of \(\pi/4\).  Thus
 <font class="matlab">&theta;(0)=&pi;/4 </font> and
 <font class="matlab">v(0)=0</font>.</li>
-<li> We push the pendulum upward from an angle of \(\pi/4\) with a
-velocity of \(4\) m/s; so <font class="matlab">&theta;(0)= &pi;/4</font>
+<li> We push the pendulum upward from an angle of \(\pi/4\) and with a
+velocity of \(4\) m/s.  Thus, <font class="matlab">&theta;(0)= &pi;/4</font>
 and <font class="matlab">v(0)=4</font> m/s.</li>
 </ul>
 
-<p>Since we will plot the solution for different initial conditions,
-it is useful to re-introduce the procedure (after some small
+<p>Since we need to plot the orbits of the system of ODE of order one for several
+initial conditions, it is useful to reintroduce the procedure (after some small
 modifications) used before.<p>
 
 <pre class="matlab">
@@ -738,7 +741,7 @@ modifications) used before.<p>
 \end{split}
 \]
 
-<p>The orbits of the two solutions are draw in the following
+<p>The orbits of the two particular solutions are draw in the following
 figure.</p>
 
 <pre class="matlab">
@@ -749,16 +752,16 @@ figure.</p>
 
 <div class="center">
 <img src="Maple_syst_ODE_11.png" style="width: 300px"
-     alt="Drawing of two orbits of the system of ODE associated to the
-     motion of the pendulum without friction"> 
+     alt="Drawing of two orbits of the system of ODE of order one associated to the motion of the pendulum without friction"> 
 </div>
 
-<p>For the first case (in red), the pendulum oscillates back and forth
-for ever.  For the second case (in blue), the pendulum go around for
+<p>For the orbit in red, the pendulum oscillates from one side to the
+other for ever.  For the orbit in blue, the pendulum go around for
 ever because our initial velocity was strong.   Since there is no
-friction, the motion of the pendulum is for ever.</p>
+friction, the motion of the pendulum is perpetual.</p>
 
-<p>We plot the vector field with the orbits of the solutions.</p>
+<p>We draw in the same figure the vector field of the system of ODE of
+order one and the orbits of the two particular solutions above.</p> 
 
 <pre class="matlab">
 > <font class="matlab">with(DEtools):</font>
@@ -767,13 +770,13 @@ friction, the motion of the pendulum is for ever.</p>
 
 <div class="center">
 <img src="Maple_syst_ODE_12.png" style="width: 300px"
-     alt="Drawing of the vector field of the system of ODE associated to the motion of the pendulum without friction">
+     alt="Drawing of the vector field, including some orbits, of the system of ODE of order one associated to the motion of the pendulum without friction">
 </div>
 
 <h4> Pendulum with Friction </h4>
 
 <p>This time, we do not ignore the friction.  We assume that
-<font class="matlab">k=0.1</font>. We keep
+<font class="matlab">k=0.1</font>. We keep the values
 <font class="matlab">L=3</font> m and <font class="matlab">m=0.5</font> kg.</p>
 
 <pre class="matlab">
@@ -784,22 +787,24 @@ friction, the motion of the pendulum is for ever.</p>
 eq6 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\text{d}t} v(t) = -1.960000000 v(t)-3.266666667 \sin(\theta(t)) \right\}
 \]
 
-<p>Because we have kept the name <font class="matlab">eq6</font> for
-this system, the procedure <font class="matlab">graph(&nbsp;)</font>
-defined above is still valid in the present context.</p>
+<p>Since we are using the same name <font class="matlab">eq6</font> to
+designate the new system of ODE of order one, the procedure
+<font class="matlab">graph()</font> defined above is still valid in
+the present context.</p>
 
-<p>As for the ideal pendulum, we consider two sets of initial
-conditions.</p>
+<p>As for the ideal pendulum, we consider two cases:</p>
 
 <ul>
-<li> We let the pendulum loose from an angle of \(\pi/4\) so
-<font class="matlab">&theta;(0)=&pi;/4 </font>and
+<li> We let the pendulum loose from an angle of \(\pi/4\).  Thus
+<font class="matlab">&theta;(0)=&pi;/4 </font> and
 <font class="matlab">v(0)=0</font>.</li>
 <li> We push the pendulum upward from an angle of \(\pi/4\) with a
-velocity of \(8\) m/s; so <font class="matlab">&theta;(0)= &pi;/4</font>
-and <font class="matlab">v(0)=8</font> m/s.</p>
+velocity of \(8\) m/s.  Thus <font class="matlab">&theta;(0)= &pi;/4</font>
+and <font class="matlab">v(0)=8</font> m/s.</li>
+</ul>
 
-<p> The orbits of the two solutions are draw in the following figure.</p>
+<p> The orbits of this two particular solutions are draw in the
+following figure.</p> 
 
 <pre class="matlab">
 > <font class="matlab">pendul1:=graph(Pi/4,0,3*Pi,"red"):</font>
@@ -809,11 +814,11 @@ and <font class="matlab">v(0)=8</font> m/s.</p>
 
 <div class="center">
 <img src="Maple_syst_ODE_13.png" style="width: 300px"
-     alt="Drawing of two orbits of the solutions of the system of ODE
-     associated to the motion of the pendulum with friction">
+     alt="Drawing of two orbits of the system of ODE associated to the motion of the pendulum with friction">
 </div>
 
-<p>We plot the vector field with the orbits of the solutions.</p>
+<p>We draw in the same figure the vector field of the system of ODE of
+order one and the orbits of the two particular solutions above.</p>
 
 <pre class="matlab">
 > <font class="matlab">DEplot(eq6,[theta(t),v(t)], t=0..1.3*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=8]], linecolor=[red,blue], thickness=2, color=black, stepsize=0.01, arrows=small);</font>
@@ -821,14 +826,12 @@ and <font class="matlab">v(0)=8</font> m/s.</p>
 
 <div class="center">
 <img src="Maple_syst_ODE_14.png" style="width: 300px"
-     alt="Drawing of the vector field of the system of ODE associated
-     to the motion of the pendulum with friction">
+     alt="Drawing of the vector field, including two orbits, of the system of ODE of order one associated to the motion of the pendulum with friction">
 </div>
 
-<p>In the first case (in red), the oscillation of the pendulum is
-dying down.  In the second case (in blue), after a complete
-rotation, the pendulum starts to oscillate and its oscillation
-is also dying down.</p>
+<p>For the orbit in red, the oscillation of the pendulum is
+dying down.  For the orbit in blue, after a complete rotation, the
+pendulum starts to oscillate and its oscillation is also dying down.</p>
 
 <br>
 <hr>
