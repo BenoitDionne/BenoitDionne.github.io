@@ -132,8 +132,8 @@ et \(f(0)=0\).  On peut modifier la valeur d'une fonction à l'origine
 
 <p> Il existe des librairies dans <em>Maple</em> pour calculer les
 séries de Fourier. Cependant, elles ne font pas parties de la
-distribution officielle de <em>Maple</em>.  Elles se trouvent dans 
-<script language="javascript">
+distribution officielle de <em>Maple</em>.  Elles se trouvent sur le
+site <script language="javascript">
 buildLinK("https://www.maplesoft.com/Applications/Default.aspx",
 "Maple Application Center", "MMathSStat", "MAPid", "_blank");
 </script>.  Une de ces librairies est <font class="matlab">
@@ -193,9 +193,9 @@ fe := x \mapsto \begin{cases} 1 & \qquad |x| -2 \lfloor \frac{|x|}{2} \rfloor \l
 
 <p>En regardant le graphe de <font class="matlab">fe</font>, nous
 constatons que la fonction est périodique de période \(2\) (donc
-\(L=1\)) et c'est une fonction paire. Ainsi, nous cherchons une
-approximation de cette fonction à l'aide d'une série de Fourier en
-cosinus.  Puisque nous avons seulement besoin d'intégrer sur
+\(L=1\)) et c'est une fonction paire. Ainsi, nous utilisons une série
+de Fourier en cosinus pour obtenir une approximation de cette
+fonction.  Puisque nous avons seulement besoin d'intégrer sur 
 l'intervalle \([0,1]\), nous n'avons pas besoin de la définition
 complète de <font class="matlab">fe</font>,  Nous pouvons 
 plutôt utiliser la fonction suivante .</p>
@@ -332,8 +332,8 @@ dans <em>Maple</em> par la procédure suivante.</p>
 
 <p>En regardant le graphe de la fonction <font class="matlab">ff</font>,
 nous constatons que la fonction est périodique de période \(3\) mais
-elle n'est pas paire ou impaire.  Nous utilisons la complète séries de
-Fourier pour trouver une approximation de la fonction
+elle n'est pas paire ou impaire.  Nous utilisons la forme complète de
+la séries de Fourier pour obtenir une approximation de la fonction
 <font class="matlab">ff</font>.</p>
 
 <p>Comme nous avons fait pour l'exemple précédent, nous pourrions
