@@ -518,6 +518,37 @@ function initItem(Item, Parent, Menu, Submenu) {
 }
 
 /**********************************************************************
+ *  Function to display a list of items from the tree structure.
+ *  lang is either "fr" or "en".
+ *  seed is a word that is added to the id at each recursive call.
+ *  ignore is the element of the list to be ignored.
+ **********************************************************************/
+function display_list(itemLinks, seed, lang, ignore) {
+    var M = itemLinks.length;
+
+    document.write("<ul>");
+    for ( var m=0 ; m < M ; ++m ) {
+	if ( lang == "fr" ) {
+	    if ( itemLinks[m].text_fr != ignore.text_fr ) {
+		document.write("<li>");
+		buildLinK(itemLinks[m].url_fr, itemLinks[m].text_fr,
+			  "MMathSStat", seed+m, itemLinks[m].target);
+		document.write("</li>");
+	    }
+	}
+	else {
+	    if ( itemLinks[m].text_en != ignore.text_en ) {
+		document.write("<li>");
+		buildLinK(itemLinks[m].url_en, itemLinks[m].text_en,
+			  "MMathSStat", seed+m, itemLinks[m].target);
+		document.write("</li>");
+	    }
+	}
+    }
+    document.write("</ul>");
+}
+
+/**********************************************************************
  *  Function to display the tree structure of the web site
  *  rooT is the initial array of items for the tree structure.
  *  lang is either "fr" or "en".
@@ -673,8 +704,6 @@ function bottom_function(ITEM, LANG) {
    document.write("<p class=\"footnote\">Sauf indication contraire, ce materiel est mis à disposition selon les termes de la licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les M&ecirc;mes Conditions 4.0 International (CC BY-NC-SA 4.0)<br><a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr\" target=\"_blank\">https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr</a></p>");
     ;  /* does nothing else for now */
 }
-
-
 
 /**************************************************************************
  * A function to determine the academic year

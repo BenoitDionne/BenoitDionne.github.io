@@ -49,7 +49,20 @@ top_function(ODE_O1,"en");
 main_title( MStext, "MMathSStat");
 </script>
 
-<h2> First Order ODE </h2>
+<div class="LOOK3">
+<script language="javascript"> 
+      buildLinK("#TOP", "Back to the top", "MMathSStat", "TOPID", "_top");
+</script>
+</div>
+
+<h2 id="TOP"> First Order ODE </h2>
+
+<div style="float: left; width:30%; margin-right:20px;">
+<div class="center"><em>Other Topics</em></div>
+<script language="javascript"> 
+     display_list(mapleLinks, "ML", "en", ODE_O1);
+</script>
+</div>
 
 <p>This document introduces the reader to some of the functions
 of <em>Maple</em> used to solve and plot solutions of ordinary
@@ -299,13 +312,6 @@ associated to the initial conditions \(y(0)=1\), \(y(0)=-2\) and
 <div class="center">
 <img src="Maple_ode_4.png" style="width: 300px"
   alt="Slope field of the ODE eq4 incluing the graphs of the three particular solutions associated to y(0)=1, y(0)=-2 and y(0)=2">
-</div>
-
-<div class="LOOK">
-To write a <em>Maple</em> command on several lines, we must
-press <em>Shift + Enter</em> at the end of each line up to the last line
-where we only press <em>Enter</em>.  Note that cutting and pasting
-to <em>Maple</em> the two-line command above works.
 </div>
 
 <p>It is possible to select a different numerical method, step size,

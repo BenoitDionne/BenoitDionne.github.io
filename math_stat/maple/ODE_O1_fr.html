@@ -49,7 +49,20 @@ top_function(ODE_O1,"fr");
 main_title( MStexte, "MMathSStat");
 </script>
 
-<h2> EDO d'ordre un </h2>
+<div class="LOOK3">
+<script language="javascript"> 
+ buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
+</script>
+</div>
+
+<h2 id="TOP"> EDO d'ordre un </h2>
+
+<div style="float: left; width:30%; margin-right:20px;">
+<div class="center"><em>Other Topics</em></div>
+<script language="javascript"> 
+     display_list(mapleLinks, "ML", "fr", ODE_O1);
+</script>
+</div>
 
 <p>Ce document présente quelques unes des fonctions de <em>Maple</em>
 qui sont utilisées pour résoudre et tracer les solutions des équations
@@ -304,15 +317,6 @@ associées aux conditions initiales \(y(0)=1\), \(y(0)=-2\) and
   <img src="Maple_ode_4.png" style="width: 300px"
        alt="Champ de pente de l'EDO eq4 incluant les graphes des trois solutions associées aux conditions initiales y(0)=1, y(0)=-2 et y(0)=2">
 </div>
-
-<div class="LOOK">
-Pour écrire une commande de <em>Maple</em> sur plusieurs lignes, nous
-devons taper <em>Shift + Enter</em> à la fin de chaque ligne jusqu'à
-la dernière ligne où nous tapons seulement <em>Enter</em>.  Notez que
-couper et coller dans <em>Maple</em> les deux lignes de la commande
-ci-dessus fonctionne.
-</div>
-
 
 <p>Il est possible de choisir une méthode numérique différent, un pas
 différent, une erreur de tolérance différente, ... pour les fonctions

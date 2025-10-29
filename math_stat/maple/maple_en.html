@@ -49,7 +49,13 @@ top_function(maple,"en");
 main_title( MStext, "MMathSStat");
 </script>
 
-<h2> Introduction to Maple </h2>
+<div class="LOOK3">
+<script language="javascript"> 
+      buildLinK("#TOP", "Back to the top", "MMathSStat", "TOPID", "_top");
+</script>
+</div>
+  
+<h2 id="TOP"> Introduction to Maple </h2>
 
 <div style="float: left; margin-right: 10px">
   <img src="Maple_Logo_Icon.png" style="width: 200px" alt="Logo of Maple">
@@ -78,8 +84,16 @@ modelling and mathematical software given at the University of Ottawa.</p>
 \[(x + y)^2\]
 
 <p>We note that the commands in <em>Maple</em> are always ended by a
-semi-colon.  The command is executed after having pressed the return key.
-The symbol <font class="matlab">%</font> holds the result of the
+semi-colon.  The command is executed after having pressed
+the <em>Enter</em> key.</p>
+
+<div class="LOOK" style="width: 75%;">
+To write a <em>Maple</em> command on several lines, it suffices to
+press <em>Shift + Enter</em> at the end of each line up to the last line
+where only the <em>Enter</em> key must be pressed.
+</div>
+
+<p>The symbol <font class="matlab">%</font> holds the result of the
 previous operation.  So, we can expand the polynomial defined above
 with the following command.</p>  
 
@@ -355,12 +369,18 @@ done in the following command.</p>
 <font class="matlab">plot3d()</font> of <em>Maple</em>.</p>
 
 <pre class="matlab">
-> <font class="matlab">plot3d(x*cos(x)*sin(y),x=0..4*Pi,y=0..4*Pi,axes=FRAME,labels=[`x`,`y`,`z`],title = `x*cos(x)*sin(y)`); </font>
+> <font class="matlab"> plot3d(x*cos(x)*sin(y),x=0..4*Pi,y=0..4*Pi,axes=FRAME,labels=[`x`,`y`,`z`],
+   title = `x*cos(x)*sin(y)`); </font>
 </pre>
 
 <div class="center">
   <img src="Maple_graph_3.png" style="width: 300px"
        alt="Graph of x*cos(x)*sin(y)">
+</div>
+
+<div class="LOOK" style="width: 75%;">
+Note that cutting and pasting in one operation the two-line command above
+to <em>Maple</em> works.
 </div>
 
 <p>The reader should particularly look at the options that we have
@@ -397,8 +417,9 @@ We illustrate this with the function \(f\) defined by
 \(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
 
 <pre class="matlab">
-> <font class="matlab">f:=(x,y)->sin(x+y)+cos(x+y):</font>
-> <font class="matlab">plot3d(f(x,y),x=0..2*Pi,y=0..2*Pi,axes=FRAME,labels=[`x`,`y`,`z`],title = `f(x,y)`,orientation=[20,45]);</font>
+> <font class="matlab"> f:=(x,y)->sin(x+y)+cos(x+y):</font>
+> <font class="matlab"> plot3d(f(x,y),x=0..2*Pi,y=0..2*Pi,axes=FRAME,labels=[`x`,`y`,`z`],title = `f(x,y)`,
+   orientation=[20,45]);</font>
 </pre>
 
 <div class="center">
@@ -437,7 +458,8 @@ points on it.</p>
 <p>The only think left is to display the resulting hemisphere.</p>
 
 <pre class="matlab">
-> <font class="matlab">display(Hemi,style=patch,axes=NORMAL,labels=['x','y','z'],scaling=constrained,orientation=[-25,80]);
+> <font class="matlab"> display(Hemi,style=patch,axes=NORMAL,labels=['x','y','z'],scaling=constrained,
+   orientation=[-25,80]);
 </font>
 </pre>
 
@@ -460,7 +482,8 @@ draw planes, we use the standard technique to draw planes.</p>
 figure.</p>
 
 <pre class="matlab">
-> <font class="matlab">display({Hemi,pl},style=patch,axes=NORMAL,labels=['x','y','z'],scaling=constrained,orientation=[-25,80]);
+> <font class="matlab"> display({Hemi,pl},style=patch,axes=NORMAL,labels=['x','y','z'],scaling=constrained,
+   orientation=[-25,80]);
 </font>
 </pre>
 

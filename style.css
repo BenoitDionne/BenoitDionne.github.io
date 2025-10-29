@@ -170,6 +170,9 @@ div.LOOK2 { border: 1px solid #8F001A; margin: 5px; padding: 5px;
   text-align: left; background-color: white; color: black; font-weight:
 bold; vertical-align: top; display: block;  overflow: hidden; }
 
+div.LOOK3 { position: fixed; right: 5px; bottom: 5px; background-color: white;
+  margin: 10px; border: #8F001A 2px solid; padding: 5px; }
+
 /* Popup box sometime used to add information to the construction sign */
 div#constructionBox {
   position: absolute; top: 200px; left: 50px; width: 300px;
@@ -227,6 +230,9 @@ img.MobiusFig { border: 1px  #004870 solid; margin: 0px; padding: 0px;}
 
        /* Hide the menu */
        div#header { display: none; }
+
+       /* Hide the "Back to the top" fixed box */
+       div.LOOK3 { display: none; }
 }
 
 /********************************************************************/

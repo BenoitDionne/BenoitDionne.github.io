@@ -51,11 +51,18 @@ top_function(matlab,"fr");
 main_title( MStexte, "MMathSStat");
 </script>
 
+<div class="LOOK3">
+<script language="javascript"> 
+ buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
+</script>
+</div>
+
 <h2 id="TOP"> Introduction à Matlab </h2>
 
 <div style="float: left; margin-right: 20px">
 <img src="Matlab_Logo.png" style="width: 100px" alt="Logo of Matlab">
-<ul style="clear:both;">
+<div class="center"><em>Contenu</em></div>
+<ul>
   <li> <script language="javascript"> 
       buildLinK("#Sect1", "Démarrer Matlab", "MMathSStat", "sectID1", "_top");
   </script></li>
@@ -127,13 +134,13 @@ main_title( MStexte, "MMathSStat");
 </div>
 
 <p> Ce document explique à l'aide d'exemples comment exécuter à l'aide
-de <em>Matlab</em> plusieurs types de calculs et cela inclue la résolution
+de <em>Matlab</em> plusieurs types de calculs et cela inclu la résolution
 d'équations différentielles ordinaires.  Une description détaillée de
 <em>Matlab</em> (fonctions, commandes, librairies, ...) se trouve sous
 le menu d'aide de <em>Matlab</em>.  Nous pouvons aussi obtenir de
 l'aide à partir de la fenêtre de commande de <em>Matlab</em> en tapant
 la commande <font class="matlab">help sujet</font> après le prompt
-de <em>Matlab</em> suivi de la touche retour.  Le
+de <em>Matlab</em> suivi de la touche <em>Enter</em>.  Le
 mot <font>sujet</font> peut être le nom d'une fonction, d'une commande
 ou d'une librairie.  La commande <font class="matlab">help</font>
 affiche les noms de fonctions en lettres majuscules (e.g. QUADL,
@@ -162,7 +169,7 @@ après le prompt dans <em>Matlab</em>.</p>
 
 <p> Pour démarrer <em>Matlab</em> à partir d'un ordinateur géré par
 Linux/Unix, il suffit de taper <font>matlab</font> après le prompt
-d'un terminal suivi de la touche retour.  Pour un ordinateur géré par
+d'un terminal suivi de la touche <em>Enter</em>.  Pour un ordinateur géré par
 Windows, il suffit de cliquer sur l'icône <em>Matlab</em> ou de
 choisir <em>Matlab</em> dans le menu.  Dans tous les cas, nous
 obtenons une nouvelle fenêtre avec le prompt de <em>Matlab</em>.</p>
@@ -173,12 +180,6 @@ obtenons une nouvelle fenêtre avec le prompt de <em>Matlab</em>.</p>
 
 <p> Le curseur est positionné juste après le prompt de <em>Matlab</em>
 et attend que l'utilisateur tape ses instructions.</p>
-
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
 
 <h3 id="Sect2"> Opérations arithmétiques de base </h3>
 
@@ -228,8 +229,8 @@ tapez</p>
 >> <font class="matlab"> 16.07*(42.5+387/23.8) + 3.6^2 </font>
 </pre>
 
-<p> suivi de la touche retour (nous ne répéterons plus
-<q lang=fr>suivi de la touche retour</q> mais cela doit toujours
+<p> suivi de la touche <em>Enter</em> (nous ne répéterons plus
+<q lang=fr>suivi de la touche <em>Enter</em></q> mais cela doit toujours
 être exécuté) pour obtenir le résultat suivant.</p>
 
 <pre class="matlab">
@@ -258,12 +259,6 @@ x = <br>
 x = <br>
    13.1416
 </pre>
-
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
 
 <h3 id="Sect3"> Nombre de chiffres significatifs affichés </h3>
 
@@ -312,12 +307,6 @@ possibles dans <em>Matlab</em>, il suffit d'exécuter la commande
 Il est aussi possible de produire des affichages plus élégants à
 l'aide de la fonction <font class="matlab">sprintf</font>. </p>
 
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
-
 <h3 id="Sect4"> Nombres complexes </h3>
 
 <p>Pour taper un nombre complexe dans <em>Matlab</em>, nous utilisons
@@ -351,12 +340,6 @@ w2 = <br>
    0.4706 - 0.8824i
 </pre>
 
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
-
 <h3 id="Sect5"> Sauvegarder les sessions de Matlab </h3>
 
 <p>Par défaut, <em>Matlab</em> sauvegarde toutes les commandes dans
@@ -384,12 +367,6 @@ reprendre la sauvegarde des commandes et résultats dans le fichier
 <font class="matlab">diary on</font>.  Les nouvelles commandes et
 nouveaux résultats sont ajoutés au contenu déjà existant du fichier
 <em>devoir1</em>.</p>
-
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
 
 <h3 id="Sect6"> Matrices dans Matlab </h3>
 
@@ -441,12 +418,6 @@ ans = <br>
       2     3
 </pre>
 
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
-
 <h3 id="Sect7"> Les vecteurs sont des matrices spéciales </h3>
 
 <p>Les vecteurs sont des matrices avec une seule rangée ou colonne.
@@ -479,12 +450,6 @@ ans = <br>
 U = <br>
      0.9093   -5.0000         0    1.0000
 </pre>
-
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
 
 <h3 id="Sect8"> Algèbre matricielle </h3>
 
@@ -582,12 +547,6 @@ ans = <br>
     -4
 </pre>
 
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
-
 <h3 id="Sect9"> Opérations sur les tableaux </h3>
 
 <p> Les <em>opérations sur les tableaux</em> sont des opérations sur
@@ -639,12 +598,6 @@ ans = <br>
     0.8415    0.9093    0.1411
     0.1411    0.9093    0.8415
 </pre>
-
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
 
 <h3 id="Sect10"> Tracer en deux dimensions avec Matlab </h3>
 
@@ -713,7 +666,7 @@ fonction \(f\).</p>
 >> <font class="matlab">plot(x,y)</font>
 </pre>
 
-<p>Après avoir pressé la touche retour, une nouvelle fenêtre s'ouvre
+<p>Après avoir pressé la touche <em>Enter</em>, une nouvelle fenêtre s'ouvre
 avec une figure contenant le graphe de la fonction.</p> 
 
 <div class="center">
@@ -790,12 +743,6 @@ aux axes de la figure précédente pour obtenir la figure suivante.</p>
   <img src="Matlab_figure5.gif" style="width: 300px"
        alt="Graphe de x^3 et x+2 avec un titre et des étiquettes">
 </div>
-
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
 
 <h3 id="Sect11"> Interpolationo </h3>
 
@@ -905,12 +852,6 @@ il suffit de suivre les même étapes que nous avons présentées dans
 Le lecteur devrait essayé ces méthodes avec l'exemple précédent afin
 de comparer ces méthodes. </p>
 
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
-
 <h3 id="Sect12"> Intégration numérique </h3>
 
 <p>Il y a trois principales fonctions de <em>Matlab</em> pour
@@ -959,12 +900,6 @@ adaptative de Newton-Cotes.  Afin d'utiliser ces deux fonctions, il
 faut être en mesure de définir de nouvelles fonctions à l'aide des
 <em>fichiers m</em> ou de définir des <em>fonctions anonymes</em>.
 Ce sont les sujets des deux prochaines sections.</p>
-
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
 
 <h3 id="Sect13"> Fichiers m </h3>
 
@@ -1090,12 +1025,6 @@ trouve.  Par exemple, supposons que le <em> fichier m</em>
 ajoute l'emplacement <em>/home/utilisateur1/matlab</em> à la liste des
 répertoires que <em>Matlab</em> cherche s'il n'est pas déjà inclus
 dans la liste.</p>
-
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
 
 <h3 id="Sect14"> Adresses des fonctions </h3>
 
@@ -1234,12 +1163,6 @@ contient une <em>adresse</em> et 0 (ou faux) si cette variable ne
 contient pas une <em>adresse</em>.</td></tr>
 </table>
 </div>
-
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
 
 <h3 id="Sect15"> Équations différentielles ordinaires (EDO) </h3>
 
@@ -1468,12 +1391,6 @@ w = <br>
     1.7416
 </pre>
 
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
-
 <h3 id="Sect16"> Programmation </h3>
 
 <p>La version standard de <em>Matlab</em> n'a pas de fonctions pour
@@ -1585,12 +1502,6 @@ d'un <em>fichier m</em>, nous pourrions simplement définir une
 <p> De cette façon, il est maintenant facile de modifier la fonction
 qui doit être itérée . </p>
 
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
-
 <h3 id="Sect17"> Gestion de fichiers et <q lang="fr">Batch Mode</q>
 dans Matlab </h3> 
 
@@ -1641,12 +1552,6 @@ programme ne monopolise par l'unité de calcul de l'ordinateur.
 Le résultat du programme est emmagasiné dans le fichier
 <em>my_code.log</em>.  L'option </em>-nosplash</em> annule l'affichage
 du message de bienvenue quand <em>Matlab</em> est démarré.</p>
-
-<p style="text-align:right; margin-right: 30px;">
-<script language="javascript"> 
- buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
-</script>
-</p>
 
 <br>
 <hr>
