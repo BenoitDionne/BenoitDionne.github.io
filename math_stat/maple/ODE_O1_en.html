@@ -292,12 +292,20 @@ associated to the initial conditions \(y(0)=1\), \(y(0)=-2\) and
 \(y(0)=2\). </p>
 
 <pre class="matlab">
-> <font class="matlab">DEplot(eq4,y(x),x=-5..5,y=-5..5, [[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green], arrows=small);</font>
+> <font class="matlab"> DEplot(eq4,y(x),x=-5..5,y=-5..5, [[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green],
+   arrows=small);</font>
 </pre>
 
 <div class="center">
-  <img src="Maple_ode_4.png" style="width: 300px"
-       alt="Slope field of the ODE eq4 incluing the graphs of the three particular solutions associated to y(0)=1, y(0)=-2 and y(0)=2">
+<img src="Maple_ode_4.png" style="width: 300px"
+  alt="Slope field of the ODE eq4 incluing the graphs of the three particular solutions associated to y(0)=1, y(0)=-2 and y(0)=2">
+</div>
+
+<div class="LOOK">
+To write a <em>Maple</em> command on several lines, we must
+press <em>Shift + Enter</em> at the end of each line up to the last line
+where we only press <em>Enter</em>.  Note that cutting and pasting
+to <em>Maple</em> the two-line command above works.
 </div>
 
 <p>It is possible to select a different numerical method, step size,
@@ -322,7 +330,8 @@ solutions associated to the initial conditions \(y(0)=1\), \(y(0)=-2\) and
 of \(0.1\).</p>
 
 <pre class="matlab">
-> <font class="matlab"> DEplot(eq5,y(x),x=-10..10,y=-10..10,[[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green],method=classical[foreuler],stepsize=.1);
+> <font class="matlab"> DEplot(eq5,y(x),x=-10..10,y=-10..10,[[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green],
+   method=classical[foreuler],stepsize=.1);
 </font>
 </pre>
 

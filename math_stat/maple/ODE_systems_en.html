@@ -81,7 +81,7 @@ constant \(n \times n\) matrix, is called a (homogeneous) linear system of
 ODE.  The theoretical solution of this system is
 \(\displaystyle X(t) = e^{t A} X(0)\),
 where the exponential of a square matrix \(B\) is defined by the series
-\(\displaystyle e^B = \sum_0^\infty \frac{1}{n!} B^n\).  This series
+\(\displaystyle e^B = \sum_{n=0}^\infty \frac{1}{n!} B^n\).  This series
 always converges.  The notion of convergence for series of matrices is
 independent of the induced norm of matrices chosen.  Consider the
 matrix defined by the following command in <em>Maple</em>.</p>
@@ -104,7 +104,7 @@ matrix defined by the following command in <em>Maple</em>.</p>
 expA := \begin{bmatrix} e^2 \cos(1) & -e^2 \sin(1) \\ e^2 \sin(1) & e^2 \cos(1) \end{bmatrix}
 \]
 
-<p>and \(e^{tA}\) is given by the following command.</p>
+<p>Moreover, \(\displaystyle e^{tA}\) is given by the following command.</p>
 
 <pre class="matlab">
 > <font class="matlab"> exptA := MatrixExponential(A,t); </font>
@@ -205,7 +205,7 @@ In this case, there could be:</p>
 eigenvectors associates to them,</li>
 <li> one real eigenvalue only with only one linearly independent real
 eigenvector (up to a scalar multiple) associated to it, or </li>
-<li> two complex (i.e. non-zero imaginary part) conjugate
+<li> two complex (i.e. non-zero imaginary part) conjugated
 eigenvalues with two linearly independent complex eigenvectors
 associates to them.</li>
 </ul>
@@ -257,12 +257,21 @@ aspect of the solutions.  So, we draw the vector field associated to
 this system.</p> 
 
 <pre class="matlab">
-> <font class="matlab">with(DEtools): DEplot(eq3,[x1(t),x2(t)],t=0..5, [[x1(0)=0.5,x2(0)=0], [x1(0)=-0.5,x2(0)=-0.1]], linecolor=[blue,red], thickness=1,color=green, arrows=small,stepsize=0.01);</font>
+> <font class="matlab"> with(DEtools):
+   DEplot(eq3,[x1(t),x2(t)],t=0..5, [[x1(0)=0.5,x2(0)=0], [x1(0)=-0.5,x2(0)=-0.1]],
+   linecolor=[blue,red], thickness=1,color=green, arrows=small,stepsize=0.01);</font>
 </pre>
 
 <div class="center">
   <img src="Maple_syst_ODE_2.png" style="width: 300px"
        alt="Vector field associated to the linear system of ODE defined in eq3">
+</div>
+
+<div class="LOOK">
+To write a <em>Maple</em> command on several lines, we must
+press <em>Shift + Enter</em> at the end of each line up to the last line
+where we only press <em>Enter</em>.  Note that cutting and pasting
+to <em>Maple</em> the lines of the command above works.
 </div>
 
 <p>We have also drawn two orbits associated to the solutions with
@@ -277,7 +286,7 @@ from the origin as \(t \to \infty\).  The origin is then called
 a <em>source</em> or <em>unstable node</em>.</p>
 
 <p><em>Note</em>: Another way to draw the vector field is with the
-function <font class="matlab">dfieldplot(&nbsp;)</font>.</p>
+function <font class="matlab">dfieldplot()</font>.</p>
 
 <pre class="matlab">
 > <font class="matlab">dfieldplot(eq3,[x1(t),x2(t)],t=-2..2,x1=-1..1,x2=-1..1):</font>
@@ -285,8 +294,8 @@ function <font class="matlab">dfieldplot(&nbsp;)</font>.</p>
 
 <p>We leave to the reader the pleasure of trying this command.  We
 also leave to the reader the pleasure of discovering the qualitative
-aspect of the linear system of ODE when one of the eigenvalues is
-positive and the other is negative.  The origin is then called
+behaviour of the orbits of the linear system of ODE when one of the
+eigenvalues is positive and the other is negative.  The origin is then called
 a <em>saddle point</em>.</p> 
 
 <h4>Only One Linearly Independent Eigenvector (up to a scalar multiple)</h4>
@@ -327,10 +336,12 @@ are given by the following command.</p>
 <p>There is only one eigenvalue (i.e. \(3\)) of algebraic multiplicity
 two and geometric multiplicity one.  To get a qualitative picture of
 the global behaviour of the orbits of this linear system of ODE, we
-draw its vector field with the orbits of some particular solutions.</p>
+draw in the same figure its vector field and the orbits of some
+particular solutions.</p> 
 
 <pre class="matlab">
-> <font class="matlab">DEplot(eq4,[x1(t),x2(t)],t=-1..1,[[x1(0)=2,x2(0)=-3],[x1(0)=-2,x2(0)=2]],linecolor=[blue,green],thickness=1,stepsize=0.01);</font>
+> <font class="matlab"> DEplot(eq4,[x1(t),x2(t)],t=-1..1,[[x1(0)=2,x2(0)=-3],[x1(0)=-2,x2(0)=2]],
+   linecolor=[blue,green],thickness=1,stepsize=0.01);</font>
 </pre>
 
 <div class="center">
@@ -380,11 +391,12 @@ are given by the following command.</p>
 \begin{bmatrix}-\frac{1}{5} + I \\ -\frac{1}{5} - I \end{bmatrix}, \begin{bmatrix} I & 1 \\ -I & 1 \end{bmatrix}
 \]
 
-<p>There are two complex conjugate eigenvectors to which are
+<p>There are two complex conjugated eigenvectors to which are
 associated two linearly independent eigenvectors.  The students learn
 in an introductory ODE course that the general solution involves terms
-of the form \(\displaystyle e^{-0.2 t}\cos(t)\) and
-\(\displaystyle e^{-0.2 t}\sin(t)\).</p>
+of the form \(\displaystyle e^{a t}\cos(bt)\) and
+\(\displaystyle e^{at}\sin(bt)\) if \)a + b i\) are the complex
+conjugated eigenvalues.</p>
 
 <pre class="matlab">
 > <font class="matlab"> dsolve(eq5, {x1(t), x2(t)}); </font>
@@ -395,11 +407,13 @@ of the form \(\displaystyle e^{-0.2 t}\cos(t)\) and
 \]
 
 <p>As we have done before, to get a qualitative image of the global
-behaviour of the orbits of this linear system of ODE, we draw its
-vector field.  We also plot the orbits of some particular solutions.</p>
+behaviour of the orbits of this linear system of ODE, we draw in the
+same figure its vector field and the orbits of some particular
+solutions.</p> 
 
 <pre class="matlab">
-> <font class="matlab">DEplot(eq5,[x1(t),x2(t)],t=0..10,[[x1(0)=0.1,x2(0)=-0.1],[x1(0)=-0.1,x2(0)=0.1]],linecolor=[blue,green],thickness=1, stepsize=0.01);</font>
+> <font class="matlab"> DEplot(eq5,[x1(t),x2(t)],t=0..10,[[x1(0)=0.1,x2(0)=-0.1],[x1(0)=-0.1,x2(0)=0.1]],
+   linecolor=[blue,green],thickness=1, stepsize=0.01);</font>
 </pre>
 
 <div class="center">
@@ -410,7 +424,7 @@ vector field.  We also plot the orbits of some particular solutions.</p>
 <p>As can be seen from the vector field, all the solutions converge
 toward the origin as \(t \to \infty\).  The origin is called
 a <em>stable spiral</em> or <em>stable focus</em>.  If the real part
-of the pair of complex eigenvalues had been positive, then all the
+of the pair of complex conjugated eigenvalues had been positive, then all the
 solutions would have gone away from the origin as \(t \to \infty\).
 The original would then be called a <em>unstable spiral</em> or
 <em>unstable focus</em>. </p>
@@ -435,7 +449,8 @@ the qualitative behaviour of the orbits as \( t \to \infty\).
 Thus, we can draw the orbits of some particular solutions.</p>
 
 <pre class="matlab">
-> <font class="matlab"> DEplot(eq6,[x1(t),x2(t)],t=0..5,[[x1(0)=1,x2(0)=-1],[x1(0)=-1,x2(0)=1],[x1(0)=2,x2(0)=2]],linecolor=[blue,green,red],thickness=1,stepsize=0.01,numpoints = 100, method = taylorseries);</font>
+> <font class="matlab"> DEplot(eq6,[x1(t),x2(t)],t=0..5,[[x1(0)=1,x2(0)=-1],[x1(0)=-1,x2(0)=1],[x1(0)=2,x2(0)=2]],
+   linecolor=[blue,green,red],thickness=1,stepsize=0.01,numpoints = 100, method = taylorseries);</font>
 </pre>
 
 <div class="center">
@@ -485,7 +500,7 @@ x''(t) + \cos(t) x(t) = 0 \ .
 \]
 
 <p>This ODE can be reduced to the system of first-order ODE with the
-substitution \(x_1 = x\) and \(x_2 = x'\).</p>  
+substitution \(X_1 = x\) and \(X_2 = x'\).</p>  
 
 <pre class="matlab">
 > <font class="matlab">eq1:= { diff(x1(t),t)=x2(t), diff(x2(t),t)=-cos(t)*x1(t)};</font>
@@ -495,14 +510,14 @@ substitution \(x_1 = x\) and \(x_2 = x'\).</p>
   eq1 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = x2(t), \frac{\text{d}}{\text{d} t} x2 = -\cos(t) x1(t) \right\}
 \]
 
-<p> As usual, we will not find the explicit solution using the
-function <font class="matlab">dsolve()</font> but we will instaed
-find the numerical solution given an initial condition in order to
-plot this solution.</p>
+<p> As usual, we will not look for the general solution of this system
+of ODE using the function <font class="matlab">dsolve()</font> but we
+will instead find the numerical solution for a given initial condition in
+order to plot this solution.</p>
 
 <pre class="matlab">
 > <font class="matlab"> SYST := eq1 union {x1(0)=0,x2(0)=1}:</font>
-> <font class="matlab">X := dsolve(SYST,{x1(t),x2(t)},type=numeric,output=listprocedure);</font>
+> <font class="matlab"> X := dsolve(SYST,{x1(t),x2(t)},type=numeric,output=listprocedure);</font>
 </pre>
 
 \[
@@ -522,8 +537,8 @@ associated to the intinial condition \( (x_1(0),x_2(0)) = (0,1) \).</p>
 </div>
 
 <p>We have already encountered this orbit before.  It is the plot of
-a part of the orbit \( \{ (x(t), x'(t)) : t\in \mathbb{\R} \} \)
-associated to the initial \(x(0) = 0\) et \(x'(0 = 1\) for the second
+a part of the orbit \( \{ (x(t), x'(t)) : t\in \mathbb{R} \} \)
+associated to the initial \(x(0) = 0\) et \(x'(0) = 1\) for the second
 ordre ODE that we presented in the first example of the document
 <script language="javascript">
     buildLinK(ODE_O2_var_coeff.url_en,
@@ -534,7 +549,7 @@ ordre ODE that we presented in the first example of the document
 <h3> Nonlinear Systems of ODE </h3>
 
 <p>There are no general methods to solve nonlinear systems of ODE.  We
-often have no choice but to do a qualitative study of the system
+often have no other choice than to do a qualitative study of the system
 and/or to solve the system numerically.</p> 
 
 <h4> Van der Pol Equation </h4>
@@ -566,7 +581,12 @@ to many initial conditions, we have written a procedure to draw these
 orbits.</p>  
 
 <pre class="matlab">
-> <font class="matlab">graph := proc (a, b, T, clr) local X; X := dsolve(eq3 union {x1(0) = a, x2(0) = b}, {x1(t), x2(t)}, type = numeric, output = procedurelist, method = classical[rk4], stepsize = 0.1e-1): RETURN(odeplot(X, [x1(t), x2(t)], 0 .. T, numpoints = floor(30*T), color = clr)): end proc;</font>
+> <font class="matlab"> graph := proc (a, b, T, clr)
+   local X;
+   X := dsolve(eq3 union {x1(0) = a, x2(0) = b}, {x1(t), x2(t)}, type = numeric,
+      output = procedurelist, method = classical[rk4], stepsize = 0.1e-1):
+   RETURN(odeplot(X, [x1(t), x2(t)], 0 .. T, numpoints = floor(30*T), color = clr)):
+   end proc;</font>
 </pre>
 
 \[
@@ -605,17 +625,22 @@ orbits.</p>
      alt="Orbits of the Van der Pol system converging to the periodic orbit from the inside the periodic orbit">
 </div>
 
-<p> In the first figure, the orbits of the solutions seem to spiral
-toward the origin. However, in a the second figure they seem to spiral
-away from the origin.  This cannot go on forever because orbits
+<p> In the first figure, the orbits of the solutions seem to spiral in
+a counterclockwise direction toward the origin. However, in a the
+second figure, the orbits seem to spiral in a counterclockwise direction away
+from the origin.  This cannot go on forever because orbits 
 cannot intersect and varies smoothly with respect to initial
 conditions.  What is going on?</p>
 
 <p>We need to look at the vector field associated to this system of
-ODE.  We also include some orbits.</p>
+ODE.  We also draw some orbits in the figure that contains the vector
+filed.</p> 
 
 <pre class="matlab">
-> <font class="matlab">with(DEtools); DEplot(eq3, [x1(t), x2(t)], t = 0 .. 8*Pi, [[x1(0) = .5, x2(0) = .5], [x1(0) = 2, x2(0) = 2]], linecolor = [blue, red], thickness = 2, color = black, stepsize = 0.1e-1, arrows = small);</font>
+> <font class="matlab"> with(DEtools);
+   DEplot(eq3, [x1(t), x2(t)], t = 0 .. 8*Pi,
+      [[x1(0) = .5, x2(0) = .5], [x1(0) = 2, x2(0) = 2]], linecolor = [blue, red],
+      thickness = 2, color = black, stepsize = 0.1e-1, arrows = small);</font>
 </pre>
 
 <div class="center">
@@ -624,10 +649,10 @@ ODE.  We also include some orbits.</p>
 </div>
 
 <p>All the orbits converge toward a periodic solution.
-The outside orbit in the previous figure is getting very close to
-this periodic solution.  We admit that this is not a proof of the
-existence of a (unique) periodic orbit but this is certainly a good
-indication of its existence.</p> 
+The orbit starting at \((2,2)\) (outside the periodic orbit) is
+getting very close to this periodic solution.  We admit that this is
+not a proof of the existence of a unique periodic orbit but this is
+certainly a good indication of its existence.</p> 
 
 <p><em>Note</em>:  There are several other <em>Maple</em>
 functions that may be used to draw vector fields:
@@ -658,7 +683,8 @@ the figure below. </p>
 > <font class="matlab">gr12:=textplot([2.2,-8,'q'], font=[SYMBOL,12],align={RIGHT}):</font>
 > <font class="matlab">gr13:=arrow([-3,-4.5],[2,-5.4], 0.02,0.3,0.1, color=black):</font>
 > <font class="matlab">gr14:=textplot([2.1,-3,'L'], font=[COURIER,12],align={RIGHT}):</font>
-> <font class="matlab">display({gr1,gr2,gr3,gr4,gr5,gr6, gr7,gr8,gr9,gr10,gr11,gr12,gr13,gr14}, view=[-6..6,-14..0.5], axes=none, scaling=constrained);</font>
+> <font class="matlab">display({gr1,gr2,gr3,gr4,gr5,gr6,gr7,gr8,gr9,gr10,gr11,gr12,gr13,gr14}, view=[-6..6,-14..0.5],
+   axes=none, scaling=constrained);</font>
 </pre>
 
 <div class="center">
@@ -721,12 +747,17 @@ velocity of \(4\) m/s.  Thus, <font class="matlab">&theta;(0)= &pi;/4</font>
 and <font class="matlab">v(0)=4</font> m/s.</li>
 </ul>
 
-<p>Since we need to plot the orbits of the system of ODE of order one for several
-initial conditions, it is useful to reintroduce the procedure (after some small
-modifications) used before.<p>
+<p>Since we need to plot the orbits of the system of ODE of order one
+for several initial conditions, it is useful to reintroduce the
+procedure (after some small modifications) used before.<p>
 
 <pre class="matlab">
->  <font class="matlab">graph := proc (a, b, T, clr) local X: X := dsolve(eq6 union {theta(0) = a, v(0) = b}, {theta(t), v(t)}, type = numeric, output = procedurelist, method = classical[rk4], stepsize = 0.1e-1): RETURN(odeplot(X, [theta(t), v(t)], 0 .. T, color = clr)): end proc;</font>
+> <font class="matlab"> graph := proc (a, b, T, clr)
+   local X:
+   X := dsolve(eq6 union {theta(0) = a, v(0) = b}, {theta(t), v(t)}, type = numeric,
+      output = procedurelist, method = classical[rk4], stepsize = 0.1e-1):
+   RETURN(odeplot(X, [theta(t), v(t)], 0 .. T, color = clr)):
+   end proc;</font>
 </pre>
 
 \[
@@ -741,7 +772,7 @@ modifications) used before.<p>
 \end{split}
 \]
 
-<p>The orbits of the two particular solutions are draw in the following
+<p>The orbits of the two particular solutions are drawn in the following
 figure.</p>
 
 <pre class="matlab">
@@ -764,8 +795,9 @@ friction, the motion of the pendulum is perpetual.</p>
 order one and the orbits of the two particular solutions above.</p> 
 
 <pre class="matlab">
-> <font class="matlab">with(DEtools):</font>
-> <font class="matlab">DEplot(eq6,[theta(t),v(t)], t=0..1.5*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=4]], linecolor=[blue,black], thickness=2, color=green, stepsize=0.01, arrows=small);</font>
+> <font class="matlab"> with(DEtools):</font>
+> <font class="matlab"> DEplot(eq6,[theta(t),v(t)], t=0..1.5*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=4]],
+   linecolor=[blue,black], thickness=2, color=green, stepsize=0.01, arrows=small);</font>
 </pre>
 
 <div class="center">
@@ -821,7 +853,8 @@ following figure.</p>
 order one and the orbits of the two particular solutions above.</p>
 
 <pre class="matlab">
-> <font class="matlab">DEplot(eq6,[theta(t),v(t)], t=0..1.3*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=8]], linecolor=[red,blue], thickness=2, color=black, stepsize=0.01, arrows=small);</font>
+> <font class="matlab">DEplot(eq6,[theta(t),v(t)], t=0..1.3*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=8]],
+   linecolor=[red,blue], thickness=2, color=black, stepsize=0.01, arrows=small);</font>
 </pre>
 
 <div class="center">

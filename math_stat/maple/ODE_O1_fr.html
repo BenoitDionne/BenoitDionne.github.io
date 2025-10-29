@@ -296,13 +296,23 @@ associées aux conditions initiales \(y(0)=1\), \(y(0)=-2\) and
 \(y(0)=2\). </p>
 
 <pre class="matlab">
-> <font class="matlab">DEplot(eq4,y(x),x=-5..5,y=-5..5, [[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green], arrows=small);</font>
+> <font class="matlab"> DEplot(eq4,y(x),x=-5..5,y=-5..5, [[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green],
+   arrows=small);</font>
 </pre>
 
 <div class="center">
   <img src="Maple_ode_4.png" style="width: 300px"
        alt="Champ de pente de l'EDO eq4 incluant les graphes des trois solutions associées aux conditions initiales y(0)=1, y(0)=-2 et y(0)=2">
 </div>
+
+<div class="LOOK">
+Pour écrire une commande de <em>Maple</em> sur plusieurs lignes, nous
+devons taper <em>Shift + Enter</em> à la fin de chaque ligne jusqu'à
+la dernière ligne où nous tapons seulement <em>Enter</em>.  Notez que
+couper et coller dans <em>Maple</em> les deux lignes de la commande
+ci-dessus fonctionne.
+</div>
+
 
 <p>Il est possible de choisir une méthode numérique différent, un pas
 différent, une erreur de tolérance différente, ... pour les fonctions
@@ -327,7 +337,8 @@ graphes des solutions particulières associées aux conditions initiales
 méthode de <em>Euler</em> avec un pas de \(0.1\).</p>
 
 <pre class="matlab">
-> <font class="matlab"> DEplot(eq5,y(x),x=-10..10,y=-10..10,[[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green],method=classical[foreuler],stepsize=.1);
+> <font class="matlab"> DEplot(eq5,y(x),x=-10..10,y=-10..10,[[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green],
+   method=classical[foreuler],stepsize=.1);
 </font>
 </pre>
 

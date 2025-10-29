@@ -215,7 +215,10 @@ command in <em>Maple</em></p>
 transformations, then we perform the following operations.</p> 
 
 <pre class="matlab">
-> <font class="matlab">eq2 := laplace(eq1,t,s); Ys:=solve(eq2,laplace(y(t),t,s)); yt := invlaplace(Ys,s,t); yt := subs({y(0)=2,D(y)(0)=3},yt);</font>
+> <font class="matlab"> eq2 := laplace(eq1,t,s);
+   Ys:=solve(eq2,laplace(y(t),t,s));
+   yt := invlaplace(Ys,s,t);
+   yt := subs({y(0)=2,D(y)(0)=3},yt);</font>
 </pre>
 
 \[

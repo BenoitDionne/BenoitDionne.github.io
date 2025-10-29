@@ -145,7 +145,19 @@ de Fourier sans faire usage d'une librairie spécialisée.</p>
 définie par la procédure suivante.</p>
 
 <pre class="matlab">
-> <font class="matlab">fe := proc(x) local y: if type(x,numeric) then y:=abs(x)-floor(abs(x)/2)*2: if ( y < 1/2 or y > 3/2 ) then RETURN(1); else RETURN(0); fi; else 'fe'(x); fi; end proc;</font>
+> <font class="matlab"> fe := proc(x)
+   local y:
+   if type(x,numeric) then
+      y:=abs(x)-floor(abs(x)/2)*2:
+      if ( y < 1/2 or y > 3/2 ) then
+         RETURN(1);
+      else
+         RETURN(0);
+      fi;
+   else
+      'fe'(x);
+   fi;
+   end proc;</font>
 </pre>
 
 \[
@@ -161,6 +173,14 @@ définie par la procédure suivante.</p>
 & end\ proc
 \end{split}
 \]
+
+<div class="LOOK">
+Pour écrire une commande de <em>Maple</em> sur plusieurs lignes, nous
+devons taper <em>Shift + Enter</em> à la fin de chaque ligne jusqu'à
+la dernière ligne où nous tapons seulement <em>Enter</em>.  Notez que
+couper et coller dans <em>Maple</em> les lignes de la commande
+ci-dessus fonctionne.
+</div>
 
 <p>La procédure ci-dessus est la définition la moins fragile d'une
 fonction mais nous n'avons pas à être si rigoureux si notre fonction
@@ -220,7 +240,13 @@ la plus simple pour faire les calculs.</p>
 la procédure suivante.</p>
 
 <pre class="matlab">
-> <font class="matlab">an:=proc(n) if (n=0) then RETURN( int(fe0L(x),x=0..1) ); else RETURN( 2*int(fe0L(x)*cos(n*Pi*x),x=0..1)); fi; end proc;</font>
+> <font class="matlab"> an:=proc(n)
+   if (n=0) then
+      RETURN( int(fe0L(x),x=0..1) );
+   else
+      RETURN( 2*int(fe0L(x)*cos(n*Pi*x),x=0..1));
+   fi;
+   end proc;</font>
 </pre>
 
 \[
@@ -303,7 +329,19 @@ est <font class="matlab">(fe(x-)+fe(x+))/2</font> comme il est prédit.</p>
 dans <em>Maple</em> par la procédure suivante.</p>
 
 <pre class="matlab">
-> <font class="matlab">ff := proc(x) local y: if type(x,numeric) then y:=x - floor(x/3)*3; if   ( y<3/2 ) then RETURN(3 - 2*y); else RETURN(0); fi; else 'ff'(x); fi; end proc;</font>
+> <font class="matlab"> ff := proc(x)
+   local y:
+   if type(x,numeric) then
+      y:=x - floor(x/3)*3;
+      if ( y<3/2 ) then
+         RETURN(3 - 2*y);
+      else
+         RETURN(0);
+      fi;
+   else
+      'ff'(x);
+   fi;
+   end proc;</font>
 </pre>
 
 \[
@@ -353,7 +391,13 @@ intégrales ont seulement besoin d'être évaluées sur l'intervalle
 suivantes. </p>
 
 <pre class="matlab">
-> <font class="matlab">an:=proc(n) if (n=0) then RETURN((1/3)*int(ff0L,x=0..1.5)); else RETURN((2/3)*int((ff0L)*cos(2*n*Pi*x/3) ,x=0..1.5)); fi; end proc;</font>
+> <font class="matlab"> an:=proc(n)
+   if (n=0) then
+      RETURN((1/3)*int(ff0L,x=0..1.5));
+   else
+      RETURN((2/3)*int((ff0L)*cos(2*n*Pi*x/3) ,x=0..1.5));
+   fi;
+   end proc;</font>
 </pre>
 
 \[
