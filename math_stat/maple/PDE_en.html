@@ -65,10 +65,10 @@ main_title( MStext, "MMathSStat");
 </div>
 
 <p>The reader should not expect a full introduction to Partial
-  Differential Equations (PDE) in this section.  We only consider the
-  must standard PDE that someone studies in a first PDE course.</p>
+  Differential Equations (PDE) in this document.  We only consider some
+  standard PDE that students learn about in a first PDE course.</p>
 
-<h3> Heat Flow in a Rod - Insulated Ends </h3>
+<h3> Heat Flow in a thin Rod - Insulated Ends </h3>
 
 <p>The heat equation for a thin rod of length \(L\) is</p>
 
@@ -77,21 +77,22 @@ main_title( MStext, "MMathSStat");
 \]
 
 <p>with the initial condition \(u(x,0) = f(x)\) and the boundary
-conditions \(u_x(0,t) = u_x(L,t) = 0\) (ends of the rod are insulated).
-\(k^2\) is the heat conductivity constant of the rod. For the heat
-equation to hold, we must also assume that the lateral side of the
-rod is insulated.</p>
+conditions \(u_x(0,t) = u_x(L,t) = 0\).  The ends of the rod are
+insulated.  The value \(u(x,t)\) is the temperature at the position
+\(x\) of the rod at time \(t\).  The constant \(\displaystyle k^2\) is the heat
+conductivity of the rod.  For the heat equation to hold, we must also
+assume that the lateral side of the rod is insulated.</p>
 
 <p>The classical method to solve this PDE involves <em>separation of
-variables</em>.  Suppose that the solution of the heat equation can
-be written as \(u(x,t) = X(x) T(t)\).  If we substitute in the heat
-equation, we get</p>
+variables</em>.  Suppose that the solution of the heat equation is of
+the form \(u(x,t) = X(x) T(t)\).  If we substitute this expression in
+the heat equation, then we get</p>
 
 \[
    X(x) T'(t)  = k^2 X''(x) T(t)
 \]
 
-<p>If divide both sides by \(X(x)T(t)\), we get</p>
+<p>If divide both sides by \(X(x)T(t)\), then we get</p>
 
 \[
 \frac{T'(t)}{T(t)} = k^2 \frac{X''(x)}{X(x)}
@@ -105,27 +106,29 @@ must be equal to a constant that we call \(\lambda\).</p>
 \frac{T'(t)}{T(t)} = k^2 \frac{X''(x)}{X(x)}  = \lambda
 \]
 
-<p>We get two ODE.  \(T' = \lambda T\) is a separable first order ODE
-and is easy to solve.  Its solution is \(T(t) = D e^{\lambda t}\)
+<p>We get two ODE.  The equation \(T' = \lambda T\) is a separable
+first order ODE and it is easy to solve.
+Its general solution is \(\displaystyle T(t) = D e^{\lambda t}\)
 for an arbitrary constant \(D\).  The second ODE is
-\(X'' - (\lambda/k^2) X = 0\).  This is a second order ODE with constant
-coefficients and is also easy to solve.</p>
+\(\displaystyle X'' - (\lambda/k^2) X = 0\).  This is a second order
+ODE with constant coefficients and it is also easy to solve.</p>
 
 <p>Suppose that \(\lambda < 0\).  The general solution of
-\(X'' - (\lambda/k^2) X = 0\) is</p>
-			   
+\(\displaystyle X'' - (\lambda/k^2) X = 0\) is</p>
+
 \[
 X(t) = C_1 \cos(\sqrt{-\lambda} x/k) + C_2 \sin(\sqrt{-\lambda} x/k)
 \]
 
 <p>Since \(u_x(0,t) = X'(0) T(t) = 0\) for all \(t\), we must have
 \(X'(0)=0\) otherwise \(T(t)=0\) for all \(t\) and we end up with the
-trivial solution \(u)x,t) = X(x) T(t) = 0\) for all \(x\) and \(t\); this is
-certainly not true if \(f\) is nontrivial. Similarly \(X'(L) = 0\).
+trivial solution \(u)x,t) = X(x) T(t) = 0\) for all \(x\) and \(t\).
+This is certainly not true if \(f\) is nontrivial. Similarly, we get
+that \(X'(L) = 0\).
 
-<p>\(X'(0)=0\) implies that \(C_2 \sqrt{\lambda} = 0\).  So \(C_2 = 0\).
-Therefore \( X'(L)=0\) implies that
-\(C_1 \sqrt{-\lambda}\sin(\sqrt{-\lambda} L/k) = 0\).
+<p>The condition \(X'(0)=0\) implies that
+\(C_2 \sqrt{\lambda} = 0\).  So \(C_2 = 0\).  We then get from
+\( X'(L)=0\) that \(C_1 \sqrt{-\lambda}\sin(\sqrt{-\lambda} L/k) = 0\).
 We cannot have \(C_1 = 0\) because we are looking for a nontrivial
 solution.  So \(\sqrt{-\lambda}\, L/k) = n \pi\) for \(n\) a non-negative
 integer.  Hence</p>
@@ -134,7 +137,7 @@ integer.  Hence</p>
 \lambda = - \frac{n^2 \pi^2 k^2}{L^2} \quad , \quad n = 0, 1 ,2 ,3, \ldots
 \]
 
-<p>Therefore</p>
+<p>We finally get</p>
 
 \[
 X_n(x) = C_n \cos\left(\frac{n\pi x}{L}\right)  \quad ,
@@ -144,7 +147,8 @@ X_n(x) = C_n \cos\left(\frac{n\pi x}{L}\right)  \quad ,
 <p> The reader can verify that the cases \(\lambda=0\) and \(\lambda>0\)
 lead to the trivial solution.</p>
 
-<p>If we substitute the value of \(\lambda\) in \(T(t)\) above, we get</p>
+<p>If we substitute the value of \(\lambda\) in the function \(T\)
+above, we get</p> 
 
 \[
 T_n(t) = D_n  e^{-n^2\pi^2 k^2 t/L^2}
@@ -152,10 +156,10 @@ T_n(t) = D_n  e^{-n^2\pi^2 k^2 t/L^2}
 
 <p>All the functions of the form \(T_n(t) X_n(x)\) are solutions of the
 PDE and satisfy the boundary equations. There are infinitely many of
-them, one for each value of the non-negative integers \(n\).</p>
+them, one for each value of the non-negative integer \(n\).</p>
 
 <p>We now look for a solution of the heat equation that is a sum of
-all \(X_n(x) T_n(t)\).</p>
+all functions \(X_n(x) T_n(t)\).</p>
 
 \[
 u(x,t)= \sum_{n=0}^\infty X_n(x) T_n(t) =
@@ -165,23 +169,25 @@ e^{-n^2\pi^2 k^2 t/L^2}
 
 <p>where \(a_n = C_n D_n\).</p>
 
-<p>We still have to determine the \(a_n\).  It is here that we finally
-use the initial condition \(u(x,0) = f(x)\).  If we evaluate the
-series solution for \(u\) at \(t=0\), we get</p>
+<p>We still have to determine the values of the \(a_n\).
+It is here that we finally use the initial condition
+\(u(x,0) = f(x)\).  If we evaluate the series for \(u\) at \(t=0\),
+then we get that</p> 
 
 \[
 f(x) = a_0 + \sum_{n=1}^\infty a_n \cos\left(\frac{n\pi x}{L}\right)
 \]
 
-<p> This must be the Fourier cosine series for \(f\).  The coefficients
-  are given by</p>
+<p> This is the Fourier cosine series for \(f\).  The coefficients
+are given by</p>
 
 \[
 a_0 = \frac{1}{L} \int_0^L f(x) \text{d}x \qquad , \qquad
 a_n = \frac{2}{L} \int_0^L f(x) \cos(n\pi xx/L) \text{d}x
 \]
 
-<p><em>Example</em>: Consider the heat equation</p>
+<p><em>Example</em>: Consider the heat equation defined
+in <em>Maple</em> by the following command.</p>
 
 <pre class="matlab">
 > <font class="matlab">HE := diff(u(x,t),t) = k^2*diff(u(x,t),x$2);</font>
@@ -192,7 +198,8 @@ HE := \frac{\partial}{\partial t} u(x,t) = k^2
 \frac{\partial^2}{\partial x^2} u(x,t)
 \]
 
-<p>on the interval \([0,L]\) with the boundary conditions</p>
+<p>The PDE is defined on the interval \([0,L]\), the boundary
+conditions are given by</p>
 
 <pre class="matlab">
 > <font class="matlab">bconds := (D[1](u))(L, t) = 0, (D[1](u))(0, t) = 0;</font>
@@ -202,7 +209,7 @@ HE := \frac{\partial}{\partial t} u(x,t) = k^2
  bconds := D_1(u)(L, t) = 0,\quad D_1(u)(0, t) = 0
 \]
 
-<p>and the initial condition</p>
+<p>and the initial condition are given by</p>
 
 <pre class="matlab">
 > <font class="matlab">icond := u(x, 0) = f(x);</font>
@@ -226,7 +233,7 @@ HE := \frac{\partial}{\partial t} u(x,t) = k^2
 \]
 
 <p>We left the initial condition unspecified to clearly demonstrate
-that <font class="matlab">Maple</font> use separation of variables as
+that <em>Maple</em> use separation of variables as
 we did above.</p>
 
 <pre class="matlab">
@@ -240,11 +247,13 @@ u(x,t) = \frac{ \left(\int_1^3 f(x) \text{d}x \right)}{3}
 \cos\left(\frac{n \pi x}{3}\right) e^{-\frac{19 n^2 \pi^2 t}{150}}}{3} \right)
 \]
 
-<p>We get the predicted solution.  Given <font class="matlab">f(x)</font>,
-We could use the function  <font class="matlab">int(&nbsp;)</font> of
-<font class="matlab">Maple</font> to compute the coefficients.
-However, there is a simpler way.   <font class="matlab">pdsolve(&nbsp;)</font>
-can also accept and initial condition.</p>
+<p>We get the predicted solution.  Given a function
+<font class="matlab">f</font>,
+We could use the <em>Maple</em> function <font class="matlab">int()</font>
+to compute the coefficients.  However, there is a simpler way to get
+the coefficients.  The function <font class="matlab">pdsolve()</font>
+can also accept an initial condition.  Suppose that the initial
+condition is given by the following command.</p>
 
 <pre class="matlab">
 >  <font class="matlab">icond := u(x, 0) = x^2*(L-x)^2;</font>
@@ -266,8 +275,8 @@ Sol := u(x,t) = \frac{27}{10}
 \right) e^{-\frac{19 n^2 \pi^2 t}{150}}}{n^4 \pi^4} \right)
 \]
 
-<p>One really has to have done this computation by hand to appreciate
-the work done by <font class="matlab">Maple</font>.</p>
+<p>The reader really has to have done these computations by hand to appreciate
+the work done by <em>Maple</em>.</p>
 
 <p>The 3-D graph of this solution is given below.</p>
 
@@ -280,27 +289,29 @@ U:= (y,s) \mapsto subs({t = s, x = y}, rhs(Sol))
 \]
 
 <pre class="matlab">
->  <font class="matlab">plot3d(U(x,t),x=0..L,t=0..1,axes=FRAME,style=PATCH, labels=['x','t','u'], orientation=[-130,45]);</font>
+> <font class="matlab"> plot3d(U(x,t),x=0..L,t=0..1,axes=FRAME,style=PATCH, labels=['x','t','u'],
+   orientation=[-130,45]);</font>
 </pre>
 
 <div class="center">
   <img src="Maple_PDE_1.png" style="width: 300px"
-       alt="Graph of the solution of the heat equation considered">
+       alt="Graph of the solution of the heat equation in the example">
 </div>
 
 <p>The temperature in the rod settle rapidly to a uniform temperature
 of \(2.7\) degrees.</p>
 
-<h2> Heat Flow in a Rod - Other Cases </h2>
+<h3> Heat Flow in a Rod - Other Cases </h3>
 
-<p>The reader who has taken a first introductory courses in PDE before
+<p>The reader who has already taken an introductory course on PDE
 knows that there are several other cases to consider for the heat equation
 according to the chosen boundary conditions.  We do not plan to do a
-systematic studies of all the case.  We will only give another
+systematic studies of all the cases.  We will only give another
 example where, this time, the end of the rod are kept at a constant
 temperature.</p>
 
-<p><em>Example</em>: Consider the heat equation</p>
+<p><em>Example</em>: Consider the heat equation defined
+in <em>Maple</em> by the following command.</p>
 
 <pre class="matlab">
 > <font class="matlab">HE := diff(u(x,t),t) = k^2*diff(u(x,t),x$2);</font>
@@ -311,7 +322,8 @@ HE := \frac{\partial}{\partial t} u(x,t) = k^2
 \frac{\partial^2}{\partial x^2} u(x,t)
 \]
 
-<p>on the interval \([0,L]\) with the boundary conditions</p>
+<p>The PDE is defined on the interval \([0,L]\), the boundary
+conditions are given by</p>
 
 <pre class="matlab">
 > <font class="matlab">bconds := u(L, t) = 0, u(0, t) = 0;</font>
@@ -321,7 +333,7 @@ HE := \frac{\partial}{\partial t} u(x,t) = k^2
  bconds := u(L, t) = 0,\quad u(0, t) = 0
 \]
 
-<p>and the initial condition</p>
+<p>and the initial condition is given by</p>
 
 <pre class="matlab">
 > <font class="matlab">icond := u(x, 0) = f(x);</font>
@@ -344,6 +356,8 @@ HE := \frac{\partial}{\partial t} u(x,t) = k^2
 \end{split}
 \]
 
+<p>The solution is given by the following command.</p>
+  
 <pre class="matlab">
 > <font class="matlab"> pdsolve([HE, bconds, icond], u(x, t));</font>
 </pre>
@@ -354,11 +368,12 @@ u(x,t) = \sum_{n=1}^\infty \frac{ 2\left(\int_0^3 f(x)
 \sin\left(\frac{n \pi x}{3}\right) e^{-\frac{19 n^2 \pi^2 t}{150}}}{3}
 \]
 
-<p>This is the form of the solution expected if separation of
-variables is used.  In this case, the initial condition is expressed
-in terms of a Fourier sine series.   If we specify
-<font class="matlab">f(x)</font>, then we can get the desired solution
-of the heat equation.</p>
+<p>This is the expected form of the solution if separation of
+variables is used.  In this case, the initial condition is given
+by a Fourier sine series.   If we specify the function
+<font class="matlab">f</font>, then we can solve the heat equation
+with the function <font class="matlab">pdsolve</font>.
+Suppose that the initial condition is given by the following command.</p>
 
 <pre class="matlab">
 >  <font class="matlab">icond := u(x, 0) = x^2*(L-x)^2;</font>
@@ -380,7 +395,7 @@ Sol := u(x,t) = \sum_{n=1}^\infty
 \sin\left(\frac{n \pi x}{3}\right) e^{-\frac{19 n^2 \pi^2 t}{150}}}{n^4 \pi^4} 
 \]
 
-<p>The 3-D graph of this solution is given below</p>
+<p>The 3-D graph of this solution is given below.</p>
 
 <pre class="matlab">
 >  <font class="matlab">U := (y, s) -> subs({t = s, x = y}, rhs(Sol));</font>
@@ -391,12 +406,13 @@ U:= (y,s) \mapsto subs({t = s, x = y}, rhs(Sol))
 \]
 
 <pre class="matlab">
->  <font class="matlab">plot3d(U(x,t),x=0..L,t=0..1,axes=FRAME,style=PATCH, labels=['x','t','u'], orientation=[-130,45]);</font>
+> <font class="matlab"> plot3d(U(x,t),x=0..L,t=0..1,axes=FRAME,style=PATCH, labels=['x','t','u'],
+   orientation=[-130,45]);</font>
 </pre>
 
 <div class="center">
   <img src="Maple_PDE_2.png" style="width: 300px"
-       alt="Graph of the solution of the heat equation considered">
+       alt="Graph of the solution of the heat equation for this example">
 </div>
 
 <p>Eventually, the rod will reach a uniform temperature of \(0\) degree.</p>
@@ -404,19 +420,19 @@ U:= (y,s) \mapsto subs({t = s, x = y}, rhs(Sol))
 <h2> Vibrating String - Fixed Ends </h2>
 
 <p>The wave equation for the vibrating string of length \(L\) with both
-ends fixed is given by</p>
+ends fixed is</p>
 
 \[
    \frac{\text{d}^2}{\text{d} t^2} v(x,t)  = c^2 \frac{\text{d}}{\text{d}t} v(x,t)
 \]
 
 <p>for \(0 \leq x \leq L\), with the boundary conditions
-\(v(0,t) = v(L,t) = 0\) and the initial condition
+\(v(0,t) = v(L,t) = 0\) and the initial conditions
 \(v(x,0) = f(x)\) and \(v_t(x,0) = g(x)\); the initial position and
-initial velocity respectively.</p>
+velocity respectively.</p>
 
 <p>If we use the method of separation of variables to solve this
-problem, we get </p>
+problem, then we get </p>
 
 \[
 v(x,t) = \sum_{n=1}^\infty
@@ -435,7 +451,8 @@ v(x,t) = \sum_{n=1}^\infty
   b_n = \frac{2}{n \pi c} \int_0^L g(x) \sin\left(\frac{n\pi x}{L}\right) \text{d} x
 \]
 
-<p<em>Example</em>: We consider the wave equation</p>
+<p<em>Example</em>: We consider the wave equation defined by the
+following command.</p>
 
 <pre class="matlab">
 > <font class="matlab">WE:=diff(v(x,t),t$2) = c^2*diff(v(x,t),x$2);</font>
@@ -445,7 +462,8 @@ v(x,t) = \sum_{n=1}^\infty
 WE := \frac{\text{d}^2}{\text{d} t^2} v(x,t)  = c^2 \frac{\text{d}}{\text{d}t} v(x,t)
 \]
 
-<p>on the interval \([0,L]\) with the boundary conditions</p>
+<p>The PDE is defined on the interval \([0,L]\), the boundary
+conditions are given by </p>
 
 <pre class="matlab">
 > <font class="matlab">bconds := v(L, t) = 0, v(0, t) = 0;</font>
@@ -455,7 +473,7 @@ WE := \frac{\text{d}^2}{\text{d} t^2} v(x,t)  = c^2 \frac{\text{d}}{\text{d}t} v
  bconds := v(L, t) = 0,\quad v(0, t) = 0
 \]
 
-<p>and the initial condition</p>
+<p>and the initial conditions are given by</p>
 
 <pre class="matlab">
 > <font class="matlab">iconds := v(x, 0) = f(x), D[2](v)(x,0) = g(x);</font>
@@ -478,7 +496,7 @@ WE := \frac{\text{d}^2}{\text{d} t^2} v(x,t)  = c^2 \frac{\text{d}}{\text{d}t} v
 \end{split}
 \]
 
-<p>The solution of our partial differential equation is</p>
+<p>The solution of the wave equation is given by the following command.</p>
 
 <pre class="matlab">
 > <font class="matlab"> pdsolve([WE, bconds, iconds], v(x, t));</font>
@@ -496,10 +514,12 @@ g(x)\text{d}x\right) \sin\left(\frac{11 \pi t n}{30}\right)}{11}\bigg)\bigg)
 \]
 
 <p>This is the form of the solution expected if separation of
-variables is used.  If we specify <font class="matlab">f(x)</font>
-and <font class="matlab">g(x)</font>, we can get the desired solution
-of the wave equation.  If we simply release the string, the initial
-conditions will look somewhat like the following.</p>
+variables is used.  If we specify the functions <font class="matlab">f</font>
+and <font class="matlab">g</font>, then we can solve the wave equation
+with the function <font class="matlab">pdsolve</font>.
+Suppose that the initial condition is given by the following command.</p>
+If we simply release the string, then the initial
+conditions look somewhat like the following conditions.</p>
 
 <pre class="matlab">
 >  <font class="matlab">iconds := v(x, 0) = x*(L-x)^3, D[2](v)(x,0) = 0;</font>
@@ -522,13 +542,18 @@ Sol := v(x,t) = \sum_{n=1}^\infty
 {n^5 \pi^5}
 \]
 
-<p>We may want to plot the 3-D graph of this solution using
-<font class="matlab">plot3d(&nbsp;)</font> has we did above but, for a
-reason still unknown to the author, <font class="matlab">Maple</font>
+<p>We may want to plot the 3-D graph of this solution using the
+function <font class="matlab">plot3d()</font> as we did previously.
+However, for a reason still unknown to the author, <em>Maple</em>
 cannot do it.  It is therefore the right time to introduce the
-numerical approach to solve the classical PDE.</p>
+numerical approach to solve PDE.</p>
 
-<h4> Numerical Solution </h4>
+<h4> Numerical Solutions </h4>
+
+<p>To be honest, we should warn the reader that <em>Maple</em> does
+not have the best library to numerically solve PDE.  However, it is
+good enough to solve the classical PDE seen in an introductory course
+on PDE.</p>
 
 <pre class="matlab">
 > <font class="matlab">nSol := pdsolve(WE, {bconds, iconds}, numeric, spacestep = 1/30);</font>
@@ -538,18 +563,18 @@ numerical approach to solve the classical PDE.</p>
 nSol:=module() ... end\ module
 \]
 
-<p> The result of <font class="matlab">pdsolve(&nbsp;)</font> with the
-option <font class="matlab">numeric</font> is something that we have
-not introduced before.  The result is a
-<font class="matlab">module</font>.  The reader should consult the
-information for <font class="matlab">pdsolve(&nbsp;)</font> in the
-help on <font class="matlab">Mobius</font> for more details.  This module
-includes many functions, some of them that we will use below.</p> 
+<p> The result of <font class="matlab">pdsolve()</font> with the
+option <font class="matlab">numeric</font> is an object that we have
+not introduced before.  The result is a <font class="matlab">module</font>.
+The reader should consult the information about the function
+<font class="matlab">pdsolve()</font> in the help section
+of <em>Maple</em> for more details.  This module
+contains many functions.  We will use some of them below.</p> 
 
 <p>We could plot the 3-D graph of the solution but it is more
 instructive to draw the solution as a function of \(x\) for equally
-spaced values of \(t\).  This will represent snapshots of the form of
-the string evolving in time.  If we do it every \(2\) seconds, we get
+spaced fixed values of \(t\).  This will represent snapshots of the form of
+the string evolving in time.  If we do it every \(2\) seconds, then we get
 the following figure.</p>
 
 <pre class="matlab">
@@ -562,11 +587,12 @@ the following figure.</p>
 </div>
 
 <p>We can almost visualize the motion of the string in time.
-<font class="matlab">Maple</font> let us do much better.  We can
-produce a movie of the string as it vibrates.</p>
+<em>Maple</em> can produce an event better visualization of the motion of
+the string.  We can produce a movie of the string as it vibrates.</p>
 
 <pre class="matlab">
-> <font class="matlab">nSol:-animate(v(x, t), x = 0 .. 3, t = 0 .. 9, frames = 50, title = "time = %f", labels = ["x", "u"]);</font>
+> <font class="matlab"> nSol:-animate(v(x, t), x = 0 .. 3, t = 0 .. 9, frames = 50, title = "time = %f",
+   labels = ["x", "u"]);</font>
 </pre>
 
 <div class="center">
@@ -574,22 +600,23 @@ produce a movie of the string as it vibrates.</p>
        alt="Graph of v(x,t) for 0 <= x <= 3 aa t increases from 0 to 9 seconds">
 </div>
 
-<p>To run this code in <font class="matlab">Maple</font>, we have to
+<p>To run this code in <em>Maple</em>, it suffices to
 select <font class="matlab">Animation -> Play</font> to start 
 the animation.</p>
 
 <h3> More </h3>
 
-<p>There is a lot more that we could say about PDE.  First that are
-many cases to consider for the wave equation as we did for the heat
-equation above depending on the boundary conditions.  Also, we
-have not mention at all the <em>Laplace Equation</em>.  All our work has
-been on the real line.  However, we could also consider the heat,
+<p>There is a lot more that we could say about PDE.  First, as for the
+heat equation above, there are many cases to consider for the wave
+equation depending on the boundary conditions.  Also, we 
+have not mentioned at all the <em>Laplace Equation</em>.  All the PDE
+that we have considered were depending on a single space variable on
+the real line.  However, we could also consider the heat, 
 wave and Laplace equations of several spacial variables on different
-domains: rectangles, disks, spheres, ...  All of them leads to very
+domains: rectangles, disks, spheres, ...  All of problems lead to very
 interesting results.</p>
 
-<p>We leave all that work to the reader.</p>
+<p>We leave the task of pursuing the study of PDE to the reader.</p>
 
 <br>
 <hr>
