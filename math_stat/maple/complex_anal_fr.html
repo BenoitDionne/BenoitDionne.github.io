@@ -28,6 +28,14 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+-->
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
 </head>
 <body>
 
@@ -41,16 +49,1002 @@ top_function(Complex_anal,"fr");
 main_title( MStexte, "MMathSStat");
 </script>
 
+<div class="LOOK3">
+<script language="javascript"> 
+  buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
+</script>
+</div>
+
 <h2> Analyse Complexe </h2>
 
-<p> Le contenu de ce site n'a malheureusement pas encore été traduit
-en français.  Veuillez consulter le site en anglais
-<script language="javascript">
-    buildLinK(Complex_anal.url_en,
-    Complex_anal.text_en,"MMathSStat", Complex_anal.id,
-    Complex_anal.target);
-</script>.
-</p>
+<div style="float: left; width:30%; margin-right:20px;">
+<div class="center"><em>Autres sujets</em></div>
+<script language="javascript"> 
+     display_list(mapleLinks, "ML", "fr", Complex_anal);
+</script>
+</div>
+
+<p>Ce document est une courte révision de l'anaylse complexe de base à
+l'aide de <em>Maple</em>.  Par défaut, <em>Maple</em> assume que
+toutes les variables représentent de nombres complexs.  Donc, nous
+avons utilisé des expressions complexes depuis le début. </p>
+
+<h3>Nombres complexes </h3>
+
+<p> Tout nombre de la forme \(a+bi\), où \(a\) et \(b\) sont des
+nombres réelles, est un nombre complexe.  Le nombre \(i\) est le nombre
+imaginaire tel que \(i^2 = -1\).  Dans <em>Maple</em>, le nombre \(i\)
+est dénoté par la letter majuscule <font class="matlab">I</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">I; I^2;</font>
+</pre>
+
+\[
+\begin{split}
+& I \\
+& -1
+\end{split}
+\]
+
+<p> Nous présentons ci-dessous quelques exemples d'opérations
+élémentaires avec les nombres complexes.</p>
+
+<pre class="matlab">
+> <font class="matlab">z:=3+4*I; w:=-3-2*I; z+w; z-w; z*w; z/w;</font>
+</pre>
+
+\[
+\begin{split}
+& z := 3 + 4\,I \\
+& w := -3 -2\,I \\
+& 2\,I \\
+& 6 + 6\,I \\
+& -1 -18\,I \\
+& - {\displaystyle \frac {17}{13}}  - {\displaystyle \frac {6}{13}} \,I
+\end{split}
+\]
+
+<p>Soit \(z=a+b\,i\) un nombre complexe, le nombre réel \(a\) est
+appelé la <em>partie réelle</em> de \(z\) et le nombre réel \(b\)
+est appelé la <em>partie imaginaire</em> de \(z\).  Les comamandes
+<font class="matlab">Re()</font> et <font class="matlab">Im()</font>
+de <em>Maple</em> sont utilisées pour obtenir la partie réelle et
+imaginaire d'un nombre complexe. </p>
+
+<pre class="matlab">
+> <font class="matlab">Re(z); Im(z);</font>
+</pre>
+
+\[
+\begin{split}
+& 3 \\
+& 4
+\end{split}
+\]
+
+<p>Tout nombre complexe \(z = a + b\,i\) définie un unique vecteur
+\(\vec{z} = (a,b)\) du plan \(x,y\) (et vice-versa).</p>
+
+<div class="center">
+  <img src="Maple_complex_1.png" style="width: 300px"
+       alt="Representation du vecteur (a,b) dans le plan x,y">
+</div>
+
+<p> Nous pouvons donc associer tout nombre complexe à un unique
+  vecteur de \(\mathbb{R}^2\).  Ainsi, tout nombre complexe
+\(z=a+b\, i \neq 0\) est uniquement déterminé par la longueur
+\(r=\sqrt{a^2+b^2}\) du vecteur \(\vec{z}\) et l'angle \(\theta\)
+entre le vecteur \(\vec{z}\) et l'axe des \(x\), mesuré dans la sens
+contraire des aiguilles d'une montre à partir de l'axe des \(x\) et tel que
+\(-\pi < \theta \leq \pi\).  L'origine est une exception car\(r=0\)
+wt \(\theta\) peut être un angle quelconque.  Nous avons que
+\(a = r \cos(\theta)\) et \(b = r \sin(\theta)\).  Nous obtenons la
+<em>forme polaire</em> </p>
+\[
+z = r\cos(\theta) + i\, r\sin(\theta) = r e^{\theta i}
+\]
+<p> du nombre complexe \(z\).  La formule
+\(e^{\theta i} = \cos(\theta) + i\,\sin(\theta)\) pour tous
+\(\theta \in \mathbb{R}\) est connue sous le nom de
+<em>formule d'Euler</em>.  La fonction <font class="matlab">abs()</font>
+de <em>Maple</em> donne la norm (longueur) du nombre complexe et la
+fonction <font class="matlab">argument()</font> donne la valeur de
+l'angle entre le vecteur et l'axe des \(x\), mesuré dans le sense
+contraire aux aiguilles d'unemontre et tel que la valeur de l'angle
+est entre \(-\pi\) (exclus) et \(\pi\) (inclus).</p>
+
+<pre class="matlab">
+> <font class="matlab">r:=abs(z); theta:= argument(z);</font>
+</pre>
+
+\[
+\begin{split}
+& r := 5 \\
+& \theta  := \arctan\left({\displaystyle \frac {4}{3}} \right)
+\end{split}
+\]
+
+<pre class="matlab">
+> <font class="matlab">evalc(r*exp(theta*I));</font>
+</pre>
+
+\[
+3 + 4\,I
+\]
+
+<p><em>Note</em>: La figure peut ėtre dessinée avec <em>Maple</em>.
+Cependant, le résultat n'est pas très joli.  Le lecteur pourrait être
+intéressé à exécuter les commandes suivantes dans <em>Maple</em>. </p> 
+
+<pre class="matlab">
+> <font class="matlab"> with(plots): with(plottools):
+line1 := arrow([-1, 0], [4, 0], 0.05, 0.2, 0.05, color = black):
+line2 := arrow([0, -1], [0, 4], 0.05, 0.2, 0.05, color = black):
+line3 := line([0, 0], [2, 3.6], color = red):
+text1 := textplot([2, 3, "z=(a,b)"], align = {ABOVE, RIGHT}, font = [COURIER, 16]):
+text2 := textplot([0, 4, "y"], align = RIGHT, font = [COURIER, 16]):
+text3 := textplot([4, 0, "x"], align = RIGHT, font = [COURIER, 16]):
+text4 := textplot([2, 1, "q"], align = RIGHT, font = [SYMBOL, 16]):
+arc1 := arc([0, 0], 2, 0 .. Pi/3, color = blue):
+arrow1:=arrow([1.2,1.6],[1,1.7],0.1,0.2,1,color=blue):
+text5 := textplot([1, 2, "r"], align = LEFT, font = [COURIER, 16]):
+display({arc1, arrow1, line1, line2, line3, text1, text2, text3, text4, text5},
+   axes = none, view = [-1 .. 5, -1 .. 5], scaling = constrained);
+</font>
+</pre>
+
+HERE
+
+<h3> Complex Valued Functions </h3>
+
+<p>Consider the function defined in <em>Maple</em> by</p>
+
+<pre class="matlab">
+> <font class="matlab">f:=w->w^2+3*w;</font>
+</pre>
+
+\[
+f := w\rightarrow w^{2} + 3\,w
+\]
+
+<p> If we evaluate this function at \(z=3+4\,i\), then we get</p>
+
+<pre class="matlab">
+> <font class="matlab">f(3+4*I);</font>
+</pre>
+
+\[
+2 + 36\,I
+\]
+
+<p> Suppose that \(z=x+y\,i\), where \(x\) and \(y\) are real.
+
+<pre class="matlab">
+> <font class="matlab">assume(x,real); assume(y,real);</font>
+</pre>
+
+<p>We then have that \(f(x+y i)\) is given by </p>
+
+<pre class="matlab">
+> <font class="matlab"> fr:=evalc(f(x+y*I));</font>
+</pre>
+
+\[
+f := x{\scriptsize \sim}^{2} - y{\scriptsize \sim}^{2} + 3 \,x{\scriptsize \sim} + I\,(2\,x{\scriptsize \sim}\,y{\scriptsize \sim} + 3\,y{\scriptsize \sim})
+\]
+
+<p>The symbol \(\scriptsize \sim\) after the variables \(x\) and \(y\)
+indicates that those are real variables. The real and imaginary parts of this
+function are </p> 
+
+<pre class="matlab">
+> <font class="matlab"> Re(fr);Im(fr);</font>
+</pre>
+
+\[
+\begin{split}
+& x{\scriptsize \sim}^2-y{\scriptsize \sim}^2+3 x{\scriptsize \sim} \\
+& 2 x{\scriptsize \sim} y{\scriptsize \sim} +3 y{\scriptsize \sim}
+\end{split}
+\]
+
+<p>The <em>derivative</em> of a complex valued function
+\(f:\mathbb{C} \to \mathbb{C}\) is defined by </p>
+\[
+f'(z) = \lim_{w\to 0} \frac{f(z+w)-f(z)}{w}
+\]
+<p> if this limit exists.  Note that \(w\) is in \(\mathbb{C}\) and can
+approach the origin from any direction.  Suppose that
+\(f(z) = u(z) + i\, v(z)\) is differentiable, then </p>
+\[
+\begin{split}
+u_x(z) &= v_y(z) \\
+u_y(z) &= -v_x(z)
+\end{split}
+\]
+<p>These two equations are known as the <em>Cauchy-Riemann equations</em>.
+If \(u\) and \(v\) are differentiable real valued functions and the
+Cauchy-Riemann equations are satisfied, then the function
+\(f(z) = u(z)+i\,v(z)\) is a differentiable complex valued function.
+An amazing property of the complex valued functions is that if a
+function \(f:\mathbb{C}\rightarrow \mathbb{C}\) is differentiable, then it is 
+infinitely differentiable. </p>
+
+<p><em>Example</em>: Consider the function </p>
+
+<pre class="matlab">
+> <font class="matlab">f:=z->z^2*(1-z);</font>
+</pre>
+
+\[
+f := z\rightarrow z^{2}\,(1 - z)
+\]
+
+<p>We verify that \(f\) satisfies the Cauchy-Riemann equations.</p>
+
+<pre class="matlab">
+> <font class="matlab">assume(x,real); assume(y,real);</font>
+> <font class="matlab">u:=Re(evalc(f(x+I*y))); v:=Im(evalc(f(x+I*y)));</font>
+</pre>
+
+\[
+\begin{split}
+& u := (x{\scriptsize \sim}^2-y{\scriptsize \sim}^2) (-x{\scriptsize \sim}+1)+2 x{\scriptsize \sim} y{\scriptsize \sim}^2 \\
+& v := 2 x{\scriptsize \sim} y{\scriptsize \sim} (-x{\scriptsize \sim}+1)-(x{\scriptsize \sim}^2-y{\scriptsize \sim}^2) y{\scriptsize \sim}
+\end{split}
+\]
+
+<pre class="matlab">
+> <font class="matlab">diff(u,x); diff(v,y);</font>
+</pre>
+
+\[
+\begin{split}
+& 2 x{\scriptsize \sim} (-x{\scriptsize \sim}+1)-x{\scriptsize \sim}^2+3 y{\scriptsize \sim}^2 \\
+& 2 x{\scriptsize \sim} (-x{\scriptsize \sim}+1)-x{\scriptsize \sim}^2+3 y{\scriptsize \sim}^2
+\end{split}
+\]
+<p> We do have that \(u_x(x,y) = v_y(x,y)\).</p>
+
+<pre class="matlab">
+> <font class="matlab">diff(u,y); diff(v,x);</font>
+</pre>
+
+\[
+\begin{split}
+& -2 y{\scriptsize \sim} (-x{\scriptsize \sim}+1)+4 x{\scriptsize \sim} y{\scriptsize \sim} \\
+& 2 y{\scriptsize \sim} (-x{\scriptsize \sim}+1)-4 x{\scriptsize \sim} y{\scriptsize \sim}
+\end{split}
+\]
+<p> We also have that \(u_y(x,y)=-v_x(x,y)\).</p>
+
+<h3> Taylor and Laurent Series </h3>
+
+<h4> Taylor Series </h4>
+
+<p>Suppose that \(f\) is a differentiable complex valued function
+defined on a disk \(D \subset \mathbb{C}\) of radius \(R\) centred at
+\(z_0\).  The <em>Taylor series</em> of \(f\) at \(z_0\) is the
+series </p>
+\[
+f(z) = \sum_{n=0}^\infty\,a_n (z-z_0)^n \qquad , \qquad z \in D \ ,
+\]
+<p> where </p>
+\[
+a_n = \frac{1}{n!}\,\frac{\partial^n}{\partial z^n}f(x_0) \ .
+\]
+<p> The series converges (pointwise) to \(f(z)\) for all \(z \in D\).</p>
+
+<p><em>Remark</em>: The formula for the Taylor series of an
+infinitely differentiable, real valued function \(f:\mathbb{R}\to\mathbb{R}\)
+is almost identical to the formula above for the complex valued
+functions. </p>
+\[
+f(x) \sim \sum_{n=0}^\infty\,a_n (x-x_0)^n \ ,
+\]
+<p> where </p>
+\[
+a_n = \frac{1}{n!}\,\frac{\partial^n}{\partial x^n}f(x_0) \ .
+\]
+<p> The big difference is the use of \(\sim\) for the Taylor series of the
+real valued function instead of the equality sign for the Taylor
+series of the complex valued function.  The reason for this difference
+is that the Taylor series in the case of a real valued function may
+not converge for any \(x \neq x_0\) or, if it converges,
+it may not converge pointwise toward \(f\) in a neighbourhood of \(x_0\).  For
+instance, if \(f:\mathbb{R} \to \mathbb{R}\) is the function</p>
+\[
+f(x) =
+\begin{cases}
+e^{-1/x^2} & \quad \text{if} \quad x > 0 \\
+0 & \quad \text{if} \quad x \leq 0
+\end{cases}
+\]
+<p> and \(x_0=0\), then the Taylor series of \(f\) near the origin is
+null because all derivatives of \(f\) at the origin are null but \(f\)
+is not null in the neighbourhood of the origin.
+This shows that the theory of Taylor series is simpler for complex valued
+functions than for real valued functions.</p>
+
+<p>Consider the function \(f:\mathbb{C} \to \mathbb{C}\) defined in
+<em>Maple</em> by </p>
+
+<pre class="matlab">
+> <font class="matlab">f:=z->sin(z^2-4);</font>
+</pre>
+
+\[
+f := z\rightarrow \sin(z^{2} - 4)
+\]
+
+<p> The Taylor series of \(f\) at \(z=2\) is </p>
+
+<pre class="matlab">
+> <font class="matlab">unassign('z'):</font>
+> <font class="matlab">Tf:=series(f(z),z=2,10);</font>
+</pre>
+
+\[
+\begin{split}
+& Tf := 4\,(z - 2) + (z - 2)^{2} -
+{\displaystyle \frac {32}{3}} \,(z - 2)^{3} - 8\,(z - 2)^{4} +
+{\displaystyle \frac {98}{15}} \,(z - 2)^{5} +
+{\displaystyle \frac {21}{2}} \,(z - 2)^{6} \\
+& + {\displaystyle \frac {656}{315}} \,(z - 2)^{7} -
+{\displaystyle \frac {196}{45}} \,(z - 2)^{8} - 
+{\displaystyle \frac {19151}{5670}} \,(z - 2)^{9} +
+\mathrm{O}((z - 2)^{10})
+\end{split}
+\]
+
+<p> The terms in \((z-2)\) up to degree \(9\) (one less than the argument
+\(10\) in <font class="matlab">series()</font> are explicitly
+computed.  The term \( O((z-2)^{10})\) denotes the remainder of the
+Taylor series; the terms in \((z-2)\) of degree greater than or equal
+to \(10\).  Because of the big \(O\) expression for the
+remainder of the Taylor series of \(f\),
+<font class="matlab">Tf</font> cannot be used in computations.  To use
+the Taylor series in computations, we have to truncate the series to
+the degree that we want.  For instance, the truncation of order
+nine of the Taylor series of \(f\) is given by</p>
+
+<pre class="matlab">
+> <font class="matlab">Tft:=convert(Tf,polynom);</font>
+</pre>
+
+\[
+\begin{split}
+& Tft := 4\,z - 8 + (z - 2)^{2} -
+{\displaystyle \frac {32}{3}} \,(z - 2)^{3} -
+8\,(z - 2)^{4} + {\displaystyle \frac {98}{15}} \,(z - 2)^{5} +
+{\displaystyle \frac {21}{2}} \,(z - 2)^{6} \\
+& + {\displaystyle \frac {656}{315}} \,(z - 2)^{7}
+- {\displaystyle \frac {196}{45}} \,(z - 2)^{8} - 
+{\displaystyle \frac {19151}{5670}} \,(z - 2)^{9}
+\end{split}
+\]
+
+<p> Hence </p>
+
+<pre class="matlab">
+> <font class="matlab">evalf(subs(z=2+I,Tft));</font>
+</pre>
+
+\[
+- 23.85555556 + 15.73985891\,I
+\]
+
+<p> is an approximation of </p>
+
+<pre class="matlab">
+> <font class="matlab">evalf(f(2+I));</font>
+</pre>
+
+\[
+- 22.97908558 + 14.74480519\,I
+\]
+
+<p> We may use the function <font class="matlab">taylor()</font>
+instead of the function <font class="matlab">series()</font> 
+(with the same arguments) to get the Taylor series of a function.  We can
+also compute any coefficient of the Taylor series using the function
+<font class="matlab">coeftayl()</font>.  For instance, the coefficient
+of \((z-2)^5\) in the Taylor series of \(f\) above at \(2\) is</p>
+
+<pre class="matlab">
+> <font class="matlab">coeftayl(f(z),z=2,5);</font>
+</pre>
+
+\[
+\frac{98}{15}
+\]
+
+<h4>Laurent Series</h4>
+
+<p> Consider a function \(f:\mathbb{C} \to \mathbb{C}\) and suppose
+that \(f\) has a singularity at \(z=z_0\) (i.e. \(f\) is not
+differentiable at \(z=z_0\)).  It may still be possible to express
+\(f\) has a power series at the point \(z=z_0\).  In fact, we may have</p>
+\[
+f(z) = \sum_{-\infty}^\infty\,a_n (z-z_0)^n
+\]
+<p>for \(z\) in an annulus around the point \(z_0\) of the form
+\(0 < |z-z_0| < R\) for some \(R > 0\).  We may have that
+\(a_n\) is non-zero for only a finite number of negative indices \(n\).
+If \(N\) is the smallest negative index such that \(a_N\) is
+non-zero, we say that \(z_0\) is a <em>pole of order N</em>.
+The series above is called the <em>Laurent series</em> of \(f\) at
+\(z_0\).  The sum</p>
+\[
+\sum_{-\infty}^{-1}\, a_n (z-z_0)^n
+\]
+<p> is called the <em>principal part</em> of the series.
+Consider the function \(f:\mathbb{C} \to \mathbb{C}\) defined in <em>Maple</em>
+by </p>
+
+<pre class="matlab">
+> <font class="matlab">f:=z->sin(z)/(1-z^2);</font>
+</pre>
+
+\[
+f := z\rightarrow  \frac{\sin(z)}{1 - z^{2}}
+\]
+
+<p><em>Examples</em>: The Laurent series of \(f\) at \(z=1\) is </p>
+
+<pre class="matlab">
+> <font class="matlab">Lf:=series(f(z),z=1,5);</font>
+</pre>
+
+\[
+\begin{split}
+& Lf := - {\displaystyle \frac {1}{2}} \,\sin(1)\,(z - 1)^{-1} +
+\left( - {\displaystyle \frac {1}{2}} \,\cos(1) +
+{\displaystyle \frac {1}{4}} \,\sin(1)\right) +
+\left({\displaystyle \frac {1}{8}} \,\sin(1) +
+{\displaystyle \frac {1}{4}} \,\cos(1)\right)\,(z - 1) +  \\
+& \left( - {\displaystyle \frac {1}{24}} \,\cos(1) - 
+{\displaystyle \frac {1}{16}} \,\sin(1)\right)\,(z - 1)^{2} +
+\left({\displaystyle \frac {1}{96}} \,\sin(1) +
+{\displaystyle \frac {1}{48}} \,\cos(1)\right)\,(z - 1)^{3} +
+\mathrm{O}((z - 1)^{4})
+\end{split}
+\]
+<p> The principal part of this Laurent series is
+\(\displaystyle \frac{-\sin(1)}{2(z-1)}\).   Hence, \(1\) is a pole of
+order one of \(f\).  Consider the function \(f:\mathbb{C}\to \mathbb{C}\)
+defined in <em>Maple</em> by </p>
+
+<pre class="matlab">
+> <font class="matlab">f:=z->1/sin(z^3);</font>
+</pre>
+
+\[
+f := z\rightarrow {\displaystyle \frac {1}{\sin(z^{3})}}
+\]
+<p> Its Laurent series at \(z=0\) is </p>
+
+<pre class="matlab">
+> <font class="matlab">series(f(z),z=0,10);</font>
+</pre>
+
+\[
+z^{-3} + {\displaystyle \frac {1}{6}} \,z^{3} + \mathrm{O}(z^{4})
+\]
+<p> Therefore, \(z=0\) is a pole of order three of \(f\).</p>
+
+<p> The coefficient of the term in \( 1/(z-z_0)\) in the Laurent
+series of a function \(f\) at a point \(z_0\) is called the
+<em>residue</em> of \(f\) at \(z_0\).  This coefficient is denoted
+\(\mathrm{res}(f,z_0)\).  We have the following result</p>
+\[
+\oint_C f(z)\ \text{d}z = 2\pi i \big( \mathrm{res}(f,z_1)
++ \mathrm{res}(f,z_2) + \ldots + \mathrm{res}(f,z_k) \big) \ ,
+\]
+<p> where \(C\) is a closed curve in the complex plane, \(C\) is
+positively oriented and \(z_1, z_2, \ldots , z_k\) are all the poles
+of \(f\) inside the region bounded by the curve \(C\).  If \(D\) is
+the region bounded by \(C\), the positive orientation is such that the
+region \(D\) is to the <q lang="EN">left</q> of the curve \(C\) as we
+move along this curve.</p>
+
+<p>The residues of \(f\) at \(z_0\) can be computed with the function
+<font class="matlab">residue()</font> of <em>Maple</em>.  Consider the function
+\(f:\mathbb{C} \to \mathbb{C}\) defined in <em>Maple</em> by</p>
+
+<pre class="matlab">
+> <font class="matlab">f:=z->1/sin(z);</font>
+</pre>
+
+\[
+f := z\rightarrow {\displaystyle \frac {1}{\sin(z)}}
+\]
+<p> This function has poles at \(n\pi\) for \(n\) an integer.
+The residue of \(f\) at \(2\pi\) is </p>
+
+<pre class="matlab">
+> <font class="matlab">readlib(residue): residue(f(z),z=2*Pi);</font>
+</pre>
+
+\[
+1
+\]
+<p> We can check this result by computing the Laurent series of \(f\)
+at \(2\pi\).</p>
+
+<pre class="matlab">
+> <font class="matlab">series(f(z),z=2*Pi,5);</font>
+</pre>
+
+\[
+(z - 2\,\pi )^{-1} + {\displaystyle \frac {1}{6}} \,(z - 2\,\pi )
++ \mathrm{O}((z - 2\,\pi )^{3})
+\]
+<p> The coefficient of \(\displaystyle \frac{1}{z-2\pi}\) is effectively
+\(1\).</p>
+
+<p><em>Example</em>
+Evaluate the integral of the function
+\(\displaystyle f(z) = \frac{1}{(3z-i)^2 \, \sin(z)}\)
+counterclockwise along the circle \(C\) of radius \(1\) centred at the origin;
+namely, evaluate </p>
+\[
+\oint_C \frac{1}{(3z-i)^2 \, \sin(z)}\ \text{d}z
+\]
+<p>with the positive orientation on the curve defined by
+\(C = \{ z : |z| = 1 \}\). </p>
+
+<p>In <em>Maple</em>, the function \(f\) is defined by</p>
+
+<pre class="matlab">
+> <font class="matlab">f:=z->1/(sin(z)*(3*z-I)^2);</font>
+</pre>
+
+\[
+f := z\rightarrow {\displaystyle \frac {1}{\sin(z)\,(3\,z  - I)^{2}}}
+\]
+<p> The poles of \(f\) inside the unit disk (i.e. the region bounded by
+\(C\)) are \(0\) and \(i/3\).  Since the orientation of \(C\) is
+positive, the value of the integral is</p>
+
+<pre class="matlab">
+> <font class="matlab">evalf( 2*Pi*I*( residue(f(z),z=0) + residue(f(z),z=I/3)));</font>
+</pre>
+
+\[
+.1119173282\,I
+\]
+<p> We can directly compute the integral.  Since the orientation on
+\(C\) is counterclockwise, a parametric representation of the curve
+\(C\) is given by \(z = e^{t\, i}\) for \(0 \leq t < 2\pi\).</p>
+
+<pre class="matlab">
+> <font class="matlab">r:=t->exp(t*I);</font>
+</pre>
+
+\[
+r := t\rightarrow e^{(I\,t)}
+\]
+<p> for \(0 \leq t < 2\pi\).  The value of the integral is </p>
+
+<pre class="matlab">
+> <font class="matlab">evalf( int((f@r)(t)*diff(r(t),t),t=0..2*Pi) );</font>
+</pre>
+
+\[
+-2.962170701*10^{-14} + 0.1119173235\,I
+\]
+<p> For a numerical integration, this is close enough to the exact
+solution.</p>
+
+<p><em>Example</em> Evaluate the integral </p>
+\[
+\int_{-\infty}^\infty\,\frac{\sin(x)}{(x-2)^2+4}\ \text{d}x \ .
+\]
+<p> We first note that this integral is the imaginary part of the
+integral </p>
+\[
+\int_{-\infty}^\infty\, \frac{e^{ix}}{(x-2)^2+4}\ \text{d}x
+\]
+<p>which is the integral</p>
+\[
+\int_C \,\frac{e^{iz}}{(z-2)^2+4}\ \text{d}z \ ,
+\]
+<p>where \(C\) is the curve defined by \(z=x\) for
+\(-\infty < x < \infty\) and the direction along \(C\) is given by \(x\)
+increasing.  The function \(\displaystyle \frac{e^{iz}}{(z-2)^2+4}\)
+has poles at \(z = 2+2\,i\) and \(2-2\,i\).  Moreover </p>
+\[
+\lim_{r\rightarrow \infty} \oint_{C_r}\,\frac{e^{iz}}{(z-2)^2+4}\ \text{d}z =
+\int_C \,\frac{e^{iz}}{(z-2)^2+4}\ \text{d}z \ ,
+\]
+<p>where</p>
+\[
+C_r = \{ x : -r \leq x \leq r\}\cup \{ re^{\theta i} : 0 < \theta < \pi \}
+\]
+<p>is the closed curve drawn below</p>
+
+<div class="center">
+  <img src="Maple_complex_2.png" style="width: 300px"
+       alt="Figure representing the closed curve C">
+</div>
+
+<p> because </p>
+\[
+\lim_{r\rightarrow \infty} \int_{C_r'} \frac{e^{iz}}{(z-2)^2+4}
+\ \text{d}z = 0 \ ,
+\]
+<p>where \(C_r'\) is the half circle that is a part of the curve \(C_r\).
+The proof that this limit is null uses techniques taught in a first
+course on complex analysis and relied on the fact that the integrand
+converges uniformly to \(0\) as \(r \to 0\). </p>
+
+<p> \(C_r\) is a positively oriented closed curve surrounding the pole
+at \(2+2\,i\) if \(r\) is large enough.  Hence, the value of the
+integral of </p>
+
+<pre class="matlab">
+> <font class="matlab">f:=z->exp(z*I)/((z-2)^2+4);</font>
+</pre>
+
+\[
+f := z\rightarrow {\displaystyle \frac {e^{(I\,z)}}{(z - 2)^{2} + 4}}
+\]
+<p> along \(C_r\) is</p>
+
+<pre class="matlab">
+> <font class="matlab">evalf(2*Pi*I*(residue(f(z),z=2+2*I)) );</font>
+</pre>
+
+\[
+- 0.08846622805+ 0.1933022349\,I
+\]
+<p> if \(r\) is large enough and this integral is constant after that.
+Thus </p>
+\[
+\int_C \,\frac{e^{iz}}{(z-2)^2+4}\ \text{d}z =
+\lim_{r\rightarrow \infty} \int_{C_r}\,\frac{e^{iz}}{(z-2)^2+4}\ \text{d}z
+= - 0.08846622805+ 0.1933022349\,i
+\]
+<p>Finally, we find that the value of the integral is</p>
+
+<pre class="matlab">
+> <font class="matlab">Im(%);</font>
+</pre>
+
+\[
+\displaystyle  0.1933022349
+\]
+
+<p>We can verify our result with <em>Maple</em> because it can compute this improper
+integral.</p>
+
+<pre class="matlab">
+> <font class="matlab">int(sin(x)/((x-2)^2+4),x=-infinity..infinity); evalf(%);</font>
+</pre>
+
+\[
+\begin{split}
+& {\displaystyle \frac{\pi \sin(2) \mathrm{cosh}(2)}{2}} -
+{\displaystyle \frac{\pi \sin(2) \mathrm{sinh}(2)}{2}} \\
+& 0.193302235
+\end{split}
+\]
+
+<p><em>Note</em>: As was the case with the first figure of this site,
+the previous figure could be drawn with <em>Maple</em>.  As before, the result
+is not really nice.  The reader may want to run the following code in
+<em>Maple</em>. </p>
+
+<pre class="matlab">
+> <font class="matlab"> with(plots): with(plottools):
+line1 := arrow([-10, 0], [10, 0], 0.05, 0.5, 0.05, color = blue):
+line2 := line([0, 0], [0, 13], color = black):
+line3 := line([10, 0], [14, 0], color = black):
+text1 := textplot([14, 0, "x"], align = RIGHT, font = [COURIER, 16]):
+text2 := textplot([0, 13, "y"], align = RIGHT, font = [COURIER, 16]):
+arc1 := arc([0, 0], 10, 0 .. Pi, color = blue):
+text3 := textplot([10, 0, "r"], align = {BELOW, RIGHT}, font = [COURIER, 16]):
+text4 := textplot([-10, 0, "-r"], align = {BELOW, LEFT}, font = [COURIER, 16]):
+text5 := textplot([2, 3, "2+2*I"], align = RIGHT, font = [COURIER, 16]):
+pt := point([2, 2], color = black, symbol = 'SolidCircle'):
+text6 := textplot([0, 0, "0"], align = {BELOW}, font = [COURIER, 16]):
+text7 := textplot([8.7, 8, "C_r"], align = LEFT, font = [COURIER, 16]):
+display({arc1, line1, line2, line3, pt, text1, text2, text3, text4, text5, text6, text7}, axes = none, view = [-11 .. 15, -1 .. 14], scaling = constrained);
+</font>
+</pre>
+
+<h3> Conformal Mapping </h3>
+
+<p>A <em>conformal Mapping</em> is a function \(f:\mathbb{C}\to \mathbb{C}\)
+that preserves the angles between intersecting curves.  If the derivative of
+\(f:\mathbb{C} \to \mathbb{C}\) is never zero, \(f\) is a conformal mapping.
+An important class of conformal mappings are of the form</p>
+\[
+z \mapsto \frac{az+b}{cz+d} = \frac{a}{c} + \frac{bc-ad}{c}  \frac{1}{cz+d}
+\ .
+\]
+<p>These transformations are called
+<em>linear fractional transformations</em>.  A linear fractional
+transformation is a composition of a dilatation, \(cz\), followed by a
+translation, \(cz+d\), followed by an inversion,
+\(\displaystyle \frac{1}{cz+d}\), followed by a dilatation,
+\(\displaystyle \frac{bc-ad}{c} \frac{1}{cz+d}\), and followed by another
+translation, \(\displaystyle \frac{a}{c} + \frac{bc-ad}{c}  \frac{1}{cz+d}\).
+Hence, linear fractional transformations preserve circles (a line is a circle
+of infinite radius.)</p>
+
+<p>A linear fractional transformation is completely and uniquely determined by
+the image of three points.  Consider the linear fractional transformation</p>
+\[
+f(z) = \frac{2z - 3}{2z + 3} \ .
+\]
+</p>This function is defined in <em>Maple</em> by</p>
+
+<pre class="matlab">
+> <font class="matlab">f:=z->(2*z-3)/(2*z+3);</font>
+</pre>
+
+\[
+f := z\rightarrow {\displaystyle \frac {2\,z - 3}{2\,z + 3}}
+\]
+
+<p>To visualize the conformal aspect of this mapping, we plot the image
+of a rectangle by this mapping.  The <em>Maple</em> function
+<font class="matlab">conformal()</font> plots
+the image of rectangles.  The rectangles are defined by two diagonally
+opposite corners.  For instance, the image by \(f\) of the rectangle with
+diagonally opposite corners at \(0\) and \(2+2\,i\) is</p>
+
+<pre class="matlab">
+> <font class="matlab">with(plots): conformal(f(z),z=0..2+2*I,scaling=constrained);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_complex_3.png" style="width: 300px"
+       alt="Image by f of the rectangle with diagonally opposite corners at 0 and 2+2i">
+</div>
+
+<P>The blue and red lines are the image of horizontal and vertical
+lines respectively (can the reader say why it is so?).</P>
+
+<P>To find the linear fractional transformation \(w=f(z)\) such that
+\(f(z_1)=w_1, f(z_2)=w_2\) and \(f(z_3)=w_3\), we solve the system of
+equations</p>
+\[
+\frac{(w-w_1)(w_2-w_3)}{(w-w_3)(w_2-w_1)} =
+\frac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)}
+\]
+for w.
+
+<p><em>Example</em>: Find the linear fractional transformation \(f\)
+such that \(f(1)=i, f(2)=3\) and \(f(i)=2\).  We have to solve</p>
+
+<pre class="matlab">
+> <font class="matlab"> unassign('w'): unassign('z'):</font>
+> <font class="matlab">eq:=((w-I)*(3-2))/((w-2)*(3-I)) =((z-1)*(2-I))/((z-I)*(2-1)); f:=eval(solve(eq,z));</font>
+</pre>
+
+\[
+\begin{split}
+& eq := {\displaystyle \frac {({\displaystyle \frac {3}{10}}
++ {\displaystyle \frac {1}{10}} \,I)\,(w - I)}{w - 2}} =
+{\displaystyle \frac {(2 - I)\,(z - 1)}{z - I}} \\
+& f = \frac{43-19 \,I-41 z+23 \,I z}{21-13 \,I+11 \,I z-17 z}
+\end{split}
+\]
+<p> We verify that we have the right mapping.</p>
+
+<pre class="matlab">
+> <font class="matlab">subs(z=1,f);subs(z=2,f);subs(z=I,f);</font>
+</pre>
+
+\[
+\begin{split}
+I \\
+3 \\
+2
+\end{split}
+\]
+<p> If we plot the image of the rectangle with opposite corners at \(0\)
+and \(1+1\,i\), then we get</p>
+
+<pre class="matlab">
+> <font class="matlab">conformal(f,z=0..1+I,scaling=constrained);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_complex_4.png" style="width: 300px"
+       alt="Image by f of the rectangle with diagonally opposite corners at 0 and 1+1i">
+</div>
+
+<h3>Steady State Temperature</h3>
+
+<p>The steady state temperature (i.e. independent of time) in a thin plate is
+governed by the equation</p>
+\[
+\frac{\partial^2}{\partial x^2}T(x,y) + \frac{\partial^2}{\partial
+y^2}T(x,y) = 0 \ .
+\]
+<p>Functions \(T\) satisfying this equation are called <em>harmonic
+functions</em>.  The reader should prove that the real and
+imaginary part of a differentiable complex valued function are harmonic
+using the Cauchy-Riemann equations.</p>
+
+<p>Our goal is to find the steady state heat distribution in a thin plate
+defined for \(x \in \mathbb{R}\) and \(y \geq 0\), and satisfying the
+boundary condition
+\[
+T(x,y) =
+\begin{cases}
+2 & \quad \text{if} \ |x|<1 \ \text{and} \ y=0 \\
+0 & \quad \text{if} \ |x|\geq 1 \ \text{and} \ y =0
+\end{cases} \ .
+\]
+<p>We also assume that \(T(x,y)\) is bounded for \(y \geq 0\).
+Equivalently, we require that the temperature in the plate approaches
+zero as \(\|(x,y)\| \to \infty\).</p>
+
+<p>The boundary condition can be interpreted as follows: the boundary is
+kept at a temperature of \(0\) degree except for the section between
+\(-1\) and \(1\) where it is kept at a temperature of \(2\) degrees.</p>
+
+<p>This is the type of problems that we generally solve using
+techniques of PDE.  However, this simple problem can also be solved
+using conformal mappings as we now show.  We use a conformal mapping
+\(f\) to transform the domain \(z=x+i\,y\) with \(y \geq 0\) into the
+horizontal strip</p>
+\[
+S = \{ w = u+i v : u \in \mathbb{R} \ \text{and} \ 0\leq v \leq \pi \} \ .
+\]
+<p> We solve the steady state equation on \(S\).  In fact, we will see
+that it is easy to solve it on \(S\).  Finally, we use the mapping
+\(f\) to transform this solution on \(S\) to a solution of the initial
+problem on the domain \(y\geq 0\).</p>
+
+<p>We transform the upper complex plane \(z=x+i\,y\) with \(y\geq 0\)
+into the horizontal strip \(S\) with the transformation </p>
+\[
+w = f(z) = \ln\left(\frac{z-1}{z+1}\right) \ .
+\]
+<p> This is a conformal mapping except at \(z=-1,1\).  To understand why
+\(f\) is well defined for \(z \neq -1,1\) and maps the upper half-plane
+\(y \geq 0\) onto the horizontal strip \(S\), let
+\(\displaystyle z-1=r_1 e^{i\,\theta_1}\) and \(z+1=r_2 e^{i\,\theta_2}\).</p>
+
+<div class="center">
+  <img src="Maple_conf_map.png" style="width: 350px"
+       alt="Figure representing z =-1 +r_1 exp(i theta_1) = 1 + r_2 exp(i theta_2) in the complex plan">
+</div>
+
+<p> We then have that </p>
+\[
+w= f(z) = \ln\left(\frac{z-1}{z+1}\right) =
+\ln\left(\frac{r_1}{r_2}\right)+i(\theta_1-\theta_2)
+\]
+<p>with \(0 < \theta_1-\theta_2 < \pi\) and \(\ln()\) is well defined
+because \(r_1,r_2 > 0\) for \(z \neq -1,1\).</p>
+
+<p><em>Note</em>: The previous figure could have been drawn with <em>Maple</em>
+using a code like the following code. </p> 
+
+<pre class="matlab">
+> <font class="matlab"> with(plots): with(plottools):
+arc1 := arc([1, 0], 1.5, 0 .. Pi/3.1, color = blue):
+arc2 := arc([-1, 0], 1.5, 0 .. Pi/4.6, color = blue):
+line1 := line([-4, 0], [4, 0], color = blue):
+line2 := line([0, -0.5], [0, 4], color = blue):
+line3 := line([1, 0], [3, 3], color = black):
+line4 := line([-1, 0], [3, 3], color = black):
+text1 := textplot([4, 0, "x"], align = RIGHT, font = [COURIER, 16]):
+text2 := textplot([-0.2, 4, "y"], align = {ABOVE, RIGHT}, font = [COURIER, 16]):
+text3 := textplot([2.9, 0.5, "q"], align = LEFT, font = [SYMBOL, 16]):
+text8 := textplot([2.75, 0.5, "_1"], align = RIGHT, font = [COURIER, 16]):
+text4 := textplot([0.8, 0.8, "q"], align = LEFT, font = [SYMBOL, 16]):
+text9 := textplot([0.71, 0.8, "_2"], align = RIGHT, font = [COURIER, 16]):
+text5 := textplot([3.5, 2, "r_1"], align = LEFT, font = [COURIER, 16]):
+text6 := textplot([0.4, 2, "r_2"], align = RIGHT, font = [COURIER, 16]):
+text7 := textplot([3, 3, "z"], align = RIGHT, font = [COURIER, 16]):
+display({arc1, arc2, line1, line2, line3, line4, text1, text2, text3, text4, text5, text6, text7, text8, text9}, axes = none, view = [-6 .. 6, -2 .. 6], scaling = constrained);
+</font>
+</pre>
+
+<p>If \(z = x \in \mathbb{R}\) (i.e. \(z\) is on the \(x\) axis), we
+find that the line \(z=x\) with \(|x|\leq 1\) is mapped onto the
+entire line \(w=u+i\,v\) with \(v=\pi\), the line \(z=x\) with
+\(x<-1\) is mapped onto the line \(w=u\) with \(u>0\) and the line 
+\(z=x\) with \(x>1\) is mapped onto the line \(w=u\) with \(u<0\).  We
+may extend the transformation \(f\) to the compactify complex plane
+by saying that \(-1\) and \(1\) are mapped to \(\infty\), and
+\(\infty\) is mapped to \(0\).</p>
+
+<p>We now prove that the solution of the heat equation in the strip
+\(S\) that satisfies the boundary condition is \(T(u,v)=2v/\pi\).  The
+boundary condition for the domain \(y \geq 0\) are transformed by
+\(f\) into the conditions \(T(u,0) = 0\) and \(T(u,\pi) = 2\) for
+\(S\).  The function \(T\) satisfies the steady state heat
+equation (i.e. \(T\) is harmonic inside \(S\)) because it is the
+imaginary part of the differentiable complex valued function
+\(g(w) = 2w/\pi\) where \(w=u+i\,v\).  The boundary conditions are
+obviously satisfied.</p>
+
+<p>Therefore, the solution \(T(x,y)\) for the original problem in the
+half plane \(y \geq 0\) is the imaginary part of the function
+\((g \circ f)(z)\).</p>
+
+<pre class="matlab">
+> <font class="matlab">assume(x,real);assume(y,real);</font>
+> <font class="matlab">tmp:= (z-1)/(z+1);</font>
+</pre>
+
+\[
+tmp := {\displaystyle \frac {z - 1}{z + 1}}
+\]
+
+<pre class="matlab">
+> <font class="matlab">tmp:=simplify(evalc( subs(z=x+I*y,tmp) ));</font>
+</pre>
+
+\[
+tmp := \frac{x{\scriptsize \sim}^{2}  - 1 + y{\scriptsize \sim}^{2} +
+2\,I\,y{\scriptsize \sim}}{x{\scriptsize \sim}^{2} +
+2\,x{\scriptsize \sim} + 1 + y{\scriptsize \sim}^{2}}
+\]
+
+<pre class="matlab">
+> <font class="matlab">w:=simplify(evalc( log(tmp) ));</font>
+</pre>
+
+\[
+w := -\frac{\ln\left(x{\scriptsize \sim}^{2}+y{\scriptsize \sim}^{2}+2
+x{\scriptsize \sim} +1\right)}{2}+\frac{\ln\left(x{\scriptsize
+\sim}^{2}+y^{2}-2 x{\scriptsize \sim} +1\right)}{2}+I \arctan \!
+\left(2 y{\scriptsize \sim} ,x{\scriptsize \sim}^{2}+y{\scriptsize
+\sim}^{2}-1\right)
+\]
+
+<pre class="matlab">
+> <font class="matlab"> f:=2*w/Pi;</font>
+</pre>
+
+\[
+f := \frac{2 \left(-\frac{\ln\left(x{\scriptsize
+\sim}^{2}+y{\scriptsize \sim}^{2}+2 x{\scriptsize \sim}
++1\right)}{2}+\frac{\ln \left(x{\scriptsize \sim}^{2}+y{\scriptsize
+\sim}^{2}-2 x{\scriptsize \sim} +1\right)}{2}+ I
+\arctan\left(2 y{\scriptsize \sim} ,x{\scriptsize
+\sim}^{2}+y{\scriptsize \sim}^{2}-1\right)\right)}{\pi}
+\]
+
+<pre class="matlab">
+> <font class="matlab">T:=evalc( Im(f) );</font>
+</pre>
+
+\[
+T := \frac{2 \arctan\left(2 y{\scriptsize \sim} ,x{\scriptsize
+\sim}^{2}+y{\scriptsize \sim}^{2}-1\right)}{\pi}
+\]
+
+<p> We can now plot the density distribution of the heat using the
+function <font class="matlab">densityplot()</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(plots): densityplot(T,x=-2..2,y=0..2,grid=[30,30],axes=FRAME,labels=['x','y']);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_complex_5.png" style="width: 300px"
+       alt="Density plot of the function T">
+</div>
+
+<br>
+<hr>
+<br>
+
+<p>A nice elementary reference is <em>Complex Variables and
+    Applications, third edition</em> by Ruel V. Churchill, James
+    W. Brown and Roger F. Verhey, McGraw-Hill, 1974.</p> 
 
 <br>
 <hr>

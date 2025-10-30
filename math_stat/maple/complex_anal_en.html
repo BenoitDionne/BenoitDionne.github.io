@@ -64,15 +64,16 @@ main_title( MStext, "MMathSStat");
 </script>
 </div>
 
-<p>This document is a brief review of basic complex analysis.  By
-default, Maple assumes that all variables are complex.  So, we have
-been using complex expression since the beginning. </p>
+<p>This document is a brief review of basic complex analysis
+using <em>Maple</em>.  By default, <em>Maple</em> assumes that all
+variables are representing complex numbers.  So, we have been using
+complex expression since the beginning. </p> 
 
 <h3>Complex Numbers</h3>
 
-<p> Any number of the form \(a+bi\), where \(a\) and \(b\) are real,
+<p> Any number of the form \(a+bi\), where \(a\) and \(b\) are real numbers,
 is a complex number.  The number \(i\) is the imaginary number such
-that \(i^2 = -1\).  In Maple, the number \(i\) is denoted by
+that \(i^2 = -1\).  In <em>Maple</em>, the number \(i\) is denoted by
 the capital letter <font class="matlab">I</font>.</p>
 
 <pre class="matlab">
@@ -86,7 +87,7 @@ the capital letter <font class="matlab">I</font>.</p>
 \end{split}
 \]
 
-<p> We present some examples of the basic operations with complex
+<p> We present below some examples of the basic operations with complex
 numbers.</p>
 
 <pre class="matlab">
@@ -105,8 +106,8 @@ numbers.</p>
 \]
 
 <p>Given a complex number \(z=a+b\,i\), the real number \(a\) is
-called the <em>real part</em> of \(z\) and the real number \(b\) is called the
-<em>imaginary part</em>.  The Maple commands
+called the <em>real part</em> of \(z\) and the real number \(b\) is
+called the <em>imaginary part</em> of \(z\).  The <em>Maple</em> commands
 <font class="matlab">Re()</font> and
 <font class="matlab">Im()</font> are used to get the real and
 imaginary parts of a complex number. </p>
@@ -127,29 +128,31 @@ imaginary parts of a complex number. </p>
 
 <div class="center">
   <img src="Maple_complex_1.png" style="width: 300px"
-       alt="Representation of the vector (x,y) in the x,y plane">
+       alt="Representation of the vector (a,b) in the x,y plane">
 </div>
 
-<p> We can therefore identify any complex number to a
+<p> We can therefore associate any complex number to a
 unique vector in \(\mathbb{R}^2\).  Hence, any complex number
 \(z=a+b\, i \neq 0\) is completely determined by the length
-\(r=\sqrt{a^2+b^2}\) of the vector \(\vec{z}\) from the origin to
-\((a,b)\) and the angle \(\theta\) between the vector \(\vec{z}\) and
-the \(x\) axis, measured counterclockwise from the \(x\) axis. 
-The origin is an exception because \(r=0\) and \(\theta\) can be any angle.
+\(r=\sqrt{a^2+b^2}\) of the vector \(\vec{z}\) and the angle
+\(\theta\) between the vector \(\vec{z}\) and
+the \(x\) axis, measured counterclockwise from the \(x\) axis and such
+that \(-\pi < \theta \leq \pi\).  The origin is an exception because
+\(r=0\) and \(\theta\) can be any angle. 
 We have that \(a = r \cos(\theta)\) and \(b = r \sin(\theta)\).  This
 gives the <em>polar form</em> </p>
 \[
 z = r e^{\theta i} = r\cos(\theta) + i\, r\sin(\theta)
 \]
-<p> of the complex number \(z\).  The polar form of a complex number
-is based on the formula \(e^{\theta i} = \cos(\theta) + i\,\sin(\theta)\)
-for all \(\theta\).  The Maple function
-<font class="matlab">abs()</font> gives the norm (length) of a complex
-number and <font class="matlab">argument()</font> gives the value of
+<p> of the complex number \(z\).  The formula
+\(e^{\theta i} = \cos(\theta) + i\,\sin(\theta)\) for all
+\(\theta \in \mathbb{R}\) is known as <em>Euler's formula</em>.
+The <em>Maple</em> function <font class="matlab">abs()</font> gives
+the norm (length) of a complex number and
+<font class="matlab">argument()</font> gives the value of
 the angle between the vector and the \(x\) axis, measured
-counterclockwise from the \(x\) axis.  The value of the angle is
-between \(-\pi\) excluded and \(\pi\) included.</p>
+counterclockwise from the \(x\) axis and such that the angle is
+between \(-\pi\) (excluded) and \(\pi\) (included).</p>
 
 <pre class="matlab">
 > <font class="matlab">r:=abs(z); theta:= argument(z);</font>
@@ -170,9 +173,9 @@ between \(-\pi\) excluded and \(\pi\) included.</p>
 3 + 4\,I
 \]
 
-<p><em>Note</em>: The previous figure could be drawn with Maple.
-  However, the result is not really nice.  The reader may want to run
-  the following code in Maple. </p> 
+<p><em>Note</em>: The previous figure could be drawn with <em>Maple</em>.
+However, the result is not really nice.  The reader may want to run
+the following commands in <em>Maple</em>. </p> 
 
 <pre class="matlab">
 > <font class="matlab"> with(plots): with(plottools):
@@ -186,13 +189,16 @@ text4 := textplot([2, 1, "q"], align = RIGHT, font = [SYMBOL, 16]):
 arc1 := arc([0, 0], 2, 0 .. Pi/3, color = blue):
 arrow1:=arrow([1.2,1.6],[1,1.7],0.1,0.2,1,color=blue):
 text5 := textplot([1, 2, "r"], align = LEFT, font = [COURIER, 16]):
-display({arc1, arrow1, line1, line2, line3, text1, text2, text3, text4, text5}, axes = none, view = [-1 .. 5, -1 .. 5], scaling = constrained);
+display({arc1, arrow1, line1, line2, line3, text1, text2, text3, text4, text5},
+   axes = none, view = [-1 .. 5, -1 .. 5], scaling = constrained);
 </font>
 </pre>
 
+HERE
+
 <h3> Complex Valued Functions </h3>
 
-<p>Consider the function defined in Maple by</p>
+<p>Consider the function defined in <em>Maple</em> by</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=w->w^2+3*w;</font>
@@ -362,7 +368,7 @@ This shows that the theory of Taylor series is simpler for complex valued
 functions than for real valued functions.</p>
 
 <p>Consider the function \(f:\mathbb{C} \to \mathbb{C}\) defined in
-Maple by </p>
+<em>Maple</em> by </p>
 
 <pre class="matlab">
 > <font class="matlab">f:=z->sin(z^2-4);</font>
@@ -474,7 +480,7 @@ The series above is called the <em>Laurent series</em> of \(f\) at
 \sum_{-\infty}^{-1}\, a_n (z-z_0)^n
 \]
 <p> is called the <em>principal part</em> of the series.
-Consider the function \(f:\mathbb{C} \to \mathbb{C}\) defined in Maple
+Consider the function \(f:\mathbb{C} \to \mathbb{C}\) defined in <em>Maple</em>
 by </p>
 
 <pre class="matlab">
@@ -508,7 +514,7 @@ f := z\rightarrow  \frac{\sin(z)}{1 - z^{2}}
 <p> The principal part of this Laurent series is
 \(\displaystyle \frac{-\sin(1)}{2(z-1)}\).   Hence, \(1\) is a pole of
 order one of \(f\).  Consider the function \(f:\mathbb{C}\to \mathbb{C}\)
-defined in Maple by </p>
+defined in <em>Maple</em> by </p>
 
 <pre class="matlab">
 > <font class="matlab">f:=z->1/sin(z^3);</font>
@@ -544,8 +550,8 @@ region \(D\) is to the <q lang="EN">left</q> of the curve \(C\) as we
 move along this curve.</p>
 
 <p>The residues of \(f\) at \(z_0\) can be computed with the function
-<font class="matlab">residue()</font> of Maple.  Consider the function
-\(f:\mathbb{C} \to \mathbb{C}\) defined in Maple by</p>
+<font class="matlab">residue()</font> of <em>Maple</em>.  Consider the function
+\(f:\mathbb{C} \to \mathbb{C}\) defined in <em>Maple</em> by</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=z->1/sin(z);</font>
@@ -589,7 +595,7 @@ namely, evaluate </p>
 <p>with the positive orientation on the curve defined by
 \(C = \{ z : |z| = 1 \}\). </p>
 
-<p>In Maple, the function \(f\) is defined by</p>
+<p>In <em>Maple</em>, the function \(f\) is defined by</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=z->1/(sin(z)*(3*z-I)^2);</font>
@@ -711,7 +717,7 @@ Thus </p>
 \displaystyle  0.1933022349
 \]
 
-<p>We can verify our result with Maple because it can compute this improper
+<p>We can verify our result with <em>Maple</em> because it can compute this improper
 integral.</p>
 
 <pre class="matlab">
@@ -727,9 +733,9 @@ integral.</p>
 \]
 
 <p><em>Note</em>: As was the case with the first figure of this site,
-the previous figure could be drawn with Maple.  As before, the result
+the previous figure could be drawn with <em>Maple</em>.  As before, the result
 is not really nice.  The reader may want to run the following code in
-Maple. </p>
+<em>Maple</em>. </p>
 
 <pre class="matlab">
 > <font class="matlab"> with(plots): with(plottools):
@@ -774,7 +780,7 @@ the image of three points.  Consider the linear fractional transformation</p>
 \[
 f(z) = \frac{2z - 3}{2z + 3} \ .
 \]
-</p>This function is defined in Maple by</p>
+</p>This function is defined in <em>Maple</em> by</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=z->(2*z-3)/(2*z+3);</font>
@@ -785,7 +791,7 @@ f := z\rightarrow {\displaystyle \frac {2\,z - 3}{2\,z + 3}}
 \]
 
 <p>To visualize the conformal aspect of this mapping, we plot the image
-of a rectangle by this mapping.  The Maple function
+of a rectangle by this mapping.  The <em>Maple</em> function
 <font class="matlab">conformal()</font> plots
 the image of rectangles.  The rectangles are defined by two diagonally
 opposite corners.  For instance, the image by \(f\) of the rectangle with
@@ -920,7 +926,7 @@ w= f(z) = \ln\left(\frac{z-1}{z+1}\right) =
 <p>with \(0 < \theta_1-\theta_2 < \pi\) and \(\ln()\) is well defined
 because \(r_1,r_2 > 0\) for \(z \neq -1,1\).</p>
 
-<p><em>Note</em>: The previous figure could have been drawn with Maple
+<p><em>Note</em>: The previous figure could have been drawn with <em>Maple</em>
 using a code like the following code. </p> 
 
 <pre class="matlab">

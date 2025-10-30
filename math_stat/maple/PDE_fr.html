@@ -71,7 +71,9 @@ dans un premier cours sur les EDP.</p>
 
 <h3> Flot de chaleur dans une mince tige - Les extrémités sont isolées </h3>
 
-<p>L'équation de la chaleur pour mince tige de longueur \(L\) est</p>
+<p>Nous supposons que \(u(x,t)\) est la température au temps \(t\) à
+la position \(x\) le long de la tige.
+L'équation de la chaleur pour une mince tige de longueur \(L\) est</p>
 
 \[
 \frac{\partial}{\partial t} u(x,t) = k^2 \frac{\partial^2}{\partial x^2} u(x,t)
@@ -79,11 +81,11 @@ dans un premier cours sur les EDP.</p>
 
 <p>avec la condition initiale \(u(x,0) = f(x)\) et les conditions aux
 limites \(u_x(0,t) = u_x(L,t) = 0\).  Les extrémités de la tige sont
-isolées.  La valeur \(u(x,t)\) est la température à la position \(x\)
-de la tige au temps \(t\).  La constante \(\displaystyle k^2\) est la
+isolées.  Il n'y a pas de perte de chaleur aux extrémités de la tige.
+La constante \(\displaystyle k^2\) est la
 conductivité thermique dans la tige.  Pour que l'équation de la chaleur soit
 valide, nous devons assumer que les côté latéraux de la tige sont
-isolée.</p>
+isolés.</p>
 
 <p>La méthode classique pour résoudre cette EDP fait appel à la
 <em>séparation des variables</em>.  Nous supposons que la solution de
@@ -104,7 +106,7 @@ obtenons </p>
 
 <p>Le côté gauche est une fonction de \(t\) seulement et le côté droit
 est une fonction de \(x\) seulement.  Pour que les deux côtés soient
-égaux, ils doivent être égale à une constante que nous appelons
+égaux, ils doivent être égaux à une constante que nous appelons
 \(\lambda\).</p>
 
 \[
@@ -123,20 +125,20 @@ facile à résoudre. </p>
 \(\displaystyle X'' - (\lambda/k^2) X = 0\) est</p>
 
 \[
-X(t) = C_1 \cos(\sqrt{-\lambda} x/k) + C_2 \sin(\sqrt{-\lambda} x/k)
+X(t) = A \cos(\sqrt{-\lambda} x/k) + B \sin(\sqrt{-\lambda} x/k)
 \]
 
 <p>Puisque \(u_x(0,t) = X'(0) T(t) = 0\) pour tous \(t\), nous devons
 avoir que \(X'(0)=0\) autrement \(T(t)=0\) pour tous \(t\) et nous
-obtenons la solution nulle \(u)x,t) = X(x) T(t) = 0\) pour tous
+obtenons la solution nulle \(u(x,t) = X(x) T(t) = 0\) pour tous
 \(x\) et \(t\).  Ce n'est certainement pas le cas si \(f\) est
 non-nulle.  De façon semblable, nous obtenons que \(X'(L) = 0\). 
 
-<p>La condition \(X'(0)=0\) implique que \(C_2 \sqrt{\lambda} = 0\).
-Donc \(C_2 = 0\).  Nous obtenons alors de \( X'(L)=0\) que
-\(C_1 \sqrt{-\lambda}\sin(\sqrt{-\lambda} L/k) = 0\).
-Nous ne pouvons pas avoir \(C_1 = 0\) car nous cherchons une solution
-non-nulle.  Donc \(\sqrt{-\lambda}\, L/k) = n \pi\) pour \(n\) un
+<p>La condition \(X'(0)=0\) implique que \(B \sqrt{\lambda} = 0\).
+Donc \(B = 0\).  Nous obtenons alors de \( X'(L)=0\) que
+\(A \sqrt{-\lambda}\sin(\sqrt{-\lambda} L/k) = 0\).
+Nous ne pouvons pas avoir \(A = 0\) car nous cherchons une solution
+non-nulle.  Donc \(\sqrt{-\lambda}\, L/k = n \pi\) pour \(n\) un
 entier non-négatif.  Ainsi</p>
 
 \[
@@ -189,8 +191,9 @@ f(x) = a_0 + \sum_{n=1}^\infty a_n \cos\left(\frac{n\pi x}{L}\right)
 sont donnés par </p>
 
 \[
-a_0 = \frac{1}{L} \int_0^L f(x) \text{d}x \qquad , \qquad
+a_0 = \frac{1}{L} \int_0^L f(x) \text{d}x \quad , \quad
 a_n = \frac{2}{L} \int_0^L f(x) \cos(n\pi xx/L) \text{d}x
+\quad ,\quad n = 1,2,3,\ldots 
 \]
 
 <p><em>Exemple</em>: Considérons l'équation de la chaleur définie
@@ -229,18 +232,18 @@ limites sont données par</p>
 <p>Nous supposons que</p>
 
 <pre class="matlab">
-> <font class="matlab">L := 3; k := sqrt(1.14);</font>
+> <font class="matlab">L := 3; k := sqrt(2);</font>
 </pre>
 
 \[
 \begin{split}
 &L := 3  \\
-&k := 1.067707825
+&k := \sqrt{2}
 \end{split}
 \]
 
 <p>Nous ne définissons pas la condition initiale pour clairement démontrer
-que <em>Maple</em> utilise la séparation des variables comme nous
+que <em>Maple</em> utilise la méthode de séparation des variables comme nous
 l'avons fait ci-dessus.</p>
 
 <pre class="matlab">
@@ -248,10 +251,11 @@ l'avons fait ci-dessus.</p>
 </pre>
 
 \[
-u(x,t) = \frac{ \left(\int_1^3 f(x) \text{d}x \right)}{3}
-+ \left( \sum_{n=1}^\infty \frac{ 2\left(\int_0^3 f(x)
-\cos\left(\frac{n \pi x}{3} \right)\text{d}x\right)
-\cos\left(\frac{n \pi x}{3}\right) e^{-\frac{19 n^2 \pi^2 t}{150}}}{3} \right)
+u(x,t) = \frac{\displaystyle \left(\int_1^3 f(x) \text{d}x \right)}{3}
++ \frac{2\left(\displaystyle \sum_{n=1}^\infty 
+\cos\left(\frac{n \pi x}{3}\right) \, e^{-\frac{2 n^2 \pi^2 t}{9}}
+\left(\int_0^3 f(x) \cos\left(\frac{n \pi x}{3} \right)\text{d}x\right)
+\right)}{3}
 \]
 
 <p>Nous obtenons la solution prédite.  Pour une fonction
@@ -268,7 +272,7 @@ par la commande suivante.</p>
 </pre>
 
 \[
-icond := u(x, 0) = x^2 (L-x)^2
+icond := u(x, 0) = x^2 (3-x)^2
 \]
 
 <p>Alors</p>
@@ -279,14 +283,14 @@ icond := u(x, 0) = x^2 (L-x)^2
 
 \[
 Sol := u(x,t) = \frac{27}{10}
-+ \left( \sum_{n=1}^\infty \frac{1944(1+(-1)^n) \cos\left(\frac{n \pi x}{3}
-\right) e^{-\frac{19 n^2 \pi^2 t}{150}}}{n^4 \pi^4} \right)
++ \sum_{n=1}^\infty \left( \frac{1944 \cos\left(\frac{n \pi x}{3} \right)
+ e^{-\frac{2 n^2 \pi^2 t}{9}} ((-1)^n+1)}{n^4 \pi^4} \right)
 \]
 
 <p>Le lecteur doit vraiment avoir fait ces calculs à la main pour
 apprécier le travail fait par <em>Maple</em>.</p>
 
-<p>Le graphe en trois dimensions de cette solution est donnée
+<p>Le graphe en trois dimensions de cette solution est donné
 ci-dessous.</p>
 
 <pre class="matlab">
@@ -355,13 +359,13 @@ limites sont données par</p>
 <p>Nous assumons, comme dans l'exemple précédent, que</p>
 
 <pre class="matlab">
-> <font class="matlab">L := 3; k := sqrt(1.14);</font>
+> <font class="matlab">L := 3; k := sqrt(2);</font>
 </pre>
 
 \[
 \begin{split}
 &L := 3  \\
-&k := 1.067707825
+&k := \sqrt{2}
 \end{split}
 \]
 
@@ -372,9 +376,10 @@ limites sont données par</p>
 </pre>
 
 \[
-u(x,t) = \sum_{n=1}^\infty \frac{ 2\left(\int_0^3 f(x)
-\sin\left(\frac{n \pi x}{3} \right)\text{d}x\right)
-\sin\left(\frac{n \pi x}{3}\right) e^{-\frac{19 n^2 \pi^2 t}{150}}}{3}
+u(x,t) = \frac{\displaystyle 2 \left( \sum_{n=1}^\infty 
+\sin\left(\frac{n \pi x}{3}\right)\, e^{-\frac{2n^2 \pi^2 t}{9}}
+\left(\int_0^3 f(x) \sin\left(\frac{n \pi x}{3} \right)\text{d}x\right)
+\right)}{3}
 \]
 
 <p>C'est la forme de la solution si la méthode de séparation des
@@ -390,7 +395,7 @@ initiale est donnée par la commande suivante.</p>
 </pre>
 
 \[
-icond := u(x, 0) = x^2 (L-x)^2
+icond := u(x, 0) = x^2 (3-x)^2
 \]
 
 <p>Alors</p>
@@ -401,11 +406,11 @@ icond := u(x, 0) = x^2 (L-x)^2
 
 \[
 Sol := u(x,t) = \sum_{n=1}^\infty
-\frac{ 324\left((-1)^n \pi^2 n^2 - \pi^2 n^2 + 12(-1)^{1+n} + 12\right)
-\sin\left(\frac{n \pi x}{3}\right) e^{-\frac{19 n^2 \pi^2 t}{150}}}{n^4 \pi^4} 
+\frac{\displaystyle  324 \sin\left(\frac{n \pi x}{3}\right)\,
+e^{-\frac{2n^2 \pi^2 t}{9}} (\pi^2 n^2 - 12) ((-1)^n -1)}{n^4 \pi^4} 
 \]
 
-<p>Le graphe en trois dimensions de cette solution est donnée
+<p>Le graphe en trois dimensions de cette solution est donné
 ci-dessous.</p>
 
 <pre class="matlab">
@@ -429,26 +434,31 @@ U:= (y,s) \mapsto subs({t = s, x = y}, rhs(Sol))
 <p>À long terme, la tige va atteindre une température uniforme de
 \(0\) degrés.</p> 
 
-<h2> Corde vibrante - extrémités fixes </h2>
+<h3> Corde vibrante - extrémités fixes </h3>
 
-<p>L'équation des ondes pour la corde vibrante de longueur \(L\) avec
+<p>Nous supposons que \(v(x,t)\) est la déplacement vertical (très
+petit) de la corde à un position \(x\) et au temps \(t\).  L'équation
+des ondes pour la corde vibrante de longueur \(L\) avec 
 les extrémités fixes est</p>
 
 \[
-   \frac{\text{d}^2}{\text{d} t^2} v(x,t)  = c^2 \frac{\text{d}}{\text{d}t} v(x,t)
+\frac{\text{d}^2}{\text{d} t^2} v(x,t)  = c^2
+\frac{\text{d}^2}{\text{d} x^2} v(x,t)
 \]
 
 <p>pour \(0 \leq x \leq L\), avec les conditions aux limites
 \(v(0,t) = v(L,t) = 0\) et les conditions initiales
 \(v(x,0) = f(x)\) et \(v_t(x,0) = g(x)\); la position et vélocité
-initiales respectivement.</p>
+initiales de la corde respectivement.</p>
 
 <p>Si nous utilisons la méthode de séparation des variables pour
   résoudre ce problème, nous obtenons alors que</p>
 
 \[
 v(x,t) = \sum_{n=1}^\infty
-\left( a_n \sin(n c \pi t/L) + b_n \sin(n c \pi t/L)\right)\sin( n \pi x /L)
+\left( a_n \cos\left(\frac{n c \pi t}{L}\right)
++ b_n \sin\left(\frac{n c \pi t}{L}\right)\right)
+\sin\left(\frac{n \pi x}{L}\right)
 \]
 
 <p>où</p>
@@ -463,7 +473,7 @@ v(x,t) = \sum_{n=1}^\infty
   b_n = \frac{2}{n \pi c} \int_0^L g(x) \sin\left(\frac{n\pi x}{L}\right) \text{d} x
 \]
 
-<p<em>Exemple</em>: Nous considérons l'équation des ondes définie par
+<p><em>Exemple</em>: Nous considérons l'équation des ondes définie par
 la commande suivante.</p>
 
 <pre class="matlab">
@@ -471,7 +481,8 @@ la commande suivante.</p>
 </pre>
 
 \[
-WE := \frac{\text{d}^2}{\text{d} t^2} v(x,t)  = c^2 \frac{\text{d}}{\text{d}t} v(x,t)
+WE := \frac{\text{d}^2}{\text{d} t^2} v(x,t)  = c^2 \left(
+\frac{\text{d}^2}{\text{d}t^2} v(x,t) \right)
 \]
 
 <p>L'EDP est définie sur l'intervalle \([0,L]\), les conditions aux
@@ -518,11 +529,11 @@ suivante.</p>
 \[
 \begin{split}
 v(x,t) &= \sum_{n=1}^\infty \frac{1}{3 n \pi}
-\bigg( 2\sin\left(\frac{n \pi x}{3}\right) 
-\bigg( \left(\int_0^3 \sin\left(\frac{n\pi x}{3}\right) f(x) \text{d}x \right)
-\cos\left(\frac{11 \pi t n}{30}\right) n \pi \\
+\bigg( 2 \bigg( \left(\int_0^3 \sin\left(\frac{n\pi x}{3}\right) f(x)
+\text{d}x \right) \cos\left(\frac{11 \pi t n}{30}\right) n \pi \\
 & +\frac{30 \left( \int_0^3 \sin\left(\frac{n \pi x}{3}\right)
-g(x)\text{d}x\right) \sin\left(\frac{11 \pi t n}{30}\right)}{11}\bigg)\bigg)
+g(x)\text{d}x\right) \sin\left(\frac{11 \pi t n}{30}\right)}{11}\bigg)
+\sin\left(\frac{n \pi x}{3}\right) \bigg)
 \end{split}
 \]
 
@@ -531,7 +542,7 @@ variables est utilisée.  Si nous définissons les fonctions
 <font class="matlab">f</font> et <font class="matlab">g</font>, nous
 pouvons résoudre l'équation des ondes avec la fonction 
 <font class="matlab">pdsolve</font>.  Si nous simplement relâchons la
-corde, alors les conditions initiales ressemblent aux conditions
+corde, alors les conditions initiales peuvent ressembler aux conditions
 suivantes.</p>
 
 <pre class="matlab">
@@ -539,7 +550,7 @@ suivantes.</p>
 </pre>
 
 \[
-iconds := v(x, 0) = x (L-x)^3, D_2v(x,0) = 0;
+iconds := v(x, 0) = x (3-x)^3, D_2v(x,0) = 0;
 \]
 
 <p>Alors</p>
@@ -567,8 +578,8 @@ EDP.</p>
 
 <p>Pour être honnête, nous devons informer le lecteur
 que <em>Maple</em> n'a pas la meilleure librairie pour résoudre
-numériquement les PDE.  Cependant, elle est assez bonne pour résoudre
-les EDP classique qui sont présentées dans un cours d'introduction aux
+numériquement les EDP.  Cependant, elle est assez bonne pour résoudre
+les EDP classiques qui sont présentées dans un cours d'introduction aux
 EDP.</p>
 
 <pre class="matlab">
@@ -625,7 +636,7 @@ l'animation.</p>
 
 <h3> Plus </h3>
 
-<p>Il y a beaucoup plus que l'on peut dire au sujet de EDP.
+<p>Il y a beaucoup plus que l'on peut dire au sujet des EDP.
 Premièrement, comme c'est le cas pour l'équation de la chaleur, Il y a
 plusieurs cas à considérer pour l'équation des ondes selon les
 conditions aux limites.  De plus, nous n'avons pas mentionné
