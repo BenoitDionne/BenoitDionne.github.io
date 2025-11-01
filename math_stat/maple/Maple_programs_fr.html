@@ -28,6 +28,14 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
+<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+-->
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
 </head>
 <body>
 
@@ -41,16 +49,190 @@ top_function(Maple_programs,"fr");
 main_title( MStexte, "MMathSStat");
 </script>
 
-<h2> Programmation en Maple </h2>
+<h2> Programmation dans Maple </h2>
 
-<p> Le contenu de ce site n'a malheureusement pas encore été traduit
-en français.  Veuillez consulter le site en anglais
-<script language="javascript">
-    buildLinK(Maple_programs.url_en,
-    Maple_programs.text_en,"MMathSStat", Maple_programs.id,
-    Maple_programs.target);
-</script>.
-</p>
+<div style="float: left; width:30%; margin-right:20px;">
+<div class="center"><em>Autres sujets</em></div>
+<script language="javascript"> 
+     display_list(mapleLinks, "ML", "fr", Maple_programs);
+</script>
+</div>
+
+<h3> Premier Exemple </h3>
+
+<p>Pour illustrer quelques unes des techniques de programmation dans
+<font class="matlab">Maple</font>, nous allons utiliser la définition
+de l'<em>intégrale de Riemann</em> qui est enseignée dans un cours
+élémentaire de calcul différentiel et intégral.  Donc, nous ne serons
+pas rigoureux.</p>
+
+<p>Nous voulons utiliser les <em>sommes de Riemann</em> pour évaluer
+l'intégrale de \(\displaystyle f(x)= x^4\sin(x^2)\) pour
+\(3 \leq x \leq 7\).</p>
+
+<pre class="matlab">
+> <font class="matlab">f:=x->x^4 * sin(x^2);</font>
+</pre>
+
+\[
+ f \mapsto x^4 \sin(x^2)
+\]
+
+<p>Supposons que nous utilisons \(N\) sous-intervalles et que la
+<q lang="en">hauteur</q> de chaque rectangle est déterminée par la
+valeur de \(f\) au point milieu du sous-intervalle.  Ces points sont
+donnés par la commande suivante pour \(i = 1, 2, \ldots, N\).</p>
+
+<pre class="matlab">
+> <font class="matlab">x:= (i,N) -> 3+(2*i-1)*(4/(2*N));</font>
+</pre>
+
+\[
+x:= (i,N) \mapsto 3 + \frac{2 (2 i - 1)}{N}
+\]
+
+<p>La longueur des intervalles, \(\Delta x\), est \(4/N\).</p>
+
+<p>La somme de Riemann est donnée par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">S := N -> sum( (f@x)(i,N), i=1..N)*(4/N);</font>
+</pre>
+
+\[
+S := \frac{4 \left( \sum_{i=1}^N (f@x)(i,N)\right)}{N}
+\]
+
+<p>Les valeurs de la somme de Riemann pour \(N=10, 20, 30\) et \(40\)
+sont alors données par les commandes suivantes.</p>
+
+<pre class="matlab">
+> <font class="matlab">evalf(S(10)); evalf(S(20)); evalf(S(30)); evalf(S(40));</font>
+
+</pre>
+\[
+\begin{split}
+&176.3042341 \\
+& -86.7922777 \\
+&-76.85654501 \\
+&-73.61449115
+\end{split}
+\]
+
+<p>À l'aide de la fonction <font class="matlab">int()</font>
+de <em>Maple</em>, nous obtenons la valeur suivante pour l'intégrale.</p>
+
+<pre class="matlab">
+> <font class="matlab">evalf(int(f(x),x=3..7));</font>
+</pre>
+
+\[
+-69.66059111
+\]
+
+<p>Nous observons une convergence lente des sommes de Riemann vers la valeur
+de l'intégrale lorsque \(N\) augmente.</p>
+
+<p> Il est possible d'écrire une simple procédure pour calculer la somme
+de Riemann pour un intervalle d'intégration \([a,b]\) et un nombre de
+sous-intervalles (d'égales longueurs) \(N\) donnés. </p>
+
+<pre class="matlab">
+> <font class="matlab"> RS:= proc(a,b,N)
+   local i,Delta,R,x,terms:
+   x:=i->a+(2*i-1)*((b-a)/(2*N)):
+   Delta := (b-a)/N:
+   R := sum( (f@x)(i)*Delta, i=1..N):
+   RETURN(evalf(R));
+   end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& RS := proc (a, b, N)\\
+&\qquad local\ i, Delta, R, x: \\
+& \qquad x := i \mapsto a+(i-1/2)*(b-a)/N \\
+& \qquad Delta := (b-a)/N: \\
+& \qquad R := sum((f@x(i))*Delta, i = 1 .. N); \\
+& \qquad RETURN(evalf(R)) \\
+& end\ proc
+\end{split}
+\]
+
+<p>Comme prévu, nous obtenons que</p>
+  
+<pre class="matlab">
+> <font class="matlab">RS(3,7,40);</font>
+</pre>
+\[
+-73.61449124
+\]
+
+<p>Le graphe de \(f(x)\) pour \(x \leq x \leq 7\) est tracé ci-dessous.</p>
+
+<pre class="matlab">
+> <font class="matlab">plot1 := plot(f(x),x=3..7);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Riemann_1.png" style="width: 300px" alt="Graph of f">
+</div>
+
+<p>La procédure suivante dessine la région couverte par la somme de
+Riemann pour un intervalle d'intégration \([a,b]\) et un nombre de
+sous-intervalles (d'égales longueurs) \(N\) donnés.</p> 
+
+<pre class="matlab">
+> <font class="matlab"> staircase:=proc(a,b,N)
+   local i, x, xl, xr, yg, xg, PLOT;
+   x:=i->a+(2*i-1)*((b-a)/(2*N));
+   xl:=i->a+(i-1)*(b-a)/N;
+   xr:=i->a+i*(b-a)/N;
+   for i from 1 to N do;
+      xg[2*i-1]:=xl(i);
+      xg[2*i]:=xr(i);
+      yg[2*i-1]:=(f@x)(i);
+      yg[2*i]:=yg[2*i-1];
+   od;
+   PLOT:=plot([[xg[1],0], seq([xg[n],yg[n]],n=1..2*N) ,[xg[2*N],0]], color=blue,
+      filled = [color = "Blue", transparency = .5]):
+   RETURN(PLOT);
+   end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& staircase := proc (a, b, N) \\
+& \qquad local\ i, x, xl, xr, yg, xg, PLOT;\\
+& \qquad x := (i) \mapsto a+(i-1/2)*(b-a)/N; \\
+& \qquad xl := (i) \mapsto a+(i-1)*(b-a)/N; \\
+& \qquad xr := (i) \mapsto a+i*(b-a)/N; \\
+& \qquad for\ i\ to\ N\ do \\
+& \qquad \qquad xg[2*i-1] := xl(i); xg[2*i] := xr(i); yg[2*i-1] := f@x(i); yg[2*i] := yg[2*i-1]; \\
+& \qquad end\ do;\\
+& \qquad PLOT := plot([[xg[1], 0], seq([xg[n], yg[n]], n = 1 .. 2*N), [xg[2*N], 0]], color = blue, \\
+& \qquad \qquad filled = [color = "Blue", transparency = .5]);\\
+& \qquad RETURN(PLOT) \\
+& end\ proc
+\end{split}
+\]
+
+<p>Nous dessinons la région couverte par la somme de Riemann pour \(N=40\)
+et nous la comparons avec la région délimitée par le graphe de \(f\).</p>
+
+<pre class="matlab">
+> <font class="matlab">plot2:=staircase(3,7,40):</font>
+> <font class="matlab">plots[display]({plot1,plot2});</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_Riemann_2.png" style="width: 300px"
+       alt="Graph de f et de sa somme de Riemann pour 0 <= x <= 7 et N=40">
+</div>
+
+<h3> Deuxième exemple </h3>
+
+<p>À venir ... (?)</p>
 
 <br>
 <hr>

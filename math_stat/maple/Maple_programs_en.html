@@ -55,7 +55,7 @@ main_title( MStext, "MMathSStat");
 </script>
 </div>
 
-<h2 id="TOP"> Maple Programmins </h2>
+<h2 id="TOP"> Maple Programming </h2>
 
 <div style="float: left; width:30%; margin-right:20px;">
 <div class="center"><em>Other Topics</em></div>
@@ -66,13 +66,13 @@ main_title( MStext, "MMathSStat");
 
 <h3> First Example </h3>
 
-<p>To demonstrate some of the programming techniques in
-<font class="matlab">Maple</font>, we will look at the definition of
-the <em>Reimann integral</em> from a basic calculus point of view..
-So, do not expect a lot of rigour.</p>
+<p>To illustrate some of the programming techniques in
+<font class="matlab">Maple</font>, we will use the definition of
+the <em>Riemann integral</em> seen in a basic calculus course.
+So, we will not be rigorous.</p>
 
 <p>We want to use <em>Riemann sums</em> to compute the integral of
-\(f(x)= x^4\sin(x^2)\) for \(3 \leq x \leq 7\).</p>
+\(\displaystyle f(x)= x^4\sin(x^2)\) for \(3 \leq x \leq 7\).</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=x->x^4 * sin(x^2);</font>
@@ -85,7 +85,7 @@ So, do not expect a lot of rigour.</p>
 <p>Suppose that we use \(N\) subintervals and that the
 <q lang="en">height</q> of each rectangle is determined by the value
 of \(f\) at the midpoint of the subinterval.   Those midpoints are given
-by</p>
+by the following command for \(i = 1, 2, \ldots, N\).</p>
 
 <pre class="matlab">
 > <font class="matlab">x:= (i,N) -> 3+(2*i-1)*(4/(2*N));</font>
@@ -95,10 +95,9 @@ by</p>
 x:= (i,N) \mapsto 3 + \frac{2 (2 i - 1)}{N}
 \]
 
-<p>for \(i = 1, 2, \ldots, N\).  The length of the subintervals,
-\(\Delta x\), is \(4/N\).</p>
+<p> The length of the subintervals, \(\Delta x\), is \(4/N\).</p>
 
-<p>The Riemann sum is</p>
+<p>The Riemann sum is by the following command.</p>
   
 <pre class="matlab">
 > <font class="matlab">S := N -> sum( (f@x)(i,N), i=1..N)*(4/N);</font>
@@ -108,7 +107,8 @@ x:= (i,N) \mapsto 3 + \frac{2 (2 i - 1)}{N}
 S := \frac{4 \left( \sum_{i=1}^N (f@x)(i,N)\right)}{N}
 \]
 
-<p>The values of the Riemann sums for \(N=10, 20, 30\) and \(40\) are</p>
+<p>The values of the Riemann sums for \(N=10, 20, 30\) and \(40\) are
+then given by the following commands. </p>
 
 <pre class="matlab">
 > <font class="matlab">evalf(S(10)); evalf(S(20)); evalf(S(30)); evalf(S(40));</font>
@@ -123,7 +123,9 @@ S := \frac{4 \left( \sum_{i=1}^N (f@x)(i,N)\right)}{N}
 \end{split}
 \]
 
-<p>Using <font class="matlab">int(&nbsp;)</font>, we find that</p>
+<p>Using the <em>Maple</em> function
+<font class="matlab">int()</font>, we find the following value for the
+integral.</p>
 
 <pre class="matlab">
 > <font class="matlab">evalf(int(f(x),x=3..7));</font>
@@ -133,14 +135,21 @@ S := \frac{4 \left( \sum_{i=1}^N (f@x)(i,N)\right)}{N}
 -69.66059111
 \]
 
-<p>We note that the convergence of the Riemann sums toward the exact
-answer is slow.</p>
+<p>We observe a slow convergence of the Riemann sums toward the exact
+value of the integral as \(N\) increases.</p>
 
-<p> It is possible to write a simple code that compute Riemann sums
-for any intervals of integration and any number of subintervals.</p>
+<p> It is possible to write a simple procedure to compute the Riemann sum
+for a given interval of integration \([a,b]\) and number of
+subintervals (of equal length) \(N\).</p>
 
 <pre class="matlab">
-> <font class="matlab">RS:= proc(a,b,N) local i,Delta,R,x,terms: x:=i->a+(2*i-1)*((b-a)/(2*N)): Delta := (b-a)/N: R := sum( (f@x)(i)*Delta, i=1..N): RETURN(evalf(R)); end proc;</font>
+> <font class="matlab"> RS:= proc(a,b,N)
+   local i,Delta,R,x,terms:
+   x:=i->a+(2*i-1)*((b-a)/(2*N)):
+   Delta := (b-a)/N:
+   R := sum( (f@x)(i)*Delta, i=1..N):
+   RETURN(evalf(R));
+   end proc;</font>
 </pre>
 
 \[
@@ -155,7 +164,7 @@ for any intervals of integration and any number of subintervals.</p>
 \end{split}
 \]
 
-<p>As expected</p>
+<p>As expected, we get that </p>
   
 <pre class="matlab">
 > <font class="matlab">RS(3,7,40);</font>
@@ -164,7 +173,7 @@ for any intervals of integration and any number of subintervals.</p>
 -73.61449124
 \]
 
-<p>The graph of \(f(x)\) for \(x \leq x \leq 7\) is given below.</p>
+<p>The graph of \(f(x)\) for \(x \leq x \leq 7\) is plotted below.</p>
 
 <pre class="matlab">
 > <font class="matlab">plot1 := plot(f(x),x=3..7);</font>
@@ -174,11 +183,26 @@ for any intervals of integration and any number of subintervals.</p>
   <img src="Maple_Riemann_1.png" style="width: 300px" alt="Graph of f">
 </div>
 
-<p>The following procedure will plot the area covered by the Riemann
-sums.</p>
+<p>The following procedure will draw the area covered by the Riemann
+sum for a given interval of integration \([a,b]\) and number of
+subintervals (of equal length) \(N\).</p>
 
 <pre class="matlab">
-> <font class="matlab">staircase:=proc(a,b,N)  local i, x, xl, xr, yg, xg, PLOT; x:=i->a+(2*i-1)*((b-a)/(2*N)); xl:=i->a+(i-1)*(b-a)/N; xr:=i->a+i*(b-a)/N; for i from 1 to N do; xg[2*i-1]:=xl(i); xg[2*i]:=xr(i); yg[2*i-1]:=(f@x)(i); yg[2*i]:=yg[2*i-1]; od; PLOT:=plot([[xg[1],0], seq([xg[n],yg[n]],n=1..2*N) ,[xg[2*N],0]], color=blue, filled = [color = "Blue", transparency = .5]): RETURN(PLOT); end proc;</font>
+> <font class="matlab"> staircase:=proc(a,b,N)
+   local i, x, xl, xr, yg, xg, PLOT;
+   x:=i->a+(2*i-1)*((b-a)/(2*N));
+   xl:=i->a+(i-1)*(b-a)/N;
+   xr:=i->a+i*(b-a)/N;
+   for i from 1 to N do;
+      xg[2*i-1]:=xl(i);
+      xg[2*i]:=xr(i);
+      yg[2*i-1]:=(f@x)(i);
+      yg[2*i]:=yg[2*i-1];
+   od;
+   PLOT:=plot([[xg[1],0], seq([xg[n],yg[n]],n=1..2*N) ,[xg[2*N],0]], color=blue,
+      filled = [color = "Blue", transparency = .5]):
+   RETURN(PLOT);
+   end proc;</font>
 </pre>
 
 \[
@@ -198,8 +222,8 @@ sums.</p>
 \end{split}
 \]
 
-<p>We can draw the the area covered by the Riemann sums for \(N=40\) and
-compare with the area delimited by the graph of \(f\).</p>
+<p>We draw the area covered by the Riemann sum for \(N=40\) and
+compare it with the area delimited by the graph of \(f\).</p>
 
 <pre class="matlab">
 > <font class="matlab">plot2:=staircase(3,7,40):</font>
@@ -213,7 +237,7 @@ compare with the area delimited by the graph of \(f\).</p>
 
 <h3> Second example </h3>
 
-<p>Maybe one day.</p>
+<p>To come ... (?) </p>
 
 <br>
 <hr>

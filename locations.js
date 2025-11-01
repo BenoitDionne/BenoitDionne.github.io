@@ -472,7 +472,7 @@ var PDE = new item
 websites[websites_nbr++] = PDE;
 
 var Maple_programs = new item
-    ("Programmation en Maple", "Maple Programming",
+    ("Programmation dans Maple", "Maple Programming",
      location_bd+"math_stat/maple/Maple_programs_fr.html",
      location_bd+"math_stat/maple/Maple_programs_en.html",
      null, null, null, "Maple_programs", "_top", "Maple_programs");

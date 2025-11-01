@@ -73,8 +73,8 @@ complex expression since the beginning. </p>
 
 <p> Any number of the form \(a+bi\), where \(a\) and \(b\) are real numbers,
 is a complex number.  The number \(i\) is the imaginary number such
-that \(i^2 = -1\).  In <em>Maple</em>, the number \(i\) is denoted by
-the capital letter <font class="matlab">I</font>.</p>
+that \(\displaystyle i^2 = -1\).  In <em>Maple</em>, the number \(i\)
+is denoted by the capital letter <font class="matlab">I</font>.</p>
 
 <pre class="matlab">
 > <font class="matlab">I; I^2;</font>
@@ -133,7 +133,7 @@ imaginary parts of a complex number. </p>
 
 <p> Hence, any complex number
 \(z=a+b\, i \neq 0\) is completely determined by the length
-\(r=\sqrt{a^2+b^2}\) of the vector \(\vec{z}\) and the angle
+\(\displaystyle r=\sqrt{a^2+b^2}\) of the vector \(\vec{z}\) and the angle
 \(\theta\) between the vector \(\vec{z}\) and
 the \(x\) axis, measured counterclockwise from the \(x\) axis and such
 that \(-\pi < \theta \leq \pi\).  The origin is an exception because
@@ -144,7 +144,7 @@ gives the <em>polar form</em> </p>
 z = r e^{\theta i} = r\cos(\theta) + i\, r\sin(\theta)
 \]
 <p> of the complex number \(z\).  The formula
-\(e^{\theta i} = \cos(\theta) + i\,\sin(\theta)\) for all
+\(\displaystyle e^{\theta i} = \cos(\theta) + i\,\sin(\theta)\) for all
 \(\theta \in \mathbb{R}\) is known as <em>Euler's formula</em>.
 The <em>Maple</em> function <font class="matlab">abs()</font> gives
 the norm (length) of a complex number and
@@ -408,7 +408,7 @@ command.</p>
 
 <p> The terms in \((z-2)\) up to degree \(9\) (one less than the argument
 \(10\)) are explicitly computed by the function
-<font class="matlab">series()</font>.  The term \( O((z-2)^{10})\)
+<font class="matlab">series()</font>.  The term \(\displaystyle  O((z-2)^{10})\)
 denotes the remainder of the Taylor series; the terms in \((z-2)\) of
 degrees greater than or equal to \(10\).  Because of the big \(O\)
 expression for the remainder of the Taylor series of \(f\), the
@@ -460,7 +460,7 @@ instead of the function <font class="matlab">series()</font>
 (with the same arguments) to get the Taylor series of a function.  We can
 also compute any coefficient of the Taylor series using the function
 <font class="matlab">coeftayl()</font>.  For instance, the coefficient
-of \((z-2)^5\) in the Taylor series of \(f\) above at \(z=2\) is
+of \(\displaystyle (z-2)^5\) in the Taylor series of \(f\) above at \(z=2\) is
 given by the following command.</p>
 
 <pre class="matlab">
@@ -645,7 +645,8 @@ following command.</p>
 
 <p> We can directly compute the integral.  Since the orientation on
 the curve \(C\) is counterclockwise, a parametric representation of
-the curve \(C\) is given by \(z = e^{t\, i}\) for \(0 \leq t < 2\pi\).</p>
+the curve \(C\) is given by \(\displaystyle z = e^{t\, i}\) for
+\(0 \leq t < 2\pi\).</p> 
 
 <pre class="matlab">
 > <font class="matlab">r:=t->exp(t*I);</font>
@@ -960,7 +961,8 @@ w = f(z) = \ln\left(\frac{z-1}{z+1}\right) \ .
 <p> This is a conformal mapping except at \(z=-1,1\).  To understand why
 \(f\) is well defined for \(z \neq -1,1\) and maps the upper half-plane
 \(y \geq 0\) onto the entire horizontal strip \(S\), let
-\(\displaystyle z-1=r_1 e^{i\,\theta_1}\) and \(z+1=r_2 e^{i\,\theta_2}\).</p>
+\(\displaystyle z-1=r_1 e^{i\,\theta_1}\) and
+\(\displaystyle z+1=r_2 e^{i\,\theta_2}\).</p>
 
 <div class="center">
   <img src="Maple_conf_map.png" style="width: 350px"
