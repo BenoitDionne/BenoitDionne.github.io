@@ -110,7 +110,7 @@ appelé la <em>partie réelle</em> de \(z\) et le nombre réel \(b\)
 est appelé la <em>partie imaginaire</em> de \(z\).  Les commandes
 <font class="matlab">Re()</font> et <font class="matlab">Im()</font>
 de <em>Maple</em> sont utilisées pour obtenir la partie réelle et
-imaginaire d'un nombre complexe. </p>
+la partie imaginaire d'un nombre complexe. </p>
 
 <pre class="matlab">
 > <font class="matlab">Re(z); Im(z);</font>
@@ -123,21 +123,20 @@ imaginaire d'un nombre complexe. </p>
 \end{split}
 \]
 
-<p>Tout nombre complexe \(z = a + b\,i\) définie un unique vecteur
+<p>Tout nombre complexe \(z = a + b\,i\) défini un unique vecteur
 \(\vec{z} = (a,b)\) du plan \(x,y\) (et vice-versa).</p>
 
 <div class="center">
-  <img src="Maple_complex_1.png" style="width: 300px"
+  <img src="Maple_complex_1.png" style="width: 200px"
        alt="Representation du vecteur (a,b) dans le plan x,y">
 </div>
 
-<p> Nous pouvons donc associer tout nombre complexe à un unique
-  vecteur de \(\mathbb{R}^2\).  Ainsi, tout nombre complexe
+<p> Ainsi, tout nombre complexe
 \(z=a+b\, i \neq 0\) est uniquement déterminé par la longueur
 \(r=\sqrt{a^2+b^2}\) du vecteur \(\vec{z}\) et l'angle \(\theta\)
 entre le vecteur \(\vec{z}\) et l'axe des \(x\), mesuré dans la sens
-contraire des aiguilles d'une montre à partir de l'axe des \(x\) et tel que
-\(-\pi < \theta \leq \pi\).  L'origine est une exception car\(r=0\)
+contraire aux aiguilles d'une montre à partir de l'axe des \(x\) et tel que
+\(-\pi < \theta \leq \pi\).  L'origine est une exception car \(r=0\)
 et \(\theta\) peut être un angle quelconque.  Nous avons que
 \(a = r \cos(\theta)\) et \(b = r \sin(\theta)\).  Nous obtenons la
 <em>forme polaire</em> </p>
@@ -173,7 +172,7 @@ est entre \(-\pi\) (exclus) et \(\pi\) (inclus).</p>
 3 + 4\,I
 \]
 
-<p><em>Note</em>: La figure peut être dessinée avec <em>Maple</em>.
+<p><em>Note</em>: La figure précédente peut être dessinée avec <em>Maple</em>.
 Cependant, le résultat n'est pas très joli.  Le lecteur pourrait être
 intéressé à exécuter les commandes suivantes dans <em>Maple</em>. </p>
 
@@ -258,7 +257,7 @@ imaginaires de cette fonction sont données ci-dessous. </p>
 f'(z) = \lim_{w\to 0} \frac{f(z+w)-f(z)}{w}
 \]
 <p> si la limite existe.  Nous mettons l'emphase sur le fait que
-\(w \in \mathbb{C}\) et peut approcher l'origine dans de toutes les
+\(w \in \mathbb{C}\) et peut approcher l'origine de toutes les
 façons imaginables.  Si \(f(z) = u(z) + i\, v(z)\) est dérivable, alors </p>
 \[
 \begin{split}
@@ -274,7 +273,7 @@ sont deux fonctions dérivables qui satisfont les équations de
 Cauchy-Riemann, alors la fonction 
 \(f(z) = u(z)+i\,v(z)\) est une fonction d'une variable
 complexe dérivable.  Un résultat surprenant est que 
-si \(f:\mathbb{C}\rightarrow \mathbb{C}\) est
+si la fonction \(f:\mathbb{C}\rightarrow \mathbb{C}\) est
 dérivable, alors elle est dérivable un nombre infini de fois.</p>
 
 <p><em>Exemple</em>: Considérons la fonction définie par la commande
@@ -357,11 +356,11 @@ f(x) \sim \sum_{n=0}^\infty\,a_n (x-x_0)^n \ ,
 a_n = \frac{1}{n!}\,\frac{\partial^n}{\partial x^n}f(x_0) \ .
 \]
 <p> La différence majeure est l'utilisation du symbole \(\sim\) pour
-la série de Taylor d'une fonction infiniment dérivable 
-de \(\mathbb{R}\) dans lui-même au lieu du signe d'égalité pour la
-série de Taylor d'une fonction dérivable de \(\mathbb{C}\) dans lui
-même.  La raison de cette différence est que la série de 
-Taylor d'une fonction \(f\) de \(\mathbb{R}\) dans lui-même peut ne
+la série de Taylor d'une fonction infiniment dérivable
+de \(\mathbb{R}\) dans \(\mathbb{R}\) au lieu du signe d'égalité pour la
+série de Taylor d'une fonction dérivable de \(\mathbb{C}\) dans
+\(\mathbb{C}\).  La raison de cette différence est que la série de  
+Taylor d'une fonction \(f:\mathbb{R} \to \mathbb{R}\) peut ne
 pas converger pour tous points \(x \neq x_0\) ou, si elle converge,
 elle peut ne pas converger ponctuellement vers la fonction \(f\) dans
 un voisinage de \(x_0\).  Par exemple, si
@@ -374,11 +373,11 @@ e^{-1/x^2} & \quad \text{if} \quad x > 0 \\
 \end{cases}
 \]
 <p> et \(x_0=0\), alors la série de Taylor de \(f\) à l'origine est nulle
-car toutes les dérivées de \(f\) à l'origine sont nulles mais \(f\)
-n'est pas nulle dans un voisinage de l'origine.
+car toutes les dérivées de \(f\) à l'origine sont nulles.  Cependant, 
+\(f\) n'est pas nulle dans un voisinage de l'origine.
 Ceci démontre que la théorie des séries de Taylor est plus simple pour
-les fonctions de \(\mathbb{C}\) dans lui-même qu'elle l'est pour les
-fonctions de \(\mathbb{R}\) dans lui-même.</p>
+les fonctions de \(\mathbb{C}\) dans \(\mathbb{C}\) qu'elle l'est pour les
+fonctions de \(\mathbb{R}\) dans \(\mathbb{R}\).</p>
 
 <p>Considérons la fonction \(f:\mathbb{C} \to \mathbb{C}\) définie
 dans <em>Maple</em> par la commande suivante. </p>
@@ -413,9 +412,9 @@ suivante.</p>
 \]
 
 <p> Les termes en \((z-2)\) de degrés jusqu'à \(9\) (un de moins que
-l'argument \(10\) sont explicitement calculés par la fonction
+l'argument \(10\)) sont explicitement calculés par la fonction
 <font class="matlab">series()</font>.  Le terme \( O((z-2)^{10})\)
-dénote le reste de la série de Taylor; Les termes en  \((z-2)\) de
+dénote le reste de la série de Taylor; les termes en \((z-2)\) de
 degrés plus grand ou égale à \(10\).  En raison de l'expression en 
 grand \(O\) pour le reste de la série de Taylor de \(f\), la formule
 donnée par <font class="matlab">Tf</font> ne peut pas être utilisée
@@ -490,7 +489,7 @@ En fait, nous avons souvent que
 f(z) = \sum_{n=-\infty}^\infty\,a_n (z-z_0)^n
 \]
 <p>pour \(z\) dans un anneaux de la forme
-\(0 < |z-z_0| < R\) pour un \(R > 0\). Nous pouvons aussi avoir que
+\(0 < |z-z_0| < R\) pour une valeur \(R > 0\). Nous pouvons aussi avoir que
 \(a_n\) est non-nul pour seulement un nombre fini d'indices négatives 
 \(n\).  Si \(N\) est le plus petit indice négatif tel que
 \(a_N \neq 0\), nous disons que \(z_0\) est un <em>pôle d'ordre N</em>.
@@ -550,7 +549,7 @@ commande suivante.</p>
 \[
 f := z\rightarrow {\displaystyle \frac {1}{\sin(z^{3})}}
 \]
-<p> Sa série de Laurent à \(z=0\) es donnée par la commande suivante. </p>
+<p> Sa série de Laurent à \(z=0\) est donnée par la commande suivante. </p>
 
 <pre class="matlab">
 > <font class="matlab">series(f(z),z=0,10);</font>
@@ -572,10 +571,10 @@ d'une fonction \(f\) à un point \(z_0\) est appelé le
 \]
 <p> où \(C\) est une courbe fermée dans le plan complexe, la courbe \(C\) est
 orientée positivement et \(z_1, z_2, \ldots , z_k\) sont tous les
-pôles de \(f\) à l'intérieur de la région bornée par la courbe \(C\).
-Si \(D\) est la région borné par \(C\), l'orientation positive est
-telle que la région \(D\) est à la <q lang="EN">left</q> de la courbe
-\(C\) lorsque nous nous déplaçons le long de cette courbe.</p>
+pôles de \(f\) à l'intérieur de la région \(D\) bornée par la courbe \(C\).
+L'orientation positive de \(C\) est telle que la région \(D\) est à
+<q lang="EN">gauche</q> de la courbe \(C\) lorsque nous nous déplaçons
+le long de cette courbe.</p>
 
 <p>Le résidu de \(f\) à \(z_0\) peut être calculé à l'aide de la fonction
   <font class="matlab">residue()</font> de <em>Maple</em>.</p>
@@ -596,7 +595,7 @@ f := z\rightarrow {\displaystyle \frac {1}{\sin(z)}}
 Le résidu de \(f\) à \(2\pi\) est donné par la commande suivante. </p>
 
 <pre class="matlab">
-> <font class="matlab">readlib(residue): residue(f(z),z=2*Pi);</font>
+> <font class="matlab">with(residue): residue(f(z),z=2*Pi);</font>
 </pre>
 
 \[
@@ -708,7 +707,7 @@ C_r = \{ x : -r \leq x \leq r\}\cup \{ re^{\theta i} : 0 < \theta < \pi \}
 <p>est la courbe fermée dessinée ci-dessous</p>
 
 <div class="center">
-  <img src="Maple_complex_2.png" style="width: 300px"
+  <img src="Maple_complex_2_fr.png" style="width: 300px"
        alt="Dessin de la courbe fermée C">
 </div>
 
@@ -727,7 +726,7 @@ fait que l'intégrande converge uniformément vers \(0\) lorsque
 entour le pôle à \(2+2\,i\) si \(r\) est assez grand.  Donc, la valeur
 de l'intégrale de la fonction \(f\) définie par
 \(\displaystyle f(z) = \frac{e^{iz}}{(z-2)^2+4}\) le long de la courbe
-fermée \(C_r\) est \(\mathrm{res}(f,z=2+2*I)\) si \(r\) est assez
+fermée \(C_r\) est \(\mathrm{res}(f,2+2i)\) si \(r\) est assez
 grand.  Cette intégrale est constante pour \(r\) assez grand.  Nous
 pouvons faire ce calcul à l'aide des commandes suivantes
 de <em>Maple</em>.</p> 
@@ -739,8 +738,6 @@ de <em>Maple</em>.</p>
 \[
 f := z\rightarrow {\displaystyle \frac {e^{(I\,z)}}{(z - 2)^{2} + 4}}
 \]
-
-<p> le long de la courbe \(C_r\) est donné par la commande</p>
 
 <pre class="matlab">
 > <font class="matlab">evalf(2*Pi*I*(residue(f(z),z=2+2*I)) );</font>
@@ -818,16 +815,17 @@ courbes qui se coupent.  Si la dérivée de
 application conforme.  Une famille importante d'applications conformes
 sont les fonctions de la forme</p>
 \[
-z \mapsto \frac{az+b}{cz+d} = \frac{a}{c} + \frac{bc-ad}{c}  \frac{1}{cz+d}
+z \mapsto \frac{az+b}{cz+d} = \frac{a}{c} + \frac{bc-ad}{c} \left(
+\frac{1}{cz+d} \right)
 \]
 <p> avec \(ad -bc \neq 0\).  Ces fonctions sont appelées
 des <em>transformations homographiques</em>.  Une transformation
 homographique est la composition d'une dilatation, \(cz\), 
 suivie d'une translation, \(cz+d\), suivie d'une inversion,
 \(\displaystyle \frac{1}{cz+d}\), suivie d'une autre dilatation,
-\(\displaystyle \frac{bc-ad}{c} \frac{1}{cz+d}\), et suivie
+\(\displaystyle \frac{bc-ad}{c} \left(\frac{1}{cz+d}\right)\), et suivie
 finalement par une autre translation,
-\(\displaystyle \frac{a}{c} + \frac{bc-ad}{c}  \frac{1}{cz+d}\).
+\(\displaystyle \frac{a}{c} + \frac{bc-ad}{c}  \left(\frac{1}{cz+d}\right)\).
 Ainsi, une transformation homographique préserve
 les cercles (une ligne droite est un cercle de rayon infini).</p>
 
@@ -852,8 +850,8 @@ nous dessinons l'image d'un rectangle par cette fonction.
 La fonction <font class="matlab">conformal()</font>
 dans <em>Maple</em> dessine l'image de rectangles.  Un rectangle avec
 des côtés verticaux et horizontaux est définie par les coordonnées de
-deux de ses coins opposés en diagonale.  Par exemple, l'image par
-\(f\) du rectangle avec les coins opposés en diagonale à
+deux de ses coins opposés sur une diagonale.  Par exemple, l'image par
+\(f\) du rectangle avec les coins opposés sur une diagonale à
 \(0\) et \(2+2\,i\) est dessinée par la commande suivante
 de <em>Maple</em>.</p>
 
@@ -870,17 +868,17 @@ de <em>Maple</em>.</p>
 respectivement (Est-ce que le lecteur peut expliquer pourquoi
 c'est le cas?).</p>
 
-<p>Pour trouver la transformation homographique (w=f(z)\) telle que
+<p>Pour trouver la transformation homographique \(w=f(z)\) telle que
 \(f(z_1)=w_1, f(z_2)=w_2\) et \(f(z_3)=w_3\), il suffit de résoudre
-le système d'équations </p>
+l'équation </p>
 \[
 \frac{(w-w_1)(w_2-w_3)}{(w-w_3)(w_2-w_1)} =
 \frac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)}
 \]
 <p>pour w.</p>
 
-<p><em>Exemple</em>: Nous cherchons la transformation homographique
-\(f\) telle que \(f(1)=i, f(2)=3\) et \(f(i)=2\).  Nous devons
+<p><em>Exemple</em>: Pour obtenir la transformation homographique
+\(f\) telle que \(f(1)=i, f(2)=3\) et \(f(i)=2\), nous devons
 résoudre pour \(w\) l'équation</p>
 \[
 \frac{(w-i)(3-2)}{(w-2)(3-i)}=\frac{(z-1)(2-i)}{(z-i)(2-1)} \ .
@@ -917,7 +915,7 @@ I \\
 \]
 
 <p> Si nous dessinons l'image du rectangle avec les coins opposés
-situés à \(0\) et \(1+1\,i\), alors nous obtenons la figure
+sur une diagonale situés à \(0\) et \(1+1\,i\), alors nous obtenons la figure
 suivante.</p> 
 
 <pre class="matlab">
@@ -940,8 +938,8 @@ y^2}T(x,y) = 0 \ .
 <p>Les fonctions \(T\) qui satisfont cette équation sont appelées des
 <em>fonctions harmoniques</em>.  Le lecteur devrait vérifier
 à l'aide des équations de Cauchy-Riemann que la partie réelle et la
-partie imaginaire d'une fonction dérivable de \(\mathbb{C}\) dans lui-même 
-sont des fonctions harmoniques.</p>
+partie imaginaire d'une fonction dérivable de \(\mathbb{C}\) dans
+\(\mathbb{C}\) sont des fonctions harmoniques.</p>
 
 <p>Notre but est de trouver la distribution de chaleur à l'état
 stationnaire dans une plaque mince définie pour
@@ -967,7 +965,7 @@ maintenue à \(2\) degrés.</p>
 des techniques pour les EDP.  Cependant, ce simple problème peut être
 résolu à l'aide des applications conformes comme nous allons voir.
 Nous utilisons une application conforme \(f\) pour transformer le
-domaine \(z=x+i\,y\) avec \(y \geq 0\) en une bande horizontale</p>
+domaine \( \{ x+y i : y \geq 0\}\) en une bande horizontale</p>
 \[
 S = \{ w = u+i v : u \in \mathbb{R} \ \text{et} \ 0\leq v \leq \pi \} \ .
 \]
@@ -1000,7 +998,7 @@ horizontal \(S\), nous posons
 w= f(z) = \ln\left(\frac{z-1}{z+1}\right) =
 \ln\left(\frac{r_1}{r_2}\right)+i(\theta_1-\theta_2)
 \]
-<p>avec \(0 < \theta_1-\theta_2 < \pi\) et \(\ln()\) est bien définie
+<p>avec \(0 < \theta_1-\theta_2 < \pi\) où \(\ln()\) est bien définie
 car \(r_1,r_2 > 0\) pour \(z \neq -1,1\).</p>
 
 <p><em>Remarque</em>: La figure précédente aurait pu être dessinée à
