@@ -519,28 +519,29 @@ function initItem(Item, Parent, Menu, Submenu) {
 
 /**********************************************************************
  *  Function to display a list of items from the tree structure.
+ *  Cl is the class for the list and the links.
+ *  seed is a word that is used to define the ids : seed + number.
  *  lang is either "fr" or "en".
- *  seed is a word that is added to the id at each recursive call.
  *  ignore is the element of the list to be ignored.
  **********************************************************************/
-function display_list(itemLinks, seed, lang, ignore) {
+function display_list(itemLinks, Cl, seed, lang, ignore) {
     var M = itemLinks.length;
 
-    document.write("<ul>");
+    document.write("<ul class=\""+Cl+"\">");
     for ( var m=0 ; m < M ; ++m ) {
 	if ( lang == "fr" ) {
 	    if ( itemLinks[m].text_fr != ignore.text_fr ) {
-		document.write("<li>");
+		document.write("<li class=\""+Cl+"\">");
 		buildLinK(itemLinks[m].url_fr, itemLinks[m].text_fr,
-			  "MMathSStat", seed+m, itemLinks[m].target);
+			  Cl, seed+m, itemLinks[m].target);
 		document.write("</li>");
 	    }
 	}
 	else {
 	    if ( itemLinks[m].text_en != ignore.text_en ) {
-		document.write("<li>");
+		document.write("<li class=\""+Cl+"\">");
 		buildLinK(itemLinks[m].url_en, itemLinks[m].text_en,
-			  "MMathSStat", seed+m, itemLinks[m].target);
+			  Cl, seed+m, itemLinks[m].target);
 		document.write("</li>");
 	    }
 	}

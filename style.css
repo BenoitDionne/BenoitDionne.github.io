@@ -14,6 +14,9 @@ p.footnote { font-weight: normal; font-size: 70%; color: black; font-style: norm
 a { color: #8F001A; text-decoration: none; }
 a:visited { color: purple;}
 a:hover { color: blue;}
+a.MStop { color: #8F001A; text-decoration: none; z-index:1000; }
+a.MStop:visited { color: purple;}
+a.MStop:hover { color: blue;}
 
 /* Emphasis */
 em { color: inherit; font-weight: bold; }
@@ -54,6 +57,8 @@ ol.dec > li { }
 
 ul {}
 ul li {}
+ul.MStop {z-index: 1000;}
+ul.MStop li {z-index: 1000;}
 
 /* Select */
 select { background-color: white; color: black; }
@@ -171,7 +176,7 @@ div.LOOK2 { border: 1px solid #8F001A; margin: 5px; padding: 5px;
 bold; vertical-align: top; display: block;  overflow: hidden; }
 
 div.LOOK3 { position: fixed; right: 5px; bottom: 5px; background-color: white;
-  margin: 10px; border: #8F001A 2px solid; padding: 5px; }
+  margin: 10px; border: #8F001A 2px solid; padding: 5px; z-index: 1000; }
 
 /* Popup box sometime used to add information to the construction sign */
 div#constructionBox {

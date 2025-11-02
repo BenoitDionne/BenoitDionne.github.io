@@ -28,13 +28,22 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
-<!--  Use this code if you want to use the dollar sign for inline math formulae.<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+<!-- Use this code if you want to use the dollar sign for inline math.
+This may be an issue if want to use the dollar sign denote curency. -->
+<!--
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      inlineMath: {'[+]' : [['$','$']]} 
+   }
+};
 </script>
 -->
-<script type="text/javascript"
-src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+
+<!-- Instead of tex-svg.js , it is possible to use text-chtml to use
+html and csv instead of scalable vector graphis. -->  
+<script defer type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
     
 </head>
 <body>
@@ -57,10 +66,10 @@ main_title( MStext, "MMathSStat");
 
 <h2 id="TOP"> Second Order ODE with Constant Coefficients </h2>
 
-<div style="float: left; width:30%; margin-right:20px;">
+<div style="float:left; width:30%; margin-right:20px; z-index:1000;">
 <div class="center"><em>Other Topics</em></div>
 <script language="javascript"> 
-     display_list(mapleLinks, "ML", "en", ODE_O2_const_coeff);
+     display_list(mapleLinks, "MStop", "ML", "en", ODE_O2_const_coeff);
 </script>
 </div>
 
