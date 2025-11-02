@@ -158,8 +158,8 @@ websites[websites_nbr++] = maple;
 /* Using Mobius */
 var Mbs_using = new item
     ("Comment utiliser M&ouml;bius",
-     "How to Use M&ouml;bius",
-     location_bd+"teaching/Mobius_Admin/Mbs_using_fr.html",
+     "How to Use M&ouml;bius", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_using_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_using_en.html", null, null, null,
      "Mbs_using", "_self", "Mbs_using");
 websites[websites_nbr++] = Mbs_using;
@@ -167,8 +167,8 @@ websites[websites_nbr++] = Mbs_using;
 /* Using Mobius with BrightSpace */
 var Mbs_using_BS = new item
     ("Comment utiliser M&ouml;bius avec BrightSpace",
-     "How to Use M&ouml;bius with BrightSpace",
-     location_bd+"teaching/Mobius_Admin/Mbs_using_BS_fr.html",
+     "How to Use M&ouml;bius with BrightSpace", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_using_BS_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_using_BS_en.html", null, null, null,
      "Mbs_using_BS", "_self", "Mbs_using_BS");
 websites[websites_nbr++] = Mbs_using_BS;
@@ -176,8 +176,8 @@ websites[websites_nbr++] = Mbs_using_BS;
 /* Creating content */
 var Mbs_content = new item
     ("Cr&eacute;er le contenu pour M&ouml;bius",
-     "Creating Content for M&ouml;bius",
-     location_bd+"teaching/Mobius_Admin/Mbs_content_fr.html",
+     "Creating Content for M&ouml;bius", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_content_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_content_en.html", null, null, null,
      "Mbs_content", "_self", "Mbs_content");
 websites[websites_nbr++] = Mbs_content;
@@ -187,8 +187,8 @@ websites[websites_nbr++] = Mbs_content;
  ******************************************************************/
 /* Previewing questions */
 var Mbs_quest_prev = new item
-    ("Visionner les Questions", "Previewing Questions",
-     location_bd+"teaching/Mobius_Admin/Mbs_quest_prev_fr.html",
+    ("Visionner les Questions", "Previewing Questions",  Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_quest_prev_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_quest_prev_en.html", null,
      null, null, "Mbs_quest_prev", "_self", "Mbs_quest_prev");
 websites[websites_nbr++] = Mbs_quest_prev;
@@ -196,7 +196,8 @@ websites[websites_nbr++] = Mbs_quest_prev;
 /* Creating assignments */
 var Mbs_assign = new item
     ("Comment cr&eacute;er des devoirs", "How to Create Assignments",
-     location_bd+"teaching/Mobius_Admin/Mbs_assign_fr.html",
+     Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_assign_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_assign_en.html", null,
      null, null, "Mbs_assign", "_self", "Mbs_assign");
 websites[websites_nbr++] = Mbs_assign;
@@ -204,7 +205,8 @@ websites[websites_nbr++] = Mbs_assign;
 /* Policies for assignments */
 var Mbs_policy = new item
     ("R&egrave;gles pour les devoirs", "Rules for the Assignments",
-     location_bd+"teaching/Mobius_Admin/Mbs_policy_fr.html",
+     Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_policy_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_policy_en.html", null,
      null, null, "Mbs_policy", "_self", "Mbs_policyv");
 websites[websites_nbr++] = Mbs_policy;
@@ -212,32 +214,32 @@ websites[websites_nbr++] = Mbs_policy;
 /* Creating adaptive assignments */
 var Mbs_adaptive = new item
     ("Comment cr&eacute;er des devoirs adaptatifs",
-     "How to Create Adaptive Assignments",
-     location_bd+"teaching/Mobius_Admin/Mbs_adaptive_fr.html",
+     "How to Create Adaptive Assignments", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_adaptive_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_adaptive_en.html", null,
      null, null, "Mbs_adaptive", "_self", "Mbs_adaptive");
 websites[websites_nbr++] = Mbs_adaptive;
 
 /* Proctor tools */
 var Mbs_proctor = new item
-    ("Outils pour les surveillants", "Proctor Tools",
-     location_bd+"teaching/Mobius_Admin/Mbs_proctor_fr.html",
+    ("Outils pour les surveillants", "Proctor Tools", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_proctor_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_proctor_en.html", null,
      null, null, "Mbs_proctor", "_self", "Mbs_proctor");
 websites[websites_nbr++] = Mbs_proctor;
 
 /* Reviewing and modifying grades */
 var Mbs_grade_review = new item
-    ("R&eacute;viser des notes", "Reviewing Grades",
-     location_bd+"teaching/Mobius_Admin/Mbs_grade_review_fr.html",
+    ("R&eacute;viser des notes", "Reviewing Grades", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_grade_review_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_grade_review_en.html", null,
      null, null, "Mbs_grade_review", "_self", "Mbs_grade_review");
 websites[websites_nbr++] = Mbs_grade_review;
 
 /* Exporting grades from Mobius to BrightSpace */
 var Mbs_grades = new item
-    ("Comment exporter les notes", "How to Export Grades",
-     location_bd+"teaching/Mobius_Admin/Mbs_grades_fr.html",
+    ("Comment exporter les notes", "How to Export Grades", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_grades_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_grades_en.html", null,
      null, null, "Mbs_grades", "_self", "Mbs_grades");
 websites[websites_nbr++] = Mbs_grades;
@@ -245,8 +247,8 @@ websites[websites_nbr++] = Mbs_grades;
 /* Exporting and importing questions and assignments */
 var Mbs_management = new item
     ("G&eacute;rer les questions et devoirs",
-     "Managing Questions and Assignments",
-     location_bd+"teaching/Mobius_Admin/Mbs_management_fr.html",
+     "Managing Questions and Assignments", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_management_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_management_en.html", null,
      null, null, "Mbs_management", "_self", "Mbs_management");
 websites[websites_nbr++] = Mbs_management;
@@ -254,7 +256,8 @@ websites[websites_nbr++] = Mbs_management;
 /* Ownership of an assignment */
 var Mbs_owner = new item
     ("Qui a affich&eacute; ce devoir?", "Who Posted this Assignment?",
-     location_bd+"teaching/Mobius_Admin/Mbs_owner_fr.html",
+     Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_owner_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_owner_en.html", null,
      null, null, "Mbs_owner", "_self", "Mbs_owner");
 websites[websites_nbr++] = Mbs_owner;
@@ -265,8 +268,8 @@ websites[websites_nbr++] = Mbs_owner;
 /* Creating a link to a class on Mobius */
 var Mbs_link_class = new item
     ("Cr&eacute;er un lien &agrave; un cours sur M&ouml;bius",
-     "Creating a Link to a Class on M&ouml;bius",
-     location_bd+"teaching/Mobius_Admin/Mbs_link_class_fr.html",
+     "Creating a Link to a Class on M&ouml;bius", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_link_class_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_link_class_en.html", null,
      null, null, "Mbs_link_class", "_self", "Mbs_link_class");
 websites[websites_nbr++] = Mbs_link_class;
@@ -274,8 +277,8 @@ websites[websites_nbr++] = Mbs_link_class;
 /* BrighSpace module for Mobius assignments */
 var Mbs_BS_module = new item
     ("Module de BrightSpace pour les devoirs sur M&ouml;bius",
-     "BrighSpace Module for M&ouml;bius Assignments",
-     location_bd+"teaching/Mobius_Admin/Mbs_BS_module_fr.html",
+     "BrighSpace Module for M&ouml;bius Assignments", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_BS_module_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_BS_module_en.html", null,
      null, null, "Mbs_BS_module", "_self", "Mbs_BS_module");
 websites[websites_nbr++] = Mbs_BS_module;
@@ -283,8 +286,8 @@ websites[websites_nbr++] = Mbs_BS_module;
 /* Creating links to assignments on Mobius */
 var Mbs_link_assign = new item
     ("Cr&eacute;er les liens aux devoirs sur M&ouml;bius",
-     "Creating Links to Assignments on M&ouml;bius",
-     location_bd+"teaching/Mobius_Admin/Mbs_link_assign_fr.html",
+     "Creating Links to Assignments on M&ouml;bius", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_link_assign_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_link_assign_en.html", null,
      null, null, "Mbs_link_assign", "_self", "Mbs_link_assign");
 websites[websites_nbr++] = Mbs_link_assign;
@@ -292,8 +295,8 @@ websites[websites_nbr++] = Mbs_link_assign;
 /* Creating a link to Gradebook on Mobius */
 var Mbs_link_gradebook = new item
     ("Cr&eacute;er un lien &agrave; Gradebook sur M&ouml;bius",
-     "Creating a Link to Gradebbok on M&ouml;bius",
-     location_bd+"teaching/Mobius_Admin/Mbs_link_gradebook_fr.html",
+     "Creating a Link to Gradebbok on M&ouml;bius", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_link_gradebook_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_link_gradebook_en.html", null,
      null, null, "Mbs_link_gradebook", "_self", "Mbs_link_gradebook");
 websites[websites_nbr++] = Mbs_link_gradebook;
@@ -301,8 +304,8 @@ websites[websites_nbr++] = Mbs_link_gradebook;
 /* Some information on BrightSpace */
 var Mbs_brightspace = new item
     ("Quelques fonctionnalit&eacute;s de BrightSpace",
-     "Some Features of BrightSpace",
-     location_bd+"teaching/Mobius_Admin/Mbs_brightspace_fr.html",
+     "Some Features of BrightSpace", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_brightspace_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_brightspace_en.html", null,
      null, null, "Mbs_brightspace", "_self", "Mbs_brightspace");
 websites[websites_nbr++] = Mbs_brightspace;
@@ -312,8 +315,8 @@ websites[websites_nbr++] = Mbs_brightspace;
  ******************************************************************/
 /* Mobius structure */
 var Mbs_structure = new item
-    ("Structure de M&ouml;bius", "M&ouml;bius Structure",
-     location_bd+"teaching/Mobius_Admin/Mbs_structure_fr.html",
+    ("Structure de M&ouml;bius", "M&ouml;bius Structure", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_structure_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_structure_en.html", null,
      null, null, "Mbs_structure", "_self", "Mbs_structure");
 websites[websites_nbr++] = Mbs_structure;
@@ -321,8 +324,8 @@ websites[websites_nbr++] = Mbs_structure;
 /* Mobius content */
 var Mbs_quest_creat = new item
     ("Cr&eacute;er des questions pour M&ouml;bius",
-     "Creating Questions for M&ouml;bius",
-     location_bd+"teaching/Mobius_Admin/Mbs_quest_creat_fr.html",
+     "Creating Questions for M&ouml;bius", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_quest_creat_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_quest_creat_en.html", null,
      null, null, "Mbs_quest_creat", "_self", "Mbs_quest_creat");
 websites[websites_nbr++] = Mbs_quest_creat;
@@ -332,31 +335,31 @@ websites[websites_nbr++] = Mbs_quest_creat;
  ******************************************************************/
 var Mbs_maple_graded = new item
     ("Questions corrig&eacute;es par Maple",
-     "Maple Graded Questions",
-     location_bd+"teaching/Mobius_Admin/Mbs_maple_graded_fr.html",
+     "Maple Graded Questions", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_maple_graded_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_maple_graded_en.html", null,
      null, null, "Mbs_maple_graded", "_self", "Mbs_maple_graded");
 websites[websites_nbr++] = Mbs_maple_graded;
 
 var Mbs_algo = new item
-    ("Sections pour les algorithmes", "Algorithm Section",
-     location_bd+"teaching/Mobius_Admin/Mbs_algo_fr.html",
+    ("Sections pour les algorithmes", "Algorithm Section", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_algo_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_algo_en.html", null,
      null, null, "Mbs_algo", "_self", "Mbs_algo");
 websites[websites_nbr++] = Mbs_algo;
 
 var Mbs_algo_maple = new item
     ("Sections pour les algorithmes avec Maple",
-     "Algorithm Section with Maple",
-     location_bd+"teaching/Mobius_Admin/Mbs_algo_maple_fr.html",
+     "Algorithm Section with Maple", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_algo_maple_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_algo_maple_en.html", null,
      null, null, "Mbs_algo_maple", "_self", "Mbs_algo_maple");
 websites[websites_nbr++] = Mbs_algo_maple;
 
 /* Maple Math App */
 var Mbs_math_app = new item
-    ("Math Apps","Math Apps",
-     location_bd+"teaching/Mobius_Admin/Mbs_math_app_fr.html",
+    ("Math Apps","Math Apps", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_math_app_fr.html",*/
      location_bd+"teaching/Mobius_Admin/Mbs_math_app_en.html", null,
      null, null, "Mbs_math_app", "_self", "Mbs_math_app");
 websites[websites_nbr++] = Mbs_math_app;
@@ -434,6 +437,14 @@ var ODE_O2_const_coeff = new item
      null, null, null, "ODE_O2_const_coeff", "_top", "ODE_O2_const_coeff");
 websites[websites_nbr++] = ODE_O2_const_coeff;
 
+var ODE_O2_var_coeff = new item
+    ("EDO d'ordre deux avec coefficients variables",
+     "Second Order ODE with Variable Coefficients",
+     location_bd+"math_stat/maple/ODE_O2_var_coeff_fr.html",
+     location_bd+"math_stat/maple/ODE_O2_var_coeff_en.html",
+     null, null, null, "ODE_O2_var_coeff", "_top", "ODE_O2_var_coeff");
+websites[websites_nbr++] = ODE_O2_var_coeff;
+
 var ODE_systems = new item
     ("Syst&egrave;mes d'EDO", "Systems of ODE",
      location_bd+"math_stat/maple/ODE_systems_fr.html",
@@ -455,14 +466,6 @@ var Fourier_series = new item
      null, null, null, "Fourier_series", "_top", "Fourier_series");
 websites[websites_nbr++] = Fourier_series;
 
-var ODE_O2_var_coeff = new item
-    ("EDO d'ordre deux avec coefficients variables",
-     "Second Order ODE with Variable Coefficients",
-     location_bd+"math_stat/maple/ODE_O2_var_coeff_fr.html",
-     location_bd+"math_stat/maple/ODE_O2_var_coeff_en.html",
-     null, null, null, "ODE_O2_var_coeff", "_top", "ODE_O2_var_coeff");
-websites[websites_nbr++] = ODE_O2_var_coeff;
-
 var PDE = new item
     ("&Eacute;quations aux d&eacute;riv&eacute;es partielles",
      "Partial Differential Equations",
@@ -471,6 +474,13 @@ var PDE = new item
      null, null, null, "PDE", "_top", "PDE");
 websites[websites_nbr++] = PDE;
 
+var Complex_anal = new item
+    ("Analyse Complexe", "Complex Analysis",
+     location_bd+"math_stat/maple/complex_anal_fr.html",
+     location_bd+"math_stat/maple/complex_anal_en.html",
+     null, null, null, "Complex_anal", "_top", "Complex_anal");
+websites[websites_nbr++] = Complex_anal;
+
 var Maple_programs = new item
     ("Programmation dans Maple", "Maple Programming",
      location_bd+"math_stat/maple/Maple_programs_fr.html",
@@ -478,12 +488,12 @@ var Maple_programs = new item
      null, null, null, "Maple_programs", "_top", "Maple_programs");
 websites[websites_nbr++] = Maple_programs;
 
-var Complex_anal = new item
-    ("Analyse Complexe", "Complex Analysis",
-     location_bd+"math_stat/maple/complex_anal_fr.html",
-     location_bd+"math_stat/maple/complex_anal_en.html",
-     null, null, null, "Complex_anal", "_top", "Complex_anal");
-websites[websites_nbr++] = Complex_anal;
+var math_apps = new item
+    ("Math Apps", "Math Apps",
+     location_bd+"math_stat/maple/math_apps_fr.html",
+     location_bd+"math_stat/maple/math_apps_en.html",
+     null, null, null, "math_apps", "_top", "math_apps");
+websites[websites_nbr++] = Maple_programs;
 
 /******************************************************************
  *  under plan
@@ -753,19 +763,22 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 		= initItem(ODE_O2_var_coeff, mathLinks[math_nbr], mapleLinks,
 			   null);
 	    mapleLinks[maple_nbr++]
+		= initItem(ODE_systems, mathLinks[math_nbr], mapleLinks, null); 
+	    mapleLinks[maple_nbr++]
 		= initItem(Laplace_transf, mathLinks[math_nbr], mapleLinks,
 			   null); 
 	    mapleLinks[maple_nbr++]
 		= initItem(Fourier_series, mathLinks[math_nbr], mapleLinks,
 			   null); 
 	    mapleLinks[maple_nbr++]
-		= initItem(ODE_systems, mathLinks[math_nbr], mapleLinks, null); 
-	    mapleLinks[maple_nbr++]
 		= initItem(PDE, mathLinks[math_nbr], mapleLinks, null); 
 	    mapleLinks[maple_nbr++]
 		= initItem(Complex_anal, mathLinks[math_nbr], mapleLinks, null);
 	    mapleLinks[maple_nbr++]
-		= initItem(Maple_programs, mathLinks[math_nbr], mapleLinks, null);
+		= initItem(Maple_programs, mathLinks[math_nbr], mapleLinks,
+			   null);
+	    mapleLinks[maple_nbr++]
+		= initItem(math_apps, mathLinks[math_nbr], mapleLinks, null);
 	}
 	math_nbr++;
     }

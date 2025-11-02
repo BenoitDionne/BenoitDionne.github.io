@@ -28,9 +28,22 @@ document.write("Include javascript file has failed")
 
 <link href="../../style.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript"
-src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<!-- Use this code if you want to use the dollar sign for inline math.
+This may be an issue if want to use the dollar sign denote curency. -->
+<!--
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      inlineMath: {'[+]' : [['$','$']]} 
+   }
+};
 </script>
+-->
+
+<!-- Instead of tex-svg.js , it is possible to use text-chtml to use
+html and csv instead of scalable vector graphis. -->  
+<script defer type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
 
 </head>
 <body>
@@ -45,7 +58,13 @@ top_function(Mbs_quest_creat,"en");
 main_title( MStext, "MMathSStat");
 </script>
 
-<h2> Möbius Structure </h2>
+<div class="LOOK3">
+<script language="javascript"> 
+      buildLinK("#TOP", "Back to the top", "MMathSStat", "TOPID", "_top");
+</script>
+</div>
+
+<h2 id="TOP"> Möbius Structure </h2>
 
 <h3> Introduction </h3>
 

@@ -529,21 +529,17 @@ function display_list(itemLinks, Cl, seed, lang, ignore) {
 
     document.write("<ul class=\""+Cl+"\">");
     for ( var m=0 ; m < M ; ++m ) {
-	if ( lang == "fr" ) {
-	    if ( itemLinks[m].text_fr != ignore.text_fr ) {
-		document.write("<li class=\""+Cl+"\">");
+	if ( itemLinks[m].name != ignore.name ) {
+	    document.write("<li class=\""+Cl+"\">");
+	    if ( lang == "fr" ) {
 		buildLinK(itemLinks[m].url_fr, itemLinks[m].text_fr,
 			  Cl, seed+m, itemLinks[m].target);
-		document.write("</li>");
 	    }
-	}
-	else {
-	    if ( itemLinks[m].text_en != ignore.text_en ) {
-		document.write("<li class=\""+Cl+"\">");
+	    else {
 		buildLinK(itemLinks[m].url_en, itemLinks[m].text_en,
 			  Cl, seed+m, itemLinks[m].target);
-		document.write("</li>");
 	    }
+	    document.write("</li>");
 	}
     }
     document.write("</ul>");
