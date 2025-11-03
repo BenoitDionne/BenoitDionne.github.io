@@ -74,35 +74,59 @@ main_title( MStext, "MMathSStat");
 </div>
 
 <p> Our principal goal is to explain how to create a <em>Graded Math App</em>
-to be used in Möbius.  Obviously, <em>Math Apps</em> can be used
-inside Maple.  The only difference is how <em>Math Apps</em> are
-launched and how the arguments are supplied to the <em>Math Apps</em>.
-We talk about that at the end of this document.</p>
+that can be included in a question for <em>Möbius</em>.
+Obviously, <em>Math Apps</em> can also be used inside <em>Maple</em>.
+The only difference is how <em>Math Apps</em> are launched and how the
+arguments are supplied to them.  We will talk about that at the end of
+this document.</p> 
+
+<h3> Other Examples</h3>
+
+<p>The reader can find other examples of <em>Math Apps</em> on the
+<em>Math Apps</em> site that can be reached by selecting the
+option <em> Tools  &rarr; Math Apps</em> (item <em>1</em> in the
+figure below) of the menu at the top on the display of <em>Maple</em>.</p>
+
+<div class="center">
+<img src="math_app_11.png" style="width: 400px"
+    alt="Screenshot of the menu at the top of the display of Maple">
+</div>
+
+<p>To read the code of the <em>Math Apps</em> that has been selected,
+it suffices to tick the box before the <em>Editable</em> tag at the bottom of
+the display of the selected <em>Math Apps</em> (item <em>2</em> in the
+figure below).</p>
+
+<div class="center">
+<img src="math_app_12.png" style="width: 250px"
+    alt="Screenshot of the menu at the bottom of the display of a math app">
+</div>
 
 <h3> Introduction </h3>
 
 <p> Suppose that we want to build a <em>Math App</em> where, given a
 function and an initial condition, students have to draw the cobweb
-associated to the iteration of the function starting at the initial
-condition.  The <em>Math App</em> will evaluate if the cobweb is
-right or wrong based on a predetermined number of iterations and
-tolerated accuracy. </p> 
+associated to the iterations of the function from the initial
+condition.  The <em>Math App</em> will grade the rightness of
+the cobweb based on a predetermined number of iterations and
+level of accuracy.</p>
 
-<p> The part of a question in <em>Möbius</em> using the
+<p> The part of a question for <em>Möbius</em> that includes the
 <em>Math App</em> is displayed below. </p>
 
 <div class="center">
   <img src="math_app_1.png" style="width: 500px"
-       alt="Screenshot of the part of a question using the Math App as it appears in Möbius">
+       alt="Screenshot of the part of a question in Möbius that includes the Math App">
 </div>
 
-<p> To draw the cobweb, students click on the figure with the left
-button of their mouse to enter in consecutive order the corners of the
-cobweb.  The <em>Math App</em> draws the line between consecutive points
-to produce the cobweb.  Students may use a text area to adjust the
-coordinates of the last point that they have added to the figure.
-Students may click on the button <em>Clear / Effacer</em> to start over
-if they are not satisfy of their work.</p>
+<p> To draw the cobweb, students click on the plot area with the left
+button of their mouse to add in successive order the corners of their
+cobweb.  The <em>Math App</em> draws the straight line between
+consecutive points to produce the cobweb.  Students may use a text
+area to adjust the coordinates of the point that they have just added
+to the plot area.  Students may click on the button
+<em>Clear / Effacer</em> to start over if they are not satisfy with
+their work.</p>
 
 <p> The reader should consult the website
 <script language="javascript"> 
@@ -111,16 +135,17 @@ if they are not satisfy of their work.</p>
 </script> for <em>Möbius</em> to learn how to create a question
 in <em>Möbius</em> that includes a <em>Math App</em>.
 
-<p> Here is the display of the <em>Math App</em> in Maple. </p>
+<p> We display below the <em>Math App</em> as it appears when used in
+<em>Maple</em>.</p> 
 
 <div class="center">
   <img src="math_app_2.png" style="width: 500px"
-       alt="Screenshot of the display of the Math App that is created in Maple">
+       alt="Screenshot of the display of the Math App when run in Maple">
 </div>
 
 <p> The <em>Math App</em> is composed of the following components:</p>
 <ol style="list-style-type: decimal;">
-<li> a plot (named <font class="matlab">Plot0</font>),</li>
+<li> a plot area (named <font class="matlab">Plot0</font>),</li>
 <li> a button <em> Clear / Effacer</em> (named
 <font class="matlab">Button0</font>),</li>
 <li> a button <em>Correction</em> (named <font class="matlab">Button1</font>)
@@ -131,7 +156,7 @@ with an associated label <em>Grade</em> (named
 <font class="matlab">Button2</font>), and </li>
 <li> a label <em>Coordinates</em> (named <font class="matlab">Label0</font>)
 with an associated text area (named <font class="matlab">TextArea0</font>)
-for the coordinates of the last point drawn on the figure.</li>
+for the coordinates of the last point added on the plot area.</li>
 </ol>
 </p>
 
@@ -140,60 +165,62 @@ for the coordinates of the last point drawn on the figure.</li>
 <ol style="list-style-type: decimal;">
 <li> The purpose of the button <em> Clear / Effacer</em> is clear
 (no pun intended).  It is used by students who want to start over drawing
-the cobweb.</li>
+their cobweb.</li>
 <li>Students who click on the button <em>Correction</em> have
-their cobweb graded and their grade appears in the text area for the
+their cobweb graded and their grade appears in the text
+area <font class="matlab">TextArea1</font> for the
 grade.  This text area is not editable.  The
 button <em>Correction</em>, the label <em>Grade</em> and the text 
-associated to the grade should be hidden when the <em>Math App</em> is
-used inside a question in Möbius.  We obviously do not want students to
-check if they have the right solution before submitting their
-assignment. </li>
+associated to it should be hidden when the <em>Math App</em> is
+included in a question for <em>Möbius</em>.  We obviously do not want
+students to check if they have the right solution before submitting
+their assignment. </li>
 <li> Students who click on the button <em>Solution</em> get the answer
-of the question.  Again, this button should be hidden when the
-<em>Math App</em> is used inside your question for obvious reasons.</li>
-<li> Students may use the text area associated to the button
+of the question.  For obvious reasons, this button should be hidden when the
+<em>Math App</em> is included a question for <em>Möbius</em>.</li>
+<li> Students may use the text area <font class="matlab">TextArea0</font>
+associated to the button
 <em>Coordinates</em> to adjust the coordinates of the point
-that they have just added to the figure.</li>
+that they have just added to the plot areas.</li>
 </ol>
 
 <p> There are a large choice of components that can be used to create
-a <em>Math App</em>.  At this time, they are <em>Button</em>,
+a <em>Math App</em>.  At this time, the list includes <em>Button</em>,
 <em>Toggle Button</em>, <em>Combo Box</em>, <em>Check Box</em>,
 <em>Radio Button</em>, <em>Text Area</em>, <em>Label</em>,
 <em>List Box</em>, <em>Slider</em>, <em>Rotary Gauge</em>,
 <em>Volume Gauge</em>, <em>Meter</em>, <em>Dial</em>, <em>Plot</em>,
 <em>Mathematical Expression</em>, <em>Shortcut</em>, <em>Microphone</em>,
 <em>Speaker</em>, <em>Data Table</em> and <em>Video Player</em>.  They
-can be found in the left menu bar of the Maple display.</p>
+are all found in the menu bar on the left in the display of <em>Maple</em>.</p>
 
 <div class="center">
   <img src="math_app_3.png" style="width: 200px"
-       alt="Screenshot of the left menu of the Maple display">
+       alt="Screenshot of the menu on the left in the display of Maple">
 </div>
 
-<p>We will come back in the next section on adding components to create a
-  <em>Math App</em>. </p>
+<p>We explain in the next section how to add components to create a
+<em>Math App</em>. </p>
 
 <h3> Code of the Math App </h3>
 
-<p> In the top menu of the Maple display, we select
+<p> In the menu at the top of the display of <em>Maple</em>, we select
 <em>Edit &rarr; Starting Code</em> (items <em>7</em> and <em>8</em> in
 the figure below). </p>
 
 <div class="center">
   <img src="math_app_4.png" style="width: 250px"
-       alt="Screenshot of the top menu of the Maple display">
+       alt="Screenshot of the menu at the top of the display of Maple">
 </div>
 
-<p>to get the following display.</p>
+<p>to get the following window.</p>
 
 <div class="center">
   <img src="math_app_5.png" style="width: 600px"
        alt="Screenshot of the window to enter the core code of the Math App">
 </div>
 
-<p>Obviously, this display is empty when we access it for the first
+<p>Obviously, this window is empty when we access it for the first
 time.  This is the location of the core code of the <em>Math App</em>. 
 We have already written the code.  We explain in details all the
 elements of this code.</p>  
@@ -201,8 +228,8 @@ elements of this code.</p>
 <ol style="list-style-type: upper-alpha;">
 <li> <p> Since the functions 
 <font class="matlab">SetProperty</font>
-and <font class="matlab">GetProperty</font> are often used, it is wise
-to define two macros to simplify the code.</p>
+and <font class="matlab">GetProperty</font> are often used, it is
+convenient to define two macros to simplify the code.</p>
 <pre class="matlab">
 <font class="matlab">
 macro(SP = DocumentTools:-SetProperty);
@@ -211,7 +238,7 @@ macro(GP = DocumentTools:-GetProperty);
 </pre>
 </li>
 <li> <p> The command <font class="matlab">Actions := module()</font>
-indicates the beginning of the module that will be used by your
+indicates the beginning of the module that will be used by the
 <em>Math App</em>.  The command <font class="matlab">export</font>
 declares as globally accessible all the procedures of the module that
 are used by the components of the <em>Math App</em>.</p>
@@ -224,8 +251,8 @@ export Click, Refresh, Drag, EndDrag, DoPlot, Reset, Grade, InitParams, Check, A
 </pre>
 </li>
 <li> <p> There is a declaration of the variables that are local to
-the module but can be used by all the procedures.  The arrays are
-initialized by empty arrays.  </p>
+the module but can be used by all the procedures in the module.  The
+arrays are initialized by empty arrays.</p>
 <pre class="matlab">
 <font class="matlab">
 local A, B, Err, Nbr, F, X0, MV, Pts:=Array(1..0), NbrGood :=0, GRAPH, SOL := Array(1..0), myskyblue := ColorTools:-Color([.196, .6, .8]);
@@ -233,11 +260,12 @@ local A, B, Err, Nbr, F, X0, MV, Pts:=Array(1..0), NbrGood :=0, GRAPH, SOL := Ar
 </pre>
 </li>
 <li> <p>The procedure <font class="matlab">InitParams</font> is called by
-Möbius to initialize the <em>Math App</em> when the question of the
-assignment is read for the first time by the student.</p>
+<em>Möbius</em> to initialize the <em>Math App</em> when the question
+of the assignment on <em>Möbius</em> is read for the first time by the
+student.</p>
 <pre class="matlab">
 <font class="matlab">
-# The function InitParams() is called when run inside Mobius.
+# The function InitParams() is called when run inside <em>Mobius</em>.
 InitParams := proc( { a:=0, b:=1, err:=0.05, nbr:=3, f:= (1/2)*x + 1/4, x0 := 0.2, mv:= 0, flag1 := 0 } )
    local graph1, graph2, graph3, j, xn, yn;
 
@@ -287,42 +315,43 @@ end proc;
 </pre>
 <p> The initial parameters are listed below.
 <ol style="list-style-type: decimal;">
-<li> <font class="matlab">flag1</font> is set to 0 when the <em>Math App</em>
-is used in a graded assignment to hide the button <em>Correction</em>
-and its associated label and text area, and the button
-<em>Solution</em> as explained above.</li>
+<li> When the <em>Math App</em> is included in a question of a graded
+assignment, <font class="matlab">flag1</font> is set to 0 to hide the
+button <em>Correction</em> and its associated label and text area
+<font class="matlab">TextArea1</font>, and
+the button <em>Solution</em> as explained above.</li>
 <li> <font class="matlab">A</font> and <font class="matlab">B</font>
-are the end points of the interval \([A,B]\), </li>
+are the end points of the interval <font class="matlab">[A,B]</font>, </li>
 <li><font class="matlab">Err</font> is the tolerated error for the
 locations of the points drawn by the students.</li>
-<li><font class="matlab">Nbr</font> is the number of points that is
-used to grade the students' answer starting with the initial
-condition. </li>
+<li><font class="matlab">Nbr</font> is the number of points (and so of
+iterations) that are used to grade the students' answer.  This includes
+the initial condition. </li>
 <li><font class="matlab">F</font> is the function to be iterated.</li>
 <li><font class="matlab">X0</font> is the initial condition.</li>
-<li><font class="matlab">MV</font> is the maximum value
-of <font class="matlab">F</font>. It is generally better to let the
-code set this value.</li>
+<li><font class="matlab">MV</font> is the maximum in absolute value
+of <font class="matlab">F</font>. It is generally preferable to let the
+code compute this value.</li>
 </ol>
 </p>
 
 <p> The variable <font class="matlab">SOL</font> is initialized with all
-the points that form the corners of the cobweb starting with the
+the points that form the corners of the cobweb including the
 initial condition at <font class="matlab">(X0,0}</font>.</p>
 
-<p> The plot <font class="matlab">GRAPH</font> that is displayed in the
-question is composed of three sub-plots.  The plot
+<p> The plot <font class="matlab">GRAPH</font> that is part of the
+<em>Math App</em> is composed of three superposed plots.  The plot
 <font class="matlab">graph1</font> contains the diagonal
 line \(y = x\).  The plot <font class="matlab">graph2</font> contains
-the graph of the function <font class="matlab">F</font> between
-<font class="matlab">A</font> and <font class="matlab">B</font>.  The
+the graph of the function <font class="matlab">F</font> on the interval
+<font class="matlab">[A,B]</font>.  The
 plot <font class="matlab">graph3</font> contains the \(x\)-axis.  This
-third plot ensures that the horizontal axis is displayed and covers the
-full range of the interval \([A,B]\).</p>
+third plot ensures that the horizontal axis is displayed and covers
+all the interval <font class="matlab">[A,B]</font>.</p>
 </li>
 <li> The next procedure is <font class="matlab">Click</font>.  This is
-the procedure that is called when a student clicks on the plot to draw
-a point.</p>
+the procedure that is called when a student clicks on the plot area
+<font class="matlab">Plot0</font> to draw a point.</p>
 <pre class="matlab">
 <font class="matlab">
 Click := proc()
@@ -339,39 +368,42 @@ end proc;
 </pre>
 
 <p>This procedure does three things.  It first gets the \(x\) and \(y\)
-coordinates of the point that a student wants to draw.  It
+coordinates of the point that a student wants to drawn.  The procedure then
 adds these coordinates to the variable <font class="matlab">Pts</font>.
-Finally, it draws in the figure <font class="matlab">Plot0</font> the
+Finally, the procedure draws in the plot
+area <font class="matlab">Plot0</font> the 
 newest point and a straight line from the previous point to the new
 point if needed.</p> 
 
-<p>We have to attach this procedure to the plot
+<p>We have to attach this procedure to the plot area
 <font class="matlab">Plot0</font> otherwise it does not know that it
-has to call the procedure <font class="matlab">Click</font>.  To do
-that, we go to the display of the <em>Math App</em> in Maple and
-click on the plot <font class="matlab">Plot0</font>.  We then get 
-the following menu on the right of the display in Maple.  </p>
+has to call the procedure <font class="matlab">Click</font>.  To
+attach the procedure, we go to the display of the <em>Math App</em> in
+<em>Maple</em> and click on the plot <font class="matlab">Plot0</font>.
+We then get the following menu on the right side of the display
+in <em>Maple</em>.</p>
 
 <div class="center">
   <img src="math_app_6.png" style="width: 500px"
-       alt="Screenshot of the menu that you get by clicking on the plot of the math app">
+       alt="Screenshot of the menu that you get by clicking on the plot area of the math app">
 </div>
 
-<p>By clicking on the button <em>Edit Click Code</em> (item <em>9</em>
+<p>After clicking on the button <em>Edit Click Code</em> (item <em>9</em>
 in the figure above), we get the following display where we can
-enter the code to be executed when a student click on the plot. </p>
+enter the code to be executed when a student click on the plot area. </p>
 
 <div class="center">
   <img src="math_app_7.png" style="width: 400px"
-       alt="Screenshot of the display to enter the code to be executed when the student click on the plot">
+       alt="Screenshot of the display to enter the code to be executed when the student click on the plot area">
 </div>
 
-<p> Initially, this section contains a default code like
+<p> Initially, this window contains a default code like
 <font class="matlab">with(DocumentTools): ...</font> or
 <font class="matlab">Use DocumentTools in ...</font>.  That code must
-be deleted because it will not work inside <em>Möbius</em>.  This two calls
-work fine inside Maple but clash with some of the code used by <em>Möbius</em>.
-For our <em>Math App</em>, it suffices to enter the line</p>
+be deleted because it will not work inside <em>Möbius</em>.  This two commands
+work fine inside <em>Maple</em> but clash with some of the code used
+by <em>Möbius</em>.  For our <em>Math App</em>, it suffices to enter
+the following command.</p>
 <pre class="matlab">
 <font class="matlab">
 DocumentTools[Do](Actions:-Click() );
@@ -403,10 +435,11 @@ end proc;
 <p>Like the procedure <font class="matlab">Click</font>, the procedure
 <font class="matlab">Drag</font> does three things.  It first gets the
 new \(x\) and \(y\) coordinates of the last point drawn by the student
-after the student has dragged it.  It modifies the variable
+after the student has dragged it.  The procedure then modifies the variable
 <font class="matlab">Pts</font> by replacing the old coordinates of
-the last point drawn by the new coordinates.
-Finally, it draws in the figure <font class="matlab">Plot0</font> the
+the last point that the student has drawn by the new coordinates.
+Finally, the procedure draws in the
+plot area <font class="matlab">Plot0</font> the
 newest point and redraws a straight line from the previous point to
 the new point if necessary.</p>
 
@@ -414,43 +447,46 @@ the new point if necessary.</p>
 
 <p>As we did for the procedure <font class="matlab">Click</font>,
 we must attach the procedures <font class="matlab">Drag</font> and
-<font class="matlab">endDrag</font> to the plot using the items
+<font class="matlab">endDrag</font> to the plot area using this time the items
 <em>Edit Dragged Code</em> and <em>Edit Drag End Code</em>
-of the right menu respectively (items <em>10</em> and <em>11</em>
-respectively in the figure previous to the last one).  It suffices to
-use the code </p>
+respectively in the menu on the right side of the display in <em>Maple</em>
+(items <em>10</em> and <em>11</em> respectively in the figure previous
+to the last one).  It suffices to add the command </p>
 <pre class="matlab">
 <font class="matlab">
 DocumentTools[Do](Actions:-Drag() );
 </font>
 </pre>
-<p>for the section under <em>Edit Dragged Code</em> and the code</p>
+<p>to the display obtained by clicking on <em>Edit Dragged Code</em>
+and the command</p> 
 <pre class="matlab">
 <font class="matlab">
 DocumentTools[Do](Actions:-endDrag() );
 </font>
 </pre>
-<p>for the section under <em>Edit Drag End Code</em>.</p>
+<p>to the display obtained by clicking on <em>Edit Drag End Code</em>.</p>
 
 <p> Since the procedure <font class="matlab">endDrag</font> does
-nothing, we could have simply inserted a comment in the section
-under <em>Edit Drag End Code</em> and have completely ignored the procedure
-<font class="matlab">endDrag</font>.  That is what is done for the
-section associated to <em>Edit Hover Code</em>
+nothing, we could have simply inserted a comment in the display
+obtained by clicking on <em>Edit Drag End Code</em> and have
+completely ignored the procedure 
+<font class="matlab">endDrag</font>.  That is what is done in the
+display obtained by clicking on <em>Edit Hover Code</em>
 (item <em>12</em> in the figure previous to the last one)
-as illustrate below.</p>
+as it is illustrated below.</p>
 
 <div class="center">
   <img src="math_app_8.png" style="width: 400px"
-       alt="Screenshot of the display to enter the code to be executed when the student move the mouse over the plot">
+       alt="Screenshot of the display to enter the code to be executed when the student move the mouse over the plot area">
 </div>
 </li>
 <li> <p> The procedure <font class="matlab">Refresh</font> is attached
-to the text area associated to the label <em>Coordinates</em>.  Student
+to the text area <font class="matlab">TextArea0</font> associated to
+the label <em>Coordinates</em>.  Student 
 can modify the coordinates of the point that they have just drawn by
 writing the coordinates that they want this point to have in the text area.
-The coordinates must be in the format <em>[x,y]</em> (using square
-brackets).</p>
+The coordinates must be in the format
+<font class="matlab">[x,y]</font> (using square brackets).</p>
 <pre class="matlab">
 <font class="matlab">
 Refresh := proc()
@@ -473,35 +509,37 @@ end proc;
 <p> The procedure does four things.  It first gets the
 new \(x\) and \(y\) coordinates submitted by the student.  There is a
 minimal test to make sure that the \(x\) coordinate is at least in the
-interval \([A,B]\).  It modifies the variable
-<font class="matlab">Pts</font> by replacing the old coordinates of
-the last point drawn by the new coordinates.
-Finally, it draws in the figure <font class="matlab">Plot0</font> the
-newest point and redraws a straight line from the previous point to
-the new point if necessary.</p> 
+interval <font class="matlab">[A,B]</font>.  The procedure then
+modifies the variable <font class="matlab">Pts</font> by replacing the
+old coordinates of the last point drawn by the new coordinates.
+Finally, the procedure draws in the plot
+area <font class="matlab">Plot0</font> the newest point and redraws a
+straight line from the previous point to the new point if necessary.</p> 
 
-<p>To attach this procedure to the text area for
-the label <em>Coordinates</em>, you go to the display
-of the <em>Math App</em> in Maple and click on the text area
-associated to the label <em>Coordinates</em>.  You get
-the following menu on the right of the display in Maple.  </p>
+<p>To attach this procedure to the text
+  area <font class="matlab">TextArea0</font> for
+the label <em>Coordinates</em>, we go to the display
+of the <em>Math App</em> in <em>Maple</em> and click on the text area
+associated to the label <em>Coordinates</em>.  We get
+the following menu on the right side of the display in <em>Maple</em>.</p>
 
 <div class="center">
-  <img src="Mobius_Math_App_11.png" style="width: 250px"
+  <img src="math_app_9.png" style="width: 250px"
        alt="Screenshot of the menu that you get by clicking on the text area associated to the Coordinates label of the math app">
 </div>
 
 <p>By clicking on the button <em>Edit Content Change Code</em>
-  (item <em>13</em> in the figure above), you get the
-following display where you can enter the code to be executed when a
-student click on the plot. </p>
+  (item <em>13</em> in the figure above), we get the
+following display where we enter the code to be executed when a
+student enter coordinates in the text area and press
+the <em>Enter</em> key.</p> 
 
 <div class="center">
   <img src="math_app_10.png" style="width: 300px"
-       alt="Screenshot of the display to enter the code for the text area associated to the Coordinates label of the math app">
+       alt="Screenshot of the display to enter the code to be executed when coordinates are written in the text area associated to the Coordinates label of the math app">
 </div>
 
-<p> In the present case, the code used is </p>
+<p> In the present case, we enter the following command.</p>
 <pre class="matlab">
 <font class="matlab">
 DocumentTools[Do](Actions:-Refresh() );
@@ -510,10 +548,10 @@ DocumentTools[Do](Actions:-Refresh() );
 </li>
 <li> The procedure <font class="matlab">DoPlot</font> is not directly
 attached to a component of the <em>Math App</em> but it is
-indirectly called by the procedures that are attached to components of
+called by the procedures that are attached to components of
 the <em>Math App</em>.  This procedure draws the cobweb using the
-points provided by the students.  These points mark the corners of the
-students' cobwebs. </p>
+points provided by a student.  These points are the corners of the
+student's cobweb. </p>
 <pre class="matlab">
 <font class="matlab">
 DoPlot := proc()
@@ -536,9 +574,9 @@ consecutive points.</p>
 </li>
 <li> <p>The procedure <font class="matlab">Reset</font> is attached to
 the button <em>Clear / Effacer</em>.  It erases the cobweb drawn by
-the student and resets the figure to its initial state.  This
-procedure also clears the text areas associated to the
-buttons <em>Coordinates</em> and <em>Grade</em> if present.  </p>
+the students and resets the plot area to its initial state.  This
+procedure also clears the text areas associated to the labels
+<em>Coordinates</em> and <em>Grade</em>.</p>
 <pre class="matlab">
 <font class="matlab">
 Reset := proc()
@@ -551,22 +589,22 @@ end proc;
 </font>
 </pre>
 <p>As we have seen before, to attach this procedure to the button
-<em>Clear</em>, we go to the display of the <em>Math App</em>
-in Maple and click on the button to get the right menu in the Maple
-display to edit this button.  By clicking on the button
-<em>Edit Click Code</em>
-in the right menu, you get the display to enter the code to be executed
-when a student clicks on this button.  The code used is </p>
+<em>Clear / Effacer</em>, we go to the display of the <em>Math App</em>
+in <em>Maple</em> and click on the button to get the menu on the right side of
+the display in <em>Maple</em> to edit this button.  By clicking on the button
+<em>Edit Click Code</em> in the menu on the right side, we get the
+display to enter the code to be executed when a student clicks on the
+button <em>Clear / Effacer</em>.  We have inserted the following command. </p> 
 <pre class="matlab">
 <font class="matlab">
 DocumentTools[Do](Actions:-Reset() );
 </font>
 </pre>
 </li>
-<li> <p>When the <em>Math App</em> is used for practice, the instructor
-may give access to the button <em>Solution</em> that students may
-use to request the solution.  The following procedure is attached
-this button. </p>
+<li> <p>When the <em>Math App</em> is include in a question that
+student may use for practice, the instructor may give access to the
+button <em>Solution</em> that students can use to request the
+solution.  The following procedure is attached this button. </p>
 <pre class="matlab">
 <font class="matlab">
 Answer := proc()
@@ -576,17 +614,19 @@ Answer := proc()
 end proc;
 </font>
 </pre>
-<p> The procedure does three things.  It first clears the figure to
-reset it to its initial state.   It fills the array
-<font class="matlab">Pts</font> used to draw the cobweb with the exact
-coordinates of the points forming the corners of the cobweb.  Finally,
-it draws the cobweb.</p>
+<p> The procedure does three things.  It first clears and resets the
+plot area to its initial state.  It also clears the text areas.
+The procedure then fills the variable <font class="matlab">Pts</font>
+used to draw the cobweb with the exact coordinates of the points
+forming the corners of the cobweb.  Finally, the procedure draws the
+cobweb.</p> 
 
-<p>The procedure to attach this code to the button
-<em>Solution</em> is identical to the procedure used to attach the
-procedure <font class="matlab">Clear</font> to its button.  The only
-difference is that the code inserted in the section under
-<em>Edit Click Code</em> is</p>
+<p>The steps to attach this procedure to the button
+<em>Solution</em> are the same steps than those used to attach the
+procedure <font class="matlab">Reset</font> to its button.  The only
+difference is that the code inserted in the display obtained by
+clicking on the button <em>Edit Click Code</em> is the following
+command.</p>
 <pre class="matlab">
 <font class="matlab">
 DocumentTools[Do](Actions:-Answer() );
@@ -594,11 +634,11 @@ DocumentTools[Do](Actions:-Answer() );
 </pre>
 </li>
 <li> <p>The procedure <font class="matlab">Check</font> determines
-which of the points selected by the student are correct.  It also
-redraw the cobweb submitted by the student where the good elements of
-the cobweb appear in green and the bad ones are in red.  This
+which of the points drawn by a student are correct.  The procedure also
+redraw the cobweb submitted by the student where the correct elements of
+the cobweb are drawn in green and the incorrect ones are drawn in red.  This
 procedure is called by the procedure <font class="matlab">Grade</font>
-that comes next. </p>
+that we describe later. </p>
 <pre class="matlab">
 <font class="matlab">
 Check := proc()
@@ -658,28 +698,30 @@ Check := proc()
 end proc;
 </font>
 </pre>
-<p> The first loop count the number of correct points and track their
-location in the array <font class="matlab">Pts</font>.  A point is
-considered to be correct if its Euclidean distance to the right
-location is less than the tolerated error.  The second loop determines
-the straight lines that are correct (those linking two consecutive
-correct points) and those that are not correct.  Finally, the entire
-plot is redraw with the student cobweb where the good elements of the
-cobweb are in green and the bad ones are in red.</p>
+<p> The first loop count the number of good points and register their
+location in the variable <font class="matlab">Pts</font>.  A point
+drawn by a student is marked good if its Euclidean distance to the
+corresponding exact point on the cobweb is less than the tolerated
+error.  The second loop determines the straight lines that are good
+(those linking two consecutive good points) and those that are bad.
+Finally, the entire plot area is redraw with the student 
+cobweb where the good elements of the cobweb are in green and the bad
+ones are in red.</p> 
 
 <p>The section of the code that has been commented out could be used
-to get a complete correction based on the complete expected cobweb;
-namely, not only limited to the points that the students has
-provided.  This section of the code should not be used if the
-<em>Math App</em> is going ot be included in questions
-in <em>Möbius</em> that use <em>How did I do?</em>.   We do not wAnt
-students to use <em>How did I do?</em> to get the solution.</p>
+to get a complete correction based on the full cobweb required in the
+question; namely, not only limited to the points that the students have
+drawn.  This part of the code should not be used if the intention is
+to include the <em>Math App</em> in a question for <em>Möbius</em>
+that uses <em>How did I do?</em>.   We do not want students to
+use <em>How did I do?</em> to get the full solution.</p> 
 </li>
 <li> <p>The procedure <font class="matlab">Grade</font> is the
-procedure used by Möbius to mark the question when the assignment is
-submitted.  It is also called by <em>How did I do?</em> in Möbius.
-Moreover, it is also attached to the button <em>Correction</em> when
-students are allowed to use this button in a practice assignment.</p>
+procedure used by <em>Möbius</em> to mark the question when the assignment is
+submitted.  This procedure also called by <em>How did I do?</em> in
+<em>Möbius</em>.  Moreover, this procedure is also attached to the
+button <em>Correction</em> when students are allowed to use this
+button in a practice assignment.</p>
 <pre class="matlab">
 <font class="matlab">
 Grade := proc()
@@ -699,12 +741,13 @@ end proc;
 </font>
 </pre>
 <p>A grade other than 0 is given when at least 3/4 of the points drawn
-by the student are right.  The grade is displayed in the text area
-associated to the button <em>Correction</em>.  The name of this text
-area is <font class="matlab">TextArea1</font>.  The grade is also
-returned by this function.  This is the value used by Möbius. </p>
+by the student (out of a required total of
+<font class="matlab">Nbr</font> pointsxo)  are right.  The grade is
+displayed in the text area <font class="matlab">TextArea1</font>
+associated to the button <em>Correction</em>.  The grade is also
+returned by this procedure.  This is the value used by <em>Möbius</em>. </p>
 </li>
-<li> <p> You end the module with the following statement. </p>
+<li> <p> We end the code of the module with the following statement.</p>
 <pre class="matlab">
 <font class="matlab">
 end module;
@@ -719,37 +762,38 @@ end module;
 macro(SP = SP, GP = GP);
 </font>
 </pre>
-<p> To run the <em>Math App</em> in Maple, the line
+<p> To run the <em>Math App</em> in <em>Maple</em>, the line
 <font class="matlab"># Actions:-InitParams(...</font> must not be
 commented out.  The only argument of
 <font class="matlab">Actions:-InitParams()</font> that has been
-redefined is <font class="matlab">flag1</font> but the other
+redefined is the variable <font class="matlab">flag1</font> but the other
 parameters can also be redefined.  We
 set <font class="matlab">flag1=1</font> to get the hidden buttons
 and text areas.</p>
 
 <p>To be more flexible when used in <em>Maple</em>,
-textareas to change the function to be iterated, the initial
+text areas to change the function to be iterated, the initial
 condition, ... should be added to the <em>Math App</em>.
-They can be hidden when the <em>Math App</em> is used
-in <em>Möbius</em>.  It is very inconvenient right now to have to
-modify the arguments of
+These components can be hidden when the <em>Math App</em> is included
+in a question for <em>Möbius</em>.  It is very inconvenient right now
+to have to modify the arguments of
 <font class="matlab">Actions:-InitParams()</font> in the
 <em>starting code</em> each time that we
 want to use the <em>Math App</em> in <em>Maple</em> with different
-function, initial conditions, ....</p>
+functions, initial conditions, ....</p>
 
 <p>The line <font class="matlab">macro(SP = SP, GP = GP);</font> is
-optional but it is nice to clear the macros that you have defined.</p>
+optional but it is always nice to clear the macros that you have defined.</p>
 </li>
 </ol>
 
-<p> Do not forget to save your work when you have finished building
-your <em>Math App</em>.  This <em>Math App</em> is called
+<p> We should never forget to save our work when we have finished building
+our beautiful <em>Math App</em>.  The <em>Math App</em> described in
+this document is called
 <a class="MMathSStat" id="MW" target="_blank" href="UO_DDS_cobweb.mw" download>
-UO_DDS_cobweb.mw</a>.  You can download this <em>Math App</em> by left
-clicking on the previous link and selecting <em>Save link as
-... &rarr; Save file</em> .</p>
+UO_DDS_cobweb.mw</a>.  It can be downloaded by clicking with the right
+button of the mouse on the previous link and then selecting
+<em>Save link as ... &rarr; Save file</em>.</p>
 
 <br>
 <hr>
