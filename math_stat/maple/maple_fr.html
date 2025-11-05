@@ -70,8 +70,9 @@ main_title( MStexte, "MMathSStat");
   <img src="Maple_Logo_Icon.png" style="width: 200px" alt="Icone de Maple">
 </div>
 
-<p>Ces documents fournissent une <q lang="fr">brève</q> introduction
-à <em>Maple</em>.  Nous espérons qu'il y a assez d'information pour que
+<p>Les documents sous ce titre fournissent une
+<q lang="fr">brève</q> introduction à <em>Maple</em>.  Nous espérons
+qu'il y a assez d'information pour que
 le lecteur puisse rapidement commencer à utiliser <em>Maple</em>.  Il
 y a une vaste librairie de fonctions que le lecteur pourrait être
 intéressé à explorer.  Il suffit d'utiliser le menu
@@ -114,7 +115,7 @@ défini ci-dessus à l'aide de la commande suivante.</p>
 
 \[ x^2 + 2 x y + y^2\]
 
-<p>Nous avons utilisé la commande <font class="matlab">expand</font>
+<p>Nous avons utilisé la commande <font class="matlab">expand()</font>
 pour calculer le carré.  Nous pouvons exécuter toutes les opérations
 algébriques biens connues sur les polynômes.</p>
 
@@ -130,7 +131,7 @@ algébriques biens connues sur les polynômes.</p>
 
 \[ (x-y)^2\]
 
-<p>Comme prévu, la commande <font class="matlab">factor</font>
+<p>Comme prévu, la commande <font class="matlab">factor()</font>
 met en facteurs le polynôme.</p>
 
 <p>Si nous voulons faire référence au polynôme \(\displaystyle (x+y)^2\), nous
@@ -188,14 +189,14 @@ suivante.</p>
 \end{split}
 \]
 
-<p>Nous avons utilisé la fonction <font class="matlab">evalf</font>
+<p>Nous avons utilisé la fonction <font class="matlab">evalf()</font>
 pour obtenir l'approximation numérique de \(\sin(17)\).  Le lecteur ne
 doit pas oublier que <em>Maple</em> travaille toujours en radians.
 Pour évaluer \(f\) pour d'autres valeurs de \(x\), nous devons répéter
 les deux opération précédentes avec une nouvelle valeur de \(x\).</p>
 
 <p>Une autre possibilité est d'utiliser la fonction
-<font class="matlab">subs</font> de <em>Maple</em>.</p>
+<font class="matlab">subs()</font> de <em>Maple</em>.</p>
 
 <pre class="matlab">
 > <font class="matlab">x:='x': f := sin(x^2+1);</font>
@@ -216,12 +217,12 @@ les deux opération précédentes avec une nouvelle valeur de \(x\).</p>
 
 <p>Nous avons utilisé la commande <font class="matlab">x := 'x';</font>
 pour effacer la valeur \(4\) de \(x\) qui provenait des opérations
-précédentes.  Si nous n'avions pas fait cela, on aurait que
-<font class="matlab">f := sin(4^2+1);</font>, une valeur constante.</p>
+précédentes.  Si nous n'avions pas fait cela, nous aurions que
+<font class="matlab">f := sin(4^2+1)</font>, une valeur constante.</p>
 
 <p>L'usage de <font class="matlab">:=</font> pour définir une fonction
 est la bonne façon de définir une fonction si nous voulons additionner
-des fonctions algébriques, dériver des fonctions, etc. mais ce n'est
+des fonctions algébriques, dériver des fonctions, ..., mais ce n'est
 pas la meilleure façon si nous voulons évaluer des fonctions à
 plusieurs points.  De plus, ce ne sont pas toutes les fonctions qui
 sont données par des expressions algébriques, trigonométriques, etc.
@@ -340,7 +341,7 @@ genres de dessins.</p>
 <p>Pour le prochain exemple, nous voulons tracer les points
 \(\displaystyle (x,x^2)\) pour \(x=1,2,\ldots,20\).  Pour ce faire,
 nous devons fournir une matrice ou une liste de points à la fonction
-<font class="matlab">plot</font>.  Si on fournie une matrice,
+<font class="matlab">plot()</font>.  Si on fournie une matrice,
 La première colonne doit contenir les premières coordonnées
 (i.e. selon l'axe des \(x\)) des points et la deuxième colonne doit
 contenir les secondes coordonnées (i.e. selon l'axe des \(y\)) correspondantes.
@@ -404,11 +405,11 @@ commande ci-dessus dans <em>Maple</em> fonctionne.
 options que nous avons utilisées.  Il y a beaucoup plus
 d'options. Veuilliez consulter le menu <em>help</em> de <em>Maple</em>
 pour obtenir toute l'information au sujet des options disponibles pour
-la fonction <font class="matlab">plot3d</font>.</p>
+la fonction <font class="matlab">plot3d()</font>.</p>
 
 <p>Deux autres méthodes pour visualiser une fonction de deux variables
 sont le tracé de contours et le diagramme de densité.  Les deux
-fonctions de <em>Maple</em> qui exécutent ces méthodes sont
+fonctions de <em>Maple</em> qui font usage de ces méthodes sont
 <font class="matlab">densityplot()</font>
 et <font class="matlab">contourplot()</font> qui font parties de la
 librairie <font class="matlab">plots</font>.</p>
@@ -431,8 +432,8 @@ librairie <font class="matlab">plots</font>.</p>
        alt="Tracé de contours de x*cos(x)*sin(y)">
 </div>
 
-<p> On peut aussi tracer le graphe de fonctions définies par des
-procédures.  Nous illustrons ceci à l'aide de la fonction \(f\)
+<p> On peut aussi tracer le graphe d'une fonction définie par une
+procédure.  Nous illustrons ceci à l'aide de la fonction \(f\)
 définie par \(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
 
 <pre class="matlab">
@@ -453,7 +454,8 @@ conçues pour dessiner des figures géométriques en trois dimensions.
 <font class="matlab">plottools</font> et
 <font class="matlab">geom3d</font> sont deux de ces librairies.</p>
 
-<p>On peut utiliser <font class="matlab">plottools</font> pour
+<p><em>Exemple</em>: On peut
+utiliser <font class="matlab">plottools</font> pour 
 visualiser des figures géométriques en trois dimensions.  Pour
 dessiner (la surface de) l'hémisphère de rayon \(3\) centré en
 \((4,3,4)\) et tel que \(z\geq 4\), Nous procédons de la façon
@@ -488,8 +490,9 @@ points non-colinéares quelconques du plan.</p>
        alt="Dessin de l'hémisphère">
 </div>
 
-<p> Supposons que nous voulions dessiner l'intersection de notre
-hémisphère et du plan \(x/2 + y/4 - z = -3\).  Puisque la librairie
+<p><em>Exemple</em>: Supposons que nous voulions dessiner
+l'intersection de l'hémisphère précédente et du plan \(x/2 + y/4 - z = -3\).
+Puisque la librairie 
 <font class="matlab">plottools</font> ne possède pas de fonction pour
 dessiner les plans, nous utilisons la technique traditionnelle pour
 dessiner les plans.</p>
@@ -525,12 +528,13 @@ trois dimensions.  Cette librairie est plus élaborée que la librairie
 <font class="matlab">plottools</font>.  Nous allons simplement
 illustrer son potentiel à l'aide de deux exemples.</p>
 
-<p>Pour comparaison avec la librairie <font class="matlab">plottools</font>, 
+<p><em>Exemple</em>: Pour comparaison avec la
+librairie <font class="matlab">plottools</font>,  
 nous utilisons la librairie <font class="matlab">geom3d</font> pour
 dessiner l'intersection de la sphère de rayon \(3\) centrée en \((4,3,4)\)
 et du plan \(x/2 + y/4 - z = -3\).  Nous commençons par dessiner la
 sphère de rayon \(3\) centrée en \((4,3,4)\).  Le centre de la sphère
-est définie par la commande</p>
+est définie par la commande suivante de <em>Maple</em>.</p>
 
 <pre class="matlab">
 > <font class="matlab">restart: with(geom3d):</font>
@@ -541,7 +545,8 @@ est définie par la commande</p>
 ce
 \]
 
-<p> La sphère est définie par </p>
+<p> La sphère de rayon \(3\) centrée à \((4,3,4)\) est définie par la
+commande de <em>Maple</em> </p>
 
 <pre class="matlab">
 > <font class="matlab">sphere(sp,[ce,3],['x','y','z']); </font>
@@ -551,7 +556,7 @@ ce
 sp
 \]
 
-<p> et dessinée par la commande </p>
+<p> et dessinée par la commande de <em>Maple</em> </p>
 
 <pre class="matlab">
 > <font class="matlab">draw(sp(color=blue), orientation=[-45,70],axes=normal);
@@ -587,7 +592,7 @@ figure à l'aide de la commande suivante.</p>
        alt="Dessin de la sphère et du plan qui la coupe">
 </div>
 
-<p> La fonction <font class="matlab">intersection()</font>
+<p><em>Exemple</em>: La fonction <font class="matlab">intersection()</font>
 de la libraire <font class="matlab">geom3d</font> peut trouver
 l'intersection de deux plans.  Considérons un deuxième plan défini
 par \(x/2-y/4-z=-2\). </p>
@@ -620,7 +625,7 @@ inter
 
 \[
 \begin{split}
-\text{Warning, assume that}&\text{ the name of the parameter in the parametric equations is _t}\\
+\text{Warning, assume that}&\text{ the name of the parameter in the parametric equations is \_t}\\
 &\text{name of the object: inter}\\
 &\text{form of the object: line3d}\\
 &\text{equation of the line:}\ \left[x = -4-\frac{\_t}{2}, y = 0, z =
@@ -681,7 +686,12 @@ ci-dessous.</p>
 <li> <script language="javascript">
     buildLinK(ODE_O2_var_coeff.url_fr, ODE_O2_var_coeff.text_fr,"MMathSStat",
     ODE_O2_var_coeff.id, ODE_O2_var_coeff.target);
-  </script> <font class="matlab">plots</font>) </li>
+  </script> (<font class="matlab">plots</font>) </li>
+<li> <script language="javascript">
+    buildLinK(ODE_systems.url_fr, ODE_systems.text_fr,"MMathSStat",
+    ODE_systems.id, ODE_systems.target);
+  </script> (<font class="matlab">LinearAlgebra, DEtools, plots</font>
+  et programmation) </li>
 <li> <script language="javascript">
     buildLinK(Laplace_transf.url_fr, Laplace_transf.text_fr,"MMathSStat",
     Laplace_transf.id, Laplace_transf.target);
@@ -690,11 +700,6 @@ ci-dessous.</p>
     buildLinK(Fourier_series.url_fr, Fourier_series.text_fr,"MMathSStat",
     Fourier_series.id, Fourier_series.target);
   </script> (<font class="matlab">plots</font> et programmation) </li>
-<li> <script language="javascript">
-    buildLinK(ODE_systems.url_fr, ODE_systems.text_fr,"MMathSStat",
-    ODE_systems.id, ODE_systems.target);
-  </script> (<font class="matlab">LinearAlgebra, DEtools, plots</font>
-  et programmation) </li>
 <li> <script language="javascript">
     buildLinK(PDE.url_fr, PDE.text_fr,"MMathSStat", PDE.id,
     PDE.target);
@@ -706,6 +711,10 @@ ci-dessous.</p>
 <li> <script language="javascript">
     buildLinK(Maple_programs.url_fr, Maple_programs.text_fr,"MMathSStat",
     Maple_programs.id, Maple_programs.target);
+  </script> </li>
+<li> <script language="javascript">
+    buildLinK(math_apps.url_fr, math_apps.text_fr,"MMathSStat",
+    math_apps.id, math_apps.target);
   </script> </li>
 </ul>
 

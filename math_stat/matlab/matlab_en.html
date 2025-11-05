@@ -67,7 +67,9 @@ main_title( MStext, "MMathSStat");
 <h2 id="TOP"> Introduction to Matlab </h2>
 
 <div style="float: left; margin-right: 20px">
+<div class="center">
 <img src="Matlab_Logo.png" style="width: 100px" alt="Logo of Matlab">
+</div>
 <div class="center"><em>Content</em></div>
 <ul>
   <li> <script language="javascript"> 
@@ -155,9 +157,9 @@ functions in capital letters (e.g. QUADL, ODE113, ...).  The name of a
 function must be typed in small letter in the <em>Matlab</em> command
 window (e.g. quadl, ode113, ...). </p>
 
-<p>Almost all the information provided on this site is also valid for
+<p>Almost all the information provided in this document is also valid for
 <em>Octave</em>.  The presentation of the results of a computation
-with <em>Octave</em> may sometime by different than the presentation
+with <em>Octave</em> may sometime be different than the presentation
 of the same results with <em>Matlab</em>.  A very small number
 of <em>Matlab</em> functions are missing in <em>Octave</em>.  We
 mention one in the section on solving ordinary differential equations
@@ -189,7 +191,7 @@ with the <em>Matlab</em> prompt.</p>
 
 <h3 id="Sect2"> Basic Arithmetical Operations </h3>
 
-<p> The basic arithmetic operation are:</p>
+<p> The basic arithmetic operations are:</p>
 
 <div class="center" style="width: 100%">
 <table style="width: 50%;">
@@ -222,7 +224,7 @@ parentheses </td></tr>
 <li> Additions and subtractions </li>
 </ol>
 
-<p> When two operations are on the same level of
+<p> When two consecutive operations are on the same level of
 priority, <em>Matlab</em> performs the operations from left to right.
 The exponentiation is the exception because <em>Matlab</em> performs
 these operations from right to left. </p> 
@@ -273,7 +275,7 @@ are displayed in short format which displays only five significant
 digits.  However, the computations are always performed with as many
 digits as <em>Matlab</em> can used.</p>
 
-<p><em>Example</em>: The cosine of \(3\) radians is given by:</p>
+<p><em>Example</em>: The cosine of \(3\) radians is given by</p>
 
 <pre class="matlab">
 >> <font class="matlab">cos(3)</font> <br>
@@ -281,7 +283,7 @@ ans = <br>
    -0.9900
 </pre>
 
-<o> The cosine of \(1.57\) radians is given by:</p>
+<o> The cosine of \(1.57\) radians is given by</p>
 
 <pre class="matlab">
 >> <font class="matlab">cos(1.57)</font> <br>
@@ -295,7 +297,7 @@ format to long, it suffices to execute the command
 <font class="matlab">format long</font>.</p>
 
 <p><em>Example</em>: The cosine of \(1.57\) radians in the long format is
-given by:</p>
+given by</p>
 
 <pre class="matlab">
 >> <font class="matlab">format long</font>
@@ -314,7 +316,7 @@ function <font class="matlab">sprintf</font>. </p>
 <h3 id="Sect4"> Complex Numbers </h3>
 
 <p>To type in a complex number in <em>Matlab</em>, we use the
-regular notation:</p> 
+regular notation as it follows.</p> 
 
 <pre class="matlab">
 >> <font class="matlab">z = 5 - 7i</font><br>
@@ -323,9 +325,9 @@ z = <br>
 </pre>
 
 <p> The table of arithmetical operations on real numbers above extends
-to the complex number.</p>
+to the complex numbers.</p>
 
-<p><em>Example</em>: The product of \(5 + 3i\) and \(5 - 3i\) is given by:</p>
+<p><em>Example</em>: The product of \(5 + 3i\) and \(5 - 3i\) is given by</p>
 
 <pre class="matlab">
 >> <font class="matlab">z = 5 - 3i;</font>
@@ -335,7 +337,7 @@ w1 = <br>
     34
 </pre>
 
-<p>The division of \(5 + 3i\) by \(5 -3i\) is given by:</p>
+<p>The division of \(5 + 3i\) by \(5 -3i\) is given by</p>
 
 <pre class="matlab">
 >> <font class="matlab">w2 = z / zbar</font><br>
@@ -383,7 +385,7 @@ used to separate the rows of the matrix.</p>
 \[
 A = \begin{pmatrix} 1 & \pi & 0 \\ 0 & 4 & 5 \end{pmatrix} \ ,
 \]
-<p>it suffices to type in one of the following commands:</p>
+<p>we may type in one of the following commands:</p>
 
 <pre class="matlab">
 >> <font class="matlab">A = [ 1 pi 0; 0 4 5 ] </font><br>
@@ -526,7 +528,7 @@ W = <br>
 <p>Other familiar operations on matrices can be executed with <em>Matlab</em>.
 </p>
 
-<p><em>Example</em>: The inverse and determinant of a matrix \(B\)
+<p><em>Example</em>: The inverse and determinant of the matrix \(B\)
 defined above are given by the following commands.</p>
 
 <pre class="matlab">
@@ -655,8 +657,8 @@ function \(f\).</p>
 >> <font class="matlab">plot(x,y)</font>
 </pre>
 
-<p>After having pressed <em>Enter</em> key, a new window pops up with a figure
-containing the graph of the function.</p>
+<p>After having pressed the <em>Enter</em> key, a new window pops up
+with a figure containing the graph of the function.</p>
 
 <div class="center">
   <img src="Matlab_figure1.gif" style="width: 300px" alt="Graph of x^3">
@@ -665,8 +667,8 @@ containing the graph of the function.</p>
 <p>More equally spaced points will produce a more accurate graph of
 the function.</p> 
 
-<p>It is possible to plot the graph of more than one function in the
-same figure.
+<p>It is possible to include in the same figure the graphs of several
+functions.
 The command <font class="matlab">hold on</font> after having produce
 the first figure tells <em>Matlab</em> to draw the following graphs in the
 existing figure.   The command <font class="matlab">hold off</font> 
@@ -768,9 +770,6 @@ been used), the following command draws the linear interpolation of
 <pre class="matlab">
 >> <font class="matlab">plot(x,y);</font>
 </pre>
-
-<p>The graph of the linear interpolation of \(f\) is given in the
-following figure.</p> 
 
 <div class="center">
   <img src="Matlab_figure7.png" style="width: 300px"
@@ -883,8 +882,8 @@ adaptive recursive Simpson's rule and the function
 <font class="matlab">quadl</font> is based on an adaptive recursive 
 Newton-Cotes method.  To be able to use these functions, we need to be
 able to define new functions using <em>m-files</em> or to
-define <em>anonymous functions</em>.  This is the topic of the
-next section.</p>
+define <em>anonymous functions</em>.  These are the topics of the
+next two sections.</p>
 
 <h3 id="Sect13"> m-files </h3>
 
@@ -907,9 +906,9 @@ There is nothing else to be added to this file.</p>
 line following the character <em>%</em> is ignored by <em>Matlab</em>.</p>
 
 <p>Here is the content of the <em>m-file</em>
-  <script language="javascript">
-    buildLinK("funct1.m", "funct1.m","MMathSStat", "id1", "_blank");
-  </script>.</p>
+<script language="javascript">
+  buildLinK("funct1.m", "funct1.m","MMathSStat", "id1", "_blank");
+</script>.</p>
 
 <pre class="matlab">
 % y = funct1(x)
@@ -920,6 +919,10 @@ line following the character <em>%</em> is ignored by <em>Matlab</em>.</p>
     y = x.*sin(x);
 end </font>
 </pre>
+
+<p><em>Note</em>: The file <em>funct1.m</em> can be downloaded by
+clicking with the right button of the mouse on the previous link and
+then selecting <em>Save link as ... &rarr; Save file</em>.</p>
 
 <p>If the file <em>funct1.m</em> is in the directory from which
 <em>Matlab</em> as been launched or in a directory included in the list of
@@ -941,8 +944,8 @@ ans = <br>
 (first group of) commented lines before the line
 <font class="matlab">function y = funct1(x)</font> of the
 file <em>funct1.m</em>.  A <em>m-file</em> should always begin with
-comments describing the function defined in this <em>m-file</em>, what
-this function does and how to use it including the list and
+comments describing the function defined in the <em>m-file</em>, what
+the function does and how to use it including the list and
 description of its arguments.</p>
 
 <pre>
@@ -964,8 +967,8 @@ is needed at the end of each command line otherwise the result of the
 line will be displayed each time that the <em>m-file</em> is executed.
 It is strongly recommended to use <font class="matlab">.*</font> instead
 of <font class="matlab">*</font>, <font class="matlab">./</font> instead of 
-<font class="matlab">/</font>, etc to create an <em>array smart</em> functions.
-</p>
+<font class="matlab">/</font>, etc to create an <em>array smart</em>
+function.</p>
 
 <p>The name of the <em>m-file</em> defining the function
 <font class="matlab">function_name</font> must be
@@ -978,8 +981,8 @@ anything as long as it satisfies the following few rules:</p>
 (_).  No other symbols are allowed.</li>
 <li> Function names already used such as <font class="matlab">cos</font>,
 <font class="matlab">log</font>, <font class="matlab">sin</font>, ... should
-not be used.   <em>Matlab</em> will not complain if such names are
-used but then the original functions will no longer be available.</li>
+not be used.   <em>Matlab</em> does not complain if such names are
+used but then the original functions are no longer available.</li>
 </ul>
 
 <p>The <em>m-files</em> can be saved in any directory.
@@ -1153,7 +1156,7 @@ and <font class="matlab">ode113</font> (<em>Octave</em> does not have
 offers <font class="matlab">ode115s</font> instead).
 They are variable step size methods based on Runge-Kutta methods.
 They are parts of the family of ODE solvers for <em>Matlab</em>.
-To get help about an ODE solver and/or a list of the other ODE solvers
+To get help about an ODE solver and/or to get a list of the other ODE solvers
 in <em>Matlab</em>, it suffices to execute the command
 <font class="matlab">help ode23 </font> for instance. The function name
 <font class="matlab">ode23</font> can be replaced by
@@ -1168,7 +1171,8 @@ procedure to use the other solvers is similar.</p>
 </font>.</p>
 
 <p> The function <font class="matlab">yprime</font> (depending on
-\(x\) and \(y\)) is the right side of the ODE \(y'(x) = \text{yprime}(x,y)\).
+\(x\) and \(y\)) is the right hand side of the ODE
+\(y'(x) = \mathrm{yprime}(x,y)\).
 The value <font class="matlab">x_zero</font> is the initial time and
 the value <font class="matlab">x_final</font> is when to stop the
 numerical integration.  The expression
@@ -1184,12 +1188,12 @@ of the row vector <font class="matlab">y0</font>.  The
 \(\displaystyle i^{th}\) column of
 <font class="matlab">yy</font> is an approximation at each component of 
 <font class="matlab">xx</font> of the solution \(y\) of
-\(y'(x) = \text{yprime}(x,y)\) with initial condition
+\(y'(x) = \mathrm{yprime}(x,y)\) with initial condition
 at <font class="matlab">x0</font> given by the
 \(\displaystyle i^{th}\) component of <font class="matlab">y0</font>.
 The \(\displaystyle k^{th}\) row of <font class="matlab">yy</font> is the
 approximation of the solution \(y\) of 
-\(y'(x) = \text{yprime}(x,y)\) evaluated at the
+\(y'(x) = \mathrm{yprime}(x,y)\) evaluated at the
 \(\displaystyle k^{th}\) component of
 <font class="matlab">xx</font> for each initial condition given by
 the components of <font class="matlab">y0</font> at
@@ -1375,7 +1379,7 @@ program <em>Matlab</em> to execute iterative methods.  The following
 example will illustrate how this could be done for the fixed point
 method.  The approach is similar for other iterative methods.</p>
 
-<p><em>Example</em>: We want to sue the fixed point method to
+<p><em>Example</em>: We want to use the fixed point method to
 approximate the solution of the equation
 \(\displaystyle -(x^2/8) - x/4 + 1/2 = x\) in the
 interval \([0,1]\).  We start the iterations with \(x = 0.5\).  A
@@ -1415,15 +1419,15 @@ x = <br>
     0.3852
 </pre>
 
-<p>However, the program above is not convenient because we have to modify the
+<p>However, the script above is not convenient because we have to modify the
 file <em>fxpt1.m</em> each time that the function to be iterated, the initial
 value or the number of iterations are modified.</p>
 
 <p>The function <font class="matlab">fxpt2</font> defined in the file
   <script language="javascript">
     buildLinK("fxpt2.m", "fxpt2.m","MMathSStat", "id4", "_blank");
-  </script> takes as arguments the <em>handle</em> of the function to
-iterate, the initial value and the number of iterations.</p>
+  </script> takes as arguments the <em>name</em> or <em>handle</em> of
+the function to iterate, the initial value and the number of iterations.</p>
 
 <pre class="matlab">
 % y = fxpt2(funct,x0,n)
@@ -1431,12 +1435,21 @@ iterate, the initial value and the number of iterations.</p>
 % This function returns the result of n iterations of the function
 % y = funct(x) starting with the value x = x0 .
 <font class="matlab">function y = fxpt2(funct,x0,n)
-    y = x0
+    y = x0;
     for i=1:n
       y = feval(funct,y);
     end
 end  </font>
 </pre>
+
+<p><em>Note</em>: If we had used the line
+<font class="matlab">y = funct(y);</font> instead of the line
+<font class="matlab">y = feval(funct,y);</font> in the previous
+script, then the function <font class="matlab">fxpt2</font> would have
+only accepted function <em>handles</em> as its first argument.  By
+using the function <font class="matlab">feval()</font>, function
+<em>names</em> can also be given as first argument of the
+function <font class="matlab">fxpt2</font>.</p> 
 
 <p>To execute \(20\) iterations of the function
 \(\displaystyle x \mapsto -(x^2/8) - x/4 + 1/2\) starting with
@@ -1458,7 +1471,9 @@ end </font>
 
 <p> The function
 <font class="matlab">fxpt2</font>
-can then be invoked with the arguments <font class="matlab">@funct3</font>,
+can then be invoked with the
+arguments <font class="matlab">@funct3</font> or
+<font class="matlab">'funct3'</font>,
 <font class="matlab">0.5</font> and <font class="matlab">20</font>.</p>
 
 <pre class="matlab">
