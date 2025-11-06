@@ -105,7 +105,7 @@ décimaux) des racines est donnée par la commande suivante.</p>
 
 \[ 1.157720809, -0.0788604043 + 2.275165423 I, -0.0788604043 - 2.275165423 I \]
 
-<p>Pour obtenir les valeurs exactes de cette liste, nous utilisons les
+<p>Pour extraire les valeurs de cette liste, nous utilisons les
 commandes suivantes.</p>
 
 <pre class="matlab">
@@ -119,6 +119,16 @@ commandes suivantes.</p>
 & x3 := -0.0788604043 - 2.275165423 I
 \end{split}
 \]
+
+<p><em>Avertissement</em>: Puisque qu'à la fin nous avons cherché des
+approximations numériques des racines du polynôme, nous aurions pu
+penser à utiliser la fonction <font class="matlab">fsolve()</font> de
+<em>Maple</em>.  Cependant, cette fonction peut seulement trouver des
+approximations numériques des racines réelles.  Nous allons revenir
+dans le document <script language="javascript">
+ buildLinK(Complex_anal.url_en, Complex_anal.text_en,
+"MMathSStat", Complex_anal.id, Complex_anal.target);
+</script> sur le sujet de trouver les racines d'une fonction analytique.</p>
 
 <p><em>Exemple</em>: Le but est de trouver les points d'intersection
 des graphes des deux fonctions définies ci-dessous.</p>
@@ -163,8 +173,8 @@ aussi chercher les racines du polynôme de degré quatre
 <font class="matlab">discont=true</font> pour produire le
 graphe de la fonction définie par <font class="matlab">f1</font>
 car cette fonction est discontinue.  En fait, il y a des valeurs de
-\(x\) pour lesquelles la fonction n'est pas définie et où l'on a des
-asymptotes verticales.</p>
+\(x\) pour lesquelles la fonction n'est pas définie et où elle possède
+des asymptotes verticales.</p>
 
 <p>Pour déterminer les coordonnées des points d'intersection, Nous
 calculons les valeurs de <font class="matlab">f2</font> (Nous aurions
@@ -191,7 +201,7 @@ valeurs de la liste <font class="matlab">xs</font>.</p>
 \end{split}
 \]
 
-<p>Nous avons utilisé la commande <font class="matlab">seq()</font>
+<p>Nous avons utilisé la function <font class="matlab">seq()</font>
 de <em>Maple</em> pour générer la liste de valeurs ci-dessus.</p>
 
 <h3> Systèmes d'équations non-linéaires </h3>

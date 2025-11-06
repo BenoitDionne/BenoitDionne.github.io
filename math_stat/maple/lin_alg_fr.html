@@ -181,10 +181,10 @@ suivante. </p>
 (.) peut être utilisé pour dénoter le produit scalaire de deux vecteurs
 de même dimensions.   Pour cette raison, si nous voulons qu'un vecteur
 rangée (colonne) soit traité comme une matrice avec une rangée
-(colonne), alors nous devons le définir comme une matrice.  Dans le
-cas précédent, si <font class="matlab">u</font>
-et <font class="matlab">v</font> auraient été des matrices avec une
-rangée, alors leur produit n'aurait pas été possible.</p>
+(colonne), alors nous devons le définir comme une matrice.  Si
+<font class="matlab">u</font> et <font class="matlab">v</font>
+auraient été des matrices avec une rangée, alors
+<font class="matlab">u.v</font> n'aurait pas été possible.</p>
 
 <p>La norme Euclidienne, la norme \(1\) et la norme infinie du
 vecteur <font class="matlab">v</font> sont:</p>
@@ -309,7 +309,8 @@ colonne par colonne. </p>
 <font class="matlab">ReducedRowEchelonForm</font>, etc.
 Nous illustrons seulement deux de ces fonctions ci-dessous.</p>
 
-<p> Nous considérons la matrice \(A\) définie par la commande</p>
+<p> Nous considérons la matrice \(A\) définie par la commande
+de <em>Maple</em> suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">A:=Matrix([[4,15/7,-4/7],[-6,27/7,18/7],[16,-30/7,29/7]]); </font>
@@ -352,16 +353,19 @@ eigvec := \begin{bmatrix} 6 \\ 3 + 6\, I \\ 3 - 6\, I \end{bmatrix} ,
 \end{bmatrix}
 \]
 
-<p>Cette fonction affiche la liste des valeurs propres (répétées \(k\)
-fois si la multiplicité algébrique d'une valeur propre est \(k\)) et
-une matrice où chacune des colonnes est un vecteur propre (ou une
-colonne de zéros si la multiplicité géométrique d'une valeur propre
-est inférieure à sa multiplicité algébrique) associé à la valeur
-propre de la liste qui occupe le même rang.  L'ensemble des vecteurs
+<p>Cette fonction affiche un vecteur colonne qui liste toutes les
+valeurs propres (répétées \(k\) fois si la multiplicité algébrique
+d'une valeur propre est \(k\)) et une matrice où la \(i^e\) colonne
+est un vecteur propre (ou une colonne de zéros si la multiplicité
+géométrique d'une valeur propre est inférieure à sa multiplicité
+algébrique) associé à la \(i^e\) composante du vecteur colonne qui
+liste les valeurs propres.   L'ensemble des vecteurs
 propres est linéairement indépendant.  Par exemple, la première
-colonne est un vecteur propre associé à la première valeur propre,
-la deuxième colonne est un vecteur propre associé à la deuxième valeur
-propre, ainsi de suite.  Dans l'exemple précédent,
+colonne de la matrice est un vecteur propre associé à la valeur propre
+dans la première composante du vecteur colonne, la deuxième colonne de
+la matrice (si non-nul) est un vecteur propre associé à la valeur
+propre dans la seconde composante du vecteur colonne, ainsi de suite.
+Dans l'exemple précédent, 
 \(\displaystyle \begin{pmatrix} 1/4 \\ 1/2 \\ 1 \end{pmatrix} \) est
 un vecteur propre de \(A\) associé à la valeur propre \(6\), 
 \(\begin{pmatrix} -2/13 + 3i/13 \\ -4/13 - 7i/13 \\ 1 \end{pmatrix}\)
@@ -455,6 +459,7 @@ A :=  \begin{bmatrix}2.0 & 5 & 4 \\-4 & 2 & 1 \\ 2 & -1 & 1 \end{bmatrix}
 > <font class="matlab">Eigenvalues(A); Eigenvectors(A); </font>
 </pre>
 
+<div style="font-size:75%">
 \[
 \begin{split}
 &\begin{bmatrix}
@@ -477,6 +482,7 @@ A :=  \begin{bmatrix}2.0 & 5 & 4 \\-4 & 2 & 1 \\ 2 & -1 & 1 \end{bmatrix}
 0.765660606976777 + 0\,I \end{bmatrix}
 \end{split}
 \]
+</div>
 
 <h3>Opérations sur les composantes d'une matrice </h3>
 
@@ -552,6 +558,20 @@ z &:= -\frac{27}{10}
 \end{split}
 \]
 
+<p>Puisque la matrice <font class="matlab">A</font> est inversible,
+nous savons que la solution du système d'équations linéaires est
+donnée par la formule suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab"> MatrixInverse(A).Vector([1,0,3]); </font>
+</pre>
+
+\[
+\begin{bmatrix} \displaystyle -\frac{11}{10} \\
+\displaystyle \frac{4}{5} \\ \displaystyle -\frac{27}{10}
+\end{bmatrix}
+\]
+
 <p> la fonction <font class="matlab">solve()</font> de <em>Maple</em>
 peut faire beaucoup plus que ce que nous avons illustré ci-dessus.
 Par exemple, nous pouvons résoudre les deux premières équations
@@ -620,7 +640,8 @@ ci-dessus est</p>
 4
 \]
 
-<p> Une formulation équivalente de la commande précédente est</p>
+<p> Une formulation équivalente de la commande précédente est la
+commande suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">max(seq( Norm(SubMatrix(C,1..4,i),1),i=1..4));</font>

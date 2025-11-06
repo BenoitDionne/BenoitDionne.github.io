@@ -163,7 +163,7 @@ Si ce déterminant est égale à \(0\) en un point, alors les deux
 solutions sont linéairement dépendantes. </p>
 
 <p><em>AVERTISSEMENT</em>: Si le déterminant du Wronskian de deux
-solutions d'une EDO linéaire homogène d'irdre deux avec des
+solutions d'une EDO linéaire homogène d'ordre deux avec des
 coefficients constants est non-nul en un point, alors il est non-nul à
 tous points du domaine des deux solutions.  De façon équivalente, si
 le déterminant du Wronskian de deux 
@@ -232,7 +232,7 @@ indépendantes de l'EDO.  La solution générale de l'EDO est de la forme</p>
 \[
 y(x) = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x} \ .
 \]
-<p>Le lecteur est invité à vérifier cette conclusion en exécutant
+<p>Le lecteur est invité à illustrer cette conclusion en exécutant
 les commandes ci-dessous pour l'EDO donnée.</p>
 <pre class="matlab">
 > <font class="matlab">ODE:=diff(y(x),x$2) -4*diff(y(x),x)+3*y(x) =0;</font>
@@ -248,7 +248,7 @@ solution générale de l'EDO est de la forme </p>
 y(x) = C_1 e^{\lambda x} + C_2 x e^{\lambda x} \ .
 \]
 <p> La racine \(\lambda\) est de multiplicité algébrique \(2\).  
-Le lecteur est invité à vérifier cette conclusion en exécutant les
+Le lecteur est invité à illustrer cette conclusion en exécutant les
 commandes suivantes pour l'EDO donnée.</p>
 <pre class="matlab">
 > <font class="matlab">ODE:=diff(y(x),x$2) - 4*diff(y(x),x) + 4*y(x) = 0;</font>
@@ -263,7 +263,7 @@ indépendantes de l'EDO.  La solution générale de l'EDO est de la forme</p>
 \[
 y(x) = C_1 e^{\alpha x}\cos(\beta x) + C_2 e^{\alpha x}\sin(\beta x) \ .
 \]
-<p>Le lecteur est invité à vérifier cette conclusion en exécutant les
+<p>Le lecteur est invité à illustrer cette conclusion en exécutant les
 commandes suivantes pour l'EDO donnée.</p>
 <pre class="matlab">
 > <font class="matlab">ODE:=diff(y(x),x$2)-4*diff(y(x),x)+13*y(x)=0;</font>
@@ -288,9 +288,9 @@ eq4 := \frac{\text{d}^2}{\text{d}x^2} y(x) + \beta \frac{\text{d}}{\text{d}x} y(
 \]
 
 <p>où la constant du ressort \(\omega\) est définie par
-\(\omega = K/m\) pour une constante \(K\) qui dépend du ressort et la
+\(\omega = K/m\) pour une constante \(K\) (qui dépend du ressort) et la
 masse \(m\) de l'objet.   Le constante \(\beta\) est le coefficient
-d'amortissement.</p> 
+d'amortissement.</p>
 
 <p>Si l'objet est relâché à partir d'une distance de \(1\) m de son
 point d'équilibre, alors les conditions initiales sont \(y(0)=1\) et
@@ -317,8 +317,9 @@ des exposants négatifs pour \(x > 0\) et il n'y a pas d'oscillations,
 Il y a sur-amortissement.  Finalement, pour
 \(\displaystyle \beta^2 + 4 \alpha^2 = 0\),
 la formule donnée par <em>Maple</em> n'est pas une solution de l'EDO.
-Nous allons montrer ci-dessous qu'il n'y aussi pas d'oscillations.  Le
-système est amorti de façon critique.</p>
+Nous allons montrer ci-dessous qu'il n'y aussi pas d'oscillations.
+Dans ce dernier cas, nous disons que le système est <em>amorti de
+façon critique</em>.</p> 
 
 <p>Nous traçons le graphe de la solution de l'EDO donnée par
 <font class="matlab">eq4</font> pour \(\omega=1\) et
@@ -455,7 +456,7 @@ yp := (xx, tt) \mapsto subs({theta = tt, x = xx}, rhs(sol))
        alt="Graph of the solutions of eq7 for different values of &beta;">
 </div>
 
-<p>La <q lanf="fr">période</q> du mouvement du ressort approche de
+<p>La <q lang="fr">période</q> du mouvement du ressort approche de
 plus en plus la période de la force motrice périodique lorsque
 \(x \to \infty\).  Nous estimons l'amplitude et
 la phase de la solution quand \(x\) est <q lang="fr">très</q>

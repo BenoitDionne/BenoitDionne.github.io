@@ -81,9 +81,10 @@ differential equations (ODE) of order one.</p>
 
 <p>There are several methods to solve first-order ODE depending on
 their form: separable equations, homogeneous equations, linear ODE,
-etc.  <em>Maple</em> can solve almost all these types of  ODE.</p>
+etc.  <em>Maple</em> can <q lang="en">solve</q> all these types of ODE.</p>
 
-<p>To find the general solution of the following first-order ODE</p>
+<p>To find the general solution of the first-order ODE
+defined by the following command in <em>Maple</em> </p>
 
 <pre class="matlab">
 > <font class="matlab">eq1:=diff(y(x),x)+y(x)=cos(x);</font>
@@ -130,7 +131,7 @@ eq2 := \frac{\text{d}}{\text{d}x} y(x) + y(x) = 0
 
 <p>The term with the symbol <font class="matlab">_C1</font> in the solution of
 the ODE given by <font class="matlab">eq1</font> is the general solution of
-the ODE given by <font class="matlab">eq2</font>. The other terms of
+the homogeneous ODE given by <font class="matlab">eq2</font>. The other terms of
 the solution of the ODE given by <font class="matlab">eq1</font> form
 a particular solution of the ODE given by <font class="matlab">eq1</font>.</p>
 
@@ -179,7 +180,7 @@ eq3 := \frac{\text{d}}{\text{d}x} y(x) = x^2 y(x)^2
 <p><em>Maple</em> seems to have some problems to solve this ODE.  We will
 come back to it later.</p>
 
-<p>Finally, we consider the linear following ODE.</p>
+<p>Finally, we consider the following linear ODE.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq5:= diff(y(x),x) + x^2*y(x) = x^2;</font>
@@ -204,9 +205,9 @@ come back to it later.</p>
 <p>We consider the first-order linear ODE
 \(\displaystyle y'(x) + x^2 y(x) = x^2\) and use the function
 <font class="matlab">dsolve()</font> to solve this ODE with the
-initial condition \(y(2)=3\).  The ODE is defined in <em>Maple</em> by
-The variable <font class="matlab">eq5</font> defined above contains the 
-<em>Maple</em> implementation of this ODE.</p> 
+initial condition \(y(2)=3\).  The
+variable <font class="matlab">eq5</font> defined above contains the
+<em>Maple</em> statement of this ODE.</p> 
 
 <pre class="matlab">
 > <font class="matlab">sol1:=dsolve({eq5,y(2)=3},y(x));</font>
@@ -269,7 +270,8 @@ yp:=proc(x\_rkf45) ... end proc
 <p>By default, the numerical method used to solve
 initial value problems is a Runge-Kutta-Fehlberg method of order 4 with
 error of order 5.  We use the <em>Maple</em> function
-<font class="matlab">odeplot</font> to graph the solution above.</p>
+<font class="matlab">odeplot()</font> to plot the graph of the
+solution above.</p>
 
 <pre class="matlab">
 > <font class="matlab">with(plots): odeplot(yp,-4..4);</font>
@@ -308,7 +310,7 @@ below.</p>
 </div>
 
 <p>We can also draw the graphs of solutions associated to some initial
-conditions on top of the previous slope field some.  In the figure
+conditions on top of the previous slope field.  In the figure
 below, we have included the graphs of the particular solutions
 associated to the initial conditions \(y(0)=1\), \(y(0)=-2\) and
 \(y(0)=2\). </p>

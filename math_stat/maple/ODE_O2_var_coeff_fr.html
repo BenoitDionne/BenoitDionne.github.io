@@ -262,17 +262,17 @@ r^2+ (b-1) r+c = 0
 Cauchy-Euler dépendent des racines de l'équation indicielle.</p>
 
 <p><em>Note</em>: L'équation de Cauchy-Euler peut être réduite à
-l'EDO linéaire d'ordre deux avec des coefficients constant 
+l'EDO linéaire d'ordre deux avec des coefficients constants 
 \(\tilde{y}''(t) +(b-1) \tilde{y}'(t) +c \tilde{y}(t) = 0\) grâce à la
 substitution \(\displaystyle x = e^t\).  Si \(t\mapsto \tilde{y}(t)\)
 est une solution de cette EDO, alors
 \(x \mapsto y(x) = \tilde{y}(\ln(x))\) est une solution de
 l'équation de Cauchy-Euler.  L'équation indicielle de l'équation de 
 Cauchy-Euler est l'équation caractéristique de l'EDO linéaire
-d'ordre deux avec des coefficients constants précédente.  Il en
+d'ordre deux avec des coefficients constants.  Il en
 découle qu'il y a trois types de solutions pour l'équation de
 Cauchy-Euler comme c'est le cas pour l'EDO linéaire d'ordre deux avec
-des coefficients constants précédente.</p>
+des coefficients constants.</p>
 
 <ul>
 <li> \(\displaystyle y(x) = c_1 x^{r_1} + c_2 x^{r_2}\) si l'équation
@@ -315,8 +315,11 @@ EDO.</p>
 
 <p> Pour l'étude des équations aux dérivées partielles (EDP), il est
 très important d'étudier le problème de valeurs aux limites pour
-l'équation de Cauchy-Euler.  Par exemple, considérons l'équation de
-Cauchy-Euler avec les conditions aux limites \(y(1)=1\) et \(y(3)=2\).
+l'équation de Cauchy-Euler.</p>
+
+<p><em>Exemple</em>: Considérons l'équation de
+Cauchy-Euler avec <font class="matlab">b=c=1</font> et les conditions
+aux limites \(y(1)=1\) et \(y(3)=2\). 
 En théorie, nous devons trouver des valeurs pour les constantes
 \(c_1\) et \(c_2\) dans la solution générale de l'équation de
 Cauchy-Euler telles que les conditions aux limites sont satisfaites.

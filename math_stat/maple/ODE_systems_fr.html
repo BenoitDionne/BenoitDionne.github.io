@@ -138,8 +138,10 @@ expA := \begin{bmatrix} e^2 \cos(1) & -e^2 \sin(1) \\ e^2 \sin(1) & e^2 \cos(1) 
 exptA := \begin{bmatrix} e^{2t} \cos(t) & -e^{2t} \sin(t) \\ e^{2t} \sin(t) & e^{2t} \cos(t) \end{bmatrix}
 \]
 
-<p>Nous pouvons utiliser <font class="mobius">dsolve()</font> pour
-résoudre le système d'EDO linéaire homogène \(X'(t) = A X(t)\).</p>
+<p>Nous pouvons utiliser la fonction <font class="matlab">dsolve()</font> pour
+résoudre le système d'EDO linéaire homogène \(X'(t) = A X(t)\).  Nous
+représentons ce système d'EDO dans <em>Maple</em> de la façon
+suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq1 := {diff(x1(t),t) = 2*x1(t) - x2(t), diff(x2(t),t) = x1(t) + 2*x2(t)};</font>
@@ -212,10 +214,10 @@ général, il est difficile et dispendieux en temps de calculer
 l'exponentielle \(\displaystyle e^{tA}\) quand les dimensions de la
 matrice carrée \(A\) sont grandes.  Il y a cependant de beaux
 résultats en algèbre linéaire qui nous aide (et aide les logiciels) à
-calculer cette exponentielle.  Par exemple, il est possible d'exprimer
-\(A\) sous la forme \(A = U D V\) où \(D\) est une matrice bloc diagonale
-(e.g. une forme de Jordan ou une forme canonique réelle), et \(U\) et
-\(V\) sont des matrices inversibles.  Nous avons alors que
+calculer cette exponentielle.  Par exemple, il est possible de trouver
+une matrice inversible \(U\) telle que \(A = U D V\) où \(D\) est une
+matrice bloc diagonale (e.g. une forme de Jordan ou une forme
+canonique réelle).  Nous avons alors que
 \(\displaystyle e^{tA} = U e^{tD} V\) où
 \(\displaystyle e^{tD}\) est beaucoup plus facile et rapide à évaluer
 que \(\displaystyle e^{tA}\) car \(D\) a des composantes nulles hors de
@@ -231,8 +233,8 @@ dimensions \(2 \times 2\).  Dans ce cas, il peut y avoir:</p>
 linéairement indépendants qui leurs sont associés,</li>
 <li> une seule valeur propre réelle avec un seul vecteur propre (à un
 multiple scalaire près) qui lui est associé, ou</li>
-<li> deux valeurs propres complexes (i.e. la partie imaginaire est
-non-nulle) conjuguées avec deux vecteurs propres linéairement
+<li> deux valeurs propres complexes conjuguées (i.e. la partie imaginaire est
+non-nulle) avec deux vecteurs propres linéairement
 indépendants qui leurs sont associés.</li>
 </ul>
 
@@ -279,7 +281,7 @@ associé à la valeur propre \(-2\) est donné par la deuxième colonne.
 La matrice de dimension \(2\times 2\) peut être choisie pour la
 matrice \(U\) dans la décomposition de \(A\) mentionnée dans
 l'introduction de cette section.  Nous utilisons
-<font class="mobius">dsolve()</font> pour résoudre ce système d'EDO
+<font class="matlab">dsolve()</font> pour résoudre ce système d'EDO
 linéaires.  Nous sommes principalement intéressé par l'aspect qualitatif
 des solutions.  Donc, nous dessinons le champ de vecteurs associé à ce
 système.</p>
@@ -295,10 +297,11 @@ système.</p>
        alt="Champ de pentes associé au système d'EDO linéaire défini par eq3">
 </div>
 
-<p>Nous avons aussi tracer deux orbites associées aux conditions
+<p>Nous avons aussi tracé deux orbites associées aux conditions
 initiales \(\displaystyle \begin{bmatrix}0.5 \\ 0 \end{bmatrix}\)
 (en bleu) et \(\displaystyle \begin{bmatrix} -0.5 \\ 0 \end{bmatrix}\)
-(en rouge).  Comme on peut le constater à partir du champ de vecteurs,
+(en rouge) au temps \(t=0\).  Comme on peut le constater à partir du
+champ de vecteurs, 
 toutes les solutions convergent vers l'origine lorsque \(t \to \infty\).
 C'est typique des système d'EDO linéaires avec deux valeurs propres négatives.
 L'origine est appelé un <em>puits</em> ou un <em>noeud stable</em>.
@@ -345,7 +348,7 @@ donnée ci-dessous.</p>
 </pre>
 
 \[
-A := \begin{bmatrix}-4 & 2 \\ -1 & -1 \end{bmatrix}
+A := \begin{bmatrix} 3 & 1 \\ 0 & 3 \end{bmatrix}
 \]
 
 <p>Les valeurs et vecteurs propres de la matrice <font class="matlab">A</font>
@@ -376,13 +379,13 @@ champ de vecteurs et les orbites de quelques solutions particulières.</p>
 
 <p> Comme nous pouvons déduire du champ de vecteurs, toutes les
 solutions s'éloignent de l'origine lorsque \(t \to \infty\).
-L'origine est un <me>noeud instable</em>.  Si la valeur propre aurait
+L'origine est un noeud instable.  Si la valeur propre aurait
 été négative, alors toutes les solutions auraient convergé vers
 l'origine lorsque \(t \to \infty\).  L'origine serait alors un
-<em>noeud stable</em>.</p>
+noeud stable.</p>
 
-<h4>Deux valeurs propres complexes (i.e. la partie imaginaire est
-non-nulle) conjuguées</h4>
+<h4>Deux valeurs propres complexes conjuguées (i.e. la partie imaginaire est
+non-nulle)</h4>
 
 <p>Considérons le système d'EDO linéaires homogènes défini par la
 commande suivante de <em>Maple</em>.</p>
@@ -597,7 +600,8 @@ Van der Pol</em>
 eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t} x2(t) = -\epsilon x2(t) (x1(t)^2-1)-x1(t) \right\};
 \]
 
-<p>C'est une système d'EDO nonlinéaires.  Assumons que \(\epsilon=0.1\).</p>
+<p>C'est une système d'EDO nonlinéaires.  Nous assumons que
+\(\epsilon=0.1\).</p> 
 
 <pre class="matlab">
 > <font class="matlab">eq3 := subs(epsilon=0.1, eq2);</font>
@@ -609,7 +613,12 @@ eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t}
 
 <p>Puisqu'il sera révélateur de tracer les orbites associées à
 plusieurs conditions initiales, nous avons écrit une procédure pour
-tracer ces orbites. </p>
+tracer ces orbites.  Nous fournissons plus d'information sur la
+création de procédure dans <em>Maple</em> dans le document
+<script language="javascript">
+buildLinK(Maple_programs.url_fr, Maple_programs.text_fr,"MMathSStat",
+Maple_programs.id, Maple_programs.target);
+</script></p>
 
 <pre class="matlab">
 > <font class="matlab"> graph := proc (a, b, T, clr)
@@ -631,8 +640,8 @@ tracer ces orbites. </p>
 \end{split}
 \]
 
-<p>Nous résolvons maintenant le système d'EDO pour plusieurs
-conditions initiales <font class="matlab">(x1(0),x2(0))</font>.</p>
+<p>Nous traçons maintenant les orbites de plusieurs solutions
+particulières du système d'EDO.</p>
 
 <pre class="matlab">
 > <font class="matlab">gr1 := graph(4,1,5*Pi,"red"):</font>
@@ -662,7 +671,7 @@ aiguilles d'une montre.  Cependant, dans la deuxième figure, les
 orbites semblent s'éloigner de l'origine en tournant autour de
 l'origine dans le sens contraire des aiguilles d'une montre.
 Cela ne peut pas durer pour toujours car les orbites ne peuvent pas se
-couper et varies de façon continue par rapport aux conditions
+couper et elles varies de façon continue par rapport aux conditions
 initiales.  Que ce passe-t-il?</p>
 
 <p>Nous devons regarder le champ de vecteurs de ce système d'EDO
@@ -774,10 +783,10 @@ eq6 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\tex
 
 <ul>
 <li> On laisse tomber le pendule à partir d'un angle de \(\pi/4\).
-Donc <font class="matlab">&theta;(0)=&pi;/4 </font> et
+Donc, <font class="matlab">&theta;(0)=&pi;/4 </font> et
 <font class="matlab">v(0)=0</font>.</li>
 <li> Nous poussons le pendule vers le haut à partir d'un angle de
-\(\pi/4\) et avec une vélocité de \(4\) m/s.  Donc
+\(\pi/4\) et avec une vélocité de \(4\) m/s.  Donc,
 <font class="matlab">&theta;(0)= &pi;/4</font>
 et <font class="matlab">v(0)=4</font> m/s.</li>
 </ul>
@@ -865,10 +874,10 @@ utilisée dans le contexte présent.</p>
 
 <ul>
 <li> Nous laissons tomber le pendule à partir d'un angle de \(\pi/4\).
-Donc <font class="matlab">&theta;(0)=&pi;/4 </font> et
+Donc, <font class="matlab">&theta;(0)=&pi;/4 </font> et
 <font class="matlab">v(0)=0</font>.</li>
 <li> Nous poussons le pendule vers le haut à partir d'un angle de
-\(\pi/4\) et avec une vélocité de \(8\) m/s.  Donc
+\(\pi/4\) et avec une vélocité de \(8\) m/s.  Donc,
 <font class="matlab">&theta;(0)= &pi;/4</font>
 et <font class="matlab">v(0)=8</font> m/s.</li>
 </ul>

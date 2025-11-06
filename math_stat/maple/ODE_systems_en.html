@@ -84,7 +84,7 @@ interval \(I \subset \mathbb{R}\) containing the origin and
 such that \(X\) satisfies this system of ODE with a given initial
 condition \(X(0) = X_0\).  The theory says that there always exists a unique
 solution if \(f\) is continuous and <em>locally Lipshitz</em> with
-respect to the variable \(X\).  If \(f\) does not depend of the time
+respect to the variable \(X\).  If \(f\) does not depend on the time
 \(t\), then we say that the system of ODE is autonomous.  In this
 case, if \(X\) is a solution of the system of ODE, then \(f(X(t))\) is
 the direction and velocity of \(X\) at time \(t\).  In particular,
@@ -136,8 +136,9 @@ expA := \begin{bmatrix} e^2 \cos(1) & -e^2 \sin(1) \\ e^2 \sin(1) & e^2 \cos(1) 
 exptA := \begin{bmatrix} e^{2t} \cos(t) & -e^{2t} \sin(t) \\ e^{2t} \sin(t) & e^{2t} \cos(t) \end{bmatrix}
 \]
 
-<p>We can use <font class="mobius">dsolve()</font> to solve the system
-of homogeneous linear system of ODE \(X'(t) = A X(t)\).</p>
+<p>We can use the function <font class="matlab">dsolve()</font> to
+solve the system of homogeneous linear system of ODE \(X'(t) = A X(t)\).
+We represent this system of ODE in <em>Maple</em> as it follows.</p>
 
 <pre class="matlab">
 > <font class="matlab">eq1 := {diff(x1(t),t) = 2*x1(t) - x2(t), diff(x2(t),t) = x1(t) + 2*x2(t)};</font>
@@ -209,9 +210,9 @@ it is difficult and time consuming to compute the exponential
 \(\displaystyle e^{tA}\) when the dimensions of the square matrix \(A\)
 are large.  There are however some nice results from linear algebra
 that help us (and the software) to compute this exponential.  For
-instance, it is possible to write \(A\) as \(A = U D V\)
-where \(D\) is a block diagonal matrix (e.g. a Jordan normal form or a real
-canonical form), and \(U\) and \(V\) are invertible matrices.  We then
+instance, it is possible to find an invertible matrix
+\(U\) such that \(A = U D U^{-1}\) where \(D\) is a block diagonal
+matrix (e.g. a Jordan normal form or a real canonical form).  We then 
 have that \(\displaystyle e^{tA} = U e^{tD} V\) where
 \(\displaystyle e^{tD}\) is much easier and faster to 
 compute than \(\displaystyle e^{tA}\) because \(D\) has zero
@@ -225,16 +226,15 @@ In this case, there could be:</p>
 <ul> 
 <li> one or two real eigenvalues with two linearly independent real
 eigenvectors associates to them,</li>
-<li> one real eigenvalue only with only one linearly independent real
+<li> only one real eigenvalue with only one linearly independent real
 eigenvector (up to a scalar multiple) associated to it, or </li>
-<li> two complex (i.e. non-zero imaginary part) conjugated
-eigenvalues with two linearly independent complex eigenvectors
-associates to them.</li>
+<li> two complex conjugated eigenvalues (i.e. non-zero imaginary part)
+with two linearly independent complex eigenvectors associates to them.</li>
 </ul>
 
 <h4>Two Linearly Independent Real Eigenvectors</h4>
 
-<p>Consider the linear system of ODE defined in <em>Maple</em by the
+<p>Consider the linear system of ODE defined in <em>Maple</em> by the
 following command.</p>
 
 <pre class="matlab">
@@ -273,7 +273,7 @@ matrix and an eigenvector associate to the eigenvalue \(-2\) is given
 by the second column. 
 This \(2\times 2\) matrix can be selected as the matrix \(U\) in
 the decomposition of \(A\) presented in the introduction of this
-section.  We use <font class="mobius">dsolve()</font> to solve this
+section.  We use <font class="matlab">dsolve()</font> to solve this
 linear system of ODE.  We are mainly interested in the qualitative
 aspect of the solutions.  So, we draw the vector field associated to
 this system.</p> 
@@ -292,7 +292,8 @@ this system.</p>
 <p>We have also drawn two orbits associated to the solutions with
 initial condition \(\displaystyle \begin{bmatrix}0.5 \\ 0 \end{bmatrix}\)
 (in blue) and \(\displaystyle \begin{bmatrix} -0.5 \\ 0 \end{bmatrix}\)
-(in red). As can be seen from the vector field, all the solutions converge
+(in red) at time \(t=0\). As can be seen from the vector field, all
+the solutions converge 
 toward the origin as \( t \to \infty\).  This is typical of linear system  
 of ODE with two negative eigenvalues.  The origin is called
 a <em>sink</em> or <em>stable node</em>.  If the two eigenvalues had
@@ -335,7 +336,7 @@ ODE defined by the following <em>Maple</em> command.</p>
 </pre>
 
 \[
-A := \begin{bmatrix}-4 & 2 \\ -1 & -1 \end{bmatrix}
+A := \begin{bmatrix}3 & 1 \\ 0 & 3 \end{bmatrix}
 \]
 
 <p>The eigenvalues and eigenvectors of the matrix <font class="matlab">A</font>
@@ -366,11 +367,11 @@ particular solutions.</p>
 
 <p> As can be seen from the vector field, all the solutions go away
 from the origin as \(t \to \infty\).  The origin is a
-<me>unstable node</em>.  If the eigenvalue had been negative, then all the
+unstable node.  If the eigenvalue had been negative, then all the
 solutions would have converged to the origin as \(t \to \infty\).  The
-origin would then be a <em>stable node</em>.</p>
+origin would then be a stable node.</p>
 
-<h4>Two Complex (i.e. non-zero imaginary part) Conjugate Eigenvalues</h4>
+<h4>Two Complex Conjugate Eigenvalues (i.e. non-zero imaginary part) </h4>
 
 <p>Consider the homogeneous system of ODE defined by the
 following <em>Maple</em> command.</p>
@@ -384,8 +385,8 @@ eq5 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = -0.2\; x1(t) - x2(t) ,
 \frac{\text{d}}{\text{d}t} x2(t) =  x1(t) - 0.2\; x2(t) \right\}
 \]
 
-<p>The matrix of the coefficients of this linear system of ODE is
-given below.</p> 
+<p>The matrix of coefficients of this linear system of ODE is
+given below.</p>
 
 <pre class="matlab">
 > <font class="matlab">A := Matrix([[-1/5,-1],[1,-1/5]]);</font>
@@ -410,7 +411,7 @@ are given by the following command.</p>
 associated two linearly independent eigenvectors.  The students learn
 in an introductory ODE course that the general solution involves terms
 of the form \(\displaystyle e^{a t}\cos(bt)\) and
-\(\displaystyle e^{at}\sin(bt)\) if \)a + b i\) are the complex
+\(\displaystyle e^{at}\sin(bt)\) if \(a \pm b i\) are the complex
 conjugated eigenvalues.</p>
 
 <pre class="matlab">
@@ -461,7 +462,7 @@ eq6 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = -2\; x1(t) - 2\; x2(t) + \sin(
 <p>We can use <font class="matlab">dsolve()</font> to find the
 general solution of this system of ODE but we are mainly interested in
 the qualitative behaviour of the orbits as \( t \to \infty\).
-Thus, we can draw the orbits of some particular solutions.</p>
+Thus, we draw the orbits of some particular solutions.</p>
 
 <pre class="matlab">
 > <font class="matlab"> DEplot(eq6,[x1(t),x2(t)],t=0..5,[[x1(0)=1,x2(0)=-1],[x1(0)=-1,x2(0)=1],[x1(0)=2,x2(0)=2]],
@@ -553,8 +554,8 @@ associated to the intinial condition \( (x_1(0),x_2(0)) = (0,1) \).</p>
 
 <p>We have already encountered this orbit before.  It is the plot of
 a part of the orbit \( \{ (x(t), x'(t)) : t\in \mathbb{R} \} \)
-associated to the initial \(x(0) = 0\) et \(x'(0) = 1\) for the second
-ordre ODE that we presented in the first example of the document
+associated to the initial conditions \(x(0) = 0\) et \(x'(0) = 1\) for
+the second ordre ODE that we presented in the first example of the document
 <script language="javascript">
     buildLinK(ODE_O2_var_coeff.url_en,
     ODE_O2_var_coeff.text_en,"MMathSStat", ODE_O2_var_coeff.id,
@@ -581,7 +582,7 @@ and/or to solve the system numerically.</p>
 eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t} x2(t) = -\epsilon x2(t) (x1(t)^2-1)-x1(t) \right\};
 \]
 
-<p>This is a system of nonlinear ODE.  Assume that \(\epsilon=0.1\).</p>
+<p>This is a system of nonlinear ODE.  We assume that \(\epsilon=0.1\).</p>
 
 <pre class="matlab">
 > <font class="matlab">eq3 := subs(epsilon=0.1, eq2);</font>
@@ -593,7 +594,11 @@ eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t}
 
 <p>Since it is going to be instructive to plot the orbits associated
 to many initial conditions, we have written a procedure to draw these
-orbits.</p>  
+orbits.  We provide more information on creating <em>Maple</em> procedures
+in the document <script language="javascript">
+buildLinK(Maple_programs.url_en, Maple_programs.text_en,"MMathSStat",
+Maple_programs.id, Maple_programs.target);
+</script>.</p>
 
 <pre class="matlab">
 > <font class="matlab"> graph := proc (a, b, T, clr)
@@ -615,8 +620,8 @@ orbits.</p>
 \end{split}
 \]
 
-<p>We now solve the system of ODE for many initial conditions
-<font class="matlab">(x1(0),x2(0))</font>.</p>
+<p>We now draw the orbits of several particular solutions of the
+system of ODE.</p> 
 
 <pre class="matlab">
 > <font class="matlab">gr1 := graph(4,1,5*Pi,"red"):</font>
@@ -644,7 +649,7 @@ orbits.</p>
 a counterclockwise direction toward the origin. However, in a the
 second figure, the orbits seem to spiral in a counterclockwise direction away
 from the origin.  This cannot go on forever because orbits 
-cannot intersect and varies smoothly with respect to initial
+cannot intersect and they varies smoothly with respect to initial
 conditions.  What is going on?</p>
 
 <p>We need to look at the vector field associated to this system of
@@ -754,7 +759,7 @@ eq6 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\tex
 <p>We plan to plot the orbits for the following two situations:</p>
 
 <ul>
-<li> We let the pendulum loose from an angle of \(\pi/4\).  Thus
+<li> We let the pendulum loose from an angle of \(\pi/4\).  Thus,
 <font class="matlab">&theta;(0)=&pi;/4 </font> and
 <font class="matlab">v(0)=0</font>.</li>
 <li> We push the pendulum upward from an angle of \(\pi/4\) and with a
@@ -842,11 +847,11 @@ the present context.</p>
 <p>As for the ideal pendulum, we consider two cases:</p>
 
 <ul>
-<li> We let the pendulum loose from an angle of \(\pi/4\).  Thus
+<li> We let the pendulum loose from an angle of \(\pi/4\).  Thus,
 <font class="matlab">&theta;(0)=&pi;/4 </font> and
 <font class="matlab">v(0)=0</font>.</li>
 <li> We push the pendulum upward from an angle of \(\pi/4\) with a
-velocity of \(8\) m/s.  Thus <font class="matlab">&theta;(0)= &pi;/4</font>
+velocity of \(8\) m/s.  Thus, <font class="matlab">&theta;(0)= &pi;/4</font>
 and <font class="matlab">v(0)=8</font> m/s.</li>
 </ul>
 

@@ -81,9 +81,10 @@ différentielles ordinaires (EDO) d'ordre un.</p>
 
 <p>Il y a plusieurs méthodes pour résoudre les EDO d'ordre un selon
 quelles sont séparables, homogènes, linéaires, etc.   <em>Maple</em>
-peut résoudre presque tous ces genres d'EDO.</p>
+peut <q lang="fr">résoudre</q> tous ces genres d'EDO.</p>
 
-<p>Pour trouver la solution générale de l'EDO d'ordre un suivante</p>
+<p>Pour trouver la solution générale de l'EDO d'ordre un définie par
+la commande suivante dans <em>Maple</em></p>
 
 <pre class="matlab">
 > <font class="matlab">eq1:=diff(y(x),x)+y(x)=cos(x);</font>
@@ -130,7 +131,7 @@ eq2 := \frac{\text{d}}{\text{d}x} y(x) + y(x) = 0
 
 <p>Le terme contenant le symbole <font class="matlab">_C1</font> dans
 la solution de l'EDO donnée par <font class="matlab">eq1</font> est la
-solution générale de l'EDO donnée par <font class="matlab">eq2</font>.
+solution générale de l'EDO homogène donnée par <font class="matlab">eq2</font>.
 Les autres termes de la solution de l'EDO donnée par
 <font class="matlab">eq1</font> forme une solution particulière de
 l'EDO donnée par <font class="matlab">eq1</font>.</p>
@@ -207,7 +208,7 @@ Nous y reviendrons plus tard.</p>
 et utilisons la fonction <font class="matlab">dsolve()</font> pour
 résoudre cette EDO avec la condition initiale \(y(2)=3\).
 La variable <font class="matlab">eq5</font> définie ci-dessus
-contient la version <em>Maple</em> de cette EDO.</p>
+contient l'énoncé dans <em>Maple</em> de cette EDO.</p>
 
 <pre class="matlab">
 > <font class="matlab">sol1:=dsolve({eq5,y(2)=3},y(x));</font>
@@ -271,7 +272,7 @@ yp:=proc(x\_rkf45) ... end proc
 <p>Par défaut, la méthode numérique utilisé pour résoudre un problème
 aux valeurs initiales est la méthode de Runge-Kutta-Fehlberg d'ordre 4
 avec une erreur d'ordre 5.  Nous utilisons la fonction
-<font class="matlab">odeplot</font> de <em>Maple</em> pour tracer le
+<font class="matlab">odeplot()</font> de <em>Maple</em> pour tracer le
 graphe de la solution ci-dessus.</p>
 
 <pre class="matlab">

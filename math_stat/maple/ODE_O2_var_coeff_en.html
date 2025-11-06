@@ -265,10 +265,10 @@ substitution \(\displaystyle x = e^t\).  If \(t \mapsto \tilde{y}(t)\)
 is a solution of this ODE, then \(x \mapsto y(x)= \tilde{y}(\ln(x))\)
 is a solution for the Cauchy-Euler equation.  The indicial equation of
 the Cauchy-Euler equation is the characteristic equation for the
-second order linear ODE with constant coefficients above.  It therefore
+second order linear ODE with constant coefficients.  It therefore
 follows that there are three types of solutions for the Cauchy-Euler
 equation as it is so for the second order linear ODE with
-constant coefficients above.</p> 
+constant coefficients.</p> 
 
 <ul>
 <li> \(\displaystyle y(x) = c_1 x^{r_1} + c_2 x^{r_2}\) if the
@@ -309,13 +309,16 @@ general solution for this ODE.</p>
 <h3> Boundary value Problems for ODE </h3>
 
 <p> To study some partial differential equations (PDE), it is
-  important to study Boundary Value Problems for the Cauchy-Euler
-  equation.  For instance, consider the Cauchy Euler equation with the
-  boundary conditions \(y(1)=1\) and \(y(3)=2\).  In theory, we have to find
-  the values for the constants \(c_1\) and \(c_2) in the general
-  solution of the Cauchy-Euler equation such that these boundary
-  conditions are satisfied.  The function  
-  <font class="matlab">dsolve(&nbsp;)</font> can do that for us.</p>
+important to study Boundary Value Problems for the Cauchy-Euler
+equation.</p>
+
+<p><em>Example</em>: Consider the Cauchy Euler equation with
+<font class="matlab">b=c=1</font> and the
+boundary conditions \(y(1)=1\) and \(y(3)=2\).  In theory, we have to find
+the values for the constants \(c_1\) and \(c_2\) in the general
+solution of the Cauchy-Euler equation such that these boundary
+conditions are satisfied.  The function  
+<font class="matlab">dsolve(&nbsp;)</font> can do that for us.</p>
 
 <pre class="matlab">
 > <font class="matlab">dsolve({ eq3,y(1)=1,y(3)=2},y(x));</font>

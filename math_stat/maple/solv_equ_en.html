@@ -120,6 +120,15 @@ commands. </p>
 \end{split}
 \]
 
+<p><em>Warning</em>: Since we ended up looking for a numerical
+approximation of the roots of the polynomial, we could have thought of
+using the <em>Maple</em> function <font class="matlab">fsolve()</font>.
+However, this function can only find numerical approximations of the
+real roots.  We will come back in the document <script language="javascript">
+ buildLinK(Complex_anal.url_en, Complex_anal.text_en,
+"MMathSStat", Complex_anal.id, Complex_anal.target);
+</script> on the subject of finding the roots of an analytic function.</p>
+
 <p><em>Example</em>: The goal is to find the points of intersection
 of the graphs of the following two functions.</p>
 
@@ -161,7 +170,7 @@ have looked for the roots of the polynomial of degree four
 <p>We have used the option <font class="matlab">discont=true</font> to
 produce the graph of the function defined by <font class="matlab">f1</font>
 because it is a discontinuous function.  In fact, there are values of
-\(x\) where the function is not defined and we have vertical
+\(x\) where the function is not defined and has vertical
 asymptotes.</p>
   
 <p>To determine the coordinates of the points of intersection, we compute
@@ -189,7 +198,7 @@ of the list <font class="matlab">xs</font>.</p>
 \end{split}
 \]
 
-<p>We have used the <em>Maple</em> command <font class="matlab">seq()</font> to
+<p>We have used the <em>Maple</em> function <font class="matlab">seq()</font> to
 generate the list of values above.</p>
 
 <h3> Systems of Nonlinear Equations </h3>
@@ -248,7 +257,7 @@ provide a small area where the function
 
 <p>We get another solution.  The other two solutions can be found using
 the same procedure or simply by using the fact that both equations
-are invariant with respect to the reflective symmetry through
+are invariant with respect to the reflection through
 the origin (i.e. \((x,y) \mapsto (-x,-y)\) ).  So the other
 solutions are just \(-1\) times the two solutions that we have found
 above.</p>
