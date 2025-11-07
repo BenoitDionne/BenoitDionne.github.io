@@ -103,7 +103,7 @@ the heat equation, then we get</p>
    X(x) T'(t)  = k^2 X''(x) T(t)
 \]
 
-<p>If divide both sides by \(X(x)T(t)\), then we get</p>
+<p>If we divide both sides by \(X(x)T(t)\), then we get</p>
 
 \[
 \frac{T'(t)}{T(t)} = k^2 \frac{X''(x)}{X(x)}
@@ -120,15 +120,15 @@ must be equal to a constant that we call \(\lambda\).</p>
 <p>We get two ODE.  The equation \(T' = \lambda T\) is a separable
 first order ODE and it is easy to solve.
 Its general solution is \(\displaystyle T(t) = D e^{\lambda t}\)
-for an arbitrary constant \(D\).  The second ODE is
-\(\displaystyle X'' - (\lambda/k^2) X = 0\).  This is a second order
+for an arbitrary constant \(D\).  The equation
+\(\displaystyle X'' - (\lambda/k^2) X = 0\) is a second order
 ODE with constant coefficients and it is also easy to solve.</p>
 
 <p>Suppose that \(\lambda < 0\).  The general solution of
 \(\displaystyle X'' - (\lambda/k^2) X = 0\) is</p>
 
 \[
-X(t) = A \cos(\sqrt{-\lambda} x/k) + B \sin(\sqrt{-\lambda} x/k)
+X(x) = A \cos(\sqrt{-\lambda} x/k) + B \sin(\sqrt{-\lambda} x/k)
 \]
 
 <p>Since \(u_x(0,t) = X'(0) T(t) = 0\) for all \(t\), we must have
@@ -138,36 +138,42 @@ This is certainly not true if \(f\) is nontrivial. Similarly, we get
 that \(X'(L) = 0\).
 
 <p>The condition \(X'(0)=0\) implies that
-\(B \sqrt{\lambda} = 0\).  So \(B = 0\).  We then get from
+\(B \sqrt{-\lambda} = 0\).  So \(B = 0\).  We then get from
 \( X'(L)=0\) that \(A \sqrt{-\lambda}\sin(\sqrt{-\lambda} L/k) = 0\).
 We cannot have \(A = 0\) because we are looking for a nontrivial
 solution.  So \(\sqrt{-\lambda}\, L/k = n \pi\) for \(n\) a non-negative
 integer.  Hence</p>
 
 \[
-\lambda = - \frac{n^2 \pi^2 k^2}{L^2} \quad , \quad n = 0, 1 ,2 ,3, \ldots
+\lambda = - \frac{n^2 \pi^2 k^2}{L^2} \quad , \quad n = 1 ,2 ,3, \ldots
 \]
 
 <p>We finally get</p>
 
 \[
 X_n(x) = C_n \cos\left(\frac{n\pi x}{L}\right)  \quad ,
-\quad n = 0, 1 ,2 ,3, \ldots
+\quad n = 1 ,2 ,3, \ldots
 \]
 
-<p> The reader can verify that the cases \(\lambda=0\) and \(\lambda>0\)
-lead to the trivial solution.</p>
+<p>If \(\lambda = 0\), then we get \(X'' = 0 \).  The only solution of
+this ODE that satisfies the boundary conditions \(X'(0) = X'(L) = 0\)
+is the function \(X_0\) defined by \(X_0(x) = C_0\), a constant, for
+all \(x\).</p>
+
+<p> The reader can verify that the case \(\lambda>0\) gives only a
+trivial solution.</p> 
 
 <p>If we substitute the value of \(\lambda\) in the function \(T\)
 above, we get</p> 
 
 \[
-T_n(t) = D_n  e^{-n^2\pi^2 k^2 t/L^2}
+T_n(t) = D_n  e^{-n^2\pi^2 k^2 t/L^2} \quad , \quad n=0,1,2,3,\ldots
 \]
 
-<p>All the functions of the form \(T_n(t) X_n(x)\) are solutions of the
-PDE and satisfy the boundary equations. There are infinitely many of
-them, one for each value of the non-negative integer \(n\).</p>
+<p>All the functions of the form \(T_n(t) X_n(x)\) with \(n \geq 0\)
+are solutions of the PDE and satisfy the boundary equations. There are
+infinitely many of them, one for each value of the non-negative
+integer \(n\).</p> 
 
 <p>We now look for a solution of the heat equation that is a sum of
 all functions \(X_n(x) T_n(t)\).</p>
@@ -193,7 +199,7 @@ f(x) = a_0 + \sum_{n=1}^\infty a_n \cos\left(\frac{n\pi x}{L}\right)
 are given by</p>
 
 \[
-a_0 = \frac{1}{L} \int_0^L f(x) \text{d}x \quad , \quad
+a_0 = \frac{1}{L} \int_0^L f(x) \text{d}x \quad \text{and} \quad
 a_n = \frac{2}{L} \int_0^L f(x) \cos(n\pi xx/L) \text{d}x \quad ,
 \quad n = 1,2,3,\ldots
 \]
@@ -262,7 +268,7 @@ u(x,t) = \frac{\displaystyle \left(\int_1^3 f(x) \text{d}x \right)}{3}
 
 <p>We get the predicted solution.  Given a function
 <font class="matlab">f</font>,
-We could use the <em>Maple</em> function <font class="matlab">int()</font>
+we could use the <em>Maple</em> function <font class="matlab">int()</font>
 to compute the coefficients.  However, there is a simpler way to get
 the coefficients.  The function <font class="matlab">pdsolve()</font>
 can also accept an initial condition.  Suppose that the initial
@@ -386,7 +392,7 @@ u(x,t) = \frac{\displaystyle 2 \left( \sum_{n=1}^\infty
 variables is used.  In this case, the initial condition is given
 by a Fourier sine series.   If we specify the function
 <font class="matlab">f</font>, then we can solve the heat equation
-with the function <font class="matlab">pdsolve</font>.
+with the function <font class="matlab">pdsolve()</font>.
 Suppose that the initial condition is given by the following command.</p>
 
 <pre class="matlab">
@@ -436,7 +442,7 @@ U:= (y,s) \mapsto subs({t = s, x = y}, rhs(Sol))
 <p>We suppose that \(v(x,t)\) is the vertical displacement (very
 small) of the string at the position \(x\) and at time \(t\).  The
 wave equation for the vibrating string of length \(L\) 
-xwith both ends fixed is</p>
+with both ends fixed is</p>
 
 \[
 \frac{\text{d}^2}{\text{d} t^2} v(x,t)  = c^2
@@ -535,8 +541,7 @@ g(x)\text{d}x\right) \sin\left(\frac{11 \pi t n}{30}\right)}{11}\bigg)
 <p>This is the form of the solution expected if separation of
 variables is used.  If we specify the functions <font class="matlab">f</font>
 and <font class="matlab">g</font>, then we can solve the wave equation
-with the function <font class="matlab">pdsolve</font>.
-Suppose that the initial condition is given by the following command.</p>
+with the function <font class="matlab">pdsolve()</font>.
 If we simply release the string, then the initial
 conditions may look somewhat like the following conditions.</p>
 
@@ -632,7 +637,7 @@ have not mentioned at all the <em>Laplace Equation</em>.  All the PDE
 that we have considered were depending on a single space variable on
 the real line.  However, we could also consider the heat, 
 wave and Laplace equations of several spacial variables on different
-domains: rectangles, disks, spheres, ...  All of problems lead to very
+domains: rectangles, disks, spheres, ...  All these problems lead to very
 interesting results.</p>
 
 <p>We leave the task of pursuing the study of PDE to the reader.</p>

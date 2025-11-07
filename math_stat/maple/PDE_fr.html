@@ -125,8 +125,7 @@ est une fonction de \(x\) seulement.  Pour que les deux côtés soient
 <p>Nous obtenons deux EDO.  L'équation \(T' = \lambda T\) est une EDO
 séparable d'ordre un qui est facile à résoudre.  Sa solution générale est 
 \(\displaystyle T(t) = D e^{\lambda t}\) pour une constante arbitraire
-\(D\).  La deuxième EDO est
-\(\displaystyle X'' - (\lambda/k^2) X = 0\).  C'est une
+\(D\).  L'équation \(\displaystyle X'' - (\lambda/k^2) X = 0\) est une
 EDO d'ordre deux avec des coefficients constants et elle est aussi
 facile à résoudre. </p>
 
@@ -134,7 +133,7 @@ facile à résoudre. </p>
 \(\displaystyle X'' - (\lambda/k^2) X = 0\) est</p>
 
 \[
-X(t) = A \cos(\sqrt{-\lambda} x/k) + B \sin(\sqrt{-\lambda} x/k)
+X(x) = A \cos(\sqrt{-\lambda} x/k) + B \sin(\sqrt{-\lambda} x/k)
 \]
 
 <p>Puisque \(u_x(0,t) = X'(0) T(t) = 0\) pour tous \(t\), nous devons
@@ -143,7 +142,7 @@ obtenons la solution nulle \(u(x,t) = X(x) T(t) = 0\) pour tous
 \(x\) et \(t\).  Ce n'est certainement pas le cas si \(f\) est
 non-nulle.  De façon semblable, nous obtenons que \(X'(L) = 0\). 
 
-<p>La condition \(X'(0)=0\) implique que \(B \sqrt{\lambda} = 0\).
+<p>La condition \(X'(0)=0\) implique que \(B \sqrt{-\lambda} = 0\).
 Donc \(B = 0\).  Nous obtenons alors de \( X'(L)=0\) que
 \(A \sqrt{-\lambda}\sin(\sqrt{-\lambda} L/k) = 0\).
 Nous ne pouvons pas avoir \(A = 0\) car nous cherchons une solution
@@ -151,28 +150,33 @@ non-nulle.  Donc \(\sqrt{-\lambda}\, L/k = n \pi\) pour \(n\) un
 entier non-négatif.  Ainsi</p>
 
 \[
-\lambda = - \frac{n^2 \pi^2 k^2}{L^2} \quad , \quad n = 0, 1 ,2 ,3, \ldots
+\lambda = - \frac{n^2 \pi^2 k^2}{L^2} \quad , \quad n = 1 ,2 ,3, \ldots
 \]
 
 <p>Nous obtenons finalement que</p>
 
 \[
 X_n(x) = C_n \cos\left(\frac{n\pi x}{L}\right)  \quad ,
-\quad n = 0, 1 ,2 ,3, \ldots
+\quad n = 1 ,2 ,3, \ldots
 \]
 
-<p> Le lecteur peut vérifier que les cas \(\lambda=0\) et \(\lambda>0\)
-donnent seulement une solution nulle.</p>
+<p>Si \(\lambda = 0\), alors nous obtenons \(X'' = 0\).  La seule
+solution de cette EDO qui satisfait les conditions aux limites
+\(X'(0) = X'(L) = 0\) est la fonction \(X_0\) définie par
+\(X_0(x) = C_0\), une constante, pour tous \(x\).</p>
+
+<p> Le lecteur peut vérifier que le cas \(\lambda>0\)
+donne seulement une solution nulle.</p>
 
 <p>Si nous substituons la valeur de \(\lambda\) dans la fonction \(T\)
 ci-dessus, nous obtenons que</p>
 
 \[
-T_n(t) = D_n  e^{-n^2\pi^2 k^2 t/L^2}
+T_n(t) = D_n  e^{-n^2\pi^2 k^2 t/L^2}  \quad , \quad n=0,1,2,3,\ldots
 \]
 
-<p>Toutes les fonctions de la forme \(T_n(t) X_n(x)\) sont des
-solutions de l'EDP et satisfont les conditions aux limites.  Il y a un
+<p>Toutes les fonctions de la forme \(T_n(t) X_n(x)\) avec \( n \geq 0 \)
+sont des solutions de l'EDP et satisfont les conditions aux limites.  Il y a un
 nombre infini de ces fonctions, une pour chaque valeur de l'entier
 non-négatif \(n\).</p>
 
@@ -200,7 +204,7 @@ f(x) = a_0 + \sum_{n=1}^\infty a_n \cos\left(\frac{n\pi x}{L}\right)
 sont donnés par </p>
 
 \[
-a_0 = \frac{1}{L} \int_0^L f(x) \text{d}x \quad , \quad
+a_0 = \frac{1}{L} \int_0^L f(x) \text{d}x \quad \text{et} \quad
 a_n = \frac{2}{L} \int_0^L f(x) \cos(n\pi xx/L) \text{d}x
 \quad ,\quad n = 1,2,3,\ldots 
 \]
@@ -396,7 +400,7 @@ variables est utilisée.  Dans ce cas, la condition initiale est
 donnée par une série de Fourier en sinus.   Si nous définissons la
 fonction <font class="matlab">f</font>, alors nous pouvons résoudre
 l'équation de la chaleur à l'aide de la fonction
-<font class="matlab">pdsolve</font>.  Supposons que la condition
+<font class="matlab">pdsolve()</font>.  Supposons que la condition
 initiale est donnée par la commande suivante.</p>
 
 <pre class="matlab">
@@ -550,7 +554,7 @@ g(x)\text{d}x\right) \sin\left(\frac{11 \pi t n}{30}\right)}{11}\bigg)
 variables est utilisée.  Si nous définissons les fonctions
 <font class="matlab">f</font> et <font class="matlab">g</font>, nous
 pouvons résoudre l'équation des ondes avec la fonction 
-<font class="matlab">pdsolve</font>.  Si nous simplement relâchons la
+<font class="matlab">pdsolve()</font>.  Si nous simplement relâchons la
 corde, alors les conditions initiales peuvent ressembler aux conditions
 suivantes.</p>
 

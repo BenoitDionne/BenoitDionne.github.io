@@ -180,7 +180,8 @@ x(t)=1.107676186986299\right]
 </div>
 
 <pre class="matlab">
-> <font class="matlab">odeplot(xs,[t,diff(x(t),t)],0..3*Pi,axes=BOXED,labels=[`t`,`x'(t)`],refine=2, gridlines=true);</font>
+> <font class="matlab"> odeplot(xs,[t,diff(x(t),t)],0..3*Pi,axes=BOXED,labels=[`t`,`x'(t)`],refine=2,
+   gridlines=true);</font>
 </pre>
 
 <div class="center">
@@ -192,7 +193,8 @@ x(t)=1.107676186986299\right]
 \(\{ (x(t), x'(t)) : t \in \mathbb{R} \}\).</p>
 
 <pre class="matlab">
-> <font class="matlab">odeplot(xs,[x(t),diff(x(t),t)],0..3*Pi,axes=BOXED,labels=[`x(t)`,`x'(t)`],refine=2, gridlines=true);</font>
+> <font class="matlab"> odeplot(xs,[x(t),diff(x(t),t)],0..3*Pi,axes=BOXED,labels=[`x(t)`,`x'(t)`],refine=2,
+   gridlines=true);</font>
 </pre>
 
 <div class="center">

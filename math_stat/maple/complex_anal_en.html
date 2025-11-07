@@ -64,12 +64,6 @@ main_title( MStext, "MMathSStat");
 </script>
 </div>
 
-<!--
-pe := x^3 - x^2 + 5*x - 6 = 0;
-with(RootFinding);
-Analytic(pe, x, -0.5 - 3*I .. 0.5 + 3*I);
--->
-
 <h2 id="TOP"> Complex Analysis </h2>
 
 <div style="float:left; width:30%; margin-right:20px; z-index: 1000;">
@@ -82,7 +76,7 @@ Analytic(pe, x, -0.5 - 3*I .. 0.5 + 3*I);
 <p>This document is a brief review of basic complex analysis
 using <em>Maple</em>.  By default, <em>Maple</em> assumes that all
 variables are representing complex numbers.  So, we have been using
-complex expression since the beginning. </p> 
+complex expressions since the beginning. </p> 
 
 <h3>Complex Numbers</h3>
 
@@ -169,13 +163,14 @@ counterclockwise from the \(x\) axis and such that the angle is
 between \(-\pi\) (excluded) and \(\pi\) (included).</p>
 
 <pre class="matlab">
-> <font class="matlab">r:=abs(z); theta:= argument(z);</font>
+> <font class="matlab">r:=abs(z); theta:= argument(z); evalf(theta);</font>
 </pre>
 
 \[
 \begin{split}
 & r := 5 \\
-& \theta  := \arctan\left({\displaystyle \frac {4}{3}} \right)
+& \theta  := \arctan\left({\displaystyle \frac {4}{3}} \right) \\
+& 0.9272952179
 \end{split}
 \]
 
@@ -270,8 +265,12 @@ function are given below.</p>
 f'(z) = \lim_{w\to 0} \frac{f(z+w)-f(z)}{w}
 \]
 <p> if this limit exists.  We emphasize the fact that
-\(w \in \(\mathbb{C}\) and can approach the origin in any imaginable
-ways.  If \(f(z) = u(z) + i\, v(z)\) is derivable, then </p>
+\(w \in \mathbb{C}\) and can approach the origin in any imaginable
+ways.  If \(f(z) = u(z) + i\, v(z)\) is derivable, then
+the limit for \( w \to 0\) along the real axis and the limit 
+for \( w \to 0\) along the imaginary axis yield the following
+relations.</p>
+
 \[
 \begin{split}
 u_x(z) &= v_y(z) \\
@@ -357,7 +356,7 @@ a_n = \frac{1}{n!}\,\frac{\partial^n}{\partial z^n}f(x_0) \ .
 <p><em>Remark</em>: The formula for the Taylor series of an
 infinitely derivable function \(f:\mathbb{R}\to\mathbb{R}\) 
 is almost identical to the formula above for a derivable function from
-\(\mathbb{C}\) into \(\mathbb{C}\).  Namely, it is</p>
+\(\mathbb{C}\) into iteself.  Namely, it is</p>
 \[
 f(x) \sim \sum_{n=0}^\infty\,a_n (x-x_0)^n \ ,
 \]
@@ -366,9 +365,9 @@ f(x) \sim \sum_{n=0}^\infty\,a_n (x-x_0)^n \ ,
 a_n = \frac{1}{n!}\,\frac{\partial^n}{\partial x^n}f(x_0) \ .
 \]
 <p> The major difference is the use of \(\sim\) for the Taylor series
-of infinitely derivable functions from \(\mathbb{R}\) into \(\mathbb{R}\)
-of the equality sign for the Taylor series for
-derivable functions of \(\mathbb{C}\) into \(\mathbb{C}\).
+of infinitely derivable functions from \(\mathbb{R}\) into itself
+instead of the equality sign as we have for the Taylor series for
+derivable functions from \(\mathbb{C}\) into itself.
 The reason for this difference is that the Taylor series for a
 function \(f:\mathbb{R} \to \mathbb{R}\) may not converge for any
 \(x \neq x_0\) or, if it converges, it may not converge pointwise
@@ -383,11 +382,14 @@ e^{-1/x^2} & \quad \text{if} \quad x > 0 \\
 \end{cases}
 \]
 <p> and \(x_0=0\), then the Taylor series of \(f\) at the origin is
-null because all derivatives of \(f\) at the origin are null.
+null because the derivatives of all orders of \(f\) at the origin are null.
 However, \(f\) is not null in the neighbourhood of the origin.
+For function from \(\mathbb{C}\) to itself, being derivable is
+equivalent to being analytic.  This is no so for functions from
+\(\mathbb{R}\) to itself as we have just seen.
 This shows that the theory of Taylor series is simpler for functions
-of \(\mathbb{C}\) into \(\mathbb{C}\) than it is for functions of
-\(\mathbb{R}\) into \(\mathbb{R}\).</p>
+from \(\mathbb{C}\) into itself than it is for functions from
+\(\mathbb{R}\) into itself.</p>
 
 <p>Consider the function \(f:\mathbb{C} \to \mathbb{C}\) defined in
 <em>Maple</em> by the following command.</p>
@@ -500,7 +502,7 @@ f(z) = \sum_{n=-\infty}^\infty\,a_n (z-z_0)^n
 \(R > 0\).  We may also have that 
 \(a_n\) is non-zero for only a finite number of negative indices \(n\).
 If \(N\) is the smallest negative index such that \(a_N \neq 0 \),
-we say that \(z_0\) is a <em>pole of order N</em>.
+we say that \(z_0\) is a <em>pole of order N</em> of \(f\).
 The series above is called the <em>Laurent series</em> of \(f\) at
 \(z_0\).  The sum</p>
 \[
@@ -625,12 +627,12 @@ at \(2\pi\).</p>
 \(1\).</p>
 
 <p><em>Example</em>
-We want to evaluate the integral of the function
+We want to evaluate the integral of the function \(f\) defined by
 \(\displaystyle f(z) = \frac{1}{(3z-i)^2 \, \sin(z)}\)
 counterclockwise along the circle \(C\) of radius \(1\) centred at the origin;
 namely, we want to evaluate </p>
 \[
-\oint_C \frac{1}{(3z-i)^2 \, \sin(z)}\ \text{d}z
+M = \oint_C \frac{1}{(3z-i)^2 \, \sin(z)}\ \text{d}z
 \]
 <p>with the positive orientation on the curve defined by
 \(C = \{ z : |z| = 1 \}\). </p>
@@ -671,7 +673,9 @@ the curve \(C\) is given by \(\displaystyle z = e^{t\, i}\) for
 r := t\rightarrow e^{(I\,t)}
 \]
 
-<p> The value of the integral is given by the following command. </p>
+<p> The value of the integral
+\(\displaystyle M = \int_0^{2\pi}(f(r(t))\,r'(r) \text{d}t\)
+is given by the following command. </p>
 
 <pre class="matlab">
 > <font class="matlab">evalf( int((f@r)(t)*diff(r(t),t),t=0..2*Pi) );</font>
@@ -699,7 +703,8 @@ integral </p>
 \]
 <p>where \(C\) is the curve defined by \(z=x\) for
 \(-\infty < x < \infty\) and the direction along \(C\) is given by \(x\)
-increasing.  The function \(\displaystyle \frac{e^{iz}}{(z-2)^2+4}\)
+increasing.  The function \(f\) defined by
+\(\displaystyle f(z) = \frac{e^{iz}}{(z-2)^2+4}\)
 has poles at \(z = 2+2\,i\) and \(z = 2-2\,i\).  Moreover, </p>
 \[
 \lim_{r\rightarrow \infty} \oint_{C_r}\,\frac{e^{iz}}{(z-2)^2+4}\ \text{d}z =
@@ -728,8 +733,7 @@ converges uniformly to \(0\) as \(r \to 0\). </p>
 
 <p> The curve \(C_r\) is a positively oriented closed curve
 surrounding the pole at \(2+2\,i\) if \(r\) is large enough.  Hence,
-the value of the integral of the function \(f\) defined by
-\(\displaystyle f(z) = \frac{e^{iz}}{(z-2)^2+4}\) along the closed curve
+the value of the integral of the function \(f\) along the closed curve
 \(C_r\) is \(\mathrm{res}(f,2+2i)\) if \(r\) is large enough. This
 integral is constant for \(r\) large enough.  We can perform this
 computation using the following <em>Maple</em> commands.</p>
@@ -802,9 +806,18 @@ text5 := textplot([2, 3, "2+2*I"], align = RIGHT, font = [COURIER, 16]):
 pt := point([2, 2], color = black, symbol = 'SolidCircle'):
 text6 := textplot([0, 0, "0"], align = {BELOW}, font = [COURIER, 16]):
 text7 := textplot([8.7, 8, "C_r"], align = LEFT, font = [COURIER, 16]):
-display({arc1, line1, line2, line3, pt, text1, text2, text3, text4, text5, text6, text7}, axes = none, view = [-11 .. 15, -1 .. 14], scaling = constrained);
+display({arc1, line1, line2, line3, pt, text1, text2, text3, text4, text5, text6, text7},
+   axes = none, view = [-11 .. 15, -1 .. 14], scaling = constrained);
 </font>
 </pre>
+
+<!--
+<h3> Roots of Analytic Functions </h3>
+
+pe := x^3 - x^2 + 5*x - 6 = 0;
+with(RootFinding);
+Analytic(pe, x, -0.5 - 3*I .. 0.5 + 3*I);
+-->
 
 <h3> Conformal Mapping </h3>
 
@@ -812,28 +825,34 @@ display({arc1, line1, line2, line3, pt, text1, text2, text3, text4, text5, text6
 that preserves the angles between intersecting curves.  If the derivative of
 \(f:\mathbb{C} \to \mathbb{C}\) is never zero, then \(f\) is a
 conformal mapping. 
-An important family of conformal mappings are the functions of the form</p>
+An important family of conformal mappings are the functions \(f\)
+defined by </p>
 \[
-z \mapsto \frac{az+b}{cz+d} = \frac{a}{c} + \frac{bc-ad}{c} \left(
+f(z) = \frac{az+b}{cz+d} = \frac{a}{c} + \frac{bc-ad}{c} \left(
 \frac{1}{cz+d} \right)
 \]
 <p>with \(ad -bc \neq 0\).  These functions are called
 <em>linear fractional transformations</em>.  A linear fractional
-transformation is a composition of a dilatation, \(cz\), followed by a
-translation, \(cz+d\), followed by an inversion,
-\(\displaystyle \frac{1}{cz+d}\), followed by another dilatation,
-\(\displaystyle \frac{bc-ad}{c} \left(\frac{1}{cz+d}\right)\), and
+transformation is a composition of a dilatation, \(cz\) , followed by a
+translation, \(cz+d\) , followed by an inversion,
+\(\displaystyle \frac{1}{cz+d}\) , followed by another dilatation,
+\(\displaystyle \frac{bc-ad}{c} \left(\frac{1}{cz+d}\right)\) , and
 finally followed by another translation,
 \(\displaystyle \frac{a}{c} + \frac{bc-ad}{c}\left(\frac{1}{cz+d}\right) \).
 Hence, linear fractional transformations preserve circles (a line is a circle
 of infinite radius.)</p>
 
+<p><em>Note</em>: A linear fractional transformation \(f\) is in fact
+a function from the compactified complex plane
+\(\overline{\mathbb{C}}\) into itself is we set \(f(d/c) = \infty\) and
+\(f(\infty) = a/c\).</p>
+
 <p>A linear fractional transformation is completely and uniquely determined by
-the image of three points.  Consider the linear fractional transformation</p>
-\[
-f(z) = \frac{2z - 3}{2z + 3} \ .
-\]
-</p>This function is defined in <em>Maple</em> by the following command.</p>
+the image of three points.</p>
+
+<p><em>Example</em>: Consider the linear fractional transformation
+\(f\) defined by \(\displaystyle f(z) = \frac{2z - 3}{2z + 3}\).
+This function is defined in <em>Maple</em> by the following command.</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=z->(2*z-3)/(2*z+3);</font>
@@ -954,7 +973,7 @@ kept at a temperature of \(0\) degree except for the section between
 \(-1\) and \(1\) where it is kept at a temperature of \(2\) degrees.</p>
 
 <p>This is the type of problems that we generally solve using
-techniques for the PDE.  However, this simple problem can also be solved
+techniques for PDE.  However, this simple problem can also be solved
 using conformal mappings as we now show.  We use a conformal mapping
 \(f\) to transform the domain \( \{ x+y i : y \geq 0 \} \) into the
 horizontal strip</p>
@@ -962,7 +981,7 @@ horizontal strip</p>
 S = \{ w = u+i v : u \in \mathbb{R} \ \text{and} \ 0\leq v \leq \pi \} \ .
 \]
 <p> We solve the steady state problem on \(S\).  In fact, we will see
-that the problem is easy to solve it on \(S\).  Finally, we use the
+that this problem is easy to solve on \(S\).  Finally, we use the
 conformal mapping \(f\) to transform the solution on \(S\) to a
 solution of the initial problem on the domain \(y\geq 0\).</p>
 
@@ -1086,12 +1105,12 @@ initial problem.</p>
 \[
 \begin{split}
 & 0 \\
-& 1 - \mathrm{signum}(0, x^2 - 1, 1)
+& 1 - \mathrm{signum}(0, x{\scriptsize \sim}^2 - 1, 1)
 \end{split}
 \]
 
-<p>The <em>Maple</em> function <font class="matlab">signum</font> is
-equal to \(-1\) for \( -1 \leq x \leq 1\) and \(1\) otherwise. </p>
+<p>The <em>Maple</em> function <font class="matlab">signum(0,x,1)</font> is
+equal to \(-1\) for \( x < 0\) and \(1\) for \( x \geq 0 \) . </p>
 
 <p>We can now draw the heat distribution using the
 function <font class="matlab">densityplot()</font>.</p>
@@ -1104,8 +1123,6 @@ function <font class="matlab">densityplot()</font>.</p>
   <img src="Maple_complex_5.png" style="width: 300px"
        alt="Drawing of the heat distribution T for the initial problem">
 </div>
-
-
 
 <br>
 <hr>

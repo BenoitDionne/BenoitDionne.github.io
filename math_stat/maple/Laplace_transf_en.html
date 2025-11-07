@@ -73,8 +73,8 @@ main_title( MStext, "MMathSStat");
 </script>
 </div>
 
-<p>We provide a very short introduction to the Laplace transform on
-<em>Maple</em>.  In particular, we explain how to use it to solve
+<p>We provide a very short introduction to the Laplace transformations in
+<em>Maple</em>.  In particular, we explain how to use them to solve
 linear ODE with constant coefficients.</p>
 
 <h3> The Laplace Transform </h3>
@@ -95,7 +95,7 @@ our <em>Maple</em> session.</p>
 > <font class="matlab">with(inttrans):</font>
 </pre>
 
-<p>The Laplace transform of the function \(f|) defined by
+<p>The Laplace transform of the function \(f\) defined by
 \(\displaystyle f(t) = e^{-3 t}\sin(5 t)\) is computed as it follows.</p>
 
 <pre class="matlab">
@@ -111,7 +111,7 @@ our <em>Maple</em> session.</p>
 
 <p>The <em>inverse Laplace transform</em> of a function \(F\) is a
 function \(f\) such that \(\mathcal{L}(f)(s) = F(s)\)
-for <q lang="en">all</q> in the domain of \(F\).  We write
+for <q lang="en">all</q> \(s\) in the domain of \(F\).  We write
 \(\displaystyle \mathcal{L}^{-1}(F) = f\).   There is an integral formula to
 compute the inverse Laplace transform of a function but we can manage
 without it in this introduction.</p>
@@ -158,7 +158,7 @@ at a value other than the origin.</p>
 
 \[
 \begin{split}
-& H4t := t \mapsto Heaviside(t - 4) \\
+& H4t := t \mapsto \mathrm{Heaviside}(t - 4) \\
 & H4s := \frac{e^{-4s}}{s}
 \end{split}
 \]
@@ -219,7 +219,7 @@ in general</p>
 \mathcal{L}(y^{n})(s) = s^n Y(s) - s^{(n-1)} y(0) -s^{(n-2)} y'(0)- \ldots - y^{(n-1)}(0)
 \]
 
-<p>These formulae can be proved with integration by parts.</p>
+<p>These formulae can be proved using integration by parts.</p>
 
 <p><em>Example</em>: Consider the ODE defined by the following
 command in <em>Maple</em></p>
@@ -244,12 +244,17 @@ transformations, then we perform the following operations.</p>
 
 \[
 \begin{split}
-& eq2 := s^2\,laplace(y(t),t,s) -D(y)(0) - s y(0)  +4\,laplace(y(t),t,s) = \frac{s}{s^2 + 4} \\
+& eq2 := s^2\,\mathrm{laplace}(y(t),t,s) -D(y)(0) - s y(0)
++4\,\mathrm{laplace}(y(t),t,s) = \frac{s}{s^2 + 4} \\
 & Ys := \frac{ y(0) s^3+ 4 s y(0) + D(y)(0) s^2 + 4 D(y)(0)+s}{ (s^2 + 4)^2} \\
 & yt := y(0)\, \cos(2 t) + \frac{\sin(2t) (t + 2*D(y)(0))}{4}\\
 & yt := 2 \cos(2 t) + \frac{\sin(2t) (t + 6)}{4}
 \end{split}
 \]
+
+<p><em>Note</em>: The graphical version of <em>Maple</em> may display
+\(\mathcal{L}\) instead of <q lang="en">laplace</q>.  However, we
+should write <q lang="en">laplace</q> in the commands. </p>
 
 <p>All the work to solve the linear ODE with initial conditions of the
 previous example can be done with one <em>Maple</em> command.</p>

@@ -83,7 +83,7 @@ should consult one of the excellent textbooks in analysis.</p>
 series</p>
 
 \[
-  a_0 + \sum_1^\infty ( a_n \cos(n\pi x/L) + b_n \sin(n\pi x/L) )
+f \sim a_0 + \sum_1^\infty ( a_n \cos(n\pi x/L) + b_n \sin(n\pi x/L) )
 \]
 
 <p>where</p>
@@ -97,7 +97,7 @@ series</p>
 b_n = \frac{1}{L} \int_{-L}^L f(x) \sin(n\pi x/L) \text{d}x
 \]
 
-<p> If \(f\) is piecewise continuous function on \([-L,L]\), we have that</p>
+<p> If \(f\) is a piecewise continuous function on \([-L,L]\), we have that</p>
 
 \[
   \frac{f(x^+) + f(x^-)}{2}
@@ -105,7 +105,7 @@ b_n = \frac{1}{L} \int_{-L}^L f(x) \sin(n\pi x/L) \text{d}x
 \]
 
 <p>for all \(x \in [-L,L]\).  In particular, if \(f\) is continuous at
-\(x=a\), then the series converges pointwise to \(f(a)\).</p>
+\(x=a\), then the series converges to \(f(a)\).</p>
 
 <p>If \(f :\mathbb{R} \to \mathbb{R}\) is periodic function of period
 \(2L\), them the integrals above can be computed on any interval of the form
@@ -116,13 +116,13 @@ b_n = \frac{1}{L} \int_{-L}^L f(x) \sin(n\pi x/L) \text{d}x
 <em>Fourier cosine series</em></p>
 
 \[
-  a_0 + \sum_1^\infty a_n \cos(n\pi x/L)
+f \sim a_0 + \sum_1^\infty a_n \cos(n\pi x/L)
 \]
 
 <p> where </p>
   
 \[
-  a_0 = \frac{1}{L} \int_0^L f(x) \text{d}x \quad , \quad
+  a_0 = \frac{1}{L} \int_0^L f(x) \text{d}x \quad \text{and} \quad
   a_n = \frac{2}{L} \int_0^L f(x) \cos(n\pi x/L)\text{d}x
 \]
 
@@ -135,7 +135,7 @@ b_n = \frac{1}{L} \int_{-L}^L f(x) \sin(n\pi x/L) \text{d}x
 <em>Fourier sine series</em></p> 
 
 \[
-  \sum_1^\infty b_n \sin(n\pi x/L)
+f \sim \sum_1^\infty b_n \sin(n\pi x/L)
 \]
 
 <p>where</p>
@@ -195,6 +195,13 @@ function defined by the following <em>Maple</em> procedure.</p>
 \end{split}
 \]
 
+<p><em>Note</em>: We provide more information on
+creating <em>Maple</em> procedures in the document
+<script language="javascript">
+buildLinK(Maple_programs.url_en, Maple_programs.text_en,"MMathSStat",
+Maple_programs.id, Maple_programs.target);
+</script>.</p>
+				 
 <p>The procedure above is the less fragile definition of a function
 but we do not need to be that rigorous if our function is for a very
 specific and limited use, and we know the type of arguments that will
@@ -203,11 +210,11 @@ be given to the function.  Another simpler way to define
 <font class="matlab">piecewise</font> of <em>Maple</em>.</p>
 
 <pre class="matlab">
-> <font class="matlab">fe := x -> piecewise( abs(x)-floor(abs(x)/2)*2 <= 1/2 or   abs(x)-floor(abs(x)/2)*2 > 3/2,1,0);</font>
+> <font class="matlab">fe := x -> piecewise( abs(x)-floor(abs(x)/2)*2 < 1/2 or abs(x)-floor(abs(x)/2)*2 > 3/2,1,0);</font>
 </pre>
 
 \[
-fe := x \mapsto \begin{cases} 1 & \qquad |x| -2 \lfloor \frac{|x|}{2} \rfloor \leq \frac{1}{2}  \text{ or } \frac{3}{2} < |x| -2 \lfloor \frac{|x|}{2} \rfloor \\
+fe := x \mapsto \begin{cases} 1 & \qquad |x| -2 \lfloor \frac{|x|}{2} \rfloor < \frac{1}{2} \text{ or } \frac{3}{2} < |x| -2 \lfloor \frac{|x|}{2} \rfloor \\
 0 & \qquad \qquad \text{otherwise}
 \end{cases}
 \]
@@ -215,7 +222,8 @@ fe := x \mapsto \begin{cases} 1 & \qquad |x| -2 \lfloor \frac{|x|}{2} \rfloor \l
 <p>The graph of this function is drawn below.</p>
 
 <pre class="matlab">
-> <font class="matlab">plot(fe(x), x = -4 .. 5, thickness = 3, discont = true, gridlines = true, view = [-4 .. 5, -.2 .. 1.2]);</font>
+> <font class="matlab"> plot(fe(x), x = -4 .. 5, thickness = 3,	discont = true, gridlines = true,
+   view = [-4 .. 5, -.2 .. 1.2]);</font>
 </pre>
 
 <div class="center">
@@ -278,9 +286,11 @@ variable <font class="matlab">AN</font> to use them later.</p>
 > <font class="matlab">AN:= seq( evalf(an(i)),i=0..10);</font>
 </pre>
 
+<div style="font-size:80%">
 \[
 AN := .5000000000, .6366197722, 0., -.2122065907, 0., .1273239544, 0., -0.9094568174e-1, 0., 0.7073553024e-1, 0.
 \]
+</div>
 
 <p>Note that the indices of the sequence <font class="matlab">AN</font>
 start at \(1\) according to <em>Maple</em> rules.
@@ -288,7 +298,7 @@ This will affect the statement of the formulae for the Fourier series in
 <em>Maple</em>.</p>
 
 <p>The Fourier cosine series truncated to \(n+1\) terms is given by
-the procedure below.</p>
+the function below.</p>
 
 <pre class="matlab">
 > <font class="matlab">FCS:=(x,n)->sum(AN[j+1]*cos(j*Pi*x),j=0..n);</font>
@@ -320,7 +330,7 @@ and the truncated Fourier series is never smaller than a fixed
 value depending on the function.</p>
 
 <pre class="matlab">
-> <font class="matlab">plot3:=plot('FCS(x,10)',x=-4..4,color=red):</font>
+> <font class="matlab">plot3:=plot(FCS(x,10),x=-4..4,color=red):</font>
 > <font class="matlab">plots[display]({plot1,plot3},labels=[`x`,`y`]);</font>
 </pre>
 
@@ -368,7 +378,8 @@ in <em>Maple</em> by the following procedure.</p>
 <p>The graph of this function is drawn below.</p>
 
 <pre class="matlab">
-> <font class="matlab">plot('ff(x)', x = -4 .. 5, thickness = 3, discont = true, gridlines = true, view = [-4 .. 5, -.2 .. 3.2]);</font>
+> <font class="matlab"> plot(ff(x), x = -4 .. 5, thickness = 3, discont = true, gridlines = true,
+   view = [-4 .. 5, -.2 .. 3.2]);</font>
 </pre>
 
 <div class="center">
@@ -431,13 +442,13 @@ variables <font class="matlab">AN</font>
 and <font class="matlab">BN</font> to use them later.</p> 
 
 <pre class="matlab">
-> <font class="matlab">AN:=seq(evalf( an(i) ),i=0..10):</font>
-> <font class="matlab">BN:=seq(bn(i),i=1..10):</font>
+> <font class="matlab">AN:=seq(evalf(an(i)),i=0..10):</font>
+> <font class="matlab">BN:=seq(evalf(bn(i)),i=1..10):</font>
 </pre>
 
 <p>The Fourier series of the function
 <font class="matlab">ff</font> truncated to \(2n+1\) terms is given
-by following procedure.</p>
+by following function.</p>
 
 <pre class="matlab">
 > <font class="matlab">FS:=(x,n)-> sum(AN[j+1]*cos(2*j*Pi*x/3),j=0..n) + sum(BN[j]*sin(2*j*Pi*x/3),j=1..n);</font>
@@ -454,7 +465,7 @@ truncated to 21 terms; namely \(n = 10\).</p>
 
 <pre class="matlab">
 > <font class="matlab">plot1:=plot(ff(x),x=-4..4,color=blue):</font>
-> <font class="matlab">plot2:=plot('FS(x,10)',x=-4..4,color=red):</font>
+> <font class="matlab">plot2:=plot(FS(x,10),x=-4..4,color=red):</font>
 > <font class="matlab">plots[display]({plot1,plot2},labels=[`x`,`y`]);</font>
 </pre>
 

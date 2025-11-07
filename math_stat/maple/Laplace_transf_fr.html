@@ -75,7 +75,8 @@ main_title( MStexte, "MMathSStat");
 
 <p>Nous présentons une très courte introduction aux transformations de
 Laplace avec <em>Maple</em>.  En particulier, nous expliquons comment
-résoudre des EDO linéaires avec des coefficients constants.</p>
+les utiliser pour résoudre des EDO linéaires avec des coefficients
+constants.</p> 
 
 <h3> La transformée de Laplace </h3>
 
@@ -162,7 +163,7 @@ telle sorte que le saut soit à un autre point qu'à l'origine..</p>
 
 \[
 \begin{split}
-& H4t := t \mapsto Heaviside(t - 4) \\
+& H4t := t \mapsto \mathrm{Heaviside}(t - 4) \\
 & H4s := \frac{e^{-4s}}{s}
 \end{split}
 \]
@@ -249,12 +250,17 @@ transformations de Laplace, alors nous exécutons les opérations suivantes.</p>
 
 \[
 \begin{split}
-& eq2 := s^2\,laplace(y(t),t,s) -D(y)(0) - s y(0)  +4\,laplace(y(t),t,s) = \frac{s}{s^2 + 4} \\
+& eq2 := s^2\,\mathrm{laplace}(y(t),t,s) -D(y)(0) - s y(0)
+ +4\,\mathrm{laplace} (y(t),t,s) = \frac{s}{s^2 + 4} \\
 & Ys := \frac{ y(0) s^3+ 4 s y(0) + D(y)(0) s^2 + 4 D(y)(0)+s}{ (s^2 + 4)^2} \\
 & yt := y(0)\, \cos(2 t) + \frac{\sin(2t) (t + 2*D(y)(0))}{4}\\
 & yt := 2 \cos(2 t) + \frac{\sin(2 t) (t + 6)}{4}
 \end{split}
 \]
+
+<p><em>Note</em>: La version graphique de <em>Maple</em> peut afficher
+\(\mathcal{L}\) au lieu de <q lang="fr">laplace</q>.  Cependant, il faut
+écrire <q lang="fr">laplace</q> dans les commandes. </p>
 
 <p>Tout le travail fait pour résoudre l'EDO linéaire avec les conditions
 initiales de l'exemple précédent peut être fait par une seule commande

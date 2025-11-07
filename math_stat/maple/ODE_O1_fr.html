@@ -319,8 +319,8 @@ associées aux conditions initiales \(y(0)=1\), \(y(0)=-2\) and
 \(y(0)=2\). </p>
 
 <pre class="matlab">
-> <font class="matlab"> DEplot(eq4,y(x),x=-5..5,y=-5..5, [[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green],
-   arrows=small);</font>
+> <font class="matlab"> DEplot(eq4,y(x),x=-5..5,y=-5..5, [[y(0)=1],[y(0)=-2],[y(0)=2]],
+   linecolor=[red,blue,green], arrows=small);</font>
 </pre>
 
 <div class="center">
@@ -351,8 +351,8 @@ graphes des solutions particulières associées aux conditions initiales
 méthode de <em>Euler</em> avec un pas de \(0.1\).</p>
 
 <pre class="matlab">
-> <font class="matlab"> DEplot(eq5,y(x),x=-10..10,y=-10..10,[[y(0)=1],[y(0)=-2],[y(0)=2]],linecolor=[red,blue,green],
-   method=classical[foreuler],stepsize=.1);
+> <font class="matlab"> DEplot(eq5,y(x),x=-10..10,y=-10..10,[[y(0)=1],[y(0)=-2],[y(0)=2]],
+   linecolor=[red,blue,green], method=classical[foreuler],stepsize=.1);
 </font>
 </pre>
 
@@ -380,7 +380,8 @@ utilise par défaut (i.e. la méthode de Runge-Kutta-Fehlberg), nous
 obtenons alors le résultat suivant. </p>
 
 <pre class="matlab">
-> <font class="matlab"> DEplot(eq5,y(x),x=-5..5,y=-5..5,[[y(0)=1],[y(0)=-2],[y(0)=2]], linecolor=[red,blue,green]);
+> <font class="matlab"> DEplot(eq5,y(x),x=-5..5,y=-5..5,[[y(0)=1],[y(0)=-2],[y(0)=2]],
+   linecolor=[red,blue,green]);
 </font>
 </pre>
 

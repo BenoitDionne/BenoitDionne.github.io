@@ -83,8 +83,8 @@ avons utilisé des expressions complexes depuis le début. </p>
 <p> Tout nombre de la forme \(a+bi\), où \(a\) et \(b\) sont des
 nombres réelles, est un nombre complexe.  Le nombre \(i\) est le nombre
 imaginaire tel que \(\displaystyle i^2 = -1\).  Dans <em>Maple</em>,
-le nombre \(i\) est dénoté par la lettre
-majuscule <font class="matlab">I</font>.</p> 
+le nombre \(i\) est dénoté par la lettre majuscule
+<font class="matlab">I</font>.</p> 
 
 <pre class="matlab">
 > <font class="matlab">I; I^2;</font>
@@ -164,13 +164,14 @@ contraire aux aiguilles d'une montre et tel que la valeur de l'angle
 est entre \(-\pi\) (exclus) et \(\pi\) (inclus).</p>
 
 <pre class="matlab">
-> <font class="matlab">r:=abs(z); theta:= argument(z);</font>
+> <font class="matlab">r:=abs(z); theta:= argument(z); evalf(theta); </font>
 </pre>
 
 \[
 \begin{split}
 & r := 5 \\
-& \theta  := \arctan\left({\displaystyle \frac {4}{3}} \right)
+& \theta  := \arctan\left({\displaystyle \frac {4}{3}} \right) \\
+& 0.9272952179
 \end{split}
 \]
 
@@ -268,7 +269,12 @@ f'(z) = \lim_{w\to 0} \frac{f(z+w)-f(z)}{w}
 \]
 <p> si la limite existe.  Nous mettons l'emphase sur le fait que
 \(w \in \mathbb{C}\) et peut approcher l'origine de toutes les
-façons imaginables.  Si \(f(z) = u(z) + i\, v(z)\) est dérivable, alors </p>
+façons imaginables.  Si \(f(z) = u(z) + i\, v(z)\) est dérivable,
+alors la limite pour \( w \to 0\) le long the l'axe réel
+et la limite pour \( w \to 0\) le long de l'axe imaginaire donnent les
+relations suivantes.</p>
+
+</p>
 \[
 \begin{split}
 u_x(z) &= v_y(z) \\
@@ -367,10 +373,10 @@ a_n = \frac{1}{n!}\,\frac{\partial^n}{\partial x^n}f(x_0) \ .
 \]
 <p> La différence majeure est l'utilisation du symbole \(\sim\) pour
 la série de Taylor d'une fonction infiniment dérivable
-de \(\mathbb{R}\) dans \(\mathbb{R}\) au lieu du signe d'égalité pour la
-série de Taylor d'une fonction dérivable de \(\mathbb{C}\) dans
-\(\mathbb{C}\).  La raison de cette différence est que la série de  
-Taylor d'une fonction \(f:\mathbb{R} \to \mathbb{R}\) peut ne
+de \(\mathbb{R}\) dans lui-même au lieu du signe d'égalité comme
+nous avons pour la série de Taylor d'une fonction dérivable de
+\(\mathbb{C}\) dans lui-même.  La raison pour cette différence est que
+la série de Taylor d'une fonction \(f:\mathbb{R} \to \mathbb{R}\) peut ne
 pas converger pour tous points \(x \neq x_0\) ou, si elle converge,
 elle peut ne pas converger ponctuellement vers la fonction \(f\) dans
 un voisinage de \(x_0\).  Par exemple, si
@@ -383,11 +389,14 @@ e^{-1/x^2} & \quad \text{if} \quad x > 0 \\
 \end{cases}
 \]
 <p> et \(x_0=0\), alors la série de Taylor de \(f\) à l'origine est nulle
-car toutes les dérivées de \(f\) à l'origine sont nulles.  Cependant, 
+car les dérivées de tout ordre de \(f\) à l'origine sont nulles.  Cependant, 
 \(f\) n'est pas nulle dans un voisinage de l'origine.
+Pour les fonctions de \(\mathbb{C}\) dans lui-même, être dérivable est
+équivalent à être analytique.  Ce n'est pas les cas pour les fonctions
+de \(\mathbb{R}\) dans lui-même comme nous venons de voir.
 Ceci démontre que la théorie des séries de Taylor est plus simple pour
-les fonctions de \(\mathbb{C}\) dans \(\mathbb{C}\) qu'elle l'est pour les
-fonctions de \(\mathbb{R}\) dans \(\mathbb{R}\).</p>
+les fonctions de \(\mathbb{C}\) dans lui-même qu'elle l'est pour les
+fonctions de \(\mathbb{R}\) dans lui-même.</p>
 
 <p>Considérons la fonction \(f:\mathbb{C} \to \mathbb{C}\) définie
 dans <em>Maple</em> par la commande suivante. </p>
@@ -502,7 +511,8 @@ f(z) = \sum_{n=-\infty}^\infty\,a_n (z-z_0)^n
 \(0 < |z-z_0| < R\) pour une valeur \(R > 0\). Nous pouvons aussi avoir que
 \(a_n\) est non-nul pour seulement un nombre fini d'indices négatives 
 \(n\).  Si \(N\) est le plus petit indice négatif tel que
-\(a_N \neq 0\), nous disons que \(z_0\) est un <em>pôle d'ordre N</em>.
+\(a_N \neq 0\), nous disons que \(z_0\) est un <em>pôle d'ordre N</em>
+de \(f\).
 La série ci-dessus est appelée la <em>série de Laurent</em> de \(f\) à
 \(z_0\).  La somme</p>
 \[
@@ -628,12 +638,13 @@ de \(f\) à \(2\pi\).</p>
 effectivement \(1\).</p>
 
 <p><em>Exemple</em> Nous voulons évaluer l'intégrale de la fonction
+\(f\) définie par 
 \(\displaystyle f(z) = \frac{1}{(3z-i)^2 \, \sin(z)}\)
 dans le sens contraire aux aiguilles d'une montre le long du cercle
 \(C\) de rayon \(1\) centré à l'origine;  C'est-à-dire; nous voulons
 évaluer </p>
 \[
-\oint_C \frac{1}{(3z-i)^2 \, \sin(z)}\ \text{d}z
+M = \oint_C \frac{1}{(3z-i)^2 \, \sin(z)}\ \text{d}z
 \]
 <p>avec l'orientation positive sur la courbe définie par
 \(C = \{ z : |z| = 1 \}\). </p>
@@ -676,7 +687,9 @@ aiguilles d'une montre, une représentation paramétrique de la courbe
 r := t\rightarrow e^{(I\,t)}
 \]
 
-<p>La valeur de l'intégrale est donnée par la commande suivante.</p>
+<p>La valeur de l'intégrale
+\(\displaystyle M = \int_0^{2\pi}(f(r(t))\,r'(r) \text{d}t\)
+est donnée par la commande suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">evalf( int((f@r)(t)*diff(r(t),t),t=0..2*Pi) );</font>
@@ -705,7 +718,8 @@ l'intégrale</p>
 \]
 <p>où \(C\) est la courbe définie par \(z=x\) pour
 \(-\infty < x < \infty\) et la direction le long de \(C\) est donnée
-par \(x\) croissant.  La fonction \(\displaystyle \frac{e^{iz}}{(z-2)^2+4}\)
+par \(x\) croissant.  La fonction \(f\) définie par
+\(\displaystyle f(z) = \frac{e^{iz}}{(z-2)^2+4}\)
 a des pôles à \(z = 2+2\,i\) et \(z=2-2\,i\).  De plus,</p>
 \[
 \lim_{r\rightarrow \infty} \oint_{C_r}\,\frac{e^{iz}}{(z-2)^2+4}\ \text{d}z =
@@ -735,8 +749,7 @@ fait que l'intégrande converge uniformément vers \(0\) lorsque
 
 <p> La courbe \(C_r\) est une courbe avec une orientation positive qui
 entour le pôle à \(2+2\,i\) si \(r\) est assez grand.  Donc, la valeur
-de l'intégrale de la fonction \(f\) définie par
-\(\displaystyle f(z) = \frac{e^{iz}}{(z-2)^2+4}\) le long de la courbe
+de l'intégrale de la fonction \(f\) le long de la courbe
 fermée \(C_r\) est \(\mathrm{res}(f,2+2i)\) si \(r\) est assez
 grand.  Cette intégrale est constante pour \(r\) assez grand.  Nous
 pouvons faire ce calcul à l'aide des commandes suivantes
@@ -824,28 +837,33 @@ display({arc1, line1, line2, line3, pt, text1, text2, text3, text4, text5, text6
 courbes qui se coupent.  Si la dérivée de
 \(f:\mathbb{C} \to \mathbb{C}\) est jamais nulle, alors \(f\) est une
 application conforme.  Une famille importante d'applications conformes
-sont les fonctions de la forme</p>
+sont les fonctions \(f\) définies par</p>
 \[
-z \mapsto \frac{az+b}{cz+d} = \frac{a}{c} + \frac{bc-ad}{c} \left(
+f(z) = \frac{az+b}{cz+d} = \frac{a}{c} + \frac{bc-ad}{c} \left(
 \frac{1}{cz+d} \right)
 \]
 <p> avec \(ad -bc \neq 0\).  Ces fonctions sont appelées
 des <em>transformations homographiques</em>.  Une transformation
-homographique est la composition d'une dilatation, \(cz\), 
-suivie d'une translation, \(cz+d\), suivie d'une inversion,
-\(\displaystyle \frac{1}{cz+d}\), suivie d'une autre dilatation,
-\(\displaystyle \frac{bc-ad}{c} \left(\frac{1}{cz+d}\right)\), et suivie
+homographique est la composition d'une dilatation, \(cz\) , 
+suivie d'une translation, \(cz+d\) , suivie d'une inversion,
+\(\displaystyle \frac{1}{cz+d}\) , suivie d'une autre dilatation,
+\(\displaystyle \frac{bc-ad}{c} \left(\frac{1}{cz+d}\right)\) , et suivie
 finalement par une autre translation,
 \(\displaystyle \frac{a}{c} + \frac{bc-ad}{c}  \left(\frac{1}{cz+d}\right)\).
 Ainsi, une transformation homographique préserve
 les cercles (une ligne droite est un cercle de rayon infini).</p>
 
+<p><em>Note</em>: Un transformations homographique \(f\) est en fait
+une fonction du plan complexe compactifié
+\(\overline{\mathbb{C}}\) dans lui-même si nous posons
+\(f(d/c) = \infty\) et \(f(\infty) = a/c\).</p>
+
 <p>Une transformations homographique est complètement déterminée par
-l'image de trois points.  Considérons la transformation homographique</p>
-\[
-f(z) = \frac{2z - 3}{2z + 3} \ .
-\]
-</p>Cette fonction est définie dans <em>Maple</em> par la commande
+l'image de trois points.</p>
+
+<p><em>Exemple</em>: Considérons la transformation homographique
+\(f\) définie par \(\displaystyle f(z) = \frac{2z - 3}{2z + 3}\).
+Cette fonction est définie dans <em>Maple</em> par la commande
 suivante.</p>
 
 <pre class="matlab">
@@ -981,7 +999,7 @@ domaine \( \{ x+y i : y \geq 0\}\) en une bande horizontale</p>
 S = \{ w = u+i v : u \in \mathbb{R} \ \text{et} \ 0\leq v \leq \pi \} \ .
 \]
 <p> Nous résolvons le problème d'état stationnaire sur \(S\).  En
-fait, nous allons voir qu'il est facile de résoudre le problème sur
+fait, nous allons voir qu'il est facile de résoudre ce problème sur
 \(S\).  Finalement, nous utilisons l'application conforme
 \(f\) pour transformer la solution sur \(S\) en une solution pour le
 problème initial sur le domaine \(y\geq 0\).</p>
@@ -1108,12 +1126,12 @@ notre problème initial. </p>
 \[
 \begin{split}
 & 0 \\
-& 1 - \mathrm{signum}(0, x^2 - 1, 1)
+& 1 - \mathrm{signum}(0, x{\scriptsize \sim}^2 - 1, 1)
 \end{split}
 \]
 
-<p>La fonction <font class="matlab">signum</font> de <em>Maple</em>
-est égale à \(-1\) pour \( -1 \leq x \leq 1\) et \(1\) autrement. </p>
+<p>La fonction <font class="matlab">signum(0,x,1)</font> de <em>Maple</em>
+est égale à \(-1\) pour \( x < -1\) et \(1\) pour \(x \geq 0 \). </p>
 
 <p> Nous pouvons maintenant dessiner la distribution de chaleur à
 l'aide de la fonction <font class="matlab">densityplot()</font>.</p> 
