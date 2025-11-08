@@ -811,14 +811,6 @@ display({arc1, line1, line2, line3, pt, text1, text2, text3, text4, text5, text6
 </font>
 </pre>
 
-<!--
-<h3> Roots of Analytic Functions </h3>
-
-pe := x^3 - x^2 + 5*x - 6 = 0;
-with(RootFinding);
-Analytic(pe, x, -0.5 - 3*I .. 0.5 + 3*I);
--->
-
 <h3> Conformal Mapping </h3>
 
 <p>A <em>conformal Mapping</em> is a function \(f:\mathbb{C}\to \mathbb{C}\)
@@ -844,7 +836,7 @@ of infinite radius.)</p>
 
 <p><em>Note</em>: A linear fractional transformation \(f\) is in fact
 a function from the compactified complex plane
-\(\overline{\mathbb{C}}\) into itself is we set \(f(d/c) = \infty\) and
+\(\overline{\mathbb{C}}\) into itself if we set \(f(d/c) = \infty\) and
 \(f(\infty) = a/c\).</p>
 
 <p>A linear fractional transformation is completely and uniquely determined by
@@ -962,7 +954,7 @@ T(x,y) =
 \begin{cases}
 2 & \quad \text{if} \ |x|<1 \ \text{and} \ y=0 \\
 0 & \quad \text{if} \ |x|\geq 1 \ \text{and} \ y =0
-\end{cases} \ .
+\end{cases}
 \]
 <p>We also assume that \(T(x,y)\) is bounded for \(y \geq 0\).
 This is equivalent to requiring that the temperature in the plate
@@ -1042,7 +1034,7 @@ onto the entire line \(w=u+i\,v\) with \(v=\pi\), the segment of the
 line \(z=x\) with \(x<-1\) is mapped onto the line \(w=u\) with \(u>0\)
 and the segment of the line \(z=x\) with \(x>1\) is mapped onto the
 line \(w=u\) with \(u<0\).  We may extend the function \(f\) to
-the compactify complex plane by defining \(f\) to be \(\infty\)
+the compactified complex plane by defining \(f\) to be \(\infty\)
 at \(-1\) and \(1\), and \(0\) at \(\infty\).</p>
 
 <p>We now prove that the solution of the PDE for the steady state heat

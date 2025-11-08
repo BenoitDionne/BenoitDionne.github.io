@@ -103,7 +103,7 @@ roots is given by the following command.</p>
 > <font class="matlab">fspe:=evalf(spe);</font>
 </pre>
 
-\[ 1.157720809, -0.0788604043 + 2.275165423 I, -0.0788604043 - 2.275165423 I \]
+\[ 1.157720809,-0.0788604043 + 2.275165423\,I,-0.0788604043 - 2.275165423\,I \]
 
 <p>To extract the values from this list, we may used the following
 commands. </p>
@@ -115,19 +115,46 @@ commands. </p>
 \[
 \begin{split}
 & x1 := 1.157720809 \\
-& x2 := -0.0788604043 + 2.275165423 I \\
-& x3 := -0.0788604043 - 2.275165423 I
+& x2 := -0.0788604043 + 2.275165423\,I \\
+& x3 := -0.0788604043 - 2.275165423\,I
 \end{split}
 \]
 
-<p><em>Warning</em>: Since we ended up looking for a numerical
-approximation of the roots of the polynomial, we could have thought of
-using the <em>Maple</em> function <font class="matlab">fsolve()</font>.
-However, this function can only find numerical approximations of the
-real roots.  We will come back in the document <script language="javascript">
- buildLinK(Complex_anal.url_en, Complex_anal.text_en,
-"MMathSStat", Complex_anal.id, Complex_anal.target);
-</script> on the subject of finding the roots of an analytic function.</p>
+<p> Since we ended up looking for numerical approximations of the
+roots of the polynomial, we could have used the <em>Maple</em>
+function <font class="matlab">fsolve()</font>.
+However, since there are complex roots, we <em>must</em> use the
+option <font class="matlab">complex</font> to get approximations for
+<em>all</em> the roots.</p>
+
+<pre class="matlab">
+> <font class="matlab">fsolve(pe,x,complex);</font>
+</pre>
+
+\[
+-0.07886040443 - 2.275165422\,I, -0.07886040443 + 2.275165422\,I, 1.157720809
+\]
+
+<p><em>Note</em>: The package <font class="matlab">RootFinding</font>
+is an advanced package to find the roots of complex valued analytic
+functions defined on \(\mathbb{C}\).  It can be used
+if ever the function <font class="matlab">fsolve()</font> cannot find
+all the complex roots.  The function <font class="matlab">Analytic()</font> of
+this package can be used to find all the roots of an analytic
+function.  One of the arguments of this function is a rectangular
+region of the complex plane where to look for a root.  The region is
+defined by the coordinates of two diagonally opposed corners of the
+rectangle.  For instance, to find the complex root with a positive
+imaginary part of the polynomial above, we execute the following
+commands. </p>. 
+  
+<pre class="matlab">
+> <font class="matlab">with(RootFinding): Analytic(pe, x, -0.5 - 0*I .. 0 + 3*I);</font>
+</pre>
+
+\[
+-0.0788604044301870 + 2.27516542234209\,I
+\]
 
 <p><em>Example</em>: The goal is to find the points of intersection
 of the graphs of the following two functions.</p>

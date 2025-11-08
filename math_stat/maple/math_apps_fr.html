@@ -110,7 +110,7 @@ choisi (item <em>2</em> de la figure ci-dessous).</p>
 étant données une fonction et une condition initiale, les étudiants
 doivent tracer un graphe en forme de toile d'araignée associé aux
 itérations de la fonction à partir de la condition initiale.
-Le <em>Math App</em> va aussi corriger l'exactitude du graphe en forme
+Le <em>Math App</em> va aussi corriger le graphe en forme
 de toile d'araignée soumis par les étudiants selon un nombre
 prédéterminé d'itérations et le degré de précision requis. </p> 
 
@@ -269,7 +269,7 @@ au module mais peuvent être utilisées par toutes les procédures du module.
 Les tableaux sont initialisés par des tableaux vides.</p>
 <pre class="matlab">
 <font class="matlab">
-local A, B, Err, Nbr, F, X0, MV, Pts:=Array(1..0), NbrGood :=0, GRAPH,
+local A, B, Err, Nbr, F, X0, Flag1, MV, Pts:=Array(1..0), NbrGood :=0, GRAPH,
    SOL := Array(1..0), myskyblue := ColorTools:-Color([.196, .6, .8]);
 </font>
 </pre>
@@ -277,10 +277,13 @@ local A, B, Err, Nbr, F, X0, MV, Pts:=Array(1..0), NbrGood :=0, GRAPH,
 <li> <p>La procédure <font class="matlab">InitParams</font> est
 utilisée par <em>Möbius</em> pour initialiser le <em>Math App</em>
 quand la question du devoir sur <em>Möbius</em> est lue pour la
-première fois par l'étudiant.</p>
+première fois par l'étudiant.  La
+procédure <font class="matlab">InitParams</font> est aussi utilisée
+pour initialiser le <em>Math App</em> quand il est exécuté dans
+<em>Maple</em>.</p>
 <pre class="matlab">
 <font class="matlab">
-# The function InitParams() is called when run inside Mobius.
+# The function InitParams() is called to initialize the Math App.
 InitParams := proc( { a:=0, b:=1, err:=0.05, nbr:=3, f:= (1/2)*x + 1/4,
       x0 := 0.2, mv:= 0, flag1 := 0 } )
    local graph1, graph2, graph3, j, xn, yn;
@@ -302,11 +305,7 @@ InitParams := proc( { a:=0, b:=1, err:=0.05, nbr:=3, f:= (1/2)*x + 1/4,
    Nbr := nbr;
    F := f;
    X0 := x0;
-   if ( mv = 0 ) then
-      MV := B;
-   else
-      MV := mv;
-   end if;
+   Flag1 := flag1;
 
    xn := X0;
    yn := 0;
@@ -319,6 +318,12 @@ InitParams := proc( { a:=0, b:=1, err:=0.05, nbr:=3, f:= (1/2)*x + 1/4,
       yn := evalf(subs(x=xn, F));
       ArrayTools[Append](SOL, [xn,yn]);
    end do;
+
+   if ( mv = 0 ) then
+      MV := max(B, maximize(f,x=A..B));
+   else
+      MV := mv;
+   end if;
 
    graph1 := plot([[A,A],[B,B]], color=myskyblue, gridlines=true, view=[A..B,0..MV]):
    graph2 := plot( F, x=A..B, color=black, view=[A..B,0..MV]):
@@ -341,13 +346,15 @@ l'étiquette <em>Grade</em> et la zone de texte
 sont les extrémités de l'intervalle <font class="matlab">[A,B]</font>, </li>
 <li><font class="matlab">Err</font> est l'erreur tolérée pour
 l'emplacement des points dessinés par les étudiants.</li>
-<li><font class="matlab">Nbr</font> est le nombre de points (et donc
-d'itérations) qui sont utilisés pour corriger la réponse des
-étudiants.  Ceci inclus la condition initiale. </li>
-<li><font class="matlab">F</font> est la fonction qui doit être itérée.</li>
+<li><font class="matlab">Nbr</font> est le nombre d'itérations requises.
+Donc <font class="matlab">2*Nbr</font> points sont utilisés pour
+corriger les réponses des étudiants.  Ceci inclus la condition initiale. </li>
+<li><font class="matlab">F</font> est la fonction à valeurs positives 
+sur l'intervalle <font class="matlab">[A,B]</font> qui doit être itérée.</li>
 <li><font class="matlab">X0</font> est la condition initiale.</li>
-<li><font class="matlab">MV</font> est le maximum en valeur absolue
-de <font class="matlab">F</font>.  Il est généralement préférable de
+<li><font class="matlab">MV</font> est la valeur maximale 
+de <font class="matlab">F</font> sur l'intervalle
+<font class="matlab">[A,B]</font>.  Il est généralement préférable de
 laisser au code le soin de calculer de cette valeur.</li>
 </ol>
 </p>
@@ -363,8 +370,9 @@ droite diagonale \(y = x\).  Le dessin
 <font class="matlab">graph2</font> contient le graphe de la fonction
 <font class="matlab">F</font> sur l'intervalle
 <font class="matlab">[A,B]</font>. Le dessin
-<font class="matlab">graph3</font> contient l'axe des \(x\).  Ce
-troisième dessin est pour être certain que l'axe horizontal est
+<font class="matlab">graph3</font> contient les points
+<font class="matlab">(A,0)</font> et <font class="matlab">(B,0)</font>.
+Ce troisième dessin est pour être certain que l'axe horizontal est
 affiché et couvre tout l'intervalle <font class="matlab">[A,B]</font>.</p>
 </li>
 <li> La procédure suivante est <font class="matlab">Click</font>.
@@ -393,6 +401,10 @@ Finalement, la procédure dessine sur la zone de dessin
 <font class="matlab">Plot0</font> le nouveau point et une droite à
 partir du point précédent jusqu'au nouveau point si cela est
 nécessaire.</p> 
+
+<p>L'argument optionel <font class="matlab">[6]</font> pour
+<font class="matlab">evalf</font> est le nombre de chiffres
+que les valeurs qu'elle retourne doivent avoir.</p>
 
 <p>Nous devons associer cette procédure à la zone de dessin
 <font class="matlab">Plot0</font> autrement elle ne sera pas qu'elle
@@ -459,10 +471,12 @@ que l'étudiant a dessiné après que l'étudiant l'ait traîné.
 Puis, la procédure modifie la variable <font class="matlab">Pts</font> en
 remplaçant les vieilles coordonnées du dernier point que l'étudiant a
 dessiné par les nouvelles coordonnées.
-Finalement, la procédure dessine sur la zone de dessin
-<font class="matlab">Plot0</font> le nouveau point et dessine de nouveau une
-droite à partir du point précédent jusqu'au nouveau point si cela est
-nécessaire.</p>
+Finalement, après avoir effacé le point avec les anciennes coordonnées
+et la droite de ce point au point précédent si cela est nécessaire, la
+procédure dessine dans la zone de dessin
+<font class="matlab">Plot0</font> le dernier point
+avec les nouvelles coordonnées et dessine une droite à partir de ce
+point jusqu'au point précédent si cela est nécessaire.</p>
 
 <p>La procédure <font class="matlab">EndDrag</font> ne fait rien.</p>
 
@@ -529,16 +543,19 @@ end proc;
 </font>
 </pre>
 <p> Cet procédure fait quatre choses.  Premièrement, elle obtient les
-nouvelles coordonnées \(x\) and \(y\) soumises par l'étudiant.  Il y
+nouvelles coordonnées \(x\) and \(y\) du dernier point soumis par
+l'étudiant.  Il y 
 a un simple test pour s'assurer que la coordonnée \(x\) est dans
 l'intervalle <font class="matlab">[A,B]</font>.
 Puis, la procédure modifie la variable <font class="matlab">Pts</font> en
 remplaçant les vieilles coordonnées du dernier point que l'étudiant a
 dessiné par les nouvelles coordonnées.
-Finalement, la procédure dessine sur la zone de dessin
-<font class="matlab">Plot0</font> le nouveau point et dessine de nouveau une
-droite à partir du point précédent jusqu'au nouveau point si cela est
-nécessaire.</p>
+Finalement, après avoir effacé le point avec les anciennes coordonnées
+et la droite de ce point au point précédent si cela est nécessaire, la
+procédure dessine dans la zone de dessin
+<font class="matlab">Plot0</font> le dernier point
+avec les nouvelles coordonnées et dessine une droite à partir de ce
+point jusqu'au point précédent si cela est nécessaire.</p>
 
 <p>Pour associer cette procédure à la zone de
 texte <font class="matlab">TextArea0</font> pour l'étiquette
@@ -716,13 +733,15 @@ Check := proc()
             J := 0;
          end if;
       else
-	 break;
-         # ArrayTools[Append](badPts, SOL[j]);
-         # if ( j-1 = N2 ) then
-         #    ArrayTools[Append](badEdges, plot([Pts[N2],SOL[j]], color=red));
-         # else
-         #    ArrayTools[Append](badEdges, plot([SOL[j-1],SOL[j]], color=red));
-         # end if;
+         # Only used when the button  solution  is visible
+         if ( Flag1 = 1 ) then
+            ArrayTools[Append](badPts, SOL[j]);
+            if ( j-1 = N2 ) then
+               ArrayTools[Append](badEdges, plot([Pts[N2],SOL[j]], color=red));
+            else
+               ArrayTools[Append](badEdges, plot([SOL[j-1],SOL[j]], color=red));
+            end if;
+         end if;
       end if;
    end do;
 	
@@ -739,14 +758,16 @@ enregistre leur position dans la variable
 étudiant est dénoté bon si la distance Euclidienne de ce point au vrai point
 correspondant du graphe en forme de toile d'araignée est inférieur à
 l'erreur tolérée.  La deuxième boucle détermine les segments de
-droites qui sont bons (ceux entre deux bons points qui se suivent) et
-ceux qui sont mauvais.  Finalement, la
+droites qui sont bons (ceux qui relient deux bons points qui se suivent) et
+ceux qui sont mauvais (ceux qui relient deux points qui se suivent où
+au moins un des deux points n'est pas un bon point.)  Finalement, la
 zone de dessin est dessinée de nouveau avec le graphe en forme de toile
 d'araignée de l'étudiant où les bons éléments sont en vert et les
 mauvais en rouge. </p>
 
-<p>La section de code qui a été misse en commentaire peut être
-utilisée pour obtenir une correction complète du graphe en forme de
+<p>La section de code associée au commentaire
+<font class="matlab"># Only used when the button solution is visible</font>
+est utilisée pour obtenir une correction complète du graphe en forme de
 toile d'araignée soumis par un étudiant en fonction 
 du graphe en toile d'araignée qui est requis dans la question; c'est-à-dire, 
 pas seulement limité aux points que l'étudiant a tracés.
@@ -829,12 +850,12 @@ avons créer.</p>
 </ol>
 
 <p> Nous ne devons surtout pas oublier de sauvegarder notre ouvrage
-quand nous avons terminé de construire notre <em>Math App</em>.  Le
+quand nous avons terminé de construire un joli <em>Math App</em>.  Le
 <em>Math App</em> décrit dans ce document est appelé
 <script language="javascript">
 buildLinK("UO_DDS_cobweb.mw", "UO_DDS_cobweb.mw", "MMathSStat", "MW", "_blank");
 </script>.  Il peut être téléchargé en cliquant avec le
-bouton droit de la souris le lien précédent et ensuite en choisissant
+bouton droit de la souris sur le lien précédent et ensuite en choisissant
 <em>Save link as ... &rarr; Save file</em>.</p>
 
 <br>

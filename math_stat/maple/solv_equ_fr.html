@@ -103,7 +103,7 @@ décimaux) des racines est donnée par la commande suivante.</p>
 > <font class="matlab">fspe:=evalf(spe);</font>
 </pre>
 
-\[ 1.157720809, -0.0788604043 + 2.275165423 I, -0.0788604043 - 2.275165423 I \]
+\[ 1.157720809,-0.0788604043 + 2.275165423\,I,-0.0788604043 - 2.275165423\,I \]
 
 <p>Pour extraire les valeurs de cette liste, nous utilisons les
 commandes suivantes.</p>
@@ -115,20 +115,48 @@ commandes suivantes.</p>
 \[
 \begin{split}
 & x1 := 1.157720809 \\
-& x2 := -0.0788604043 + 2.275165423 I \\
-& x3 := -0.0788604043 - 2.275165423 I
+& x2 := -0.0788604043 + 2.275165423\, I \\
+& x3 := -0.0788604043 - 2.275165423\, I
 \end{split}
 \]
 
-<p><em>Avertissement</em>: Puisque qu'à la fin nous avons cherché des
-approximations numériques des racines du polynôme, nous aurions pu
-penser à utiliser la fonction <font class="matlab">fsolve()</font> de
-<em>Maple</em>.  Cependant, cette fonction peut seulement trouver des
-approximations numériques des racines réelles.  Nous allons revenir
-dans le document <script language="javascript">
- buildLinK(Complex_anal.url_en, Complex_anal.text_en,
-"MMathSStat", Complex_anal.id, Complex_anal.target);
-</script> sur le sujet de trouver les racines d'une fonction analytique.</p>
+<p> Puisque nous avons fini par chercher des approximations
+numériques des racines du polynôme, nous aurions pu utiliser la
+fonction <font class="matlab">fsolve()</font> de <em>Maple</em>.
+Cependant, puisque qu'il y a des racines complexes, nous
+<em>devons</em> utiliser l'option <font class="matlab">complex</font>
+pour obtenir les approximations de <em>toutes</em> les racines.</p>
+
+<pre class="matlab">
+> <font class="matlab">fsolve(pe,x,complex);</font>
+</pre>
+
+\[
+-0.07886040443 - 2.275165422\,I, -0.07886040443 + 2.275165422\,I, 1.157720809
+\]
+
+
+<p><em>Note</em>: La librairie <font class="matlab">RootFinding</font>
+est une librairie plus poussée pour trouver les racines d'une fonction
+analytique à valeurs complexes définie sur \(\mathbb{C}\).  Elle peut
+être utilisé dans l'éventualité où la fonction
+<font class="matlab">fsolve()</font> ne peut pas trouver toutes les
+racines complexes. La fonction <font class="matlab">Analytic()</font>
+de cette librairie peut être utilisée pour trouver les racines d'une
+fonction analytique  Un des arguments de cette fonction est une région
+rectangulaire du plan complexe où chercher pour une racine.  La
+région est définie par les coordonnées de deux coins opposés sur une
+diagonale du rectangle.  Par exemple, pour trouver la racine avec une
+partie imaginaire positive du polynôme ci-dessus, nous exécutons les
+commandes suivantes.</p>. 
+  
+<pre class="matlab">
+> <font class="matlab">with(RootFinding): Analytic(pe, x, -0.5 - 0*I .. 0 + 3*I);</font>
+</pre>
+
+\[
+-0.0788604044301870 + 2.27516542234209\,I
+\]
 
 <p><em>Exemple</em>: Le but est de trouver les points d'intersection
 des graphes des deux fonctions définies ci-dessous.</p>
