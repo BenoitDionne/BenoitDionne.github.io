@@ -73,8 +73,7 @@ main_title( MStexte, "MMathSStat");
 </script>
 </div>
 
-<p><em>Exemple</em>: Considérons l'EDO d'ordre deux avec des
-coefficients variables </p>
+<p> Considérons l'EDO d'ordre deux avec des coefficients variables </p>
 \[
 \frac{\text{d}^2 x}{\text{d} t^2} + \cos(t)\, x = 0 \ .
 \]
@@ -263,6 +262,7 @@ r^2+ (b-1) r+c = 0
 \(\displaystyle r^2+(b-1)r+c=0\).  Les solutions de l'équation de
 Cauchy-Euler dépendent des racines de l'équation indicielle.</p>
 
+<div class="Note">
 <p><em>Note</em>: L'équation de Cauchy-Euler peut être réduite à
 l'EDO linéaire d'ordre deux avec des coefficients constants 
 \(\tilde{y}''(t) +(b-1) \tilde{y}'(t) +c \tilde{y}(t) = 0\) grâce à la
@@ -285,7 +285,9 @@ indicielle possède une seule racine réelle, \(r\).</li>
 l'équation indicielle possède une paire de racines complexes conjuguées,
 \(a \pm b i\) avec \(b \neq 0\).</li>
 </ul>
+</div>
 
+<div class="Example">
 <p><em>Exemple</em>: Supposons que <font class="matlab">b=c=1</font>
 dans l'équation de Cauchy-Euler.</p>
 
@@ -312,6 +314,7 @@ EDO.</p>
 \]
 
 <p>C'est la solution générale à laquelle nous nous attendions.</p>
+</div>
 
 <h3> Problèmes aux valeurs limites pour les EDO </h3>
 
@@ -319,6 +322,7 @@ EDO.</p>
 très important d'étudier le problème de valeurs aux limites pour
 l'équation de Cauchy-Euler.</p>
 
+<div class="Example">
 <p><em>Exemple</em>: Considérons l'équation de
 Cauchy-Euler avec <font class="matlab">b=c=1</font> et les conditions
 aux limites \(y(1)=1\) et \(y(3)=2\). 
@@ -335,7 +339,9 @@ pour nous.</p>
 \[
 y(x) = -\frac{(-2+\cos(\ln(3))) \sin(ln(x))}{\sin(\ln(3))} + \cos(\ln(x))
 \]
+</div>
 
+<div class="Example">
 <p><em>Exemple</em>: Supposons que \(-b=c=1\) dans l'équation de
 Cauchy-Euler.</p> 
 
@@ -374,6 +380,7 @@ y(x) = x - \frac{x \ln(x)}{3 \ln(3)}
 
 <p>Ainsi, nous avons que \(c_1 = 1\) et
 \(\displaystyle c_2 = -(3\ln(3)^{-1}\).</p>
+</div>
 
 <h3> Équation de Bessel </h3>
 

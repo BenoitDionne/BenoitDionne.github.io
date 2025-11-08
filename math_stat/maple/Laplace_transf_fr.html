@@ -197,10 +197,11 @@ Dirac est la fonction donnée ci-dessous. </p>
 <p>Supposons que nous voulions résoudre l'EDO</p>
 
 \[
-y''(t) + 4 y(t) = \cos(2t)
+y^{(n)}(t) + a_{n-1} y^{(n-1)}(t) + \ldots a_1 y''(t) + a_1 y(t) = f(t)
 \]
 
-<p>avec les condition initiales \(y(0)=2\) et \(y'(0)=3\).  La méthode
+<p>avec les condition initiales
+\(y(0)=y_0, y'(0)=y_1, \ldots, y^{(n-1)}(0) = y_{n-1}\).  La méthode
 qui utilise les transformations de Laplace pour résoudre les EDO
 linéaires avec coefficients constants est simple.  Nous calculons la
 transformée de Laplace des deux côtés de l'EDO pour obtenir une
@@ -227,7 +228,9 @@ car les transformations de Laplace éliminent les dérivées.  En fait,
 <p>Ces formules peuvent être démontrées à l'aide d'intégrations par
 parties.</p> 
 
-<p><em>Exemple</em>: Considérons l'EDO définie par la commande suivante
+<div class="Example">
+<p><em>Exemple</em>: Considérons l'EDO
+\(y''(t) + 4 y(t) = \cos(2t)\) définie par la commande suivante
 dans <em>Maple</em>.</p>
 
 <pre class="matlab">
@@ -238,7 +241,8 @@ dans <em>Maple</em>.</p>
   eq1 := \frac{\text{d}^2}{\text{d}t^2} y(t) + 4 y(t) = \cos(2t)
 \]
 
-<p>Si nous utilisons la procédure pour résoudre les EDO à l'aide des
+<p>avec les conditions initiales \(y(0)=2\) et \(y'(0)=3\).
+Si nous utilisons la procédure pour résoudre les EDO à l'aide des
 transformations de Laplace, alors nous exécutons les opérations suivantes.</p>
 
 <pre class="matlab">
@@ -257,10 +261,13 @@ transformations de Laplace, alors nous exécutons les opérations suivantes.</p>
 & yt := 2 \cos(2 t) + \frac{\sin(2 t) (t + 6)}{4}
 \end{split}
 \]
+</div>
 
+<div class="Example">
 <p><em>Note</em>: La version graphique de <em>Maple</em> peut afficher
 \(\mathcal{L}\) au lieu de <q lang="fr">laplace</q>.  Cependant, il faut
 écrire <q lang="fr">laplace</q> dans les commandes. </p>
+</div>
 
 <p>Tout le travail fait pour résoudre l'EDO linéaire avec les conditions
 initiales de l'exemple précédent peut être fait par une seule commande
@@ -271,7 +278,7 @@ de <em>Maple</em>.</p>
 </pre>
 
 \[
-yt = 2 \cos(2 t) + \frac{\sin(2t)(t + 6)}{4}
+y(t) = 2 \cos(2 t) + \frac{\sin(2t)(t + 6)}{4}
 \]
 
 <h3> Applications </h3>

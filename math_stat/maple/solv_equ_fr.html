@@ -135,7 +135,7 @@ pour obtenir les approximations de <em>toutes</em> les racines.</p>
 -0.07886040443 - 2.275165422\,I, -0.07886040443 + 2.275165422\,I, 1.157720809
 \]
 
-
+<div class="Note">
 <p><em>Note</em>: La librairie <font class="matlab">RootFinding</font>
 est une librairie plus poussée pour trouver les racines d'une fonction
 analytique à valeurs complexes définie sur \(\mathbb{C}\).  Elle peut
@@ -148,7 +148,7 @@ rectangulaire du plan complexe où chercher pour une racine.  La
 région est définie par les coordonnées de deux coins opposés sur une
 diagonale du rectangle.  Par exemple, pour trouver la racine avec une
 partie imaginaire positive du polynôme ci-dessus, nous exécutons les
-commandes suivantes.</p>. 
+commandes suivantes.</p>
   
 <pre class="matlab">
 > <font class="matlab">with(RootFinding): Analytic(pe, x, -0.5 - 0*I .. 0 + 3*I);</font>
@@ -157,7 +157,9 @@ commandes suivantes.</p>.
 \[
 -0.0788604044301870 + 2.27516542234209\,I
 \]
+</div>
 
+<div class="Example">
 <p><em>Exemple</em>: Le but est de trouver les points d'intersection
 des graphes des deux fonctions définies ci-dessous.</p>
 
@@ -231,9 +233,11 @@ valeurs de la liste <font class="matlab">xs</font>.</p>
 
 <p>Nous avons utilisé la function <font class="matlab">seq()</font>
 de <em>Maple</em> pour générer la liste de valeurs ci-dessus.</p>
+</div>
 
 <h3> Systèmes d'équations non-linéaires </h3>
 
+<div class="Example">
 <p><em>Exemple</em>: Nous voulons trouver les solutions du système
 suivant composé de deux équations non-linéaires.</p>
 
@@ -294,6 +298,7 @@ le fait que les deux équations sont invariantes sous l'action de la
 réflexion par rapport à l'origine (i.e. \((x,y) \mapsto (-x,-y)\)).
 Donc, les autres solutions sont données en multipliant les deux
 solutions ci-dessus par \(-1\).</p>
+</div>
 
 <br>
 <hr>

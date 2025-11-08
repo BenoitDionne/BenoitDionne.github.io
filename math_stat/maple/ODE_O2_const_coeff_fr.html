@@ -148,6 +148,7 @@ particulière de l'ODE donnée par <font class="matlab">eq2</font>.</p>
  e^x = e^x
 \]
 
+<div class="Note">
 <p><em>Note</em>: Deux fonctions sont linéairement indépendantes si
 une n'est pas un multiple de l'autre.  Pour déterminer si deux
 solutions \(y_1\) et \(y_2\) d'une EDO linéaire homogène d'ordre deux avec des
@@ -172,6 +173,7 @@ des deux solutions.  Ceci n'est pas vrai pour deux fonctions
 quelconques.  Nous ne pouvons pas conclure que deux fonctions
 arbitraires sont linéairement indépendantes sur la base que le déterminant
 de leur Wronskian est non-nul en un seul point.</p>
+</div>
 
 <p>Vérifions que les deux solutions \(\displaystyle e^x\) et
 \(\displaystyle x e^x\) de l'EDO donnée par <font class="matlab">eq1</font>
@@ -189,6 +191,7 @@ sont linéairement indépendantes.</p>
 point, et donc en tous points, les deux solutions sont linéairement
 indépendantes. </p> 
 
+<div class="Example">
 <p><em>Exemple</em>: Considérons l'EDO suivante.</p>
 
 <pre class="matlab">
@@ -208,6 +211,7 @@ indépendantes. </p>
 \[
 y(x) = \_C1 e^{2x} \sin(3x)+ \_C2 e^{2x} \cos(3x)
 \]
+</div>
 
 <p> Considérons l'EDO homogène </p>
 \[
@@ -347,6 +351,7 @@ yp := (xx, bb) \mapsto subs({\beta = bb, \omega = 1, x = xx}, rhs(sol))
        alt="Graphe de la solution de eq4 pour &omega; = 1 et &beta; = 0, 0.75, 1.5, 2.25, 3">
 </div>
 
+<div class="Note">
 <p><em>Note</em>: La commande</p>
 
 <pre class="matlab">
@@ -357,6 +362,7 @@ yp := (xx, bb) \mapsto subs({\beta = bb, \omega = 1, x = xx}, rhs(sol))
 Les couleurs semblent être associées de façon aléatoire aux valeurs
 de \(\beta\).  Ceci n'est pas pratique si la couleur associée à chaque
 graphe n'est pas celle désirée.</p>
+</div>
 
 <p>Comme nous pouvons constater, sans amortissement, le ressort maintient le
 même mouvement oscillatoire pour toujours.  Si nous ajoutons de

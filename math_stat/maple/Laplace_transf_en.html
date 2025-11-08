@@ -191,10 +191,11 @@ below.</p>
 <p>Suppose that we want to solve the ODE</p>
 
 \[
-y''(t) + 4 y(t) = \cos(2t)
+y^{(n)}(t) + a_{n-1} y^{(n-1)}(t) + \ldots a_1 y''(t) + a_1 y(t) = f(t)
 \]
 
-<p>with the initial conditions \(y(0)=2\) and \(y'(0)=3\).  The method
+<p>with the initial conditions
+\(y(0)=y_0, y'(0)=y_1, \ldots, y^{(n-1)}(0) = y_{n-1}\).  The method
 using Laplace transformations to solve linear ODE with constant
 coefficients is simple.  We compute the Laplace Transform of both
 sides of the ODE to obtain an algebraic equation in function of
@@ -216,12 +217,14 @@ derivatives. In fact, \(\mathcal{L}(y')(s) = s Y(s)- y(0)\),
 in general</p> 
 
 \[
-\mathcal{L}(y^{n})(s) = s^n Y(s) - s^{(n-1)} y(0) -s^{(n-2)} y'(0)- \ldots - y^{(n-1)}(0)
+\mathcal{L}(y^{(n)})(s) = s^n Y(s) - s^{(n-1)} y(0) -s^{(n-2)} y'(0)- \ldots - y^{(n-1)}(0)
 \]
 
 <p>These formulae can be proved using integration by parts.</p>
 
-<p><em>Example</em>: Consider the ODE defined by the following
+<div class="Example">
+<p><em>Example</em>: Consider the ODE
+\(y''(t) + 4 y(t) = \cos(2t)\) defined by the following
 command in <em>Maple</em></p>
 
 <pre class="matlab">
@@ -232,7 +235,8 @@ command in <em>Maple</em></p>
   eq1 := \frac{\text{d}^2}{\text{d}t^2} y(t) + 4 y(t) = \cos(2t)
 \]
 
-<p>If we follow the procedure to solve ODE with Laplace
+<p>with the initial conditions \(y(0)=2\) and \(y'(0)=3\).  If we
+follow the procedure above to solve ODE with Laplace 
 transformations, then we perform the following operations.</p> 
 
 <pre class="matlab">
@@ -251,10 +255,13 @@ transformations, then we perform the following operations.</p>
 & yt := 2 \cos(2 t) + \frac{\sin(2t) (t + 6)}{4}
 \end{split}
 \]
+</div>
 
+<div class="Note">
 <p><em>Note</em>: The graphical version of <em>Maple</em> may display
 \(\mathcal{L}\) instead of <q lang="en">laplace</q>.  However, we
 should write <q lang="en">laplace</q> in the commands. </p>
+</div>
 
 <p>All the work to solve the linear ODE with initial conditions of the
 previous example can be done with one <em>Maple</em> command.</p>
@@ -264,7 +271,7 @@ previous example can be done with one <em>Maple</em> command.</p>
 </pre>
 
 \[
-yt = 2 \cos(2 t) + \frac{\sin(2t)(t + 6)}{4}
+y(t) = 2 \cos(2 t) + \frac{\sin(2t)(t + 6)}{4}
 \]
 
 <h3> Applications </h3>

@@ -183,6 +183,7 @@ est entre \(-\pi\) (exclus) et \(\pi\) (inclus).</p>
 3 + 4\,I
 \]
 
+<div class="Note">
 <p><em>Note</em>: La figure précédente peut être dessinée avec <em>Maple</em>.
 Cependant, le résultat n'est pas très joli.  Le lecteur pourrait être
 intéressé à exécuter les commandes suivantes dans <em>Maple</em>. </p>
@@ -203,6 +204,7 @@ display({arc1, arrow1, line1, line2, line3, text1, text2, text3, text4, text5},
    axes = none, view = [-1 .. 5, -1 .. 5], scaling = constrained);
 </font>
 </pre>
+</div>
 
 <h3> Fonctions d'une variable complexe </h3>
 
@@ -292,6 +294,7 @@ complexe dérivable.  Un résultat surprenant est que
 si la fonction \(f:\mathbb{C}\rightarrow \mathbb{C}\) est
 dérivable, alors elle est dérivable un nombre infini de fois.</p>
 
+<div class="Example">
 <p><em>Exemple</em>: Considérons la fonction définie par la commande
 de <em>Maple</em> suivante.</p>
 
@@ -342,6 +345,7 @@ f := z\rightarrow z^{2}\,(1 - z)
 \]
 
 <p> Nous avons bien que \(u_y(x,y)=-v_x(x,y)\).</p>
+</div>
 
 <h3> Séries de Taylor et de Laurent</h3>
 
@@ -360,6 +364,7 @@ a_n = \frac{1}{n!}\,\frac{\partial^n}{\partial z^n}f(x_0) \ .
 \]
 <p> La série converge (ponctuellement) vers \(f(z)\) pour tous \(z \in D\).</p>
 
+<div class="Note">
 <p><em>Remarque</em>: La formule pour la série Taylor d'une fonction
 infiniment dérivable \(f:\mathbb{R}\to\mathbb{R}\) 
 est presqu'identique à la formule ci-dessus pour une fonction
@@ -397,8 +402,11 @@ de \(\mathbb{R}\) dans lui-même comme nous venons de voir.
 Ceci démontre que la théorie des séries de Taylor est plus simple pour
 les fonctions de \(\mathbb{C}\) dans lui-même qu'elle l'est pour les
 fonctions de \(\mathbb{R}\) dans lui-même.</p>
+</div>
 
-<p>Considérons la fonction \(f:\mathbb{C} \to \mathbb{C}\) définie
+<div class="Example">
+<p><em>Exemple</em>: Considérons la fonction
+\(f:\mathbb{C} \to \mathbb{C}\) définie
 dans <em>Maple</em> par la commande suivante. </p>
 
 <pre class="matlab">
@@ -479,13 +487,19 @@ ci-dessus est donnée par la commande suivante.</p>
 \]
 
 <p> Nous avons besoin de plus de termes de la série de Taylor de \(f\)
-pour obtenir une meilleure approximation.  Nous pouvons utiliser la
+pour obtenir une meilleure approximation.<p>
+</div>
+
+<p>Nous pouvons utiliser la
 fonction <font class="matlab">taylor()</font> au lieu de la fonction
 <font class="matlab">series()</font> 
 (avec les mêmes arguments) pour obtenir la série de Taylor d'une
 fonction.  Nous pouvons aussi calculer les coefficients de la série de
 Taylor d'une fonction à l'aide de la fonction
-<font class="matlab">coeftayl()</font>.  Par exemple, le coefficient de
+<font class="matlab">coeftayl()</font>.</p>
+
+<div class="Example">
+<p><em>Exemple</em>:  Le coefficient de
 \(\displaystyle (z-2)^5\) dans la série de Taylor de \(f\) ci-dessus à
 \(z=2\) est donné par la commande suivante.</p>
 
@@ -496,6 +510,7 @@ Taylor d'une fonction à l'aide de la fonction
 \[
 \frac{98}{15}
 \]
+</div>
 
 <h4>Série de Laurent</h4>
 
@@ -520,6 +535,7 @@ La série ci-dessus est appelée la <em>série de Laurent</em> de \(f\) à
 \]
 <p> est appelée la <em>partie principale</em> de la série. </p>
 
+<div class="Example">
 <p><em>Exemple</em>: Considérons la fonction
 \(f:\mathbb{C} \to \mathbb{C}\) définie dans
 <em>Maple</em> par la commande suivante. </p>
@@ -557,7 +573,9 @@ commande suivante. </p>
 <p> La partie principale de cette série de Laurent est
 \(\displaystyle \frac{-\sin(1)}{2(z-1)}\).   Ainsi, \(1\) est un pôle
 d'ordre un de \(f\).</p>
+</div>
 
+<div class="Example">
 <p><em>Exemple</em>: Considérons la fonction
 \(f:\mathbb{C}\to \mathbb{C}\) définie dans <em>Maple</em> par la
 commande suivante.</p>
@@ -580,6 +598,7 @@ z^{-3} + {\displaystyle \frac {1}{6}} \,z^{3} + \mathrm{O}(z^{4})
 \]
 
 <p> Donc, \(z=0\) est un pôle d'ordre trois de \(f\).</p>
+</div>
 
 <p> Le coefficient du terme \( 1/(z-z_0)\) dans la série de Laurent
 d'une fonction \(f\) à un point \(z_0\) est appelé le
@@ -599,6 +618,7 @@ le long de cette courbe.</p>
 <p>Le résidu de \(f\) à \(z_0\) peut être calculé à l'aide de la fonction
   <font class="matlab">residue()</font> de <em>Maple</em>.</p>
 
+<div class="Example">
 <p><em>Exemple</em>: Considérons la fonction
 \(f:\mathbb{C} \to \mathbb{C}\) définie par la
 commande suivante de <em>Maple</em>.</p>
@@ -636,7 +656,9 @@ de \(f\) à \(2\pi\).</p>
 
 <p> Le coefficient de \(\displaystyle \frac{1}{z-2\pi}\) est
 effectivement \(1\).</p>
+</div>
 
+<div class="Example">
 <p><em>Exemple</em> Nous voulons évaluer l'intégrale de la fonction
 \(f\) définie par 
 \(\displaystyle f(z) = \frac{1}{(3z-i)^2 \, \sin(z)}\)
@@ -701,7 +723,9 @@ est donnée par la commande suivante.</p>
 
 <p> Pour une intégration numérique, ce résultat est suffisamment près
 de la valeur exacte de l'intégrale.</p>
+</div>
 
+<div class="Example">
 <p><em>Exemple</em> Nous voulons évaluer l'intégrale </p>
 \[
 \int_{-\infty}^\infty\,\frac{\sin(x)}{(x-2)^2+4}\ \text{d}x \ .
@@ -804,7 +828,9 @@ donnée par la commande suivante.</p>
 & 0.193302235
 \end{split}
 \]
+</div>
 
+<div class="Note">
 <p><em>Note</em>: Comme c'était le cas pour la première figure de ce
 document, la figure précédente peut être dessinée à l'aide de
 <em>Maple</em>.  Comme précédemment, l'image résultante n'est pas très
@@ -829,6 +855,7 @@ display({arc1, line1, line2, line3, pt, text1, text2, text3, text4, text5, text6
    axes = none, view = [-11 .. 15, -1 .. 14], scaling = constrained);
 </font>
 </pre>
+</div>
 
 <h3> Applications conformes </h3>
 
@@ -853,14 +880,17 @@ finalement par une autre translation,
 Ainsi, une transformation homographique préserve
 les cercles (une ligne droite est un cercle de rayon infini).</p>
 
+<div class="Note">
 <p><em>Note</em>: Un transformations homographique \(f\) est en fait
 une fonction du plan complexe compactifié
 \(\overline{\mathbb{C}}\) dans lui-même si nous posons
 \(f(d/c) = \infty\) et \(f(\infty) = a/c\).</p>
+</div>
 
 <p>Une transformations homographique est complètement déterminée par
 l'image de trois points.</p>
 
+<div class="Example">
 <p><em>Exemple</em>: Considérons la transformation homographique
 \(f\) définie par \(\displaystyle f(z) = \frac{2z - 3}{2z + 3}\).
 Cette fonction est définie dans <em>Maple</em> par la commande
@@ -896,6 +926,7 @@ de <em>Maple</em>.</p>
 <p>Les lignes blues et rouges sont l'image de lignes horizontales et verticales
 respectivement (Est-ce que le lecteur peut expliquer pourquoi
 c'est le cas?).</p>
+</div>
 
 <p>Pour trouver la transformation homographique \(w=f(z)\) telle que
 \(f(z_1)=w_1, f(z_2)=w_2\) et \(f(z_3)=w_3\), il suffit de résoudre
@@ -906,6 +937,7 @@ l'équation </p>
 \]
 <p>pour w.</p>
 
+<div class="Example">
 <p><em>Exemple</em>: Pour obtenir la transformation homographique
 \(f\) telle que \(f(1)=i, f(2)=3\) et \(f(i)=2\), nous devons
 résoudre pour \(w\) l'équation</p>
@@ -954,6 +986,7 @@ suivante.</p>
 <div class="center">
   <img src="Maple_complex_4.png" style="width: 300px"
        alt="Image par f du rectangle avec les coins opposés aux points 0 et 1+1i">
+</div>
 </div>
 
 <h3>Température à l'état stationnaire</h3>

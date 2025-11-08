@@ -136,7 +136,9 @@ expA := \begin{bmatrix} e^2 \cos(1) & -e^2 \sin(1) \\ e^2 \sin(1) & e^2 \cos(1) 
 exptA := \begin{bmatrix} e^{2t} \cos(t) & -e^{2t} \sin(t) \\ e^{2t} \sin(t) & e^{2t} \cos(t) \end{bmatrix}
 \]
 
-<p>We can use the function <font class="matlab">dsolve()</font> to
+<div class="Example">
+<p><em>Example</em>: We can use the
+function <font class="matlab">dsolve()</font> to 
 solve the system of homogeneous linear system of ODE \(X'(t) = A X(t)\).
 We represent this system of ODE in <em>Maple</em> as it follows.</p>
 
@@ -160,7 +162,12 @@ X := \left\{ x1(t) = e^{2t} (\_C2 \cos(t) + \_C1 \sin(t), x2(t) = -e^{2t} (  \co
 and <font class="matlab">_C2</font> are arbitrary constants.  This
 expression is equal to
 \(\displaystyle e^{tA} \begin{bmatrix} \_C2 \\ -\_C1 \end{bmatrix}\).
-We can also solve \(X'(t) = A X(t)\) with the initial condition
+</p>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: We can also solve \(X'(t) = A X(t)\) with the
+initial condition 
 \(\displaystyle X(0) = \begin{bmatrix} 2 \\ 3 \end{bmatrix}\).</p>
 
 <pre class="matlab">
@@ -199,6 +206,7 @@ X := \left\{ x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ), x2(t) = -e^{2t} (  -3 \cos
 <div class="center">
 <img src="Maple_syst_ODE_1.png" style="width: 300px"
      alt="Drawing of the orbit of the solution of X' = A X with X(0) = (2 ,3)">
+</div>
 </div>
 
 <h3> Homogeneous Linear Systems of ODE </h3>
@@ -301,12 +309,14 @@ been positive, we would have observed that all solutions go away
 from the origin as \(t \to \infty\).  The origin is then called
 a <em>source</em> or <em>unstable node</em>.</p>
 
+<div class="Note">
 <p><em>Note</em>: Another way to draw the vector field is with the
 function <font class="matlab">dfieldplot()</font>.</p>
 
 <pre class="matlab">
 > <font class="matlab">dfieldplot(eq3,[x1(t),x2(t)],t=-2..2,x1=-1..1,x2=-1..1):</font>
 </pre>
+</div>
 
 <p>We leave to the reader the pleasure of trying this command.  We
 also leave to the reader the pleasure of discovering the qualitative
@@ -480,10 +490,12 @@ Thus, we draw the orbits of some particular solutions.</p>
 solutions starting near the origin (at least, when this document was
 written).</p>
 
+<div class="Note">
 <p><em>Note</em>: There exists an explicit formula for the general
 solution of a system of non-homogeneous linear ODE like the one that we
 have just considered.  The reader can find it in most introductory textbook on
 ODE. </p>
+</div>
 
 <h3> Higher Order ODE </h3>
 
@@ -617,12 +629,14 @@ to draw these orbits.</p>
 \end{split}
 \]
 
+<div class="Note">
 <p><em>Note</em>: We provide more information on
 creating <em>Maple</em> procedures in the
 document <script language="javascript"> 
 buildLinK(Maple_programs.url_en, Maple_programs.text_en,"MMathSStat",
 Maple_programs.id, Maple_programs.target);
 </script>.</p>
+</div>
 
 <p>We now draw the orbits of several particular solutions of the
 system of ODE.</p> 
@@ -678,12 +692,14 @@ getting very close to this periodic solution.  We admit that this is
 not a proof of the existence of a unique periodic orbit but this is
 certainly a good indication of its existence.</p> 
 
+<div class="Note">
 <p><em>Note</em>:  There are several other <em>Maple</em>
 functions that may be used to draw vector fields:
 <font class="matlab">odeplot()</font> and even
 <font class="matlab">fieldplot()</font>
 if we consider that the right hand side of a system of ODE is a
 vector field.</p>
+</div>
 
 <h4> Nonlinear Pendulum </h4>
 

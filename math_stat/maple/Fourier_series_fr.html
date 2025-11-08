@@ -126,9 +126,11 @@ f \sim a_0 + \sum_1^\infty a_n \cos(n\pi x/L)
   a_n = \frac{2}{L} \int_0^L f(x) \cos(n\pi x/L)\text{d}x
 \]
 
+<div class="Note">
 <p><em>Note</em>: Nous pouvons toujours prolonger une fonction
 \(f:[0,L] \to \mathbb{R}\) à une fonction paire sur l'intervalle
 \([-L.L]\) par \(f(x) = f(-x)\) pour \(x \in [-L,0[\).</p>
+</div>
 
 <p>Si \(f\) est une fonction impaire (i.e. \(f(-x) = -f(x)\) pour tous
 \(x\)), alors \(a_n = 0\) pour tous \(n\) et la série de Fourier
@@ -144,11 +146,13 @@ f \sim \sum_1^\infty b_n \sin(n\pi x/L)
   b_n = \frac{2}{L} \int_0^L f(x)\sin(n \pi x/L) \text{d} x
 \]
 
+<div class="Note">
 <p><em>Note</em>: Nous pouvons toujours prolonger une fonction
 \(f:]0,L] \to \mathbb{R}\) à une fonction impaire définie sur
 l'intervalle \([-L.L]\) par \(f(x) = -f(-x)\) pour \(x \in [-L,0[\)
 et \(f(0)=0\).  On peut modifier la valeur d'une fonction à l'origine
 (en un point) sans changer les valeurs des intégrales ci-dessus.</p>
+</div>
 
 <h3> Calculs des séries de Fourier </h3>
 
@@ -163,6 +167,18 @@ OrthogonalExpansions</font>.  Nous n'utiliserons pas de librairies
 spécialisées dans ce document.  Il est facile de calculer les séries
 de Fourier sans faire usage d'une librairie spécialisée.</p>
 
+<div class="Note">
+<p><em>Note</em>: Nous définisons dans les exemples qui suivent des
+procédures un peu plus complexes que celles que nous avons vues
+jusqu'à présent.  Nous fournissons plus d'information sur la
+création de procédure dans <em>Maple</em> dans le document
+<script language="javascript">
+buildLinK(Maple_programs.url_fr, Maple_programs.text_fr,"MMathSStat",
+Maple_programs.id, Maple_programs.target);
+</script>.</p>
+</div>
+
+<div class="Example">
 <p><em>Exemple</em>: Considérons la fonction continue par morceaux
 définie par la procédure dans <em>Maple</em> suivante.</p>
 
@@ -195,13 +211,6 @@ définie par la procédure dans <em>Maple</em> suivante.</p>
 & end\ proc
 \end{split}
 \]
-
-<p><em>Note</em>: Nous fournissons plus d'information sur la
-création de procédure dans <em>Maple</em> dans le document
-<script language="javascript">
-buildLinK(Maple_programs.url_fr, Maple_programs.text_fr,"MMathSStat",
-Maple_programs.id, Maple_programs.target);
-</script>.</p>
 
 <p>La procédure ci-dessus est la définition la moins fragile d'une
 fonction mais nous n'avons pas à être si rigoureux si notre fonction
@@ -300,7 +309,7 @@ AN := .5000000000, .6366197722, 0., -.2122065907, 0., .1273239544, 0., -0.909456
 <p>Notons que les indices de la séquence <font class="matlab">AN</font>
 débutent à \(1\) selon les règles de <em>Maple</em>.
 Cela aura un effet sur l'énoncée des formules pour les séries de Fourier
-  dans <em>Maple</em>.</p>
+dans <em>Maple</em>.</p>
 
 <p>La série de Fourier en cosinus tronquée à \(n+1\) termes est donnée
 par la fonction ci-dessous.</p>  
@@ -328,13 +337,6 @@ tronquée à six termes; c'est-à-dire, \(n = 5\).</p>
        alt="Graphe de la fonction continue par morceaux fe et de sa série de Fourier en cosinus tronquée à six termes">
 </div>
 
-<p><em>Note</em>: Nous observons le <em>phénomène de Gibb</em>.  
-Peux importe le nombre de termes que nous utilisons pour la série de
-Fourier, près d'un point de discontinuité, la différence entre la
-valeur de la fonction et la série de Fourier tronquée n'est
-jamais plus petite qu'une certaine valeur fixe qui dépend de la
-fonction.</p> 
-
 <pre class="matlab">
 > <font class="matlab">plot3:=plot(FCS(x,10),x=-4..4,color=red):</font>
 > <font class="matlab">plots[display]({plot1,plot3},labels=[`x`,`y`]);</font>
@@ -345,10 +347,21 @@ fonction.</p>
        alt="Graphe de la fonction continue par morceaux fe et de sa série de Fourier en cosinus tronquée à 11 termes">
 </div>
 
-<p><em>Note</em>: La valeur de la série de Fourier en cosinus à un
+<p> La valeur de la série de Fourier en cosinus à un
 point \(x=a\) où <font class="matlab">fe</font> est discontinue
 est <font class="matlab">(fe(x-)+fe(x+))/2</font> comme il est prédit.</p> 
+</div>
 
+<div class="Note">
+<p><em>Note</em>: Nous observons le <em>phénomène de Gibb</em>.  
+Peux importe le nombre de termes que nous utilisons pour la série de
+Fourier, près d'un point de discontinuité, la différence entre la
+valeur de la fonction et la série de Fourier tronquée n'est
+jamais plus petite qu'une certaine valeur fixe qui dépend de la
+fonction.</p> 
+</div>
+
+<div class="Example">
 <p><em>Exemple</em>: Nous considérons maintenant la fonction définie
 dans <em>Maple</em> par la procédure suivante.</p>
 
@@ -481,6 +494,7 @@ tronquée à 21 termes; c'est-à-dire, \(n = 10\).</p>
 <div class="center">
   <img src="Maple_Fourier_5.png" style="width: 300px"
        alt="Graphe de la fonction continue par morceaux ff et de sa série de Fourier tronquée à 21 termes">
+</div>
 </div>
 
 <br>

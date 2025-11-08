@@ -116,18 +116,20 @@ cette librairie. </p>
 temps et aussi longtemps que nous respectons les règles pour les
 dimensions.</p> 
 
+<pre class="matlab">
+> <font class="matlab"> u := A.v;</font>
+</pre>
+
+\[ u := \begin{bmatrix} 4 \\ 8 \\ 12 \end{bmatrix} \]
+
+<div class="Note">
 <p><em>Note</em>: Comme nous devons nous y attende, il y a toujours
 une exception aux règles,   Nous pouvons additionner un scalaire \(s\)
 à une matrice \(A\).  Le résultat est une matrice qui possède les
 mêmes dimensions que la matrice \(A\) et dont chaque composante de la
 nouvelle matrice est le résultat de l'addition du scalaire \(s\) à
 chaque composante de la matrice \(A\).</p>  
-
-<pre class="matlab">
-> <font class="matlab"> u := A.v;</font>
-</pre>
-
-\[ u := \begin{bmatrix} 4 \\ 8 \\ 12 \end{bmatrix} \]
+</div>
 
 <p>L'usage du point (.) pour dénoter la multiplication de matrices et
 vecteurs est optionnel mais fortement suggéré.  Le point ne doit pas
@@ -177,6 +179,7 @@ suivante. </p>
 
 \[ 16 \]
 
+<div class="Note">
 <p><em>Note</em>: Encore, il y a une exception aux règles.  Le point
 (.) peut être utilisé pour dénoter le produit scalaire de deux vecteurs
 de même dimensions.   Pour cette raison, si nous voulons qu'un vecteur
@@ -185,6 +188,7 @@ rangée (colonne) soit traité comme une matrice avec une rangée
 <font class="matlab">u</font> et <font class="matlab">v</font>
 auraient été des matrices avec une rangée, alors
 <font class="matlab">u.v</font> n'aurait pas été possible.</p>
+</div>
 
 <p>La norme Euclidienne, la norme \(1\) et la norme infinie du
 vecteur <font class="matlab">v</font> sont:</p>
@@ -309,7 +313,8 @@ colonne par colonne. </p>
 <font class="matlab">ReducedRowEchelonForm</font>, etc.
 Nous illustrons seulement deux de ces fonctions ci-dessous.</p>
 
-<p> Nous considérons la matrice \(A\) définie par la commande
+<div class="Example">
+<p><em>Exemple</em>: Nous considérons la matrice \(A\) définie par la commande
 de <em>Maple</em> suivante.</p>
 
 <pre class="matlab">
@@ -352,6 +357,7 @@ eigvec := \begin{bmatrix} 6 \\ 3 + 6\, I \\ 3 - 6\, I \end{bmatrix} ,
 1 & 1 & 1
 \end{bmatrix}
 \]
+</div>
 
 <p>Cette fonction affiche un vecteur colonne qui liste toutes les
 valeurs propres (répétées \(k\) fois si la multiplicité algébrique
@@ -383,6 +389,9 @@ une valeur propre, sa multiplicité algébrique, et un ensemble
 linéairement indépendant de vecteurs propres associés à la valeur
 propre. </p>
 
+<div class="Example">
+<p><em>Exemple</em>: </p>
+
 <pre class="matlab">
 > <font class="matlab">eigvec := Eigenvectors(A,output=list)); </font>
 </pre>
@@ -400,12 +409,15 @@ eigvec := \left[ \left[ 3 + 6\,I, 1, \left[
 \begin{bmatrix} \displaystyle \frac{1}{4} \\
 \displaystyle \frac{1}{2} \\ 1 \end{bmatrix} \right]\right] \right]
 \]
+</div>
 
 <p>Les valeurs exactes des valeurs propres et vecteurs propres sont
 souvent des expressions algébriques très complexes.  Si cela est suffisant,
 alors nous pouvons demander des estimations réelles / complexes des
-valeurs propres et vecteurs propres.  Par exemple, soit la matrice
-\(A\) suivante.</p>
+valeurs propres et vecteurs propres.</p>
+
+<div class="Example">
+<p><em>Example</em>: Soit la matrice \(A\) suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">A:=Matrix([[2,5,4],[-4,2,1],[2,-1,1]]); </font>
@@ -441,11 +453,15 @@ d'utiliser les commandes suivantes.</p>
 1 & 1 & 1 \end{bmatrix}
 \end{split}
 \]
+</div>
 
 <p>Il est encore mieux de définir \(A\) avec des nombres réels en
 ajoutant un point décimal.  Alors, tous les calculs sont fait de façon
 numérique et nous obtenons automatiquement un estimé des valeurs et
 vecteurs propres. </p>
+
+<div class="Example">
+<p><em>Exemple</em>: </p>
 
 <pre class="matlab">
 > <font class="matlab">A:=Matrix([[2.0,5,4],[-4,2,1],[2,-1,1]]); </font>
@@ -482,6 +498,7 @@ A :=  \begin{bmatrix}2.0 & 5 & 4 \\-4 & 2 & 1 \\ 2 & -1 & 1 \end{bmatrix}
 0.765660606976777 + 0\,I \end{bmatrix}
 \end{split}
 \]
+</div>
 </div>
 
 <h3>Opérations sur les composantes d'une matrice </h3>
@@ -690,6 +707,7 @@ la plus grande valeur propre en valeur absolue de la matrice
 3.897563191
 \]
 
+<div class="Example">
 <p><em>Exemple (Nombre de conditionnement)</em>: 
 Si \(A\vec{y} - \vec{b}\) est petit, alors est-ce que cela signifie 
 que \(\vec{y}\) est proche de la solution de \(A\vec{x} = \vec{b}\)?</p>
@@ -764,6 +782,7 @@ cond := 180000.0000
 
 <p>Puisque le nombre de conditionnement de la matrice \(A\) est grand,
 nous disons que la matrice \(A\) est <em> mal conditionnée</em>.</p>
+</div>
 
 <br>
 <hr>

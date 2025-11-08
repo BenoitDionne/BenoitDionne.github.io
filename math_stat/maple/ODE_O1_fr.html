@@ -136,6 +136,7 @@ Les autres termes de la solution de l'EDO donnée par
 <font class="matlab">eq1</font> forme une solution particulière de
 l'EDO donnée par <font class="matlab">eq1</font>.</p>
 
+<div class="Example">
 <p><em>Exemples</em>: Voici quelques exemples supplémentaires.</p>
 
 <p>Considérons l'EDO séparable suivante.</p>
@@ -200,6 +201,7 @@ Nous y reviendrons plus tard.</p>
 \[
  y(x) = 1+ e^{-\frac{x^3}{3}} \_C1
 \]
+</div>
 
 <h3> Problèmes aux valeurs initiales </h3>
 
@@ -233,6 +235,7 @@ avant de faire appel à la fonction <font class="matlab">plot()</font>.</p>
        alt="Graphe de la solution de l'EDO eq5 avec la condition initial y(2)=3">
 </div>
 
+<div class="Note">
 <p><em>Note</em>: Si nous devons évaluer la solution d'un problème
 aux valeurs initiales à plusieurs points, alors il est préférable
 d'utiliser une procédure pour définir la solution.  Par exemple, nous
@@ -249,6 +252,7 @@ pouvons évaluer la solution donnée par
 & \qquad 10.34474214
 \end{split}
 \]
+</div>
 
 <h3> Solutions numériques </h3>
 
@@ -333,6 +337,7 @@ différent, une erreur de tolérance différente, ... pour les fonctions
 <font class="matlab">dsolve()</font> et
 <font class="matlab">DEplot()</font>.</p>
 
+<div class="Example">
 <p><em>Exemple</em>: Considérons l'EDO définie de la façon suivante
 dans <em>Maple</em>.</p>
 
@@ -366,6 +371,7 @@ particulières associées aux conditions initiales
 \(y(0)=-2\) et \(y(0)=2\) lorsque \(x\) est plus grand que \(8\).
 Les graphes de ses solutions ne sont pas tangents au champ de pentes comme
 cela devrait être le cas. </p>
+</div>
 
 <p> Cet exemple illustre le danger associé à l'utilisation d'une
 méthode d'intégration numérique.  Pour obtenir des résultats qui sont
@@ -374,7 +380,10 @@ différent ou une méthode numérique plus appropriée.  Il est donc
 important d'avoir une connaissance théorique et qualitative  
 de l'EDO avant d'entreprendre d'énormes calculs.  Le problème dans le
 cas présent provient de la méthode d'Euler qui n'est pas une méthode
-d'intégration très précise et du pas qui est trop grand.  Si nous
+d'intégration très précise et du pas qui est trop grand.</p>
+
+<div class="Example">
+<p><em>Exemple (suite)</em>: Si nous
 utilisons la méthode numérique que <font class="matlab"> DEplot()</font>
 utilise par défaut (i.e. la méthode de Runge-Kutta-Fehlberg), nous
 obtenons alors le résultat suivant. </p>
@@ -391,6 +400,7 @@ obtenons alors le résultat suivant. </p>
 </div>
 
 <p>Ce résultat est beaucoup mieux.</p>
+</div>
 
 <br>
 <hr>

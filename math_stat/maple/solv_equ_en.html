@@ -135,6 +135,7 @@ option <font class="matlab">complex</font> to get approximations for
 -0.07886040443 - 2.275165422\,I, -0.07886040443 + 2.275165422\,I, 1.157720809
 \]
 
+<div class="Note">
 <p><em>Note</em>: The package <font class="matlab">RootFinding</font>
 is an advanced package to find the roots of complex valued analytic
 functions defined on \(\mathbb{C}\).  It can be used
@@ -146,8 +147,8 @@ region of the complex plane where to look for a root.  The region is
 defined by the coordinates of two diagonally opposed corners of the
 rectangle.  For instance, to find the complex root with a positive
 imaginary part of the polynomial above, we execute the following
-commands. </p>. 
-  
+commands.</p>
+
 <pre class="matlab">
 > <font class="matlab">with(RootFinding): Analytic(pe, x, -0.5 - 0*I .. 0 + 3*I);</font>
 </pre>
@@ -155,7 +156,9 @@ commands. </p>.
 \[
 -0.0788604044301870 + 2.27516542234209\,I
 \]
+</div>
 
+<div class="Example">
 <p><em>Example</em>: The goal is to find the points of intersection
 of the graphs of the following two functions.</p>
 
@@ -227,9 +230,11 @@ of the list <font class="matlab">xs</font>.</p>
 
 <p>We have used the <em>Maple</em> function <font class="matlab">seq()</font> to
 generate the list of values above.</p>
+</div>
 
 <h3> Systems of Nonlinear Equations </h3>
 
+<div class="Example">
 <p><em>Example</em>: We want to find the solutions of the following
 system of two nonlinear equations.</p>
 
@@ -288,6 +293,7 @@ are invariant with respect to the reflection through
 the origin (i.e. \((x,y) \mapsto (-x,-y)\) ).  So the other
 solutions are just \(-1\) times the two solutions that we have found
 above.</p>
+</div>
 
 <br>
 <hr>

@@ -174,16 +174,12 @@ cette fonction est de la façon suivante.</p>
 suivante.</p> 
 
 <pre class="matlab">
-  > <font class="matlab">x:=4;</font>
+> <font class="matlab">x:=4; f; evalf(f);</font>
 </pre>
 
-\[x := 4\]
-
-<pre class="matlab">
-> <font class="matlab">f; evalf(f);</font>
-</pre>
 \[
 \begin{split}
+& x := 4\\
 & \sin(17)\\
 &-.9613974919
 \end{split}
@@ -193,19 +189,13 @@ suivante.</p>
 pour obtenir l'approximation numérique de \(\sin(17)\).  Le lecteur ne
 doit pas oublier que <em>Maple</em> travaille toujours en radians.
 Pour évaluer \(f\) pour d'autres valeurs de \(x\), nous devons répéter
-les deux opération précédentes avec une nouvelle valeur de \(x\).</p>
+les trois opérations précédentes avec une nouvelle valeur de \(x\).</p>
 
-<p>Une autre possibilité est d'utiliser la fonction
-<font class="matlab">subs()</font> de <em>Maple</em>.</p>
-
-<pre class="matlab">
-> <font class="matlab">x:='x': f := sin(x^2+1);</font>
-</pre>
-
-\[f := \sin(x^2 + 1) \]
+<p>Une autre façon possible d'évaluer la fonction \(f\) est d'utiliser
+la fonction <font class="matlab">subs()</font> de <em>Maple</em>.</p>
 
 <pre class="matlab">
-> <font class="matlab">subs(x=4,f); subs(x=6,f);</font>
+> <font class="matlab">x:='x': subs(x=4,f); subs(x=6,f);</font>
 </pre>
 
 \[
@@ -254,7 +244,27 @@ complètement naturelle.</p>
 
 <h3> Dérivées et intégrales </h3>
 
-<p> Soit le fonction</p>
+<p>La dérivée d'ordre un de la fonction \(f:\mathbb{R} \to \mathbb{R}\)
+définie par \(f(x) = \ldots \) par rapport à \(x\) est
+calculée par la commande <font class="matlab">diff(f,x)</font>.  La dérivée
+d'ordre deux de \(f\) par rapport à \(x\) est calculée par
+<font class="matlab">diff(f,x$2)</font>, et ainsi de suite pour les
+dérivées d'ordres supérieures.  Nous pouvons aussi calculer les
+dérivées mixes d'une fonction \(f:\mathbb{R}^n \to \mathbb{R}\)
+définie par \(f(x,y, \ldots) = \ldots \).  La dérivées mixes d'ordre
+deux de \(f\) par rapport à \(x\) et \(y\) est calculée
+par <font class="matlab">diff(f,x,y)</font>.
+Le lecteur a probablement compris à présent comment
+utiliser <em>Maple</em> pour calculer les dérivées.</p>
+
+<p> L'intégrale indéfinie de la fonction \(f:\mathbb{R} \to \mathbb{R}\)
+est calculée par la commande <font class="matlab">int(f,x)</font>.
+L'inteégrale définie de \(f\) entre \(a\) et \(b\) est calculée par la
+commande <font class="matlab">int(f,x=a..b)</font>.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Soit le fonction \(f\) définie
+dans <em>Maple</em> par la commande suivante.</p>
 
 <pre class="matlab">
 > <font class="matlab">f:=x/(y*x^2+1);</font>
@@ -262,23 +272,22 @@ complètement naturelle.</p>
 
 \[ f := \frac{x}{y x^2 + 1} \]
 
-<p>La dérivée d'ordre un de \(f\) par rapport à \(x\) est
-calculée par la commande <font class="matlab">diff(f,x)</font>.  La dérivée
-d'ordre deux de \(f\) par rapport à \(x\) est calculée par
-<font class="matlab">diff(f,x$2)</font>, et ainsi de suite pour les
-dérivées d'ordres supérieures.  Nous pouvons aussi calculer les
-dérivées mixes.  La dérivées mixes d'ordre deux de \(f\) par rapport à
-\(x\) et \(y\) est calculée par <font class="matlab">diff(f,x,y)</font>.
-Le lecteur a probablement compris à présent comment
-utiliser <em>Maple</em> pour calculer les dérivées.</p>
-
-<p> L'intégrale indéfinie de \(f\) est calculée par la commande
-<font class="matlab">int(f,x)</font>. L'intégrale définie de
-\(f\) entre \(0\) et \(4\) avec \(y = 5\) est calculée par la
-commande</p>
+<p>La dérivées mixes d'ordre deux de \(f\) par rapport à \(x\) et \(y\) est
+calculée par la commande suivante.</p>
 
 <pre class="matlab">
->  <font class="matlab">y := 5; int(f, x = 0 .. 4); evalf(%);</font>
+> <font class="matlab">diff(f,x,y);</font>
+</pre>
+
+\[
+-\frac{3 x^2}{(x^2 y + 1)^2} + \frac{4 x^4 y}{(x^2y + 1)^3}
+\]
+
+<p>L'intégrale définie de \(f\) entre \(0\) et \(4\) avec \(y = 5\)
+est calculée par la commande</p>
+
+<pre class="matlab">
+> <font class="matlab">y := 5; int(f, x = 0 .. 4); evalf(%);</font>
 </pre>
 
 \[
@@ -288,13 +297,15 @@ commande</p>
 & 0.4394449156
 & \end{split}
 \]
+</div>
 
 <h3> Graphes des fonctions </h3>
 
 <h4> Dessins en deux dimensions </h4>
 
-<p>Le graphe de la fonction \(x\mapsto x\sin(x)\) pour \(x\) entre
-\(0\) et \(2\pi\) est générer par la commande</p>
+<div class="Example">
+<p><em>Exemple</em>: Le graphe de la fonction \(x\mapsto x\sin(x)\)
+pour \(x\) entre \(0\) et \(2\pi\) est générer par la commande</p>
 
 <pre class="matlab">
 > <font class="matlab">plot(x*sin(x),x=0..2*Pi, gridlines=true);</font>
@@ -303,9 +314,13 @@ commande</p>
 <div class="center">
   <img src="Maple_graph_1.png" style="width: 300px" alt="Graphe de x*sin(x)">
 </div>
+</div>
 
 <p>Il est utile à l'occasion de tracer les graphes de deux fonctions dans
-la même figure.  Supposons que nous voulions tracer les graphes des
+  la même figure.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Supposons que nous voulions tracer les graphes des
 fonctions \(x \mapsto x\sin(x)\) et \(x \mapsto x\cos(x)\) pour \(x\)
 entre \(-2\pi\) et \(2\pi\) dans la même figure.  Premièrement, nous
 traçons le graphe de \(x \mapsto x\sin(x)\) en rouge et sauvegardons
@@ -337,8 +352,10 @@ de la fonction <font class="matlab">display()</font> de la librairie
 <p>pour obtenir le même résultat.  L'avantage de l'approche
 précédente est sa plus grande flexibilité pour combiner différents
 genres de dessins.</p>
+</div>
 
-<p>Pour le prochain exemple, nous voulons tracer les points
+<div class="Example">
+<p><em>Exemple</em>: Pour cet exemple, nous voulons tracer les points
 \(\displaystyle (x,x^2)\) pour \(x=1,2,\ldots,20\).  Pour ce faire,
 nous devons fournir une matrice ou une liste de points à la fonction
 <font class="matlab">plot()</font>.  Si on fournie une matrice,
@@ -379,10 +396,13 @@ points comme il est fait dans la commande suivante.</p>
 <pre class="matlab">
 > <font class="matlab"> plot([seq([x, x^2], x = 1 .. 20)], style = point, symbol = circle, gridlines=true); </font>
 </pre>
+</div>
 
 <h4> Dessins en trois dimensions </h4>
 
-<p> Pour tracer le graphe de la fonction \((x,y) \mapsto x\sin(x)\sin(y)\) pour
+<div class="Example">
+<p><em>Exemple</em>: Pour tracer le graphe de la fonction
+\((x,y) \mapsto x\sin(x)\sin(y)\) pour
 \(x\) et \(y\) entre \(0\) et \(4\pi\), nous utilisons la fonction
 <font class="matlab">plot3d()</font> de <em>Maple</em>.</p>
 
@@ -394,6 +414,7 @@ points comme il est fait dans la commande suivante.</p>
 <div class="center">
   <img src="Maple_graph_3.png" style="width: 300px"
        alt="Graphe de x*cos(x)*sin(y)">
+</div>
 </div>
 
 <div class="LOOK" style="width: 75%;">
@@ -414,6 +435,8 @@ fonctions de <em>Maple</em> qui font usage de ces méthodes sont
 et <font class="matlab">contourplot()</font> qui font parties de la
 librairie <font class="matlab">plots</font>.</p>
 
+<div class="Example">
+<p><em>Exemple</em>:
 <pre class="matlab">
 > <font class="matlab">plots[densityplot](x*cos(x)*sin(y),x=0..4*Pi,y=0..4*Pi);</font>
 </pre>
@@ -431,9 +454,13 @@ librairie <font class="matlab">plots</font>.</p>
   <img src="Maple_graph_5.png" style="width: 300px"
        alt="Tracé de contours de x*cos(x)*sin(y)">
 </div>
+</div>
 
 <p> On peut aussi tracer le graphe d'une fonction définie par une
-procédure.  Nous illustrons ceci à l'aide de la fonction \(f\)
+procédure.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous illustrons ceci à l'aide de la fonction \(f\)
 définie par \(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
 
 <pre class="matlab">
@@ -446,6 +473,7 @@ définie par \(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
   <img src="Maple_graph_6.png" style="width: 300px"
        alt="Graphe de la fonction sin(x+y)+cos(x+y)">
 </div>
+</div>
 
 <h4> Encore plus sur les dessins en trois dimensions </h4>
 
@@ -454,6 +482,7 @@ conçues pour dessiner des figures géométriques en trois dimensions.
 <font class="matlab">plottools</font> et
 <font class="matlab">geom3d</font> sont deux de ces librairies.</p>
 
+<div class="Example">
 <p><em>Exemple</em>: On peut
 utiliser <font class="matlab">plottools</font> pour 
 visualiser des figures géométriques en trois dimensions.  Pour
@@ -489,7 +518,9 @@ points non-colinéares quelconques du plan.</p>
   <img src="Maple_graph_7.png" style="width: 300px"
        alt="Dessin de l'hémisphère">
 </div>
+</div>
 
+<div class="Example">
 <p><em>Exemple</em>: Supposons que nous voulions dessiner
 l'intersection de l'hémisphère précédente et du plan \(x/2 + y/4 - z = -3\).
 Puisque la librairie 
@@ -515,6 +546,7 @@ figure .</p>
   <img src="Maple_graph_8.png" style="width: 300px"
        alt="Dessin de l'hémisphère et du plan qui la coupe">
 </div>
+</div>
 
 <p>Nous pouvons faire beaucoup plus avec la librairie
 <font class="matlab">plottools</font>.  Notre seule intention était de
@@ -528,6 +560,7 @@ trois dimensions.  Cette librairie est plus élaborée que la librairie
 <font class="matlab">plottools</font>.  Nous allons simplement
 illustrer son potentiel à l'aide de deux exemples.</p>
 
+<div class="Example">
 <p><em>Exemple</em>: Pour comparaison avec la
 librairie <font class="matlab">plottools</font>,  
 nous utilisons la librairie <font class="matlab">geom3d</font> pour
@@ -591,7 +624,9 @@ figure à l'aide de la commande suivante.</p>
   <img src="Maple_graph_10.png" style="width: 300px"
        alt="Dessin de la sphère et du plan qui la coupe">
 </div>
+</div>
 
+<div class="Example">
 <p><em>Exemple</em>: La fonction <font class="matlab">intersection()</font>
 de la libraire <font class="matlab">geom3d</font> peut trouver
 l'intersection de deux plans.  Considérons un deuxième plan défini
@@ -636,6 +671,7 @@ inter
 <p>Puisque les deux plans ne sont pas parallèles, nous obtenons comme
 il se doit que leur intersection est une droite.  <em>Maple</em> donne
 la représentation paramétrique de cette droite.</p>
+</div>
 
 <h3> Sujets avancés </h3>
 

@@ -113,17 +113,19 @@ to get a complete list of the functions in that library.</p>
 <p>We can add and multiply vectors and matrices as long as we
 respects the rules about dimensions.</p>
 
-<p><em>Note</em>: As expected, there is always an exception to the
-rules.  We can add a scalar \(s\) to a matrix \(A\).  The result is a
-matrix that has the same dimensions than the matrix \(A\) and where
-every component of the new matrix is the result of adding the scalar
-\(s\) to the every component of the matrix \(A\).</p>  
-
 <pre class="matlab">
 > <font class="matlab"> u := A.v;</font>
 </pre>
 
 \[ u := \begin{bmatrix} 4 \\ 8 \\ 12 \end{bmatrix} \]
+
+<div class="Note">
+<p><em>Note</em>: As expected, there is always an exception to the
+rules.  We can add a scalar \(s\) to a matrix \(A\).  The result is a
+matrix that has the same dimensions than the matrix \(A\) and where
+every component of the new matrix is the result of adding the scalar
+\(s\) to the every component of the matrix \(A\).</p>  
+</div>
 
 <p>The use of the dot (.) to denote the multiplication of matrices and
 vectors is optional but strongly recommended.  The dot must not be confused
@@ -172,6 +174,7 @@ command.</p>
 
 \[ 16 \]
 
+<div class="Note">
 <p><em>Note</em>: Again, there is always an exception to the
 rules.  The dot (.) can be used to denote the scalar product of two
 vectors of the same dimensions.   For this reason, if we really want a
@@ -180,6 +183,7 @@ row (column) vector to be treated as a matrix with one row
 <font class="matlab">u</font> and <font class="matlab">v</font> had
 been matrices with one row, then <font class="matlab">u.v</font>
 would not have been possible.</p>
+</div>
 
 <p>The Euclidean norm, the 1-norm and the infinite norm of the
 vector <font class="matlab">v</font> are:</p>
@@ -304,7 +308,8 @@ column. </p>
 <font class="matlab">ReducedRowEchelonForm</font>, and so on.
 We illustrate only two of these functions below.</p>
 
-<p> We consider the matrix \(A\) defined by the
+<div class="Example">
+<p><em>Example</em>: We consider the matrix \(A\) defined by the
 following <em>Maple</em> command.</p>
 
 <pre class="matlab">
@@ -346,8 +351,10 @@ eigvec := \begin{bmatrix} 6 \\ 3 + 6\, I \\ 3 - 6\, I \end{bmatrix} ,
 1 & 1 & 1
 \end{bmatrix}
 \]
+</div>
 
-<p>This function returns a column vector listing all the
+<p>The function <font class="matlab">Eigenvectors()</font>r returns a
+column vector listing all the 
 eigenvalues (repeated \(k\) times if the algebraic multiplicity of an
 eigenvalue is \(k\)) and a matrix where the \(i^{th}\) column is an
 eigenvector (or a column of zeros if the geometric multiplicity is
@@ -374,6 +381,9 @@ list is associated to a distinct eigenvalue.  Each element of the list
 is formed of an eigenvalue, its algebraic multiplicity and a linearly
 independent set of eigenvectors associated to the eigenvalue. </p>
 
+<div class="Example">
+<p><em>Example</em>: </p>
+
 <pre class="matlab">
 > <font class="matlab">eigvec := Eigenvectors(A,output=list)); </font>
 </pre>
@@ -391,11 +401,15 @@ eigvec := \left[ \left[ 3 + 6\,I, 1, \left[
 \begin{bmatrix} \displaystyle \frac{1}{4} \\
 \displaystyle \frac{1}{2} \\ 1 \end{bmatrix} \right]\right] \right]
 \]
+</div>
 
 <p>The exact values of the eigenvalues and eigenvectors are often very
 complicated algebraic expressions.  If it is sufficient, then we may 
 only request real/complex approximations of the eigenvalues and
-eigenvectors.  For instance, consider the following matrix \(A\).</p>
+eigenvectors.</p>
+
+<div class="Example">
+<p><em>Example</em>: Consider the following matrix \(A\).</p>
 
 <pre class="matlab">
 > <font class="matlab">A:=Matrix([[2,5,4],[-4,2,1],[2,-1,1]]); </font>
@@ -430,11 +444,15 @@ following commands. </p>
 1 & 1 & 1 \end{bmatrix}
 \end{split}
 \]
+</div>
 
 <p>It is even better to define \(A\) using real numbers by adding the
 decimal point.  Then, all the computations are numerical computations
 and we automatically get the approximations of the eigenvalues
 and eigenvectors. </p>
+
+<div class="Example">
+<p><em>Example</em>: </p>
 
 <pre class="matlab">
 > <font class="matlab">A:=Matrix([[2.0,5,4],[-4,2,1],[2,-1,1]]); </font>
@@ -471,6 +489,7 @@ A :=  \begin{bmatrix}2.0 & 5 & 4 \\-4 & 2 & 1 \\ 2 & -1 & 1 \end{bmatrix}
 0.765660606976777 + 0\,I \end{bmatrix}
 \end{split}
 \]
+</div>
 </div>
 
 <h3>Operations on the Components of a Matrix </h3>
@@ -675,6 +694,7 @@ the matrix \(C\) above is</p>
 3.897563191
 \]
 
+<div class="Example">
 <p><em>Example (Conditioning Number)</em>: 
 If \(A\vec{y} - \vec{b}\) is small, then does this mean that \(\vec{y}\) is
 closed to the solution of \(A\vec{x} = \vec{b}\)?</p>
@@ -746,6 +766,7 @@ cond := 180000.0000
 
 <p>Since the condition number of \(A\) is large, we say that \(A\) is
 <em>ill-conditioned</em>.</p>
+</div>
 
 <br>
 <hr>

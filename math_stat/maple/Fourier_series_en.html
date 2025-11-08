@@ -126,9 +126,11 @@ f \sim a_0 + \sum_1^\infty a_n \cos(n\pi x/L)
   a_n = \frac{2}{L} \int_0^L f(x) \cos(n\pi x/L)\text{d}x
 \]
 
+<div class="Note">
 <p><em>Note</em>: We can always extend a function
 \(f:[0,L] \to \mathbb{R}\) to an even function defined on the interval
 \([-L.L]\) by \(f(x) = f(-x)\) for \(x \in [-L,0[\).</p>
+</div>
 
 <p>If \(f\) is an odd function (i.e. \(f(-x) = -f(x)\) for all \(x\)), then
 \(a_n = 0\) for all \(n\) and the Fourier series becomes the
@@ -144,11 +146,13 @@ f \sim \sum_1^\infty b_n \sin(n\pi x/L)
   b_n = \frac{2}{L} \int_0^L f(x)\sin(n \pi x/L) \text{d} x
 \]
 
+<div class="Note">
 <p><em>Note</em>: We can always extend a function
 \(f:]0,L] \to \mathbb{R}\) to an odd function defined on the interval
 \([-L.L]\) by \(f(x) = -f(-x)\) for \(x \in [-L,0[\) and \(f(0) = 0\).  We can
 modify the value of \(f\) at the origin (at one point) without affecting the
 values of the integrals above.</p>
+</div>
 
 <h3> Computations of Fourier Series </h3>
 
@@ -162,6 +166,17 @@ OrthogonalExpansions</font>.  We will not use any special package in this
 document.  It is easy to compute Fourier series without having to use
 a special package.</p> 
 
+<div class="Note">
+<p><em>Note</em>: We define in the next examples some slightly more
+complex procedures than we have seen so far.  We provide more
+information on creating <em>Maple</em> procedures in the document
+<script language="javascript">
+buildLinK(Maple_programs.url_en, Maple_programs.text_en,"MMathSStat",
+Maple_programs.id, Maple_programs.target);
+</script>.</p>
+</div>
+
+<div class="Example">
 <p><em>Example</em>: Consider the piecewise continuous
 function defined by the following <em>Maple</em> procedure.</p>
 
@@ -195,13 +210,6 @@ function defined by the following <em>Maple</em> procedure.</p>
 \end{split}
 \]
 
-<p><em>Note</em>: We provide more information on
-creating <em>Maple</em> procedures in the document
-<script language="javascript">
-buildLinK(Maple_programs.url_en, Maple_programs.text_en,"MMathSStat",
-Maple_programs.id, Maple_programs.target);
-</script>.</p>
-				 
 <p>The procedure above is the less fragile definition of a function
 but we do not need to be that rigorous if our function is for a very
 specific and limited use, and we know the type of arguments that will
@@ -323,12 +331,6 @@ truncated to six terms; namely \(n = 5\).</p>
        alt="Graph of the piecewise continuous function fe and its truncate Fourier cosine series to six terms">
 </div>
 
-<p><em>Note</em>: We observe the <em>Gibb's phenomena</em>.  No
-matter how many terms we keep in the Fourier series, near a point of
-discontinuity of the function, the difference between the function
-and the truncated Fourier series is never smaller than a fixed
-value depending on the function.</p>
-
 <pre class="matlab">
 > <font class="matlab">plot3:=plot(FCS(x,10),x=-4..4,color=red):</font>
 > <font class="matlab">plots[display]({plot1,plot3},labels=[`x`,`y`]);</font>
@@ -339,10 +341,20 @@ value depending on the function.</p>
        alt="Graph of the piecewise continuous function fe and its truncate Fourier cosine series to 11 terms">
 </div>
 
-<p><em>Note</em>: The value of the Fourier cosine series at a point
+<p> The value of the Fourier cosine series at a point
 \(x=a\) where <font class="matlab">fe</font> is discontinuous is
 <font class="matlab">(fe(a-)+fe(a+))/2</font> as expected.</p>
+</div>
 
+<div class="Note">
+<p><em>Note</em>: We observe the <em>Gibb's phenomena</em>.  No
+matter how many terms we keep in the Fourier series, near a point of
+discontinuity of the function, the difference between the function
+and the truncated Fourier series is never smaller than a fixed
+value depending on the function.</p>
+</div>
+
+<div class="Example">
 <p><em>Example</em>: We now consider the function defined
 in <em>Maple</em> by the following procedure.</p>
 
@@ -472,6 +484,7 @@ truncated to 21 terms; namely \(n = 10\).</p>
 <div class="center">
   <img src="Maple_Fourier_5.png" style="width: 300px"
        alt="Graph of the piecewise continuous function ff and its truncate Fourier series with 21 terms">
+</div>
 </div>
 
 <br>

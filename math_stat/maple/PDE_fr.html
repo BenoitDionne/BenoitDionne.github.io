@@ -209,6 +209,7 @@ a_n = \frac{2}{L} \int_0^L f(x) \cos(n\pi xx/L) \text{d}x
 \quad ,\quad n = 1,2,3,\ldots 
 \]
 
+<div class="Example">
 <p><em>Exemple</em>: Considérons l'équation de la chaleur définie
 dans <em>Maple</em> par la commande suivante.</p>
 
@@ -326,6 +327,7 @@ U:= (y,s) \mapsto subs({t = s, x = y}, rhs(Sol))
 
 <p>La température de la tige se stabilise rapidement à une température
 uniforme de \(2.7\) degrés.</p>
+</div>
 
 <h3> Flot de chaleur dans une mince tige - Les autres cas </h3>
 
@@ -336,6 +338,7 @@ l'intention de faire une étude systématique de tous les cas.
 Nous donnons seulement une exemple où, cette fois ci, les extrémités
 de la tige sont maintenues à une température constante.</p>
 
+<div class="Example">
 <p><em>Exemple</em>: Considérons l'équation de la chaleur définie
 dans <em>Maple</em> par la commande suivante.</p>
 
@@ -446,6 +449,7 @@ U:= (y,s) \mapsto subs({t = s, x = y}, rhs(Sol))
 
 <p>À long terme, la tige va atteindre une température uniforme de
 \(0\) degrés.</p> 
+</div>
 
 <h3> Corde vibrante - extrémités fixes </h3>
 
@@ -486,6 +490,7 @@ v(x,t) = \sum_{n=1}^\infty
   b_n = \frac{2}{n \pi c} \int_0^L g(x) \sin\left(\frac{n\pi x}{L}\right) \text{d} x
 \]
 
+<div class="Example">
 <p><em>Exemple</em>: Nous considérons l'équation des ondes définie par
 la commande suivante.</p>
 
@@ -586,6 +591,7 @@ précédemment.  Cependant, pour une raison inconnue de
 l'auteur, <em>Maple</em> ne peut pas faire cela.
 C'est donc le bon moment pour introduire la résolution numérique des
 EDP.</p>
+</div>
 
 <h4> Solutions numériques </h4>
 

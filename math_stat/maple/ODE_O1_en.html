@@ -135,6 +135,7 @@ the homogeneous ODE given by <font class="matlab">eq2</font>. The other terms of
 the solution of the ODE given by <font class="matlab">eq1</font> form
 a particular solution of the ODE given by <font class="matlab">eq1</font>.</p>
 
+<div class="Example">
 <p><em>Examples</em>: Here are a few more examples.</p>
 
 <p>Consider the following separable ODE.</p>
@@ -199,6 +200,7 @@ come back to it later.</p>
 \[
  y(x) = 1+ e^{-\frac{x^3}{3}} \_C1
 \]
+</div>
 
 <h3> Initial Value Problems </h3>
 
@@ -232,6 +234,7 @@ before calling the function <font class="matlab">plot()</font>.</p>
        alt="Graph of the solution of the ODE eq5 with the initial condition y(2)=3">
 </div>
 
+<div class="Note">
 <p><em>Note</em>: If we need to evaluate the solution of an initial
 value problem at several points, then it is preferable to use
 a procedure to write this solution.   For instance, we can evaluate the
@@ -248,6 +251,7 @@ it follows..</p>
 & \qquad 10.34474214
 \end{split}
 \]
+</div>
 
 <h3> Numerical Solutions </h3>
 
@@ -329,6 +333,7 @@ associated to the initial conditions \(y(0)=1\), \(y(0)=-2\) and
 error tolerance, ... for the functions <font class="matlab">dsolve()</font>
 and <font class="matlab">DEplot()</font>.</p>
 
+<div class="Example">
 <p><em>Example</em>: Consider the ODE defined as it follows
 in <em>Maple</em>.</p>
 
@@ -361,6 +366,7 @@ of \(0.1\).</p>
 particular solutions associates to the initial conditions \(y(0)=-2\)
 and \(y(0)=2\) when \(x\) is greater than \(8\).  The graphs of the
 solutions are not tangent to the slope field as they should be. </p>
+</div>
 
 <p> This example illustrates the danger of using numerical
 integration.  To get realistic and more accurate results, it is often
@@ -368,7 +374,10 @@ necessary to adjust the step size or select a more appropriate numerical
 method.  It is therefore important to have a theoretical and qualitative
 understanding of the ODE before diving into enormous computations.
 The problem here comes from the Euler method which is not a very
-accurate method of integration and the large step size.  If we use the
+accurate method of integration and the large step size.</p>
+
+<div class="Example">
+<p><em>Example (continued)</em>:  If we use the
 default method of integration (i.e. a Runge-Kutta-Fehlberg method)
 used by <font class="matlab"> DEplot()</font>,
 then we get the following result instead. </p> 
@@ -385,7 +394,8 @@ then we get the following result instead. </p>
 </div>
 
 <p>This is much better.</p>
-  
+</div>
+
 <br>
 <hr>
 <br>

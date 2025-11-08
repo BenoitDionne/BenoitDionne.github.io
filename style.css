@@ -57,8 +57,6 @@ ol.dec > li { }
 
 ul {}
 ul li {}
-ul.MStop {z-index: 1000;}
-ul.MStop li {z-index: 1000;}
 
 /* Select */
 select { background-color: white; color: black; }
@@ -222,8 +220,17 @@ font.matlab { color: blue; font-size: 100%; }
 
 img.MobiusFig { border: 1px  #004870 solid; margin: 0px; padding: 0px;}
 
-div.Note { border-left: 2px solid #8F001A; padding-left: 10px; }
-}
+div.Note { border-left: 2px solid black; padding-left: 10px; }
+
+div.Example { border-left: 2px solid #8F001A; padding-left: 10px; }
+
+/* Ordered and non-ordered list */
+ol.Code { list-style-type: upper-alpha; }
+ol.Code > li { border-top: 2px solid #8F001A; }
+
+ul.MStop {z-index: 1000;}
+ul.MStop li {z-index: 1000;}
+
 /********************************************************************/
 /*               To produce a light printout                        */
 /********************************************************************/

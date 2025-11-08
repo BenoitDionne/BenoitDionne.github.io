@@ -204,6 +204,7 @@ a_n = \frac{2}{L} \int_0^L f(x) \cos(n\pi xx/L) \text{d}x \quad ,
 \quad n = 1,2,3,\ldots
 \]
 
+<div class="Example">
 <p><em>Example</em>: Consider the heat equation defined
 in <em>Maple</em> by the following command.</p>
 
@@ -319,6 +320,7 @@ U:= (y,s) \mapsto subs({t = s, x = y}, rhs(Sol))
 
 <p>The temperature in the rod settle rapidly to a uniform temperature
 of \(2.7\) degrees.</p>
+</div>
 
 <h3> Heat Flow in a Rod - Other Cases </h3>
 
@@ -329,6 +331,7 @@ systematic studies of all the cases.  We will only give another
 example where, this time, the end of the rod are kept at a constant
 temperature.</p>
 
+<div class="Example">
 <p><em>Example</em>: Consider the heat equation defined
 in <em>Maple</em> by the following command.</p>
 
@@ -436,6 +439,7 @@ U:= (y,s) \mapsto subs({t = s, x = y}, rhs(Sol))
 </div>
 
 <p>Eventually, the rod will reach a uniform temperature of \(0\) degree.</p>
+</div>
 
 <h3> Vibrating String - Fixed Ends </h3>
 
@@ -476,6 +480,7 @@ v(x,t) = \sum_{n=1}^\infty
   b_n = \frac{2}{n \pi c} \int_0^L g(x) \sin\left(\frac{n\pi x}{L}\right) \text{d} x
 \]
 
+<div class="Example">
 <p><em>Example</em>: We consider the wave equation defined by the
 following command.</p>
 
@@ -571,6 +576,7 @@ function <font class="matlab">plot3d()</font> as we did previously.
 However, for a reason still unknown to the author, <em>Maple</em>
 cannot do it.  It is therefore the right time to introduce the
 numerical approach to solve PDE.</p>
+</div>
 
 <h4> Numerical Solutions </h4>
 

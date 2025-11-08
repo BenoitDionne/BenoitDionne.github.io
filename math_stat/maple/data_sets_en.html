@@ -161,14 +161,17 @@ file <em>data2.txt</em>, it suffices to use the function
 > <font class="matlab">writedata("data2.txt",A,float);</font>
 </pre>
 
+<div class="Note">
 <p><em>Note</em>: The <em>Maple</em> objects <font class="matlab">Matrix</font>
 and <font class="matlab">Vector</font> cannot be used by the function
 <font class="matlab">writedate()</font>.  But, we can use the objects
 <font class="matlab">array</font>, <font class="matlab">list</font>,
 ... </p>
+</div>
 
 <h3> Plotting Data </h3>
 
+<div class="Example">
 <p><em>Example</em>: The data file
 <script language="javascript">
 buildLinK("data3.txt", "data3.txt","MMathSStat", "data3ID", "_blank");
@@ -260,7 +263,9 @@ that we have and we plot it.</p>
 <p>We confess that a spline interpolation is not the right tool to
 fit through the data because the graph is not strictly increasing
 everywhere as expected.</p>
+</div>
 
+<div class="Example">
 <p><em>Example</em>: The components of a \(n\times n\) matrix \(A\) can be
 interpreted as the values of a function defined on the set
 \(\{ (i,j) : 1 \leq i, j \leq n \}\); namely, \((i,j) \mapsto A(i,j)\).
@@ -302,6 +307,7 @@ library <font class="matlab">plots</font> of <em>Maple</em>.</p>
 <div class="center">
   <img src="Maple_data_3.png" style="width: 300px"
        alt="Graph of the function deduced from the matrix A">
+</div>
 </div>
 
 <br>

@@ -138,7 +138,9 @@ expA := \begin{bmatrix} e^2 \cos(1) & -e^2 \sin(1) \\ e^2 \sin(1) & e^2 \cos(1) 
 exptA := \begin{bmatrix} e^{2t} \cos(t) & -e^{2t} \sin(t) \\ e^{2t} \sin(t) & e^{2t} \cos(t) \end{bmatrix}
 \]
 
-<p>Nous pouvons utiliser la fonction <font class="matlab">dsolve()</font> pour
+<div class="Example">
+<p><em>Exemple</em>: Nous pouvons utiliser la
+fonction <font class="matlab">dsolve()</font> pour 
 résoudre le système d'EDO linéaire homogène \(X'(t) = A X(t)\).  Nous
 représentons ce système d'EDO dans <em>Maple</em> de la façon
 suivante.</p>
@@ -163,7 +165,12 @@ X := \left\{ x1(t) = e^{2t} (\_C2 \cos(t) + \_C1 \sin(t), x2(t) = -e^{2t} (  \co
 et <font class="matlab">_C2</font> sont des constantes arbitraires.
 Cette expression est égale à
 \(\displaystyle e^{tA} \begin{bmatrix} \_C2 \\ -\_C1 \end{bmatrix}\).
-Nous pouvons aussi résoudre \(X'(t) = A X(t)\) avec la condition
+</p>
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous pouvons aussi résoudre
+\(X'(t) = A X(t)\) avec la condition
 initiale \(\displaystyle X(0) = \begin{bmatrix} 2 \\ 3 \end{bmatrix}\).</p>
 
 <pre class="matlab">
@@ -187,7 +194,7 @@ X := \left\{ x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ), x2(t) = -e^{2t} (  -3 \cos
 <p>C'est le cas où <font class="matlab">_C1 = -3</font> et
 <font class="matlab">_C2 = 2</font> dans la solution générale ci-dessus.</p>
 
-<p> Nous pouvons aussi utiliser <em>Maple</em> pour tracer l'orbite de
+<p> Nous pouvons utiliser <em>Maple</em> pour tracer l'orbite de
 cette solution. </p>
 
 <pre class="matlab">
@@ -203,6 +210,7 @@ cette solution. </p>
 <div class="center">
 <img src="Maple_syst_ODE_1.png" style="width: 300px"
      alt="Dessin de l'orbite de la solution de X' = A X avec X(0) = (2 ,3)">
+</div>
 </div>
 
 <h3> Systèmes d'EDO linéaires homogènes </h3>
@@ -310,12 +318,14 @@ que toutes les solutions s'éloignent de l'origine lorsque
 \(t \to \infty\).  L'origine serait alors appelée une <em>source</em> ou
 un <em>noeud instable</em>.</p> 
 
+<div class="Note">
 <p><em>Note</em>: Une autre façon de dessiner le champ de vecteurs est
 à l'aide de la fonction <font class="matlab">dfieldplot()</font>.</p>
 
 <pre class="matlab">
 > <font class="matlab">dfieldplot(eq3,[x1(t),x2(t)],t=-2..2,x1=-1..1,x2=-1..1):</font>
 </pre>
+</div>
 
 <p>Nous laissons au lecteur le plaisir d'exécuter cette commande.
 Mous laissons aussi au lecteur le plaisir de découvrir le
@@ -495,10 +505,12 @@ de <em>Maple</em> semble être capable de tracer correctement les
 solutions qui commencent près de l'origine (du moins, quand ce
 document a été écrit).</p>
 
+<div class="Note">
 <p><em>Note</em>: Il existe une formule explicite pour la solution
 générale d'un système d'EDO linéaires non-homogènes comme celui que
 nous venons juste de considérer.  Le lecteur peut trouver cette
 formule dans la majorité des manuels d'introduction aux ODE. </p>
+</div>
 
 <h3> EDO d'ordre supérieur </h3>
 
@@ -636,12 +648,14 @@ dans <em>Maple</em> pour tracer ces orbites.</p>
 \end{split}
 \]
 
+<div class="Note">
 <p><em>Note</em>: Nous fournissons plus d'information sur la
 création de procédure dans <em>Maple</em> dans le document
 <script language="javascript">
 buildLinK(Maple_programs.url_fr, Maple_programs.text_fr,"MMathSStat",
 Maple_programs.id, Maple_programs.target);
 </script>.</p>
+</div>
 
 <p>Nous traçons maintenant les orbites de plusieurs solutions
 particulières du système d'EDO.</p>
@@ -699,12 +713,14 @@ approche de très près la solution périodique.  Nous devons admettre
 que ce n'est pas une démonstration de l'existence de l'unique solution
 périodique mais c'est une bonne indication de son existence.</p> 
 
+<div class="Note">
 <p><em>Note</em>: Il y a plusieurs autres fonctions de <em>Maple</em>
 qui peuvent être utilisées pour dessiner les champs de vecteurs:
 <font class="matlab">odeplot(&nbsp;)</font> et même
 <font class="matlab">fieldplot</font>
 si nous considérons que le côté droit d'une système d'EDO est un champ
 de vecteur.</p>
+</div>
 
 <h4> Pendule nonlinéaire </h4>
 

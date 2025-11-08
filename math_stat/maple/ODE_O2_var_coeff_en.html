@@ -73,8 +73,7 @@ main_title( MStext, "MMathSStat");
 </script>
 </div>
 
-<p><em>Example</em>: Consider the second order ODE with variable
-coefficients </p>
+<p> Consider the second order ODE with variable coefficients </p>
 \[
 \frac{\text{d}^2 x}{\text{d} t^2} + \cos(t)\, x = 0 \ .
 \]
@@ -260,6 +259,7 @@ r^2+ (b-1) r+c = 0
 \(\displaystyle r^2+(b-1)r+c=0\). The solutions of the Cauchy-Euler
 equation depend on the roots of the indicial equation.</p> 
 
+<div class="Note">
 <p><em>Note</em>: The Cauchy-Euler equation can be reduced to the
 second order linear ODE with constant coefficients
 \(\tilde{y}''(t) +(b-1) \tilde{y}'(t) +c \tilde{y}(t) = 0\) with the
@@ -281,7 +281,9 @@ equation has only one real root, \(r\).</li>
 if the indicial equation has a pair of complex conjugate roots,
 \(a \pm b i\) with \(b \neq 0\).</li>
 </ul>
+</div>
 
+<div class="Example">
 <p><em>Example</em>: Suppose that <font class="matlab">b=c=1</font> in
 the Cauchy-Euler equation.</p>
 
@@ -307,6 +309,7 @@ general solution for this ODE.</p>
 \]
 
 <p>This is the expected general solution.</p>
+</div>
 
 <h3> Boundary value Problems for ODE </h3>
 
@@ -314,6 +317,7 @@ general solution for this ODE.</p>
 important to study Boundary Value Problems for the Cauchy-Euler
 equation.</p>
 
+<div class="Example">
 <p><em>Example</em>: Consider the Cauchy Euler equation with
 <font class="matlab">b=c=1</font> and the
 boundary conditions \(y(1)=1\) and \(y(3)=2\).  In theory, we have to find
@@ -329,7 +333,9 @@ conditions are satisfied.  The function
 \[
 y(x) = -\frac{(-2+\cos(\ln(3))) \sin(ln(x))}{\sin(\ln(3))} + \cos(\ln(x))
 \]
+</div>
 
+<div class="Example">
 <p><em>Example</em>: Suppose now that \(-b=c=1\) in the Cauchy-Euler
 equation.</p> 
 
@@ -366,6 +372,7 @@ y(x) = x - \frac{x \ln(x)}{3 \ln(3)}
 \]
 
 <p>Hence, we have \(c_1 = 1\) and \(\displaystyle c_2 = -(3\ln(3)^{-1}\).</p>
+</div>
 
 <h3> Bessel Equation </h3>
 

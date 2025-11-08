@@ -182,6 +182,7 @@ between \(-\pi\) (excluded) and \(\pi\) (included).</p>
 3 + 4\,I
 \]
 
+<div class="Note">
 <p><em>Note</em>: The previous figure could be drawn with <em>Maple</em>.
 However, the result is not really nice.  The reader may want to execute
 the following commands in <em>Maple</em>. </p> 
@@ -202,6 +203,7 @@ display({arc1, arrow1, line1, line2, line3, text1, text2, text3, text4, text5},
    axes = none, view = [-1 .. 5, -1 .. 5], scaling = constrained);
 </font>
 </pre>
+</div>
 
 <h3> Functions of One Complex Variable</h3>
 
@@ -287,6 +289,7 @@ An amazing property is that if the function
 \(f:\mathbb{C}\rightarrow \mathbb{C}\)
 is derivable, then it is infinitely many times derivable.</p> 
 
+<div class="Example">
 <p><em>Example</em>: Consider the function defined by the following
 <em>Maple</em> command.</p>
 
@@ -335,6 +338,7 @@ f := z\rightarrow z^{2}\,(1 - z)
 \end{split}
 \]
 <p> We also have that \(u_y(x,y)=-v_x(x,y)\).</p>
+</div>
 
 <h3> Taylor and Laurent Series </h3>
 
@@ -353,6 +357,7 @@ a_n = \frac{1}{n!}\,\frac{\partial^n}{\partial z^n}f(x_0) \ .
 \]
 <p> The series converges (pointwise) to \(f(z)\) for all \(z \in D\).</p>
 
+<div class="Note">
 <p><em>Remark</em>: The formula for the Taylor series of an
 infinitely derivable function \(f:\mathbb{R}\to\mathbb{R}\) 
 is almost identical to the formula above for a derivable function from
@@ -390,9 +395,12 @@ equivalent to being analytic.  This is no so for functions from
 This shows that the theory of Taylor series is simpler for functions
 from \(\mathbb{C}\) into itself than it is for functions from
 \(\mathbb{R}\) into itself.</p>
+</div>
 
-<p>Consider the function \(f:\mathbb{C} \to \mathbb{C}\) defined in
-<em>Maple</em> by the following command.</p>
+<div class="Example">
+<p><em>Example</em>: Consider the function
+\(f:\mathbb{C} \to \mathbb{C}\) defined in <em>Maple</em> by the
+following command.</p> 
 
 <pre class="matlab">
 > <font class="matlab">f:=z->sin(z^2-4);</font>
@@ -472,11 +480,17 @@ the following command.</p>
 \]
 
 <p> We need more terms of the Taylor series of \(f\) to get a better
-approximation.   We may use the function <font class="matlab">taylor()</font>
+  approximation.</p>
+</div>
+
+<p>We may use the function <font class="matlab">taylor()</font>
 instead of the function <font class="matlab">series()</font> 
 (with the same arguments) to get the Taylor series of a function.  We can
 also compute any coefficient of the Taylor series using the function
-<font class="matlab">coeftayl()</font>.  For instance, the coefficient
+<font class="matlab">coeftayl()</font>.</p>
+
+<div class="Example">
+<p><em>Example (continued)</em>: The coefficient
 of \(\displaystyle (z-2)^5\) in the Taylor series of \(f\) above at \(z=2\) is
 given by the following command.</p>
 
@@ -487,6 +501,7 @@ given by the following command.</p>
 \[
 \frac{98}{15}
 \]
+</div>
 
 <h4>Laurent Series</h4>
 
@@ -510,6 +525,7 @@ The series above is called the <em>Laurent series</em> of \(f\) at
 \]
 <p> is called the <em>principal part</em> of the series.</p>
 
+<div class="Example">
 <p><em>Example</em>:
 Consider the function \(f:\mathbb{C} \to \mathbb{C}\) defined in <em>Maple</em>
 by the following command.</p>
@@ -547,7 +563,9 @@ command.</p>
 <p> The principal part of this Laurent series is
 \(\displaystyle \frac{-\sin(1)}{2(z-1)}\).   Hence, \(1\) is a pole of
 order one of \(f\).</p>
+</div>
 
+<div class="Example">
 <p><em>Example</em>: Consider the function \(f:\mathbb{C}\to \mathbb{C}\)
 defined in <em>Maple</em> by the following command.</p>
 
@@ -570,6 +588,7 @@ z^{-3} + {\displaystyle \frac {1}{6}} \,z^{3} + \mathrm{O}(z^{4})
 \]
 
 <p> Therefore, \(z=0\) is a pole of order three of \(f\).</p>
+</div>
 
 <p> The coefficient of the term \( 1/(z-z_0)\) in the Laurent
 series of a function \(f\) at a point \(z_0\) is called the
@@ -589,6 +608,7 @@ move along this curve.</p>
 <p>The residues of \(f\) at \(z_0\) can be computed with
 the <em>Maple</em> function <font class="matlab">residue()</font>.
 
+<div class="Example">
 <p><em>Example</em>: Consider the function
 \(f:\mathbb{C} \to \mathbb{C}\) defined by the
 following <em>Maple</em> command. </p>
@@ -625,7 +645,9 @@ at \(2\pi\).</p>
 
 <p> The coefficient of \(\displaystyle \frac{1}{z-2\pi}\) is effectively
 \(1\).</p>
+</div>
 
+<div class="Example">
 <p><em>Example</em>
 We want to evaluate the integral of the function \(f\) defined by
 \(\displaystyle f(z) = \frac{1}{(3z-i)^2 \, \sin(z)}\)
@@ -687,7 +709,9 @@ is given by the following command. </p>
 
 <p> For a numerical integration, this result is close enough to the exact
 value of the integral.</p>
+</div>
 
+<div class="Example">
 <p><em>Example</em> We want to evaluate the integral </p>
 \[
 \int_{-\infty}^\infty\,\frac{\sin(x)}{(x-2)^2+4}\ \text{d}x \ .
@@ -786,7 +810,9 @@ the initial improper integral.</p>
 & 0.193302235
 \end{split}
 \]
+</div>
 
+<div class="Note">
 <p><em>Note</em>: As was the case with the first figure of this document,
 the previous figure could be drawn with <em>Maple</em>.  As before,
 the resulting figure is not really nice.  The reader may want to execute
@@ -810,6 +836,7 @@ display({arc1, line1, line2, line3, pt, text1, text2, text3, text4, text5, text6
    axes = none, view = [-11 .. 15, -1 .. 14], scaling = constrained);
 </font>
 </pre>
+</div>
 
 <h3> Conformal Mapping </h3>
 
@@ -834,14 +861,17 @@ finally followed by another translation,
 Hence, linear fractional transformations preserve circles (a line is a circle
 of infinite radius.)</p>
 
+<div class="Note">
 <p><em>Note</em>: A linear fractional transformation \(f\) is in fact
 a function from the compactified complex plane
 \(\overline{\mathbb{C}}\) into itself if we set \(f(d/c) = \infty\) and
 \(f(\infty) = a/c\).</p>
+</div>
 
 <p>A linear fractional transformation is completely and uniquely determined by
 the image of three points.</p>
 
+<div class="Example">
 <p><em>Example</em>: Consider the linear fractional transformation
 \(f\) defined by \(\displaystyle f(z) = \frac{2z - 3}{2z + 3}\).
 This function is defined in <em>Maple</em> by the following command.</p>
@@ -874,6 +904,7 @@ following <em>Maple</em> command.</p>
 
 <p>The blue and red lines are the image of horizontal and vertical
 lines respectively (can the reader say why it is so?).</p>
+</div>
 
 <p>To find the linear fractional transformation \(w=f(z)\) such that
 \(f(z_1)=w_1, f(z_2)=w_2\) and \(f(z_3)=w_3\), it suffices to solve
@@ -884,6 +915,7 @@ the equation</p>
 \]
 <p>for w.</p>
 
+<div class="Example">
 <p><em>Example</em>: To get the linear fractional transformation \(f\)
 such that \(f(1)=i, f(2)=3\) and \(f(i)=2\), we 
 have to solve for \(w\) the equation </p>
@@ -931,6 +963,7 @@ located at \(0\) and \(1+1\,i\), then we get the following figure.</p>
 <div class="center">
   <img src="Maple_complex_4.png" style="width: 300px"
        alt="Image by f of the rectangle with diagonally opposite corners at 0 and 1+1i">
+</div>
 </div>
 
 <h3>Steady State Temperature</h3>
