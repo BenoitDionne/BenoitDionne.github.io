@@ -229,6 +229,7 @@ priority, <em>Matlab</em> performs the operations from left to right.
 The exponentiation is the exception because <em>Matlab</em> performs
 these operations from right to left. </p> 
 
+<div class="Note">
 <p><em>Example</em>: To compute
 \(\displaystyle 16.07(42.5 + 387 / 23.8) + 3.6^2\), we type in</p>
 
@@ -246,7 +247,9 @@ ans = <br>
 </pre>
 
 <p> The result is stored in the variable <font class="matlab"> ans</font>.
+</div>
 
+<div class="Note">
 <p><em>Example</em>: The following example shows how to assign the
 result of the previous computation to the variable
 <font class="matlab"> x </font>.</p>
@@ -256,6 +259,7 @@ result of the previous computation to the variable
 x = <br>
    957.2413
 </pre>
+</div>
 
 <p>If we add a semi-colon at the end of the command, then
 <em>Matlab</em> executes the command but does not display the result.</p>
@@ -275,6 +279,7 @@ are displayed in short format which displays only five significant
 digits.  However, the computations are always performed with as many
 digits as <em>Matlab</em> can used.</p>
 
+<div class="Note">
 <p><em>Example</em>: The cosine of \(3\) radians is given by</p>
 
 <pre class="matlab">
@@ -290,12 +295,14 @@ ans = <br>
 ans = <br>
    7.9633e-04
 </pre>
+</div>
 
 <p>If we need more significant digits, then we can request the long
 format which displays sixteen significant digits. To change the
 format to long, it suffices to execute the command
 <font class="matlab">format long</font>.</p>
 
+<div class="Note">
 <p><em>Example</em>: The cosine of \(1.57\) radians in the long format is
 given by</p>
 
@@ -305,6 +312,7 @@ given by</p>
 ans = <br>
       7.963267107332633e-04
 </pre>
+</div>
 
 <p>To return to the short format, it suffices to execute the
 command <font class="matlab">format short</font>.  To see all
@@ -327,6 +335,7 @@ z = <br>
 <p> The table of arithmetical operations on real numbers above extends
 to the complex numbers.</p>
 
+<div class="Note">
 <p><em>Example</em>: The product of \(5 + 3i\) and \(5 - 3i\) is given by</p>
 
 <pre class="matlab">
@@ -344,6 +353,7 @@ w1 = <br>
 w2 = <br>
    0.4706 - 0.8824i
 </pre>
+</div>
 
 <h3 id="Sect5"> Saving Matlab Sessions </h3>
 
@@ -381,6 +391,7 @@ of the matrix between a pair of square brackets.  Commas or spaces are used to
 separate the components of a row, and semi-colons or line changes are
 used to separate the rows of the matrix.</p>
 
+<div class="Note">
 <p><em>Example</em>: To define in <em>Matlab</em> the \(2\times 3\) matrix</p>
 \[
 A = \begin{pmatrix} 1 & \pi & 0 \\ 0 & 4 & 5 \end{pmatrix} \ ,
@@ -403,10 +414,12 @@ A = <br>
      1.0000    3.1416         0
           0    4.0000    5.0000
 </pre>
+</div>
 
 <p>The command <font class="matlab">size</font> can be used to get the
 dimensions of a matrix.</p> 
 
+<div class="Note">
 <p><em>Example</em>: Using the matrix \(A\) of the previous example,
 we get </p>
 
@@ -415,12 +428,14 @@ we get </p>
 ans = <br>
       2     3
 </pre>
+</div>
 
 <h3 id="Sect7"> Vectors are Special Matrices </h3>
 
 <p>Vectors are row or column matrices.  We call them row and column
 vectors respectively.</p>
 
+<div class="Note">
 <p><em>Example</em>: The following vector is a column vector.</p>
 
 <pre class="matlab">
@@ -439,7 +454,9 @@ V = <br>
 ans = <br>
       4
 </pre>
+</div>
 
+<div class="Note">
 <p><em>Example</em>: The following vector is a row vector of length \(4\).<p>
 
 <pre class="matlab">
@@ -447,6 +464,7 @@ ans = <br>
 U = <br>
      0.9093   -5.0000         0    1.0000
 </pre>
+</div>
 
 <h3 id="Sect8"> Matrix Algebra </h3>
 
@@ -490,6 +508,7 @@ more information. </td></tr>
 </table>
 </div>
 
+<div class="Note">
 <p><em>Example</em>: In addition to the previously defined matrices
 and vectors, we consider the following matrices:</p>
 
@@ -524,10 +543,12 @@ M = <br>
 W = <br>
     -6.0907
 </pre>
+</div>
 
 <p>Other familiar operations on matrices can be executed with <em>Matlab</em>.
 </p>
 
+<div class="Note">
 <p><em>Example</em>: The inverse and determinant of the matrix \(B\)
 defined above are given by the following commands.</p>
 
@@ -541,6 +562,7 @@ ans = <br>
 ans = <br>
     -4
 </pre>
+</div>
 
 <h3 id="Sect9"> Array Operations </h3>
 
@@ -558,6 +580,7 @@ that have the same dimensions.  Each components of the first matrix is
 divided by the component of the second matrix with the same indices.</li>
 </ul>
 
+<div class="Note">
 <p><em>Example</em>:</p>
 
 <pre class="matlab">
@@ -578,12 +601,14 @@ ans = <br>
      1     4     9
      9     4     1
 </pre>
+</div>
 
 <p>All built-in <em>Matlab</em> functions are <em>array smart</em>. This means
 that when such a function is applied to a matrix \(A\) the result is
 the matrix obtained by applying the function to each components of
 \(A\). </p>
 
+<div class="Note">
 <p><em>Example</em>: If we use the matrix \(A\) defined above and
 compute \(\sin(A)\), we get the following result.</p>
 
@@ -593,6 +618,7 @@ ans = <br>
     0.8415    0.9093    0.1411
     0.1411    0.9093    0.8415
 </pre>
+</div>
 
 <h3 id="Sect10"> Two Dimensional Plotting in Matlab </h3>
 
@@ -607,6 +633,7 @@ usual to take \(N + 1\) equally spaced points in the interval
 <font class="matlab"> h = (b-a)/N</font>.  Another way to create such a
 list is with the command <font class="matlab">x = linspace(a,b,N+1)</font>. </p>
 
+<div class="Note">
 <p><em>Example</em>: We consider the function \(f\) defined by
 \(\displaystyle f(x) = x^3\)
 on the interval \([0,1]\).  The following two examples show how to
@@ -666,6 +693,7 @@ with a figure containing the graph of the function.</p>
 
 <p>More equally spaced points will produce a more accurate graph of
 the function.</p> 
+</div>
 
 <p>It is possible to include in the same figure the graphs of several
 functions.
@@ -675,6 +703,7 @@ existing figure.   The command <font class="matlab">hold off</font>
 returns <em>Matlan</em> to the default mode which is to replace the
 present figure by a new one.</p>
 
+<div class="Note">
 <p><em>Example</em>: Using the definition of the variable
 <font class="matlab">x</font> above and assuming that the previous
 figure exists (i.e. it has not been closed), the following 
@@ -692,6 +721,7 @@ the previous figure containing the graph of \(f\).</p>
 <div class="center">
   <img src="Matlab_figure2.gif" style="width: 300px"
        alt="Graphes of x^3 and of x + 2">
+</div>
 </div>
 
 <p>In the previous example, the result of the <em>Matlab</em>
@@ -713,6 +743,7 @@ produce the title, <font class="matlab">xlabel</font> to label the
 \(x\) axis and <font class="matlab">ylabel</font> to label the \(y\)
 axis.  The following example shows how to use these functions.</p>
 
+<div class="Note">
 <p><em>Example</em>: Suppose that the following commands are parts of
 the session that produced the previous figure and that this figure
 is still existing (i.e. the figure has not been closed).</p>
@@ -731,11 +762,13 @@ the axes to the previous figure to get the following figure.</p>
   <img src="Matlab_figure5.gif" style="width: 300px"
        alt="Graph of x^3 and x+2 with a title and labels">
 </div>
+</div>
 
 <h3 id="Sect11"> Interpolation </h3>
 
 <p>Polynomial interpolation can be used in <em>Matlab</em>.</p>
 
+<div class="Note">
 <p><em>Example</em>: We draw the linear interpolation of the function
 \(f\) associated to the data in the table below.</p>
 
@@ -775,10 +808,13 @@ been used), the following command draws the linear interpolation of
   <img src="Matlab_figure7.png" style="width: 300px"
        alt="Graph of the linear interpolation of f">
 </div>
+</div>
 
 <p>The linear interpolation of \(f\) can be evaluated at some points
-using the <em>Matlab</em> function <font class="matlab">interp1</font>.
-Suppose that the points where the linear interpolation
+using the <em>Matlab</em> function <font class="matlab">interp1</font>.</p>
+
+<div class="Note">
+<p><em>Example</em>: Suppose that the points where the linear interpolation
 of \(f\) has to be evaluated are \(0, \pi/10 , \pi/5 , 3\pi/10, \ldots, \pi\). 
 These points may be listed in <em>Matlab</em> as it follows. </p>
 
@@ -827,6 +863,7 @@ for \(k = 1, 2, \ldots, 11\).</p>
 
 <p>The third argument in <font class="matlab">plot</font> above
 tells <em>Matlab</em> to only plot a red circle at each point.</p>
+</div>
 
 <p> There are other methods of interpolation than linear (the default)
 like cubic and spline.  To use these methods, it suffices to follow
@@ -845,6 +882,7 @@ and <font class="matlab">quadl</font>.
 The function <font class="matlab">trapz</font> uses the Trapezoidal
 method to approximate the integral of a function.</p>
 
+<div class="Note">
 <p><em>Example</em>: We use the trapezoidal method to approximate the
 area under the curve \(y = x \sin(x)\) for \(0 < x < \pi\) with \(10\)
 subintervals.  We use the \(11\) equally spaced points given in the
@@ -876,6 +914,7 @@ command</p>
 ans = <br>
     3.1157
 </pre>
+</div>
 
 <p>The function <font class="matlab">quad</font> is based on an an
 adaptive recursive Simpson's rule and the function
@@ -891,6 +930,7 @@ next two sections.</p>
 also easy to create our own functions.  The following example will
 illustrate how to create a function.</p>
 
+<div class="Note">
 <p><em>Example</em>: The following example explains how to create the
 function <font class="matlab">funct1</font> which is defined by
 \(x \mapsto x \sin(x)\).</p>
@@ -919,10 +959,13 @@ line following the character <em>%</em> is ignored by <em>Matlab</em>.</p>
     y = x.*sin(x);
 end </font>
 </pre>
+</div>
 
+<div class="Note">
 <p><em>Note</em>: The file <em>funct1.m</em> can be downloaded by
 clicking with the right button of the mouse on the previous link and
 then selecting <em>Save link as ... &rarr; Save file</em>.</p>
+</div>
 
 <p>If the file <em>funct1.m</em> is in the directory from which
 <em>Matlab</em> as been launched or in a directory included in the list of
@@ -931,6 +974,7 @@ of <em>Matlab</em>), then our new function <em>funct1</em> can be
 called as any other <em>Matlab</em> function as it is shown in the
 following example.</p>
 
+<div class="Note">
 <p><em>Example</em>: The value of \(x \sin(x)\) for \(x=5\) is given by the
 following command.</p>
 
@@ -939,26 +983,12 @@ following command.</p>
 ans = <br>
     -4.7946
 </pre>
-
-<p>The comment <font class="matlab">help funct1</font> displays the
-(first group of) commented lines before the line
-<font class="matlab">function y = funct1(x)</font> of the
-file <em>funct1.m</em>.  A <em>m-file</em> should always begin with
-comments describing the function defined in the <em>m-file</em>, what
-the function does and how to use it including the list and
-description of its arguments.</p>
-
-<pre>
->> <font class="matlab">help funct1</font><br>
-  y = funct1(x) <br>
-  This function takes one argument x and returns the result of the
-  computation  x sin(x)
-</pre>
+</div>
 
 <p>The first line of the <em>m-file</em> has the following format.</p>
 
 <div class="center">
-<font class="matlab">function  dependent_variable = function_name(independent_variable)</font>
+<font class="matlab">function dependent_variables = function_name(independent_variables)</font>
 </div>
 
 <p> The rest of the <em>m-file</em> defines the function using the
@@ -1008,6 +1038,26 @@ adds the path <em>/home/user1/matlab</em> to the list of paths
 searched by <em>Matlab</em> if it is not already included in this
 list.</p>
 
+<p>The comment <font class="matlab">help function_name</font> displays the
+(first group of) commented lines before the line
+<font class="matlab">function  dependent_variables =
+function_name(independent_variables)</font> 
+of the file <em>function_name.m</em>.
+A <em>m-file</em> should always begin with
+comments describing the function defined in the <em>m-file</em>, what
+the function does and how to use it including the list and
+description of its arguments.</p>
+
+<div class="Note">
+<p><em>Example</em>: </p>
+<pre>
+>> <font class="matlab">help funct1</font><br>
+  y = funct1(x) <br>
+  This function takes one argument x and returns the result of the
+  computation  x sin(x)
+</pre>
+</div>
+
 <h3 id="Sect14"> Function Handles </h3>
 
 <p>Some <em>Matlab</em> functions require the name of a function as
@@ -1028,6 +1078,7 @@ is given by <font class="matlab">@funct1</font>.</p>
 <p>We may now give an example for <font class="matlab">quad</font> and
 <font class="matlab">quadl</font> using this new concept.</p>
 
+<div class="Note">
 <p><em>Example</em>: To approximate the area under the curve
 \(y = x \sin(x)\) for \(0 \leq x \leq \pi\), we use our function
 <font class="matlab">funct1</font>.  To evaluate numerically the
@@ -1039,6 +1090,7 @@ we only have to execute the following command.</p>
 ans = <br>
     3.1416
 </pre>
+</div>
 
 <p> The basic format of <font class="matlab">quadl</font> and
 <font class="matlab">quad</font> is
@@ -1054,6 +1106,7 @@ different upper bound on the relative error, it suffices to use the command
 <p>A function <em>handle</em> can be used instead of the name of the
 function that it represents.</p> 
 
+<div class="Note">
 <p><em>Example</em>: The following commands show how function <em>handles</em>
 can be manipulated and used.</p>
 
@@ -1087,12 +1140,14 @@ function.  <font class="matlab">hands{1}(10)</font> is equivalent to
 the command <font class="matlab">funct1(10)</font>
 and <font class="matlab">hands{2}(10)</font> is equivalent to the command
 <font class="matlab">sin(10)</font>.</p>
+</div>
 
 <p>It is sometime cumbersome to create an <em>m-file</em> to define a
 simple function which will be used only during one <em>Matlab</em>
 session.  Function <em>handles</em> can be used to eliminate the need
 to create an <em>m-file</em>.</p> 
 
+<div class="Note">
 <p><em>Example</em>: We want to approximate the value of the integral
 of \(\displaystyle f(x) = x^3 + 2 x^2 + 1\) for \(3 \leq x \leq 5\).</p>
 
@@ -1115,6 +1170,7 @@ illustrates how to do it.</p>
 ans =  <br>
      2.033333333333333e+02
 </pre>
+</div>
 
 <p> The following functions to manipulate function <em>handles</em>
 are sometime useful.</p>
@@ -1212,6 +1268,7 @@ the following one.</p>
 been included in the previous example but there are many more options
 that can be included according to the ODE solver used.</p>
 
+<div class="Note">
 <p><em>Example</em>: We use the solver <font class="matlab">ode45</font> to
 approximate the solution of \(y'(x) = f(x) = x \sin(x)\) for
 \(0 \leq x \leq \pi\).
@@ -1354,6 +1411,7 @@ linear interpolation of the solution using the data provided by
   <img src="Matlab_figure4.gif" style="width: 300px"
        alt="Graph of solution of the ODE">
 </div>
+</div>
 
 <p><em>Math Question</em>: What is the relation between the solution
 of the ODE \(y' = x\sin(x)\) and the integral of the function 
@@ -1361,15 +1419,18 @@ of the ODE \(y' = x\sin(x)\) and the integral of the function
 
 <p> Using linear interpolation at the data given in
 <font class="matlab">[xx,yy]</font>, we can approximate the solution
-of the ODE at any points of the interval \([0,\pi]\).  For
-instance, the approximated value of the solution of the ODE at \(x = 2\)
-is given by the command</p>
+of the ODE at any points of the interval \([0,\pi]\).</p>
+
+<div class="Note">
+<p><em>Example</em>: The approximated value of the solution of the
+previous ODE at \(x = 2\) is given by the command</p>
 
 <pre class="matlab">
 >> <font class="matlab">w = interp1(xx,yy,2,'linear')</font> <br>
 w = <br>
     1.7416
 </pre>
+</div>
 
 <h3 id="Sect16"> Programming </h3>
 
@@ -1379,6 +1440,7 @@ program <em>Matlab</em> to execute iterative methods.  The following
 example will illustrate how this could be done for the fixed point
 method.  The approach is similar for other iterative methods.</p>
 
+<div class="Note">
 <p><em>Example</em>: We want to use the fixed point method to
 approximate the solution of the equation
 \(\displaystyle -(x^2/8) - x/4 + 1/2 = x\) in the
@@ -1418,12 +1480,15 @@ then it executes \(20\) iterations of the function
 x = <br>
     0.3852
 </pre>
+</div>
 
 <p>However, the script above is not convenient because we have to modify the
 file <em>fxpt1.m</em> each time that the function to be iterated, the initial
 value or the number of iterations are modified.</p>
 
-<p>The function <font class="matlab">fxpt2</font> defined in the file
+<div class="Note">
+<p><em>Example (continued)</em>: The function
+<font class="matlab">fxpt2</font> defined in the file
   <script language="javascript">
     buildLinK("fxpt2.m", "fxpt2.m","MMathSStat", "id4", "_blank");
   </script> takes as arguments the <em>name</em> or <em>handle</em> of
@@ -1441,15 +1506,6 @@ the function to iterate, the initial value and the number of iterations.</p>
     end
 end  </font>
 </pre>
-
-<p><em>Note</em>: If we had used the line
-<font class="matlab">y = funct(y);</font> instead of the line
-<font class="matlab">y = feval(funct,y);</font> in the previous
-script, then the function <font class="matlab">fxpt2</font> would have
-only accepted function <em>handles</em> as its first argument.  By
-using the function <font class="matlab">feval()</font>, function
-<em>names</em> can also be given as first argument of the
-function <font class="matlab">fxpt2</font>.</p> 
 
 <p>To execute \(20\) iterations of the function
 \(\displaystyle x \mapsto -(x^2/8) - x/4 + 1/2\) starting with
@@ -1481,6 +1537,18 @@ arguments <font class="matlab">@funct3</font> or
 ans = <br>
     0.3852
 </pre>
+</div>
+
+<div class="Note">
+<p><em>Note</em>: If we had used the line
+<font class="matlab">y = funct(y);</font> instead of the line
+<font class="matlab">y = feval(funct,y);</font> in the previous
+script, then the function <font class="matlab">fxpt2</font> would have
+only accepted function <em>handles</em> as its first argument.  By
+using the function <font class="matlab">feval()</font>, function
+<em>names</em> can also be given as first argument of the
+function <font class="matlab">fxpt2</font>.</p> 
+</div>
 
 <p> Instead of defining <font class="matlab">funct3</font> using a
 <em>m-file</em>, we could have simply defined an

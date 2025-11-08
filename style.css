@@ -194,6 +194,12 @@ div.center { text-align: center; margin: 10px; }
 /* images */
 img.framed { border: 1px solid #8F001A; }
 
+/* Smaller text */
+span.small { font-size: 80%; }
+
+div.pictures ul {list-style: none; margin: 0px; padding: 5px;}
+div.pictures ul li {float: left; position: relative; padding-right: 15px;}
+
 /********************************************************************/
 /*      For the equations and definition in mathematics             */
 /********************************************************************/
@@ -216,6 +222,8 @@ font.matlab { color: blue; font-size: 100%; }
 
 img.MobiusFig { border: 1px  #004870 solid; margin: 0px; padding: 0px;}
 
+div.Note { border-left: 2px solid #8F001A; padding-left: 10px; }
+}
 /********************************************************************/
 /*               To produce a light printout                        */
 /********************************************************************/
@@ -248,10 +256,3 @@ q:lang(fr) { quotes: "\00AB" "\00BB" "\2039" "\203A"; font: inherit;
 color: inherit; }
 q:before { content: open-quote }
 q:after  { content: close-quote }
-
-/* Smaller text */
-span.small { font-size: 80%; }
-
-div.pictures ul {list-style: none; margin: 0px; padding: 5px;}
-div.pictures ul li {float: left; position: relative; padding-right: 15px;}
-

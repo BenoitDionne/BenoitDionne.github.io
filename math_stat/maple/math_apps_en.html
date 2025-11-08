@@ -787,17 +787,18 @@ end module;
 <li> <p> There are two extra lines after the previous statement. </p>
 <pre class="matlab">
 <font class="matlab">
-# Actions:-InitParams( flag1 = 1 , f=4.1*x*(1-x) );
+# Actions:-InitParams( flag1 = 1 , f=4*x*(1-x) , nbr = 5 );
 
 macro(SP = SP, GP = GP);
 </font>
 </pre>
 <p> To run the <em>Math App</em> in <em>Maple</em>, the line
 <font class="matlab"># Actions:-InitParams(...</font> must not be
-commented out.  The only argument of
-<font class="matlab">Actions:-InitParams()</font> that has been
-redefined is the variable <font class="matlab">flag1</font> but the other
-parameters can also be redefined.  We
+commented out.  The only arguments of
+<font class="matlab">Actions:-InitParams()</font> that have been
+redefined are the variables <font class="matlab">flag1</font>,
+<font class="matlab">f</font> and <font class="matlab">nbr</font>
+but the other arguments can also be redefined.  We
 set <font class="matlab">flag1=1</font> to get the hidden buttons
 and text areas.</p>
 
