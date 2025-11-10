@@ -228,8 +228,8 @@ div.Example { border-left: 2px solid #8F001A; padding-left: 10px; }
 ol.Code { list-style-type: upper-alpha; }
 ol.Code > li { border-top: 2px solid #8F001A; }
 
-ul.MStop {z-index: 1000;}
-ul.MStop li {z-index: 1000;}
+/* ul.MStop {z-index: 1000;} */
+/* ul.MStop li {z-index: 1000;} */
 
 /********************************************************************/
 /*               To produce a light printout                        */

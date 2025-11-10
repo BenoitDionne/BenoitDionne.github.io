@@ -1,4 +1,4 @@
-#FIG 3.2  Produced by xfig version 3.2.6a
+#FIG 3.2  Produced by xfig version 3.2.8b
 Portrait
 Center
 Inches
@@ -31,7 +31,7 @@ Single
 	 2550 1200 2550 2100 3450 2100 3450 1200 2550 1200
 2 1 0 1 20 7 100 0 -1 0.000 0 0 -1 0 0 4
 	 3000 1800 3150 1500 3300 1800 3000 1800
-4 0 0 100 0 2 12 0.0000 4 135 2760 75 2775 Réduire de moitié les dimensions\001
-4 0 0 100 0 2 12 0.0000 4 135 1275 75 3000 du carré initial\001
-4 0 0 100 0 2 12 0.0000 4 135 1650 3375 3000 dans le carré initial\001
-4 0 0 100 0 2 12 0.0000 4 180 2490 3375 2775 Copiez le petit carré trois fois\001
+4 0 0 100 0 2 12 0.0000 4 165 1980 75 2775 Réduire au quart de sa\001
+4 0 0 100 0 2 12 0.0000 4 135 2070 75 3000 taille le carré initial\001
+4 0 0 100 0 2 12 0.0000 4 135 1890 3375 3000 dans le carré initial\001
+4 0 0 100 0 2 12 0.0000 4 165 2880 3375 2775 Copiez le petit carré trois fois\001

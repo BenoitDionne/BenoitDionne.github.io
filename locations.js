@@ -130,7 +130,7 @@ websites[websites_nbr++] = math_impact;
 /* Math. Contents */
 var math_disc = new item
     ("Les math&eacute;matiques, un monde &agrave; d&eacute;couvrir",
-     "Mathematics, a world to discover",
+     "Mathematics, a World to Discover",
      location_bd+"math_stat/discovery_fr.html",
      location_bd+"math_stat/discovery_en.html",
      null, null, null, "math_disc", "_self", "math_disc");
@@ -369,22 +369,22 @@ websites[websites_nbr++] = Mbs_math_app;
  ******************************************************************/
 /* Fractal Geometry */
 var fractal1 = new item
-    ("Syst&egrave;mes it&eacute;ratif de fonctions",
-     "Iterative Function systems",
+    ("Triangle de Sierpinski", "Sierpinski Gasket",
      location_bd+"math_stat/fractal/fractal1_fr.html",
      location_bd+"math_stat/fractal/fractal1_en.html",
      null, null, null, "fractal1", "_top", "fractal1");
 websites[websites_nbr++] = fractal1;
 
 var fractal2 = new item
-    ("Dimensions fractal", "Fractal Dimensions",
+    ("Syst&egrave;mes it&eacute;ratifs de fonctions",
+     "Iterative Function systems",
      location_bd+"math_stat/fractal/fractal2_fr.html",
      location_bd+"math_stat/fractal/fractal2_en.html",
      null, null, null, "fractal2", "_top", "fractal2");
 websites[websites_nbr++] = fractal2;
 
 var fractal3 = new item
-    ("L'application logistique", "Logistic Map",
+    ("Syst&egrave;mes dynamiques discrets", "Discrete Dynamical Ssystems",
      location_bd+"math_stat/fractal/fractal3_fr.html",
      location_bd+"math_stat/fractal/fractal3_en.html",
      null, null, null, "fractal3", "_top", "fractal3");

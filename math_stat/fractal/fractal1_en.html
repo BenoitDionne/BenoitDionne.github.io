@@ -10,7 +10,7 @@ Math. and Stat. -- Benoit Dionne
 
 <meta name="Title" content="Mathematics and Statistics">
 <meta name="Author" content="Benoit Dionne">
-<meta scheme="Year-Month-Day" name="Date of Publication" content="2017-11-07">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2025-11-09">
 <meta name="Keywords" content="mathematics,statistics,university,ottawa">
 <meta name="Copyright" content="&copy; 2014 Benoit Dionne, uOttawa">
 <meta http-equiv="Expires" content="">
@@ -46,56 +46,57 @@ main_title( MStext, "MMathSStat");
 </script>
 
 <div style="text-align: right; margin-right: 20px;">
-  <a href="fractal2_en.html"> Next page </a>
+  <a href="fractal2_en.html"> Next document </a>
 </div>
 
-<h2> Fractal Geometry </h2>
+<h2> Sierpinski Gasket </h2>
 
-<p> The following figure is the famous Sierpinski Gasket. </p>
+<p> The following figure shows the famous Sierpinski Gasket. </p>
 
 <div class="center">
   <img src="sierpinski.png" style="width: 400px"
        alt="Image of Sierpinski Gasket" class="framed">
 </div>
 
-<p> It is a typical example of a fractal object.  We define in the
-  section on <a href="fractal2_en.html#fractal_objects">
-    fractal dimensions </a> on the next page what is a fractal object.
-  We do not need this definition right now. </p>
+<p> It is a typical example of a fractal object.  We give a definition
+of a fractal object in the section <script language="javascript">
+buildLinK("fractal2_en.html#fractal_dim", "Fractal Dimensions",
+"MMathSStat", "fdID", "_top");
+</script> in the next document.  We do not need this definition right
+now. </p>
 
 <p> To store this figure on a computer, we need 24235 bytes (png
-  format).  Using some simple mathematical technique (namely <em>
-  Iterative Functions Systems (IFS) </em>), this figure (to any level
-  of accuracy) can be stored using only 552 bytes (a simple Matlab
-  code). </p>
+format).  Using a simple mathematical technique (namely, <em>
+iterative functions systems (IFS) </em>), this figure (to any level
+of accuracy) can be stored using only 552 bytes (a simple Matlab
+code). </p>
 
-<p> The traditional way to save a (black and white) figure is to store
-  on the computer the information for each pixel of the figure.  In
-  the next section, we explain how to create (draw) the Sierpinski
-  Gasket and how to stored it. </p>
+<p> The elementary way to save a (black and white) figure is to store
+on the computer the information for each pixel of the figure.  In 
+the next section, we explain how to draw the Sierpinski Gasket and how
+to stored it very efficiently. </p>
 
 <p> Basically, the IFS technique used to create the Sierpinski Gasket
-  can be used to create other images.   We illustrate in the next
-  sections how IFS can be used to generate different images. </p>
+can be used to create other images as we will see in the next
+document. </p>
 
 <br>
 <hr>
 <br>
 
-<h3> Sierpinski Gasket </h3>
-
 <h4> Iterative Function System </h4>
 
-<p> The Sierpinski Gasket can be generated using a simple iterative
-  procedure that we now describe.</p>
+<p> The Sierpinski Gasket can be generated using the simple
+iterative function system that we describe below.</p>
 
 <ul>
 <li>
-First, chose any set of points in a square: a line, a triangle,
+First, we chose any set of points in a square: a line, a triangle,
 ... are fine. </li>
-<li> Second, shrink the original square to half its size. </li>
-<li> Third, draw back into the original square three copies of the
-  shrunk square as illustrated in the following figures. <br>
+<li> Second, we shrink the original square to a quarter of its
+original size. </li>
+<li> Third, we draw back into the original square three copies of the
+shrunk square as illustrated in the following figures.
 </li>
 </ul>
 
@@ -105,9 +106,9 @@ First, chose any set of points in a square: a line, a triangle,
 </div>
 
 <p> We repeat the second and third steps above as many times as we
-  want (until we are happy with the figure we get).  The next figure
-  is the second iteration of the second and third steps of the IFS
-  described above. </p>
+want (until we are happy with the figure we get).  The next figure
+is the second iteration of the second and third steps of the IFS
+described above. </p>
 
 <div class="center">
   <img src="step_two_en.png" class="framed" style="width: 400px"
@@ -115,12 +116,13 @@ First, chose any set of points in a square: a line, a triangle,
 </div>
 
 <p> Independently of the set of points that you choose at the
-  beginning, you always get the Sierpinski triangle. </p>
+beginning, we always get the Sierpinski triangle after
+an <q lang="en">infinite</q> number of iterations. </p>
 
-<p> In the following application, you may select one of the three
-  initial figures proposed, and the number of iterations to be
-  performed.  Use only a small number of iterations, no more
-  than 20, to avoid exceeding the accuracy of your display. </p>
+<p> In the following application, we may select one of the three
+initial figures proposed, and the number of iterations to be
+performed.  The reader should only use a small number of iterations,
+no more than 20, to avoid exceeding the capacity of the web browser. </p>
 
 <div class="center">
 <canvas id="SRPK" width="400" height="400">
@@ -139,14 +141,14 @@ First, chose any set of points in a square: a line, a triangle,
 </ul>
 
 <p> Instead of storing on the computer all the pixels of the figure of
-  the Sierpinski triangle, we only have to store on the computer
-  (using mathematical formulae) the second and third steps of the IFS
-  described above. </p>
+the Sierpinski triangle, we only have to store on the computer
+(using mathematical formulae) the second and third steps of the IFS
+described above. </p>
 
-<p> The Sierpinski triangle on the unit square is generated by the
-  following three functions.  They shrink the unit square to a square
-  where the sides have length 1/2, and map the shrunk square back into
-  the unit square as described above. </p>
+<p> The Sierpinski triangle on the unit square is generated by the IFS
+composed of the following three functions.  They shrink the unit
+square to a square where both sides have length 1/2, and map
+the shrunk square back into the unit square as described above. </p>
 
 <ul>
 <li> First function:<br>
@@ -170,24 +172,32 @@ First, chose any set of points in a square: a line, a triangle,
 </ul>
 
 <p> There is a mathematical theorem that explains why the IFS for the
-  Sierpinski triangle always generate the same image independently of
-  the initial set that has been chosen.  In fact, each IFS generates
-  only one image.  This theorem is called the <en> Fixed Point
-  Theorem </em>.  This theorem can easily be understood in the context
-  of the simple IFS defined by the <em> logistic mapping </em> that
-  can be found in the <a href="fractal3_en.html#logistic"> following
-  pages </a>.</p>
+Sierpinski triangle always generate the same image after
+an <q lang="en">infinite</q> number of iterations independently of
+the initial set that has been chosen.  In fact, each IFS generates
+only one image.  This theorem is called the <en> Fixed Point
+Theorem </em>.  This theorem can easily be understood in the context
+of the simple IFS defined by the <em>logistic map</em> that
+we consider in the section
+<script language="javascript">
+buildLinK("fractal3_en.html#logistic"", "Logistic Map",
+"MMathSStat", "fdID", "_top");
+</script> in a future document.</p>
 
-<p> <em> Question </em>: What happen if the second function also
-  rotate the square by 90 degrees? </p>
+<p> <em> Question </em>: What happen if the second function if the IFS
+above also rotates the square by 90 degrees? </p>
+
+<br>
+<hr>
+<br>
 
 <h4> Probabilistic System </h4>
 
-<p> There is a simple technique to illustrate the Sierpinski
-  gasket. Let A the point with coordinate (0,1), B the point with
-  coordinate (1,0) and C the origin (see the figure below).  Suppose
-  that we have an unbiased dice and that 1,6 are associated to A, 2,5
-  are associated to B and 3,4 are associated to C. </p>
+<p> This is a simple technique to illustrate the Sierpinski
+gasket. Let A the point with coordinate (0,1), B the point with 
+coordinate (1,0) and C the origin (see the figure below).  Suppose
+that we have an unbiased dice and that 1,6 are associated to A, 2,5
+are associated to B and 3,4 are associated to C. </p>
 
 <div class="center">
   <img src="probability.png" class="framed" style="width: 300px"
@@ -195,21 +205,21 @@ First, chose any set of points in a square: a line, a triangle,
 </div>
 
 <ul>
-<li> Choose any point <em class="Equations">x0</em> in the plane. </li>
-<li> Throw the dice.  Suppose that you get a 3. </li>
-<li> The point <em class="Equations">x1</em> is the middle of the line
-  between <em class="Equations">x0</em> and C. </li>
-<li> Throw the dice.  Suppose that you get a 1. </li>
-<li> The point <em class="Equations">x2</em> is the middle of the line
-  between <em class="Equations">x1</em> and A. </li>
+<li> We choose a point <em class="Equations">x0</em> in the plane. </li>
+<li> We throw the dice.  Suppose that we get a 3. </li>
+<li> The point <em class="Equations">x1</em> is the middle of the segment
+between <em class="Equations">x0</em> and C. </li>
+<li> We throw the dice a second time.  Suppose that we get a 1. </li>
+<li> The point <em class="Equations">x2</em> is the middle of the segment
+between <em class="Equations">x1</em> and A. </li>
 <li> And so on. </li>
 </ul>
 
 <p> The isolated points are invisible.  We only see the cluster of
-  points.  This cluster of points shadows the Sierpinski gasket. To
-  get a good approximation of the Sierpinski gasket, the number of
-  iterations must be very large and the random number generator of
-  your computer must be really ... really good (is it?). </p>
+points.  This cluster of points shadows the Sierpinski gasket. To
+get a good approximation of the Sierpinski gasket, the number of
+iterations must be very large and the random number generator of
+your computer must be really ... really good. </p>
 
 <p>
 <em> Question </em>: Which are the points that constitute (make up)
@@ -217,15 +227,14 @@ the Sierpinski gasket? <br> <em> Question </em>: What happen if the
 dice is biased (loaded)? </p>
 
 <p> Good references (for advanced undergraduate students in
-  mathematics) are <em> Fractals Everywhere </em> by Micheal Barnsley
-  (Academic press, 1988) and <em> Chaos and Fractals </em> by
-  H.-O. Peitgen, H. J&uuml;rgens and D. Saupe (Springer-Verlag,
-  1992). </p>
+mathematics) are <em>Fractals Everywhere</em> by Micheal Barnsley
+(Academic press, 1988) and <em>Chaos and Fractals</em> by
+H.-O. Peitgen, H. J&uuml;rgens and D. Saupe (Springer-Verlag, 1992). </p>
 
 <br><br>
 
 <div style="text-align: right; margin-right: 20px;">
-  <a href="fractal2_en.html"> Next page </a>
+  <a href="fractal2_en.html"> Next document </a>
 </div>
 
 <br>
