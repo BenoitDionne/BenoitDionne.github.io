@@ -65,7 +65,7 @@ réelles qui est définie sur la droite réelle.  La formule </p>
 
 <center>
   <em class="Equations_Display">
-    x<sub>n+1</sub> = f(x<sub>n</sub>)&nbsp; , &nbsp n=0,1,2,...
+    x<sub>n+1</sub> = f(x<sub>n</sub>)&nbsp; , &nbsp n = 0,1,2,...
   </em>
 </center>
 
@@ -74,11 +74,11 @@ tous <em class="Equations">x<sub>o</sub></em> donné, nous pouvons
 générer une suite</p>
 
 <center>
-  <em class="Equations_Display">
-    x<sub>1</sub> = f(x<sub>0</sub>), &nbsp;
-    x<sub>2</sub> = f(x<sub>1</sub>), &nbsp;
-    x<sub>3</sub> = f(x<sub>2</sub>), &nbsp; ...
-  </em>
+<em class="Equations_Display">
+x<sub>1</sub> = f(x<sub>0</sub>), &nbsp;
+x<sub>2</sub> = f(x<sub>1</sub>), &nbsp;
+x<sub>3</sub> = f(x<sub>2</sub>), &nbsp; ...
+</em>
 </center>
 
 <br>
@@ -194,7 +194,7 @@ fonction suivante.</p>
 
 <center>
 <em class="Equations_Display">
-f<sub>&micro;</sub>(x) = &micro; x ( 1- x) &nbsp; ,
+f<sub>&micro;</sub>(x) = &micro; x(1- x) &nbsp; ,
 </em>
 </center>
 
@@ -262,33 +262,141 @@ vers un point fixe unique <em class="Equations"> p &in; [a,b]</em>. </p>
 <em class="Equations">f<sub>&micro;</sub>:[0,1] &rarr; [0,1]</em>
 possède toujours un point fixe à l'origine.  Pour
 <em class="Equations">&micro; > 1</em>, elle possède un autre
-point fixe <em class="Equations">p>0</em>.  Si
-<em class="Equations">1 < &micro; < 3</em>, on peut trouver un
-intervalle <em class="Equations">[a,b]</em> contenant le point fixe 
-<em class="Equations">p>0</em> où le Théorème du Point Fixe peut
-s'appliquer pour conclure que toute orbite avec
+point fixe <em class="Equations">p<sub>&micro;</sub>>0</em>.  En fait, si nous
+résolvons <em class="Equations">f<sub>&micro;</sub>(p) = p</em> pour
+<em class="Equations">p</em>, nous trouvons que ce point fixe est
+<em class="Equations">p<sub>&micro;</sub> = (&micro: - 1)/&micro;</em>.
+Pour <em class="Equations">1 < &micro; < 3</em> fixe, il est possible
+de trouver un petit intervalle <em class="Equations">[a,b]</em> contenant le
+point fixe <em class="Equations">p<sub>&micro;</sub>>0</em> où le
+Théorème du Point Fixe peut être utilisée pour conclure que toute orbite avec
 <em class="Equations">x<sub>0</sub> &in; [a,b]</em>
-convergent vers <em class="Equations"> p</em> lorsque
+convergent vers <em class="Equations"> p<sub>&micro;</sub></em> lorsque
 <em class="Equations">n &rarr; &infin;</em>.
 Par exemple, si <em class="Equations">&micro; = 2</em>, l'application
 graphique ci-dessus montre que le graphe de
 <em class="Equations">f<sub>2</sub></em>
-coupe la droite <em class="Equations">y = x</em> en un seul point
-<em class="Equations">p</em>.  C'est un point fixe
-de <em class="Equations">f<sub>2</sub></em> et toutes les orbites
+coupe la droite <em class="Equations">y = x</em> au point positif 
+<em class="Equations">p<sub>2</sub> = 1/2</em> seulement.  C'est un
+point fixe de <em class="Equations">f<sub>2</sub></em> et toutes les orbites
 avec <em class="Equations">x<sub>0</sub></em> suffisamment près de
-<em class="Equations"> p</em> convergent vers
-<em class="Equations"> p</em>. </p>
+<em class="Equations"> p<sub>2</sub></em> convergent vers
+<em class="Equations"> p<sub>2</sub></em>. </p>
 
 <p> Pour certaines valeurs de <em class="Equations">&micro;</em> (les
 valeurs entre 3 et 4 sont vraiment intéressantes), les orbites
 <em class="Equations">x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ... </em>
 ne convergent pas vers un seul point mais ils <q lang="fr"> convergent </em>
-vers un ensemble plus complexe.  Qu'arrive-t-il quand
-<em class="Equations">&micro;</em> est près de 4?  Les orbites
-deviennent <em> Chaotiques </em>.</p>
+vers un ensemble plus complexe.</p>
 
-<p>À suivre.<p>
+<p>Pour <em class="Equations">&micro; = 3.4</em>, le point
+<em class="Equations">x<sub>0</sub> = 0.45195878844045...</em> est un
+<em>point périodique</em> de
+<em class="Equations">f<sub>3.4</sub></em> de période 2;
+c'est-à-dire,
+<em class="Equations">x<sub>1</sub> = f<sub>3.4</sub>(x<sub>0</sub>)</em>
+et
+<em class="Equations">x<sub>2</sub> = f<sub>3.4</sub>(x<sub>1</sub>)
+= x<sub>0</sub></em>.  On écrit
+<em class="Equations">x<sub>2</sub>
+= f<sub>3.4</sub><sup>2</sup>(x<sub>0</sub>)
+= x<sub>0</sub></em>.  L'orbite <em class="Equations">x<sub>0</sub>,
+x<sub>1</sub>, x<sub>2</sub>, ... </em> est</p>
+
+<center>
+<em class="Equations">
+{0.45195878844045, 0.84215476876273, 0.45195878844045, 0.84215476876273, ...}
+</em>
+</center>
+
+<p> où les valeurs ont été tronquées à 14 chiffres décimaux.  Le
+lecteur devrait tracer le graphe en forme de toile d'araignée à l'aide
+de l'application graphique ci-dessus.</p>
+
+<p>Pour <em class="Equations">&micro; = 3.5</em>, le point
+<em class="Equations">x<sub>0</sub> = 0.87499726360246...</em> est un
+<em>point périodique</em> de
+<em class="Equations">f<sub>3.5</sub></em> de période 4;
+c'est-à-dire, <em class="Equations">x<sub>2</sub>
+= f<sub>3.4</sub><sup>4</sup>(x<sub>0</sub>)
+= x<sub>0</sub></em>.  L'orbite <em class="Equations">x<sub>0</sub>,
+x<sub>1</sub>, x<sub>2</sub>, ... </em> est</p>
+
+<center>
+<em class="Equations">
+{0.87499726360246, 0.38281968301732, 0.82694070659144,
+0.50088421030722, 0.87499726360246, ...} 
+</em>
+</center>
+
+<p> où les valeurs ont été tronquées à 14 chiffres décimaux.    Le
+lecteur devrait tracer le graphe en forme de toile d'araignée à l'aide
+de l'application graphique ci-dessus.</p>
+
+<p>Quand <em class="Equations">&micro;</em> passe au-dessus de
+<em class="Equations">3</em>, le point fixe
+<em class="Equations">p<sub>&micro;</sub></em> n'est plus
+un <em>attracteur</em> et nous obtenons une orbite périodique 
+de période 2 qui est un attracteur comme nous avons vu
+ci-dessus.  Quand <em class="Equations">&micro;</em> passe au-dessus de
+<em class="Equations">3.236...</em>, l'orbite périodique de période 2
+n'est plus un attracteur et nous obtenons une orbite périodique 
+de période 4 qui est un attracteur.
+Pour <em class="Equations">&micro;</em> encore un petit peu plus
+grand, l'orbite périodique de période 4
+n'est plus un attracteur et nous obtenons une orbite périodique 
+de période 8 qui est un attracteur.
+Et ainsi de suite. C'est l'exemple la plus connue d'une
+<em>cascade de doublement de période</em>.</p>
+
+<p> La cascade de doublement de période converge vers
+<em class="Equations">&micro; = 3.5699456...</em>&nbsp;
+Ce nombre est connu sous le nom de <em>point de Feigenbaum</em>.
+De plus, soit
+<em class="Equations">&micro;<sub>0</sub> = 3</em>,
+<em class="Equations">&micro;<sub>1</sub> = 3.236...</em>,
+<em class="Equations">&micro;<sub>2</sub> = ...</em> et ainsi de suite,
+les valeurs de <em class="Equations">&micro;</em> pour lesquelles la
+fonction logistique subit un doublement de période, et soit
+<em class="Equations">d<sub>j</sub> = &micro;<sub>j+1</sub>
+− &micro;<sub>j</sub></em> pour <em class="Equations"> j &geq; 0</em>.
+Il a été démontré que
+<em class="Equations">lim<sub>j &rarr; &infin;</sub>
+d<sub>j</sub>/d<sub>j+1</sub> = 4.6692016091029...</em>
+&nbsp; Ce nombre est appelé la <em>constante de Feigenbaum</em>.
+Feigenbaum a découvert ce nombre en 1975.  Cette constante est
+universelle dans le sens qu'elle est la même pour une grande famille
+de SDD de la forme
+<em class="Equations">x<sub>n+1</sub> = g<sub>&micro;</sub>(x<sub>n</sub>)</em>
+où le graphe de <em class="Equations">g<sub>&micro;</sub></em> 
+<q lang="fr">ressemble</q> au graphe de la fonction logistique
+<em class="Equations">f<sub>&micro;</sub></em>.</p>
+
+<p> Pour <em class="Equations">&micro; = 3.839...</em>, nous avons que</p>
+
+<div class="center">
+<em class="Equations">
+{0.14988539433432, 0.48917380192271, 0.95930024021836,
+0.14988539433432, ...}
+</em>
+</div>
+<p>est une orbite périodique de période 3 de
+<em class="Equations">f<sub>micro;</sub></em> qui est un attracteur et
+où les valeurs ont été tronquées à 14 chiffres décimaux.
+Il découle du fameux théorème de <em>Sarkovskii</em> que
+<em class="Equations">f<sub>3.839...</sub></em> possède des orbites
+périodiques de toutes les périodes.  Toutes les orbites périodiques,
+sauf l'orbite de période 3 ci-dessus, ne sont pas des attracteurs.
+Donc, sauf si une orbite débute avec un point exactement sur une des
+orbites qui n'est pas un attracteur, elle va converger vers
+vers l'orbite périodique de période 3.  Notons que, en raison des
+erreurs de troncature, il est pratiquement impossible de tracer le
+graphe en forme de toile d'araignée d'une des orbites périodiques qui
+n'est pas un attracteur.</p>
+
+<p>Qu'arrive-t-il quand <em class="Equations">&micro;</em> est plus
+grand ou égale à 4?  Les orbites de <em class="Equations">f<sub>4</sub></em>
+sont <em>Chaotiques</em>.  À suivre (?).<p>
 
 <br><br>
 

@@ -65,7 +65,7 @@ defined on the real line.  The formula</p>
 
 <center>
   <em class="Equations_Display">
-    x<sub>n+1</sub> = f(x<sub>n</sub>) &nbsp; , &nbsp n=0,1,2,...
+    x<sub>n+1</sub> = f(x<sub>n</sub>) &nbsp; , &nbsp n = 0,1,2,...
   </em>
 </center>
 
@@ -73,11 +73,11 @@ defined on the real line.  The formula</p>
 <em class="Equations">x<sub>0</sub></em>, we may produce a sequence </p>
 
 <center>
-  <em class="Equations_Display">
-    x<sub>1</sub> = f(x<sub>0</sub>), &nbsp;
-    x<sub>2</sub> = f(x<sub>1</sub>), &nbsp;
-    x<sub>3</sub> = f(x<sub>2</sub>), &nbsp; ...
-  </em>
+<em class="Equations_Display">
+x<sub>1</sub> = f(x<sub>0</sub>), &nbsp;
+x<sub>2</sub> = f(x<sub>1</sub>), &nbsp;
+x<sub>3</sub> = f(x<sub>2</sub>), &nbsp; ...
+</em>
 </center>
 
 <br>
@@ -191,7 +191,7 @@ the following function.</p>
 
 <center>
 <em class="Equations_Display">
-f<sub>&micro;</sub>(x) = &micro; x ( 1- x) &nbsp; ,
+f<sub>&micro;</sub>(x) = &micro; x(1- x) &nbsp; ,
 </em>
 </center>
 
@@ -259,33 +259,137 @@ unique fixed point <em class="Equations">p &in; [a,b]</em>. </p>
 <em class="Equations">f<sub>&micro;</sub>:[0,1] &rarr; [0,1]</em>
 has always a fixed point at the origin.  For
 <em class="Equations">&micro; > 1 </em>, there is another fixed point
-<em class="Equations">p>0</em>.  For
-<em class="Equations">1<&micro; <3</em>, we can find a small
-interval <em class="Equations">[a,b]</em> containing the fixed
-point <em class="Equations">p</em> where the Fixed Point Theorem can
-be applied to conclude that any orbit with an initial
+<em class="Equations">p<sub>&micro;</sub>>0</em>.  In fact, if we solve
+<em class="Equations">f<sub>&micro;</sub>(p) = p</em> for
+<em class="Equations">p</em>, we find that this fixed point is
+<em class="Equations">p<sub>&micro;</sub> = (&micro: - 1)/&micro;</em>.
+For <em class="Equations">1<&micro; <3</em> fixed, it is possible to
+find a small interval <em class="Equations">[a,b]</em> containing the fixed
+point <em class="Equations">p<sub>&micro;</sub></em> where the Fixed
+Point Theorem can be used to conclude that any orbit with an initial
 condition <em class="Equations">x<sub>0</sub> &in; [a,b]</em> converges
-toward <em class="Equations">p</em> as
+toward <em class="Equations">p<sub>&micro;</sub></em> as
 <em class="Equations">n &rarr; &infin;</em>.
 For instance, if <em class="Equations">&micro; = 2</em>, the
 graphical application above shows that the graph of
 <em class="Equations">f<sub>2</sub></em>
-intersects the line <em class="Equations">y = x</em> at only one
-point <em class="Equations"> p>0</em>.  It is a fixed point
+intersects the line <em class="Equations">y = x</em> at the
+positive point <em class="Equations"> p<sub>2</sub> = 1/2</em>
+only.  It is a fixed point
 of <em class="Equations">f<sub>2</sub></em> and all orbits with
 <em class="Equations">x<sub>0</sub></em> closed enough
-to <em class="Equations">p</em>
-converge to <em class="Equations">p</em>. </p>
+to <em class="Equations">p<sub>2</sub></em>
+converge to <em class="Equations">p<sub>2</sub></em>. </p>
 
 <p> For some values of <em class="Equations">&micro;</em> (values
 between 3 and 4 are really interesting), the orbits
 <em class="Equations">x<sub>0</sub>,x<sub>1</sub>, x<sub>2</sub>, ... </em>
 do not converge toward a single point but they do
-<q lang="en">converge</q> toward a more complex set.  What happen
-when <em class="Equations">&micro;</em> is chosen close to 4?  The
-orbits become <em> Chaotic </em>.</p>
+<q lang="en">converge</q> toward a more complex set.</p>
 
-<p>To be continued. </p>
+<p>For <em class="Equations">&micro; = 3.4</em>, the point
+<em class="Equations">x<sub>0</sub> = 0.45195878844045...</em> is a
+<em>periodic point</em> of
+<em class="Equations">f<sub>3.4</sub></em> of period 2;
+namely,
+<em class="Equations">x<sub>1</sub> = f<sub>3.4</sub>(x<sub>0</sub>)</em>
+and
+<em class="Equations">x<sub>2</sub> = f<sub>3.4</sub>(x<sub>1</sub>)
+= x<sub>0</sub></em>.  We write
+<em class="Equations">x<sub>2</sub>
+= f<sub>3.4</sub><sup>2</sup>(x<sub>0</sub>)
+= x<sub>0</sub></em>.  The orbit <em class="Equations">x<sub>0</sub>,
+x<sub>1</sub>, x<sub>2</sub>, ... </em> is</p>
+
+<center>
+<em class="Equations">
+{0.45195878844045, 0.84215476876273, 0.45195878844045, 0.84215476876273, ...}
+</em>
+</center>
+
+<p> where the values have been chopped to 14 digits after the
+decimal point.  The reader should draw the cobweb graph for this
+orbit using the graphical application above.</p>
+
+<p>For <em class="Equations">&micro; = 3.5</em>, the point
+<em class="Equations">x<sub>0</sub> = 0.87499726360246...</em> is a
+<em>periodic point</em> of
+<em class="Equations">f<sub>3.5</sub></em> of period 4;
+namely, <em class="Equations">x<sub>2</sub>
+= f<sub>3.4</sub><sup>4</sup>(x<sub>0</sub>)
+= x<sub>0</sub></em>.  The orbit <em class="Equations">x<sub>0</sub>,
+x<sub>1</sub>, x<sub>2</sub>, ... </em> is</p>
+
+<center>
+<em class="Equations">
+{0.87499726360246, 0.38281968301732, 0.82694070659144,
+0.50088421030722, 0.87499726360246, ...} 
+</em>
+</center>
+
+<p> where the values have been chopped to 14 digits after the
+decimal point.  The reader should draw the cobweb graph for this
+orbit using the graphical application above.</p>
+
+<p>When <em class="Equations">&micro;</em> crosses
+above <em class="Equations">3</em>, the fixed
+point <em class="Equations">p<sub>&micro;</sub></em> is no longer
+<em>attracting</em> and we get an attracting periodic orbit of period 2 as we
+have seen above.  When <em class="Equations">&micro;</em> crosses
+above <em class="Equations">3.236...</em>, the periodic orbit of
+period 2 is no longer attracting and we get
+an attracting periodic orbit of period 4.
+For <em class="Equations">&micro;</em> slightly larger, the periodic
+orbit of period 4 is no longer attracting and we get 
+an attracting periodic orbit of period 8, And so on. This is the best known
+example of a <em>period doubling cascade</em>.</p>
+
+<p> Period doubling accumulates to 
+<em class="Equations">&micro; = 3.5699456...</em>&nbsp;
+This number is known as the
+<em>Feigenbaum point</em>. Moreover, let
+<em class="Equations">&micro;<sub>0</sub> = 3</em>,
+<em class="Equations">&micro;<sub>1</sub> = 3.236...</em>,
+<em class="Equations">&micro;<sub>2</sub> = ...</em> and so on
+be the values of <em class="Equations">&micro;</em> for which
+the logistic map undergoes period doubling and let
+<em class="Equations">d<sub>j</sub> = &micro;<sub>j+1</sub>
+− &micro;<sub>j</sub></em> for <em class="Equations"> j &geq; 0</em>.
+It has been showed
+<em class="Equations">lim<sub>j &rarr; &infin;</sub>
+d<sub>j</sub>/d<sub>j+1</sub> = 4.6692016091029...</em>
+&nbsp; This number is called the <em>Feigenbaum constant</em>.
+Feigenbaum discovered this number in 1975. This constant is universal
+in the sense that it is the same for a whole class of DDS of the form
+<em class="Equations">x<sub>n+1</sub> = g<sub>&micro;</sub>(x<sub>n</sub>)</em>
+where the graph of <em class="Equations">g<sub>&micro;</sub></em> 
+<q lang="en">looks like</q> the graph of the logistic map
+<em class="Equations">f<sub>&micro;</sub></em>.</p>
+
+<p> For <em class="Equations">&micro; = 3.839...</em>, we have that</p>
+
+<div class="center">
+<em class="Equations">
+{0.14988539433432, 0.48917380192271, 0.95930024021836,
+0.14988539433432, ...}
+</em>
+</div>
+<p>is an attracting periodic orbit of period 3 for
+<em class="Equations">f<sub>micro;</sub></em>, where all value have been
+chopped to 14 digits after the decimal point.
+It follows from the famous theorem of <em>Sarkovskii</em> that
+<em class="Equations">f<sub>3.839...</sub></em> has periodic
+orbits of all possible periods.  All the periodic orbits, except 
+the periodic orbit of period 3 above, are not attracting.  So, unless
+an orbit starts with a point exactly on one of these non-attracting
+periodic orbit, it will <q lang="en">converge</q> toward the periodic
+orbit of period 3.
+Note that, due to truncation errors, it is practically impossible to 
+draw the cobweb graph of one of these non-attracting periodic orbits.</p>
+
+<p> What happen when <em class="Equations">&micro;</em> is greater
+than or equal to 4?  The orbits <em class="Equations">f<sub>4</sub></em>
+are <em> Chaotic </em>.  To be continued (?). </p>
 
 <br><br>
 
