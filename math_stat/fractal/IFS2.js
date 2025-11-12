@@ -2,25 +2,29 @@ window.onload = apps_init;
 
 function apps_init() {
     var initFERN = document.getElementById("initFERN");
+    var fillFern = ( document.getElementById("filledFERN").value === 'true' );
+    var colFern = document.getElementById("colourFERN").value;
 
     if ( initFERN != null )
 	initFERN.onchange = function() {
 	    var n = initFERN.value;
-	    initObject("FERN", false, n);
+	    initObject("FERN", fillFern, colFern, n);
 	}
 
-    initObject("FERN", false, 0);
+    initObject("FERN", fillFern, colFern, 0);
     initFERN.value = 0;
 
     var initLEAF = document.getElementById("initLEAF");
+    var fillLeaf = ( document.getElementById("filledLEAF").value === 'true' );
+    var colLeaf = document.getElementById("colourLEAF").value;
 
     if ( initLEAF != null )
 	initLEAF.onchange = function() {
 	    var n = initLEAF.value;
-	    initObject("LEAF", false, n);
+	    initObject("LEAF", fillLeaf, colLeaf, n);
 	}
 
-    initObject("LEAF", false, 0);
+    initObject("LEAF", fillLeaf, colLeaf, 0);
     initLEAF.value = 0;
 }
 
@@ -56,7 +60,7 @@ function plotCurve(cntxt,X,Y,step,fillCurve) {
     cntxt.save();
 }
 
-function initObject(cnvsName, fillCurve, choice) {
+function initObject(cnvsName, fillCurve, colour, choice) {
     var cnvs = document.getElementById(cnvsName);
     var width = cnvs.width;
     var height = cnvs.height;
@@ -85,9 +89,9 @@ function initObject(cnvsName, fillCurve, choice) {
     }
 
     // The initial figure
-    cntxt.strokeStyle = 'blue';
+    cntxt.strokeStyle = colour;
     if ( fillCurve ) {
-	cntxt.fillStyle = "blue";
+	cntxt.fillStyle = colour;
     }
     plotCurve(cntxt, curvesX, curvesY, step, fillCurve);
     
@@ -121,14 +125,7 @@ class Curves2 {
     }	
 }
 
-/* Not used */
-function initObject3(cnvsName, fillCurve, choice) {
-    var cnvs = document.getElementById(cnvsName);
-
-    return initObject4(cnvs, fillCurve, choice);
-}
-
-function initObject4(cnvs, fillCurve, choice) {
+function initObject4(cnvs, fillCurve, colour, choice) {
     var width = cnvs.width;
     var height = cnvs.height;
     var cntxt = cnvs.getContext("2d");
@@ -152,9 +149,9 @@ function initObject4(cnvs, fillCurve, choice) {
     var newcurves = new Curves2(curvesX, curvesY, step);
 
     // The initial figure
-    cntxt.strokeStyle = 'blue';
+    cntxt.strokeStyle = colour;
     if ( fillCurve ) {
-	cntxt.fillStyle = "blue";
+	cntxt.fillStyle = colour;
     }
     plotCurve2(cnvs, newcurves, fillCurve);
     
@@ -220,15 +217,17 @@ function iterateFERN() {
 
     var nbr = Number( document.getElementById("nbrFERN").value );
     var choice = Number( document.getElementById("initFERN").value );
+    var fillFern = ( document.getElementById("filledFERN").value === 'true' );
+    var colFern = document.getElementById("colourFERN").value;
 
     cntxt.clearRect(0, 0, width, height);
 
-    var curves = initObject4(cnvs, false, choice);
+    var curves = initObject4(cnvs, fillFern, colFern, choice);
 
     for ( var i = 0 ; i < nbr ; ++i ) {
 	cntxt.clearRect(0,0, width, height);
 	curves = nextStepFERN(curves);
-	plotCurve2(cnvs, curves, false);
+	plotCurve2(cnvs, curves, fillFern);
     }
 }
 
@@ -276,15 +275,17 @@ function iterateLEAF() {
 
     var nbr = Number( document.getElementById("nbrLEAF").value );
     var choice = Number( document.getElementById("initLEAF").value );
+    var fillLeaf = ( document.getElementById("filledLEAF").value === 'true' );
+    var colLeaf = document.getElementById("colourLEAF").value;
 
     cntxt.clearRect(0, 0, width, height);
 
-    var curves = initObject4(cnvs, false, choice);
+    var curves = initObject4(cnvs, fillLeaf, colLeaf, choice);
 
     for ( var i = 0 ; i < nbr ; ++i ) {
 	cntxt.clearRect(0,0, width, height);
 	curves = nextStepLEAF(curves);
-	plotCurve2(cnvs, curves, false);
+	plotCurve2(cnvs, curves, fillLeaf);
     }
 }
 
@@ -313,6 +314,15 @@ function nextStepLEAF(curves) {
 }
 
 /* *********************************************************************** */
+
+/* Not used */
+/*
+function initObject3(cnvsName, fillCurve, choice) {
+    var cnvs = document.getElementById(cnvsName);
+
+    return initObject4(cnvs, fillCurve, choice);
+}
+*/
 
 /* Work in progress */
 function initObject5(cnvs, fillCurve, choice) {

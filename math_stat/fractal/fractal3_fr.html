@@ -55,7 +55,7 @@ main_title( MStexte, "MMathSStat");
 
 <h3> Systèmes dynamiques discrets </h3>
 
-<p> Les plus simples SIF sont définis par une seule fonction à valeur
+<p> Les plus simples SIF sont définis par une seule fonction à valeurs
 réelles définie sur un segment de la droite réelle.  De plus, au lieu
 de partir avec un ensemble (triangle, ...), nous partons avec un seul
 point sur le segment.</p>
@@ -70,7 +70,7 @@ réelles qui est définie sur la droite réelle.  La formule </p>
 </center>
 
 <p>définie un <em> système dynamique discret (SDD)</em>.  Pour
-tous <em class="Equations">x<sub>o</sub></em> donné, nous pouvons
+tous <em class="Equations">x<sub>0</sub></em> donné, nous pouvons
 générer une suite</p>
 
 <center>
@@ -90,7 +90,7 @@ x<sub>3</sub> = f(x<sub>2</sub>), &nbsp; ...
 <p> Nous débutons avec l'étude des systèmes dynamiques
 discrets dont les <em> fonction génératrices</em>
 <em class="Equations">f</em> sont des fonctions affines.
-C'est-à-dire, des fonctions de la forme </p>
+C'est-à-dire, les fonctions de la forme </p>
 
 <center>
   <em class="Equations_Display">  f(x) = m x + b </em>
@@ -105,22 +105,22 @@ droite.</p>
 x<sub>1</sub>, x<sub>2</sub>, ... </em> si nous varions les paramètres
 <em class="Equations">m</em> et <em class="Equations">b</em>? </p>
 
-<p> Le lecteur est invité à explorer à l'aide de l'application
-suivante le comportement des orbites <em class="Equations">x<sub>0</sub>,
+<p> Le lecteur est invité à explorer à l'aide de l'application graphique
+ci-dessous le comportement des orbites <em class="Equations">x<sub>0</sub>,
 x<sub>1</sub>, x<sub>2</sub>, ... </em> pour différentes valeurs des
 paramètres <em class="Equations">m</em>
-et <em class="Equations">b</em>, et différentes valeurs de la 
+et <em class="Equations">b</em>, et de la 
 condition initiale <em class="Equations">x<sub>0</sub></em>. </p>  
 
-<p>Cette application trace le <em>graphe en forme de toile d'araignée</em>
+<p>L'application graphique ci-dessus trace le
+<em>graphe en forme de toile d'araignée</em> 
 associé à la fonction <em class="Equations">f</em>
 et la condition initiale <em class="Equations">x<sub>0</sub></em>
-choisies.  Le graphe débute au point
+choisie.  Le graphe débute au point
 <em class="Equations">(x<sub>0</sub>,0)</em>.</p>
 <ol>
-<li> Nous traçons une droite verticale à partir
-de <em class="Equations">(x<sub>0</sub>,0)</em> 
-qui coupe le graphe de <em class="Equations">f</em>
+<li> À partir de <em class="Equations">(x<sub>0</sub>,0)</em>, nous
+traçons une droite verticale qui coupe le graphe de <em class="Equations">f</em>
 au point <em class="Equations">(x<sub>0</sub>,x<sub>1</sub>)</em> </li>
 <li> À partir de <em class="Equations">(x<sub>0</sub>,x<sub>1</sub>)</em>,
 nous traçons une droite horizontale qui coupe la droite
@@ -167,7 +167,8 @@ et décrivent donc les orbites du SDD.</p>
   </li>
 </ul>
 
-<p> La courbe en bleu est le graphe de la fonction
+<p> La courbe en bleu dans la figure ci-dessus (après avoir cliqué sur
+le bouton <em>Débuter</em>) est le graphe de la fonction
 <em class="Equations">f</em> et la ligne diagonale en rouge est la
 droite <em class="Equations">y = x</em>. </p>
 
@@ -190,7 +191,7 @@ x<sub>2</sub>, ... </em> convergent vers
 <em>la fonction logistique</em>.  Par contre, nous allons voir que le
 comportement des orbites générées par itérations de cette fonction
 sont loin d'être simples.  La fonction logistique est la
-fonction suivante.</p>
+fonction <em class="Equations">f<sub>&micro;</sub></em> définie par</p>
 
 <center>
 <em class="Equations_Display">
@@ -211,11 +212,11 @@ x<sub>n+1</sub> = f<sub>&micro;</sub>(x<sub>n</sub>) &nbsp; , &nbsp;
 n = 0, 1, 2, 3, ... </em>
 </center>
 
-<p> Le lecteur est invité à explorer à l'aide de l'application
+<p> Le lecteur est invité à explorer à l'aide de l'application graphique
 suivante le comportement des orbites du SDD logistique pour
 différentes valeurs du paramètre <em class="Equations">&micro;</em>
 (entre 1 et 4) et de la condition initiale
-<em class="Equations">x<sub>o</sub></em> (entre 0 et 1). </p>
+<em class="Equations">x<sub>0</sub></em> (entre 0 et 1). </p>
 
 <div class="center">
 <canvas id="DDS" width="400" height="400">
@@ -236,7 +237,8 @@ différentes valeurs du paramètre <em class="Equations">&micro;</em>
   <li> <input type="button" value="Effacer" onclick="clearDDS('DDS')"> </li>
 </ul>
 
-<p> La courbe en bleu est le graphe de
+<p> La courbe en bleu dans la figure ci-dessus (après avoir cliqué sur
+le bouton <em>Débuter</em>) est le graphe de
 <em class="Equations">f<sub>&micro;</sub></em> et la ligne diagonale
 en rouge est la droite <em class="Equations">y = x</em>. </p>
 
@@ -253,7 +255,7 @@ point <em class="Equations">p<sub>&micro;</sub></em> satisfait
 <em class="Equations">f: [a,b] &rarr; [a,b]</em>
 est une fonction continûment différentiable et s'il existe une
 constante positive <em class="Equations">K <1</em> telle que
-<em class="Equations">|f'(x)| < K</em> pour tout
+<em class="Equations">|f'(x)| &leq; K</em> pour tout
 <em class="Equations">x &in; [a,b]</em>, alors toutes les orbites
 avec <em class="Equations">x<sub>0</sub> &in; [a,b]</em> convergent
 vers un point fixe unique <em class="Equations"> p &in; [a,b]</em>. </p>
@@ -265,8 +267,9 @@ possède toujours un point fixe à l'origine.  Pour
 point fixe <em class="Equations">p<sub>&micro;</sub>>0</em>.  En fait, si nous
 résolvons <em class="Equations">f<sub>&micro;</sub>(p) = p</em> pour
 <em class="Equations">p</em>, nous trouvons que ce point fixe est
-<em class="Equations">p<sub>&micro;</sub> = (&micro: - 1)/&micro;</em>.
-Pour <em class="Equations">1 < &micro; < 3</em> fixe, il est possible
+<em class="Equations">p<sub>&micro;</sub> = (&micro; - 1)/&micro;</em>.
+Pour chaque valeur de <em class="Equations">&micro;</em> avec
+<em class="Equations">1 < &micro; < 3</em>, il est possible
 de trouver un petit intervalle <em class="Equations">[a,b]</em> contenant le
 point fixe <em class="Equations">p<sub>&micro;</sub>>0</em> où le
 Théorème du Point Fixe peut être utilisée pour conclure que toute orbite avec
@@ -286,7 +289,7 @@ avec <em class="Equations">x<sub>0</sub></em> suffisamment près de
 <p> Pour certaines valeurs de <em class="Equations">&micro;</em> (les
 valeurs entre 3 et 4 sont vraiment intéressantes), les orbites
 <em class="Equations">x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ... </em>
-ne convergent pas vers un seul point mais ils <q lang="fr"> convergent </em>
+ne convergent pas vers un seul point mais ils <q lang="fr"> convergent </q>
 vers un ensemble plus complexe.</p>
 
 <p>Pour <em class="Equations">&micro; = 3.4</em>, le point
@@ -310,14 +313,16 @@ x<sub>1</sub>, x<sub>2</sub>, ... </em> est</p>
 </center>
 
 <p> où les valeurs ont été tronquées à 14 chiffres décimaux.  Le
-lecteur devrait tracer le graphe en forme de toile d'araignée à l'aide
+lecteur devrait tracer le graphe en forme de toile d'araignée de
+l'orbite de <em class="Equations">f<sub>3.4</sub></em> qui débute avec
+<em class="Equations">x<sub>0</sub> = 0.45195878844045</em> à l'aide
 de l'application graphique ci-dessus.</p>
 
 <p>Pour <em class="Equations">&micro; = 3.5</em>, le point
 <em class="Equations">x<sub>0</sub> = 0.87499726360246...</em> est un
 <em>point périodique</em> de
 <em class="Equations">f<sub>3.5</sub></em> de période 4;
-c'est-à-dire, <em class="Equations">x<sub>2</sub>
+c'est-à-dire, <em class="Equations">x<sub>4</sub>
 = f<sub>3.4</sub><sup>4</sup>(x<sub>0</sub>)
 = x<sub>0</sub></em>.  L'orbite <em class="Equations">x<sub>0</sub>,
 x<sub>1</sub>, x<sub>2</sub>, ... </em> est</p>
@@ -329,9 +334,11 @@ x<sub>1</sub>, x<sub>2</sub>, ... </em> est</p>
 </em>
 </center>
 
-<p> où les valeurs ont été tronquées à 14 chiffres décimaux.    Le
-lecteur devrait tracer le graphe en forme de toile d'araignée à l'aide
-de l'application graphique ci-dessus.</p>
+<p> où les valeurs ont été tronquées à 14 chiffres décimaux.  Le
+lecteur devrait tracer le graphe en forme de toile d'araignée de 
+l'orbite de <em class="Equations">f<sub>3.5</sub></em> qui débute avec
+<em class="Equations">x<sub>0</sub> = 0.87499726360246</em>
+à l'aide de l'application graphique ci-dessus.</p>
 
 <p>Quand <em class="Equations">&micro;</em> passe au-dessus de
 <em class="Equations">3</em>, le point fixe
@@ -381,21 +388,22 @@ où le graphe de <em class="Equations">g<sub>&micro;</sub></em>
 </em>
 </div>
 <p>est une orbite périodique de période 3 de
-<em class="Equations">f<sub>micro;</sub></em> qui est un attracteur et
-où les valeurs ont été tronquées à 14 chiffres décimaux.
+<em class="Equations">f<sub>3.839...</sub></em> qui est un attracteur.
+Les valeurs ci-dessus ont été tronquées à 14 chiffres décimaux.
 Il découle du fameux théorème de <em>Sarkovskii</em> que
 <em class="Equations">f<sub>3.839...</sub></em> possède des orbites
 périodiques de toutes les périodes.  Toutes les orbites périodiques,
 sauf l'orbite de période 3 ci-dessus, ne sont pas des attracteurs.
 Donc, sauf si une orbite débute avec un point exactement sur une des
-orbites qui n'est pas un attracteur, elle va converger vers
+orbites qui n'est pas un attracteur, elle va <q lang="fr">converger</q>
 vers l'orbite périodique de période 3.  Notons que, en raison des
 erreurs de troncature, il est pratiquement impossible de tracer le
 graphe en forme de toile d'araignée d'une des orbites périodiques qui
 n'est pas un attracteur.</p>
 
 <p>Qu'arrive-t-il quand <em class="Equations">&micro;</em> est plus
-grand ou égale à 4?  Les orbites de <em class="Equations">f<sub>4</sub></em>
+grand ou égale à 4?  Par exemple, les orbites de
+<em class="Equations">f<sub>4</sub></em> 
 sont <em>Chaotiques</em>.  À suivre (?).<p>
 
 <br><br>
