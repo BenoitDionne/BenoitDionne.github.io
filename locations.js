@@ -71,7 +71,7 @@ var teachMenu = new item
 websites[websites_nbr++] = teachMenu;
 
 /* Research */
-  var researchMenu = new item
+var researchMenu = new item
     ("Recherche", "Research",
      location_bd+"research/research_fr.html",
      location_bd+"research/research_en.html", null, null, null,
