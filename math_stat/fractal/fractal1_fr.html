@@ -136,6 +136,9 @@ fureteur. </p>
 </canvas>
 </div>
 
+<input type="hidden" value="true" id="filledSRPK">
+<input type="hidden" value="blue" id="colourSRPK">
+
 <ul>
   <li> Nombre d'itérations: <input type="text" value="5" id="nbrSRPK"> </li>
   <li> Figure initiale: <select id="initSRPK">
@@ -143,10 +146,16 @@ fureteur. </p>
       <option value="1"> carré </option>
       <option value="2"> losange </option>
   </select> </li>
-  <li> <input type="button" value="Débuter" onclick="iterateSRPK2()"> </li>
+  <li> <input type="button" value="Débuter" onclick="iterateSRPK()"> </li>
   <li> <input type="button" value="Effacer" onclick="clearIFS('SRPK')"> </li>
 </ul>
 </form>
+
+<p> Le lecteur ne devrait pas choisir plus de 7 ou 8 itérations.  Plus
+d'itérations va probablement remplir la mémoire allouée au fureteur par
+l'ordinateur.  De plus, en raison du nombre limité de pixels, il y a
+une limite sur la taille minimale de chacun des bloques du triangle de
+Sierpinski que nous pouvons dessiner.</p>
 
 <p> Au lieu de sauvegarder dans l'ordinateur toutes les pixels de la
 figure du triangle de Sierpinski, nous avons seulement à sauvegarder en

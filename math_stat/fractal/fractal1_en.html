@@ -132,6 +132,9 @@ no more than 20, to avoid exceeding the capacity of the web browser. </p>
 </canvas>
 </div>
 
+<input type="hidden" value="true" id="filledSRPK">
+<input type="hidden" value="blue" id="colourSRPK">
+
 <ul>
   <li> Number of iterations: <input type="text" value="5" id="nbrSRPK"> </li>
   <li> Initial figure: <select id="initSRPK">
@@ -139,9 +142,15 @@ no more than 20, to avoid exceeding the capacity of the web browser. </p>
       <option value="1"> square </option>
       <option value="2"> lozenge </option>
   </select> </li>
-  <li> <input type="button" value="Start" onclick="iterateSRPK2()"> </li>
+  <li> <input type="button" value="Start" onclick="iterateSRPK()"> </li>
   <li> <input type="button" value="Clear" onclick="clearIFS('SRPK')"> </li>
 </ul>
+
+<p>The reader should not choose more than 7 or 8 iterations.  More
+iterations than that will likely fill the stack reserved for the
+browser on the computer.  Moreover, because of the limited number of
+pixels, there is a limit on the minimal size of each block of the Sierpinski
+triangle that we can draw.</p>
 
 <p> Instead of storing on the computer all the pixels of the figure of
 the Sierpinski triangle, we only have to store on the computer
