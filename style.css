@@ -41,8 +41,8 @@ h4 { text-decoration: none; text-align: left; color: black;
 address { vertical-align: baseline; text-align: left; }
 
 /* Horizontal line */
-hr { width: 90%; height: 2px; background-color: #8F001A;
-  border: 0px; color: #8F001A; }
+hr.MMathSStat { width: 80%; height: 2px; background-color: #8F001A;
+  border: 0px; color: #8F001A; margin-top: 1em; margin-bottom: 1em; }
 
 /* Italic */
 i { text-decoration: none; font-weight: bold; }
