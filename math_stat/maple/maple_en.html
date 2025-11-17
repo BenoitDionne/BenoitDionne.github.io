@@ -66,8 +66,46 @@ main_title( MStext, "MMathSStat");
   
 <h2 id="TOP"> Introduction to Maple </h2>
 
-<div style="float: left; margin-right: 10px">
-  <img src="Maple_Logo_Icon.png" style="width: 200px" alt="Logo of Maple">
+<div style="float: left; margin-right: 20px">
+<div class="center">
+<img src="Maple_Logo_Icon.png" style="width: 200px" alt="Logo of Maple">
+</div>
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript"> 
+      buildLinK("#basic", "Basic Algebraic Operations", "MMathSStat",
+      "sectID1", "_top");
+  </script></li>
+  <li> <script language="javascript"> 
+      buildLinK("#funct", "Functions","MMathSStat", "sect2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#der_int", "Derivatives and integrals","MMathSStat",
+      "sect3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#graphs", "Graphical Representations of Functions",
+      "MMathSStat","sect4ID","_top");
+    </script>
+    <ul>
+      <li> <script language="javascript"> 
+	  buildLinK("#graphs2D", "Two Dimensional Plots","MMathSStat",
+	  "sect5ID", "_top");
+      </script> </li>
+      <li> <script language="javascript">
+	  buildLinK("#graphs3D", "Three Dimensional Plots","MMathSStat",
+	  "sect6ID", "_top");
+      </script> </li>
+      <li> <script language="javascript"> 
+	  buildLinK("#graphsMore", "More Three Dimensional Plots",
+	  "MMathSStat", "sect7ID", "_top");
+      </script> </li>
+    </ul>
+  </li>
+  <li> <script language="javascript"> 
+      buildLinK("#ATop", "Advanced Topics","MMathSStat", "sect8ID", "_top");
+  </script> </li>
+</ul>
 </div>
 
 <p>The documents under this heading provide a <q land ="en">brief</q>
@@ -81,9 +119,9 @@ are highlighted in blue.</p>
 <p>Many of these documents have been used in an introductory course on
 modelling and mathematical software given at the University of Ottawa.</p>
 
-<div style="clear: both;"></div>
+<hr class="MMathSStat" style="clear: both;">
 
-<h3> Basic Algebraic Operations </h3>
+<h3 id="basic"> Basic Algebraic Operations </h3>
 
 <p>Consider the polynomial</p>
 
@@ -154,7 +192,9 @@ sign.   We can now perform any polynomial operations on
 
 \[x^3 + 2 x^2 y + x y^2\]
 
-<h3> Functions </h3>
+<hr class="MMathSStat">
+
+<h3 id="funct"> Functions </h3>
 
 <p>There are basically two ways to define a function
 in <em>Maple</em>.  Each way has its
@@ -238,7 +278,9 @@ form.</p>
 \end{split}
 \]
 
-<h3> Derivatives and integrals </h3>
+<hr class="MMathSStat">
+
+<h3 id="der_int"> Derivatives and integrals </h3>
 
 <p>The first order derivative of a function \(f:\mathbb{R} \to \mathbb{R}\)
 defined by \(f(x) = \ldots \) with respect to \(x\) is 
@@ -295,9 +337,11 @@ is computed by the following command.</p>
 \]
 </div>
 
-<h3> Graphs of Functions </h3>
+<hr class="MMathSStat">
 
-<h4> Two Dimensional Plots </h4>
+<h3 id="graphs"> Graphical Representations of Functions </h3>
+
+<h4 id="graphs2D"> Two Dimensional Plots </h4>
 
 <div class="Example">
 <p><em>Example</em>: The graph of the function \(x\mapsto x\sin(x)\)
@@ -390,7 +434,7 @@ done in the following command.</p>
 </pre>
 </div>
 
-<h4> Three Dimensional Plots </h4>
+<h4 id="graphs3D"> Three Dimensional Plots </h4>
 
 <div class="Example">
 <p><em>Example</em>: To plot the graph of the function
@@ -464,7 +508,7 @@ library <font class="matlab">plots</font>. </p>
 </div>
 </div>
 
-<h4> More Three Dimensional Plots </h4>
+<h4 id="graphsMore"> More Three Dimensional Plots </h4>
 
 <p><em>Maple</em> has some libraries specifically designed to draw
 some geometric figures in three dimensions.
@@ -660,7 +704,7 @@ their intersection is a straight line.  <em>Maple</em> gives us
 the parametric representation of this line.</p>
 </div>
 
-<h3> Advanced Topics </h3>
+<h3 id="ATop"> Advanced Topics </h3>
 
 <p>In the documents listed below, we present some of the libraries
 that <em>Maple</em> offers.</p>

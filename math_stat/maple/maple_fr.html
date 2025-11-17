@@ -66,8 +66,47 @@ main_title( MStexte, "MMathSStat");
 
 <h2 id="TOP"> Introduction à Maple </h2>
 
-<div style="float: left; margin-right: 10px">
+<div style="float: left; margin-right: 20px">
+<div class="center">
   <img src="Maple_Logo_Icon.png" style="width: 200px" alt="Icone de Maple">
+</div>
+<div class="center"><em>Contenu</em></div>
+<ul>
+  <li> <script language="javascript"> 
+      buildLinK("#basic", "Opérations algébriques de base", "MMathSStat",
+      "sectID1", "_top");
+  </script></li>
+  <li> <script language="javascript"> 
+      buildLinK("#funct", "Fonctions","MMathSStat", "sect2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#der_int", "Dérivées et intégrales","MMathSStat",
+      "sect3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#graphs", "Représentations graphiques des fonctions",
+      "MMathSStat", "sect4ID","_top");
+    </script>
+    <ul>
+      <li> <script language="javascript"> 
+	  buildLinK("#graphs2D", "Dessins en deux dimensions","MMathSStat",
+	  "sect5ID", "_top");
+      </script> </li>
+      <li> <script language="javascript">
+	  buildLinK("#graphs3D", "Dessins en trois dimensions","MMathSStat",
+	  "sect6ID", "_top");
+      </script> </li>
+      <li> <script language="javascript"> 
+	  buildLinK("#graphsMore",
+	  "Encore plus sur les dessins en trois dimensions",
+	  "MMathSStat", "sect7ID", "_top");
+      </script> </li>
+    </ul>
+  </li>
+  <li> <script language="javascript"> 
+      buildLinK("#ATop", "Sujets avancés","MMathSStat", "sect8ID", "_top");
+  </script> </li>
+</ul>
 </div>
 
 <p>Les documents sous ce titre fournissent une
@@ -83,9 +122,9 @@ les codes en <em>Maple</em> sont mis en emphase en bleu..</p>
 d'introduction à la modélisation et aux logiciels mathématiques donné
 à l'Université d'Ottawa.</p> 
 
-<div style="clear: both;"></div>
+<hr class="MMathSStat" style="clear: both;">
 
-<h3> Opérations algébriques de base</h3>
+<h3 id="basic"> Opérations algébriques de base</h3>
 
 <p>Considérons le polynôme</p>
 
@@ -155,7 +194,9 @@ sur \(\displaystyle (x+y)^2\) en utilisant <font class="matlab">u</font>.</p>
 
 \[x^3 + 2 x^2 y + x y^2\]
 
-<h3> Fonctions </h3>
+<hr class="MMathSStat">
+
+<h3 id="funct"> Fonctions </h3>
 
 <p>Il y a fondamentalement deux façons de définir une fonction
 dans <em>Maple</em>.  Chacune des façons a ses avantages et
@@ -242,7 +283,9 @@ complètement naturelle.</p>
 \end{split}
 \]
 
-<h3> Dérivées et intégrales </h3>
+<hr class="MMathSStat">
+
+<h3 id="der_int"> Dérivées et intégrales </h3>
 
 <p>La dérivée d'ordre un de la fonction \(f:\mathbb{R} \to \mathbb{R}\)
 définie par \(f(x) = \ldots \) par rapport à \(x\) est
@@ -299,9 +342,11 @@ est calculée par la commande</p>
 \]
 </div>
 
-<h3> Graphes des fonctions </h3>
+<hr class="MMathSStat">
 
-<h4> Dessins en deux dimensions </h4>
+<h3 id="graphs"> Représentations graphiques des fonctions </h3>
+
+<h4 id="graphs2D"> Dessins en deux dimensions </h4>
 
 <div class="Example">
 <p><em>Exemple</em>: Le graphe de la fonction \(x\mapsto x\sin(x)\)
@@ -398,7 +443,7 @@ points comme il est fait dans la commande suivante.</p>
 </pre>
 </div>
 
-<h4> Dessins en trois dimensions </h4>
+<h4 id="graphs3D"> Dessins en trois dimensions </h4>
 
 <div class="Example">
 <p><em>Exemple</em>: Pour tracer le graphe de la fonction
@@ -475,7 +520,7 @@ définie par \(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
 </div>
 </div>
 
-<h4> Encore plus sur les dessins en trois dimensions </h4>
+<h4 id="graphsMore"> Encore plus sur les dessins en trois dimensions </h4>
 
 <p><em>Maple</em> possède certaines librairies qui sont spécialement
 conçues pour dessiner des figures géométriques en trois dimensions.
@@ -673,7 +718,7 @@ il se doit que leur intersection est une droite.  <em>Maple</em> donne
 la représentation paramétrique de cette droite.</p>
 </div>
 
-<h3> Sujets avancés </h3>
+<h3 id="ATop"> Sujets avancés </h3>
 
 <p>Dans les documents énumérés ci-dessous, nous présentons
 quelques-unes des librairies que <em>Maple</em> offre.</p>
