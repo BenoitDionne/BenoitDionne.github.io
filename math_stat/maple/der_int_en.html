@@ -137,11 +137,11 @@ light bulb that is absorbed by a photovoltaic cell.  The first type of
 cells that we consider have the shape of a disk.  Assuming that the air does
 not absorb radiant energy (this is a reasonable assumption on a short
 distance), the total flux \(P\) of radiant energy per unit of time
-going through a sphere centred at the light bulb is independent of
+going through a sphere centred on a light bulb is independent of
 the radius \(r\) of the sphere.  Using this principle, we find that
 the density of the radiant flux \(f\) (i.e. the radiant flux by unit
-of area) at a distance \(r\) of the light source (the light bulb) is given
-by \(P\) divided by the area of a sphere of radius
+of area and unit of time) at a distance \(r\) of the light source (the
+light bulb) is given by \(P\) divided by the area of a sphere of radius
 \(r|); namely, </p>
 \[
 f = \frac{3 P}{4\pi r^2}
@@ -151,25 +151,25 @@ proportional to the inverse of the square of the distance from the light
 source.</p>
 
 <p> Let \(\alpha\) be the angle between a beam of light and the
-photovoltaic cell.  The radiant energy absorbed per unit of surface at
-the point where the beam of light touch the absorbing surface of the
-cell is given by the perpendicular component of \(f\) to the surface
-of the cell.</p> 
+surface of the photovoltaic cell.  The radiant energy absorbed per
+unit of surface at the point where the beam of light touch the
+absorbing surface of the cell is given by the perpendicular component
+of \(f\) to the surface of the cell.</p> 
 <div class="center">
   <img src="beam1.png" style="width: 400px"
-       alt="Drawing of the light bulb and the photovoltaic plane cell">
+       alt="Drawing of the light bulb and the photovoltaic planar cell">
 </div>
-<p>This perpendicular component is given by \(f \sin(\alpha)\).
+<p>This perpendicular component is \(f \sin(\alpha)\).
 Since \(\sin(\alpha) = h/\sqrt{h^2 + \rho^2}\), the density of radiant
-energy absorbed by the surface of a cell of radius \(R\) at a distance
-\(h\) of the light source is given by  
+energy absorbed by the surface of a cell of radius \(R\) located at a
+distance \(h\) of the light source is given by  
 \[ 
 E(\rho) = \frac{3\, P\, h}{4\pi (\rho^2+h^2)^{3/2}}
 \]
-where \(\rho\) is the distance from a point on the cell to the
-perpendicular axis joining the centre of the cell and the light
-source.  We can draw the graph of \(E\) for \(P=100, h=15\) and
-\(R=20\).</p>
+where \(\rho\) is the distance from the point of contact of the beam
+of light with the surface of the cell to the perpendicular axis joining
+the centre of the cell and the light source.  We can draw the graph of
+\(E\) for \(P=100, h=15\) and \(R=20\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> restart: f:=3*P/(4*Pi*r^2);</font>
@@ -224,9 +224,9 @@ given by the following double integral in polar coordinates.</p>
 T(R,h) = \int_0^{2\pi} E(\rho) \rho\, \text{d}\rho
 = \int_0^R \frac{3 P h\,\rho}{2 (\rho^2+h^2)^{3/2}} \,\text{d}\rho \ .
 \]
-<p> If the power \(P\) and the distance \(h\) are constant, then
-how does the total radiant energy absorbed evolve in function of the
-radius \(R\) of the cell?  To answer this question, we consider
+<p> If the total flux \(P\) and the distance \(h\) are constant, then
+how does the total radiant energy absorbed by the cell evolve in
+function of its radius \(R\)?  To answer this question, we assume that
 \(P=100\) and \(h=15\).</p>
 
 <pre class="matlab">
@@ -254,8 +254,8 @@ TE1 := \frac{150 (\sqrt{R{\scriptsize \sim}^{2}+225}-15)}
        alt="Graph of TE in function of R">
 </div>
 
-<p> We have that the total radiant energy absorbed converges to a fixed
-value as \(R \to \infty\).</p>
+<p> We have that the total radiant energy absorbed by the cell
+converges to a fixed value as \(R \to \infty\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> limit(TE1,R=infinity); </font>
@@ -265,10 +265,10 @@ value as \(R \to \infty\).</p>
 150
 \]
 
-<p> If we now assume that the power \(P\) and the distance \(R\) are
-constant, then how does the total radiant energy absorbed
+<p> If we now assume that the total flux \(P\) and the radius \(R\) are
+constant, then how does the total radiant energy absorbed by the cell
 evolve in function of the distance \(h\)?  To answer this question, we
-consider \(P=100\) and \(R=10\).</p>
+assume that \(P=100\) and \(R=10\).</p>
 
 <pre class="matlab">
 > <font class="matlab">TE2 := subs({P=100,R=10},TE); plot(TE2,h=0..100);</font>
@@ -284,8 +284,8 @@ TE2 := \frac{150 (\sqrt{h{\scriptsize \sim}^{2}+100}-h{\scriptsize \sim})}
        alt="Graph of TE in function of h">
 </div>
 
-<p> We have that the total radiant energy absorbed converges to 0 as
-\(h \to \infty\).</p> 
+<p> We have that the total radiant energy absorbed by the cell
+converges to 0 as \(h \to \infty\).</p> 
 
 <pre class="matlab">
 > <font class="matlab"> limit(TE2,h=infinity); </font>
@@ -295,34 +295,35 @@ TE2 := \frac{150 (\sqrt{h{\scriptsize \sim}^{2}+100}-h{\scriptsize \sim})}
 
 <p> We now consider a photovoltaic cell which is the surface of
 revolution of a curve \(z=g(\rho)\) about the \(z\)-axis.  Let \(h\)
-be the distance between the light bulb and the origin.</p>
+be the distance between the light bulb and the origin in the
+\(\rho,z\) plane drawn below.</p>
 
 <div class="center">
   <img src="beam2.png" style="width: 450px"
-       alt="Drawing of the light bulb and the photovoltaic curved cell">
+       alt="Drawing of the light bulb and the photovoltaic parabolic cell">
 </div>
 
-<p> The density of radiant energy at \((\rho,g(\rho))\) in the
+<p> Let \(\alpha\) be the angle between a beam of light and the
+perpendicular line to the surface of the cell at the point where the
+beam of light touches the photovoltaic cell.
+The density of radiant energy at a point \((\rho,g(\rho))\) in the
 \(\rho,z\) plane is now given by </p>
-
 \[
 E(\rho) = \frac{3\, P\, (h-g(\rho)+\rho g'(\rho))}
-{4\pi ((h-g(\rho))^2+\rho^2)^{3/2}\sqrt{1+(g'(\rho))^2}} \quad .
+{4\pi ((h-g(\rho))^2+\rho^2)^{3/2}\sqrt{1+(g'(\rho))^2}}
 \]
-
 <p> because the perpendicular component of \(f\) to the surface of the
 cell is \(f \cos(\alpha)\) with \(r = \sqrt{(h-g(\rho))^2+\rho^2}\) and
 </p>
-
 \[
 \cos(\alpha) = \frac{ ((0,h)- (\rho,g(\rho)) )\cdot (-g'(\rho), 1)}
 {\|(0,h)- (\rho,g(\rho))\|\,\|(g'(\rho),1)\|}
 = \frac{\rho g'(\rho) + h - g(\rho)}
 {\sqrt{(h-g(\rho))^2+\rho^2} \, \sqrt{1 + (g'(\rho))^2}} \ .
 \]
-<p>For a parabolic cell \(z=g(\rho) = k \rho^2\).
-We compare the density of radiant energy absorbed by the surface
-between the previous planar cell and the new parabolic cell.
+<p>We consider a parabolic cell given by \(z=g(\rho) = k \rho^2\).
+We will compare the density of radiant energy absorbed by the surface
+of the previous planar cell and the surface of the new parabolic cell.
 We assume that \(P=100, h=15\) and \(k=1/2\).</p>
 
 <pre class="matlab">
@@ -390,7 +391,7 @@ EE1 := \frac{75 (\frac{\rho{\scriptsize \sim}^{2}}{2}+15)}
 </div>
 
 <p> The total radiant energy absorbed per unit of time by
-the parabolic cell of radius \(R\) is given by</p>
+the parabolic cell with \(|\rho| \leq R\) is given by</p> 
 \[
 T = \int_0^R 2 \pi E(\rho)\, \rho \sqrt{1+g'(\rho)^2}\,\text{d}\rho
 = \int_)^R \frac{3\, P\, \rho\, (h-g(\rho)+\rho g'(\rho))}{2
@@ -399,11 +400,11 @@ T = \int_0^R 2 \pi E(\rho)\, \rho \sqrt{1+g'(\rho)^2}\,\text{d}\rho
 <p> where \(2 \pi \rho \,\sqrt{1+g'(\rho)^2}\,\text{d}\rho\) 
 is the area element of a surface of revolution as seen in calculus.</p>
 
-<p>We repeat the analysis of the evolution of the total radiant energy
-absorbed by the planar cell with the parabolic cell defined
-by \(z=g(\rho) = \rho^2/2/), and compare the results for the two types
-of cells.  We first assume that the power \(P=100\) and the distance
-\(h=15\), and consider \(T\) as a function of \(R\).</p>
+<p>We repeat for the parabolic cell defined by \(z=g(\rho) = \rho^2/2/)
+the analysis that we have done above for the evolution of the total
+radiant energy absorbed by the planar cell, and compare the results for
+these two types of cells.  We first assume that the total flux \(P=100\) and
+the distance \(h=15\), and consider \(T\) as a function of \(R\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> TTE := int(2*Pi*EE*rho*sqrt(1+rho^2), rho=0..R):
@@ -416,7 +417,7 @@ of cells.  We first assume that the power \(P=100\) and the distance
 </div>
 
 <p>We have not displayed the formula for <font class="matlab">TTE1</font>
-because it is a long formula involving the hyperbolic functions
+because it is a long formula involving the inverse hyperbolic functions
 <font class="matlab">arctanh()</font>
 and <font class="matlab">arcsinh()</font>.</p>
 
@@ -426,20 +427,37 @@ and <font class="matlab">arcsinh()</font>.</p>
 
 \[\infty\]
 
-<p> We now assume that the power \(P=100\) and the distance
+<p> We now assume that the total flux \(P=100\) and
 \(R=10\), and consider \(T\) as a function of \(h\).</p>
 
 <pre class="matlab">
-> <font class="matlab"> TTE2 := subs({P=100,R=10,k = 1/2},TTE): plot([TE2,TTE2],h=0..100); </font>
+> <font class="matlab"> TE2 := seq([t, evalf(subs({P = 100, R = 10, h = t, k = 1/2}, TE))], t = 0 .. 100):
+   TTE2 := seq([t, evalf(subs({P = 100, R = 10, h = t, k = 1/2}, TTE))], t = 0 .. 100):
+   plot({[TE2],[TTE2]});
 </pre>
 
-
+<div class="center">
+  <img src="Maple_beam_6.png" style="width: 300px"
+       "graph of TE2 and TTE2 in function of h">
+</div>
 
 <pre class="matlab">
 > <font class="matlab"> limit(TTE2,h=infinity);</font>
 </pre>
 
 \[0\]
+</div>
+
+<div class="Note">
+<p><em>Note</em>:  We would have expected that the following commands</p>
+
+<pre class="matlab">
+> <font class="matlab"> TTE2 := subs({P=100,R=10,k = 1/2},TTE): plot([TE2,TTE2],h=0..100); </font>
+</pre>
+
+<p>would have generated the figure above.  Unfortunately,
+the function <font class="matlab"> plot()</font>
+crashed <em>Maple</em> on our computer.</p> 
 </div>
 
 <hr class="MMathSStat">

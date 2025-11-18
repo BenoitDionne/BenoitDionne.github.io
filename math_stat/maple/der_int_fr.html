@@ -91,7 +91,7 @@ utiliser <em>Maple</em> pour calculer les dérivées.</p>
 
 <p> L'intégrale indéfinie de la fonction \(f:\mathbb{R} \to \mathbb{R}\)
 est calculée par la commande <font class="matlab">int(f,x)</font>.
-L'inteégrale définie de \(f\) entre \(a\) et \(b\) est calculée par la
+L'intégrale définie de \(f\) entre \(a\) et \(b\) est calculée par la
 commande <font class="matlab">int(f,x=a..b)</font>.</p>
 
 <div class="Example" style="clear: both;">
@@ -132,47 +132,45 @@ est calculée par la commande</p>
 </div>
 
 <div class="Example">
-<p><em>Exemple</em>: Nous analysons la quantité d'énergie rayonnante
+<p><em>Exemple</em>: Nous analysons la quantité d'énergie lumineuse
 provenant d'une ampoule qui est absorbée par une cellule
 photovoltaïque.  Le premier genre de cellules que l'on considère ont
-la forme d'un disque.  En supposant que l'air n'absorbe d'énergie
-rayonnante (ce qui est raisonnable sur une courte distance), le flot
-total \(P\) d'énergie rayonnante par unité de temps qui traverse une
-sphère centrée sur l'ampoule est indépendent du rayon \(r\) de la sphère.
-Ǟ l'aide de ce principe, nous obtenons que la densité du flot
-rayonnant \(f\) (i.e. le flot rayonnant par unité d'aire) à une
-distance \(r\) de la source lumineuse (l'ampoule) est donné par \(P\)
-divisé par l'aire de la sphère de rayon \(r|); c'est-à-dire, </p>
+la forme d'un disque.  En supposant que l'air n'absorbe pas d'énergie
+lumineuse (ce qui est raisonnable sur une courte distance), le flot
+total \(P\) d'énergie lumineuse par unité de temps qui traverse une
+sphère centrée sur une ampoule est indépendant du rayon \(r\) de la sphère.
+À l'aide de ce principe, nous obtenons que la densité du flot
+lumineux \(f\) (i.e. le flot lumineux par unité d'aire et unité de
+temps) à une distance \(r\) de la source lumineuse (l'ampoule) est
+donné par \(P\) divisé par l'aire de la sphère de rayon \(r|);
+c'est-à-dire, </p> 
 \[
 f = \frac{3 P}{4\pi r^2}
 \]
-<p> Cela veut dire que la densité de flot rayonnant \(f\) est
+<p> Cela veut dire que la densité de flot lumineux \(f\) est
 proportionnel à l'inverse du carrée de la distance de la source
 lumineuse.</p>
 
-<p>Traduction à venir</p>
-
-<hr class="MMathSStat">
-
-<p> Let \(\alpha\) be the angle between a beam of light and the
-photovoltaic cell.  The radiant energy absorbed per unit of surface at
-the point where the beam of light touch the absorbing surface of the
-cell is given by the perpendicular component of \(f\) to the surface
-of the cell.</p> 
+<p> Soit \(\alpha\) l'angle entre le faisceau lumineux et la surface de
+la cellule photovoltaïque.  l'énergie lumineuse absorbée par unité de
+surface au point où le faisceau lumineux touche la surface absorbante
+de la cellule est donnée par la composante de \(f\) perpendiculaire 
+à la surface de la cellule..</p> 
 <div class="center">
   <img src="beam1.png" style="width: 400px"
-       alt="Drawing of the light bulb and the photovoltaic plane cell">
+       alt="Dessin d'une ampoule et d'une cellule photovoltaïque plane">
 </div>
-<p>This perpendicular component is given by \(f \sin(\alpha)\).
-Since \(\sin(\alpha) = h/\sqrt{h^2 + \rho^2}\), the density of radiant
-energy absorbed by the surface of a cell of radius \(R\) at a distance
-\(h\) of the light source is given by  
+<p>Cette composante perpendiculaire est \(f \sin(\alpha)\).
+Puisque \(\sin(\alpha) = h/\sqrt{h^2 + \rho^2}\), la densité d'énergie
+lumineuse absorbée par la surface d'une cellule de rayon \(R\) qui est
+à une distance \(h\) de la source lumineuse est donnée par
 \[ 
 E(\rho) = \frac{3\, P\, h}{4\pi (\rho^2+h^2)^{3/2}}
 \]
-where \(\rho\) is the distance from a point on the cell to the
-perpendicular axis joining the centre of the cell and the light
-source.  We can draw the graph of \(E\) for \(P=100, h=15\) and
+où \(\rho\) est la distance entre le point de contact du faisceau
+lumineux avec la surface de la cellule et l'axe perpendiculaire qui
+relie le centre de la cellule à la source lumineuse.  Nous pouvons
+tracer le graphe de \(E\) pour \(P=100, h=15\) et
 \(R=20\).</p>
 
 <pre class="matlab">
@@ -216,22 +214,23 @@ E1 := \frac{1125}{\pi  \left(\rho{\scriptsize \sim}^{2}+225\right)^{\frac{3}{2}}
 
 <div class="center">
   <img src="Maple_beam_1.png" style="width: 300px"
-       alt="Graph of E in function of rho">
+       alt="Graphe de E en fonction de rho">
 </div>
 
-<p> The symbol \(\scriptsize \sim\) after the variables \(h\) and \(\rho\)
-indicates that they are not negative.</p>
+<p> Le symbole \(\scriptsize \sim\) après les variables \(h\) et \(\rho\)
+indique qu'elles ne sont pas négatives.</p>
 
-<p>The total radiant energy absorbed per unit of time by the celll is
-given by the following double integral in polar coordinates.</p> 
+<p>L'énergie lumineuse totale absorbée par unité de temps par la
+cellule est donnée par l'intégrale double en coordonnées polaires
+suivante.</p> 
 \[
 T(R,h) = \int_0^{2\pi} E(\rho) \rho\, \text{d}\rho
 = \int_0^R \frac{3 P h\,\rho}{2 (\rho^2+h^2)^{3/2}} \,\text{d}\rho \ .
 \]
-<p> If the power \(P\) and the distance \(h\) are constant, then
-how does the total radiant energy absorbed evolve in function of the
-radius \(R\) of the cell?  To answer this question, we consider
-\(P=100\) and \(h=15\).</p>
+<p> Si le flot total \(P\) et la distance \(h\) sont constants, alors
+quel est le comportement de l'énergie lumineuse totale qui est
+absorbée par la cellule en fonction de son rayon \(R\)?  Pour répondre
+à cette question, nous supposons que \(P=100\) et \(h=15\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> TE := int(2*Pi*rho *E, rho=0..R);</font>
@@ -255,11 +254,11 @@ TE1 := \frac{150 (\sqrt{R{\scriptsize \sim}^{2}+225}-15)}
 
 <div class="center">
   <img src="Maple_beam_2.png" style="width: 300px"
-       alt="Graph of TE in function of R">
+       alt="Graphe de TE en fonction de R">
 </div>
 
-<p> We have that the total radiant energy absorbed coverge to a fixed
-value as \(R \to \infty\).</p>
+<p> Nous avons que l'énergie lumineuse totale qui est absorbée par la
+cellule converge vers une valeur fixe lorsque \(R \to \infty\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> limit(TE1,R=infinity); </font>
@@ -269,10 +268,10 @@ value as \(R \to \infty\).</p>
 150
 \]
 
-<p> If we now assume that the power \(P\) and the distance \(R\) are
-constant, then how does the total radiant energy absorbed
-evolve in function of the distance \(h\)?  To answer this question, we
-consider \(P=100\) and \(R=10\).</p>
+<p> Si maintenant le flot total \(P\) et le rayon \(R\) sont constants, alors
+quel est le comportement de l'énergie lumineuse totale qui est
+absorbée par la cellule en fonction de la distance \(h\)?  Pour répondre
+à cette question, nous supposons que \(P=100\) et \(R=10\).</p>
 
 <pre class="matlab">
 > <font class="matlab">TE2 := subs({P=100,R=10},TE); plot(TE2,h=0..100);</font>
@@ -285,11 +284,11 @@ TE2 := \frac{150 (\sqrt{h{\scriptsize \sim}^{2}+100}-h{\scriptsize \sim})}
 
 <div class="center">
   <img src="Maple_beam_3.png" style="width: 300px"
-       alt="Graph of TE in function of h">
+       alt="Graphe de TE en fonction de h">
 </div>
 
-<p> We have that the total radiant energy absorbed coverge to 0 as
-\(h \to \infty\).</p> 
+<p> Nous avons que l'énergie lumineuse totale qui est absorbée par la
+cellule converge vers 0 lorsque \(h \to \infty\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> limit(TE2,h=infinity); </font>
@@ -297,37 +296,39 @@ TE2 := \frac{150 (\sqrt{h{\scriptsize \sim}^{2}+100}-h{\scriptsize \sim})}
 
 \[0\]
 
-<p> We now consider a photovoltaic cell which is the surface of
-revolution of a curve \(z=g(\rho)\) about the \(z\)-axis.  Let \(h\)
-be the distance between the light bulb and the origin.</p>
+<p> Nous considérons maintenant une cellule photovoltaïque qui est la
+surface de révolution d'une courbe \(z=g(\rho)\) autour de l'axe des
+\(z\).  Soit \(h\) la distance entre l'ampoule et l'origine dans le
+plan \(\rho,z\) illustré ci-dessous.</p>
 
 <div class="center">
   <img src="beam2.png" style="width: 450px"
-       alt="Drawing of the light bulb and the photovoltaic curved cell">
+       alt="Dessin d'une ampoule et d'une cellule photovoltaïque parabolique">
 </div>
 
-<p> The density of radiant energy at \((\rho,g(\rho))\) in the
-\(\rho,z\) plane is now given by </p>
-
+<p> Soit \(\alpha\) l'angle entre le faisceau lumineux et la droite
+perpendiculaire à la surface de la cellule au point où le faisceau
+lumineux touche la cellule photovoltaïque.
+La densité du flot lumineux au point \((\rho,g(\rho))\) dans le
+plan \(\rho,z\) est donnée par </p>
 \[
 E(\rho) = \frac{3\, P\, (h-g(\rho)+\rho g'(\rho))}
-{4\pi ((h-g(\rho))^2+\rho^2)^{3/2}\sqrt{1+(g'(\rho))^2}} \quad .
+{4\pi ((h-g(\rho))^2+\rho^2)^{3/2}\sqrt{1+(g'(\rho))^2}}
 \]
-
-<p> because the perpendicular component of \(f\) to the surface of the
-cell is \(f \cos(\alpha)\) with \(r = \sqrt{(h-g(\rho))^2+\rho^2}\) and
+<p> car la composante de \(f\) perpendiculaire à la surface de la
+cellule est \(f \cos(\alpha)\) avec \(r = \sqrt{(h-g(\rho))^2+\rho^2}\) et
 </p>
-
 \[
 \cos(\alpha) = \frac{ ((0,h)- (\rho,g(\rho)) )\cdot (-g'(\rho), 1)}
 {\|(0,h)- (\rho,g(\rho))\|\,\|(g'(\rho),1)\|}
 = \frac{\rho g'(\rho) + h - g(\rho)}
 {\sqrt{(h-g(\rho))^2+\rho^2} \, \sqrt{1 + (g'(\rho))^2}} \ .
 \]
-<p>For a parabolic cell \(z=g(\rho) = k \rho^2\).
-We compare the density of radiant energy absorbed by the surface
-between the previous planar cell and the new parabolic cell.
-We assume that \(P=100, h=15\) and \(k=1/2\).</p>
+<p>Nous considérons une cellule parabolique donnée par
+\(z=g(\rho) = k \rho^2\).  Nous allons comparer la densité d'énergie
+lumineuse absorbée par la surface de cellule planaire précédente et la
+surface de la nouvelle cellule parabolique.  Nous assumons que
+\(P=100, h=15\) and \(k=1/2\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> ff:=3*P/(4*Pi*(rho^2+(h - g(rho))^2)); </font>
@@ -390,24 +391,26 @@ EE1 := \frac{75 (\frac{\rho{\scriptsize \sim}^{2}}{2}+15)}
 
 <div class="center">
 <img src="Maple_beam_4.png" style="width: 300px"
-       alt="graph of E1 and EE1 in function of rho">
+       alt="graphe de E1 et EE1 en fonction de rho">
 </div>
 
-<p> The total radiant energy absorbed per unit of time by
-the parabolic cell of radius \(R\) is given by</p>
+<p> L'énergie lumineuse totale qui est absorbée par unité de temps par
+la cellule parabolique avec \(|\rho| \leq R\) est donnée par</p>
 \[
 T = \int_0^R 2 \pi E(\rho)\, \rho \sqrt{1+g'(\rho)^2}\,\text{d}\rho
 = \int_)^R \frac{3\, P\, \rho\, (h-g(\rho)+\rho g'(\rho))}{2
   ((h-g(\rho))^2+\rho^2)^{3/2}}\, \text{d}\rho \ ,
 \]
-<p> where \(2 \pi \rho \,\sqrt{1+g'(\rho)^2}\,\text{d}\rho\) 
-is the area element of a surface of revolution as seen in calculus.</p>
+<p> où \(2 \pi \rho \,\sqrt{1+g'(\rho)^2}\,\text{d}\rho\) 
+est l'élément d'aire d'une surface de révolution comme il est
+enseigné dans le cour de calcul différentiel et intégral.</p>
 
-<p>We repeat the analysis of the evolution of the total radiant energy
-absorbed by the planar cell with the parabolic cell defined
-by \(z=g(\rho) = \rho^2/2/), and compare the results for the two types
-of cells.  We first assume that the power \(P=100\) and the distance
-\(h=15\), and consider \(T\) as a funciton of \(R\).</p>
+<p>Nous répétons pour la cellule parabolique définie par
+\(z=g(\rho) = \rho^2/2/) l'analyse que nous avons fait ci-dessus pour
+du comportement de l'énergie lumineuse totale qui est absorbée par une
+cellule plane, et nous comparons les résultats pour ces deux types de
+cellules.  Nous supposons en premier que le flot total \(P=100\) et la
+distance \(h=15\), et considérons \(T\) en fonction de \(R\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> TTE := int(2*Pi*EE*rho*sqrt(1+rho^2), rho=0..R):
@@ -416,13 +419,13 @@ of cells.  We first assume that the power \(P=100\) and the distance
 
 <div class="center">
   <img src="Maple_beam_5.png" style="width: 300px"
-       "graph of TE1 and TTE1 in function of R">
+       "graphe de TE1 et TTE1 en fonction de R">
 </div>
 
-<p>We have not displayed the formula for <font class="matlab">TTE1</font>
-because it is a long formula involving the hyperbolique functions
+<p>Nous n'avons pas affiché la formule pour <font class="matlab">TTE1</font>
+car c'est une longue formule qui inclus les fonctions hyperboliques inverses
 <font class="matlab">arctanh()</font>
-and <font class="matlab">arcsinh()</font>.</p>
+et <font class="matlab">arcsinh()</font>.</p>
 
 <pre class="matlab">
   > <font class="matlab"> limit(TTE1,R=infinity);</font>
@@ -430,19 +433,38 @@ and <font class="matlab">arcsinh()</font>.</p>
 
 \[\infty\]
 
-<p> We now assume that the power \(P=100\) and the distance
-\(R=10\), and consider \(T\) as a funciton of \(h\).</p>
+<p> Nous supposons maintenant que le flot total \(P=100\) et \(R=10\),
+et considérons \(T\) en fonction de \(h\).</p> 
 
 <pre class="matlab">
-> <font class="matlab"> TTE2 := subs({P=100,R=10,k = 1/2},TTE): plot([TE2,TTE2],h=0..100); </font>
+> <font class="matlab"> TE2 := seq([t, evalf(subs({P = 100, R = 10, h = t, k = 1/2}, TE))], t = 0 .. 100):
+   TTE2 := seq([t, evalf(subs({P = 100, R = 10, h = t, k = 1/2}, TTE))], t = 0 .. 100):
+   plot({[TE2],[TTE2]});
 </pre>
 
+<div class="center">
+  <img src="Maple_beam_6.png" style="width: 300px"
+       "graphe de TE2 et TTE2 en fonction de h">
+</div>
 
 <pre class="matlab">
 > <font class="matlab"> limit(TTE2,h=infinity);</font>
 </pre>
 
 \[0\]
+</div>
+
+<div class="Note">
+<p><em>Note</em>:  Nous nous serions attendu que les commandes
+suivantes </p>
+
+<pre class="matlab">
+> <font class="matlab"> TTE2 := subs({P=100,R=10,k = 1/2},TTE): plot([TE2,TTE2],h=0..100); </font>
+</pre>
+
+<p>aient généré la figure ci-dessus. Malheureusement,
+la fonction <em class="matlab"> plot()</em> a fait
+<q lang="fr">planter</q> <em>Maple</em> sur notre ordinateur.</p> 
 </div>
 
 <hr class="MMathSStat">
