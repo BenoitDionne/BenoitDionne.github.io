@@ -79,10 +79,6 @@ main_title( MStext, "MMathSStat");
   <li> <script language="javascript"> 
       buildLinK("#funct", "Functions","MMathSStat", "sect2ID", "_top");
   </script> </li>
-  <li> <script language="javascript">
-      buildLinK("#der_int", "Derivatives and integrals","MMathSStat",
-      "sect3ID", "_top");
-  </script> </li>
   <li> <script language="javascript"> 
       buildLinK("#graphs", "Graphical Representations of Functions",
       "MMathSStat","sect4ID","_top");
@@ -277,65 +273,6 @@ form.</p>
 &-.6435381334
 \end{split}
 \]
-
-<hr class="MMathSStat">
-
-<h3 id="der_int"> Derivatives and integrals </h3>
-
-<p>The first order derivative of a function \(f:\mathbb{R} \to \mathbb{R}\)
-defined by \(f(x) = \ldots \) with respect to \(x\) is 
-computed by the command <font class="matlab">diff(f,x)</font>.  The
-second order derivative of \(f\) with respect to \(x\) is computed by
-the command <font class="matlab">diff(f,x$2)</font>, and
-so on for higher order derivatives.  We can also compute the mixed
-derivatives of a function \(f:\mathbb{R}^n \to \mathbb{R}\)
-defined by \(f(x,y, \ldots) = \ldots \). The mixed derivative of order
-two of \(f\) with respect to \(x\) and \(y\) is computed by the command
-<font class="matlab">diff(f,x,y)</font>.  By now, the reader has
-probably grasped how to compute derivatives using <em>Maple</em>.</p>
-
-<p>The indefinite integral of a function \(f:\mathbb{R} \to \mathbb{R}\)
-defined by \(f(x) = \ldots \) is
-computed by the command <font class="matlab">int(f,x)</font>.  The
-definite integral of \(f\) between \(a\) and \(b\) is computed by the
-command <font class="matlab">int(f,x=a..b)</font>.</p>
-  
-<div class="Example">
-<p><em>Example</em>: Consider the function \(f\) defined in <em>Maple</em>
-by the following command.</p>
-
-<pre class="matlab">
-> <font class="matlab">f:=x/(y*x^2+1);</font>
-</pre>
-
-\[ f := \frac{x}{y x^2 + 1} \]
-
-<p>The mixed derivative of order two of \(f\) with respect to \(x\)
-and \(y\) is computed by the following command.</p>
-
-<pre class="matlab">
-> <font class="matlab">diff(f,x,y);</font>
-</pre>
-
-\[
--\frac{3 x^2}{(x^2 y + 1)^2} + \frac{4 x^4 y}{(x^2y + 1)^3}
-\]
-
-<p>The definite integral of \(f\) between \(0\) and \(4\) with \(y = 5\)
-is computed by the following command.</p>
-
-<pre class="matlab">
-> <font class="matlab">y := 5; int(f, x = 0 .. 4); evalf(%);</font>
-</pre>
-
-\[
-\begin{split}
-& y := 5 \\
-& \frac{2\ln(3)}{5} \\
-& 0.4394449156
-& \end{split}
-\]
-</div>
 
 <hr class="MMathSStat">
 

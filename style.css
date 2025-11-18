@@ -220,9 +220,13 @@ font.matlab { color: blue; font-size: 100%; }
 
 img.MobiusFig { border: 1px  #004870 solid; margin: 0px; padding: 0px;}
 
-div.Note { border-left: 2px solid black; padding-left: 10px; }
+div.Note { border-left: 4px solid black; border-top: 1px dashed black;
+border-bottom: 1px dashed black; border-right: 1px dashed black;
+padding-left: 10px; margin-top: 1em; background-color: #F1F1F1;}
 
-div.Example { border-left: 2px solid #8F001A; padding-left: 10px; }
+div.Example { border-left: 4px solid #8F001A; border-top: 1px dashed #8F001A;
+border-bottom: 1px dashed #8F001A; border-right: 1px dashed #8F001A;
+padding-left: 10px; background-color: #F1F1F1; margin-top: 1em;}
 
 /* Ordered and non-ordered list */
 ol.Code { list-style-type: upper-alpha; }

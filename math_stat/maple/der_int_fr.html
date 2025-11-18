@@ -1,0 +1,457 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematiques and Statistique">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2025-11-17">
+<meta name="Keywords" content="mathematiques,statistique,universite,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="fr-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<!-- Use this code if you want to use the dollar sign for inline math.
+This may be an issue if want to use the dollar sign denote curency. -->
+<!--
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      inlineMath: {'[+]' : [['$','$']]} 
+   }
+};
+</script>
+-->
+
+<!-- Instead of tex-svg.js , it is possible to use text-chtml to use
+html and csv instead of scalable vector graphis. -->  
+<script defer type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(der_int,"fr");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title(MStexte, "MMathSStat");
+</script>
+
+<div class="LOOK3">
+<script language="javascript"> 
+ buildLinK("#TOP", "Retour au haut de la page", "MMathSStat", "TOPID", "_top");
+</script>
+</div>
+  
+<h2 id="TOP"> Dérivées et intégrales </h2>
+
+<div style="float:left; width:30%; margin-right:20px; z-index:1000;">
+<div class="center"><em>Autres sujets</em></div>
+<script language="javascript"> 
+     display_list(mapleLinks, "MStop", "ML", "fr", der_int);
+</script>
+</div>
+
+<p>Ce document offre une introduction aux calculs des dérivées et
+intégrales avec <em>Maple</em>.</p>
+
+<p>La dérivée d'ordre un de la fonction \(f:\mathbb{R} \to \mathbb{R}\)
+définie par \(f(x) = \ldots \) par rapport à \(x\) est
+calculée par la commande <font class="matlab">diff(f,x)</font>.  La dérivée
+d'ordre deux de \(f\) par rapport à \(x\) est calculée par
+<font class="matlab">diff(f,x$2)</font>, et ainsi de suite pour les
+dérivées d'ordres supérieures.  Nous pouvons aussi calculer les
+dérivées mixes d'une fonction \(f:\mathbb{R}^n \to \mathbb{R}\)
+définie par \(f(x,y, \ldots) = \ldots \).  La dérivées mixes d'ordre
+deux de \(f\) par rapport à \(x\) et \(y\) est calculée
+par <font class="matlab">diff(f,x,y)</font>.
+Le lecteur a probablement compris à présent comment
+utiliser <em>Maple</em> pour calculer les dérivées.</p>
+
+<p> L'intégrale indéfinie de la fonction \(f:\mathbb{R} \to \mathbb{R}\)
+est calculée par la commande <font class="matlab">int(f,x)</font>.
+L'inteégrale définie de \(f\) entre \(a\) et \(b\) est calculée par la
+commande <font class="matlab">int(f,x=a..b)</font>.</p>
+
+<div class="Example" style="clear: both;">
+<p><em>Exemple</em>: Soit le fonction \(f\) définie
+dans <em>Maple</em> par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">f:=x/(y*x^2+1);</font>
+</pre>
+
+\[ f := \frac{x}{y x^2 + 1} \]
+
+<p>La dérivées mixes d'ordre deux de \(f\) par rapport à \(x\) et \(y\) est
+calculée par la commande suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab">diff(f,x,y);</font>
+</pre>
+
+\[
+-\frac{3 x^2}{(x^2 y + 1)^2} + \frac{4 x^4 y}{(x^2y + 1)^3}
+\]
+
+<p>L'intégrale définie de \(f\) entre \(0\) et \(4\) avec \(y = 5\)
+est calculée par la commande</p>
+
+<pre class="matlab">
+> <font class="matlab">y := 5; int(f, x = 0 .. 4); evalf(%);</font>
+</pre>
+
+\[
+\begin{split}
+& y := 5 \\
+& \frac{2\ln(3)}{5} \\
+& 0.4394449156
+& \end{split}
+\]
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous analysons la quantité d'énergie rayonnante
+provenant d'une ampoule qui est absorbée par une cellule
+photovoltaïque.  Le premier genre de cellules que l'on considère ont
+la forme d'un disque.  En supposant que l'air n'absorbe d'énergie
+rayonnante (ce qui est raisonnable sur une courte distance), le flot
+total \(P\) d'énergie rayonnante par unité de temps qui traverse une
+sphère centrée sur l'ampoule est indépendent du rayon \(r\) de la sphère.
+Ǟ l'aide de ce principe, nous obtenons que la densité du flot
+rayonnant \(f\) (i.e. le flot rayonnant par unité d'aire) à une
+distance \(r\) de la source lumineuse (l'ampoule) est donné par \(P\)
+divisé par l'aire de la sphère de rayon \(r|); c'est-à-dire, </p>
+\[
+f = \frac{3 P}{4\pi r^2}
+\]
+<p> Cela veut dire que la densité de flot rayonnant \(f\) est
+proportionnel à l'inverse du carrée de la distance de la source
+lumineuse.</p>
+
+<p>Traduction à venir</p>
+
+<hr class="MMathSStat">
+
+<p> Let \(\alpha\) be the angle between a beam of light and the
+photovoltaic cell.  The radiant energy absorbed per unit of surface at
+the point where the beam of light touch the absorbing surface of the
+cell is given by the perpendicular component of \(f\) to the surface
+of the cell.</p> 
+<div class="center">
+  <img src="beam1.png" style="width: 400px"
+       alt="Drawing of the light bulb and the photovoltaic plane cell">
+</div>
+<p>This perpendicular component is given by \(f \sin(\alpha)\).
+Since \(\sin(\alpha) = h/\sqrt{h^2 + \rho^2}\), the density of radiant
+energy absorbed by the surface of a cell of radius \(R\) at a distance
+\(h\) of the light source is given by  
+\[ 
+E(\rho) = \frac{3\, P\, h}{4\pi (\rho^2+h^2)^{3/2}}
+\]
+where \(\rho\) is the distance from a point on the cell to the
+perpendicular axis joining the centre of the cell and the light
+source.  We can draw the graph of \(E\) for \(P=100, h=15\) and
+\(R=20\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: f:=3*P/(4*Pi*r^2);</font>
+</pre>
+
+\[
+  f := \frac{3 P}{4 \pi r^{2}}
+\]
+
+<pre class="matlab">
+> <font class="matlab"> assume(rho>=0, R>=0, h>=0):</font>
+> <font class="matlab"> f:=subs(r=sqrt(rho^2+h^2),f);</font>
+</pre>
+
+\[
+f := \frac{3 P}{4 \pi \left(h{\scriptsize \sim}^{2}
++\rho{\scriptsize \sim}^{2}\right)}
+\]
+
+<pre class="matlab">
+> <font class="matlab"> E:=f*(h/sqrt(h^2+rho^2));</font>
+</pre>
+
+\[
+E := \frac{3 P h{\scriptsize \sim}}{4 \pi \left(h{\scriptsize \sim}^{2}
++\rho{\scriptsize \sim}^{2}\right)^{\frac{3}{2}}}
+\]
+
+<pre class="matlab">
+> <font class="matlab"> E1:=subs({P=100,h=15},E);</font>
+</pre>
+
+\[
+E1 := \frac{1125}{\pi  \left(\rho{\scriptsize \sim}^{2}+225\right)^{\frac{3}{2}}}
+\]
+
+<pre class="matlab">
+> <font class="matlab"> plot(E1,rho=0..20);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_beam_1.png" style="width: 300px"
+       alt="Graph of E in function of rho">
+</div>
+
+<p> The symbol \(\scriptsize \sim\) after the variables \(h\) and \(\rho\)
+indicates that they are not negative.</p>
+
+<p>The total radiant energy absorbed per unit of time by the celll is
+given by the following double integral in polar coordinates.</p> 
+\[
+T(R,h) = \int_0^{2\pi} E(\rho) \rho\, \text{d}\rho
+= \int_0^R \frac{3 P h\,\rho}{2 (\rho^2+h^2)^{3/2}} \,\text{d}\rho \ .
+\]
+<p> If the power \(P\) and the distance \(h\) are constant, then
+how does the total radiant energy absorbed evolve in function of the
+radius \(R\) of the cell?  To answer this question, we consider
+\(P=100\) and \(h=15\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> TE := int(2*Pi*rho *E, rho=0..R);</font>
+</pre>
+
+\[
+TE := \frac{3 P \left(\sqrt{R{\scriptsize \sim}^{2}+h{\scriptsize \sim}^{2}}
+-h{\scriptsize \sim} \right)}{2 \sqrt{R{\scriptsize \sim}^{2}
++h{\scriptsize \sim}^{2}}}
+\]
+
+<pre class="matlab">
+> <font class="matlab"> TE1 := subs({P=100,h=15},TE); plot(TE1,R=0..100);
+</font>
+</pre>
+
+\[
+TE1 := \frac{150 (\sqrt{R{\scriptsize \sim}^{2}+225}-15)}
+{\sqrt{R{\scriptsize \sim}^{2}+225}}
+\]
+
+<div class="center">
+  <img src="Maple_beam_2.png" style="width: 300px"
+       alt="Graph of TE in function of R">
+</div>
+
+<p> We have that the total radiant energy absorbed coverge to a fixed
+value as \(R \to \infty\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> limit(TE1,R=infinity); </font>
+</pre>
+
+\[
+150
+\]
+
+<p> If we now assume that the power \(P\) and the distance \(R\) are
+constant, then how does the total radiant energy absorbed
+evolve in function of the distance \(h\)?  To answer this question, we
+consider \(P=100\) and \(R=10\).</p>
+
+<pre class="matlab">
+> <font class="matlab">TE2 := subs({P=100,R=10},TE); plot(TE2,h=0..100);</font>
+</pre>
+
+\[
+TE2 := \frac{150 (\sqrt{h{\scriptsize \sim}^{2}+100}-h{\scriptsize \sim})}
+{\sqrt{h{\scriptsize \sim}^{2}+100}}
+\]
+
+<div class="center">
+  <img src="Maple_beam_3.png" style="width: 300px"
+       alt="Graph of TE in function of h">
+</div>
+
+<p> We have that the total radiant energy absorbed coverge to 0 as
+\(h \to \infty\).</p> 
+
+<pre class="matlab">
+> <font class="matlab"> limit(TE2,h=infinity); </font>
+</pre>
+
+\[0\]
+
+<p> We now consider a photovoltaic cell which is the surface of
+revolution of a curve \(z=g(\rho)\) about the \(z\)-axis.  Let \(h\)
+be the distance between the light bulb and the origin.</p>
+
+<div class="center">
+  <img src="beam2.png" style="width: 450px"
+       alt="Drawing of the light bulb and the photovoltaic curved cell">
+</div>
+
+<p> The density of radiant energy at \((\rho,g(\rho))\) in the
+\(\rho,z\) plane is now given by </p>
+
+\[
+E(\rho) = \frac{3\, P\, (h-g(\rho)+\rho g'(\rho))}
+{4\pi ((h-g(\rho))^2+\rho^2)^{3/2}\sqrt{1+(g'(\rho))^2}} \quad .
+\]
+
+<p> because the perpendicular component of \(f\) to the surface of the
+cell is \(f \cos(\alpha)\) with \(r = \sqrt{(h-g(\rho))^2+\rho^2}\) and
+</p>
+
+\[
+\cos(\alpha) = \frac{ ((0,h)- (\rho,g(\rho)) )\cdot (-g'(\rho), 1)}
+{\|(0,h)- (\rho,g(\rho))\|\,\|(g'(\rho),1)\|}
+= \frac{\rho g'(\rho) + h - g(\rho)}
+{\sqrt{(h-g(\rho))^2+\rho^2} \, \sqrt{1 + (g'(\rho))^2}} \ .
+\]
+<p>For a parabolic cell \(z=g(\rho) = k \rho^2\).
+We compare the density of radiant energy absorbed by the surface
+between the previous planar cell and the new parabolic cell.
+We assume that \(P=100, h=15\) and \(k=1/2\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> ff:=3*P/(4*Pi*(rho^2+(h - g(rho))^2)); </font>
+</pre>
+
+\[
+ff := \frac{3 P}{4 \pi  \left(\rho{\scriptsize \sim}^{2}
++\left(h{\scriptsize \sim} -g(\rho{\scriptsize \sim})\right)^{2}\right)}
+\]
+
+<pre class="matlab">
+> <font class="matlab"> with(LinearAlgebra): v1 := Vector([-rho,h-g(rho)]):
+   v2 := Vector([-diff(g(rho),rho),1]):
+   ca := DotProduct(v1,v2)/(norm(v1,2) * norm(v2,2));
+</font>
+</pre>
+
+\[
+ca := \frac{\rho{\scriptsize \sim} \left(\frac{d}{d \rho{\scriptsize \sim}}g (\rho{\scriptsize \sim} ) \right) + h{\scriptsize \sim} -
+\overline{g (\rho{\scriptsize \sim})}}
+{\sqrt{\rho{\scriptsize \sim}^{2}+ | -h{\scriptsize \sim} +g(\rho{\scriptsize \sim}) |^{2}} \, \sqrt{1+\left|
+\frac{d}{d \rho{\scriptsize \sim}} g(\rho{\scriptsize \sim}) \right|^{2}}}
+\]
+
+<pre class="matlab">
+> <font class="matlab"> assume(k>=0): cap := eval(subs(g(rho)=k*rho^2,ca));
+</pre>
+</font>
+
+\[
+cap := \frac{k \,\rho{\scriptsize \sim}^{2}+h{\scriptsize \sim}}
+{\sqrt{\rho{\scriptsize \sim}^{2}+{| -k \,\rho{\scriptsize \sim}^{2}
++h{\scriptsize \sim} |}^{2}}\, \sqrt{4 k^{2} \rho{\scriptsize \sim}^{2}+1}}
+\]
+
+<pre class="matlab">
+> <font class="matlab"> EE := f*cap; </font>
+</pre>
+
+\[
+EE := \frac{3 P \left(k \,\rho{\scriptsize \sim}^{2}
++h{\scriptsize \sim} \right)}
+{4 \pi  \left(h{\scriptsize \sim}^{2}
++\rho{\scriptsize \sim}^{2}\right) \sqrt{\rho{\scriptsize \sim}^{2}
++{| -k \,\rho{\scriptsize \sim}^{2}+h{\scriptsize \sim} |}^{2}}\,
+\sqrt{4 k^{2} \rho{\scriptsize \sim}^{2}+1}}
+\]
+
+<pre class="matlab">
+> <font class="matlab"> EE1 := subs({P=100,h=15,k=1/2},EE); plot([E1,EE1],rho=0..30);
+</font></pre>
+
+\[
+EE1 := \frac{75 (\frac{\rho{\scriptsize \sim}^{2}}{2}+15)}
+{\pi  (\rho{\scriptsize \sim}^{2}+225)
+\sqrt{\rho{\scriptsize \sim}^{2}+{{|
+-\frac{\rho{\scriptsize \sim}^{2}}{2}+15|}}^{2}}\,
+\sqrt{\rho{\scriptsize \sim}^{2}+1}}
+\]
+
+<div class="center">
+<img src="Maple_beam_4.png" style="width: 300px"
+       alt="graph of E1 and EE1 in function of rho">
+</div>
+
+<p> The total radiant energy absorbed per unit of time by
+the parabolic cell of radius \(R\) is given by</p>
+\[
+T = \int_0^R 2 \pi E(\rho)\, \rho \sqrt{1+g'(\rho)^2}\,\text{d}\rho
+= \int_)^R \frac{3\, P\, \rho\, (h-g(\rho)+\rho g'(\rho))}{2
+  ((h-g(\rho))^2+\rho^2)^{3/2}}\, \text{d}\rho \ ,
+\]
+<p> where \(2 \pi \rho \,\sqrt{1+g'(\rho)^2}\,\text{d}\rho\) 
+is the area element of a surface of revolution as seen in calculus.</p>
+
+<p>We repeat the analysis of the evolution of the total radiant energy
+absorbed by the planar cell with the parabolic cell defined
+by \(z=g(\rho) = \rho^2/2/), and compare the results for the two types
+of cells.  We first assume that the power \(P=100\) and the distance
+\(h=15\), and consider \(T\) as a funciton of \(R\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> TTE := int(2*Pi*EE*rho*sqrt(1+rho^2), rho=0..R):
+   TTE1 := subs({P=100,h=15,k = 1/2},TTE): plot([TE1,TTE1],R=0..100); </font>
+</pre>
+
+<div class="center">
+  <img src="Maple_beam_5.png" style="width: 300px"
+       "graph of TE1 and TTE1 in function of R">
+</div>
+
+<p>We have not displayed the formula for <font class="matlab">TTE1</font>
+because it is a long formula involving the hyperbolique functions
+<font class="matlab">arctanh()</font>
+and <font class="matlab">arcsinh()</font>.</p>
+
+<pre class="matlab">
+  > <font class="matlab"> limit(TTE1,R=infinity);</font>
+</pre>
+
+\[\infty\]
+
+<p> We now assume that the power \(P=100\) and the distance
+\(R=10\), and consider \(T\) as a funciton of \(h\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> TTE2 := subs({P=100,R=10,k = 1/2},TTE): plot([TE2,TTE2],h=0..100); </font>
+</pre>
+
+
+<pre class="matlab">
+> <font class="matlab"> limit(TTE2,h=infinity);</font>
+</pre>
+
+\[0\]
+</div>
+
+<hr class="MMathSStat">
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(der_int,"fr");
+</script>
+
+</body>
+</html>

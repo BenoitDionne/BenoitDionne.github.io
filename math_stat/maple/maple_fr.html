@@ -79,10 +79,6 @@ main_title( MStexte, "MMathSStat");
   <li> <script language="javascript"> 
       buildLinK("#funct", "Fonctions","MMathSStat", "sect2ID", "_top");
   </script> </li>
-  <li> <script language="javascript">
-      buildLinK("#der_int", "Dérivées et intégrales","MMathSStat",
-      "sect3ID", "_top");
-  </script> </li>
   <li> <script language="javascript"> 
       buildLinK("#graphs", "Représentations graphiques des fonctions",
       "MMathSStat", "sect4ID","_top");
@@ -282,65 +278,6 @@ complètement naturelle.</p>
 &-.6435381334
 \end{split}
 \]
-
-<hr class="MMathSStat">
-
-<h3 id="der_int"> Dérivées et intégrales </h3>
-
-<p>La dérivée d'ordre un de la fonction \(f:\mathbb{R} \to \mathbb{R}\)
-définie par \(f(x) = \ldots \) par rapport à \(x\) est
-calculée par la commande <font class="matlab">diff(f,x)</font>.  La dérivée
-d'ordre deux de \(f\) par rapport à \(x\) est calculée par
-<font class="matlab">diff(f,x$2)</font>, et ainsi de suite pour les
-dérivées d'ordres supérieures.  Nous pouvons aussi calculer les
-dérivées mixes d'une fonction \(f:\mathbb{R}^n \to \mathbb{R}\)
-définie par \(f(x,y, \ldots) = \ldots \).  La dérivées mixes d'ordre
-deux de \(f\) par rapport à \(x\) et \(y\) est calculée
-par <font class="matlab">diff(f,x,y)</font>.
-Le lecteur a probablement compris à présent comment
-utiliser <em>Maple</em> pour calculer les dérivées.</p>
-
-<p> L'intégrale indéfinie de la fonction \(f:\mathbb{R} \to \mathbb{R}\)
-est calculée par la commande <font class="matlab">int(f,x)</font>.
-L'inteégrale définie de \(f\) entre \(a\) et \(b\) est calculée par la
-commande <font class="matlab">int(f,x=a..b)</font>.</p>
-
-<div class="Example">
-<p><em>Exemple</em>: Soit le fonction \(f\) définie
-dans <em>Maple</em> par la commande suivante.</p>
-
-<pre class="matlab">
-> <font class="matlab">f:=x/(y*x^2+1);</font>
-</pre>
-
-\[ f := \frac{x}{y x^2 + 1} \]
-
-<p>La dérivées mixes d'ordre deux de \(f\) par rapport à \(x\) et \(y\) est
-calculée par la commande suivante.</p>
-
-<pre class="matlab">
-> <font class="matlab">diff(f,x,y);</font>
-</pre>
-
-\[
--\frac{3 x^2}{(x^2 y + 1)^2} + \frac{4 x^4 y}{(x^2y + 1)^3}
-\]
-
-<p>L'intégrale définie de \(f\) entre \(0\) et \(4\) avec \(y = 5\)
-est calculée par la commande</p>
-
-<pre class="matlab">
-> <font class="matlab">y := 5; int(f, x = 0 .. 4); evalf(%);</font>
-</pre>
-
-\[
-\begin{split}
-& y := 5 \\
-& \frac{2\ln(3)}{5} \\
-& 0.4394449156
-& \end{split}
-\]
-</div>
 
 <hr class="MMathSStat">
 

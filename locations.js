@@ -408,6 +408,13 @@ var lin_alg = new item
      null, null, null, "lin_alg", "_top", "lin_alg");
 websites[websites_nbr++] = lin_alg;
 
+var der_int = new item
+    ("Derivatives and Integrals", "Deriv&eacute;es et int&eacute;grales",
+     location_bd+"math_stat/maple/der_int_fr.html",
+     location_bd+"math_stat/maple/der_int_en.html",
+     null, null, null, "der_int", "_top", "der_int");
+websites[websites_nbr++] = der_int;
+
 var solv_equ = new item
     ("R&eacute;soudre des &eacute;quations", "Solving Equations",
      location_bd+"math_stat/maple/solv_equ_fr.html",
@@ -750,6 +757,8 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 	    var maple_nbr = 0;
 	    mapleLinks[maple_nbr++]
 		= initItem(lin_alg, mathLinks[math_nbr], mapleLinks, null); 
+	    mapleLinks[maple_nbr++]
+		= initItem(der_int, mathLinks[math_nbr], mapleLinks, null); 
 	    mapleLinks[maple_nbr++]
 		= initItem(solv_equ, mathLinks[math_nbr], mapleLinks, null); 
 	    mapleLinks[maple_nbr++]
