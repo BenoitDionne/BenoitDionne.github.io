@@ -134,43 +134,45 @@ est calculée par la commande</p>
 <div class="Example">
 <p><em>Exemple</em>: Nous analysons la quantité d'énergie lumineuse
 provenant d'une ampoule qui est absorbée par une cellule
-photovoltaïque.  Le premier genre de cellules que l'on considère ont
-la forme d'un disque.  En supposant que l'air n'absorbe pas d'énergie
-lumineuse (ce qui est raisonnable sur une courte distance), le flot
-total \(P\) d'énergie lumineuse par unité de temps qui traverse une
-sphère centrée sur une ampoule est indépendant du rayon \(r\) de la sphère.
-À l'aide de ce principe, nous obtenons que la densité du flot
-lumineux \(f\) (i.e. le flot lumineux par unité d'aire et unité de
-temps) à une distance \(r\) de la source lumineuse (l'ampoule) est
-donné par \(P\) divisé par l'aire de la sphère de rayon \(r|);
-c'est-à-dire, </p> 
+photovoltaïque.  Le premier genre de cellules que nous considérons est
+les cellules qui sont planaires et circulaires.  En supposant que l'air
+n'absorbe pas d'énergie lumineuse (ce qui est raisonnable sur une
+courte distance), le flot total \(P\) d'énergie lumineuse par unité de
+temps qui traverse une sphère centrée sur une ampoule est indépendant
+du rayon \(r\) de la sphère.  À l'aide de ce principe, nous obtenons
+que la densité du flot lumineux \(f\) (i.e. le flot lumineux par unité
+d'aire et unité de temps) à une distance \(r\) de la source lumineuse
+(l'ampoule) est \(P\) divisé par l'aire de la sphère de rayon \(r\);
+c'est-à-dire, </p>
 \[
 f = \frac{3 P}{4\pi r^2}
 \]
 <p> Cela veut dire que la densité de flot lumineux \(f\) est
-proportionnel à l'inverse du carrée de la distance de la source
+proportionnelle à l'inverse du carrée de la distance de la source
 lumineuse.</p>
 
 <p> Soit \(\alpha\) l'angle entre le faisceau lumineux et la surface de
 la cellule photovoltaïque.  l'énergie lumineuse absorbée par unité de
-surface au point où le faisceau lumineux touche la surface absorbante
+surface au point où un faisceau lumineux touche la surface absorbante
 de la cellule est donnée par la composante de \(f\) perpendiculaire 
-à la surface de la cellule..</p> 
+à la surface de la cellule.</p> 
 <div class="center">
   <img src="beam1.png" style="width: 400px"
        alt="Dessin d'une ampoule et d'une cellule photovoltaïque plane">
 </div>
 <p>Cette composante perpendiculaire est \(f \sin(\alpha)\).
-Puisque \(\sin(\alpha) = h/\sqrt{h^2 + \rho^2}\), la densité d'énergie
-lumineuse absorbée par la surface d'une cellule de rayon \(R\) qui est
-à une distance \(h\) de la source lumineuse est donnée par
-\[ 
-E(\rho) = \frac{3\, P\, h}{4\pi (\rho^2+h^2)^{3/2}}
-\]
-où \(\rho\) est la distance entre le point de contact du faisceau
+Nous avons que \(\sin(\alpha) = h/\sqrt{h^2 + \rho^2}\) où 
+\(\rho\) est la distance entre le point de contact d'un faisceau
 lumineux avec la surface de la cellule et l'axe perpendiculaire qui
-relie le centre de la cellule à la source lumineuse.  Nous pouvons
-tracer le graphe de \(E\) pour \(P=100, h=15\) et
+relie le centre de la cellule à la source lumineuse, et \(h\) est
+la distance entre ce point de contact et la source lumineuse.
+La densité d'énergie lumineuse absorbée par la surface de la cellule
+au point de contact d'un faisceau lumineux avec la surface de la cellule
+est donc donnée par
+\[ 
+E(\rho) = \frac{3\, P\, h}{4\pi (\rho^2+h^2)^{3/2}} \ .
+\]
+Nous pouvons tracer le graphe de \(E\) pour \(P=100, h=15\) et
 \(R=20\).</p>
 
 <pre class="matlab">
@@ -221,10 +223,10 @@ E1 := \frac{1125}{\pi  \left(\rho{\scriptsize \sim}^{2}+225\right)^{\frac{3}{2}}
 indique qu'elles ne sont pas négatives.</p>
 
 <p>L'énergie lumineuse totale absorbée par unité de temps par la
-cellule est donnée par l'intégrale double en coordonnées polaires
-suivante.</p> 
+cellule de rayon \(R\) est donnée par l'intégrale double en
+coordonnées polaires suivante.</p> 
 \[
-T(R,h) = \int_0^{2\pi} E(\rho) \rho\, \text{d}\rho
+T(R,h) = \int_0^{2\pi} \int_0^R E(\rho) \rho\, \text{d}\rho \, \text{d}\theta
 = \int_0^R \frac{3 P h\,\rho}{2 (\rho^2+h^2)^{3/2}} \,\text{d}\rho \ .
 \]
 <p> Si le flot total \(P\) et la distance \(h\) sont constants, alors
@@ -258,7 +260,7 @@ TE1 := \frac{150 (\sqrt{R{\scriptsize \sim}^{2}+225}-15)}
 </div>
 
 <p> Nous avons que l'énergie lumineuse totale qui est absorbée par la
-cellule converge vers une valeur fixe lorsque \(R \to \infty\).</p>
+cellule converge vers 150 lorsque \(R \to \infty\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> limit(TE1,R=infinity); </font>
@@ -326,9 +328,11 @@ cellule est \(f \cos(\alpha)\) avec \(r = \sqrt{(h-g(\rho))^2+\rho^2}\) et
 \]
 <p>Nous considérons une cellule parabolique donnée par
 \(z=g(\rho) = k \rho^2\).  Nous allons comparer la densité d'énergie
-lumineuse absorbée par la surface de cellule planaire précédente et la
+lumineuse absorbée par la surface de la cellule planaire précédente et la
 surface de la nouvelle cellule parabolique.  Nous assumons que
-\(P=100, h=15\) and \(k=1/2\).</p>
+\(P=100, h=15\) et \(k=1/2\), et traçons le graphe de la densité
+d'énergie lumineuse \(E\) absorbée par chacune des cellules en fonction
+de \(h\). </p>
 
 <pre class="matlab">
 > <font class="matlab"> ff:=3*P/(4*Pi*(rho^2+(h - g(rho))^2)); </font>
@@ -403,14 +407,14 @@ T = \int_0^R 2 \pi E(\rho)\, \rho \sqrt{1+g'(\rho)^2}\,\text{d}\rho
 \]
 <p> où \(2 \pi \rho \,\sqrt{1+g'(\rho)^2}\,\text{d}\rho\) 
 est l'élément d'aire d'une surface de révolution comme il est
-enseigné dans le cour de calcul différentiel et intégral.</p>
+enseigné dans les cours de calcul différentiel et intégral.</p>
 
-<p>Nous répétons pour la cellule parabolique définie par
-\(z=g(\rho) = \rho^2/2/) l'analyse que nous avons fait ci-dessus pour
-du comportement de l'énergie lumineuse totale qui est absorbée par une
-cellule plane, et nous comparons les résultats pour ces deux types de
-cellules.  Nous supposons en premier que le flot total \(P=100\) et la
-distance \(h=15\), et considérons \(T\) en fonction de \(R\).</p>
+<p>Nous répétons, pour la cellule parabolique définie par
+\(z=g(\rho) = \rho^2/2\), l'analyse que nous avons fait ci-dessus pour
+le comportement de l'énergie lumineuse totale qui est absorbée par la
+cellule plane, et nous comparons les résultats pour ces deux cellules.
+Nous supposons en premier que le flot total \(P=100\) et la 
+distance \(h=15\), et traçons le graphe de \(T\) en fonction de \(R\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> TTE := int(2*Pi*EE*rho*sqrt(1+rho^2), rho=0..R):
@@ -434,7 +438,7 @@ et <font class="matlab">arcsinh()</font>.</p>
 \[\infty\]
 
 <p> Nous supposons maintenant que le flot total \(P=100\) et \(R=10\),
-et considérons \(T\) en fonction de \(h\).</p> 
+et traçons le graphe de \(T\) en fonction de \(h\).</p> 
 
 <pre class="matlab">
 > <font class="matlab"> TE2 := seq([t, evalf(subs({P = 100, R = 10, h = t, k = 1/2}, TE))], t = 0 .. 100):
@@ -463,7 +467,7 @@ suivantes </p>
 </pre>
 
 <p>aient généré la figure ci-dessus. Malheureusement,
-la fonction <em class="matlab"> plot()</em> a fait
+la fonction <font class="matlab"> plot()</font> a fait
 <q lang="fr">planter</q> <em>Maple</em> sur notre ordinateur.</p> 
 </div>
 

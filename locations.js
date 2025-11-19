@@ -409,7 +409,7 @@ var lin_alg = new item
 websites[websites_nbr++] = lin_alg;
 
 var der_int = new item
-    ("Derivatives and Integrals", "Deriv&eacute;es et int&eacute;grales",
+    ("Deriv&eacute;es et int&eacute;grales", "Derivatives and Integrals",
      location_bd+"math_stat/maple/der_int_fr.html",
      location_bd+"math_stat/maple/der_int_en.html",
      null, null, null, "der_int", "_top", "der_int");

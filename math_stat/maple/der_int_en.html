@@ -73,7 +73,7 @@ main_title(MStext, "MMathSStat");
 </script>
 </div>
 
-<p>This document provide a basic introduction to computing derivatives
+<p>This document provides a basic introduction to computing derivatives
 and integrals with <em>Maple</em>.</p>
 
 <p>The first order derivative of a function \(f:\mathbb{R} \to \mathbb{R}\)
@@ -134,15 +134,15 @@ is computed by the following command.</p>
 <div class="Example">
 <p><em>Example</em>: We analyze the quantity of radiant energy from a
 light bulb that is absorbed by a photovoltaic cell.  The first type of
-cells that we consider have the shape of a disk.  Assuming that the air does
-not absorb radiant energy (this is a reasonable assumption on a short
-distance), the total flux \(P\) of radiant energy per unit of time
-going through a sphere centred on a light bulb is independent of
-the radius \(r\) of the sphere.  Using this principle, we find that
-the density of the radiant flux \(f\) (i.e. the radiant flux by unit
-of area and unit of time) at a distance \(r\) of the light source (the
-light bulb) is given by \(P\) divided by the area of a sphere of radius
-\(r|); namely, </p>
+cells that we consider is the planar circular cells.  Assuming that
+the air does not absorb radiant energy (this is a reasonable
+assumption on a short distance), the total flux \(P\) of radiant
+energy per unit of time going through a sphere centred on a light bulb
+is independent of the radius \(r\) of the sphere.  Using this
+principle, we find that the density of the radiant flux \(f\)
+(i.e. the radiant flux by unit of area and unit of time) at a distance
+\(r\) of the light source (the light bulb) is \(P\) divided
+by the area of a sphere of radius \(r\); namely, </p>
 \[
 f = \frac{3 P}{4\pi r^2}
 \]
@@ -160,16 +160,18 @@ of \(f\) to the surface of the cell.</p>
        alt="Drawing of the light bulb and the photovoltaic planar cell">
 </div>
 <p>This perpendicular component is \(f \sin(\alpha)\).
-Since \(\sin(\alpha) = h/\sqrt{h^2 + \rho^2}\), the density of radiant
-energy absorbed by the surface of a cell of radius \(R\) located at a
-distance \(h\) of the light source is given by  
+We have that \(\sin(\alpha) = h/\sqrt{h^2 + \rho^2}\) where \(\rho\)
+is the distance from the point of contact of a beam of light with
+the surface of the cell to the perpendicular axis joining 
+the centre of the cell and the light source, and \(h\) is the
+distance between that point of contact and the light source.
+The density of radiant energy absorbed by the surface of a cell
+at the point of contact of a beam of light with the surface of the
+is therefore given by
 \[ 
-E(\rho) = \frac{3\, P\, h}{4\pi (\rho^2+h^2)^{3/2}}
+E(\rho) = \frac{3\, P\, h}{4\pi (\rho^2+h^2)^{3/2}} \ .
 \]
-where \(\rho\) is the distance from the point of contact of the beam
-of light with the surface of the cell to the perpendicular axis joining
-the centre of the cell and the light source.  We can draw the graph of
-\(E\) for \(P=100, h=15\) and \(R=20\).</p>
+We can draw the graph of \(E\) for \(P=100, h=15\) and \(R=20\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> restart: f:=3*P/(4*Pi*r^2);</font>
@@ -218,10 +220,11 @@ E1 := \frac{1125}{\pi  \left(\rho{\scriptsize \sim}^{2}+225\right)^{\frac{3}{2}}
 <p> The symbol \(\scriptsize \sim\) after the variables \(h\) and \(\rho\)
 indicates that they are not negative.</p>
 
-<p>The total radiant energy absorbed per unit of time by the cell is
-given by the following double integral in polar coordinates.</p> 
+<p>The total radiant energy absorbed per unit of time by the cell of
+radius \(R\) is given by the following double integral in polar
+coordinates.</p>  
 \[
-T(R,h) = \int_0^{2\pi} E(\rho) \rho\, \text{d}\rho
+T(R,h) = \int_0^{2\pi} \int_0^R E(\rho) \rho\, \text{d}\rho \, \text{d}\theta
 = \int_0^R \frac{3 P h\,\rho}{2 (\rho^2+h^2)^{3/2}} \,\text{d}\rho \ .
 \]
 <p> If the total flux \(P\) and the distance \(h\) are constant, then
@@ -255,7 +258,7 @@ TE1 := \frac{150 (\sqrt{R{\scriptsize \sim}^{2}+225}-15)}
 </div>
 
 <p> We have that the total radiant energy absorbed by the cell
-converges to a fixed value as \(R \to \infty\).</p>
+converges to 150 as \(R \to \infty\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> limit(TE1,R=infinity); </font>
@@ -324,7 +327,9 @@ cell is \(f \cos(\alpha)\) with \(r = \sqrt{(h-g(\rho))^2+\rho^2}\) and
 <p>We consider a parabolic cell given by \(z=g(\rho) = k \rho^2\).
 We will compare the density of radiant energy absorbed by the surface
 of the previous planar cell and the surface of the new parabolic cell.
-We assume that \(P=100, h=15\) and \(k=1/2\).</p>
+We assume that \(P=100, h=15\) and \(k=1/2\), and draw the graph of
+the density of radiant energy \(E\) absorbed by each cell as a
+function of \(h\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> ff:=3*P/(4*Pi*(rho^2+(h - g(rho))^2)); </font>
@@ -398,13 +403,14 @@ T = \int_0^R 2 \pi E(\rho)\, \rho \sqrt{1+g'(\rho)^2}\,\text{d}\rho
   ((h-g(\rho))^2+\rho^2)^{3/2}}\, \text{d}\rho \ ,
 \]
 <p> where \(2 \pi \rho \,\sqrt{1+g'(\rho)^2}\,\text{d}\rho\) 
-is the area element of a surface of revolution as seen in calculus.</p>
+is the area element of a surface of revolution as seen in calculus
+courses.</p>
 
-<p>We repeat for the parabolic cell defined by \(z=g(\rho) = \rho^2/2/)
+<p>We repeat, for the parabolic cell defined by \(z=g(\rho) = \rho^2/2\),
 the analysis that we have done above for the evolution of the total
 radiant energy absorbed by the planar cell, and compare the results for
-these two types of cells.  We first assume that the total flux \(P=100\) and
-the distance \(h=15\), and consider \(T\) as a function of \(R\).</p>
+these two cells.  We first assume that the total flux \(P=100\) and
+the distance \(h=15\), and draw the graph of \(T\) as a function of \(R\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> TTE := int(2*Pi*EE*rho*sqrt(1+rho^2), rho=0..R):
@@ -428,7 +434,7 @@ and <font class="matlab">arcsinh()</font>.</p>
 \[\infty\]
 
 <p> We now assume that the total flux \(P=100\) and
-\(R=10\), and consider \(T\) as a function of \(h\).</p>
+\(R=10\), and draw the graph of \(T\) as a function of \(h\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> TE2 := seq([t, evalf(subs({P = 100, R = 10, h = t, k = 1/2}, TE))], t = 0 .. 100):
