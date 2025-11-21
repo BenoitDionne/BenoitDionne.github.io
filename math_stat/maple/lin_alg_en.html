@@ -175,7 +175,7 @@ command.</p>
 \[ 16 \]
 
 <div class="Note">
-<p><em>Note</em>: Again, there is always an exception to the
+<p><em>Note</em>: There is again an exception to the
 rules.  The dot (.) can be used to denote the scalar product of two
 vectors of the same dimensions.   For this reason, if we really want a
 row (column) vector to be treated as a matrix with one row
@@ -649,7 +649,7 @@ of individuals in each age group for a period of 100 year.</p>
    Anu := proc(A, N, u)
       local i, V:
       V := u, u:
-      for i from 2 to N + 2 do
+      for i from 2 to N + 1 do
          V := V,A.V[i]:
       od:
       RETURN(V[2 .. N + 2]):
@@ -681,7 +681,7 @@ population.  This is not a sustainable. </p>
 with the command <font class="matlab">TbN:=seq(Tb^j.v0, j=0..100):</font>.
 However, this is a costly way to generate <font class="matlab">TbN</font>
 because it involves the computation of
-<font class="matlab">Tb^j</font> for <font class="matlab">j=0..100)</font>.
+<font class="matlab">Tb^j</font> for <font class="matlab">j=0..100</font>.
 Thus, we are repeating multiple times the same matrix multiplications.
 Moreover, matrix multiplication is time consuming.  We wrote a little
 procedure to reduce the number of matrix multiplications.</p>
@@ -694,7 +694,7 @@ initialized <font class="matlab">V</font> with the statement
 <font class="matlab">V:= u, A.u:</font> if we assume that at least one
 iteration will always be requested.  The rest of the procedure would
 then have to be replaced by
-<font class="matlab"> for i from 2 to N + 1 do  V := V,A.V[i]: od:
+<font class="matlab"> for i from 2 to N do V := V,A.V[i]: od:
 RETURN(V[1 .. N + 1]):</font>.</p>
 </div>
 
@@ -722,7 +722,7 @@ at least 25 years, should we?.</p>
 
 <p> Why does the model predict that after 25 years there will be some
 individuals older than 45 years old and even some older than 75 years old?
-The first problem is that the model assumes uniform distribution
+The problem is that the model assumes uniform distribution
 of the population in each age group.  For instance, the model does not
 differentiate between a 21 years old individual and a 22 years old individual,
 or even between a 21 years old individual and a 45 years old
@@ -740,11 +740,12 @@ from the fact that we assume that the anuual growth rate of the population
 is linear.  This produces an exponential growth of
 the population over time.  This does not mean that the model should
 completely be rejected.  Such models are still very good for some
-large insect populations (and population of bacteria) and for a
-limited time period if years are replaced by a shorter unit of time.</p>
+large insect populations (or populations of bacteria) and for a
+limited time period.  Years have obviously to be replaced by a shorter
+unit of time.</p> 
 
 <p>Though it is not a problem in itself, we must also note that
-the data provided by the model are fractions of individuals.  This
+the data provided by the model include fractions of individuals.  This
 obviously does not make sense.  We have to treat the data as
 approximations of integer numbers of individuals.  The model is
 most valuable for very large populations.<p> 
@@ -753,7 +754,7 @@ most valuable for very large populations.<p>
 to \(\lambda^n \vec{v} \) where \(\lambda\) is the largest eigenvalue
 of \(T\) in absolute value and \(\vec{v}\) is an eigenvector
 associated to \(\lambda\).  The reader should prove this result rigorously if
-this has not been done in one of their linear algebra courses.  We
+this has not already been done in one of their linear algebra courses.  We
 first find the largest eigenvalue of \(T\) in absolute value and an
 eigenvector associated to it.</p> 
 
@@ -801,9 +802,9 @@ eigenvector associated to it.</p>
 \end{split}
 \]
 
-<p> Note that for small enough positive values of \(b_i, d_i\) and
+<p> Note that, for small enough positive values of \(b_i, d_i\) and
 \(t_i\), all the eigenvalues of \(T\) are positive.  So, we
-could have only ignored the possibility of negative or complex
+could have ignored the possibility of negative or complex
 eigenvalues in the procedure above (see note below).  However, there
 is no harm done in writing a little more general procedure.</p> 
 
@@ -844,7 +845,7 @@ and \(T^{2000} \vec{x}^{[0]}\) to \( \lambda^{2000} \vec{v}\).</p>
 \]
 
 <p> We could have taken any other large values for the exponent and we
-would have got similar results.  We may therefore assume that
+would have gotten similar results.  We may therefore assume that
 \(T^n \vec{x}^{[0]} \approx 9.675171744\, \lambda^n \vec{v}\).  Obviously, the
 constant of proportionality will be different if we choose another
 eigenvector \(\vec{v}\) associated to the eigenvalue \(\lambda\), or
@@ -856,7 +857,7 @@ if we choose a different initial condition \(\vec{x}^{[0]}\). </p>
 largest eigenvalue in absolute value and an eigenvector associated to
 it is that <em>Maple</em> does not always list the eigenvalues and
 eigenvectors in the same order.  So, the largest eigenvalue in
-absolute value can occupy different positions in the list depending on
+absolute value can occupy a different position in the list depending on
 the problem (and even on the computer used).  The procedure is not the
 most general procedure.  It does not handle situations when there are
 more than one largest eigenvalue in absolute value or when there are

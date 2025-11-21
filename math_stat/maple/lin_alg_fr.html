@@ -180,7 +180,7 @@ suivante. </p>
 \[ 16 \]
 
 <div class="Note">
-<p><em>Note</em>: Encore, il y a une exception aux règles.  Le point
+<p><em>Note</em>: Il y a encore une exception aux règles.  Le point
 (.) peut être utilisé pour dénoter le produit scalaire de deux vecteurs
 de même dimensions.   Pour cette raison, si nous voulons qu'un vecteur
 rangée (colonne) soit traité comme une matrice avec une rangée
@@ -413,7 +413,7 @@ eigvec := \left[ \left[ 3 + 6\,I, 1, \left[
 
 <p>Les valeurs exactes des valeurs propres et vecteurs propres sont
 souvent des expressions algébriques très complexes.  Si cela est suffisant,
-alors nous pouvons demander des estimations réelles / complexes des
+nous pouvons demander des estimations réelles / complexes des
 valeurs propres et vecteurs propres.</p>
 
 <div class="Example">
@@ -456,7 +456,7 @@ d'utiliser les commandes suivantes.</p>
 </div>
 
 <p>Il est encore mieux de définir \(A\) avec des nombres réels en
-ajoutant un point décimal.  Alors, tous les calculs sont fait de façon
+ajoutant un point décimal.  Alors tous les calculs sont fait de façon
 numérique et nous obtenons automatiquement un estimé des valeurs et
 vecteurs propres. </p>
 
@@ -659,7 +659,7 @@ chacun des groupes d'âges pour une période de 100 ans.</p>
    Anu := proc(A, N, u)
       local i, V:
       V := u, u:
-      for i from 2 to N + 2 do
+      for i from 2 to N + 1 do
          V := V,A.V[i]:
       od:
       RETURN(V[2 .. N + 2]):
@@ -679,7 +679,7 @@ x0 := \begin{bmatrix} 1000 \\ 1200 \\ 450 \\ 200 \end{bmatrix}
 
 <div class="center">
   <img src="Maple_lin_alg_3.png" style="width: 300px"
-     alt="Graph of the size of the four age groups over a period of 100 years">
+ alt="Graphe de la taille des quatre groupes d'âges sur une période de 100 ans">
 </div>
 
 <p> Après quelques années, nous observons une croissance exponentielle
@@ -691,7 +691,7 @@ de la population.  Cela ne peut pas être maintenu. </p>
 avec la commande <font class="matlab">TbN:=seq(Tb^j.v0, j=0..100):</font>.
 Cependant, c'est une façon coûteuse de générer <font class="matlab">TbN</font>
 car cela implique le calcul de <font class="matlab">Tb^j</font> pour
-<font class="matlab">j=0..100)</font>.  Donc, nous répétons plusieurs
+<font class="matlab">j=0..100</font>.  Donc, nous répétons plusieurs
 fois les mêmes multiplications de matrices.  De plus, les
 multiplications de matrices demandent beaucoup de temps.  Nous avons
 écrit une petite procédure afin de réduire le nombre de
@@ -705,7 +705,7 @@ Nous aurions pu initialiser <font class="matlab">V</font> avec
 l'énoncé <font class="matlab">V:= u, A.u:</font> si nous assumons
 qu'au moins une itération sera toujours demandée.  Le reste de la
 procédure devrait alors être remplacé par
-<font class="matlab"> for i from 2 to N + 1 do  V := V,A.V[i]: od:
+<font class="matlab"> for i from 2 to N do  V := V,A.V[i]: od:
 RETURN(V[1 .. N + 1]):</font>.</p>
 </div>
 
@@ -733,7 +733,7 @@ alors n'est ce pas que nous ne devrions pas avoir d'individus âgés de
 
 <p> Pourquoi le modèle prédit-il qu'après 25 ans il y aura des
 individus âgés de plus de 45 ans et même de plus de 75 ans?
-Le premier problème est que le modèle assume une distribution
+Le problème est que le modèle assume une distribution
 uniforme de la population dans chacun des groupes d'âges. Par
 exemple, le modèle ne fait pas la différence entre un individu âgé de
 21 ans et un âgé de 22 ans, ou même entre un individu âgé de
@@ -752,14 +752,14 @@ taux de croissance annuel de la population est linéaire.  Ceci produit
 une croissance exponentielle de la population au fil du temps.  Cela
 ne veut pas dire que le modèle devrait être complètement rejeté. 
 Des modèles de ce genre sont très bons pour certaines grandes populations
-d'insectes (des populations de bactéries) et pour des périodes de
-temps limitées si les années sont remplacées par une plus courte unité de
-temps.</p>
+d'insectes (ou des populations de bactéries) et pour des périodes de
+temps limitées.  Les années doivent évidemment être remplacées par une plus
+courte unité de temps.</p>
 
 <p>Bien que ce ne soit pas un problème en soi, il faut aussi mentionner
-que les données fournies par le modèle sont des fractions
+que les données fournies par le modèle contiennent des fractions
 d'individus.  Cela n'a évidemment pas de sens.  Nous devons
-interpréter les données comme des approximations de nombre entiers
+interpréter les données comme des approximations des nombres entiers
 d'individus.  Le modèle a plus de valeur pour les très nombreuses
 populations.<p>
 
@@ -816,7 +816,7 @@ propre qui lui est associé.</p>
 \end{split}
 \]
 
-<p> Notons que pour des valeurs positives assez petites de
+<p> Notons que, pour des valeurs positives assez petites de
 \(b_i, d_i\) et \(t_i\), toutes les valeurs propres de \(T\) sont
 positives.  Nous aurions donc pu ignorer la possibilité qu'il y ait des valeurs
 propres négatives ou complexes dans la procédure ci-dessus (voir la
@@ -873,9 +873,9 @@ propre \(\lambda\), ou si nous choisissons une condition initiale
 <p><em>Note</em>: La raison pour laquelle nous avons écrit une
 procédure pour trouver la plus grande valeur propre en valeur absolu
 et un vecteur propre qui lui est associé est que <em>Maple</em> 
-n'affiche pas toujours les valeurs propres et vecteurs propres dans la
+n'affiche pas toujours les valeurs propres et vecteurs propres dans le
 même ordre.  Donc, la plus grande valeur propre en valeur absolu peut
-occuper des positions dans la liste selon le problème (et même selon
+occuper une position différente dans la liste selon le problème (et même selon
 l'ordinateur utilisé).  Cette procédure n'est pas la plus générale.
 Elle ne peut pas traiter les cas où il y a plus d'une plus grande
 valeur propre en valeur absolu ou les cas où il y a plus qu'un vecteur
@@ -1076,7 +1076,7 @@ Ainsi, la norme infinie de la matrice \(C\) ci-dessus est</p>
 
 <p>Finalement, avec un peu plus de travail que pour les deux normes
 précédentes, il est possible de démontrer que la norme \(2\) 
-d'une matrice \(A\) de dimension \(n \times n\) est la racine carré de
+d'une matrice \(A\) de dimension \(n \times n\) est la racine carrée de
 la plus grande valeur propre en valeur absolue de la matrice
 \(\displaystyle A A^\ast\).  Ainsi, la norme \(2\) de la matrice 
 \(C\) ci-dessus est</p>
