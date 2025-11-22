@@ -92,12 +92,12 @@ main_title( MStexte, "MMathSStat");
 	  buildLinK("#graphs3D", "Dessins en trois dimensions","MMathSStat",
 	  "sect6ID", "_top");
       </script> </li>
-      <li> <script language="javascript"> 
-	  buildLinK("#graphsMore",
-	  "Encore plus sur les dessins en trois dimensions",
-	  "MMathSStat", "sect7ID", "_top");
-      </script> </li>
     </ul>
+  </li>
+  <li> <script language="javascript"> 
+	  buildLinK("#graphsMore",
+	  "Encore plus sur les dessins en deux ou trois dimensions",
+	  "MMathSStat", "sect7ID", "_top"); </script>
   </li>
   <li> <script language="javascript"> 
       buildLinK("#ATop", "Sujets avancés","MMathSStat", "sect8ID", "_top");
@@ -457,7 +457,10 @@ définie par \(f(x,y) = \sin(x+y)+\cos(x+y)\).</p>
 </div>
 </div>
 
-<h4 id="graphsMore"> Encore plus sur les dessins en trois dimensions </h4>
+<hr class="MMathSStat">
+
+<h3 id="graphsMore"> Encore plus sur les dessins en deux ou trois
+dimensions </h3>
 
 <p><em>Maple</em> possède certaines librairies qui sont spécialement
 conçues pour dessiner des figures géométriques en trois dimensions.
@@ -654,6 +657,96 @@ inter
 il se doit que leur intersection est une droite.  <em>Maple</em> donne
 la représentation paramétrique de cette droite.</p>
 </div>
+
+<p>Nous complétons cette section avec un exemple qui illustre 
+comment nous pouvons utiliser <font class="matlab">plottools</font>
+pour dessiner des figures qui contiennent des commentaires. </p>
+
+<div class="Example">
+<p><em>Exemple</em>: Un bloc de 5 kg est suspendu à partir du milieu
+d'un câble, le point C dans la figure ci-dessous.  Les extrémités du
+câble sont attachées à deux points, A et B dans la figure ci-dessous,
+qui sont à la même hauteur.  Nous assumons que la masse du câble est
+négligeable.   Nous cherchons la force de tension 
+\(T\) dans le câble de C à A et de C à B si l'angle \(\alpha\) est de
+\(20^\circ\).  Pour résoudre ce problème, nous utilisons le principe
+que la somme des composantes horizontales des forces vectorielles et la
+somme des composantes verticales des forces vectorielles doivent être
+nulles.  Nous utilisons <em>Maple</em> pour dessiner la figure.</p> 
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(plots): with(plottools):
+   gr1 := line([0,0], [-8,3], color="black", linestyle=1):
+   gr2 := line([0,0], [8,3], color="black", linestyle=1):
+   gr3 := line([-8,3], [8,3], color="black", linestyle=3):
+   gr4 := line([0,0], [0,-1], color="black", linestyle=1):
+   gr5 := textplot([0,4,"3 m"], font=[COURIER,12],align={'below'}):
+   gr6 := textplot([-8.5,3,'A'], font=[COURIER,12],align={'left'}):
+   gr7 := textplot([8.5,3,'B'], font=[COURIER,12],align={'right'}):
+   gr8 := textplot([1,0,'C'], font=[COURIER,12], align={'right','below'}):
+   gr9 := textplot([-5,2.5,'f'], font=[SYMBOL,12],align={'right'}):
+   gr10 := textplot([5,2.5,'f'], font=[SYMBOL,12],align={'left'}):
+   gr11 := rectangle([-1,-1],[1,-2], color="red"):
+   display({gr1,gr2,gr3,gr4,gr5,gr6,gr7,gr8,gr9,gr10,gr11},
+      view=[-9..9,-3..5], axes=none, scaling=constrained);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_11.png" style="width: 300px"
+       alt="Dessin du bloc suspendu">
+</div>
+
+<p> Si C est l'origine, nous obtenons la figure suivante pour les
+forces vectorielles.  Les flèches indiquent les directions des forces. </p>
+
+<pre class="matlab">
+> <font class="matlab"> gr1 := arrow([0,0],[-8,3],0.1,0.4,0.1, color=black, linestyle=1):
+   gr2 := arrow([0,0],[8,3],0.1,0.4,0.1, color="black", border=[color="black"], linestyle=1):
+   gr3 := arrow([0,0],[0,-6],0.1,0.4,0.1, color="black", border=[color="black"], linestyle=1):
+   gr4 := arrow([0,0],[0,6],0.1,0.4,0.1, color="green", border=[color="green"], linestyle=1):
+   gr5 := line([-8,3],[0,6], color="red", linestyle=3):
+   gr6 := line([8,3],[0,6], color="red", linestyle=3):
+   gr7 := line([-8,0],[8,0], color="black", linestyle=3):
+   gr8 := textplot([2.5,0.5,'f'], font=[SYMBOL,12], align={'right'}):
+   gr9 := textplot([0.5,-6,"mg"], font=[COURIER,12], align={'right'}):
+   gr10 := textplot([8,3,"T"], font=[COURIER,12], align={'right'}):
+   display({gr1,gr2,gr3,gr4,gr5,gr6,gr7,gr8,gr9,gr10},
+      view=[-9..9,-7..7], axes=none, scaling=constrained);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_graph_12.png" style="width: 300px"
+       alt="Dessin des forces et de leur directions">
+</div>
+
+<p> La flèche verte représente la composante verticale de la somme des
+forces vectorielles exercées par les deux côtés du câble.  La grandeur
+de cette force est de \( 2 T \sin(\phi)\) newtons.  Puisque la somme
+des composantes verticales de toutes les forces vectorielles doit être
+nulle, nous avons que \( 2 T \sin(\phi) = m g\) où \(g = 9.8\)
+m/s<sup>2</sup> est l'accélération gravitationnelle.  Donc \(T\) est </p>
+
+<pre class="matlab">
+> <font class="matlab"> T := (9.8 * 5)/(2* sin(20 * Pi/180));
+</font>
+</pre>
+
+\[
+T := 71.63320780
+\]
+
+<p>newtons.</p>
+</div>
+
+<p>Puisqu'il n'est pas facile de dessiner une figure
+avec <em>Maple</em>, cela devraient probablement être fait seulement
+pour produire des figures qui sont dynamiques; c'est-à-dire, des
+figures qui dépendent de certaines variables et donc changent en
+fonction des valeurs des variables.</p>
+
+<hr class="MMathSStat">
 
 <h3 id="ATop"> Sujets avancés </h3>
 
