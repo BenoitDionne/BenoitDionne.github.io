@@ -209,6 +209,111 @@ comportement de \(x(t)\) et \(x'(t)\) lorsque \(t\) converges vers
 \(\infty\)?  Variez la longueur de l'intervalle d'intégration et
 observez ce qui arrive aux graphes de \(x\) et \(x'\).</p>
 
+<div class="Example">
+<p><em>Exemple</em>: Un gentil chien court après une personne.  Le
+chien commence à courir à partir de l'origine quand la personne traverse
+l'axe des \(x\).  La personne marche en ligne droite à une vitesse de
+\(v\) km/hr comme nous pouvons voir dans la figure ci-dessous. </p>
+
+<div class="center">
+  <img src="dog_fr.png" style="width: 350px"
+       alt="Representation graphique du chien qui court après la personne">
+</div>
+
+<p> La direction du chien est toujours vers la personne.  De plus, le
+chien court a une vitesse constante de \(v_d\) km/hr.  La position du
+chien est décrite par une EDO que nous allons déduire ci-dessous.</p>
+
+<p> Puisque le chien court toujours vers la personne, nous avons que</p>
+\[
+\frac{\text{d}y}{\text{d}x} = \frac{y-v t}{x-a} \ .
+\]
+<p> Puisque la vitesse \(v_d\) à laquelle le chien court est
+constante, nous avons que </p>
+\[
+v_d = \left( \left( \frac{\text{d}x}{\text{d}t} \right)^2 
++ \left( \frac{\text{d}y}{\text{d}t} \right)^2  \right)^{1/2}
+= \frac{\text{d}x}{\text{d}t}
+\left( 1 + \left( \frac{\text{d}y}{\text{d}x} \right)^2  \right)^{1/2} \ ,
+\]
+<p> où nous avons déduit de la figure ci-dessus que les dérivées de
+\(x\) et \(y\) par rapport à \(t\) sont positives.  Si nous dérivons 
+l'équation \(\displaystyle (x-a) \frac{\text{d}y}{\text{d}x} = y-v t\) par
+rapport à \(t\), nous obtenons</p>
+\[
+(x-a) \frac{\text{d}^2y}{\text{d}x^2} \frac{\text{d}x}{\text{d}t}
++ \frac{\text{d}y}{\text{d}x} \frac{\text{d}x}{\text{d}t}
+= (x-a) \frac{\text{d}^2y}{\text{d}x^2} \frac{\text{d}x}{\text{d}t}
++ \frac{\text{d}y}{\text{d}t}  = \frac{\text{d}y}{\text{d}t} - v \ .
+\]
+<p> Donc </p>
+\[
+(x-a) \frac{\text{d}^2y}{\text{d}x^2} = -v\,
+\left(\frac{\text{d}x}{\text{d}t}\right)^{-1}
+= -\frac{v}{v_d}
+\left( 1 + \left( \frac{\text{d}y}{\text{d}x} \right)^2  \right)^{1/2} \ .
+\]
+<p>Ce n'est pas le genre d'EDO que l'on peut résoudre avec les
+techniques usuelles qui sont enseignées dans les cours d'EDO.  En
+particulier, c'est une EDO nonlinéaire.  Nous
+allons donc la résoudre numériquement.  Nous assumons que
+\(a= 0.5\) km, \(v = 3\) kn/hr et \(v_d = 10\) km/hr.</p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(plots):
+   equ := vd*(a-x)*diff(y(x),x$2) = v*(1 + ( diff(y(x),x))^2)^(1/2);
+   equP := subs({a=0.5, v=3, vd=10},equ);
+   solP := dsolve({equP, y(0)=0, D(y)(0)=0},y(x),type=numeric,output=procedurelist,
+      method=rkf45, range=0..0.499);
+   odeplot(solP, 0..0.499,axes=BOXED,labels=[`x`,`y`],refine=2,gridlines=true);
+</font>
+</pre>
+
+\[
+\begin{split}
+& equ := vd\,(a - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
+= v\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2} \\
+& equP := 10\,(0.5 - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
+= 3\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2} \\
+& solP := \text{proc(x\_rkf45) \ldots end proc}
+\end{split}
+\]
+
+<div class="center">
+  <img src="Maple_dog1.png" style="width: 350px"
+       alt="Dessin du trajet du chien qui court après la personne">
+</div>
+
+<p>Nous intégrons l'EDO jusqu'à \(x = 0.499 \) car
+\(\displaystyle \frac{\text{d}}{\text{d} x} y(x) \to \infty\) lorsque
+\(x \to 0.5\) où, en théorie, le chien rattrape la personne.</p>
+
+<p> Qu'arrive-t-il si nous avons un très petit chien ou un chien très
+paresseux qui court seulement à \(2\) km/hr?  Nous avons maintenant
+que \(a= 0.5\) km, \(v = 3\) kn/hr et \(v_d = 2\) km/hr.</p>
+
+<pre class="matlab">
+> <font class="matlab"> equP := subs({a=0.5, v=3, vd=2},equ);
+   solP := dsolve({equP, y(0)=0, D(y)(0)=0},y(x),type=numeric,output=procedurelist,
+      method=rkf45, range=0..0.499):
+   odeplot(solP, 0..0.499,axes=BOXED,labels=[`x`,`y`],refine=2,gridlines=true);
+</font>
+</pre>
+
+\[
+equP := 2\,(0.5 - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
+= 3\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2}
+\]
+
+<div class="center">
+  <img src="Maple_dog2.png" style="width: 350px"
+       alt="Dessin du trajet du chien qui court après la personne">
+</div>
+
+<p> Dans ce cas, le chien ne rattrapera jamais la personne si on
+suppose que la personne va marcher à la même vitesse pour toujours.</p>
+</div>
+
 <p> Pour le reste de ce document, nous considérons deux EDO d'ordre
 deux avec des coefficients variables qui sont des examples classiques:
 l'équation de Cauchy-Euler et l'équation de Bessel.  Il y en a bien
