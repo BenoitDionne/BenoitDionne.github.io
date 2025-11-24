@@ -35,6 +35,7 @@ This may be an issue if want to use the dollar sign denote curency. -->
 MathJax = {
    tex: {
       inlineMath: {'[+]' : [['$','$']]} 
+      tags: 'ams'
    }
 };
 </script>
@@ -44,6 +45,13 @@ MathJax = {
 html and csv instead of scalable vector graphis. -->  
 <script defer type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      tags: 'ams'
+   }
+};
+</script>
 
 </head>
 <body>
@@ -58,11 +66,9 @@ top_function(ODE_systems,"en");
 main_title( MStext, "MMathSStat");
 </script>
 
-<div class="LOOK3">
 <script language="javascript"> 
-      buildLinK("#TOP", "Back to the top", "MMathSStat", "TOPID", "_top");
+  topPage("TOP", "en");
 </script>
-</div>
 
 <h2 id="TOP"> Systems of ODE </h2>
 
@@ -208,6 +214,8 @@ X := \left\{ x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ), x2(t) = -e^{2t} (  -3 \cos
      alt="Drawing of the orbit of the solution of X' = A X with X(0) = (2 ,3)">
 </div>
 </div>
+
+<hr class="MMathSStat">
 
 <h3> Homogeneous Linear Systems of ODE </h3>
 
@@ -455,6 +463,8 @@ solutions would have gone away from the origin as \(t \to \infty\).
 The original would then be called a <em>unstable spiral</em> or
 <em>unstable focus</em>. </p>
 
+<hr class="MMathSStat">
+
 <h3> Non-homogeneous Linear Systems of ODE </h3>
 
 <p>Consider the non-homogeneous linear system of ODE defined by the
@@ -496,6 +506,8 @@ solution of a system of non-homogeneous linear ODE like the one that we
 have just considered.  The reader can find it in most introductory textbook on
 ODE. </p>
 </div>
+
+<hr class="MMathSStat">
 
 <h3> Higher Order ODE </h3>
 
@@ -575,11 +587,13 @@ the second ordre ODE that we presented in the first example of the document
     ODE_O2_var_coeff.target);
 </script>.</p>
 
-<h3> Nonlinear Systems of ODE </h3>
+<hr class="MMathSStat">
 
-<p>There are no general methods to solve nonlinear systems of ODE.  We
-often have no other choice than to do a qualitative study of the system
-and/or to solve the system numerically.</p> 
+<h3> Systems of Nonlinear Autonomous ODE </h3>
+
+<p>There are no general methods to solve systems of nonlinear
+autonomous ODE.  We often have no other choice than to do a
+qualitative study of the system and/or to solve the system numerically.</p> 
 
 <h4> Van der Pol Equation </h4>
 
@@ -612,7 +626,7 @@ to draw these orbits.</p>
 <pre class="matlab">
 > <font class="matlab"> graph := proc (a, b, T, clr)
    local X;
-   X := dsolve(eq3 union {x1(0) = a, x2(0) = b}, {x1(t), x2(t)}, type = numeric,
+   X := dsolve(eq3 union {x1(0) = a, x2(0) = b}, [x1(t), x2(t)], type = numeric,
       output = procedurelist, method = classical[rk4], stepsize = 0.1e-1):
    RETURN(odeplot(X, [x1(t), x2(t)], 0 .. T, numpoints = floor(30*T), color = clr)):
    end proc;</font>
@@ -675,7 +689,7 @@ ODE.  We also draw some orbits in the figure that contains the vector
 filed.</p> 
 
 <pre class="matlab">
-> <font class="matlab"> with(DEtools);
+> <font class="matlab"> with(DEtools):
    DEplot(eq3, [x1(t), x2(t)], t = 0 .. 8*Pi,
       [[x1(0) = .5, x2(0) = .5], [x1(0) = 2, x2(0) = 2]], linecolor = [blue, red],
       thickness = 2, color = black, stepsize = 0.1e-1, arrows = small);</font>
@@ -905,6 +919,236 @@ order one and the orbits of the two particular solutions above.</p>
 <p>For the orbit in red, the oscillation of the pendulum is
 dying down.  For the orbit in blue, after a complete rotation, the
 pendulum starts to oscillate and its oscillation is also dying down.</p>
+
+<hr class="MMathSStat">
+
+<h3> Systems of Nonlinear Non-Autonomous ODE </h3>
+
+<p> The analysis of systems of nonlinear non-autonomous ODE is more
+complex than the anaylsis of systems of nonlinear autonomous ODE.
+In particular, the system of ODE \(\vec{x}'= f(t,\vec{x})\) does not
+define a vector field because the right hand side depends explicitly
+of \(t\).  We will only give an example to illustrate
+ how <em>Maple</em> can still be used to study such systems of ODE.</p>
+
+<div class="Example">
+<p><em>Example</em>: A friendly dog is running after a person.  The
+dog starts running from the origin when the person crosses the
+\(x\) axis as illustrated in the figure below. </p>
+
+<div class="center">
+  <img src="dog_en.png" style="width: 350px"
+       alt="Graphical representation of the dog chasing a person">
+</div>
+
+<p> The person walks in a straight line at a speed of \(v\) km/h.
+The direction of the dog is always toward the person.  Moreover, the dog 
+runs at a constant speed of \(v_d\) km/h.  The position of the dog
+is described by differential equations that we are going to deduce below.</p>
+
+<p><em>First Method</em>:  Since the dog is always running toward
+the person, we have that </p> 
+\[
+\begin{equation} \label{Equ1}
+\frac{\text{d}y}{\text{d}x} = \frac{y-v t}{x-a} \ .
+\end{equation}
+\]
+<p> Since the speed \(v_d\) at which the dog run is constant, we also have
+that </p>
+\[
+\begin{equation} \label{Equ2}
+v_d = \left( \left( \frac{\text{d}x}{\text{d}t} \right)^2 
++ \left( \frac{\text{d}y}{\text{d}t} \right)^2  \right)^{1/2}
+= \frac{\text{d}x}{\text{d}t}
+\left( 1 + \left( \frac{\text{d}y}{\text{d}x} \right)^2  \right)^{1/2} \ ,
+\end{equation}
+\]
+<p> where we have deduced from the figure above that the
+derivatives of \(x\) and \(y\) with respect to \(t\) are positive.
+If we derive the equation
+\(\displaystyle (x-a) \frac{\text{d}y}{\text{d}x} = y-v t\) with
+respect to \(t\), then we get</p>
+\[
+(x-a) \frac{\text{d}^2y}{\text{d}x^2} \frac{\text{d}x}{\text{d}t}
++ \frac{\text{d}y}{\text{d}x} \frac{\text{d}x}{\text{d}t}
+= (x-a) \frac{\text{d}^2y}{\text{d}x^2} \frac{\text{d}x}{\text{d}t}
++ \frac{\text{d}y}{\text{d}t}  = \frac{\text{d}y}{\text{d}t} - v \ .
+\]
+<p> Thus </p>
+\[
+(x-a) \frac{\text{d}^2y}{\text{d}x^2} = -v\,
+\left(\frac{\text{d}x}{\text{d}t}\right)^{-1}
+= -\frac{v}{v_d}
+\left( 1 + \left( \frac{\text{d}y}{\text{d}x} \right)^2  \right)^{1/2} \ .
+\]
+<p>This is not the type of second order ODE that we can solve with the
+usual techniques taught in courses on ODE.  In particular, this is a
+nonlinear ODE.  We will therefore solve it numerically.
+We assume that \(a= 0.5\) km, \(v = 3\) kn/h and
+\(v_d = 10\) km/h.  We draw the graph of \(y\) in fonction of \(x\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(plots):
+   equ := vd*(a-x)*diff(y(x),x$2) = v*(1 + ( diff(y(x),x))^2)^(1/2);
+   equP := subs({a=0.5, v=3, vd=10},equ);
+   solP := dsolve({equP, y(0)=0, D(y)(0)=0},y(x),type=numeric,output=procedurelist,
+      method=rkf45, range=0..0.499);
+   odeplot(solP, 0..0.499,axes=BOXED,labels=[`x`,`y`],refine=2,gridlines=true);
+</font>
+</pre>
+
+\[
+\begin{split}
+& equ := vd\,(a - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
+= v\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2} \\
+& equP := 10\,(0.5 - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
+= 3\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2} \\
+& solP := \text{proc(x\_rkf45) \ldots end proc}
+\end{split}
+\]
+
+<div class="center">
+  <img src="Maple_dog1.png" style="width: 350px"
+       alt="Drawing of the path of the dog running after the person">
+</div>
+
+<p>We integrate the ODE up to \(x = 0.499 < 0.5\) because
+\(\displaystyle \frac{\text{d}}{\text{d} x} y(x) \to \infty\) as
+\(x \to 0.5\).  In theory, the dog catches up with the person when
+\(x =0.5\) km.  If we solve the ODE over the interval \([0,0.4999999]\),
+then we get basically the same figure than the one above.  Thus, we
+may assume that \(y \approx 0.162\) km when the dog reaches the person.</p>
+
+<p> What happen if we have a very small dog or a lazy dog that runs
+only at \(2\) km/h?  We now have that \(a= 0.5\) km, \(v = 3\) kn/h and
+\(v_d = 2\) km/h. We draw the graph of \(y\) in function of \(x\). </p>
+
+<pre class="matlab">
+> <font class="matlab"> equP := subs({a=0.5, v=3, vd=2},equ);
+   solP := dsolve({equP, y(0)=0, D(y)(0)=0},y(x),type=numeric,output=procedurelist,
+      method=rkf45, range=0..0.499):
+   odeplot(solP, 0..0.499,axes=BOXED,labels=[`x`,`y`],refine=2,gridlines=true);
+</font>
+</pre>
+
+\[
+equP := 2\,(0.5 - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
+= 3\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2}
+\]
+
+<div class="center">
+  <img src="Maple_dog2.png" style="width: 350px"
+       alt="Drawing of the path of the dog running after the person">
+</div>
+
+<p> If we solve the ODE over the interval \([0,0.4999999]\),
+then we get figure below.</p>
+
+<pre class="matlab">
+> <font class="matlab"> solP := dsolve({equP, y(0)=0, D(y)(0)=0},y(x),type=numeric,output=procedurelist,
+      method=rkf45, range=0..0.4999999):
+   odeplot(solP, 0..0.4999999,axes=BOXED,labels=[`x`,`y`],refine=2,gridlines=true);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_dog3.png" style="width: 350px"
+       alt="Drawing of the path of the dog running after the person">
+</div>
+
+<p> The poor dog is still running after the person after more than
+\(1100\) km.  In this case, the dog will never reach the person if we assume
+that this person is going to walk at the same speed for ever.</p> 
+
+<p><em>Second Method</em>: The previous method has a flaw.  It
+completely ignores the time.  In particular, if the speeds of the
+person and the dog were varying in time, we would not be able to
+determine how long it takes for the dog to reach the person.  We will
+therefore deduce a system of ODE that describe the position of the dog in
+function of the time.  Our deduction will still be based on the relations
+\eqref{Equ1} and \eqref{Equ2} above.</p>
+
+<p> We get from \eqref{Equ1} that </p>
+\[
+\begin{equation} \label{Equ3}
+\frac{\text{d}y}{\text{d}t} = \frac{y-v t}{x-a} \,
+\frac{\text{d}x}{\text{d}t} \ .
+\end{equation}
+\]
+<p>If we substitute \eqref{Equ3} into \eqref{Equ2}, then we get </p>
+\[
+\frac{\text{d}x}{\text{d}t} = v_d \left( 1
++ \left( \frac{y-vt}{x-a}\right)^2\right)^{-1/2}
+= \frac{ v_d (a - x) }{ \sqrt{(x-a)^2 + (y-vt)^2}} \ .
+\]
+<p> Since we assume that \(x < a\), we have used \( \sqrt{(x-a)^2} = a - x\).
+If we substitute this expression back into \eqref{Equ3}, then we get</p>
+\[
+\frac{\text{d}y}{\text{d}t}
+= \frac{ v_d (y-v t) }{ \sqrt{(x-a)^2 + (y-vt)^2}} \ .
+\]
+<p> We thus have the following system of ODE. </p>
+
+<pre class="matlab">
+> <font class="matlab"> eq1 := diff(x(t),t) = vd*(a -x(t))/sqrt((x(t)-a)^2+(y(t)-v*t)^2);
+   eq2 := diff(y(t),t) = vd*(v*t - y(t))/sqrt((x(t)-a)^2 +(y(t)-v*t)^2);
+   eq :=  {eq1, eq2, x(0) = 0, y(0) = 0 };
+</font>
+</pre>
+
+\[
+\begin{split}
+& eq := \bigg\{\frac{d}{d t}x (t) = \frac{vd \left(a -x(t)\right)}
+{\sqrt{\left(x(t)-a \right)^{2}+\left(y(t)-v t \right)^{2}}},
+\frac{d}{d t}y (t) = \frac{vd \left(v t -y(t)\right)}
+{\sqrt{\left(x(t)-a \right)^{2}+\left(y(t)-v t \right)^{2}}},\\
+& x(0) = 0,y(0) = 0\bigg\}
+\end{split}
+\]
+
+<p> As we did previously, we assume that \(a= 0.5\) km, \(v = 3\) kn/h and
+\(v_d = 10\) km/h.  We draw the orbit
+\( \{ (x(t),y(t)): 0 \leq t \leq 0.1 \} \) that represents the
+position of the dog as \(t\) increases.</p>
+
+<pre class="matlab">
+> <font class="matlab"> eqP := subs({a=0.5,v=3,vd=10}, eq);
+   solP := dsolve(eqP, [x(t),y(t)], type=numeric, method = rkf45,
+      output =procedurelist, range=0..0.0551):
+   odeplot(solP,[x(t),y(t)],t=0..0.0551,labels=[`x(t)`,`y(t)`],
+      axes=BOXED,refine=2,gridlines=true);
+</font>
+</pre>
+
+\[
+\begin{split}
+& eq := \bigg\{\frac{d}{d t}x (t) = \frac{10 \left(0.5 -x(t)\right)}
+{\sqrt{\left(x(t)- 0.5 \right)^{2}+\left(y(t)-3 t \right)^{2}}},
+\frac{d}{d t}y (t) = \frac{10 \left(3 t -y(t)\right)}
+{\sqrt{\left(x(t)- 0.5 \right)^{2}+\left(y(t)- 3 t \right)^{2}}},\\
+& x(0) = 0,y(0) = 0\bigg\}
+\end{split}
+\]
+
+<div class="center">
+  <img src="Maple_dog4.png" style="width: 350px"
+       alt="Drawing of the orbite given by (x(t),y(t)) for 0 \leq t \leq 0.1">
+</div>
+
+<p> If we try to integrate for \( t > 0.055\ldots \),
+then <em>Maple</em> displays the following message. </p>
+
+\[
+\text{Warning, cannot evaluate the solution further right of
+.55107367e-1, maxfun limit exceeded (see ?dsolve,maxfun for details)}
+\]
+
+<p> The problem is that \(x(t),y(t)) \to (0.5, 0.165\ldots )\) as
+  \( t \to 0.055\ldots \).  The ODE is not defined for
+\( (t,x,y) \approx (0.0551, 0.5, 0.1653)\).  This is the time and
+location when the dog reaches the person.  So, the dog takes about
+3 minutes and 18 secondes to reach the person. </p>
+</div>
 
 <hr class="MMathSStat">
 

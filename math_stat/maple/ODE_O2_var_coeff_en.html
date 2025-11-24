@@ -58,11 +58,9 @@ top_function(ODE_O2_var_coeff,"en");
 main_title( MStext, "MMathSStat");
 </script>
 
-<div class="LOOK3">
 <script language="javascript"> 
-      buildLinK("#TOP", "Back to the top", "MMathSStat", "TOPID", "_top");
+  topPage("TOP", "en");
 </script>
-</div>
 
 <h2 id="TOP"> Second Order ODE with Variable Coefficients </h2>
 
@@ -206,116 +204,12 @@ behaviour of \(x(t)\) and \(x'(t)\) as \(t\) converges to \(\infty\)?
 Vary the length of the interval of integration and observe what happen
 to the graphs.</p> 
 
-<div class="Example">
-<p><em>Example</em>: A friendly dog is running after a person.  The
-dog starts running from the origin when the person crosses the
-\(x\)-axis.  The person walks in a straight line at a speed of
-\(v\) km/hr as illustrated in the figure below. </p>
-
-<div class="center">
-  <img src="dog_en.png" style="width: 350px"
-       alt="Graphical representation of the dog chasing a person">
-</div>
-
-<p> The direction of the dog is always toward the person.  Moreover, the dog
-runs at a constant speed of \(v_d\) km/hr.  The position of the dog
-is described by a differential equation that we are going to deduce below.</p>
-
-<p> Since the dog is always running toward the person, we have that </p>
-\[
-\frac{\text{d}y}{\text{d}x} = \frac{y-v t}{x-a} \ .
-\]
-<p> Since the speed \(v_d\) at which the dog run is constant, we also have
-that </p>
-\[
-v_d = \left( \left( \frac{\text{d}x}{\text{d}t} \right)^2 
-+ \left( \frac{\text{d}y}{\text{d}t} \right)^2  \right)^{1/2}
-= \frac{\text{d}x}{\text{d}t}
-\left( 1 + \left( \frac{\text{d}y}{\text{d}x} \right)^2  \right)^{1/2} \ ,
-\]
-<p> where we have deduced from the figure above that the
-derivatives of \(x\) and \(y\) with respect to \(t\) are positive.
-If we derive the equation
-\(\displaystyle (x-a) \frac{\text{d}y}{\text{d}x} = y-v t\) with
-respect to \(t\), then we get</p>
-\[
-(x-a) \frac{\text{d}^2y}{\text{d}x^2} \frac{\text{d}x}{\text{d}t}
-+ \frac{\text{d}y}{\text{d}x} \frac{\text{d}x}{\text{d}t}
-= (x-a) \frac{\text{d}^2y}{\text{d}x^2} \frac{\text{d}x}{\text{d}t}
-+ \frac{\text{d}y}{\text{d}t}  = \frac{\text{d}y}{\text{d}t} - v \ .
-\]
-<p> Thus </p>
-\[
-(x-a) \frac{\text{d}^2y}{\text{d}x^2} = -v\,
-\left(\frac{\text{d}x}{\text{d}t}\right)^{-1}
-= -\frac{v}{v_d}
-\left( 1 + \left( \frac{\text{d}y}{\text{d}x} \right)^2  \right)^{1/2} \ .
-\]
-<p>This is not the type of second order ODE that we can solve with the
-usual techniques taught in courses on ODE.  In particular, this is a
-nonlinear ODE.  We will therefore solve
-it numerically.  We assume that \(a= 0.5\) km, \(v = 3\) kn/hr and
-\(v_d = 10\) km/hr.</p>
-
-<pre class="matlab">
-> <font class="matlab"> restart: with(plots):
-   equ := vd*(a-x)*diff(y(x),x$2) = v*(1 + ( diff(y(x),x))^2)^(1/2);
-   equP := subs({a=0.5, v=3, vd=10},equ);
-   solP := dsolve({equP, y(0)=0, D(y)(0)=0},y(x),type=numeric,output=procedurelist,
-      method=rkf45, range=0..0.499);
-   odeplot(solP, 0..0.499,axes=BOXED,labels=[`x`,`y`],refine=2,gridlines=true);
-</font>
-</pre>
-
-\[
-\begin{split}
-& equ := vd\,(a - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
-= v\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2} \\
-& equP := 10\,(0.5 - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
-= 3\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2} \\
-& solP := \text{proc(x\_rkf45) \ldots end proc}
-\end{split}
-\]
-
-<div class="center">
-  <img src="Maple_dog1.png" style="width: 350px"
-       alt="Drawing of the path of the dog running after the person">
-</div>
-
-<p>We integrate the ODE up to \(x = 0.499 \) because
-\(\displaystyle \frac{\text{d}}{\text{d} x} y(x) \to \infty\) as
-\(x \to 0.5\) where, in theory, the dog catch up with the person.</p>
-
-<p> What happen if we have a very small dog or a lazy dog that runs
-only at \(2\) km/hr?  We now have that \(a= 0.5\) km, \(v = 3\) kn/hr and
-\(v_d = 2\) km/hr.</p>
-
-<pre class="matlab">
-> <font class="matlab"> equP := subs({a=0.5, v=3, vd=2},equ);
-   solP := dsolve({equP, y(0)=0, D(y)(0)=0},y(x),type=numeric,output=procedurelist,
-      method=rkf45, range=0..0.499):
-   odeplot(solP, 0..0.499,axes=BOXED,labels=[`x`,`y`],refine=2,gridlines=true);
-</font>
-</pre>
-
-\[
-equP := 2\,(0.5 - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
-= 3\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2}
-\]
-
-<div class="center">
-  <img src="Maple_dog2.png" style="width: 350px"
-       alt="Drawing of the path of the dog running after the person">
-</div>
-
-<p> In this case, the dog will never reach the person if we assume
-that this person is going to walk at the same speed for ever.</p> 
-</div>
-
 <p> For the rest of this document, we consider two classical second
 order ODE with variable coefficients: the Cauchy-Euler equation and
 the Bessel equation.  There are many more but these two ODE are
 really important.</p>
+
+<hr class="MMathSStat">
 
 <h3> Cauchy-Euler Equation </h3>
 
@@ -417,6 +311,8 @@ general solution for this ODE.</p>
 <p>This is the expected general solution.</p>
 </div>
 
+<hr class="MMathSStat">
+
 <h3> Boundary value Problems for ODE </h3>
 
 <p> To study some partial differential equations (PDE), it is
@@ -480,6 +376,8 @@ y(x) = x - \frac{x \ln(x)}{3 \ln(3)}
 <p>Hence, we have \(c_1 = 1\) and \(\displaystyle c_2 = -(3\ln(3)^{-1}\).</p>
 </div>
 
+<hr class="MMathSStat">
+
 <h3> Bessel Equation </h3>
 
 <p> We now consider the Bessel equation</p>
@@ -539,7 +437,7 @@ and \(1\) are drawn below.</p>
 > <font class="matlab"> with(plots):</font>
 > <font class="matlab"> J0 := plot(BesselJ(0,x),x=0..10, color="red"):</font>
 > <font class="matlab"> J1 := plot(BesselJ(1,x),x=0..10, color="blue"):</font>
-> <font class="matlab"> display({J0,J1});</font>
+> <font class="matlab"> display({J0,J1},axes=BOXED,labels=[`x`,`y`],gridlines=true);</font>
 </pre>
 
 <div class="center">
@@ -557,7 +455,7 @@ and \(1\) are drawn below.</p>
 <pre class="matlab">
 > <font class="matlab"> Y0 := plot(BesselY(0,x),x=0.1..10, color="red"):</font>
 > <font class="matlab"> Y1 := plot(BesselY(1,x),x=0.1..10, color="blue"):</font>
-> <font class="matlab"> display({Y0,Y1});</font>
+> <font class="matlab"> display({Y0,Y1},axes=BOXED,labels=[`x`,`y`],gridlines=true);</font>
 </pre>
 
 <div class="center">

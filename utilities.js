@@ -176,13 +176,15 @@ function clickMenuIcon(given_url) {
 /* Function used in the header to switch from French to
    English and vice-versa.  Note that it is not robust because, for instance,
    it is easy to create url with many =Francais that does not give
-   the english equivalent page if we replace =Francais by =English, */
+   the english equivalent page if we replace =Francais by =English.
+   This function is not used.  */
+/*
 function switch_language(lang) {
     var new_url = "";
     var old_url = new String(window.top.location);
 
     if ( lang.length > 0 ) {
-	/* This variable can overwrite any other language instruction. */
+    /* This variable can overwrite any other language instruction. STAR/
 	if ( ch_lang_url != null && ch_lang_url != "" )
 	    new_url = ch_lang_url;
 	else {
@@ -245,23 +247,13 @@ function switch_language(lang) {
     reader.send(null);
 
     /* To force the change of website right away, it suffices to uncomment
-       the self.location.href = ... line. */
+       the self.location.href = ... line. STAR/
     /*
     return new_url;
     self.location.href = new_url;
-    */
+    STAR/
 }
-
-/**********************************************************************
- * This was initially for the old version of talks (the C version).
- * This functions was used by the three buttons below the departemental
- * title to change language, return to home page of Talks, and start
- * a personal query.
- * This function is still used but only in special rare cases.
- **********************************************************************/
-function clickTopButton(url) {
-    self.location.href=url;
-}
+*/
 
 /**********************************************************************
  * Structures for the images
@@ -317,10 +309,37 @@ function buildLinK( Url, Text, Class, ID, Target, Name) {
 		   +Text+"</a>");
 }
 
+/* To go back to the top of the page associated to the tag (usually
+   <h2>) with the given ID.  To be formatted with the tag
+   <div class="topPAGE">. */
+function topPage(ID, lang) {
+    if ( lang == "fr" ) {
+	document.write("<a class=\"MMathSStat\" href=\"#"+ID+"\" id=\"ID"
+		       +ID+"\" target=\"_top\"> <img src=\""+location_bd
+		       +"/images/top_fr.png\" class=\"topPAGE\"> </div>")
+    }
+    else {
+	document.write("<a class=\"MMathSStat\" href=\"#"+ID+"\" id=\"ID"
+		       +ID+"\" target=\"_top\"> <img src=\""+location_bd
+		       +"/images/top_en.png\" class=\"topPAGE\"> </div>")
+    }
+    /*
+    document.write("<div class=\"topPAGE\">");
+    if ( lang == "fr" ) {
+	buildLinK("#"+ID, "Haut de la page", "MMathSStat",
+		  "ID"+ID, "_top");
+    }
+    else {
+	buildLinK("#"+ID, "Back to top", "MMathSStat",
+		  "ID"+ID, "_top");
+    }
+    document.write("</div>");
+    */
+}
+
 /**********************************************************************
  * Setup a clock in French (fr) or English (en) that can be attached to
- * a form
- *  like
+ * a form like
  *  <form name="clock_form">
  *  <input type="text" name="clock">
  *  </form>
@@ -360,6 +379,24 @@ function clockTick(formName, inputName, lang) {
     eval("window.document."+formName+"."+inputName+".value = \""+temps+"\";");
     window.setTimeout("clockTick(\""+formName+"\",\""
 		      +inputName+"\",\""+lang+"\")", 1000);
+}
+
+/**************************************************************************
+ * A function to determine the academic year
+ **************************************************************************/
+function academic_year() {
+    var date = new Date();
+    var year1 = date.getFullYear();
+    var month = date.getMonth();
+    var year2 = year1;
+
+    if ( month < 4 ) {
+	--year1;
+    }
+    else {
+	++year2;
+    }
+    document.write(year1+"-"+year2);
 }
 
 /**********************************************************************
@@ -437,13 +474,15 @@ function mise_a_jour(lang) {
 	ajour = "Last update: "+ date_de_mise_a_jour("en");
     }
     else if ( lang == "sp" || lang == "Spanish" ) {
-	ajour = "...: "+ date_de_mise_a_jour("sp");
+	ajour = "&Uacute;ltima actualizaci&oacute;n: "
+	    + date_de_mise_a_jour("sp");
     }
     else if ( lang == "it" || lang == "Italian" ) {
-	ajour = "...: "+ date_de_mise_a_jour("it");
+	ajour = "Ultimo aggiornamento: "+ date_de_mise_a_jour("it");
     }
     else if ( lang == "po" || lang == "Portuguese" ) {
-	ajour = "...: "+ date_de_mise_a_jour("po");
+	ajour = "&Uacute;ltima atualiza&ccedil;&atilde;o: "
+	    + date_de_mise_a_jour("po");
     }
     else {
 	ajour = "Derni&egrave;re mise &agrave; jour: "
@@ -700,22 +739,4 @@ function bottom_function(ITEM, LANG) {
     document.write("<p class=\"footnote\">This work is licensed under the Creative Commons Attribution-NonCommercial-Share Alike 4.0 International (CC BY-NC-SA 4.0)<br><a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en\" target=\"_blank\">https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en</a></p>");
    document.write("<p class=\"footnote\">Sauf indication contraire, ce materiel est mis à disposition selon les termes de la licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les M&ecirc;mes Conditions 4.0 International (CC BY-NC-SA 4.0)<br><a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr\" target=\"_blank\">https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr</a></p>");
     ;  /* does nothing else for now */
-}
-
-/**************************************************************************
- * A function to determine the academic year
- **************************************************************************/
-function academic_year() {
-    var date = new Date();
-    var year1 = date.getFullYear();
-    var month = date.getMonth();
-    var year2 = year1;
-
-    if ( month < 4 ) {
-	--year1;
-    }
-    else {
-	++year2;
-    }
-    document.write(year1+"-"+year2);
 }

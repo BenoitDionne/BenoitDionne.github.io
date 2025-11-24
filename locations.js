@@ -495,11 +495,11 @@ var Maple_programs = new item
      null, null, null, "Maple_programs", "_top", "Maple_programs");
 websites[websites_nbr++] = Maple_programs;
 
-var math_apps = new item
+var math_app = new item
     ("Math Apps", "Math Apps",
-     location_bd+"math_stat/maple/math_apps_fr.html",
-     location_bd+"math_stat/maple/math_apps_en.html",
-     null, null, null, "math_apps", "_top", "math_apps");
+     location_bd+"math_stat/maple/math_app_fr.html",
+     location_bd+"math_stat/maple/math_app_en.html",
+     null, null, null, "math_app", "_top", "math_app");
 websites[websites_nbr++] = Maple_programs;
 
 /******************************************************************
@@ -787,7 +787,7 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 		= initItem(Maple_programs, mathLinks[math_nbr], mapleLinks,
 			   null);
 	    mapleLinks[maple_nbr++]
-		= initItem(math_apps, mathLinks[math_nbr], mapleLinks, null);
+		= initItem(math_app, mathLinks[math_nbr], mapleLinks, null);
 	}
 	math_nbr++;
     }
