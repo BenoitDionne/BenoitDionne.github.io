@@ -173,15 +173,13 @@ div.LOOK2 { border: 1px solid #8F001A; margin: 5px; padding: 5px;
   text-align: left; background-color: white; color: black; font-weight:
 bold; vertical-align: top; display: block;  overflow: hidden; }
 
-div.LOOK3 { position: fixed; right: 5px; bottom: 5px; background-color: white;
-  margin: 10px; border: #8F001A 2px solid; padding: 5px; z-index: 1000; }
-
 /* div.topPAGE is not used with the new top of the page sign */
-div.topPAGE { position: fixed; right: 5px; bottom: 5px;
+div.topPAGE { position: fixed; right: 10px; bottom: 10px;
   background-color: white; margin: 10px; border: #8F001A 2px solid;
   padding: 5px; z-index: 1000; }
-img.topPAGE { position: fixed; right: 5px; bottom: 5px; background-color: white;
-  margin: 0px; border: 0px; padding: 0px; z-index: 1000; }
+img.topPAGE { position: fixed; right: 10px; bottom: 10px;
+  background-color: inherit; margin: 0px; border: 0px; padding: 0px;
+  z-index: 1000; }
 
 /* Popup box sometime used to add information to the construction sign */
 div#constructionBox {
@@ -201,9 +199,6 @@ img.framed { border: 1px solid #8F001A; }
 
 /* Smaller text */
 span.small { font-size: 80%; }
-
-div.pictures ul {list-style: none; margin: 0px; padding: 5px;}
-div.pictures ul li {float: left; position: relative; padding-right: 15px;}
 
 /********************************************************************/
 /*      For the equations and definition in mathematics             */
