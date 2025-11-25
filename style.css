@@ -181,7 +181,7 @@ div.topPAGE { position: fixed; right: 5px; bottom: 5px;
   background-color: white; margin: 10px; border: #8F001A 2px solid;
   padding: 5px; z-index: 1000; }
 img.topPAGE { position: fixed; right: 5px; bottom: 5px; background-color: white;
-  margin: 0px; border: #8F001A 1px solid; padding: 0px; z-index: 1000; }
+  margin: 0px; border: 0px; padding: 0px; z-index: 1000; }
 
 /* Popup box sometime used to add information to the construction sign */
 div#constructionBox {
