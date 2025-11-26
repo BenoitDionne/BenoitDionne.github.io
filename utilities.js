@@ -561,15 +561,15 @@ function initItem(Item, Parent, Menu, Submenu) {
  *  Cl is the class for the list and the links.
  *  seed is a word that is used to define the ids : seed + number.
  *  lang is either "fr" or "en".
- *  ignore is the element of the list to be ignored.
+ *  ignore is the element of the list listed without a link.
+ *  This function is used in the section about Maple.
  **********************************************************************/
 function display_list(itemLinks, Cl, seed, lang, ignore) {
     var M = itemLinks.length;
-
     document.write("<ul class=\""+Cl+"\">");
     for ( var m=0 ; m < M ; ++m ) {
+	document.write("<li class=\""+Cl+"\">");
 	if ( itemLinks[m].name != ignore.name ) {
-	    document.write("<li class=\""+Cl+"\">");
 	    if ( lang == "fr" ) {
 		buildLinK(itemLinks[m].url_fr, itemLinks[m].text_fr,
 			  Cl, seed+m, itemLinks[m].target);
@@ -578,8 +578,16 @@ function display_list(itemLinks, Cl, seed, lang, ignore) {
 		buildLinK(itemLinks[m].url_en, itemLinks[m].text_en,
 			  Cl, seed+m, itemLinks[m].target);
 	    }
-	    document.write("</li>");
 	}
+	else {
+	    if ( lang == "fr" ) {
+		document.write(itemLinks[m].text_fr);
+	    }
+	    else {
+		document.write(itemLinks[m].text_en);
+	    }
+	}
+	document.write("</li>");
     }
     document.write("</ul>");
 }

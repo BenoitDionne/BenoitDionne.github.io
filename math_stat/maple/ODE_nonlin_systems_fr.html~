@@ -213,7 +213,7 @@ cette solution. </p>
 \]
 
 <div class="center">
-<img src="Maple_syst_ODE_1.png" style="width: 300px"
+<img src="Maple_syst_linODE_1.png" style="width: 300px"
      alt="Dessin de l'orbite de la solution de X' = A X avec X(0) = (2 ,3)">
 </div>
 </div>
@@ -308,7 +308,7 @@ système.</p>
 </pre>
 
 <div class="center">
-  <img src="Maple_syst_ODE_2.png" style="width: 300px"
+  <img src="Maple_syst_linODE_2.png" style="width: 300px"
        alt="Champ de pentes associé au système d'EDO linéaire défini par eq3">
 </div>
 
@@ -390,7 +390,7 @@ champ de vecteurs et les orbites de quelques solutions particulières.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_3.png" style="width: 300px"
+<img src="Maple_syst_linODE_3.png" style="width: 300px"
      alt="Champ de vecteurs dy système d'EDO linéaires donné en eq4 avec les orbites de quelques solutions particulières">
 </div>
 
@@ -464,7 +464,7 @@ solutions particulières. </p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_4.png" style="width: 300px"
+<img src="Maple_syst_linODE_4.png" style="width: 300px"
      alt="Vector field associated to the linear system of ODE eq5">
 </div>
 
@@ -505,7 +505,7 @@ solutions particulières.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_5.png" style="width: 300px"
+<img src="Maple_syst_linODE_5.png" style="width: 300px"
      alt="Orbites de quelques solutions du système d'EDO donné par eq6">
 </div>
 
@@ -589,7 +589,7 @@ associée à la condition initiale \( (x_1(0),x_2(0)) = (0,1) \).</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_6.png" style="width: 300px"
+<img src="Maple_syst_linODE_6.png" style="width: 300px"
      alt="Dessin de l'orbite de la solution de l'EDO donnée par eq1 avec la condition initiale (x1(0),x2(0))=(0,1)">
 </div>
 
@@ -680,7 +680,7 @@ particulières du système d'EDO.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_7.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_7.png" style="width: 300px"
      alt="Orbits du système de Van der Pol qui convergent vers une solution périodique à partir de l'extérieur de l'orbite périodique">
 </div>
 
@@ -691,7 +691,7 @@ particulières du système d'EDO.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_8.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_8.png" style="width: 300px"
      alt="Orbits du système de Van der Pol qui convergent vers une solution périodique à partir de l'intérieur de l'orbite périodique">
 </div>
 
@@ -716,7 +716,7 @@ contient le champ de vecteurs.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_9.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_9.png" style="width: 300px"
      alt="Champ de vecteurs pour le système de Van der Pol incluant quelques orbites">
 </div>
 
@@ -762,7 +762,7 @@ la tige comme dans la figure ci-dessous. </p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_10.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_10.png" style="width: 300px"
      alt="Dessin du pendule">
 </div>
 
@@ -859,7 +859,7 @@ ci-dessous.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_11.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_11.png" style="width: 300px"
      alt="Dessin de deux orbites du système d'EDO d'ordre un associé au movement du pendule sans friction"> 
 </div>
 
@@ -879,7 +879,7 @@ particulières ci-dessus. .</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_12.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_12.png" style="width: 300px"
      alt="Dessin du champ de vecteurs, incluant quelques orbites, du système d'EDO d'ordre un associé au mouvement du pendule sans friction">
 </div>
 
@@ -924,7 +924,7 @@ la figure suivante.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_13.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_13.png" style="width: 300px"
      alt="Dessin de deux orbites du système d'EDO d'ordre un associé au mouvement du pendule avec friction.">
 </div>
 
@@ -937,7 +937,7 @@ d'EDO d'ordre un et les orbites des deux solution particulières ci-dessus.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_14.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_14.png" style="width: 300px"
      alt="Dessin du champ de vecteurs, incluant quelques orbites, du système d'EDO d'ordre un associé au mouvement du pendule avec friction">
 </div>
 

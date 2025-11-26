@@ -1,0 +1,606 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2023-09-04">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<!-- Use this code if you want to use the dollar sign for inline math.
+This may be an issue if want to use the dollar sign denote curency. -->
+<!--
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      inlineMath: {'[+]' : [['$','$']]} 
+   }
+};
+</script>
+-->
+
+<!-- Instead of tex-svg.js , it is possible to use text-chtml to use
+html and csv instead of scalable vector graphis. -->  
+<script defer type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(ODE_lin_systems,"en");
+</script>
+
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2 id="TOP"> Systems of linear ODE </h2>
+
+<div style="float:left; width:30%; margin-right:20px; z-index:1000;">
+<div class="center"><em>Other Topics</em></div>
+<script language="javascript"> 
+     display_list(mapleLinks, "MStop", "ML", "en", ODE_lin_systems);
+</script>
+</div>
+
+<p>We have divided our introduction to the use of <em>Maple</em> to study
+systems of ODE into two documents.  The present document covers only
+systems of linear ODE.  The second document
+<script language="javascript">
+ buildLinK(ODE_nonlin_systems.url_en, ODE_nonlin_systems.text_en,"MMathSStat",
+ ODE_nonlin_systems.id, ODE_nonlin_systems.target);
+</script> covers, as its title suggests, the systems of nonlinear ODE.
+It is not a mathematical reason that justifies our decision to split
+our study of systems of ODE into two documents but it is a software
+issue.  We are using <em>MathJax</em> to process the mathematical
+formulae.  Combining both documents will produce a document that is
+too slow to load in most browsers.</p>
+
+<hr class="MMathSStat">
+
+<h3> General Concepts </h3>
+
+<p>Consider the system of ODE \(X'(t) = f(t,X(t))\) where
+\(\displaystyle f:\mathbb{R} \times \mathbb{R}^n \to \mathbb{R}^n\).
+Our goal is to find a <em>solution</em> of this system of ODE
+satisfying a given initial condition: namely, to find a differentiable
+function \(\displaystyle X:I \to \mathbb{R}^n\) defined on an open
+interval \(I \subset \mathbb{R}\) containing the origin and
+such that \(X\) satisfies this system of ODE with a given initial
+condition \(X(0) = X_0\).  The theory says that there always exists a unique
+solution if \(f\) is continuous and <em>locally Lipshitz</em> with
+respect to the variable \(X\).  If \(f\) does not depend on the time
+\(t\), then we say that the system of ODE is autonomous.  In this
+case, if \(X\) is a solution of the system of ODE, then \(f(X(t))\) is
+the direction and velocity of \(X\) at time \(t\).  In particular,
+\(f(X(t))\) is tangent to the <em>orbit</em>
+\(\{ X(t): t \in I\}\) at time \(t\).</p>
+
+<p>For autonomous systems of two ODE, it is traditional to draw the
+vector field associated to the system of ODE to get a qualitative
+picture of the global behaviour of the orbits of this system.
+For many (equally spaced) points \(X\) in the plane, we draw from each
+of these points \(X\) a vector in the direction \(f(X)\). Sometimes
+the length of the vector drawn is proportional to the norm of \(f(X)\).</p>
+
+<p>A system of ODE of the form \(X'(t) = A X(t)\), where \(A\) is a
+constant \(n \times n\) matrix, is called a (homogeneous) linear system of
+ODE.  The theoretical solution of this system is
+\(\displaystyle X(t) = e^{t A} X(0)\),
+where the exponential of a square matrix \(B\) is defined by the series
+\(\displaystyle e^B = \sum_{n=0}^\infty \frac{1}{n!} B^n\).  This series
+always converges.  The notion of convergence for series of matrices is
+independent of the induced norm of matrices chosen.  Consider the
+matrix defined by the following command in <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab">with(LinearAlgebra): A := Matrix([[2,-1],[1,2]]);</font>
+</pre>
+
+\[
+ A := \begin{bmatrix} 2 & -1 \\ 1 & 2 \end{bmatrix}
+\]
+
+<p>The exponential of this matrix is given by the following command.</p>
+
+<pre class="matlab">
+> <font class="matlab"> expA := MatrixExponential(A); </font>
+</pre>
+
+\[
+expA := \begin{bmatrix} e^2 \cos(1) & -e^2 \sin(1) \\ e^2 \sin(1) & e^2 \cos(1) \end{bmatrix}
+\]
+
+<p>Moreover, \(\displaystyle e^{tA}\) is given by the following command.</p>
+
+<pre class="matlab">
+> <font class="matlab"> exptA := MatrixExponential(A,t); </font>
+</pre>
+
+\[
+exptA := \begin{bmatrix} e^{2t} \cos(t) & -e^{2t} \sin(t) \\ e^{2t} \sin(t) & e^{2t} \cos(t) \end{bmatrix}
+\]
+
+<div class="Example">
+<p><em>Example</em>: We can use the
+function <font class="matlab">dsolve()</font> to 
+solve the system of homogeneous linear system of ODE \(X'(t) = A X(t)\).
+We represent this system of ODE in <em>Maple</em> as it follows.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq1 := {diff(x1(t),t) = 2*x1(t) - x2(t), diff(x2(t),t) = x1(t) + 2*x2(t)};</font>
+</pre>
+
+\[
+eq1 := \left\{ \frac{\text{d}}{\text{d}t} x1(1) = 2 x1(1) - x2(t) , \frac{\text{d}}{\text{d}t} x2(t) = x1(t) + 2 x2(t) \right\}
+\]
+
+<pre class="matlab">
+> <font class="matlab"> X := dsolve(eq1, {x1(t), x2(t)}); </font>
+</pre>
+
+\[
+X := \left\{ x1(t) = e^{2t} (\_C2 \cos(t) + \_C1 \sin(t), x2(t) = -e^{2t} (  \cos(t)\_C1 - \sin(t) \_C2 \right\}
+\]
+
+<p>where <font class="matlab">_C1</font>
+and <font class="matlab">_C2</font> are arbitrary constants.  This
+expression is equal to
+\(\displaystyle e^{tA} \begin{bmatrix} \_C2 \\ -\_C1 \end{bmatrix}\).
+</p>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: We can also solve \(X'(t) = A X(t)\) with the
+initial condition 
+\(\displaystyle X(0) = \begin{bmatrix} 2 \\ 3 \end{bmatrix}\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq2 := eq1 union {x1(0)=2,x2(0)=3};</font>
+</pre>
+
+\[
+eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1(1) = 2 x1(1) - x2(t) , \frac{\text{d}}{\text{d}t} x2(t) = x1(t) + 2 x2(t) , x1(0) = 2, x2(0) = 3\right\}
+\]
+
+<p>The solution of this system is given by the following command.</p>
+
+<pre class="matlab">
+> <font class="matlab"> X := dsolve(eq2,{x1(t),x2(t)});</font>
+</pre>
+
+\[
+X := \left\{ x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ), x2(t) = -e^{2t} (  -3 \cos(t) - 2 \sin(t) )\right\}
+\]
+
+<p>It is the case with <font class="matlab">_C1 = -3</font> and
+<font class="matlab">_C2 = 2</font> in the general solution above.</p>
+
+<p> We can use <em>Maple</em> to draw the orbit of this solution.</p>
+
+<pre class="matlab">
+> <font class="matlab">X1:=subs(X,x1(t)); X2:=subs(X,x2(t)); plot([X1,X2,t=-1..5],axes=FRAME,labels=['x1','x2']); </font>
+</pre>
+
+\[
+\begin{split} & x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ) \\
+& x2(t) = -e^{2t} (  -3 \cos(t) - 2 \sin(t) )
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_syst_linODE_1.png" style="width: 300px"
+     alt="Drawing of the orbit of the solution of X' = A X with X(0) = (2 ,3)">
+</div>
+</div>
+
+<hr class="MMathSStat">
+
+<h3> Homogeneous Linear Systems of ODE </h3>
+
+<p>To evaluate the solution of an homogeneous linear system of ODE at
+various values of the independent variable \(t\), we have to evaluate
+\(\displaystyle e^{tA} X_0\) at several values of \(t\).  In general,
+it is difficult and time consuming to compute the exponential
+\(\displaystyle e^{tA}\) when the dimensions of the square matrix \(A\)
+are large.  There are however some nice results from linear algebra
+that help us (and the software) to compute this exponential.  For
+instance, it is possible to find an invertible matrix
+\(U\) such that \(A = U D U^{-1}\) where \(D\) is a block diagonal
+matrix (e.g. a Jordan normal form or a real canonical form).  We then 
+have that \(\displaystyle e^{tA} = U e^{tD} V\) where
+\(\displaystyle e^{tD}\) is much easier and faster to 
+compute than \(\displaystyle e^{tA}\) because \(D\) has zero
+components off the (block) diagonal (at lot of zero components). It is
+<q lang="en">easy</q> to multiply matrices with a lot of zero
+components at known locations.</p>
+
+<p>We will not consider the general theory of matrix decomposition in
+this document.  We will consider only \(2 \times 2\) matrices.
+In this case, there could be:</p>
+<ul> 
+<li> one or two real eigenvalues with two linearly independent real
+eigenvectors associates to them,</li>
+<li> only one real eigenvalue with only one linearly independent real
+eigenvector (up to a scalar multiple) associated to it, or </li>
+<li> two complex conjugated eigenvalues (i.e. non-zero imaginary part)
+with two linearly independent complex eigenvectors associates to them.</li>
+</ul>
+
+<h4>Two Linearly Independent Real Eigenvectors</h4>
+
+<p>Consider the linear system of ODE defined in <em>Maple</em> by the
+following command.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq3 := {diff(x1(t),t)=-4*x1(t)+ 2*x2(t), diff(x2(t),t)=-1*x1(t)-x2(t)};</font>
+</pre>
+
+\[
+ eq3 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = 4\; x1(t) + 2\; x2(t) ,
+\frac{\text{d}}{\text{d}t} x2(t) = - x1(t) - x2(t) \right\}
+\]
+
+<p>The matrix of coefficients of this linear system of ODE is given below.</p>
+
+<pre class="matlab">
+> <font class="matlab">A := Matrix([[-4,2],[-1,-1]]);</font>
+</pre>
+
+\[
+A := \begin{bmatrix}-4 & 2 \\ -1 & -1 \end{bmatrix}
+\]
+
+<p>The eigenvalues and eigenvectors of <font class="matlab">A</font>
+are given by the following commands. </p>
+
+<pre class="matlab">
+> <font class="matlab">with(LinearAlgebra): Eigenvectors(A);</font>
+</pre>
+
+\[
+\begin{bmatrix}-3 \\ -2 \end{bmatrix}, \begin{bmatrix} 2 & 1 \\ 1 & 1 \end{bmatrix}
+\]
+
+<p>We have two eigenvalues \(-3\) and \(-2\).  An eigenvector associated
+to the eigenvalue \(-3\) is given by the first column of the \(2\times 2\)
+matrix and an eigenvector associate to the eigenvalue \(-2\) is given
+by the second column. 
+This \(2\times 2\) matrix can be selected as the matrix \(U\) in
+the decomposition of \(A\) presented in the introduction of this
+section.  We use <font class="matlab">dsolve()</font> to solve this
+linear system of ODE.  We are mainly interested in the qualitative
+aspect of the solutions.  So, we draw the vector field associated to
+this system.</p> 
+
+<pre class="matlab">
+> <font class="matlab"> with(DEtools):
+   DEplot(eq3,[x1(t),x2(t)],t=0..5, [[x1(0)=0.5,x2(0)=0], [x1(0)=-0.5,x2(0)=-0.1]],
+   linecolor=[blue,red], thickness=1,color=green, arrows=small,stepsize=0.01);</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_syst_linODE_2.png" style="width: 300px"
+       alt="Vector field associated to the linear system of ODE defined in eq3">
+</div>
+
+<p>We have also drawn two orbits associated to the solutions with
+initial condition \(\displaystyle \begin{bmatrix}0.5 \\ 0 \end{bmatrix}\)
+(in blue) and \(\displaystyle \begin{bmatrix} -0.5 \\ 0 \end{bmatrix}\)
+(in red) at time \(t=0\). As can be seen from the vector field, all
+the solutions converge 
+toward the origin as \( t \to \infty\).  This is typical of linear system  
+of ODE with two negative eigenvalues.  The origin is called
+a <em>sink</em> or <em>stable node</em>.  If the two eigenvalues had
+been positive, we would have observed that all solutions go away
+from the origin as \(t \to \infty\).  The origin is then called
+a <em>source</em> or <em>unstable node</em>.</p>
+
+<div class="Note">
+<p><em>Note</em>: Another way to draw the vector field is with the
+function <font class="matlab">dfieldplot()</font>.</p>
+
+<pre class="matlab">
+> <font class="matlab">dfieldplot(eq3,[x1(t),x2(t)],t=-2..2,x1=-1..1,x2=-1..1):</font>
+</pre>
+</div>
+
+<p>We leave to the reader the pleasure of trying this command.  We
+also leave to the reader the pleasure of discovering the qualitative
+behaviour of the orbits of the linear system of ODE when one of the
+eigenvalues is positive and the other is negative.  The origin is then called
+a <em>saddle point</em>.</p> 
+
+<h4>Only One Linearly Independent Eigenvector (up to a scalar multiple)</h4>
+
+<p>We must have a real eigenvalue of algebraic multiplicity two and
+geometric multiplicity one.  Consider the homogeneous linear system of
+ODE defined by the following <em>Maple</em> command.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq4:={diff(x1(t),t)=3*x1(t)+x2(t), diff(x2(t),t)=3*x2(t)};</font>
+</pre>
+
+\[
+ eq4 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = 3\; x1(t) + x2(t) ,
+\frac{\text{d}}{\text{d}t} x2(t) = 3\; x2(t) \right\}
+\]
+
+<p>The matrix of coefficients of this linear system of ODE is given below.</p>
+
+<pre class="matlab">
+> <font class="matlab">A := Matrix([[3,1],[0,3]]);</font>
+</pre>
+
+\[
+A := \begin{bmatrix}3 & 1 \\ 0 & 3 \end{bmatrix}
+\]
+
+<p>The eigenvalues and eigenvectors of the matrix <font class="matlab">A</font>
+are given by the following command.</p>
+
+<pre class="matlab">
+> <font class="matlab">Eigenvectors(A);</font>
+</pre>
+\[
+    \begin{bmatrix} 3 \\ 3 \end{bmatrix}, \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}
+\]
+
+<p>There is only one eigenvalue (i.e. \(3\)) of algebraic multiplicity
+two and geometric multiplicity one.  To get a qualitative picture of
+the global behaviour of the orbits of this linear system of ODE, we
+draw in the same figure its vector field and the orbits of some
+particular solutions.</p> 
+
+<pre class="matlab">
+> <font class="matlab"> DEplot(eq4,[x1(t),x2(t)],t=-1..1,[[x1(0)=2,x2(0)=-3],[x1(0)=-2,x2(0)=2]],
+   linecolor=[blue,green],thickness=1,stepsize=0.01);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_linODE_3.png" style="width: 300px"
+     alt="Vector field associated to the linear system of ODE given in eq4 woth the orbits of some particular solutions.">
+</div>
+
+<p> As can be seen from the vector field, all the solutions go away
+from the origin as \(t \to \infty\).  The origin is a
+unstable node.  If the eigenvalue had been negative, then all the
+solutions would have converged to the origin as \(t \to \infty\).  The
+origin would then be a stable node.</p>
+
+<h4>Two Complex Conjugate Eigenvalues (i.e. non-zero imaginary part) </h4>
+
+<p>Consider the homogeneous system of ODE defined by the
+following <em>Maple</em> command.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq5:={diff(x1(t),t)=-2*x1(t)-x2(t), diff(x2(t),t)=x1(t)-2*x2(t)};</font>
+</pre>
+
+\[
+eq5 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = -0.2\; x1(t) - x2(t) ,
+\frac{\text{d}}{\text{d}t} x2(t) =  x1(t) - 0.2\; x2(t) \right\}
+\]
+
+<p>The matrix of coefficients of this linear system of ODE is
+given below.</p>
+
+<pre class="matlab">
+> <font class="matlab">A := Matrix([[-1/5,-1],[1,-1/5]]);</font>
+</pre>
+
+\[
+A := \begin{bmatrix} -\frac{1}{5} & -1 \\ 1 & -\frac{1}{5} \end{bmatrix}
+\]
+
+<p>The eigenvalues and eigenvectors of the matrix <font class="matlab">A</font>
+are given by the following command.</p>
+
+<pre class="matlab">
+>  <font class="matlab">with(LinearAlgebra): Eigenvectors(A); </font>
+</pre>
+
+\[
+\begin{bmatrix}-\frac{1}{5} + I \\ -\frac{1}{5} - I \end{bmatrix}, \begin{bmatrix} I & 1 \\ -I & 1 \end{bmatrix}
+\]
+
+<p>There are two complex conjugated eigenvectors to which are
+associated two linearly independent eigenvectors.  The students learn
+in an introductory ODE course that the general solution involves terms
+of the form \(\displaystyle e^{a t}\cos(bt)\) and
+\(\displaystyle e^{at}\sin(bt)\) if \(a \pm b i\) are the complex
+conjugated eigenvalues.</p>
+
+<pre class="matlab">
+> <font class="matlab"> dsolve(eq5, {x1(t), x2(t)}); </font>
+</pre>
+
+\[
+\left\{ x1(t) = e^{-\frac{t}{5}} (\_C2 \cos(t) + \_C1 \sin(t)), x2(t) = -e^{-\frac{t}{5}} (\cos(t)\_C1 - \sin(t) \_C2) \right\}
+\]
+
+<p>As we have done before, to get a qualitative image of the global
+behaviour of the orbits of this linear system of ODE, we draw in the
+same figure its vector field and the orbits of some particular
+solutions.</p> 
+
+<pre class="matlab">
+> <font class="matlab"> DEplot(eq5,[x1(t),x2(t)],t=0..10,[[x1(0)=0.1,x2(0)=-0.1],[x1(0)=-0.1,x2(0)=0.1]],
+   linecolor=[blue,green],thickness=1, stepsize=0.01);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_linODE_4.png" style="width: 300px"
+     alt="Vector field associated to the linear system of ODE eq5">
+</div>
+
+<p>As can be seen from the vector field, all the solutions converge
+toward the origin as \(t \to \infty\).  The origin is called
+a <em>stable spiral</em> or <em>stable focus</em>.  If the real part
+of the pair of complex conjugated eigenvalues had been positive, then all the
+solutions would have gone away from the origin as \(t \to \infty\).
+The original would then be called a <em>unstable spiral</em> or
+<em>unstable focus</em>. </p>
+
+<hr class="MMathSStat">
+
+<h3> Non-homogeneous Linear Systems of ODE </h3>
+
+<p>Consider the non-homogeneous linear system of ODE defined by the
+following <em>Maple</em> command.</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq6 := {diff(x1(t),t)=-2*x1(t)-2*x2(t)+sin(2*t), diff(x2(t),t)=4*x1(t)+2*x2(t)+cos(2*t)};</font>
+</pre>
+
+\[
+eq6 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = -2\; x1(t) - 2\; x2(t) + \sin( 2t) ,
+\frac{\text{d}}{\text{d}t} x2(t) = 4\; x1(t) + 2\; x2(t) + \cos(2 t) \right\}
+\]
+
+<p>We can use <font class="matlab">dsolve()</font> to find the
+general solution of this system of ODE but we are mainly interested in
+the qualitative behaviour of the orbits as \( t \to \infty\).
+Thus, we draw the orbits of some particular solutions.</p>
+
+<pre class="matlab">
+> <font class="matlab"> DEplot(eq6,[x1(t),x2(t)],t=0..5,[[x1(0)=1,x2(0)=-1],[x1(0)=-1,x2(0)=1],[x1(0)=2,x2(0)=2]],
+   linecolor=[blue,green,red],thickness=1,stepsize=0.01,numpoints = 100,
+   method = taylorseries);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_linODE_5.png" style="width: 300px"
+     alt="Orbits of some solutions of the system of ODE given in eq6">
+</div>
+
+<p>It is interesting to note that none of the integration methods of
+<em>Maple</em> seem to be able to correctly draw orbits of
+solutions starting near the origin (at least, when this document was
+written).</p>
+
+<div class="Note">
+<p><em>Note</em>: There exists an explicit formula for the general
+solution of a system of non-homogeneous linear ODE like the one that we
+have just considered.  The reader can find it in most introductory textbook on
+ODE. </p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3> Higher Order ODE </h3>
+
+<p> It is possible to reduce an higher order ODE of the form </p>
+
+\[
+y^{n}(t) + a_{n-1} y^{n-1}(t) + ... + a_1 y'(t) + a_0 y(t) = f(t)
+\]
+
+<p>to a system of first order ODE. It suffices to define
+\(X_1= y, X_2= y', \ldots, X_n= y^{n-1}\) to get the system</p>
+\[
+\begin{split}
+X_1'(t) &= X_2(t) \\
+X_2'(t) &= X_3(t) \\
+\ldots &\qquad  \ldots \\
+X_n'(t) &= y^{n}(t) = -a_{n-1} y^{n-1}(t) - ... - a_1 y'(t) - a_0 y(t) + f(t) \\
+        & = -a_{n-1} X_n(t) - ... - a_1 X_2(t) - a_0 X_1(t) + f(t)
+\end{split}
+\]
+
+<p>We have seen in the document
+<script language="javascript">
+    buildLinK(ODE_O2_var_coeff.url_en,
+    ODE_O2_var_coeff.text_en,"MMathSStat", ODE_O2_var_coeff.id,
+    ODE_O2_var_coeff.target);
+</script> the second order ODE</p>
+
+\[
+x''(t) + \cos(t) x(t) = 0 \ .
+\]
+
+<p>This ODE can be reduced to the system of first-order ODE with the
+substitution \(X_1 = x\) and \(X_2 = x'\).</p>  
+
+<pre class="matlab">
+> <font class="matlab">eq1:= { diff(x1(t),t)=x2(t), diff(x2(t),t)=-cos(t)*x1(t)};</font>
+</pre>
+
+\[
+  eq1 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = x2(t), \frac{\text{d}}{\text{d} t} x2 = -\cos(t) x1(t) \right\}
+\]
+
+<p> As usual, we will not look for the general solution of this system
+of ODE using the function <font class="matlab">dsolve()</font> but we
+will instead find the numerical solution for a given initial condition in
+order to plot this solution.</p>
+
+<pre class="matlab">
+> <font class="matlab"> SYST := eq1 union {x1(0)=0,x2(0)=1}:</font>
+> <font class="matlab"> X := dsolve(SYST,{x1(t),x2(t)},type=numeric,output=listprocedure);</font>
+</pre>
+
+\[
+X := [t = proc(t) ... end\, proc, x1(t) = proc(t) ... end\, proc, x2(t) = proc(t) ... end\, proc]
+\]
+
+<p>We plot the orbit \( \{ (x_1(t),x_2(t)) : 0 \leq t \leq 3\pi\} \)
+associated to the intinial condition \( (x_1(0),x_2(0)) = (0,1) \).</p>
+
+<pre class="matlab">
+> <font class="matlab">with(plots): odeplot(X,[x1(t),x2(t)],0..3*Pi,labels=[`x(t)`,`x'(t)`]);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_linODE_6.png" style="width: 300px"
+     alt="Drawing of the orbit of the ODE given by eq1 with the initial condition (x1(0),x2(0))=(0,1)">
+</div>
+
+<p>We have already encountered this orbit before.  It is the plot of
+a part of the orbit \( \{ (x(t), x'(t)) : t\in \mathbb{R} \} \)
+associated to the initial conditions \(x(0) = 0\) et \(x'(0) = 1\) for
+the second ordre ODE that we presented in the first example of the document
+<script language="javascript">
+    buildLinK(ODE_O2_var_coeff.url_en,
+    ODE_O2_var_coeff.text_en,"MMathSStat", ODE_O2_var_coeff.id,
+    ODE_O2_var_coeff.target);
+</script>.</p>
+
+<hr class="MMathSStat">
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(ODE_lin_systems,"en");
+</script>
+
+</body>
+</html>

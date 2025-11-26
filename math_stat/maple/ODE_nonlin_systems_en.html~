@@ -210,7 +210,7 @@ X := \left\{ x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ), x2(t) = -e^{2t} (  -3 \cos
 \]
 
 <div class="center">
-<img src="Maple_syst_ODE_1.png" style="width: 300px"
+<img src="Maple_syst_linODE_1.png" style="width: 300px"
      alt="Drawing of the orbit of the solution of X' = A X with X(0) = (2 ,3)">
 </div>
 </div>
@@ -301,7 +301,7 @@ this system.</p>
 </pre>
 
 <div class="center">
-  <img src="Maple_syst_ODE_2.png" style="width: 300px"
+  <img src="Maple_syst_linODE_2.png" style="width: 300px"
        alt="Vector field associated to the linear system of ODE defined in eq3">
 </div>
 
@@ -379,7 +379,7 @@ particular solutions.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_3.png" style="width: 300px"
+<img src="Maple_syst_linODE_3.png" style="width: 300px"
      alt="Vector field associated to the linear system of ODE given in eq4 woth the orbits of some particular solutions.">
 </div>
 
@@ -451,7 +451,7 @@ solutions.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_4.png" style="width: 300px"
+<img src="Maple_syst_linODE_4.png" style="width: 300px"
      alt="Vector field associated to the linear system of ODE eq5">
 </div>
 
@@ -491,7 +491,7 @@ Thus, we draw the orbits of some particular solutions.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_5.png" style="width: 300px"
+<img src="Maple_syst_linODE_5.png" style="width: 300px"
      alt="Orbits of some solutions of the system of ODE given in eq6">
 </div>
 
@@ -573,7 +573,7 @@ associated to the intinial condition \( (x_1(0),x_2(0)) = (0,1) \).</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_6.png" style="width: 300px"
+<img src="Maple_syst_linODE_6.png" style="width: 300px"
      alt="Drawing of the orbit of the ODE given by eq1 with the initial condition (x1(0),x2(0))=(0,1)">
 </div>
 
@@ -588,6 +588,9 @@ the second ordre ODE that we presented in the first example of the document
 </script>.</p>
 
 <hr class="MMathSStat">
+
+
+HERE
 
 <h3> Systems of Nonlinear Autonomous ODE </h3>
 
@@ -662,7 +665,7 @@ system of ODE.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_7.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_7.png" style="width: 300px"
      alt="Orbits of the Van der Pol system converging to the periodic orbit from the outside of the periodic orbit">
 </div>
 
@@ -673,7 +676,7 @@ system of ODE.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_8.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_8.png" style="width: 300px"
      alt="Orbits of the Van der Pol system converging to the periodic orbit from the inside the periodic orbit">
 </div>
 
@@ -696,7 +699,7 @@ filed.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_9.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_9.png" style="width: 300px"
      alt="Vector field for the Van der Pol system including some orbits">
 </div>
 
@@ -742,7 +745,7 @@ the figure below. </p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_10.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_10.png" style="width: 300px"
      alt="Drawing of the pendulum">
 </div>
 
@@ -836,7 +839,7 @@ figure.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_11.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_11.png" style="width: 300px"
      alt="Drawing of two orbits of the system of ODE of order one associated to the motion of the pendulum without friction"> 
 </div>
 
@@ -855,7 +858,7 @@ order one and the orbits of the two particular solutions above.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_12.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_12.png" style="width: 300px"
      alt="Drawing of the vector field, including some orbits, of the system of ODE of order one associated to the motion of the pendulum without friction">
 </div>
 
@@ -899,7 +902,7 @@ following figure.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_13.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_13.png" style="width: 300px"
      alt="Drawing of two orbits of the system of ODE associated to the motion of the pendulum with friction">
 </div>
 
@@ -912,7 +915,7 @@ order one and the orbits of the two particular solutions above.</p>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_ODE_14.png" style="width: 300px"
+<img src="Maple_syst_nonlinODE_14.png" style="width: 300px"
      alt="Drawing of the vector field, including two orbits, of the system of ODE of order one associated to the motion of the pendulum with friction">
 </div>
 

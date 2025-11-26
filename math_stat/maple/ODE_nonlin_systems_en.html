@@ -1,0 +1,653 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2023-09-04">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<!-- Use this code if you want to use the dollar sign for inline math.
+This may be an issue if want to use the dollar sign denote curency. -->
+<!--
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      inlineMath: {'[+]' : [['$','$']]} 
+   }
+};
+</script>
+-->
+
+<!-- Instead of tex-svg.js , it is possible to use text-chtml to use
+html and csv instead of scalable vector graphis. -->  
+<script defer type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      tags: 'ams'
+   }
+};
+</script>
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(ODE_nonlin_systems,"en");
+</script>
+
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2 id="TOP"> Systems of nonlinear ODE </h2>
+
+<div style="float:left; width:30%; margin-right:20px; z-index:1000;">
+<div class="center"><em>Other Topics</em></div>
+<script language="javascript"> 
+     display_list(mapleLinks, "MStop", "ML", "en", ODE_nonlin_systems);
+</script>
+</div>
+
+<hr class="MMathSStat">
+
+<h3> Systems of Nonlinear Autonomous ODE </h3>
+
+<p>There are no general methods to solve systems of nonlinear
+autonomous ODE.  We often have no other choice than to do a
+qualitative study of the system and/or to solve the system numerically.</p> 
+
+<h4> Van der Pol Equation </h4>
+
+<p>Consider the system of first order ODE associated to the
+<em>Van der Pol equation</em>
+\(\displaystyle x''(t)+ \epsilon x'(t) (x^2(t)-1) + x(t) = 0\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> eq2 := { diff(x1(t),t) = x2(t), diff(x2(t),t) = -epsilon*x2(t)*(x1(t)^2-1)-x1(t)};</font>
+</pre>
+
+\[
+eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t} x2(t) = -\epsilon x2(t) (x1(t)^2-1)-x1(t) \right\};
+\]
+
+<p>This is a system of nonlinear ODE.  We assume that \(\epsilon=0.1\).</p>
+
+<pre class="matlab">
+> <font class="matlab">eq3 := subs(epsilon=0.1, eq2);</font>
+</pre>
+
+\[
+eq2 := \left\{ \frac{\text{d}}{\text{d}t} x1 = x2(t), \frac{\text{d}}{\text{d}t} x2(t) = -0.1 x2(t) (x1(t)^2-1)-x1(t) \right\};
+\]
+
+<p>Since it is going to be instructive to plot the orbits associated
+to many initial conditions, we have written a <em>Maple</em> procedure
+to draw these orbits.</p>
+
+<pre class="matlab">
+> <font class="matlab"> graph := proc (a, b, T, clr)
+   local X;
+   X := dsolve(eq3 union {x1(0) = a, x2(0) = b}, [x1(t), x2(t)], type = numeric,
+      output = procedurelist, method = classical[rk4], stepsize = 0.1e-1):
+   RETURN(odeplot(X, [x1(t), x2(t)], 0 .. T, numpoints = floor(30*T), color = clr)):
+   end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& graph := proc (a, b, T, clr)\\
+& \qquad  local\ X;\\
+& \qquad  X := dsolve(eq3\ union\ \{x1(0) = a, x2(0) = b\}, \{x1(t), x2(t)\}, type = numeric, output = procedurelist, \\
+&  \qquad \qquad  method = classical[rk4], stepsize = 0.1e-1);\\
+& \qquad RETURN(plots:-odeplot(X, [x1(t), x2(t)], 0 .. T, numpoints = floor(30*T), color = clr))\\
+&  end\ proc
+\end{split}
+\]
+
+<div class="Note">
+<p><em>Note</em>: We provide more information on
+creating <em>Maple</em> procedures in the
+document <script language="javascript"> 
+buildLinK(Maple_programs.url_en, Maple_programs.text_en,"MMathSStat",
+Maple_programs.id, Maple_programs.target);
+</script>.</p>
+</div>
+
+<p>We now draw the orbits of several particular solutions of the
+system of ODE.</p> 
+
+<pre class="matlab">
+> <font class="matlab">gr1 := graph(4,1,5*Pi,"red"):</font>
+> <font class="matlab">gr2 := graph(-1,3,5*Pi, "blue"):</font>
+> <font class="matlab">display({gr1,gr2},axes=normal,labels=[`x1`,`x2`]);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_nonlinODE_7.png" style="width: 300px"
+     alt="Orbits of the Van der Pol system converging to the periodic orbit from the outside of the periodic orbit">
+</div>
+
+<pre class="matlab">
+> <font class="matlab">gr3:= graph(0.5,0.5,5*Pi,"red"):</font>
+> <font class="matlab">gr4:= graph(-1,1,5*Pi,"blue"):</font>
+> <font class="matlab">display({gr3,gr4},axes=normal,labels=[`x1`,`x2`]);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_nonlinODE_8.png" style="width: 300px"
+     alt="Orbits of the Van der Pol system converging to the periodic orbit from the inside the periodic orbit">
+</div>
+
+<p> In the first figure, the orbits of the solutions seem to spiral in
+a counterclockwise direction toward the origin. However, in a the
+second figure, the orbits seem to spiral in a counterclockwise direction away
+from the origin.  This cannot go on forever because orbits 
+cannot intersect and they varies smoothly with respect to initial
+conditions.  What is going on?</p>
+
+<p>We need to look at the vector field associated to this system of
+ODE.  We also draw some orbits in the figure that contains the vector
+filed.</p> 
+
+<pre class="matlab">
+> <font class="matlab"> with(DEtools):
+   DEplot(eq3, [x1(t), x2(t)], t = 0 .. 8*Pi,
+      [[x1(0) = .5, x2(0) = .5], [x1(0) = 2, x2(0) = 2]], linecolor = [blue, red],
+      thickness = 2, color = black, stepsize = 0.1e-1, arrows = small);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_nonlinODE_9.png" style="width: 300px"
+     alt="Vector field for the Van der Pol system including some orbits">
+</div>
+
+<p>All the orbits converge toward a periodic solution.
+The orbit starting at \((2,2)\) (outside the periodic orbit) is
+getting very close to this periodic solution.  We admit that this is
+not a proof of the existence of a unique periodic orbit but this is
+certainly a good indication of its existence.</p> 
+
+<div class="Note">
+<p><em>Note</em>:  There are several other <em>Maple</em>
+functions that may be used to draw vector fields:
+<font class="matlab">odeplot()</font> and even
+<font class="matlab">fieldplot()</font>
+if we consider that the right hand side of a system of ODE is a
+vector field.</p>
+</div>
+
+<h4> Nonlinear Pendulum </h4>
+
+<p>Consider the pendulum made up of a very light rod of length \(L\)
+with a small ball of mass \(m\) attached at one end of the rod as in
+the figure below. </p>
+
+<pre class="matlab">
+> <font class="matlab">with(plots):with(plottools):</font>
+> <font class="matlab">gr1:=line([0,0], [0,-14], color=black, linestyle=3):</font>
+> <font class="matlab">gr2:=line([0,0], [3,-5], color=black):</font>
+> <font class="matlab">gr3:=disk([3,-5], 0.25, color=green):</font>
+> <font class="matlab">gr4:=arrow([3,-5], [1/2,-13/2], 0.02,0.3,0.2, color=black):</font>
+> <font class="matlab">gr5:=line([1/2,-13/2], [3,-32/3], color=black, linestyle=3):</font>
+> <font class="matlab">gr6:=arrow([3,-5], [3,-32/3], 0.02,0.3,0.1, color=black):</font>
+> <font class="matlab">gr7:=textplot([4,-9,"mg"], font=[COURIER,12],align={LEFT}):</font>
+> <font class="matlab">gr8:=textplot([-2,-4,"mg sin("], font=[COURIER,12],align={LEFT}):</font>
+> <font class="matlab">gr9:=textplot([-1.8,-4,'q'], font=[SYMBOL,12],align={LEFT}):</font>
+> <font class="matlab">gr10:=textplot([-1.6, -4, ")"], font = [COURIER, 12], align = {LEFT}):</font>
+> <font class="matlab">gr11:=arc([3,-35/3],2.5, Pi/2..3*Pi/5):</font>
+> <font class="matlab">gr12:=textplot([2.2,-8,'q'], font=[SYMBOL,12],align={RIGHT}):</font>
+> <font class="matlab">gr13:=arrow([-3,-4.5],[2,-5.4], 0.02,0.3,0.1, color=black):</font>
+> <font class="matlab">gr14:=textplot([2.1,-3,'L'], font=[COURIER,12],align={RIGHT}):</font>
+> <font class="matlab">display({gr1,gr2,gr3,gr4,gr5,gr6,gr7,gr8,gr9,gr10,gr11,gr12,gr13,gr14},
+   view=[-6..6,-14..0.5], axes=none, scaling=constrained);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_nonlinODE_10.png" style="width: 300px"
+     alt="Drawing of the pendulum">
+</div>
+
+<p>Using Newton law <q lang="en">force equals mass times acceleration</q>,
+we find that the angle <font class="matlab">&theta;</font> is governed
+by the ODE which is defined by the following command in <em>Maple</em>.</p> 
+
+<pre class="matlab">
+> <font class="matlab">eq4 := m*L*diff(theta(t),t$2) = -k*L*diff(theta(t),t) -m*g*sin(theta(t));</font>
+</pre>
+
+\[
+eq4 := m L \left( \frac{\text{d}^2}{\text{d}t^2} \theta(t) \right) = -k L \left(\frac{\text{d}}{\text{d}t} \theta(t) \right) - m g \sin(\theta(t))
+\]
+
+<p>We have that <font class="matlab">g = 9.8</font> m/s<sup>2</sup> is the
+acceleration due to gravity and <font class="matlab">k</font> is a
+constant of proportionality between the force due to friction and
+the velocity.  We can rewrite this ODE as a the system of ODE of order
+one.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq5:={ diff(theta(t),t)=v(t), diff(v(t),t)=-(k*g/m)*v(t) -(g/L)*sin(theta(t))};</font>
+</pre>
+
+\[
+eq5 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\text{d}t} v(t) = -\frac{k g v(t)}{m} - \frac{g \sin(\theta(t))}{L} \right\}
+\]
+
+<p>In the formula above, <font class="matlab">v(t)</font> is the
+angular velocity at time \(t\).</p> 
+
+<h4> Ideal Pendulum </h4>
+
+<p>The ideal pendulum does not have friction; namely.
+<font class="matlab">k=0</font>.  We assume that
+<font class="matlab">L=3</font> m and <font class="matlab">m=0.5</font>
+kg.  The mass does not matter if there is no friction.
+
+<pre class="matlab">
+> <font class="matlab">eq6 := subs({k=0, g=9.8, m=0.5, L=3}, eq5);</font>
+</pre>
+
+\[
+eq6 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\text{d}t} v(t) = -3.266666667 \sin(\theta(t)) \right\}
+\]
+
+<p>We plan to plot the orbits for the following two situations:</p>
+
+<ul>
+<li> We let the pendulum loose from an angle of \(\pi/4\).  Thus,
+<font class="matlab">&theta;(0)=&pi;/4 </font> and
+<font class="matlab">v(0)=0</font>.</li>
+<li> We push the pendulum upward from an angle of \(\pi/4\) and with a
+velocity of \(4\) m/s.  Thus, <font class="matlab">&theta;(0)= &pi;/4</font>
+and <font class="matlab">v(0)=4</font> m/s.</li>
+</ul>
+
+<p>Since we need to plot the orbits of the system of ODE of order one
+for several initial conditions, it is useful to reintroduce the
+procedure (after some small modifications) used before.<p>
+
+<pre class="matlab">
+> <font class="matlab"> graph := proc (a, b, T, clr)
+   local X:
+   X := dsolve(eq6 union {theta(0) = a, v(0) = b}, {theta(t), v(t)}, type = numeric,
+      output = procedurelist, method = classical[rk4], stepsize = 0.1e-1):
+   RETURN(odeplot(X, [theta(t), v(t)], 0 .. T, color = clr)):
+   end proc;</font>
+</pre>
+
+\[
+\begin{split}
+& graph := proc (a, b, T, clr)\\
+& \qquad  local\ X;\\
+& \qquad X := dsolve(eq6\ union\ \{theta(0) = a, v(0) = b\},
+\{theta(t), v(t)\}, type = numeric, output = procedurelist,\\
+& \qquad \qquad method = classical[rk4], stepsize = 0.1e-1);\\
+& \qquad  RETURN(plots:-odeplot(X, [theta(t), v(t)], 0 .. T, color = clr))\\
+& end\ proc
+\end{split}
+\]
+
+<p>The orbits of the two particular solutions are drawn in the following
+figure.</p>
+
+<pre class="matlab">
+> <font class="matlab">pendul1 := graph(Pi/4,0,2*Pi,"red"):</font>
+> <font class="matlab">pendul2 := graph(Pi/4,4,Pi,"blue"):</font>
+> <font class="matlab">display({pendul1,pendul2}, axes=normal, labels=[`theta`,`v`]);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_nonlinODE_11.png" style="width: 300px"
+     alt="Drawing of two orbits of the system of ODE of order one associated to the motion of the pendulum without friction"> 
+</div>
+
+<p>For the orbit in red, the pendulum oscillates from one side to the
+other for ever.  For the orbit in blue, the pendulum go around for
+ever because our initial velocity was strong.   Since there is no
+friction, the motion of the pendulum is perpetual.</p>
+
+<p>We draw in the same figure the vector field of the system of ODE of
+order one and the orbits of the two particular solutions above.</p> 
+
+<pre class="matlab">
+> <font class="matlab"> with(DEtools):</font>
+> <font class="matlab"> DEplot(eq6,[theta(t),v(t)], t=0..1.5*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=4]],
+   linecolor=[blue,black], thickness=2, color=green, stepsize=0.01, arrows=small);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_nonlinODE_12.png" style="width: 300px"
+     alt="Drawing of the vector field, including some orbits, of the system of ODE of order one associated to the motion of the pendulum without friction">
+</div>
+
+<h4> Pendulum with Friction </h4>
+
+<p>This time, we do not ignore the friction.  We assume that
+<font class="matlab">k=0.1</font>. We keep the values
+<font class="matlab">L=3</font> m and <font class="matlab">m=0.5</font> kg.</p>
+
+<pre class="matlab">
+> <font class="matlab">eq6 := subs({m=0.5, g=9.8, L=3, k=0.1},eq5);</font>
+</pre>
+
+\[
+eq6 := \left\{ \frac{\text{d}}{\text{d}t} \theta(t) = v(t), \frac{\text{d}}{\text{d}t} v(t) = -1.960000000 v(t)-3.266666667 \sin(\theta(t)) \right\}
+\]
+
+<p>Since we are using the same name <font class="matlab">eq6</font> to
+designate the new system of ODE of order one, the procedure
+<font class="matlab">graph()</font> defined above is still valid in
+the present context.</p>
+
+<p>As for the ideal pendulum, we consider two cases:</p>
+
+<ul>
+<li> We let the pendulum loose from an angle of \(\pi/4\).  Thus,
+<font class="matlab">&theta;(0)=&pi;/4 </font> and
+<font class="matlab">v(0)=0</font>.</li>
+<li> We push the pendulum upward from an angle of \(\pi/4\) with a
+velocity of \(8\) m/s.  Thus, <font class="matlab">&theta;(0)= &pi;/4</font>
+and <font class="matlab">v(0)=8</font> m/s.</li>
+</ul>
+
+<p> The orbits of this two particular solutions are draw in the
+following figure.</p> 
+
+<pre class="matlab">
+> <font class="matlab">pendul1:=graph(Pi/4,0,3*Pi,"red"):</font>
+> <font class="matlab">pendul2:=graph(Pi/4,8,3*Pi, "blue"):</font>
+> <font class="matlab">display({pendul1,pendul2}, axes=normal, labels=[`theta`,`v`]);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_nonlinODE_13.png" style="width: 300px"
+     alt="Drawing of two orbits of the system of ODE associated to the motion of the pendulum with friction">
+</div>
+
+<p>We draw in the same figure the vector field of the system of ODE of
+order one and the orbits of the two particular solutions above.</p>
+
+<pre class="matlab">
+> <font class="matlab">DEplot(eq6,[theta(t),v(t)], t=0..1.3*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=8]],
+   linecolor=[red,blue], thickness=2, color=black, stepsize=0.01, arrows=small);</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_nonlinODE_14.png" style="width: 300px"
+     alt="Drawing of the vector field, including two orbits, of the system of ODE of order one associated to the motion of the pendulum with friction">
+</div>
+
+<p>For the orbit in red, the oscillation of the pendulum is
+dying down.  For the orbit in blue, after a complete rotation, the
+pendulum starts to oscillate and its oscillation is also dying down.</p>
+
+<hr class="MMathSStat">
+
+<h3> Systems of Nonlinear Non-Autonomous ODE </h3>
+
+<p> The analysis of systems of nonlinear non-autonomous ODE is more
+complex than the anaylsis of systems of nonlinear autonomous ODE.
+In particular, the system of ODE \(\vec{x}'= f(t,\vec{x})\) does not
+define a vector field because the right hand side depends explicitly
+of \(t\).  We will only give an example to illustrate
+ how <em>Maple</em> can still be used to study such systems of ODE.</p>
+
+<div class="Example">
+<p><em>Example</em>: A friendly dog is running after a person.  The
+dog starts running from the origin when the person crosses the
+\(x\) axis as illustrated in the figure below. </p>
+
+<div class="center">
+  <img src="dog_en.png" style="width: 350px"
+       alt="Graphical representation of the dog chasing a person">
+</div>
+
+<p> The person walks in a straight line at a speed of \(v\) km/h.
+The direction of the dog is always toward the person.  Moreover, the dog 
+runs at a constant speed of \(v_d\) km/h.  The position of the dog
+is described by differential equations that we are going to deduce below.</p>
+
+<p><em>First Method</em>:  Since the dog is always running toward
+the person, we have that </p> 
+\[
+\begin{equation} \label{Equ1}
+\frac{\text{d}y}{\text{d}x} = \frac{y-v t}{x-a} \ .
+\end{equation}
+\]
+<p> Since the speed \(v_d\) at which the dog run is constant, we also have
+that </p>
+\[
+\begin{equation} \label{Equ2}
+v_d = \left( \left( \frac{\text{d}x}{\text{d}t} \right)^2 
++ \left( \frac{\text{d}y}{\text{d}t} \right)^2  \right)^{1/2}
+= \frac{\text{d}x}{\text{d}t}
+\left( 1 + \left( \frac{\text{d}y}{\text{d}x} \right)^2  \right)^{1/2} \ ,
+\end{equation}
+\]
+<p> where we have deduced from the figure above that the
+derivatives of \(x\) and \(y\) with respect to \(t\) are positive.
+If we derive the equation
+\(\displaystyle (x-a) \frac{\text{d}y}{\text{d}x} = y-v t\) with
+respect to \(t\), then we get</p>
+\[
+(x-a) \frac{\text{d}^2y}{\text{d}x^2} \frac{\text{d}x}{\text{d}t}
++ \frac{\text{d}y}{\text{d}x} \frac{\text{d}x}{\text{d}t}
+= (x-a) \frac{\text{d}^2y}{\text{d}x^2} \frac{\text{d}x}{\text{d}t}
++ \frac{\text{d}y}{\text{d}t}  = \frac{\text{d}y}{\text{d}t} - v \ .
+\]
+<p> Thus </p>
+\[
+(x-a) \frac{\text{d}^2y}{\text{d}x^2} = -v\,
+\left(\frac{\text{d}x}{\text{d}t}\right)^{-1}
+= -\frac{v}{v_d}
+\left( 1 + \left( \frac{\text{d}y}{\text{d}x} \right)^2  \right)^{1/2} \ .
+\]
+<p>This is not the type of second order ODE that we can solve with the
+usual techniques taught in courses on ODE.  In particular, this is a
+nonlinear ODE.  We will therefore solve it numerically.
+We assume that \(a= 0.5\) km, \(v = 3\) kn/h and
+\(v_d = 10\) km/h.  We draw the graph of \(y\) in fonction of \(x\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(plots):
+   equ := vd*(a-x)*diff(y(x),x$2) = v*(1 + ( diff(y(x),x))^2)^(1/2);
+   equP := subs({a=0.5, v=3, vd=10},equ);
+   solP := dsolve({equP, y(0)=0, D(y)(0)=0},y(x),type=numeric,output=procedurelist,
+      method=rkf45, range=0..0.499);
+   odeplot(solP, 0..0.499,axes=BOXED,labels=[`x`,`y`],refine=2,gridlines=true);
+</font>
+</pre>
+
+\[
+\begin{split}
+& equ := vd\,(a - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
+= v\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2} \\
+& equP := 10\,(0.5 - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
+= 3\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2} \\
+& solP := \text{proc(x\_rkf45) \ldots end proc}
+\end{split}
+\]
+
+<div class="center">
+  <img src="Maple_dog1.png" style="width: 350px"
+       alt="Drawing of the path of the dog running after the person">
+</div>
+
+<p>We integrate the ODE up to \(x = 0.499 < 0.5\) because
+\(\displaystyle \frac{\text{d}}{\text{d} x} y(x) \to \infty\) as
+\(x \to 0.5\).  In theory, the dog catches up with the person when
+\(x =0.5\) km.  If we solve the ODE over the interval \([0,0.4999999]\),
+then we get basically the same figure than the one above.  Thus, we
+may assume that \(y \approx 0.162\) km when the dog reaches the person.</p>
+
+<p> What happen if we have a very small dog or a lazy dog that runs
+only at \(2\) km/h?  We now have that \(a= 0.5\) km, \(v = 3\) kn/h and
+\(v_d = 2\) km/h. We draw the graph of \(y\) in function of \(x\). </p>
+
+<pre class="matlab">
+> <font class="matlab"> equP := subs({a=0.5, v=3, vd=2},equ);
+   solP := dsolve({equP, y(0)=0, D(y)(0)=0},y(x),type=numeric,output=procedurelist,
+      method=rkf45, range=0..0.499):
+   odeplot(solP, 0..0.499,axes=BOXED,labels=[`x`,`y`],refine=2,gridlines=true);
+</font>
+</pre>
+
+\[
+equP := 2\,(0.5 - x) \left( \frac{\text{d}^2}{\text{d}x^2} y(x)\right)
+= 3\,\sqrt{1 + \left(\frac{\text{d}}{\text{d} x} y(x) \right)^2}
+\]
+
+<div class="center">
+  <img src="Maple_dog2.png" style="width: 350px"
+       alt="Drawing of the path of the dog running after the person">
+</div>
+
+<p> If we solve the ODE over the interval \([0,0.4999999]\),
+then we get figure below.</p>
+
+<pre class="matlab">
+> <font class="matlab"> solP := dsolve({equP, y(0)=0, D(y)(0)=0},y(x),type=numeric,output=procedurelist,
+      method=rkf45, range=0..0.4999999):
+   odeplot(solP, 0..0.4999999,axes=BOXED,labels=[`x`,`y`],refine=2,gridlines=true);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_dog3.png" style="width: 350px"
+       alt="Drawing of the path of the dog running after the person">
+</div>
+
+<p> The poor dog is still running after the person after more than
+\(1100\) km.  In this case, the dog will never reach the person if we assume
+that this person is going to walk at the same speed for ever.</p> 
+
+<p><em>Second Method</em>: The previous method has a flaw.  It
+completely ignores the time.  In particular, if the speeds of the
+person and the dog were varying in time, we would not be able to
+determine how long it takes for the dog to reach the person.  We will
+therefore deduce a system of ODE that describe the position of the dog in
+function of the time.  Our deduction will still be based on the relations
+\eqref{Equ1} and \eqref{Equ2} above.</p>
+
+<p> We get from \eqref{Equ1} that </p>
+\[
+\begin{equation} \label{Equ3}
+\frac{\text{d}y}{\text{d}t} = \frac{y-v t}{x-a} \,
+\frac{\text{d}x}{\text{d}t} \ .
+\end{equation}
+\]
+<p>If we substitute \eqref{Equ3} into \eqref{Equ2}, then we get </p>
+\[
+\frac{\text{d}x}{\text{d}t} = v_d \left( 1
++ \left( \frac{y-vt}{x-a}\right)^2\right)^{-1/2}
+= \frac{ v_d (a - x) }{ \sqrt{(x-a)^2 + (y-vt)^2}} \ .
+\]
+<p> Since we assume that \(x < a\), we have used \( \sqrt{(x-a)^2} = a - x\).
+If we substitute this expression back into \eqref{Equ3}, then we get</p>
+\[
+\frac{\text{d}y}{\text{d}t}
+= \frac{ v_d (y-v t) }{ \sqrt{(x-a)^2 + (y-vt)^2}} \ .
+\]
+<p> We thus have the following system of ODE. </p>
+
+<pre class="matlab">
+> <font class="matlab"> eq1 := diff(x(t),t) = vd*(a -x(t))/sqrt((x(t)-a)^2+(y(t)-v*t)^2);
+   eq2 := diff(y(t),t) = vd*(v*t - y(t))/sqrt((x(t)-a)^2 +(y(t)-v*t)^2);
+   eq :=  {eq1, eq2, x(0) = 0, y(0) = 0 };
+</font>
+</pre>
+
+\[
+\begin{split}
+& eq := \bigg\{\frac{d}{d t}x (t) = \frac{vd \left(a -x(t)\right)}
+{\sqrt{\left(x(t)-a \right)^{2}+\left(y(t)-v t \right)^{2}}},
+\frac{d}{d t}y (t) = \frac{vd \left(v t -y(t)\right)}
+{\sqrt{\left(x(t)-a \right)^{2}+\left(y(t)-v t \right)^{2}}},\\
+& x(0) = 0,y(0) = 0\bigg\}
+\end{split}
+\]
+
+<p> As we did previously, we assume that \(a= 0.5\) km, \(v = 3\) kn/h and
+\(v_d = 10\) km/h.  We draw the orbit
+\( \{ (x(t),y(t)): 0 \leq t \leq 0.1 \} \) that represents the
+position of the dog as \(t\) increases.</p>
+
+<pre class="matlab">
+> <font class="matlab"> eqP := subs({a=0.5,v=3,vd=10}, eq);
+   solP := dsolve(eqP, [x(t),y(t)], type=numeric, method = rkf45,
+      output =procedurelist, range=0..0.0551):
+   odeplot(solP,[x(t),y(t)],t=0..0.0551,labels=[`x(t)`,`y(t)`],
+      axes=BOXED,refine=2,gridlines=true);
+</font>
+</pre>
+
+\[
+\begin{split}
+& eq := \bigg\{\frac{d}{d t}x (t) = \frac{10 \left(0.5 -x(t)\right)}
+{\sqrt{\left(x(t)- 0.5 \right)^{2}+\left(y(t)-3 t \right)^{2}}},
+\frac{d}{d t}y (t) = \frac{10 \left(3 t -y(t)\right)}
+{\sqrt{\left(x(t)- 0.5 \right)^{2}+\left(y(t)- 3 t \right)^{2}}},\\
+& x(0) = 0,y(0) = 0\bigg\}
+\end{split}
+\]
+
+<div class="center">
+  <img src="Maple_dog4.png" style="width: 350px"
+       alt="Drawing of the orbite given by (x(t),y(t)) for 0 \leq t \leq 0.1">
+</div>
+
+<p> If we try to integrate for \( t > 0.055\ldots \),
+then <em>Maple</em> displays the following message. </p>
+
+\[
+\text{Warning, cannot evaluate the solution further right of
+.55107367e-1, maxfun limit exceeded (see ?dsolve,maxfun for details)}
+\]
+
+<p> The problem is that \(x(t),y(t)) \to (0.5, 0.165\ldots )\) as
+  \( t \to 0.055\ldots \).  The ODE is not defined for
+\( (t,x,y) \approx (0.0551, 0.5, 0.1653)\).  This is the time and
+location when the dog reaches the person.  So, the dog takes about
+3 minutes and 18 secondes to reach the person. </p>
+</div>
+
+<hr class="MMathSStat">
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(ODE_nonlin_systems,"en");
+</script>
+
+</body>
+</html>

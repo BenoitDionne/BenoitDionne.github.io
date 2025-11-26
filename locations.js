@@ -452,12 +452,19 @@ var ODE_O2_var_coeff = new item
      null, null, null, "ODE_O2_var_coeff", "_top", "ODE_O2_var_coeff");
 websites[websites_nbr++] = ODE_O2_var_coeff;
 
-var ODE_systems = new item
-    ("Syst&egrave;mes d'EDO", "Systems of ODE",
-     location_bd+"math_stat/maple/ODE_systems_fr.html",
-     location_bd+"math_stat/maple/ODE_systems_en.html",
-     null, null, null, "ODE_systems", "_top", "ODE_systems");
-websites[websites_nbr++] = ODE_systems;
+var ODE_lin_systems = new item
+    ("Syst&egrave;mes d'EDO lin&eacute;aires", "Systems of linear ODE",
+     location_bd+"math_stat/maple/ODE_lin_systems_fr.html",
+     location_bd+"math_stat/maple/ODE_lin_systems_en.html",
+     null, null, null, "ODE_lin_systems", "_top", "ODE_lin_systems");
+websites[websites_nbr++] = ODE_lin_systems;
+
+var ODE_nonlin_systems = new item
+    ("Syst&egrave;mes d'EDO nonlin&eacute;aires", "Systems of nonlinear ODE",
+     location_bd+"math_stat/maple/ODE_nonlin_systems_fr.html",
+     location_bd+"math_stat/maple/ODE_nonlin_systems_en.html",
+     null, null, null, "ODE_nonlin_systems", "_top", "ODE_nonlin_systems");
+websites[websites_nbr++] = ODE_nonlin_systems;
 
 var Laplace_transf = new item
     ("Transformations de Laplace", "Laplace transforms",
@@ -772,7 +779,11 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 		= initItem(ODE_O2_var_coeff, mathLinks[math_nbr], mapleLinks,
 			   null);
 	    mapleLinks[maple_nbr++]
-		= initItem(ODE_systems, mathLinks[math_nbr], mapleLinks, null); 
+		= initItem(ODE_lin_systems, mathLinks[math_nbr], mapleLinks,
+			   null); 
+	    mapleLinks[maple_nbr++]
+		= initItem(ODE_nonlin_systems, mathLinks[math_nbr], mapleLinks,
+			   null); 
 	    mapleLinks[maple_nbr++]
 		= initItem(Laplace_transf, mathLinks[math_nbr], mapleLinks,
 			   null); 
