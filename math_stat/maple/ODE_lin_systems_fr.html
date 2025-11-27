@@ -569,7 +569,7 @@ deuxième ressort est \(k_2=2\), et la constant du ressort pour le
 troisième ressort est \(k_3=3\).  Nous supposons qu'il n'y a pas
 d'amortissement. que le deuxième bloc est au repos initialement et
 que nous donnons une poussé initiale de \(0.5\) m/s au premier bloc à
-partir de sa position de repos.  Nous voulons tracer la position de
+partir de sa position au repos.  Nous voulons tracer la position de
 chacun des blocs en fonction du temps \(t\).</p>
 
 <p>D'après la lois de Newton <q lang="en">Force égale masse fois
@@ -642,7 +642,7 @@ alors </p>
 
 <p>Les conditions initiales sont
 \( y_1(0) = x_1(0)=0, y_2(0) = x_1'(0)=0.5, y_3(0) = x_2(0)=0\) and
-\(y_4(0) = x2'(0)=0\).  Ainsi, nous obtenons le système suivant
+\(y_4(0) = x_2'(0)=0\).  Ainsi, nous obtenons le système suivant
 dans <em>Maple<em>.</p>
 
 <pre class="matlab">
@@ -659,7 +659,7 @@ y1(0)=0, y2(0)=0.5, y3(0)=0, y4(0)=0 \bigg\}
 \end{split}
 \]
 
-<p> Nous résolvons ce système et traçons les solutions \(x_1\) et
+<p> Nous résolvons ce système et traçons les graphes de \(x_1\) et
 \(x_2\) sur une même figure pour \(0 \leq t \leq 20\) secondes.</p>
 
 <pre class="matlab">
@@ -683,7 +683,7 @@ y1(0)=0, y2(0)=0.5, y3(0)=0, y4(0)=0 \bigg\}
 </div>
 
 <p>Nous déduisons de la figure ci-dessus que \(t \mapsto (x_1(t),x_2(t)) \) 
-est périodique de période (2\pi\).  Ceci peut être démontré en
+est périodique de période \(2\pi\).  Ceci peut être démontré en
 trouvant la solution explicite du système d'EDO.  Nous pouvons
 utiliser la commande de <em>Maple</em> pour trouver cette solution.</p>
 
@@ -703,7 +703,7 @@ y4(t) = \frac{\cos(2t)}{5} - \frac{\cos(3t)}{5} \bigg\}
 
 <p>Puisque 2 et 3 n'ont pas de facteur commun, nous obtenons que la
 solution \(t \mapsto (x_1(t),x_2(t)) \) est de période \(2\pi\).  Nous
-laissons aux lecteurs le soin d'explorer ce qui arrive lors que
+laissons aux lecteurs le soin d'explorer ce qui arrive lorsque
 nous changeons les valeurs des conditions initiales, des masses et des
 constantes des ressorts.  Avons-nous toujours des solutions
 périodiques?  Est-ce que le système peut être

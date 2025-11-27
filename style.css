@@ -261,8 +261,8 @@ ol.Code > li { border-top: 2px solid #8F001A; }
        div#header { display: none; }
 
        /* Hide the "Back to the top" fixed box */
-       div.topPage { display: none; }
-       img.topPage { display: none; }
+       div.topPAGE { display: none; }
+       img.topPAGE { display: none; }
 }
 
 /********************************************************************/
