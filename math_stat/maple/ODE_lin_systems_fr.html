@@ -114,6 +114,10 @@ traçons à partir de chacun de ces points \(X\) un vecteur dans la direction
 \(f(X)\).  Occasionnellement, la longueur du vecteur est
 proportionnelle à la norme de \(f(X)\).</p>
 
+<hr class="MMathSStat">
+
+<h3> Systèmes d'EDO linéaires et autonomes avec des coefficients constants </h3>
+
 <p>Un système d'EDO de la forme \(X'(t) = A X(t)\), où \(A\) est une
 matrice constante de dimensions \(n \times n\), est appelé un
 système d'EDO linéaire (homogène).  La solution théorique de ce
@@ -121,9 +125,11 @@ système est \(\displaystyle X(t) = e^{t A} X(0)\), où
 l'exponentielle d'une matrice carrée \(B\) est définie par la série
 \(\displaystyle e^B = \sum_{n=0}^\infty \frac{1}{n!} B^n\).  Cette série
 est toujours convergente.  La notion de convergence de séries de
-matrices est indépendant du choix de la norme induite de matrices.
-Considérons la matrice définie par la commande suivante
-de <em>Maple</em>.</p> 
+matrices est indépendant du choix de la norme induite de matrices. </p>
+
+<div class="Example">
+<p><em>Example</em>: Noux considérons la matrice définie par la
+commande suivante de <em>Maple</em>.</p> 
 
 <pre class="matlab">
 > <font class="matlab">with(LinearAlgebra): A := Matrix([[2,-1],[1,2]]);</font>
@@ -153,9 +159,7 @@ expA := \begin{bmatrix} e^2 \cos(1) & -e^2 \sin(1) \\ e^2 \sin(1) & e^2 \cos(1) 
 exptA := \begin{bmatrix} e^{2t} \cos(t) & -e^{2t} \sin(t) \\ e^{2t} \sin(t) & e^{2t} \cos(t) \end{bmatrix}
 \]
 
-<div class="Example">
-<p><em>Exemple</em>: Nous pouvons utiliser la
-fonction <font class="matlab">dsolve()</font> pour 
+<p> Nous pouvons utiliser la fonction <font class="matlab">dsolve()</font> pour 
 résoudre le système d'EDO linéaire homogène \(X'(t) = A X(t)\).  Nous
 représentons ce système d'EDO dans <em>Maple</em> de la façon
 suivante.</p>
@@ -184,7 +188,7 @@ Cette expression est égale à
 </div>
 
 <div class="Example">
-<p><em>Exemple</em>: Nous pouvons aussi résoudre
+<p><em>Exemple (suite)</em>: Nous pouvons aussi résoudre
 \(X'(t) = A X(t)\) avec la condition
 initiale \(\displaystyle X(0) = \begin{bmatrix} 2 \\ 3 \end{bmatrix}\).</p>
 
@@ -227,10 +231,6 @@ cette solution. </p>
      alt="Dessin de l'orbite de la solution de X' = A X avec X(0) = (2 ,3)">
 </div>
 </div>
-
-<hr class="MMathSStat">
-
-<h3> Systèmes d'EDO linéaires homogènes </h3>
 
 <p>Pour évaluer la solution d'un système d'EDO linéaire homogène à
 plusieurs valeurs de la variable indépendante \(t\), nous devons évaluer
@@ -488,7 +488,8 @@ alors toutes les solutions s'éloigneraient de l'origine lorsque
 
 <hr class="MMathSStat">
 
-<h3> Systèmes d'EDO linéaires non-homogènes </h3>
+<h3> Systèmes d'EDO linéaires, autonomes et non-homogènes avec des
+coefficients constants</h3>
 
 <p>Considérons le système d'EDO linéaires non-homogènes défini par le
 commande suivante de <em>Maple</em>.</p>
@@ -533,7 +534,7 @@ formule dans la majorité des manuels d'introduction aux ODE. </p>
 
 <hr class="MMathSStat">
 
-<h3> EDO d'ordre supérieur </h3>
+<h3> Réduction de l'ordre d'une EDO </h3>
 
 <p> Il est possible de réduire l'ordre d'une EDO d'ordre supérieur de
 la forme </p>
@@ -554,7 +555,173 @@ X_n'(t) &= y^{n}(t) = -a_{n-1} y^{n-1}(t) - ... - a_1 y'(t) - a_0 y(t) + f(t) \\
 \end{split}
 \]
 
-<p>Nous avons vu dans le document
+<div class="Example">
+<p><em>Exemple</em> Nous considérons le système de ressorts suivant.</p>
+
+<div class="center">
+<img src="springs.png" style="width: 300px"
+     alt="Dessin des deux blocs entre les deux murs, attachés l'un à l'autre et aux murs par des ressorts. ">
+</div>
+<p> La masse du premier bloc est de \(m_1=1\) gr et la masse du
+deuxième bloc est de \(m_2=1\) gr.  La constante du ressort pour le
+premier ressort est \(k_1=6\), la constante du ressort pour le
+deuxième ressort est \(k_2=2\), et la constant du ressort pour le
+troisième ressort est \(k_3=3\).  Nous supposons qu'il n'y a pas
+d'amortissement. que le deuxième bloc est au repos initialement et
+que nous donnons une poussé initiale de \(0.5\) m/s au premier bloc à
+partir de sa position de repos.  Nous voulons tracer la position de
+chacun des blocs en fonction du temps \(t\).</p>
+
+<p>D'après la lois de Newton <q lang="en">Force égale masse fois
+accélération</q>, nous avons que</p> 
+
+\[
+\begin{split}
+m_1 x_1''(t) &= -k_1 x_1(t) + k_2(x_2(t) - x_1(t)) \\
+m_2 x_2''(t) &= -k_3 x_2(2) - k_2(x_2(t) - x_1(t))
+\end{split}
+\]
+
+<p>où \(x_1(t)\) et \(x_2(t)\) sont respectivement les positions du
+premier et deuxième bloc en fonction du temps \(t\).  Les origines
+pour \(x_1\) et \(x_2\) sont déterminés par les positions des blocs au
+repos.  Comme nous avons expliqué ci-dessus, nous pouvons réduire ce
+système de deux EDO d'ordre deux à un système de quatre EDO d'ordre un
+avec la substitution \(y_1 = x_1, y_2 = x_1' = y_1', y_3 = x_2\)
+et \(y_4 = x_2' = y_3'\).  Nous obtenons</p>
+\[
+\begin{split}
+y_1'(t) &= y_2(t) \\
+m_1 y_2'(t) &= -k_1 y_1(t) + k_2(y_3(t) - y_1(t)) \\
+y_3'(t) &= y_4(t) \\
+m_2 y_4'(t) &= -k_3 y_3(2) - k_2(y_3(t) - y_1(t))
+\end{split}
+\]
+
+<p> Ce système est représenté dans <em>Maple</em> par les commandes
+suivantes. </p>
+
+<pre class="matlab">
+> <font class="matlab"> restart:
+   equ1 := diff(y1(t),t) = y2(t);
+   equ2 := m1*diff(y2(t),t) = -k1*y1(t) + k2*(y3(t)-y1(t));
+   equ3 := diff(y3(t),t) = y4(t);
+   equ4 := m2*diff(y4(t),t) = -k3*y3(t) - k2*(y3(t)-y1(t));
+</font>
+</pre>
+
+\[
+\begin{split}
+& equ1 := \frac{\text{d}}{\text{d}t} y1(t) = y2(t) \\
+& equ2 := m1 \,\left( \frac{\text{d}}{\text{d}t} y2(t) \right)
+= -k1 y1(t) + k2 (y3(t) - y1(t)) \\
+& equ3 := \frac{\text{d}}{\text{d}t} y3(t) = y4(t) \\
+& equ4 := m2 \, \left( \frac{\text{d}}{\text{d}t} y4(t) \right)
+= -k3 y3(t) - k2 (y3(t) - y1(t))
+\end{split}
+\]
+
+<p> Si nous substituons les valeurs des constantes, nous obtenons
+alors </p>
+
+<pre class="matlab">
+> <font class="matlab"> equ1p := equ1;
+   equ2p := subs({m1=1,m2=1,k1=6,k2=2,k3=3}, equ2);
+   equ3p := equ3;
+   equ4p := subs({m1=1,m2=1,k1=6,k2=2,k3=3}, equ4);
+</font></pre>
+
+\[
+\begin{split}
+& equ1p := \frac{\text{d}}{\text{d}t} y1(t) = y2(t) \\
+& equ2p := \frac{\text{d}}{\text{d}t} y2(t) = -8 y1(t) + 2 y3(t) \\
+& equ3p := \frac{\text{d}}{\text{d}t} y3(t) = y4(t) \\
+& equ4p := \frac{\text{d}}{\text{d}t} y4(t) = -5 y3(t) + 2 y1(t)
+\end{split}
+\]
+
+<p>Les conditions initiales sont
+\( y_1(0) = x_1(0)=0, y_2(0) = x_1'(0)=0.5, y_3(0) = x_2(0)=0\) and
+\(y_4(0) = x2'(0)=0\).  Ainsi, nous obtenons le système suivant
+dans <em>Maple<em>.</p>
+
+<pre class="matlab">
+> <font class="matlab"> syst := {equ1p, equ2p, equ3p, equ4p, y1(0)=0, y2(0)=0.5, y3(0)=0, y4(0)=0};
+</font></pre>
+
+\[
+\begin{split}
+& syst := \bigg\{ \frac{\text{d}}{\text{d}t} y1(t) = y2(t) ,
+\frac{\text{d}}{\text{d}t} y2(t) = -8 y1(t) + 2 y3(t) ,
+\frac{\text{d}}{\text{d}t} y3(t) = y4(2) , \\
+& \frac{\text{d}}{\text{d}t} y4(t) = -5 y3(t) + 2 y1(t) , 
+y1(0)=0, y2(0)=0.5, y3(0)=0, y4(0)=0 \bigg\}
+\end{split}
+\]
+
+<p> Nous résolvons ce système et traçons les solutions \(x_1\) et
+\(x_2\) sur une même figure pour \(0 \leq t \leq 20\) secondes.</p>
+
+<pre class="matlab">
+> <font class="matlab"> sol := dsolve(syst,{y1(t),y2(t),y3(t),y4(t)}, type=numeric);
+   with(DEtools): with(plots):
+   plot1 := odeplot(sol,[t,y1(t)],0..10,color=blue,thickness=1):
+   plot2 := odeplot(sol,[t,y3(t)],0..10,color=green,thickness=1):
+   display({plot1,plot2},labels=["t","x1,x2"]);
+</font>
+</pre>
+
+\[
+\begin{split}
+& sol := \text{proc(x\_rkf45) \ldots end proc}
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_springs.png" style="width: 350px"
+     alt="Graphe de x1(t) et x2(t) en fonction de t pour 0 <= t <= 10">
+</div>
+
+<p>Nous déduisons de la figure ci-dessus que \(t \mapsto (x_1(t),x_2(t)) \) 
+est périodique de période (2\pi\).  Ceci peut être démontré en
+trouvant la solution explicite du système d'EDO.  Nous pouvons
+utiliser la commande de <em>Maple</em> pour trouver cette solution.</p>
+
+<pre>
+<font class="matlab"> dsolve(syst,{y1(t),y2(t),y3(t),y4(t)});
+</font>
+</pre>
+
+\[
+\begin{split}
+&\bigg\{ y1(t) = \frac{\sin(2t)}{20} + \frac{2 \sin(3t)}{15}, y2(t)
+= \frac{\cos(2 t)}{10} + \frac{2\cos(3t)}{5}, \\
+&\qquad y3(t) = \frac{\sin(2t)}{10} - \frac{\sin(3t)}{15},
+y4(t) = \frac{\cos(2t)}{5} - \frac{\cos(3t)}{5} \bigg\}
+\end{split}
+\]
+
+<p>Puisque 2 et 3 n'ont pas de facteur commun, nous obtenons que la
+solution \(t \mapsto (x_1(t),x_2(t)) \) est de période \(2\pi\).  Nous
+laissons aux lecteurs le soin d'explorer ce qui arrive lors que
+nous changeons les valeurs des conditions initiales, des masses et des
+constantes des ressorts.  Avons-nous toujours des solutions
+périodiques?  Est-ce que le système peut être
+<q lang="fr">chaotique</q>?</p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3> Systèmes d'EDO linéaires et non-autonoes </h3>
+
+<p> C'est la situation où nous avons \(X'(t) = A(t) X(t)\).
+Donc, le côté droit du système d'EDO dépend explicitement de
+\(t\).  La théorie précédente ne s'applique pas à ce cas. Nous
+considérons un exemple pour illustrer comment <em>Maple</em> peut être
+utilisé pour étudier ce genre d'EDO. </p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous avons vu dans le document
 <script language="javascript">
     buildLinK(ODE_O2_var_coeff.url_en,
     ODE_O2_var_coeff.text_fr,"MMathSStat", ODE_O2_var_coeff.id,
@@ -612,6 +779,7 @@ deux que nous avons présentée dans le premier exemple du document
     ODE_O2_var_coeff.text_en,"MMathSStat", ODE_O2_var_coeff.id,
     ODE_O2_var_coeff.target);
 </script>.</p>
+</div>
 
 <hr class="MMathSStat">
 

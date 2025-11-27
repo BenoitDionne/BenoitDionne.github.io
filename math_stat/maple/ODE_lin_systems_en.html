@@ -111,6 +111,10 @@ For many (equally spaced) points \(X\) in the plane, we draw from each
 of these points \(X\) a vector in the direction \(f(X)\). Sometimes
 the length of the vector drawn is proportional to the norm of \(f(X)\).</p>
 
+<hr class="MMathSStat">
+
+<h3> Systems of autonomous linear ODE with constant coefficients </h3>
+
 <p>A system of ODE of the form \(X'(t) = A X(t)\), where \(A\) is a
 constant \(n \times n\) matrix, is called a (homogeneous) linear system of
 ODE.  The theoretical solution of this system is
@@ -118,7 +122,10 @@ ODE.  The theoretical solution of this system is
 where the exponential of a square matrix \(B\) is defined by the series
 \(\displaystyle e^B = \sum_{n=0}^\infty \frac{1}{n!} B^n\).  This series
 always converges.  The notion of convergence for series of matrices is
-independent of the induced norm of matrices chosen.  Consider the
+independent of the induced norm of matrices chosen.</p>
+
+<div class="Example">
+<p><em>Example</em>: We consider the
 matrix defined by the following command in <em>Maple</em>.</p>
 
 <pre class="matlab">
@@ -149,9 +156,7 @@ expA := \begin{bmatrix} e^2 \cos(1) & -e^2 \sin(1) \\ e^2 \sin(1) & e^2 \cos(1) 
 exptA := \begin{bmatrix} e^{2t} \cos(t) & -e^{2t} \sin(t) \\ e^{2t} \sin(t) & e^{2t} \cos(t) \end{bmatrix}
 \]
 
-<div class="Example">
-<p><em>Example</em>: We can use the
-function <font class="matlab">dsolve()</font> to 
+<p> We can use the function <font class="matlab">dsolve()</font> to 
 solve the system of homogeneous linear system of ODE \(X'(t) = A X(t)\).
 We represent this system of ODE in <em>Maple</em> as it follows.</p>
 
@@ -179,8 +184,8 @@ expression is equal to
 </div>
 
 <div class="Example">
-<p><em>Example</em>: We can also solve \(X'(t) = A X(t)\) with the
-initial condition 
+<p><em>Example (continued) </em>: We can also solve \(X'(t) = A X(t)\)
+with the initial condition 
 \(\displaystyle X(0) = \begin{bmatrix} 2 \\ 3 \end{bmatrix}\).</p>
 
 <pre class="matlab">
@@ -221,10 +226,6 @@ X := \left\{ x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ), x2(t) = -e^{2t} (  -3 \cos
      alt="Drawing of the orbit of the solution of X' = A X with X(0) = (2 ,3)">
 </div>
 </div>
-
-<hr class="MMathSStat">
-
-<h3> Homogeneous Linear Systems of ODE </h3>
 
 <p>To evaluate the solution of an homogeneous linear system of ODE at
 various values of the independent variable \(t\), we have to evaluate
@@ -472,7 +473,8 @@ The original would then be called a <em>unstable spiral</em> or
 
 <hr class="MMathSStat">
 
-<h3> Non-homogeneous Linear Systems of ODE </h3>
+<h3> Non-homogeneous and autonomous Linear Systems of ODE with
+constant coefficients </h3>
 
 <p>Consider the non-homogeneous linear system of ODE defined by the
 following <em>Maple</em> command.</p>
@@ -516,7 +518,7 @@ ODE. </p>
 
 <hr class="MMathSStat">
 
-<h3> Higher Order ODE </h3>
+<h3> Reduction of the order of an ODE </h3>
 
 <p> It is possible to reduce an higher order ODE of the form </p>
 
@@ -536,7 +538,169 @@ X_n'(t) &= y^{n}(t) = -a_{n-1} y^{n-1}(t) - ... - a_1 y'(t) - a_0 y(t) + f(t) \\
 \end{split}
 \]
 
-<p>We have seen in the document
+<div class="Example">
+<p><em>Example</em> We Consider the following system of springs </p>
+
+<div class="center">
+<img src="springs.png" style="width: 300px"
+     alt="Drawing of the two blocks between two walls, attached to themselves and the walls by springs.">
+</div>
+<p> The mass of the first block is \(m_1=1\) gr and the mass of the
+second block is \(m_2=1\) gr.  The spring constant for the first
+spring is \(k_1=6\), the spring constant for the second spring is
+\(k_2=2\), and the spring constant for third spring is \(k_3=3\).
+We suppose that there is no damping, that the second block is at rest
+initially and that the first block is given an initial speed of
+\(0.5\) m/s from its position at rest.  We want to plot the position
+of each block in function of the time \(t\).</p>
+
+<p>According to Newton's law <q lang="en">Force equals mass times
+acceleration</q>, we have that </p>
+
+\[
+\begin{split}
+m_1 x_1''(t) &= -k_1 x_1(t) + k_2(x_2(t) - x_1(t)) \\
+m_2 x_2''(t) &= -k_3 x_2(2) - k_2(x_2(t) - x_1(t))
+\end{split}
+\]
+
+<p>where \(x_1(t)\) and \(x_2(t)\) are respectively the positions of
+the first and second block in function of the time \(t\).  The origins
+for the \(x_1\) and \(x_2\) are determined by the positions of the
+blocks at rest.  As explained above, we can reduce this systems of two
+linear second orders ODE to a system of four linear first order ODE
+with the substitution \(y_1 = x_1, y_2 = x_1' = y_1', y_3 = x_2\)
+and \(y_4 = x_2' = y_3'\).  We get</p>
+\[
+\begin{split}
+y_1'(t) &= y_2(t) \\
+m_1 y_2'(t) &= -k_1 y_1(t) + k_2(y_3(t) - y_1(t)) \\
+y_3'(t) &= y_4(t) \\
+m_2 y_4'(t) &= -k_3 y_3(2) - k_2(y_3(t) - y_1(t))
+\end{split}
+\]
+
+<p> This system is represented in <em>Maple</em> by the
+following commands. </p>
+
+<pre class="matlab">
+> <font class="matlab"> restart:
+   equ1 := diff(y1(t),t) = y2(t);
+   equ2 := m1*diff(y2(t),t) = -k1*y1(t) + k2*(y3(t)-y1(t));
+   equ3 := diff(y3(t),t) = y4(t);
+   equ4 := m2*diff(y4(t),t) = -k3*y3(t) - k2*(y3(t)-y1(t));
+</font>
+</pre>
+
+\[
+\begin{split}
+& equ1 := \frac{\text{d}}{\text{d}t} y1(t) = y2(t) \\
+& equ2 := m1 \,\left( \frac{\text{d}}{\text{d}t} y2(t) \right)
+= -k1 y1(t) + k2 (y3(t) - y1(t)) \\
+& equ3 := \frac{\text{d}}{\text{d}t} y3(t) = y4(t) \\
+& equ4 := m2 \, \left( \frac{\text{d}}{\text{d}t} y4(t) \right)
+= -k3 y3(t) - k2 (y3(t) - y1(t))
+\end{split}
+\]
+
+<p> If we subsided the values for the constants, then we get </p>
+
+<pre class="matlab">
+> <font class="matlab"> equ1p := equ1;
+   equ2p := subs({m1=1,m2=1,k1=6,k2=2,k3=3}, equ2);
+   equ3p := equ3;
+   equ4p := subs({m1=1,m2=1,k1=6,k2=2,k3=3}, equ4);
+</font></pre>
+
+\[
+\begin{split}
+& equ1p := \frac{\text{d}}{\text{d}t} y1(t) = y2(t) \\
+& equ2p := \frac{\text{d}}{\text{d}t} y2(t) = -8 y1(t) + 2 y3(t) \\
+& equ3p := \frac{\text{d}}{\text{d}t} y3(t) = y4(t) \\
+& equ4p := \frac{\text{d}}{\text{d}t} y4(t) = -5 y3(t) + 2 y1(t)
+\end{split}
+\]
+
+<p>The initial conditions are
+\( y_1(0) = x_1(0)=0, y_2(0) = x_1'(0)=0.5, y_3(0) = x_2(0)=0\) and
+\(y_4(0) = x2'(0)=0\).  Hence, we get the following system
+in <em>Maple<em>.</p>
+
+<pre class="matlab">
+> <font class="matlab"> syst := {equ1p, equ2p, equ3p, equ4p, y1(0)=0, y2(0)=0.5, y3(0)=0, y4(0)=0};
+</font></pre>
+
+\[
+\begin{split}
+& syst := \bigg\{ \frac{\text{d}}{\text{d}t} y1(t) = y2(t) ,
+\frac{\text{d}}{\text{d}t} y2(t) = -8 y1(t) + 2 y3(t) ,
+\frac{\text{d}}{\text{d}t} y3(t) = y4(2) , \\
+& \frac{\text{d}}{\text{d}t} y4(t) = -5 y3(t) + 2 y1(t) , 
+y1(0)=0, y2(0)=0.5, y3(0)=0, y4(0)=0 \bigg\}
+\end{split}
+\]
+
+<p> We solve this system and plot the solution \(x_1\) and \(x_2\) in
+the same figure for \(0 \leq t \leq 20\) seconds.</p>
+
+<pre class="matlab">
+> <font class="matlab"> sol := dsolve(syst,{y1(t),y2(t),y3(t),y4(t)}, type=numeric);
+   with(DEtools): with(plots):
+   plot1 := odeplot(sol,[t,y1(t)],0..10,color=blue,thickness=1):
+   plot2 := odeplot(sol,[t,y3(t)],0..10,color=green,thickness=1):
+   display({plot1,plot2},labels=["t","x1,x2"]);
+</font>
+</pre>
+
+\[
+\begin{split}
+& sol := \text{proc(x\_rkf45) \ldots end proc}
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_springs.png" style="width: 350px"
+     alt="Plot of x1(t) and x2(t) in function of t for 0 <= t <= 10">
+</div>
+
+<p>We deduce from the figure above that \( t \mapsto (x_1(t),x_2(t))\) 
+is periodic of period \(2\pi\).  This can be proved by finding the
+explicit solution of the system of ODE.  We can use
+the following <em>Maple</em> command to get this solution.</p>
+
+<pre>
+<font class="matlab"> dsolve(syst,{y1(t),y2(t),y3(t),y4(t)});
+</font>
+</pre>
+
+\[
+\begin{split}
+&\bigg\{ y1(t) = \frac{\sin(2t)}{20} + \frac{2 \sin(3t)}{15}, y2(t)
+= \frac{\cos(2 t)}{10} + \frac{2\cos(3t)}{5}, \\
+&\qquad y3(t) = \frac{\sin(2t)}{10} - \frac{\sin(3t)}{15},
+y4(t) = \frac{\cos(2t)}{5} - \frac{\cos(3t)}{5} \bigg\}
+\end{split}
+\]
+
+<p>Since 2 and 3 have no common factor, we find that the solution
+\(t \mapsto (x_1(t),x_2(t)) \) is of period \(2\pi\).  We leave it to
+the reader to explore what happen for different initial conditions,
+masses and spring constants.  Do we always get periodic solutions?
+Can the system be <q lang="en">chaotic?</q></p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3> Systems of non-autonomous linear ODE </h3>
+
+<p> This is the situation where we have \(X'(t) = A(t) X(t)\).
+Thus, the right hand side of the system of ODE depends explicitly of
+\(t\).  The previous theory cannot be applied in this case.  We
+consider one example to illustrate how <em>Maple</em> can still be used
+to study such systems of ODE. </p>
+
+<div class="Example">
+<p><em>Example</em>: We have seen in the document
 <script language="javascript">
     buildLinK(ODE_O2_var_coeff.url_en,
     ODE_O2_var_coeff.text_en,"MMathSStat", ODE_O2_var_coeff.id,
@@ -593,6 +757,7 @@ the second ordre ODE that we presented in the first example of the document
     ODE_O2_var_coeff.text_en,"MMathSStat", ODE_O2_var_coeff.id,
     ODE_O2_var_coeff.target);
 </script>.</p>
+</div>
 
 <hr class="MMathSStat">
 

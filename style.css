@@ -40,9 +40,13 @@ h4 { text-decoration: none; text-align: left; color: black;
 /* Address */
 address { vertical-align: baseline; text-align: left; }
 
-/* Horizontal line */
-hr.MMathSStat { width: 80%; height: 2px; background-color: #8F001A;
-  border: 0px; color: #8F001A; margin-top: 1em; margin-bottom: 1em; }
+/* Note that a <hr> tag with a specified width may be
+   displayed as if there was a clear:both added to its style and
+   therefore may not appear where expected if there is a floating
+   component. */
+hr.MMathSStat { height: 2px; background-color: #8F001A;
+  border: 0px; color: #8F001A; margin-top: 1em; margin-bottom: 1em;
+  margin-right: 3em; margin-left:3em; }
 
 /* Italic */
 i { text-decoration: none; font-weight: bold; }
