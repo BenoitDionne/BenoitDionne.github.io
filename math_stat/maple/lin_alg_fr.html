@@ -581,22 +581,263 @@ valeur absolue. </p>
 </div>
 
 <div class="Example">
+<p><em>Exemple (Processus de Markov)</em>:
+Une épicerie met en vente à chaque jour un des trois catégories de
+fruits suivantes: pommes, bananes et oranges.  La catégorie de fruits
+en vente durant une journée est déterminée par la catégorie de fruits
+en vente durant la journée précédente selon la règle suivante.  Les
+composantes de la matrice </p>
+\[
+P = \begin{pmatrix}
+1/2 & 1/3 & 1/2 \\
+1/3 & 1/2 & 1/2 \\
+1/6 & 1/6 & 0
+\end{pmatrix}
+\]
+<p>ont les significations suivantes</p>
+<ul>
+<li> \(P_{1,1}\) est la probabilité que les pommes soient en vente si
+les pommes étaient en vente la journée précédente.</li>
+<li> \(P_{1,2}\) est la probabilité que les pommes soient en vente si
+les bananes étaient en vente la journée précédente.</li>
+<li> \(P_{1,3}\) est la probabilité que les pommes soient en vente si
+les oranges étaient en vente la journée précédente.</li>
+<li> \(P_{2,1}\) est la probabilité que les bananes soient en vente si
+les pommes étaient en vente la journée précédente. </li>
+<li> \(P_{2,2}\) est la probabilité que les bananes soient en vente si
+les bananes étaient en vente la journée précédente. </li>
+<li> ... </li>
+<li> \(P_{3,1}\) est la probabilité que les oranges soient en vente si
+les pommes étaient en vente la journée précédente. </li>
+<li> ... </li>
+<li> ... </li>
+</ul>
+<p> La matrice \(P\) est une matrice stochastique; c'est-à-dire,
+toutes les composantes de \(P\) sont des valeurs entre 0 et 1
+(incluant 0 et 1) et la somme des composantes dans chaque colonne est
+égale à 1.  Cette dernière condition signifie qu'il y a une
+probabilité de 100% qu'une des trois catégories de fruits durant une
+journée si une des catégories est en vente la journée précédente.
+C'est une tautologie car la politique de l'épicerie est de mettre en
+vente une des trois catégories à chaque jour.</p>
+
+<p>La matrice \(P^n\) donne la probabilité qu'une catégorie de fruits
+soit en vente dans \(n\) jours si une certaine catégorie de fruits est
+en vente aujourd'hui.  Nous utilisons <em>Maple</em> pour trouver
+la probabilité que les bananes soient en vente dans 20 jours si les
+oranges sont en vente aujourd'hui.  Cette probabilité est donnée par
+la valeur de la composante à la position \((2,3)\) de la matrice \(P^n\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(LinearAlgebra):
+   P := Matrix([[1/2,1/3,1/2],[1/3,1/2,1/2],[1/6,1/6,0]]);
+   P20 := P^20;
+   evalf(P20(2,3));
+</font></pre>
+
+\[
+\begin{split}
+& P := \begin{bmatrix}
+\frac{1}{2} & \frac{1}{3} & \frac{1}{2} \\
+\frac{1}{3} & \frac{1}{2} & \frac{1}{2} \\
+\frac{1}{6} & \frac{1}{6} & 0
+\end{bmatrix} \\
+& P20 := \begin{bmatrix}
+\frac{391731261435319}{914039610015744} &
+\frac{522308348580425}{1218719480020992} &
+\frac{522308348580425}{1218719480020992} \\
+\frac{522308348580425}{1218719480020992} &
+\frac{391731261435319}{914039610015744} &
+\frac{522308348580425}{1218719480020992} \\
+\frac{522308348580425}{3656158440062976} &
+\frac{522308348580425}{3656158440062976} &
+\frac{87051391430071}{609359740010496}
+\end{bmatrix} \\
+& 0.4285714286
+\end{split}
+\]
+<p>Donc, il y a une probabilité d'environ 42.86 % que les bananes
+soient en vente dans 20 jours si les oranges sont en vente
+aujourd'hui.</p>
+
+<p> Nous supposons que
+\(\displaystyle \vec{p} = \begin{pmatrix} p_1 \\ p_2 \\ p_3 \end{pmatrix} \)
+est la distribution de probabilité le jour de l'ouverture inaugurale de
+l'épicerie.  C'est-à-dire,</p>
+<ul>
+<li> \(0 \leq p_1 \leq 1\) est la probabilité que les pommes soient en
+vente le jour de l'ouverture inaugurale, </li>
+<li> \(0 \leq p_2 \leq 1\) est la probabilité que les bannes soient en
+vente le jour de l'ouverture inaugurale, </li>
+<li> \(0 \leq p_3 \leq\) est la probabilité que les oranges soient en
+vente le jour de l'ouverture inaugurale, et </li>
+<li> \(p_1 + p_2 + p_3 = 1\) </li>
+</ul>
+<p> Donc \( \vec{p}_n  = P^n \vec{p} \) est la distribution de
+probabilité \(n\) jours après l'ouverture inaugurale; c'est-à-dire,</p>
+<ul>
+<li> la première composante de \( \vec{p}_n\) est la probabilité que
+les pommes soient en vente \(n\) jours après l'ouverture inaugurale,</li>
+<li> la deuxième composante de \( \vec{p}_n\) est la probabilité que
+les bananes soient en vente \(n\) jours après l'ouverture inaugurale,</li>
+<li> la troisième composante de \( \vec{p}_n\) est la probabilité que
+les oranges soient en vente \(n\) jours après l'ouverture inaugurale,
+et </li>
+<li> la somme de ces probabilités est égale à 1. </li>
+</ul>
+<p> Si
+\(\displaystyle \vec{p} = \begin{pmatrix} 1/5 \\ 2/5 \\ 2/5 \end{pmatrix} \),
+alors la probabilité que les oranges soient en vente 100 jours après
+l'ouverture inaugurale est donnée par les commandes suivantes
+de <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab"> p := Vector([1/5,2/5,2/5]);
+   P100 := (P^100).p:
+   evalf(P100(1));
+</font></pre>
+
+\[
+\begin{split}
+& p := \begin{bmatrix} \frac{1}{5} \\ \frac{2}{5} \\ \frac{2}{5}
+\end{bmatrix} \\
+& 0.4285714286
+\end{split}
+\]
+
+<p> La probabilité que les oranges soient en vente 100 jours après
+l'ouverture inaugurale est d'environ 42.86 %.  Nous n'avons pas
+affiché le résultat de <font class="matlab">(P^100).p</font> car la
+valeur exacte contient de très grandes valeurs entières.  Le lecteur
+peut exécuter la commande <font class="matlab">(P^100).p;</font> pour
+voir ce résultat.</p>
+
+<p>Si nous calculons la probabilité d'être en vente de chacune des
+catégories de fruits \(200, 300\) et \(400\) jours après l'ouverture
+inaugurale, alors nous obtenons les résultats suivants qui sont
+arrondis à 10 décimales.</p>
+
+<pre class="matlab">
+> <font class="matlab"> seq( evalf((P^n).p), n=200..400, 100);
+</font></pre>
+
+\[
+\begin{bmatrix} 0.4285714286 \\ 0.4285714286 \\ 0.1428571429
+\end{bmatrix} ,
+\begin{bmatrix} 0.4285714286 \\ 0.4285714286 \\ 0.1428571429
+\end{bmatrix} ,
+\begin{bmatrix} 0.4285714286 \\ 0.4285714286 \\ 0.1428571429
+\end{bmatrix}
+\]
+
+<p> Il semble que \( P^n \vec{p}\) converge vers un vecteur fixe
+lorsque \(n \to \infty\).  Voici quelques propriétés des matrices
+stochastique.  Plusieurs de ces propriétés sont facile à démontrer
+et nous encourageons le lecteur à les démontrer.</p>
+
+<ul>
+<li> Puisque \(p_i \in [0,1]\) pour tous \(i\) et \(\|\vec{p}\|_1 = 1\),
+nous avons que les composantes de \(P \vec{p}\) sont dans l'intervalle
+\([0,1]\) et \( \|P \vec{p}\|_1 = 1 \).  Nous obtenons par induction
+que les composantes de \(P^n \vec{p}\) sont dans l'intervalle \([0,1]\) et
+\( \|P^n \vec{p}\|_1 = 1 \) pour tous \(n \geq 0 \).   En d'autres
+termes, l'image par la matrice \(P\) d'une distribution de probabilité 
+est une distribution de probabilité.</li>
+<li> Le nombre 1 est toujours une valeur propre de \(P\) car les
+rangées de \(P - Id\) sont linéairement dépendantes, où \(Id\) est
+la matrice identité.  Les rangées de \(P-Id\) sont linéairement
+dépendantes car la somme des composantes pour chaque colonne est 0. </li>
+<li> Soit \(\lambda_1 = 1\).  Les autres valeurs propres de \(P\) sont
+inférieure À 1 en valeur absolue. (Il y a quelques exceptions rares.
+Certaines de ces exceptions sont faciles à deviner.) </li>
+<li> Il existe un vecteur propre \(\vec{u}_1\) associé à \(\lambda_1\)
+tel que les composantes de \(\vec{u}_1\) sont dans l'intervalle \([0,1]\) et
+\( \|\vec{u}_1 = 1 \); c'est-à-dire, \(\vec{u}_1\) est une
+distribution de probabilité </li>
+<li> Nous avons que \( P^n \vec{p} \to \vec{u}_1 \) lorsque \(n \to \infty\)
+quelque soit la distribution de probabilité initiale \(\vec{p}\).<br>
+<span class="small">Ébauche de la démonstration: Ce résultat repose 
+sur la possibilité d'exprimer \(\vec{p}\) sous la forme d'une combinaison
+linéaire \(\vec{p} = a_1 \vec{u}_1 + a_2 \vec{u}_2 + \ldots \)
+où \(\vec{u}_i\) est un vecteur propre associé à la valeur propre 
+\(\lambda_i\), et \(|\lambda_i|<1\) pour \(i>1\).
+Donc \( P^n \vec{p} = a_1 \vec{u}_1 + a_2 \lambda_2^n \vec{u}_2
+  + \ldots \to a_1 \vec{u}_1\) lorsque \(n \to \infty\).  Puisque
+\(\|P^n \vec{p}\|_1 = 1\) pour tous \(n\), nous obtenons que
+\(\displaystyle a_1 = a_1 \|\vec{u}_1\|_1 = \|a_1 \vec{u}_1\|_1
+= \lim_{n\to \infty} \|P^n \vec{p}\|_1 = 1\).
+Nous notons que \(a_1 > 0\) car les composantes de \(P^n\vec{p}\) et
+\(\vec{u}_1\) sont plus grandes ou égales à 0.</span></li>
+</ul>
+
+<p>Nous pouvons illustrer ce dernier résultat à l'aide de <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab"> evvL := Eigenvectors(P,output=list):
+   findMax := proc(evvList)
+      local i, eva, eve:
+      eva := evvList[1][1]:
+      eve := evvList[1][3][1]:
+      for i from 2 to nops(evvList) do
+         if ( evalf(abs(evvList[i][1])) > evalf(abs(eva)) ) then
+            eva := evvList[i][1]:
+            eve := evvList[i][3][1]:
+         end if
+      od:
+      RETURN([eva,eve]):
+   end:
+   findP := findMax(evvL):
+   eigvalP := findP[1];
+   eigvctP := findP[2];
+   u1 := norm(eigvctP,1)^(-1) * eigvctP; evalf(u1);
+</font>
+</pre>
+
+\[
+\begin{split}
+& eigvalP := 1 \\
+& eigvctP := \begin{bmatrix} 3 \\ 3 \\ 1 \end{bmatrix} \\
+& u1 := \begin{bmatrix} \frac{3}{7} \\ \frac{3}{7} \\ \frac{1}{7}
+\end{bmatrix} \\
+& \begin{bmatrix} 0.4285714286 \\ 0.4285714286 \\ 0.1428571429
+\end{bmatrix}
+\end{split}
+\]
+</div>
+
+<div class="Note">
+<p><em>Note</em>: La raison pour laquelle nous avons écrit une
+procédure pour trouver la plus grande valeur propre en valeur absolu
+et un vecteur propre qui lui est associé est que <em>Maple</em> 
+n'affiche pas toujours les valeurs propres et vecteurs propres dans le
+même ordre.  En particulier, la plus grande valeur propre en valeur
+absolu n'occupe pas toujours la même position dans la liste.  La
+position varie selon le problème qui est résout (et même selon
+l'ordinateur utilisé).  Le procédure <font class="matlab">findMax()</font>
+n'est pas la plus générale procédure.  Elle ne peut pas traiter les
+cas où il y a plus d'une plus grande valeur propre en valeur absolu ou
+les cas où il y a plus qu'un vecteur propre linéairement indépendant
+associés à la plus grande valeur propre en valeur absolu.  Comme
+exercice, le lecteur est invité à généraliser la procédure ci-dessus.</p>
+</div>
+
+<div class="Example">
 <p><em>Exemple</em>: Un modèle pour la distribution annuelle d'une
 population repose sur quatre groupes d'âges.  Pour la n<sup>e</sup> année,
 nous assumons que </p>
 <ul>
-<li> \(x_1^{[n]}\) est le nombre d'individus âgés de 20 ans et moins
+<li> \(x_{n,1}\) est le nombre d'individus âgés de 20 ans et moins
 inclusivement,</li>
-<li> \(x_2^{[n]}\) est le nombre d'individus âges de 21 à 45 ans
+<li> \(x_{n,2}\) est le nombre d'individus âges de 21 à 45 ans
 inclusivement,</li> 
-<li> \(x_3^{[n]}\) est le nombre d'individus âges de 46 à 75 ans
+<li> \(x_{n,3}\) est le nombre d'individus âges de 46 à 75 ans
 inclusivement et </li> 
-<li> \(x_4^{[n]}\) est le nombre d'individus âges de 76 and et plus.</li>
+<li> \(x_{n,4}\) est le nombre d'individus âges de 76 and et plus.</li>
 </ul>
-<p> Nous assumons que l'évolution de la population es décrit par le
+<p> Nous assumons aussi que l'évolution de la population est décrite par le
 système linéaire itératif</p>
 \[
-\vec{x}^{[n+1]} = T \vec{x}^{[n]}
+\vec{x}_{n+1} = T \vec{x}_n
 \]
 <p>où</p>
 \[
@@ -609,17 +850,17 @@ t_1  & 1-d_2-t_2 & 0 & 0 \\
 \]
 <p>et</p>
 \[
-\vec{x}^{[n]} = \begin{pmatrix}
-x_1^{[n]} \\ x_2^{[n]} \\ x_3^{[n]} \\ x_4^{[n]}
+\vec{x}_n = \begin{pmatrix}
+x_{n,1} \\ x_{n,2} \\ x_{n,3} \\ x_{n,4}
 \end{pmatrix} \ .
 \]
 <p> Les paramètres \(d_i\) et \(b_i\) sont les taux de mortalité et de
 naissance respectivement pour le \(i^e\) groupe d'âges; c'est-à-dire,
-pour la \(n^e\) année, \(d_i x_i^{[n]}\) individus du \(i^e\) groupe
+pour la \(n^e\) année, \(d_i x_{n,i}\) individus du \(i^e\) groupe
 d'âges perdent la vie et les membres de ce groupe donnent naissance à
-\(b_i x_i^{[n]}\) individus.  De plus, \(t_i\) est le taux de transfert
+\(b_i x_{n,i}\) individus.  De plus, \(t_i\) est le taux de transfert
 du \(i^e\) groupe d'âges au \((i+1)^e\) groupe d'âges; c'est-à-dire,
-pour la \(n^e\) année, \(t_i x_i^{[n]}\) individus du \(i^e\)
+pour la \(n^e\) année, \(t_i x_{n,i}\) individus du \(i^e\)
 groupe d'âges atteignent l'âge pour joindre le
 \((i+1)^e\) groupe d'âges.  La matrice \(T\) est appelée la matrice de
 transfert.</p>
@@ -629,7 +870,8 @@ transfert.</p>
 matrice de transfert suivante. </p>
 
 <pre class="matlab">
-> <font class="matlab"> T := Matrix([[1-d1-t1+b1,b2,0,0],[t1,1-d2-t2,0,0],
+> <font class="matlab"> with(plots):
+   T := Matrix([[1-d1-t1+b1,b2,0,0],[t1,1-d2-t2,0,0],
       [0,t2,1-d3-t3,0],[0,0,t3,1-d4]]);
    Tb := subs({d1=1/25,d2=2/25,d3=5/25,d4=8/25,t1=1/25,t2=1/25,
       t3=1/25,b1=1/25,b2=1/4},T);
@@ -651,7 +893,9 @@ t1 & 1 - d2 - t2 & 0 & 0 \\
 \end{split}
 \]
 
-<p> Nous supposons que la distribution de la population initiale est
+<p> La matrice \(T\) n'est pas une matrice stochastique comme à
+l'exemple précédent.  Nous supposons que la distribution de la
+population initiale est 
 de 1000 individus dans le premier groupe d'âges, 1200 individus dans
 le deuxième groupe d'âges, 450 individus dans le troisième groupe
 d'âges et 200 individus dans le quatrième groupe d'âges.
@@ -703,7 +947,7 @@ multiplications de matrices.</p>
 
 <p>La ligne <font class="matlab">V := u, u:</font> est la façon la
 plus simple que nous avons trouvé pour initialiser une liste.
-L'énoncé <font class="matlab">V := u:</font> n'aurait pas initialiser
+L'énoncé <font class="matlab">V := u:</font> n'aurait pas initialisé
 une liste mais un vecteur.  La boucle n'aurait alors pas fonctionnée.
 Nous aurions pu initialiser <font class="matlab">V</font> avec
 l'énoncé <font class="matlab">V:= u, A.u:</font> si nous assumons
@@ -717,7 +961,7 @@ RETURN(V[1 .. N + 1]):</font>.</p>
 <p><em>Exemple (suite)</em>: Est-ce que le modèle que nous avons
 utilisé pour décrire l'évolution d'une population est valide?  Si nous
 supposons que la distribution initiale de la population est donnée
-par \(x_1^{[0]} = 1000\) et \(x_2^{[0]} = x_3^{[0]} = x_4^{[0]} = 0\),
+par \(x_{0,1} = 1000\) et \(x_{0,2} = x_{0,3} = x_{0,4} = 0\),
 alors n'est ce pas que nous ne devrions pas avoir d'individus âgés de
 45 ans et plus après 25 ans?</p>
 
@@ -767,30 +1011,24 @@ interpréter les données comme des approximations des nombres entiers
 d'individus.  Le modèle a plus de valeur pour les très nombreuses
 populations.<p>
 
-<p>Nous illustrons numériquement que la croissance de la population
-est proportionnelle à \(\lambda^n \vec{v} \) où \(\lambda\) est la
+<p>Nous illustrons numériquement que, pour \(n\) suffisamment grand,
+la croissance de la population est <q lang="fr">proportionnelle</q>
+à \(\lambda^n \vec{v} \) où \(\lambda\) est la
 plus grande valeur propre de \(T\) en valeur absolue et \(\vec{v}\)
-est un vecteur propre associé à \(\lambda\).  Le lecteur devrait
+est un vecteur propre associé à \(\lambda\).  Plus précisément, il
+existe une constante \(k\) telle que
+\(\displaystyle \vec{x}^{[n]} / \lambda^n \to k \vec{v} \)
+lorsque \(n\to \infty\).  Le lecteur devrait
 démontrer rigoureusement ce résultat si cela n'a pas déjà été fait
 dans un de ses cours d'algèbre linéaire.  Nous cherchons en premier la
 plus grande valeur propre de \(T\) en valeur absolue et un vecteur
-propre qui lui est associé.</p>
+propre qui lui est associé.   Nous utilisons la procédure
+<font class="matlab">fincMax()</font> définie à l'exemple
+précédent.</p>
 
 <pre class="matlab">
 > <font class="matlab"> evT := Eigenvectors(Tb,output=list):
-   findM := proc(evTlist)
-      local i, eva, eve:
-      eva := evTlist[1][1]:
-      eve := evTlist[1][3][1]:
-      for i from 2 to nops(evTlist) do
-         if ( evalf(abs(evTlist[i][1])) > evalf(abs(eva)) ) then
-            eva := evTlist[i][1]:
-            eve := evTlist[i][3][1]:
-         end if
-      od:
-      RETURN([eva,eve]):
-   end:
-   findR := findM(evT):
+   findR := findMax(evT):
    eigvalM := findR[1];
    eigvctM := findR[2];
    eigvalMf := evalf(eigvalM);
@@ -822,13 +1060,10 @@ propre qui lui est associé.</p>
 
 <p> Notons que, pour des valeurs positives assez petites de
 \(b_i, d_i\) et \(t_i\), toutes les valeurs propres de \(T\) sont
-positives.  Nous aurions donc pu ignorer la possibilité qu'il y ait des valeurs
-propres négatives ou complexes dans la procédure ci-dessus (voir la
-note ci-dessous). Cependant, il n'y a aucun mal à écrire une
-procédure un peu plus générale.</p>
+positives.</p>
 
-<p> Nous comparons \(T^{1000} \vec{x}^{[0]}\) à \( \lambda^{1000} \vec{v}\)
-et \(T^{2000} \vec{x}^{[0]}\) à \( \lambda^{2000} \vec{v}\).</p>
+<p> Nous comparons \(T^{1000} \vec{x}_0\) à \( \lambda^{1000} \vec{v}\)
+et \(T^{2000} \vec{x}_0\) à \( \lambda^{2000} \vec{v}\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> TbNx0 := evalf(Tb^(1000).x0);
@@ -866,26 +1101,11 @@ et \(T^{2000} \vec{x}^{[0]}\) à \( \lambda^{2000} \vec{v}\).</p>
 <p> Nous aurions pu choisir n'importe quelle grande valeur pour
 l'exposant et nous aurions obtenu des résultats semblables.
 Nous pouvons donc assumer que
-\(T^n \vec{x}^{[0]} \approx 9.675171744\, \lambda^n \vec{v}\).
+\(T^n \vec{x}_0 \approx 9.675171744\, \lambda^n \vec{v}\).
 Naturellement, la constante de proportionnalité sera différente si nous
 choisissons un autre vecteur propre \(\vec{v}\) associé à la valeur
 propre \(\lambda\), ou si nous choisissons une condition initiale
-\(\vec{x}^{[0]}\) différente. </p>
-</div>
-
-<div class="Note">
-<p><em>Note</em>: La raison pour laquelle nous avons écrit une
-procédure pour trouver la plus grande valeur propre en valeur absolu
-et un vecteur propre qui lui est associé est que <em>Maple</em> 
-n'affiche pas toujours les valeurs propres et vecteurs propres dans le
-même ordre.  Donc, la plus grande valeur propre en valeur absolu peut
-occuper une position différente dans la liste selon le problème (et même selon
-l'ordinateur utilisé).  Cette procédure n'est pas la plus générale.
-Elle ne peut pas traiter les cas où il y a plus d'une plus grande
-valeur propre en valeur absolu ou les cas où il y a plus qu'un vecteur
-propre linéairement indépendant associés à la plus grande valeur
-propre en valeur absolu.  Comme exercice, le lecteur est invité à
-généraliser la procédure ci-dessus.</p>
+\(\vec{x}_0\) différente. </p>
 </div>
 
 <hr class="MMathSStat">
