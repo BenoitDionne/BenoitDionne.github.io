@@ -572,23 +572,253 @@ value. </p>
 </div>
 
 <div class="Example">
+<p><em>Example (Markov Process)</em>:
+A food store has each day one of the following three types of fruits
+on sale: apples, bananas and oranges.  The type of fruits on sale on a
+given day is determined by the type of fruits on sale the previous
+day according to the following rule.  Consider the matrix </p>
+\[
+P = \begin{pmatrix}
+1/2 & 1/3 & 1/2 \\
+1/3 & 1/2 & 1/2 \\
+1/6 & 1/6 & 0
+\end{pmatrix}
+\]
+<p>where</p>
+<ul>
+<li> \(P_{1,1}\) is the probability that apples be on sale if apples
+were on sale the previous day.</li>
+<li> \(P_{1,2}\) is the probability that apples be on sale if bananas
+were on sale the previous day.</li>
+<li> \(P_{1,3}\) is the probability that apples be on sale if oranges
+were on sale the previous day.</li>
+<li> \(P_{2,1}\) is the probability that bananas be on sale if apples
+  were on sale the previous day. </li>
+<li> \(P_{2,2}\) is the probability that bananas be on sale if bananas
+  were on sale the previous day. </li>
+<li> ... </li>
+<li> \(P_{3,1}\) is the probability that oranges be on sale if apples
+  were on sale the previous day. </li>
+<li> ... </li>
+<li> ... </li>
+</ul>
+<p> The matrix \(P\) is a stochastic matrix; namely, all entries in
+of \(P\) are between 0 and 1 (including 0 or 1) and the sum of the
+entries in each column is 1.  The sum of the entries in a column is
+equal to 1 means that there is a 100% probability that one of the three
+types of fruits is on sale in a given day given that one of them was on
+sale the previous day.  This is kind of a tautology because the store
+policy is to always have one of the three types of fruits on sale on a
+given day. </p>
+
+<p>The matrix \(P^n\) gives the probability that a type of fruits will
+be on sale \(n\) days from now if a given type of fruits is on sale today.
+We use <em>Maple</em> to find the probability that bananas will be on
+sale 20 days from now if oranges are on sale today.  We need the
+value of the \((2,3)\) entry of the matrix \(P^n\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(LinearAlgebra):
+   P := Matrix([[1/2,1/3,1/2],[1/3,1/2,1/2],[1/6,1/6,0]]);
+   P20 := P^20;
+   evalf(P20(2,3));
+</font></pre>
+
+\[
+\begin{split}
+& P := \begin{bmatrix}
+\frac{1}{2} & \frac{1}{3} & \frac{1}{2} \\
+\frac{1}{3} & \frac{1}{2} & \frac{1}{2} \\
+\frac{1}{6} & \frac{1}{6} & 0
+\end{bmatrix} \\
+& P20 := \begin{bmatrix}
+\frac{391731261435319}{914039610015744} &
+\frac{522308348580425}{1218719480020992} &
+\frac{522308348580425}{1218719480020992} \\
+\frac{522308348580425}{1218719480020992} &
+\frac{391731261435319}{914039610015744} &
+\frac{522308348580425}{1218719480020992} \\
+\frac{522308348580425}{3656158440062976} &
+\frac{522308348580425}{3656158440062976} &
+\frac{87051391430071}{609359740010496}
+\end{bmatrix} \\
+& 0.4285714286
+\end{split}
+\]
+<p>Therefore, there is a probability of about 42.86 % that
+bananas will be on sale 20 days from now if oranges are on sale
+today.</p>
+
+<p> Suppose that
+\(\displaystyle \vec{p} = \begin{pmatrix} p_1 \\ p_2 \\ p_3 \end{pmatrix} \)
+is the probability distribution on the day of the grand
+opening of the food store.  Namely,</p>
+<ul>
+<li> \(0 \leq p_1 \leq 1\) is the probability that apples are on sale
+the day of the grand opening, </li>
+<li> \(0 \leq p_2 \leq 1\) is the probability that bananas are on sale
+the day of the grand opening, </li>
+<li> \(0 \leq p_3 \leq\) is the probability that oranges are on sale
+the day of the grand opening, and </li>
+<li> \(p_1 + p_2 + p_3 = 1\) </li>
+</ul>
+<p> Then \( \vec{p}_n  = P^n \vec{p} \) is the probability distribution
+\(n\) days after the grand opening; namely,</p>
+<ul>
+<li> the first component of \( \vec{p}_n\) is the probability
+that apples will be on sale \(n\) days after the grand opening,</li>
+<li> the second component of \( \vec{p}_n\) is the probability
+that bananas will be on sale \(n\) days after the grand opening,</li>
+<li> the third component of \( \vec{p}_n\) is the probability
+that oranges will be on sale \(n\) days after the grand opening,
+and </li>
+<li> the sum of these probabilities is 1. </li>
+</ul>
+<p> If
+\(\displaystyle \vec{p} = \begin{pmatrix} 1/5 \\ 2/5 \\ 2/5 \end{pmatrix} \),
+then the probability that oranges will be on sale 100 days after the
+grand opening is given by the following <em>Maple</em> commands.</p>
+
+<pre class="matlab">
+> <font class="matlab"> p := Vector([1/5,2/5,2/5]);
+   P100 := (P^100).p:
+   evalf(P100(1));
+</font></pre>
+
+\[
+\begin{split}
+& p := \begin{bmatrix} \frac{1}{5} \\ \frac{2}{5} \\ \frac{2}{5}
+\end{bmatrix} \\
+& 0.4285714286
+\end{split}
+\]
+
+<p> The probability that oranges will be on sale 100 days after the
+grand opening is about 42.86 %.  We did not display the result of
+<font class="matlab">(P^100).p</font> because the exact result involves very
+large integers.  The reader may want to run the command
+<font class="matlab">(P^100).p;</font> to see the result.</p>
+
+<p>If we look at the probability for each type of fruits that it will be
+on sale \(n\) days after the grand opening for \(n = 200, 300\) and
+\(400\), then we get the following results rounded to 10 digits.</p>
+
+<pre class="matlab">
+> <font class="matlab"> seq( evalf((P^n).p), n=200..400, 100);
+</font></pre>
+
+\[
+\begin{bmatrix} 0.4285714286 \\ 0.4285714286 \\ 0.1428571429
+\end{bmatrix} ,
+\begin{bmatrix} 0.4285714286 \\ 0.4285714286 \\ 0.1428571429
+\end{bmatrix} ,
+\begin{bmatrix} 0.4285714286 \\ 0.4285714286 \\ 0.1428571429
+\end{bmatrix}
+\]
+
+<p> It seem that \( P^n \vec{p}\) converges to a fixed vector as
+\(n \to \infty\).  Here are a few facts about stochastic matrices.
+Many of them are easy to prove and the reader is encouraged to prove them.</p>
+
+<ul>
+<li> Since \(p_i \in [0,1]\) for all \(i\) and \(\|\vec{p}\|_1 = 1\),
+we have that the components of \(P \vec{p}\) are in \([0,1]\) and
+\( \|P \vec{p}\|_1 = 1 \).  We get by induction that
+the components of \(P^n \vec{p}\) are in \([0,1]\) and
+\( \|P^n \vec{p}\|_1 = 1 \) for all \(n \geq 0 \).</li>
+<li> The number 1 is always an eigenvalue of \(P\) because the rows of
+\(P - Id\) are linearly dependent, where \(Id\) is the identity
+matrix.  The rows of \(P-Id\) are linear dependent because the sum
+of the entries in each column is 0. </li>
+<li> Let \(\lambda_1 = 1\).  The other eigenvalues of \(P\) are smaller
+than 1 in absolute value.  (There are some rare exceptions.) </li>
+<li> There is an eigenvector \(\vec{u}_1\) associated to \(\lambda_1\)
+such that the components of \(\vec{u}_1\) are in \([0,1]\) and
+\( \|\vec{u}_1 = 1 \); namely. \(\vec{u}_1\) is a probability
+distribution.</li>
+<li> We have that \( P^n \vec{p} \to \vec{u}_1 \) as \(n \to \infty\)
+whatever the initial probability distribution \(\vec{p}\).
+<span class="small">Sketch of the proof: This result is based on
+expressing \(\vec{p}\) as a linear combination
+\(\vec{p} = a_1 \vec{u}_1 + a_2 \vec{u}_2 + \ldots \)
+where \(\vec{u}_i\) is an eigenvector associated to the eigenvalue
+\(\lambda_i\) which is smaller than 1 in absolute value when \(i>1\).
+Then \( P^n \vec{p} = a_1 \vec{u}_1 + a_2 \lambda_2^n \vec{u}_2
+  + \ldots \to a_1 \vec{u}_1\) as \(n \to \infty\).  Since
+\(\|P^n \vec{p}\|_1 = 1\) we get
+\(a_1 = a_1 \|\vec{u}_1\|_1 = \|a_1 \vec{u}_1\|_1 = \|P^n \vec{p}\|_1 = 1\).
+Note that \(a_1 > 0\) because the components of \(P^n\vec{p}\) and
+\(\vec{u}_1\) are greater or equal to 0.</span></li>
+</ul>
+
+<p>We can illustrate this last result with the help of <em>Maple</em>. </p>
+
+<pre class="matlab">
+> <font class="matlab"> evvL := Eigenvectors(P,output=list):
+   findMax := proc(evvList)
+      local i, eva, eve:
+      eva := evvList[1][1]:
+      eve := evvList[1][3][1]:
+      for i from 2 to nops(evvList) do
+         if ( evalf(abs(evvList[i][1])) > evalf(abs(eva)) ) then
+            eva := evvList[i][1]:
+            eve := evvList[i][3][1]:
+         end if
+      od:
+      RETURN([eva,eve]):
+   end:
+   findP := findMax(evvL):
+   eigvalP := findP[1];
+   eigvctP := findP[2];
+   u1 := norm(eigvctP,1)^(-1) * eigvctP; evalf(u1);
+</font>
+</pre>
+
+\[
+\begin{split}
+& eigvalP := 1 \\
+& eigvctP := \begin{bmatrix} 3 \\ 3 \\ 1 \end{bmatrix} \\
+& u1 := \begin{bmatrix} \frac{3}{7} \\ \frac{3}{7} \\ \frac{1}{7}
+\end{bmatrix} \\
+& \begin{bmatrix} 0.4285714286 \\ 0.4285714286 \\ 0.1428571429
+\end{bmatrix}
+\end{split}
+\]
+</div>
+
+<div class="Note">
+<p><em>Note</em>: The reason why we wrote a procedure to find the
+largest eigenvalue in absolute value and an eigenvector associated to
+it is that <em>Maple</em> does not always list the eigenvalues and
+eigenvectors in the same order.  So, the largest eigenvalue in
+absolute value can occupy a different position in the list depending on
+the problem (and even on the computer used).  The procedure is not the
+most general procedure.  It does not handle situations when there are
+more than one largest eigenvalue in absolute value or when there are
+more then one linearly independent eigenvector associated to the
+largest eigenvalue in absolute value.  As an exercise, the reader is
+invited to generalize the procedure above.
+</p>
+</div>
+
+<div class="Example">
 <p><em>Example</em>: A model for the annual age distribution of a
 population is based on four age groups.  For the n<sup>th</sup> year,
 let </p>
 <ul>
-<li> \(x_1^{[n]}\) be the number of individuals of 20 years old and
+<li> \(x_{n,1}\) be the number of individuals of 20 years old and
 younger inclusively,</li>
-<li> \(x_2^{[n]}\) be the number of individuals between 21 and 45
+<li> \(x_{n,2}\) be the number of individuals between 21 and 45
 years old inclusively,</li> 
-<li> \(x_3^{[n]}\) be the number of individuals between 46 and 75
+<li> \(x_{n_3}\) be the number of individuals between 46 and 75
 years old inclusively and </li> 
-<li> \(x_4^{[n]}\) be the number of individuals of 76 years old
+<li> \(x_{n,4}\) be the number of individuals of 76 years old
 and older.</li>
 </ul>
 <p> We assume that the evolution of the population is described by the
 linear iterative system</p>
 \[
-\vec{x}^{[n+1]} = T \vec{x}^{[n]}
+\vec{x}_{n+1} = T \vec{x}_n
 \]
 <p>where</p>
 \[
@@ -601,17 +831,17 @@ t_1  & 1-d_2-t_2 & 0 & 0 \\
 \]
 <p>and</p>
 \[
-\vec{x}^{[n]} = \begin{pmatrix}
-x_1^{[n]} \\ x_2^{[n]} \\ x_3^{[n]} \\ x_4^{[n]}
+\vec{x}_n = \begin{pmatrix}
+x_{n,1} \\ x_{n,2} \\ x_{n,3} \\ x_{n,4}
 \end{pmatrix} \ .
 \]
 <p> The parameters \(d_i\) and \(b_i\) are the mortality and birth rate
 respectively for the \(i^{th}\) age group; namely, on the \(n^{th}\) year,
-\(d_i x_i^{[n]}\) individuals from the \(i^{th}\) age group die and 
-the members of this group give birth to \(b_i x_i^{[n]}\)
+\(d_i x_{n,i}\) individuals from the \(i^{th}\) age group die and 
+the members of this group give birth to \(b_i x_{n,i}\)
 individuals.  Moreover, \(t_i\) is the transfer rate from the
 \(i^{th}\) age group to the \((i+1)^{th}\) age group; namely, on the
-\(n^{th}\) year, \(t_i x_i^{[n]}\) individuals from the \(i^{th}\) age
+\(n^{th}\) year, \(t_i x_{n,i}\) individuals from the \(i^{th}\) age
 group reach the age to join the \((i+1)^{th}\) age group.  The matrix
 \(T\) is called the transfer matrix.</p>
 
@@ -620,7 +850,8 @@ group reach the age to join the \((i+1)^{th}\) age group.  The matrix
 following transfer matrix. </p>
 
 <pre class="matlab">
-> <font class="matlab"> T := Matrix([[1-d1-t1+b1,b2,0,0],[t1,1-d2-t2,0,0],
+> <font class="matlab"> with(plots):
+   T := Matrix([[1-d1-t1+b1,b2,0,0],[t1,1-d2-t2,0,0],
       [0,t2,1-d3-t3,0],[0,0,t3,1-d4]]);
    Tb := subs({d1=1/25,d2=2/25,d3=5/25,d4=8/25,t1=1/25,t2=1/25,
       t3=1/25,b1=1/25,b2=1/4},T);
@@ -642,7 +873,8 @@ t1 & 1 - d2 - t2 & 0 & 0 \\
 \end{split}
 \]
 
-<p> We suppose that the population distribution is initially given by
+<p> It should be noted that \(T\) is not a stochastic matrix.
+We suppose that the population distribution is initially given by
 1000 individuals in the first age group, 1200 individuals in the second
 age group, 450 individuals in the third age group and 200 individuals in the
 fourth age group.  We draw in the same figure a graph of the number
@@ -706,7 +938,7 @@ RETURN(V[1 .. N + 1]):</font>.</p>
 <p><em>Example (continued)</em>: Is the model that we have used to
 describe the evolution of the population valid?  If we suppose that
 the initial population distribution is given by
-\(x_1^{[0]} = 1000\) and \(x_2^{[0]} = x_3^{[0]} = x_4^{[0]} = 0\), then
+\(x_{0,1} = 1000\) and \(x_{0,2} = x_{0,3} = x_{0,4} = 0\), then
 we should not expect any individual to be 45 years old or older before
 at least 25 years, should we?.</p>
 
@@ -754,29 +986,22 @@ obviously does not make sense.  We have to treat the data as
 approximations of integer numbers of individuals.  The model is
 most valuable for very large populations.<p> 
 
-<p>We now illustrate numerically that population growth is proportional
+<p>We now illustrate numerically that, for \(n\) very large, the
+population growth is <q lang="en">proportional</q>
 to \(\lambda^n \vec{v} \) where \(\lambda\) is the largest eigenvalue
 of \(T\) in absolute value and \(\vec{v}\) is an eigenvector
-associated to \(\lambda\).  The reader should prove this result rigorously if
+associated to \(\lambda\).  More precisely, there exists a constant
+\(k\) such that \(\displaystyle \vec{x}^{[n]} / \lambda^n \to k \vec{v} \)
+as \(n\to \infty\).  The reader should prove this result rigorously if
 this has not already been done in one of their linear algebra courses.  We
 first find the largest eigenvalue of \(T\) in absolute value and an
-eigenvector associated to it.</p> 
+eigenvector associated to it.  We use the
+procedure <font class="matlab">fincMax()</font> defined in a previous
+example. </p> 
 
 <pre class="matlab">
 > <font class="matlab"> evT := Eigenvectors(Tb,output=list):
-   findM := proc(evTlist)
-      local i, eva, eve:
-      eva := evTlist[1][1]:
-      eve := evTlist[1][3][1]:
-      for i from 2 to nops(evTlist) do
-         if ( evalf(abs(evTlist[i][1])) > evalf(abs(eva)) ) then
-            eva := evTlist[i][1]:
-            eve := evTlist[i][3][1]:
-         end if
-      od:
-      RETURN([eva,eve]):
-   end:
-   findR := findM(evT):
+   findR := findMax(evT):
    eigvalM := findR[1];
    eigvctM := findR[2];
    eigvalMf := evalf(eigvalM);
@@ -807,13 +1032,10 @@ eigenvector associated to it.</p>
 \]
 
 <p> Note that, for small enough positive values of \(b_i, d_i\) and
-\(t_i\), all the eigenvalues of \(T\) are positive.  So, we
-could have ignored the possibility of negative or complex
-eigenvalues in the procedure above (see note below).  However, there
-is no harm done in writing a little more general procedure.</p> 
+\(t_i\), all the eigenvalues of \(T\) are positive.</p>  
 
-<p> We compare \(T^{1000} \vec{x}^{[0]}\) to \( \lambda^{1000} \vec{v}\)
-and \(T^{2000} \vec{x}^{[0]}\) to \( \lambda^{2000} \vec{v}\).</p>
+<p> We compare \(T^{1000} \vec{x}_0\) to \( \lambda^{1000} \vec{v}\)
+and \(T^{2000} \vec{x}_0\) to \( \lambda^{2000} \vec{v}\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> TbNx0 := evalf(Tb^(1000).x0);
@@ -850,25 +1072,11 @@ and \(T^{2000} \vec{x}^{[0]}\) to \( \lambda^{2000} \vec{v}\).</p>
 
 <p> We could have taken any other large values for the exponent and we
 would have gotten similar results.  We may therefore assume that
-\(T^n \vec{x}^{[0]} \approx 9.675171744\, \lambda^n \vec{v}\).  Obviously, the
-constant of proportionality will be different if we choose another
-eigenvector \(\vec{v}\) associated to the eigenvalue \(\lambda\), or
-if we choose a different initial condition \(\vec{x}^{[0]}\). </p>
-</div>
-
-<div class="Note">
-<p><em>Note</em>: The reason why we wrote a procedure to find the
-largest eigenvalue in absolute value and an eigenvector associated to
-it is that <em>Maple</em> does not always list the eigenvalues and
-eigenvectors in the same order.  So, the largest eigenvalue in
-absolute value can occupy a different position in the list depending on
-the problem (and even on the computer used).  The procedure is not the
-most general procedure.  It does not handle situations when there are
-more than one largest eigenvalue in absolute value or when there are
-more then one linearly independent eigenvector associated to the
-largest eigenvalue in absolute value.  As an exercise, the reader is
-invited to generalize the procedure above.
-</p>
+\(T^n \vec{x}^{[0]} \approx 9.675171744\, \lambda^n \vec{v}\) for
+\(n\) large enough.  Obviously, the constant of proportionality will
+be different if we choose another eigenvector \(\vec{v}\) associated
+to the eigenvalue \(\lambda\), or if we choose a different initial
+condition \(\vec{x}_0\). </p> 
 </div>
 
 <hr class="MMathSStat">
