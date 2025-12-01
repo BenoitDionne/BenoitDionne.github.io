@@ -510,6 +510,142 @@ compute modulo \(\pi\) (the period of the tangent) and set
 
 <hr class="MMathSStat">
 
+<h3> Boundary Value Problems </h3>
+
+<p>The best way to explain boundary value problems for ODE is probably
+with an example.  There is no general formulae as we have for
+initial value problems that we have studied above. </p>
+
+<div class="Example">
+<p><em>Example</em>: We consider the boundary value problem </p>
+\[
+y'' + 2 y' + (\lambda +1) y = 0  \quad , \quad 
+y(0) = 0 \text{ and } y(\pi) = 0
+\]
+<p>where \(\lambda\) is an arbitrary constant.   The values of
+\(\lambda\) for which the boundary value problem admits non-trivial
+solutions are called the eigenvalues.  We want to find these
+eigenvalues and plot some solutions.</p>
+
+<p> We first assume that \(lambda > 0\) and use <em>Maple</em> to
+find the eigenvalues.</p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(plots): assume(lambda>0);
+   BVP:= diff(y(x),x$2) + 2*diff(y(x),x) + (lambda+1)*y(x)=0;
+   sol:=dsolve(BVP,y(x));
+</font>
+</pre>
+
+\[
+\begin{split}
+& BVP := \frac{\text{d}^2}{\text{d}x^2} y(x)
++ 2 \frac{\text{d}}{\text{d}x} y(x) + (\lambda{\scriptsize \sim} + 1)
+y(x) = 0 \\
+& sol := y(x) = c_{1} e^{-x} \sin\left(\sqrt{\lambda{\scriptsize \sim}}\,
+x \right) + c_{2} e^{-x} \cos\left(\sqrt{\lambda{\scriptsize \sim}}\,
+x \right)
+\end{split}
+\]
+
+<p>The boundary conditions are used to determine the values of
+\(c_1,c_2\) and \(\lambda\). </p>
+
+<pre class="matlab">
+> <font class="matlab"> equ1:= simplify( subs(x=0,rhs(sol)=0) );
+   equ2:= simplify( subs(x=Pi,rhs(sol)=0) );
+</font>
+</pre>
+
+\[
+\begin{split}
+& equ1 := c_2 = 0 \\
+& equ2 := e^{-\pi} (c_1 \sin\left(\sqrt{\lambda{\scriptsize \sim}}\,\pi\right)
++ c_2 \cos\left(\sqrt{\lambda{\scriptsize \sim}}\, \pi\right) = 0
+\end{split}
+\]
+
+<p>We get from the first equation that \(c_2 = 0\).  If we substitute
+the information into the second equation, then we get the following
+equation. </p>
+
+<pre class="matlab">
+> <font class="matlab"> equ3:=subs(equ1,equ2); </font>
+</pre>
+
+\[
+equ3 := c_1\, e^{-\pi} \sin\left(\sqrt{\lambda{\scriptsize \sim}}\,
+\pi\right) = 0
+\]
+
+<p> To get a non-trivial solution (i.e. \(c_1 \neq 0\) ), we need to have
+\(\sin\left(\sqrt{\lambda} \pi\right) = 0 \).
+Thus \(\lambda = n^2\) with \(n\) a positive integer.  We plot below
+the graph of the solution for several values of \(\lambda\) assuming
+that \(c_1 = 1\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> sol1:= subs({lambda=1,equ1,_C1=1},sol);
+   plot1 := plot( rhs(sol1), x=1..8, color="black"):
+   sol2:= subs({lambda=4,equ1,_C1=1},sol);
+   plot2 := plot( rhs(sol2), x=1..8, color="blue"):
+   sol5:= subs({lambda=25,equ1,_C1=1},sol);
+   plot5 := plot( rhs(sol5), x=1..8, color="red"):
+   display({plot1,plot2,plot5},gridlines=true,labels=['x','y'])
+</font>
+</pre>
+
+\[
+\begin{split}
+& sol1 := y(x) = e^{-x} \sin(x) \\
+& sol2 := y(x) = e^{-x} \sin\left(\sqrt{4}\ x\right) \\
+& sol5 := y(x) = e^{-x} \sin\left(\sqrt{25}\ x\right)
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_ode_13.png" style="width: 300px"
+       alt="Graph of the solutions of the boundary value problem associated to different eigenvalues">
+</div>
+
+<p>We note that there are infinitely many solutions for each
+eigenvalue, one solution for each real value of \(c_1\).  This is
+exactly what we have in linear algebra.  There are infinitely many
+eigenvectors associated to an eigenvalue.</p>
+
+<p> If \(\lambda \leq 0\), then we only get the trivial solution.
+Therefore, there is no negative or null eigenvalue.  We leave the
+proof of this statement for \(\lambda = 0 \) to the reader, and
+proof the case \(\lambda < 0 \) below. </p>
+
+<pre class="matlab">
+> <font class="matlab"> assume(lambda<0);
+   BVP:= diff(y(x),x$2) + 2*diff(y(x),x) + (lambda+1)*y(x)=0;
+   sol:=dsolve(BVP,y(x));
+   equ1:= simplify( subs(x=0,rhs(sol)=0) );
+   equ2:= simplify( subs(x=Pi,rhs(sol)=0) );
+   solve({equ1,equ2},{_C1,_C2});  </font>
+</pre>
+
+\[
+\begin{split}
+& BVP := \frac{\text{d}^2}{\text{d}x^2} y(x)
++ 2 \frac{\text{d}}{\text{d}x} y(x) + (\lambda{\scriptsize \sim} + 1)
+y(x) = 0 \\
+& sol := y(x) = c_1 e^{(-1 + \sqrt{-\lambda{\scriptsize \sim}})\,x}
++ c_2 e^{(-1 + \sqrt{-\lambda{\scriptsize \sim}})\, x} \\
+& equ1 := c_1 + c_2 = 0 \\
+& equ2 := c_1 e^{(-1 + \sqrt{-\lambda{\scriptsize \sim}})\,\pi}
++ c_2 e^{(-1 + \sqrt{-\lambda{\scriptsize \sim}})\, \pi} \\
+& \{c_1 = 0, c_2 = 0\}
+\end{split}
+\]
+
+<p>We get only the trivial solution.</p>
+</div>
+
+<hr class="MMathSStat">
+
 </div> <!--  The contents ends here -->
 
 <script language="javascript">

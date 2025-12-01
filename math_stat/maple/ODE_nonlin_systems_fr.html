@@ -153,8 +153,8 @@ Maple_programs.id, Maple_programs.target);
 </script>.</p>
 </div>
 
-<p>Nous traçons maintenant les orbites de plusieurs solutions
-particulières du système d'EDO.</p>
+<p>Nous traçons maintenant les orbites du système d'EDO associées à
+plusieurs conditions initiales.</p>
 
 <pre class="matlab">
 > <font class="matlab">gr1 := graph(4,1,5*Pi,"red"):</font>
@@ -164,7 +164,7 @@ particulières du système d'EDO.</p>
 
 <div class="center">
 <img src="Maple_syst_nonlinODE_7.png" style="width: 300px"
-     alt="Orbits du système de Van der Pol qui convergent vers une solution périodique à partir de l'extérieur de l'orbite périodique">
+     alt="Orbites du système de Van der Pol qui convergent vers une solution périodique à partir de l'extérieur de l'orbite périodique">
 </div>
 
 <pre class="matlab">
@@ -175,12 +175,15 @@ particulières du système d'EDO.</p>
 
 <div class="center">
 <img src="Maple_syst_nonlinODE_8.png" style="width: 300px"
-     alt="Orbits du système de Van der Pol qui convergent vers une solution périodique à partir de l'intérieur de l'orbite périodique">
+     alt="Orbites du système de Van der Pol qui convergent vers une solution périodique à partir de l'intérieur de l'orbite périodique">
 </div>
 
 <p> Dans la première figure, les orbites semblent converger vers
 l'origine en tournant autour de l'origine dans le sens contraire des
-aiguilles d'une montre.  Cependant, dans la deuxième figure, les
+aiguilles d'une montre.  La façon la plus simple de déterminer la
+direction d'une orbite est probablement de repérer en premier le
+point associé à la condition initiale.
+Cependant, dans la deuxième figure, les
 orbites semblent s'éloigner de l'origine en tournant autour de
 l'origine dans le sens contraire des aiguilles d'une montre.
 Cela ne peut pas durer pour toujours car les orbites ne peuvent pas se
@@ -218,7 +221,9 @@ si nous considérons que le côté droit d'une système d'EDO est un champ
 de vecteur.</p>
 </div>
 
-<h4> Pendule nonlinéaire </h4>
+<hr class="MMathSStat">
+
+<h3> Pendule nonlinéaire </h3>
 
 <p>Considérons le pendule formé d'une tige très légère de longueur \(L\)
 avec une petite balle de masse \(m\) attachée à une des extrémités de

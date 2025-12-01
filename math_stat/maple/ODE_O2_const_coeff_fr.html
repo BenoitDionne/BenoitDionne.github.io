@@ -523,6 +523,144 @@ et posons \(\arctan(\infty) = \pi/2\).</p>
 
 <hr class="MMathSStat">
 
+<h3> Problèmes aux valeurs limites </h3>
+
+<p>La meilleure façon d'expliquer les problèmes aux valeurs limites
+pour les EDO est probablement à l'aide d'un exemple.  Il n'y a pas de
+formules générales comme c'est le cas pour les problèmes aux valeurs
+initiales que nous avons étudiés ci-dessus. </p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous considérons le problème aux valeurs limites</p>
+\[
+y'' + 2 y' + (\lambda +1) y = 0  \quad , \quad 
+y(0) = 0 \text{ and } y(\pi) = 0
+\]
+<p>où \(\lambda\) est une constante arbitraire.   Les valeurs de
+\(\lambda\) pour lesquelles le problème aux valeurs limites admet une
+solution non-triviale sont appelées des valeurs propres.  Nous voulons
+trouver ces valeurs propres et tracer quelques solutions.</p>
+
+<p> Nous supposons en premier que \(lambda > 0\) et
+utilisons <em>Maple</em> pour trouver ces valeurs propres.</p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(plots): assume(lambda>0);
+   BVP:= diff(y(x),x$2) + 2*diff(y(x),x) + (lambda+1)*y(x)=0;
+   sol:=dsolve(BVP,y(x));
+</font>
+</pre>
+
+\[
+\begin{split}
+& BVP := \frac{\text{d}^2}{\text{d}x^2} y(x)
++ 2 \frac{\text{d}}{\text{d}x} y(x) + (\lambda{\scriptsize \sim} + 1)
+y(x) = 0 \\
+& sol := y(x) = c_{1} e^{-x} \sin\left(\sqrt{\lambda{\scriptsize \sim}}\,
+x \right) + c_{2} e^{-x} \cos\left(\sqrt{\lambda{\scriptsize \sim}}\,
+x \right)
+\end{split}
+\]
+
+<p>Les conditions aux limites sont utilisées pour déterminer les
+valeurs de \(c_1,c_2\) et \(\lambda\). </p>
+
+<pre class="matlab">
+> <font class="matlab"> equ1:= simplify( subs(x=0,rhs(sol)=0) );
+   equ2:= simplify( subs(x=Pi,rhs(sol)=0) );
+</font>
+</pre>
+
+\[
+\begin{split}
+& equ1 := c_2 = 0 \\
+& equ2 := e^{-\pi} (c_1 \sin\left(\sqrt{\lambda{\scriptsize \sim}}\,\pi\right)
++ c_2 \cos\left(\sqrt{\lambda{\scriptsize \sim}}\, \pi\right) = 0
+\end{split}
+\]
+
+<p>Nous obtenons de la première équation que \(c_2 = 0\).  Si nous
+substituons cette information dans la deuxième équation, nous obtenons
+alors l'équation suivante.</p>
+
+<pre class="matlab">
+> <font class="matlab"> equ3:=subs(equ1,equ2); </font>
+</pre>
+
+\[
+equ3 := c_1\, e^{-\pi} \sin\left(\sqrt{\lambda{\scriptsize \sim}}\,
+\pi\right) = 0
+\]
+
+<p> Pour obtenir une solution non-triviale (i.e. \(c_1 \neq 0\) ),
+nous devons avoir \(\sin\left(\sqrt{\lambda} \pi\right) = 0 \).
+Donc \(\lambda = n^2\) avec \(n\) un entier positif.  Nous traçons le
+graphe de la solution pour plusieurs valeurs de
+\(\lambda\) en assumant que \(c_1 = 1\).</p>
+
+<pre class="matlab">
+> <font class="matlab"> sol1:= subs({lambda=1,equ1,_C1=1},sol);
+   plot1 := plot( rhs(sol1), x=1..8, color="black"):
+   sol2:= subs({lambda=4,equ1,_C1=1},sol);
+   plot2 := plot( rhs(sol2), x=1..8, color="blue"):
+   sol5:= subs({lambda=25,equ1,_C1=1},sol);
+   plot5 := plot( rhs(sol5), x=1..8, color="red"):
+   display({plot1,plot2,plot5},gridlines=true,labels=['x','y'])
+</font>
+</pre>
+
+\[
+\begin{split}
+& sol1 := y(x) = e^{-x} \sin(x) \\
+& sol2 := y(x) = e^{-x} \sin\left(\sqrt{4}\ x\right) \\
+& sol5 := y(x) = e^{-x} \sin\left(\sqrt{25}\ x\right)
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_ode_13.png" style="width: 300px"
+       alt="Graphe des solutions du problème aux valeurs associées à différentes valeur propres">
+</div>
+
+<p>Nous notons qu'il y a une infinité de solutions pour chacune des
+valeurs propres, une solution pour chaque valeur réelle de \(c_1\).
+C'est exactement ce que nous avons en algèbre linéaire.  Il y a une
+infinité de vecteurs propres associés à une valeur propre.</p>
+
+<p> Si \(\lambda \leq 0\), alors nous obtenons seulement la solution
+triviale.  Donc, il n'y a pas de valeurs propres nulles ou
+négatives.  Nous laissons au lecteur le soin de démontrer cet énoncé
+pour \(\lambda = 0 \), et démontrons le cas \(\lambda < 0 \)
+ci-dessous. </p>
+
+<pre class="matlab">
+> <font class="matlab"> assume(lambda<0);
+   BVP:= diff(y(x),x$2) + 2*diff(y(x),x) + (lambda+1)*y(x)=0;
+   sol:=dsolve(BVP,y(x));
+   equ1:= simplify( subs(x=0,rhs(sol)=0) );
+   equ2:= simplify( subs(x=Pi,rhs(sol)=0) );
+   solve({equ1,equ2},{_C1,_C2});  </font>
+</pre>
+
+\[
+\begin{split}
+& BVP := \frac{\text{d}^2}{\text{d}x^2} y(x)
++ 2 \frac{\text{d}}{\text{d}x} y(x) + (\lambda{\scriptsize \sim} + 1)
+y(x) = 0 \\
+& sol := y(x) = c_1 e^{(-1 + \sqrt{-\lambda{\scriptsize \sim}})\,x}
++ c_2 e^{(-1 + \sqrt{-\lambda{\scriptsize \sim}})\, x} \\
+& equ1 := c_1 + c_2 = 0 \\
+& equ2 := c_1 e^{(-1 + \sqrt{-\lambda{\scriptsize \sim}})\,\pi}
++ c_2 e^{(-1 + \sqrt{-\lambda{\scriptsize \sim}})\, \pi} \\
+& \{c_1 = 0, c_2 = 0\}
+\end{split}
+\]
+
+<p>Nous obtenons seulement la solution triviale.</p>
+</div>
+
+<hr class="MMathSStat">
+
 </div>  <!-- The content ends here -->
 
 <script language="javascript">

@@ -135,7 +135,7 @@ est calculée par la commande</p>
 
 <div class="Example">
 <p><em>Exemple</em>: Les groupes sanguins sont déterminés par trois
-allèles dénotés par les lettres A, B et O.  Chaque individus possède
+allèles dénotés par les lettres A, B et O.  Chaque individu possède
 une paire d'allèles qui détermine le groupe sanguin.  Il y a six
 combinaisons d'allèles (i.e. gènes) qui donnent quatre groupes
 sanguins si on ignore le facteur Rh: </p>
@@ -146,7 +146,8 @@ sanguins si on ignore le facteur Rh: </p>
 <li> la combinaison OO donne le groupe sanguin O.
 </ul>
 La lois de Hardy-Weinberg affirme que la proportion
-\(P\) d'individus avec les combinaisons AO, BO et AB est donnée par
+\(P\) d'individus qui possèdent les combinaisons AO, BO ou AB est donnée par
+la formule
 \( P = 2 p_1 p_2 + 2 p_1 p_3 + 2 p_2 p_3\) où \(p_1, p_2\) et
 \(p_3\) sont les proportions des individus qui possèdent l'allèle
 A, l'allèle B et l'allèle O respectivement.  Nous
@@ -156,19 +157,19 @@ et la valeur minimale de \(P\). </p>
 
 <p> Puisque \( p_1 + p_2 + p_3 = 1\), nous avons seulement à trouver
 la valeur maximale et la valeur minimale de la fonction \(P_r\)
-définie par \( P_r(p_1,p_2) \mapsto P(p_1,p_2,1-p_1,-p_2) \)
+définie par \( P_r(p_1,p_2) = P(p_1,p_2,1-p_1,-p_2) \)
 pour \( (p_1,p_2)\) dans le domaine</p>
 \[
-D = \{ (p_1,p_2) : 0 \leq p_1,p_2 \leq 1 \text{ and } p_1 +
+D = \{ (p_1,p_2) : 0 \leq p_1,p_2 \leq 1 \text{ et } p_1 +
 p_2 \leq 1 \} \ .
 \]
-<p> Puisque \(P_r\) est une fonction continue sur un ensemble fermé
-\(D\), nous avons de nos cours de calcul différentiel que \(P_r\)
-atteint sa valeur maximale (resp. minimale) en un point de \(D\).
-Nous avons aussi appris dans nos cours de calcul différentiel que la
+<p> Nous avons appris dans nos cours de calcul différentiel que \(P_r\)
+atteint sa valeur maximale (resp. minimale) en un point de \(D\) car
+\(P_r\) est une fonction continue sur l'ensemble borné et fermé
+\(D\).  Nous avons aussi appris dans nos cours de calcul différentiel que la
 valeur maximale (resp. minimale) est atteinte soit à un point critique
-à l'intérieur du domaine \(P_r\) ou soit à un point sur la frontière
-de \(D\). </p>
+de \(P_r\) à l'intérieur du domaine \(D\) ou soit à un point sur la frontière
+de \(D\) car \(P_r\) est dérivable dans \(D\). </p>
 
 <pre class="matlab">
 > <font class="matlab"> restart: with(LinearAlgebra): with(VectorCalculus):
@@ -232,7 +233,7 @@ ou un col. </p>
 <p>Il y a un seul point critique en \( (1/3,1/3) \in D \) et c'est un
 maximum local car \(\det H(1/3.1/3) = 12 >0 \) et
 \( H(1,1) = -4 < 0\).  C'est en fait le point où \(P_r\) atteint son
-maximum absolu car, comme nous allons voir,
+maximum absolu de \(2/3\) car, comme nous allons voir,
 \( P_r(p_1,p_2) < 2/3 \) pour tous points sur la frontière du domaine
 \(D\). </p>
 
@@ -262,13 +263,14 @@ la droite \( p_1 = p_2 \), c'est-à-dire que
 </div>
 
 <p> Nous déduisons de la figure ci-dessus que \(P_r\) est plus petit
-ou égal à \(1/2\) sur la frontière de \(S\), ce qui confirme que
-nous avons un maximum absolu au point \( (1/3,1/3) \), et que le minimum
+ou égal à \(1/2\) sur la frontière de \(S\).  Ceci confirme notre
+énoncé précédent que nous avons un maximum absolu de \(2/3\) qui est
+atteint au point \( (1/3,1/3) \).  De plus, le minimum
 absolu de \(0\) est atteint aux points \( (0,0), (0,1)\) et \( (1,0) \).
-Il faut souvent requis de faire une analyse plus rigoureuse du
-comportement d'une fonction sur la frontière de son domaine.
-Cependant, nous n'avons pas besoin d'être trop pédant pour notre
-exemple.
+En général, il est souvent requis de faire une analyse plus rigoureuse du
+comportement de la fonction sur la frontière de son domaine.
+Cependant, dans le cas présent, nous n'avons pas besoin d'être aussi
+rigoureux.
 </div>
 
 <div class="Example">

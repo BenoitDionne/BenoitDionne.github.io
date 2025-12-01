@@ -150,8 +150,8 @@ Maple_programs.id, Maple_programs.target);
 </script>.</p>
 </div>
 
-<p>We now draw the orbits of several particular solutions of the
-system of ODE.</p> 
+<p>We now draw the orbits of the system of ODE associated to several
+initial conditions.</p>  
 
 <pre class="matlab">
 > <font class="matlab">gr1 := graph(4,1,5*Pi,"red"):</font>
@@ -175,12 +175,14 @@ system of ODE.</p>
      alt="Orbits of the Van der Pol system converging to the periodic orbit from the inside the periodic orbit">
 </div>
 
-<p> In the first figure, the orbits of the solutions seem to spiral in
-a counterclockwise direction toward the origin. However, in a the
-second figure, the orbits seem to spiral in a counterclockwise direction away
-from the origin.  This cannot go on forever because orbits 
-cannot intersect and they varies smoothly with respect to initial
-conditions.  What is going on?</p>
+<p> In the first figure, the orbits seem to spiral in a
+counterclockwise direction toward the origin.  The easiest way to
+determine the direction of an orbit is probably to first locate the point
+associated to the initial condition.
+However, in a the second figure, the orbits seem to spiral in a
+counterclockwise direction away from the origin.  This cannot go on
+forever because orbits cannot intersect and they varies smoothly with
+respect to initial conditions.  What is going on?</p>
 
 <p>We need to look at the vector field associated to this system of
 ODE.  We also draw some orbits in the figure that contains the vector
@@ -213,7 +215,9 @@ if we consider that the right hand side of a system of ODE is a
 vector field.</p>
 </div>
 
-<h4> Nonlinear Pendulum </h4>
+<hr class="MMathSStat">
+
+<h3> Nonlinear Pendulum </h3>
 
 <p>Consider the pendulum made up of a very light rod of length \(L\)
 with a small ball of mass \(m\) attached at one end of the rod as in
