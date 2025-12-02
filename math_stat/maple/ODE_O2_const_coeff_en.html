@@ -348,7 +348,8 @@ yp := (xx, bb) \mapsto subs({\beta = bb, \omega = 1, x = xx}, rhs(sol))
 <p><em>Note</em>: The command</p>
 
 <pre class="matlab">
-> <font class="matlab">plot({seq(yp(x,beta),beta=[0,0.75,1.5,2.25,3])},x=0..6*Pi,color=[red,green,blue,yellow,brown]);</font>
+> <font class="matlab"> plot({seq(yp(x,beta),beta=[0,0.75,1.5,2.25,3])},x=0..6*Pi,
+   color=[red,green,blue,yellow,brown]);</font>
 </pre>
   
 <p>will have produced the same figure with one important difference.
@@ -527,7 +528,7 @@ y(0) = 0 \text{ and } y(\pi) = 0
 solutions are called the eigenvalues.  We want to find these
 eigenvalues and plot some solutions.</p>
 
-<p> We first assume that \(lambda > 0\) and use <em>Maple</em> to
+<p> We first assume that \(\lambda > 0\) and use <em>Maple</em> to
 find the eigenvalues.</p>
 
 <pre class="matlab">
@@ -566,7 +567,7 @@ x \right)
 \]
 
 <p>We get from the first equation that \(c_2 = 0\).  If we substitute
-the information into the second equation, then we get the following
+this information into the second equation, then we get the following
 equation. </p>
 
 <pre class="matlab">

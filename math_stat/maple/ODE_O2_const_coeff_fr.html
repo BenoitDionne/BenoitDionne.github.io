@@ -357,7 +357,8 @@ yp := (xx, bb) \mapsto subs({\beta = bb, \omega = 1, x = xx}, rhs(sol))
 <p><em>Note</em>: La commande</p>
 
 <pre class="matlab">
-> <font class="matlab">plot({seq(yp(x,beta),beta=[0,0.75,1.5,2.25,3])},x=0..6*Pi,color=[red,green,blue,yellow,brown]);</font>
+> <font class="matlab"> plot({seq(yp(x,beta),beta=[0,0.75,1.5,2.25,3])},x=0..6*Pi,
+   color=[red,green,blue,yellow,brown]);</font>
 </pre>
   
 <p>aurait produit la même figure avec une importante différence.
@@ -534,14 +535,14 @@ initiales que nous avons étudiés ci-dessus. </p>
 <p><em>Exemple</em>: Nous considérons le problème aux valeurs limites</p>
 \[
 y'' + 2 y' + (\lambda +1) y = 0  \quad , \quad 
-y(0) = 0 \text{ and } y(\pi) = 0
+y(0) = 0 \text{ et } y(\pi) = 0
 \]
 <p>où \(\lambda\) est une constante arbitraire.   Les valeurs de
 \(\lambda\) pour lesquelles le problème aux valeurs limites admet une
 solution non-triviale sont appelées des valeurs propres.  Nous voulons
 trouver ces valeurs propres et tracer quelques solutions.</p>
 
-<p> Nous supposons en premier que \(lambda > 0\) et
+<p> Nous supposons en premier que \(\lambda > 0\) et
 utilisons <em>Maple</em> pour trouver ces valeurs propres.</p>
 
 <pre class="matlab">

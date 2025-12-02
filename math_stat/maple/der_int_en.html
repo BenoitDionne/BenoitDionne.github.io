@@ -134,6 +134,139 @@ is computed by the following command.</p>
 </div>
 
 <div class="Example">
+<p><em>Example</em>: The length from the front to the back of a movie
+theatre is \(38\) meters.  The floor has a parabolic shape given by 
+\(y=0.002x^2\) where \(x\) is the distance in meters from the front of
+the theatre. Moreover, the screen is \(3\) meters above the floor and
+\(10\) meters high.</p>
+
+<div class="center">
+  <img src="theatre1.png" style="width: 450px"
+       alt="Drawing of the theatre">
+</div>
+
+<p> We want to find the position in the theatre (i.e. distance from
+the front of the theatre) that provides the largest viewing angle; namely,
+where \(\theta_2 - \theta_1\) is the largest.</p>
+
+<p> Since \(\tan\) is an increasing function on the interval
+\([0,\pi/2[\), the values of \(x\) where \(\theta_2-\theta_1\) reaches its
+maximum are the values of \(x\) where \(\tan(\theta_2 - \theta_2)\) reaches its
+maximum.  Therefore, we will seek the values of \(x\) where
+\(\tan(\theta_2 - \theta_1)\) reaches its maximum.  This will simplify
+a little the algebraic manipulations.  We have that </p>
+
+<pre class="matlab">
+> <font class="matlab"> restart:
+   equ1:= tan(theta_1) = (3-0.002*x^2)/x;
+   equ2:= tan(theta_2) = (13-0.002*x^2)/x;
+</font>
+</pre>
+
+\[
+\begin{split}
+& equ1 := \tan(theta\_1) = \frac{3 - 0.002 x^2}{x} \\
+& equ2 := \tan(theta\_2) = \frac{13 - 0.002 x^2}{x}
+\end{split}
+\]
+
+<p>There is a well know summation formula for the tangent function
+that we all learn in high school.  More precisely, we have that
+\(\tan(\theta_2 - \theta_1)\) is equal to</p>
+
+<pre class="matlab">
+> <font class="matlab"> tanSum := expand(tan(theta_2-theta_1));
+</font></pre>
+
+\[
+tanSum := -\frac{-\tan(theta\_2) + \tan(theta\_1)}
+{1 + \tan(theta\_2)\,\tan(theta\_1)}
+\]
+
+<p> If we substitute the expressions for \(\tan(\theta_1)\) and
+\(\tan(\theta_2)\) that we have found into the formula above, then we
+get the following function of \(x\). </p> 
+
+<pre class="matlab">
+> <font class="matlab"> f:= simplify( subs( {equ1,equ2},tanSum) );
+</font></pre>
+
+\[
+f := \frac{10. \, x}{0.968\, x^2 + 4. \times 10^{-6}\,x^4 + 39.}
+\]
+
+<p> The value of \(x\) where \(f\) reaches its maximum is the distance
+from the screen with the largest viewing angle; namely, with the
+largest value of \(\theta_2 - \theta_1\).  We first find the critical
+points of \(f\) in the open interval \(]0,38[\).</p> 
+
+<pre class="matlab">
+> <font class="matlab"> crtPts := solve([simplify(diff(f,x))=0, 0 &lt; x, x &lt; 38],x);
+</font></pre>
+
+\[
+crtPts := \{x = 6.345798111 \}
+\]
+
+<p> We compute the value of \(f\) at this critical point and at the
+end points of the interval \([0,38]\). </p>
+
+<pre class="matlab">
+> <font class="matlab"> subs(crtPts[1],f); subs(x=0,f); subs(x=38,f);
+</font></pre>
+
+\[
+\begin{split}
+& 0.8136991935 \\
+& 0. \\
+& 0.2629516591
+\end{split}
+\]
+
+<p>We have all learned in calculus that a continuous function on a
+closed interval \([a,b]\) which is also derivable in the open 
+interval \(]a,b[\) reaches its absolute maximum value either at one of its
+critical points in the interval \(]a,b[\) or at one of the end points
+of the interval.  Therefore, the absolute maximum of \(f\) is reached at
+\(x = 6.345798111\) approximately.  Since</p>
+
+<pre class="matlab">
+> <font class="matlab"> theta_1 := arctan(subs(crtPts[1],rhs(equ1)));
+   theta_2 := arctan(subs(crtPts[1],rhs(equ2)));
+   view:= theta_2 - theta_1;
+   convert(view,degrees);
+</front>
+</pre>
+
+\[
+\begin{split}
+& theta\_1 := 0.4311900575 \\
+& theta\_2 := 1.114228526 \\
+& view := 0.6830384685 \\
+& 39.13522148 \, degrees
+\end{split}
+\]
+
+<p> the maximal viewing angle is approximately \(0.6830384685\) radians
+or \(39.13522148\) degrees.  It is interesting to plot the graph of
+\(\theta_2 - \theta_1\) in function of \(x\) to get a better
+understanding of how the viewing angle changes with respect
+to \(x\).  It is easy to plot this graph with <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab"> theta_1:='theta_1'; theta_2:='theta_2';
+   plot(arctan(rhs(equ2)) - arctan(rhs(equ1)),x=0..38,
+      labels=['x','theta_2 - theta_1'], gridlines=true);
+</font>
+</pre>
+
+<div class="center">
+  <img src="Maple_theatre.png" style="width: 350px"
+       alt="Graph of theta_2-theta_1 in function of x">
+</div>
+</div>
+
+<div class="Example">
 <p><em>Example</em>: The blood types are determined by three alleles 
 denoted by the letters A, B and O.  Each individual carries a pair of
 alleles that determines the blood type.  There are six possible
@@ -346,7 +479,7 @@ E1 := \frac{1125}{\pi  \left(\rho{\scriptsize \sim}^{2}+225\right)^{\frac{3}{2}}
 \]
 
 <pre class="matlab">
-> <font class="matlab"> plot(E1,rho=0..20);</font>
+> <font class="matlab"> plot(E1,rho=0..20, labels=['rho','E']);</font>
 </pre>
 
 <div class="center">
@@ -380,7 +513,8 @@ TE := \frac{3 P \left(\sqrt{R{\scriptsize \sim}^{2}+h{\scriptsize \sim}^{2}}
 \]
 
 <pre class="matlab">
-> <font class="matlab"> TE1 := subs({P=100,h=15},TE); plot(TE1,R=0..100);
+> <font class="matlab"> TE1 := subs({P=100,h=15},TE);
+   plot(TE1,R=0..100, labels=['R','T']);
 </font>
 </pre>
 
@@ -411,7 +545,8 @@ evolve in function of the distance \(h\)?  To answer this question, we
 assume that \(P=100\) and \(R=10\).</p>
 
 <pre class="matlab">
-> <font class="matlab">TE2 := subs({P=100,R=10},TE); plot(TE2,h=0..100);</font>
+> <font class="matlab"> TE2 := subs({P=100,R=10},TE);
+   plot(TE2,h=0..100, labels=['h','T']);</font>
 </pre>
 
 \[
@@ -516,7 +651,8 @@ EE := \frac{3 P \left(k \,\rho{\scriptsize \sim}^{2}
 \]
 
 <pre class="matlab">
-> <font class="matlab"> EE1 := subs({P=100,h=15,k=1/2},EE); plot([E1,EE1],rho=0..30);
+> <font class="matlab"> EE1 := subs({P=100,h=15,k=1/2},EE);
+   plot([E1,EE1],rho=0..30, labels=['rho','E']);
 </font></pre>
 
 \[
@@ -551,7 +687,8 @@ the distance \(h=15\), and draw the graph of \(T\) as a function of \(R\).</p>
 
 <pre class="matlab">
 > <font class="matlab"> TTE := int(2*Pi*EE*rho*sqrt(1+rho^2), rho=0..R):
-   TTE1 := subs({P=100,h=15,k = 1/2},TTE): plot([TE1,TTE1],R=0..100); </font>
+   TTE1 := subs({P=100,h=15,k = 1/2},TTE):
+   plot([TE1,TTE1],R=0..100, labels=['R','T']); </font>
 </pre>
 
 <div class="center">
@@ -576,7 +713,7 @@ and <font class="matlab">arcsinh()</font>.</p>
 <pre class="matlab">
 > <font class="matlab"> TE2 := seq([t, evalf(subs({P = 100, R = 10, h = t, k = 1/2}, TE))], t = 0 .. 100):
    TTE2 := seq([t, evalf(subs({P = 100, R = 10, h = t, k = 1/2}, TTE))], t = 0 .. 100):
-   plot({[TE2],[TTE2]});
+   plot({[TE2],[TTE2]}, labels=['h','T']);
 </pre>
 
 <div class="center">
@@ -595,7 +732,8 @@ and <font class="matlab">arcsinh()</font>.</p>
 <p><em>Note</em>:  We would have expected that the following commands</p>
 
 <pre class="matlab">
-> <font class="matlab"> TTE2 := subs({P=100,R=10,k = 1/2},TTE): plot([TE2,TTE2],h=0..100); </font>
+> <font class="matlab"> TTE2 := subs({P=100,R=10,k = 1/2},TTE):
+   plot([TE2,TTE2],h=0..100, labels=['h','T']); </font>
 </pre>
 
 <p>would have generated the figure above.  Unfortunately,
