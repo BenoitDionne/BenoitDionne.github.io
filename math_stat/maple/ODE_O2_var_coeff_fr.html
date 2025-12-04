@@ -200,7 +200,12 @@ les graphes de \(x\) et \(x'\) en fonction de \(t\). </p>
        alt="Graphe de x' en fonction de t">
 </div>
 
-<p> Nous pouvons aussi tracer une partie de l'orbite
+<p> Juste en regardant les figures ci-dessus, pouvez-vous prédire le
+comportement de \(x(t)\) et \(x'(t)\) lorsque \(t\) converges vers
+\(\infty\)?  Variez la longueur de l'intervalle d'intégration et
+observez ce qui arrive aux graphes de \(x\) et \(x'\).</p>
+
+<p> Nous pouvons aussi tracer une partie de <q lang="fr">l'orbite</q>
 \(\{ (x(t), x'(t)) : t \in \mathbb{R} \}\).</p>
 
 <pre class="matlab">
@@ -213,10 +218,20 @@ les graphes de \(x\) et \(x'\) en fonction de \(t\). </p>
        alt="Graphe de l'orbite (x(t),x'(t)) pour t entre 0 et 30 &pi;">
 </div>
 
-<p> Juste en regardant les figures ci-dessus, pouvez-vous prédire le
-comportement de \(x(t)\) et \(x'(t)\) lorsque \(t\) converges vers
-\(\infty\)?  Variez la longueur de l'intervalle d'intégration et
-observez ce qui arrive aux graphes de \(x\) et \(x'\).</p>
+<div class="Note">
+<p><em>Note</em>: Comme nous allons voir dans le document
+<script language="javascript">
+buildLinK(ODE_lin_systems.url_fr, ODE_lin_systems.text_fr,"MMathSStat",
+ODE_lin_systems.id, ODE_lin_systems.target);
+</script>, l'EDO d'ordre deux ci-dessus peut être réduit à un système
+de deux EDO linéaire d'ordre un non-autonome.  Bien que l'on puisse
+tracer <q lang="fr">'orbite</q>
+\(\{ (x(t), x'(t)) : t \in \mathbb{R} \}\), elle ne possède pas les
+propriétés que les orbites de systèmes d'EDO autonomes d'ordre un
+possèdent.  Par exemple, ce type d'orbites associés à des conditions
+initiales différentes peuvent se couper.  Nous allons revenir sur ce
+sujet dans le document mentionné ci-dessus.
+</div>
 
 <p> Pour le reste de ce document, nous considérons deux EDO d'ordre
 deux avec des coefficients variables qui sont des examples classiques:

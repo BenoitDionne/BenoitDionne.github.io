@@ -101,7 +101,7 @@ satisfait ce système d'EDO avec une condition initiale \(X(0) = X_0\)
 donnée.  La théorie affirme qu'il existe toujours une solution unique
 si \(f\) est continue et <em>localement Lipshitz</em> par rapport à
 la variable \(X\).  Si \(f\) ne dépend pas du temps \(t\), alors mous
-disons que le système d'EDO est autonome.  Dans ce cas, si \(X\) est
+disons que le système d'EDO est <em>autonome</em>.  Dans ce cas, si \(X\) est
 la solution du système d'EDO, alors \(f(X(t))\) est la direction et
 vélocité de \(X\) au temps \(t\).  En particulier, \(f(X(t))\) est
 tangent à l'<em>orbite</em> \(\{X(t) : t \in I\}\) au temps \(t\).</p>
@@ -116,7 +116,7 @@ proportionnelle à la norme de \(f(X)\).</p>
 
 <hr class="MMathSStat">
 
-<h3> Systèmes d'EDO linéaires et autonomes avec des coefficients constants </h3>
+<h3> Systèmes d'EDO linéaires avec des coefficients constants </h3>
 
 <p>Un système d'EDO de la forme \(X'(t) = A X(t)\), où \(A\) est une
 matrice constante de dimensions \(n \times n\), est appelé un
@@ -132,7 +132,7 @@ matrices est indépendant du choix de la norme induite de matrices. </p>
 commande suivante de <em>Maple</em>.</p> 
 
 <pre class="matlab">
-> <font class="matlab">with(LinearAlgebra): A := Matrix([[2,-1],[1,2]]);</font>
+> <font class="matlab"> with(LinearAlgebra): A := Matrix([[2,-1],[1,2]]);</font>
 </pre>
 
 \[
@@ -165,7 +165,7 @@ représentons ce système d'EDO dans <em>Maple</em> de la façon
 suivante.</p>
 
 <pre class="matlab">
-> <font class="matlab">eq1 := {diff(x1(t),t) = 2*x1(t) - x2(t), diff(x2(t),t) = x1(t) + 2*x2(t)};</font>
+> <font class="matlab"> eq1 := {diff(x1(t),t) = 2*x1(t) - x2(t), diff(x2(t),t) = x1(t) + 2*x2(t)};</font>
 </pre>
 
 \[
@@ -217,7 +217,8 @@ X := \left\{ x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ), x2(t) = -e^{2t} (  -3 \cos
 cette solution. </p>
 
 <pre class="matlab">
-> <font class="matlab">X1:=subs(X,x1(t)); X2:=subs(X,x2(t)); plot([X1,X2,t=-1..5],axes=FRAME,labels=['x1','x2']); </font>
+> <font class="matlab"> X1:=subs(X,x1(t)); X2:=subs(X,x2(t));
+   plot([X1,X2,t=-1..5],axes=FRAME,labels=['x1','x2'],gridlines=true); </font>
 </pre>
 
 \[
@@ -227,7 +228,7 @@ cette solution. </p>
 \]
 
 <div class="center">
-<img src="Maple_syst_linODE_1.png" style="width: 300px"
+<img src="Maple_syst_linODE_1.png" style="width: 350px"
      alt="Dessin de l'orbite de la solution de X' = A X avec X(0) = (2 ,3)">
 </div>
 </div>
@@ -269,7 +270,7 @@ indépendants qui leurs sont associés.</li>
 par la commande suivante.</p>
 
 <pre class="matlab">
-> <font class="matlab">eq3 := {diff(x1(t),t)=-4*x1(t)+ 2*x2(t), diff(x2(t),t)=-1*x1(t)-x2(t)};</font>
+> <font class="matlab"> eq3 := {diff(x1(t),t)=-4*x1(t)+ 2*x2(t), diff(x2(t),t)=-1*x1(t)-x2(t)};</font>
 </pre>
 
 \[
@@ -281,7 +282,7 @@ par la commande suivante.</p>
 donnée ci-dessous.</p>
 
 <pre class="matlab">
-> <font class="matlab">A := Matrix([[-4,2],[-1,-1]]);</font>
+> <font class="matlab"> A := Matrix([[-4,2],[-1,-1]]);</font>
 </pre>
 
 \[
@@ -292,7 +293,7 @@ A := \begin{bmatrix}-4 & 2 \\ -1 & -1 \end{bmatrix}
 sont donnés par les commandes suivantes.</p>
 
 <pre class="matlab">
-> <font class="matlab">with(LinearAlgebra): Eigenvectors(A);</font>
+> <font class="matlab"> with(LinearAlgebra): Eigenvectors(A);</font>
 </pre>
 
 \[
@@ -340,7 +341,7 @@ un <em>noeud instable</em>.</p>
 à l'aide de la fonction <font class="matlab">dfieldplot()</font>.</p>
 
 <pre class="matlab">
-> <font class="matlab">dfieldplot(eq3,[x1(t),x2(t)],t=-2..2,x1=-1..1,x2=-1..1):</font>
+> <font class="matlab"> dfieldplot(eq3,[x1(t),x2(t)],t=-2..2,x1=-1..1,x2=-1..1):</font>
 </pre>
 </div>
 
@@ -359,7 +360,7 @@ système d'EDO linéaire homogène défini par la commande suivante
 de <em>Maple</em>.</p>
 
 <pre class="matlab">
-> <font class="matlab">eq4:={diff(x1(t),t)=3*x1(t)+x2(t), diff(x2(t),t)=3*x2(t)};</font>
+> <font class="matlab"> eq4:={diff(x1(t),t)=3*x1(t)+x2(t), diff(x2(t),t)=3*x2(t)};</font>
 </pre>
 
 \[
@@ -371,7 +372,7 @@ de <em>Maple</em>.</p>
 donnée ci-dessous.</p>
 
 <pre class="matlab">
-> <font class="matlab">A := Matrix([[3,1],[0,3]]);</font>
+> <font class="matlab"> A := Matrix([[3,1],[0,3]]);</font>
 </pre>
 
 \[
@@ -382,7 +383,7 @@ A := \begin{bmatrix} 3 & 1 \\ 0 & 3 \end{bmatrix}
 sont donnés par la commande suivante.</p>
 
 <pre class="matlab">
-> <font class="matlab">Eigenvectors(A);</font>
+> <font class="matlab"> Eigenvectors(A);</font>
 </pre>
 \[
  \begin{bmatrix} 3 \\ 3 \end{bmatrix}, \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}
@@ -418,7 +419,7 @@ non-nulle)</h4>
 commande suivante de <em>Maple</em>.</p>
 
 <pre class="matlab">
-> <font class="matlab">eq5:={diff(x1(t),t)=-2*x1(t)-x2(t), diff(x2(t),t)=x1(t)-2*x2(t)};</font>
+> <font class="matlab"> eq5:={diff(x1(t),t)=-2*x1(t)-x2(t), diff(x2(t),t)=x1(t)-2*x2(t)};</font>
 </pre>
 
 \[
@@ -430,7 +431,7 @@ eq5 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = -0.2\; x1(t) - x2(t) ,
 donnée ci-dessous.</p>
 
 <pre class="matlab">
-> <font class="matlab">A := Matrix([[-1/5,-1],[1,-1/5]]);</font>
+> <font class="matlab"> A := Matrix([[-1/5,-1],[1,-1/5]]);</font>
 </pre>
 
 \[
@@ -441,7 +442,7 @@ A := \begin{bmatrix} -\frac{1}{5} & -1 \\ 1 & -\frac{1}{5} \end{bmatrix}
 sont donnés par la commande suivante.</p>
 
 <pre class="matlab">
->  <font class="matlab">with(LinearAlgebra): Eigenvectors(A); </font>
+>  <font class="matlab"> with(LinearAlgebra): Eigenvectors(A); </font>
 </pre>
 
 \[
@@ -488,14 +489,15 @@ alors toutes les solutions s'éloigneraient de l'origine lorsque
 
 <hr class="MMathSStat">
 
-<h3> Systèmes d'EDO linéaires, autonomes et non-homogènes avec des
-coefficients constants</h3>
+<h3> Systèmes d'EDO linéaires non-homogènes avec des coefficients
+constants</h3> 
 
 <p>Considérons le système d'EDO linéaires non-homogènes défini par le
 commande suivante de <em>Maple</em>.</p>
 
 <pre class="matlab">
-> <font class="matlab"> eq6 := {diff(x1(t),t)=-2*x1(t)-2*x2(t)+sin(2*t), diff(x2(t),t)=4*x1(t)+2*x2(t)+cos(2*t)};</font>
+> <font class="matlab"> restart: with(plots):
+   eq6 := {diff(x1(t),t)=-2*x1(t)-2*x2(t)+sin(2*t), diff(x2(t),t)=4*x1(t)+2*x2(t)+cos(2*t)};</font>
 </pre>
 
 \[
@@ -506,24 +508,28 @@ eq6 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = -2\; x1(t) - 2\; x2(t) + \sin(
 <p>Nous pouvons utiliser <font class="matlab">dsolve()</font>
 pour trouver la solution générale de ce système d'EDO mais nous sommes
 principalement intéressé au comportement qualitatif des orbites
-lorsque \(t \to \infty\).  Donc, nous traçons les orbites de quelques
-solutions particulières.</p>
+lorsque \(t \to \infty\).  Donc, nous résolvons numériquement ce
+système d'EDO avec la condition initiale
+\( (-0.5,0.5) \) à \(t=0\).</p>
 
 <pre class="matlab">
-> <font class="matlab"> DEplot(eq6,[x1(t),x2(t)],t=0..5,[[x1(0)=1,x2(0)=-1],[x1(0)=-1,x2(0)=1],[x1(0)=2,x2(0)=2]],
-   linecolor=[blue,green,red],thickness=1,stepsize=0.01,numpoints = 100,
-   method = taylorseries);</font>
-</pre>
+> <font class="matlab"> sol := dsolve(eq6 union {x1(0)=-0.5, x2(0)=0.5},[x1(t),x2(t)],numeric,output= procedurelist, method=rkf45);
+   odeplot(sol,[t,x1(t)],0..30,axes=BOXED,labels=[`t`,`x1(t)`],gridlines=true);
+   odeplot(sol,[t,x2(t)],0..30,axes=BOXED,labels=[`t`,`x2(t)`],gridlines=true);
+</font></pre>
+
+\[
+sol := \text{proc(x\_rkf45) ... end proc}
+\]
 
 <div class="center">
-<img src="Maple_syst_linODE_5.png" style="width: 300px"
-     alt="Orbites de quelques solutions du système d'EDO donné par eq6">
+<img src="Maple_syst_linODE_5A.png" style="width: 350px"
+     alt="Graphe de x1 en fonction de t">
 </div>
-
-<p>Il est intéressant de noter qu'aucune des méthodes d'intégration
-de <em>Maple</em> semble être capable de tracer correctement les
-solutions qui commencent près de l'origine (du moins, quand ce
-document a été écrit).</p>
+<div class="center">
+<img src="Maple_syst_linODE_5B.png" style="width: 350px"
+     alt="Graphe de x2 en fonction de t">
+</div>
 
 <div class="Note">
 <p><em>Note</em>: Il existe une formule explicite pour la solution
@@ -712,7 +718,7 @@ périodiques?  Est-ce que le système peut être
 
 <hr class="MMathSStat">
 
-<h3> Systèmes d'EDO linéaires et non-autonoes </h3>
+<h3> Systèmes d'EDO linéaires non-autonoes </h3>
 
 <p> C'est la situation où nous avons \(X'(t) = A(t) X(t)\).
 Donc, le côté droit du système d'EDO dépend explicitement de
@@ -733,52 +739,114 @@ x''(t) + \cos(t) x(t) = 0 \ .
 \]
 
 <p>Cette EDO peut être réduite à un système d'EDO d'ordre un avec la
-substitution \(X_1 = x\) et \(X_2 = x'\).</p>
+substitution \(x_1 = x\) et \(x_2 = x'\).</p>
 
 <pre class="matlab">
-> <font class="matlab">eq1:= { diff(x1(t),t)=x2(t), diff(x2(t),t)=-cos(t)*x1(t)};</font>
+> <font class="matlab"> eq1:= { diff(x1(t),t)=x2(t), diff(x2(t),t)=-cos(t)*x1(t)};</font>
 </pre>
 
 \[
-  eq1 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = x2(t), \frac{\text{d}}{\text{d} t} x2 = -\cos(t) x1(t) \right\}
+  eq1 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = x2(t), \frac{\text{d}}{\text{d} t} x2(t) = -\cos(t) x1(t) \right\}
 \]
 
 <p> Comme d'habitude, nous n'allons pas chercher la solution générale
 de ce système d'EDO à l'aide de la fonction
 <font class="matlab">dsolve()</font> mais
 nous allons chercher une solution numérique pour une condition
-initiale donnée afin de tracer cette solution.</p>
+initiale donnée afin de tracer cette solution.  Comme nous avons fait
+dans le document mentionné ci-dessus, nous assumons que la condition
+initiale \( (x_1(0),x_2(0)) = (0,1) \).</p>
 
 <pre class="matlab">
-> <font class="matlab"> SYST := eq1 union {x1(0)=0,x2(0)=1}:</font>
-> <font class="matlab"> X := dsolve(SYST,{x1(t),x2(t)},type=numeric,output=listprocedure);</font>
+> <font class="matlab"> SYST := eq1 union {x1(0)=0,x2(0)=1}:
+   X := dsolve(SYST,{x1(t),x2(t)},type=numeric,output=listprocedure);</font>
 </pre>
 
 \[
 X := [t = proc(t) ... end\, proc, x1(t) = proc(t) ... end\, proc, x2(t) = proc(t) ... end\, proc]
 \]
 
-<p>Nous traçons l'orbite \(\{ (x_1(t),x_2(t)) : 0 \leq t \leq 3\pi\} \)
-associée à la condition initiale \( (x_1(0),x_2(0)) = (0,1) \).</p>
+<p>Nous traçons les graphes des fonctions \(x_1\) et \(x_2\) sur
+l'intervalle \([0,20]\).</p>
 
 <pre class="matlab">
-> <font class="matlab">with(plots): odeplot(X,[x1(t),x2(t)],0..3*Pi,labels=[`x(t)`,`x'(t)`]);</font>
+> <font class="matlab"> with(plots):
+   odeplot(X,[t,x1(t)],0..20,labels=[`t`,`x_1`],gridlines=true);
+   odeplot(X,[t,x2(t)],0..20,labels=[`t`,`x_2`],gridlines=true);
+</font>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_linODE_6.png" style="width: 300px"
-     alt="Dessin de l'orbite de la solution de l'EDO donnée par eq1 avec la condition initiale (x1(0),x2(0))=(0,1)">
+<img src="Maple_syst_linODE_6A.png" style="width: 350px"
+     alt="Graphe de x1 en fonction de t">
 </div>
 
-<p>Nous avons déjà vu cette orbite.  C'est le dessin d'une partie de
-l'orbite \( \{ (x(t), x'(t)) : t \in \mathbb{R} \} \) associée à la
-condition initiale \(x(0) = 0\) et \(x'(0) = 1\) pour l'EDO d'ordre
-deux que nous avons présentée dans le premier exemple du document
+<div class="center">
+<img src="Maple_syst_linODE_6B.png" style="width: 350px"
+     alt="Graphe de x2 en fonction de t">
+</div>
+
+<p>Nous avons fait référence à <q lang="en">l'orbite</q>
+\( \{ (x_1(t),x_2(t)): t \geq 0 \} \) dans le document
 <script language="javascript">
-    buildLinK(ODE_O2_var_coeff.url_fr,
-    ODE_O2_var_coeff.text_en,"MMathSStat", ODE_O2_var_coeff.id,
-    ODE_O2_var_coeff.target);
-</script>.</p>
+buildLinK(ODE_O2_var_coeff.url_fr,
+ODE_O2_var_coeff.text_fr,"MMathSStat", ODE_O2_var_coeff.id,
+ODE_O2_var_coeff.target);
+</script>.  C'était le dessin de \( \{ (x(t), x'(t)) : t \geq 0 \} \)
+associé aux conditions initiales \(x(0) = 0\) et \(x'(0) = 1\).
+Nous avons aussi mentionné que ce genre d'orbites n'a pas les
+propriétés que les orbites d'un système d'EDO autonomes d'ordre un
+ont.  En particulier, ces <q lang="fr">orbites</q> peuvent s'entre couper.
+Nous allons illustrer ce phénomène avec notre système d'EDO. Nous
+considérons <q lang="en">l'orbite</q> associée à la condition initiale
+\( (x_1(0),x_2(0)) = (1,1) \) et nous traçons sur une même figure
+cette <q lang="en">orbite</q> et <q lang="en">l'orbite</q>
+associée à la condition initiale précédente
+\( (x_1(0),x_2(0)) = (0,1) \). </p>
+
+<pre class="matlab">
+> <font class="matlab"> plt1 := odeplot(sol1,[x1(t),x2(t)],0..5,labels=[`x_1`,`x_2`],color='red'):
+   syst2 := eq1 union {x1(0)=1,x2(0)=1}:
+   sol2 := dsolve(syst2,{x1(t),x2(t)},type=numeric,output=listprocedure):
+   plt2 := odeplot(sol2,[x1(t),x2(t)],0..5,labels=[`x_1`,`x_2`],color='blue'):
+   display({plt1,plt2},gridlines=true);
+</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_linODE_6C.png" style="width: 350px"
+     alt="Dessin des orbites du système d'EDO d'écrit par eq1 avec les conditions initiales (x1(0),x2(0))=(0,1) et (x1(0),x2(0))=(1,1)">
+</div>
+
+<p> Non seulement avons-nous que les deux <q lang="en">orbites</q> se
+coupent mais une d'elle se coupe.  En réalité, les solutions ne se
+coupent pas.  Si nous considérons les système d'EDO dans l'espace
+\(t,x_1,x_2\); c'est-à-dire, si nous considérons </p>
+\[
+\begin{split}
+\frac{\text{d}}{\text{d}s} t(s) &= 1 \\
+\frac{\text{d}}{\text{d}s} x_1(s) &= x_2(s) \\
+\frac{\text{d}}{\text{d}s} x_2(s) &= -\cos(s) x_1(s)
+\end{split}
+\]
+<p> avec \( (t(0),x_1(0),x_2(0)) = (0,0,1) \) et
+\( (t(0),x_1(0),x_2(0)) = (0,1,1) \), alors les orbites ne se
+coupent.</p>  
+
+<pre class="matlab">
+> <font class="matlab"> A1:=eval(t,sol1); A2:=eval(x1(t),sol1); A3:=eval(x2(t),sol1):
+   spA := spacecurve([A1(t),A2(t),A3(t)],t=0..5,color="red"):
+   B1:=eval(t,sol2); B2:=eval(x1(t),sol2); B3:=eval(x2(t),sol2):
+   spB := spacecurve([B1(t),B2(t),B3(t)],t=0..5,color="blue"):
+   display({spA,spB},labels=['t','x_1','x_2']);
+</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_linODE_6D.png" style="width: 350px"
+     alt="Dessin dans l'espace en trois dimensions t,x1,x2 des orbites associées aux deux conditions initiales pour 0 <= t <= 5 ">
+</div>
+
 </div>
 
 <hr class="MMathSStat">

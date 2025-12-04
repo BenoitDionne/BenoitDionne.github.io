@@ -196,7 +196,12 @@ x(t)=1.107676186986299\right]
        alt="Graph of x' as a function of t">
 </div>
 
-<p> We may also plot a part of the orbit
+<p> Just by looking at the figures above, could we predict the
+behaviour of \(x(t)\) and \(x'(t)\) as \(t\) converges to \(\infty\)?
+Vary the length of the interval of integration and observe what happen
+to the graphs.</p> 
+
+<p> We may also plot a part of the <q lang="en">orbit</q>
 \(\{ (x(t), x'(t)) : t \in \mathbb{R} \}\).</p>
 
 <pre class="matlab">
@@ -209,10 +214,19 @@ x(t)=1.107676186986299\right]
        alt="Graph of the orbit (x(t),x'(t)) for t between 0 and 30 &pi;">
 </div>
 
-<p> Just by looking at the figures above, could we predict the
-behaviour of \(x(t)\) and \(x'(t)\) as \(t\) converges to \(\infty\)?
-Vary the length of the interval of integration and observe what happen
-to the graphs.</p> 
+<div class="Note">
+<p><em>Note</em>: As we will see in the document <script language="javascript">
+buildLinK(ODE_lin_systems.url_en, ODE_lin_systems.text_en,"MMathSStat",
+ODE_lin_systems.id, ODE_lin_systems.target);
+</script>, the previous second order ODE can be reduced to a system of two
+non-autonomous linear ODE of order one.  Though we may plot
+the <q lang="en">orbit</q>
+\(\{ (x(t), x'(t)) : t \in \mathbb{R} \}\), it does not
+have the properties that the orbits of systems of autonomous
+ODE of order one have.  For instance, this type of orbits
+associated to different initial condition may intersect each other.
+We will come back on this topic in the document mentioned above.
+</div>
 
 <p> For the rest of this document, we consider two classical second
 order ODE with variable coefficients: the Cauchy-Euler equation and

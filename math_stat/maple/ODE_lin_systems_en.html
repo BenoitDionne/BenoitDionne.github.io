@@ -98,7 +98,7 @@ such that \(X\) satisfies this system of ODE with a given initial
 condition \(X(0) = X_0\).  The theory says that there always exists a unique
 solution if \(f\) is continuous and <em>locally Lipshitz</em> with
 respect to the variable \(X\).  If \(f\) does not depend on the time
-\(t\), then we say that the system of ODE is autonomous.  In this
+\(t\), then we say that the system of ODE is <em>autonomous</em>.  In this
 case, if \(X\) is a solution of the system of ODE, then \(f(X(t))\) is
 the direction and velocity of \(X\) at time \(t\).  In particular,
 \(f(X(t))\) is tangent to the <em>orbit</em>
@@ -113,7 +113,7 @@ the length of the vector drawn is proportional to the norm of \(f(X)\).</p>
 
 <hr class="MMathSStat">
 
-<h3> Systems of autonomous linear ODE with constant coefficients </h3>
+<h3> Systems of Linear ODE with Constant Coefficients </h3>
 
 <p>A system of ODE of the form \(X'(t) = A X(t)\), where \(A\) is a
 constant \(n \times n\) matrix, is called a (homogeneous) linear system of
@@ -129,7 +129,7 @@ independent of the induced norm of matrices chosen.</p>
 matrix defined by the following command in <em>Maple</em>.</p>
 
 <pre class="matlab">
-> <font class="matlab">with(LinearAlgebra): A := Matrix([[2,-1],[1,2]]);</font>
+> <font class="matlab"> with(LinearAlgebra): A := Matrix([[2,-1],[1,2]]);</font>
 </pre>
 
 \[
@@ -161,7 +161,7 @@ solve the system of homogeneous linear system of ODE \(X'(t) = A X(t)\).
 We represent this system of ODE in <em>Maple</em> as it follows.</p>
 
 <pre class="matlab">
-> <font class="matlab">eq1 := {diff(x1(t),t) = 2*x1(t) - x2(t), diff(x2(t),t) = x1(t) + 2*x2(t)};</font>
+> <font class="matlab"> eq1 := {diff(x1(t),t) = 2*x1(t) - x2(t), diff(x2(t),t) = x1(t) + 2*x2(t)};</font>
 </pre>
 
 \[
@@ -212,7 +212,8 @@ X := \left\{ x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ), x2(t) = -e^{2t} (  -3 \cos
 <p> We can use <em>Maple</em> to draw the orbit of this solution.</p>
 
 <pre class="matlab">
-> <font class="matlab">X1:=subs(X,x1(t)); X2:=subs(X,x2(t)); plot([X1,X2,t=-1..5],axes=FRAME,labels=['x1','x2']); </font>
+> <font class="matlab"> X1:=subs(X,x1(t)); X2:=subs(X,x2(t));
+   plot([X1,X2,t=-1..5],axes=FRAME,labels=['x1','x2'],gridlines=true); </font>
 </pre>
 
 \[
@@ -222,7 +223,7 @@ X := \left\{ x1(t) = e^{2t} (2 \cos(t) - 3 \sin(t) ), x2(t) = -e^{2t} (  -3 \cos
 \]
 
 <div class="center">
-<img src="Maple_syst_linODE_1.png" style="width: 300px"
+<img src="Maple_syst_linODE_1.png" style="width: 350px"
      alt="Drawing of the orbit of the solution of X' = A X with X(0) = (2 ,3)">
 </div>
 </div>
@@ -262,7 +263,7 @@ with two linearly independent complex eigenvectors associates to them.</li>
 following command.</p>
 
 <pre class="matlab">
-> <font class="matlab">eq3 := {diff(x1(t),t)=-4*x1(t)+ 2*x2(t), diff(x2(t),t)=-1*x1(t)-x2(t)};</font>
+> <font class="matlab"> eq3 := {diff(x1(t),t)=-4*x1(t)+ 2*x2(t), diff(x2(t),t)=-1*x1(t)-x2(t)};</font>
 </pre>
 
 \[
@@ -273,7 +274,7 @@ following command.</p>
 <p>The matrix of coefficients of this linear system of ODE is given below.</p>
 
 <pre class="matlab">
-> <font class="matlab">A := Matrix([[-4,2],[-1,-1]]);</font>
+> <font class="matlab"> A := Matrix([[-4,2],[-1,-1]]);</font>
 </pre>
 
 \[
@@ -284,7 +285,7 @@ A := \begin{bmatrix}-4 & 2 \\ -1 & -1 \end{bmatrix}
 are given by the following commands. </p>
 
 <pre class="matlab">
-> <font class="matlab">with(LinearAlgebra): Eigenvectors(A);</font>
+> <font class="matlab"> with(LinearAlgebra): Eigenvectors(A);</font>
 </pre>
 
 \[
@@ -330,7 +331,7 @@ a <em>source</em> or <em>unstable node</em>.</p>
 function <font class="matlab">dfieldplot()</font>.</p>
 
 <pre class="matlab">
-> <font class="matlab">dfieldplot(eq3,[x1(t),x2(t)],t=-2..2,x1=-1..1,x2=-1..1):</font>
+> <font class="matlab"> dfieldplot(eq3,[x1(t),x2(t)],t=-2..2,x1=-1..1,x2=-1..1):</font>
 </pre>
 </div>
 
@@ -347,7 +348,7 @@ geometric multiplicity one.  Consider the homogeneous linear system of
 ODE defined by the following <em>Maple</em> command.</p>
 
 <pre class="matlab">
-> <font class="matlab">eq4:={diff(x1(t),t)=3*x1(t)+x2(t), diff(x2(t),t)=3*x2(t)};</font>
+> <font class="matlab"> eq4:={diff(x1(t),t)=3*x1(t)+x2(t), diff(x2(t),t)=3*x2(t)};</font>
 </pre>
 
 \[
@@ -358,7 +359,7 @@ ODE defined by the following <em>Maple</em> command.</p>
 <p>The matrix of coefficients of this linear system of ODE is given below.</p>
 
 <pre class="matlab">
-> <font class="matlab">A := Matrix([[3,1],[0,3]]);</font>
+> <font class="matlab"> A := Matrix([[3,1],[0,3]]);</font>
 </pre>
 
 \[
@@ -369,7 +370,7 @@ A := \begin{bmatrix}3 & 1 \\ 0 & 3 \end{bmatrix}
 are given by the following command.</p>
 
 <pre class="matlab">
-> <font class="matlab">Eigenvectors(A);</font>
+> <font class="matlab"> Eigenvectors(A);</font>
 </pre>
 \[
     \begin{bmatrix} 3 \\ 3 \end{bmatrix}, \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}
@@ -403,7 +404,7 @@ origin would then be a stable node.</p>
 following <em>Maple</em> command.</p>
 
 <pre class="matlab">
-> <font class="matlab">eq5:={diff(x1(t),t)=-2*x1(t)-x2(t), diff(x2(t),t)=x1(t)-2*x2(t)};</font>
+> <font class="matlab"> eq5:={diff(x1(t),t)=-2*x1(t)-x2(t), diff(x2(t),t)=x1(t)-2*x2(t)};</font>
 </pre>
 
 \[
@@ -415,7 +416,7 @@ eq5 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = -0.2\; x1(t) - x2(t) ,
 given below.</p>
 
 <pre class="matlab">
-> <font class="matlab">A := Matrix([[-1/5,-1],[1,-1/5]]);</font>
+> <font class="matlab"> A := Matrix([[-1/5,-1],[1,-1/5]]);</font>
 </pre>
 
 \[
@@ -426,7 +427,7 @@ A := \begin{bmatrix} -\frac{1}{5} & -1 \\ 1 & -\frac{1}{5} \end{bmatrix}
 are given by the following command.</p>
 
 <pre class="matlab">
->  <font class="matlab">with(LinearAlgebra): Eigenvectors(A); </font>
+>  <font class="matlab"> with(LinearAlgebra): Eigenvectors(A); </font>
 </pre>
 
 \[
@@ -473,14 +474,14 @@ The original would then be called a <em>unstable spiral</em> or
 
 <hr class="MMathSStat">
 
-<h3> Non-homogeneous and autonomous Linear Systems of ODE with
-constant coefficients </h3>
+<h3> Systems of Non-homogeneous Linear ODE with Constant Coefficients </h3>
 
 <p>Consider the non-homogeneous linear system of ODE defined by the
 following <em>Maple</em> command.</p>
 
 <pre class="matlab">
-> <font class="matlab"> eq6 := {diff(x1(t),t)=-2*x1(t)-2*x2(t)+sin(2*t), diff(x2(t),t)=4*x1(t)+2*x2(t)+cos(2*t)};</font>
+> <font class="matlab"> restart: with(plots):
+   eq6 := {diff(x1(t),t)=-2*x1(t)-2*x2(t)+sin(2*t), diff(x2(t),t)=4*x1(t)+2*x2(t)+cos(2*t)};</font>
 </pre>
 
 \[
@@ -491,23 +492,27 @@ eq6 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = -2\; x1(t) - 2\; x2(t) + \sin(
 <p>We can use <font class="matlab">dsolve()</font> to find the
 general solution of this system of ODE but we are mainly interested in
 the qualitative behaviour of the orbits as \( t \to \infty\).
-Thus, we draw the orbits of some particular solutions.</p>
+Thus, we numerical solve this system of ODE with the initial condition
+\( (-0.5,0.5) \) at \(t=0\).</p>
 
 <pre class="matlab">
-> <font class="matlab"> DEplot(eq6,[x1(t),x2(t)],t=0..5,[[x1(0)=1,x2(0)=-1],[x1(0)=-1,x2(0)=1],[x1(0)=2,x2(0)=2]],
-   linecolor=[blue,green,red],thickness=1,stepsize=0.01,numpoints = 100,
-   method = taylorseries);</font>
-</pre>
+> <font class="matlab"> sol := dsolve(eq6 union {x1(0)=-0.5, x2(0)=0.5},[x1(t),x2(t)],numeric,output= procedurelist, method=rkf45);
+   odeplot(sol,[t,x1(t)],0..30,axes=BOXED,labels=[`t`,`x1(t)`],gridlines=true);
+   odeplot(sol,[t,x2(t)],0..30,axes=BOXED,labels=[`t`,`x2(t)`],gridlines=true);
+</font></pre>
+
+\[
+sol := \text{proc(x\_rkf45) ... end proc}
+\]
 
 <div class="center">
-<img src="Maple_syst_linODE_5.png" style="width: 300px"
-     alt="Orbits of some solutions of the system of ODE given in eq6">
+<img src="Maple_syst_linODE_5A.png" style="width: 350px"
+     alt="Graph of x1 in function of t">
 </div>
-
-<p>It is interesting to note that none of the integration methods of
-<em>Maple</em> seem to be able to correctly draw orbits of
-solutions starting near the origin (at least, when this document was
-written).</p>
+<div class="center">
+<img src="Maple_syst_linODE_5B.png" style="width: 350px"
+     alt="Graph of x2 in function of t">
+</div>
 
 <div class="Note">
 <p><em>Note</em>: There exists an explicit formula for the general
@@ -518,7 +523,7 @@ ODE. </p>
 
 <hr class="MMathSStat">
 
-<h3> Reduction of the order of an ODE </h3>
+<h3> Reduction of the Order of an ODE </h3>
 
 <p> It is possible to reduce an higher order ODE of the form </p>
 
@@ -691,7 +696,7 @@ Can the system be <q lang="en">chaotic?</q></p>
 
 <hr class="MMathSStat">
 
-<h3> Systems of non-autonomous linear ODE </h3>
+<h3> Systems of Non-autonomous Linear ODE </h3>
 
 <p> This is the situation where we have \(X'(t) = A(t) X(t)\).
 Thus, the right hand side of the system of ODE depends explicitly of
@@ -712,51 +717,111 @@ x''(t) + \cos(t) x(t) = 0 \ .
 \]
 
 <p>This ODE can be reduced to the system of first-order ODE with the
-substitution \(X_1 = x\) and \(X_2 = x'\).</p>  
+substitution \(x_1 = x\) and \(x_2 = x'\).</p>  
 
 <pre class="matlab">
-> <font class="matlab">eq1:= { diff(x1(t),t)=x2(t), diff(x2(t),t)=-cos(t)*x1(t)};</font>
+> <font class="matlab"> eq1:= { diff(x1(t),t)=x2(t), diff(x2(t),t)=-cos(t)*x1(t)};</font>
 </pre>
 
 \[
-  eq1 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = x2(t), \frac{\text{d}}{\text{d} t} x2 = -\cos(t) x1(t) \right\}
+  eq1 := \left\{ \frac{\text{d}}{\text{d}t} x1(t) = x2(t), \frac{\text{d}}{\text{d} t} x2(t) = -\cos(t) x1(t) \right\}
 \]
 
 <p> As usual, we will not look for the general solution of this system
 of ODE using the function <font class="matlab">dsolve()</font> but we
 will instead find the numerical solution for a given initial condition in
-order to plot this solution.</p>
+order to plot this solution.  As we did in the document mentioned
+above, we use the initial condition \( (x_1(0),x_2(0)) = (0,1) \).</p>
 
 <pre class="matlab">
-> <font class="matlab"> SYST := eq1 union {x1(0)=0,x2(0)=1}:</font>
-> <font class="matlab"> X := dsolve(SYST,{x1(t),x2(t)},type=numeric,output=listprocedure);</font>
+> <font class="matlab"> syst1 := eq1 union {x1(0)=0,x2(0)=1}:
+   sol1 := dsolve(syst1,{x1(t),x2(t)},type=numeric,output=listprocedure);</font>
 </pre>
 
 \[
-X := [t = proc(t) ... end\, proc, x1(t) = proc(t) ... end\, proc, x2(t) = proc(t) ... end\, proc]
+sol1 := [t = \text{proc}(t) ... \text{end proc}, x1(t) = \text{proc}(t) ... \text{end proc}, x2(t) = \text{proc}(t) ... \text{end proc}]
 \]
 
-<p>We plot the orbit \( \{ (x_1(t),x_2(t)) : 0 \leq t \leq 3\pi\} \)
-associated to the intinial condition \( (x_1(0),x_2(0)) = (0,1) \).</p>
+<p>We plot the graphs of the functions \(x_1\) and \(x_2\) on the
+interval \( [0,20]\).</p> 
 
 <pre class="matlab">
-> <font class="matlab">with(plots): odeplot(X,[x1(t),x2(t)],0..3*Pi,labels=[`x(t)`,`x'(t)`]);</font>
+> <font class="matlab"> with(plots):
+   odeplot(X,[t,x1(t)],0..20,labels=[`t`,`x_1`],gridlines=true);
+   odeplot(X,[t,x2(t)],0..20,labels=[`t`,`x_2`],gridlines=true);
+</font>
 </pre>
 
 <div class="center">
-<img src="Maple_syst_linODE_6.png" style="width: 300px"
-     alt="Drawing of the orbit of the ODE given by eq1 with the initial condition (x1(0),x2(0))=(0,1)">
+<img src="Maple_syst_linODE_6A.png" style="width: 350px"
+     alt="Graph of x1 in function of t">
 </div>
 
-<p>We have already encountered this orbit before.  It is the plot of
-a part of the orbit \( \{ (x(t), x'(t)) : t\in \mathbb{R} \} \)
-associated to the initial conditions \(x(0) = 0\) et \(x'(0) = 1\) for
-the second ordre ODE that we presented in the first example of the document
+<div class="center">
+<img src="Maple_syst_linODE_6B.png" style="width: 350px"
+     alt="Graph of x2 in function of t">
+</div>
+
+<p>We have referred to the <q lang="en">orbit</q>
+\( \{ (x_1(t),x_2(t)): t \geq 0 \} \) in the document
 <script language="javascript">
-    buildLinK(ODE_O2_var_coeff.url_en,
-    ODE_O2_var_coeff.text_en,"MMathSStat", ODE_O2_var_coeff.id,
-    ODE_O2_var_coeff.target);
-</script>.</p>
+buildLinK(ODE_O2_var_coeff.url_en,
+ODE_O2_var_coeff.text_en,"MMathSStat", ODE_O2_var_coeff.id,
+ODE_O2_var_coeff.target);
+</script>.  It was the plot of \( \{ (x(t), x'(t)) : t \geq 0 \} \)
+associated to the initial conditions \(x(0) = 0\) and \(x'(0) = 1\).
+We have also mentioned that this type of orbits does not have the
+properties that orbits of systems of autonomous ODE of order one have.
+In particular, such these <q lang="en">orbits</q> may intersect each other.
+We will illustrate this phenomenon with our system of ODE.  We
+consider the <q lang="en">orbit</q> associated to the initial condition
+\( (x_1(0),x_2(0)) = (1,1) \) and plot in the same figure
+this <q lang="en">orbit</q> and the <q lang="en">orbit</q> associated
+to the previous initial condition \( (x_1(0),x_2(0)) = (0,1) \).</p>
+
+<pre class="matlab">
+> <font class="matlab"> plt1 := odeplot(sol1,[x1(t),x2(t)],0..5,labels=[`x_1`,`x_2`],color='red'):
+   syst2 := eq1 union {x1(0)=1,x2(0)=1}:
+   sol2 := dsolve(syst2,{x1(t),x2(t)},type=numeric,output=listprocedure):
+   plt2 := odeplot(sol2,[x1(t),x2(t)],0..5,labels=[`x_1`,`x_2`],color='blue'):
+   display({plt1,plt2},gridlines=true);
+</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_linODE_6C.png" style="width: 350px"
+     alt="Drawing of the orbits of the system of ODE given by eq1 with the initial condition (x1(0),x2(0))=(0,1) and (x1(0),x2(0))=(1,1)">
+</div>
+
+<p> Not only do we have that both <q lang="en">orbits</q> intersect each
+other but one of them intersects itself.  In reality, the solutions do
+not intersect each other.  If we consider the system of ODE in the
+\(t,x_1,x_2\) space; namely, if we consider </p>
+\[
+\begin{split}
+\frac{\text{d}}{\text{d}s} t(s) &= 1 \\
+\frac{\text{d}}{\text{d}s} x_1(s) &= x_2(s) \\
+\frac{\text{d}}{\text{d}s} x_2(s) &= -\cos(s) x_1(s)
+\end{split}
+\]
+<p> with \( (t(0),x_1(0),x_2(0)) = (0,0,1) \) and
+\( (t(0),x_1(0),x_2(0)) = (0,1,1) \), then the orbits do not
+intersect.</p> 
+
+<pre class="matlab">
+> <font class="matlab"> A1:=eval(t,sol1); A2:=eval(x1(t),sol1); A3:=eval(x2(t),sol1):
+   spA := spacecurve([A1(t),A2(t),A3(t)],t=0..5,color="red"):
+   B1:=eval(t,sol2); B2:=eval(x1(t),sol2); B3:=eval(x2(t),sol2):
+   spB := spacecurve([B1(t),B2(t),B3(t)],t=0..5,color="blue"):
+   display({spA,spB},labels=['t','x_1','x_2']);
+</font>
+</pre>
+
+<div class="center">
+<img src="Maple_syst_linODE_6D.png" style="width: 350px"
+     alt="Drawing in the three dimensional space t,x1,x2 of the orbits associated to two initials conditions for 0 <= t <= 5 ">
+</div>
+
 </div>
 
 <hr class="MMathSStat">

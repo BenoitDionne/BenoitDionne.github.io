@@ -100,7 +100,8 @@ qualitative study of the system and/or to solve the system numerically.</p>
 \(\displaystyle x''(t)+ \epsilon x'(t) (x^2(t)-1) + x(t) = 0\).</p>
 
 <pre class="matlab">
-> <font class="matlab"> eq2 := { diff(x1(t),t) = x2(t), diff(x2(t),t) = -epsilon*x2(t)*(x1(t)^2-1)-x1(t)};</font>
+> <font class="matlab"> restart: with(plots):
+   eq2 := { diff(x1(t),t) = x2(t), diff(x2(t),t) = -epsilon*x2(t)*(x1(t)^2-1)-x1(t)};</font>
 </pre>
 
 \[
@@ -154,9 +155,9 @@ Maple_programs.id, Maple_programs.target);
 initial conditions.</p>  
 
 <pre class="matlab">
-> <font class="matlab">gr1 := graph(4,1,5*Pi,"red"):</font>
-> <font class="matlab">gr2 := graph(-1,3,5*Pi, "blue"):</font>
-> <font class="matlab">display({gr1,gr2},axes=normal,labels=[`x1`,`x2`]);</font>
+> <font class="matlab"> gr1 := graph(4,1,5*Pi,"red"):
+   gr2 := graph(-1,3,5*Pi, "blue"):
+   display({gr1,gr2},axes=normal,labels=[`x1`,`x2`],gridlines=true);</font>
 </pre>
 
 <div class="center">
@@ -165,9 +166,9 @@ initial conditions.</p>
 </div>
 
 <pre class="matlab">
-> <font class="matlab">gr3:= graph(0.5,0.5,5*Pi,"red"):</font>
-> <font class="matlab">gr4:= graph(-1,1,5*Pi,"blue"):</font>
-> <font class="matlab">display({gr3,gr4},axes=normal,labels=[`x1`,`x2`]);</font>
+> <font class="matlab"> gr3:= graph(0.5,0.5,5*Pi,"red"):
+   gr4:= graph(-1,1,5*Pi,"blue"):
+   display({gr3,gr4},axes=normal,labels=[`x1`,`x2`],gridlines=true);</font>
 </pre>
 
 <div class="center">
@@ -224,23 +225,23 @@ with a small ball of mass \(m\) attached at one end of the rod as in
 the figure below. </p>
 
 <pre class="matlab">
-> <font class="matlab">with(plots):with(plottools):</font>
-> <font class="matlab">gr1:=line([0,0], [0,-14], color=black, linestyle=3):</font>
-> <font class="matlab">gr2:=line([0,0], [3,-5], color=black):</font>
-> <font class="matlab">gr3:=disk([3,-5], 0.25, color=green):</font>
-> <font class="matlab">gr4:=arrow([3,-5], [1/2,-13/2], 0.02,0.3,0.2, color=black):</font>
-> <font class="matlab">gr5:=line([1/2,-13/2], [3,-32/3], color=black, linestyle=3):</font>
-> <font class="matlab">gr6:=arrow([3,-5], [3,-32/3], 0.02,0.3,0.1, color=black):</font>
-> <font class="matlab">gr7:=textplot([4,-9,"mg"], font=[COURIER,12],align={LEFT}):</font>
-> <font class="matlab">gr8:=textplot([-2,-4,"mg sin("], font=[COURIER,12],align={LEFT}):</font>
-> <font class="matlab">gr9:=textplot([-1.8,-4,'q'], font=[SYMBOL,12],align={LEFT}):</font>
-> <font class="matlab">gr10:=textplot([-1.6, -4, ")"], font = [COURIER, 12], align = {LEFT}):</font>
-> <font class="matlab">gr11:=arc([3,-35/3],2.5, Pi/2..3*Pi/5):</font>
-> <font class="matlab">gr12:=textplot([2.2,-8,'q'], font=[SYMBOL,12],align={RIGHT}):</font>
-> <font class="matlab">gr13:=arrow([-3,-4.5],[2,-5.4], 0.02,0.3,0.1, color=black):</font>
-> <font class="matlab">gr14:=textplot([2.1,-3,'L'], font=[COURIER,12],align={RIGHT}):</font>
-> <font class="matlab">display({gr1,gr2,gr3,gr4,gr5,gr6,gr7,gr8,gr9,gr10,gr11,gr12,gr13,gr14},
-   view=[-6..6,-14..0.5], axes=none, scaling=constrained);</font>
+> <font class="matlab"> with(plots):with(plottools):
+   gr1:=line([0,0], [0,-14], color=black, linestyle=3):
+   gr2:=line([0,0], [3,-5], color=black):
+   gr3:=disk([3,-5], 0.25, color=green):
+   gr4:=arrow([3,-5], [1/2,-13/2], 0.02,0.3,0.2, color=black):
+   gr5:=line([1/2,-13/2], [3,-32/3], color=black, linestyle=3):
+   gr6:=arrow([3,-5], [3,-32/3], 0.02,0.3,0.1, color=black):
+   gr7:=textplot([4,-9,"mg"], font=[COURIER,12],align={LEFT}):
+   gr8:=textplot([-2,-4,"mg sin("], font=[COURIER,12],align={LEFT}):
+   gr9:=textplot([-1.8,-4,'q'], font=[SYMBOL,12],align={LEFT}):
+   gr10:=textplot([-1.6, -4, ")"], font = [COURIER, 12], align = {LEFT}):
+   gr11:=arc([3,-35/3],2.5, Pi/2..3*Pi/5):
+   gr12:=textplot([2.2,-8,'q'], font=[SYMBOL,12],align={RIGHT}):
+   gr13:=arrow([-3,-4.5],[2,-5.4], 0.02,0.3,0.1, color=black):
+   gr14:=textplot([2.1,-3,'L'], font=[COURIER,12],align={RIGHT}):
+   display({gr1,gr2,gr3,gr4,gr5,gr6,gr7,gr8,gr9,gr10,gr11,gr12,gr13,gr14},
+      view=[-6..6,-14..0.5], axes=none, scaling=constrained);
 </pre>
 
 <div class="center">
@@ -332,9 +333,9 @@ procedure (after some small modifications) used before.<p>
 figure.</p>
 
 <pre class="matlab">
-> <font class="matlab">pendul1 := graph(Pi/4,0,2*Pi,"red"):</font>
-> <font class="matlab">pendul2 := graph(Pi/4,4,Pi,"blue"):</font>
-> <font class="matlab">display({pendul1,pendul2}, axes=normal, labels=[`theta`,`v`]);</font>
+> <font class="matlab"> pendul1 := graph(Pi/4,0,2*Pi,"red"):
+   pendul2 := graph(Pi/4,4,Pi,"blue"):
+   display({pendul1,pendul2}, axes=normal, labels=[`theta`,`v`],gridlines=true);</font>
 </pre>
 
 <div class="center">
@@ -351,9 +352,9 @@ friction, the motion of the pendulum is perpetual.</p>
 order one and the orbits of the two particular solutions above.</p> 
 
 <pre class="matlab">
-> <font class="matlab"> with(DEtools):</font>
-> <font class="matlab"> DEplot(eq6,[theta(t),v(t)], t=0..1.5*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=4]],
-   linecolor=[blue,black], thickness=2, color=green, stepsize=0.01, arrows=small);</font>
+> <font class="matlab"> with(DEtools):
+   DEplot(eq6,[theta(t),v(t)], t=0..1.5*Pi, [[theta(0)=Pi/4,v(0)=0], [theta(0)=Pi/4,v(0)=4]],
+      linecolor=[blue,black], thickness=2, color=green, stepsize=0.01, arrows=small);</font>
 </pre>
 
 <div class="center">
@@ -395,9 +396,9 @@ and <font class="matlab">v(0)=8</font> m/s.</li>
 following figure.</p> 
 
 <pre class="matlab">
-> <font class="matlab">pendul1:=graph(Pi/4,0,3*Pi,"red"):</font>
-> <font class="matlab">pendul2:=graph(Pi/4,8,3*Pi, "blue"):</font>
-> <font class="matlab">display({pendul1,pendul2}, axes=normal, labels=[`theta`,`v`]);</font>
+> <font class="matlab"> pendul1:=graph(Pi/4,0,3*Pi,"red"):
+   pendul2:=graph(Pi/4,8,3*Pi, "blue"):
+   display({pendul1,pendul2}, axes=normal, labels=[`theta`,`v`],gridlines=true);</font>
 </pre>
 
 <div class="center">
@@ -421,6 +422,78 @@ order one and the orbits of the two particular solutions above.</p>
 <p>For the orbit in red, the oscillation of the pendulum is
 dying down.  For the orbit in blue, after a complete rotation, the
 pendulum starts to oscillate and its oscillation is also dying down.</p>
+
+<hr class="MMathSStat">
+
+<h3> Systems of Nonlinear Autonomous and Non-Homogeneous ODE </h3>
+
+<!--
+<div class="Example">
+<p><em>Example</em>:
+A mathematical model for the flow of lead in the body is given
+schematically in the following figure.
+\figbox{lead}
+Assuming that the rate of change of lead is the difference between the
+rate in and the rate out, we get the following system of differential
+equations
+\begin{align*}
+x_1'(t) &= -(k_{01} + k_{21} + k_{31})x_1(t) + k_{12} x_2(t) +
+k_{13}x_3(t) + I_1(t) \\
+x_2'(t) &= k_{21} x_1(t) - (k_{02} + k_{12})x_2(t) \\
+x_3'(t) &= k_{31}x_1(t) - k_{13}x_3(t)
+\end{align*}
+where $x_1(t)$ is the quantity in micrograms of lead in the blood at
+time $t$ in days, $x_2(t)$ is the quantity in micrograms of lead in
+the tissue at time $t$ in days, and $x_3(t)$ is the quantity in
+micrograms of lead in the bone at time $t$ in days.  The $k_{ij}$'s
+are constant of proportionality for the rate of transfer of lead from
+blood to tissue, blood to bone, etc.  We have the following values of
+$k_{ij}$'s.
+\[
+\begin{array}{c|c|c|c|c|c}
+k_{12} & k_{21} & k_{13} & k_{31} & k_{01} & k_{02} \\
+\hline
+0.0124 & 0.0111 & 0.000035 & 0.0039 & 0.0211 & 0.0162 \\
+\end{array}
+\]
+
+a) Suppose that there is a constant intake rate $I_1(t)$ of $49.3$
+micrograms/day of lead into the blood.  Draw in a same figure, the
+quantities of lead in the blood, in the bones and in the tissue in
+function of the time for $0 \leq t \leq 800$.  Assume that inititally,
+there is no lead in the blood, bone and tissue.
+
+b) Suppose that after $400$ days, the person is placed in a completely
+lead-free environment.  So the intake rate $I_1(t)$ of lead in the
+blood is constant to $49.3$ micrograms/day during the first $400$ days
+and drops to $0$ after the first $400$ days.  Draw in a same figure,
+the quantities of lead in the blood, in the bones and in the tissue in
+function of the time for $0 \leq t \leq 800$.  Assume that inititally,
+there is no lead in the blood, bone and tissue.  Compare the level of
+lead in the bone, blood and tissue, and draw some conclusions.
+
+c) Suppose that there is a constant intake rate $I_1(t)$ of $49.3$
+micrograms/day of lead into the blood but, after $400$ days, the
+person is given an antilead midication that increase the rate $k_{13}$
+at which the lead leaves the bone from $0.000035$ to $0.00035$.
+Draw in a same figure, the quantities of lead in the
+blood, in the bones and in the tissue in function of the time for $0
+\leq t \leq 800$.  Assume that inititally, there is no lead in the
+blood, bone and tissue.  Compare the level of lead in the bone, blood
+and tissue, and draw some conclusions.
+
+d) Suppose that after $400$ days, the person is both placed in a
+lead-free environment and given an antilead medication as in (b) and
+(c).  Draw in a same figure, the quantities of lead in the
+blood, in the bones and in the tissue in function of the time for $0
+\leq t \leq 800$.  Assume that inititally, there is no lead in the
+blood, bone and tissue.  Compare the level of lead in the bone, blood
+and tissue, and draw some conclusions.  What happen if the dose of
+antilead midication is drastically increased such that $k_{13}$ moves
+from $0.000035$ to $0.035$.  Is the person still alive after $800$
+hours.
+</div>
+-->
 
 <hr class="MMathSStat">
 
