@@ -216,9 +216,7 @@ if we consider that the right hand side of a system of ODE is a
 vector field.</p>
 </div>
 
-<hr class="MMathSStat">
-
-<h3> Nonlinear Pendulum </h3>
+<h4> Nonlinear Pendulum </h4>
 
 <p>Consider the pendulum made up of a very light rod of length \(L\)
 with a small ball of mass \(m\) attached at one end of the rod as in
@@ -425,86 +423,14 @@ pendulum starts to oscillate and its oscillation is also dying down.</p>
 
 <hr class="MMathSStat">
 
-<h3> Systems of Nonlinear Autonomous and Non-Homogeneous ODE </h3>
-
-<!--
-<div class="Example">
-<p><em>Example</em>:
-A mathematical model for the flow of lead in the body is given
-schematically in the following figure.
-\figbox{lead}
-Assuming that the rate of change of lead is the difference between the
-rate in and the rate out, we get the following system of differential
-equations
-\begin{align*}
-x_1'(t) &= -(k_{01} + k_{21} + k_{31})x_1(t) + k_{12} x_2(t) +
-k_{13}x_3(t) + I_1(t) \\
-x_2'(t) &= k_{21} x_1(t) - (k_{02} + k_{12})x_2(t) \\
-x_3'(t) &= k_{31}x_1(t) - k_{13}x_3(t)
-\end{align*}
-where $x_1(t)$ is the quantity in micrograms of lead in the blood at
-time $t$ in days, $x_2(t)$ is the quantity in micrograms of lead in
-the tissue at time $t$ in days, and $x_3(t)$ is the quantity in
-micrograms of lead in the bone at time $t$ in days.  The $k_{ij}$'s
-are constant of proportionality for the rate of transfer of lead from
-blood to tissue, blood to bone, etc.  We have the following values of
-$k_{ij}$'s.
-\[
-\begin{array}{c|c|c|c|c|c}
-k_{12} & k_{21} & k_{13} & k_{31} & k_{01} & k_{02} \\
-\hline
-0.0124 & 0.0111 & 0.000035 & 0.0039 & 0.0211 & 0.0162 \\
-\end{array}
-\]
-
-a) Suppose that there is a constant intake rate $I_1(t)$ of $49.3$
-micrograms/day of lead into the blood.  Draw in a same figure, the
-quantities of lead in the blood, in the bones and in the tissue in
-function of the time for $0 \leq t \leq 800$.  Assume that inititally,
-there is no lead in the blood, bone and tissue.
-
-b) Suppose that after $400$ days, the person is placed in a completely
-lead-free environment.  So the intake rate $I_1(t)$ of lead in the
-blood is constant to $49.3$ micrograms/day during the first $400$ days
-and drops to $0$ after the first $400$ days.  Draw in a same figure,
-the quantities of lead in the blood, in the bones and in the tissue in
-function of the time for $0 \leq t \leq 800$.  Assume that inititally,
-there is no lead in the blood, bone and tissue.  Compare the level of
-lead in the bone, blood and tissue, and draw some conclusions.
-
-c) Suppose that there is a constant intake rate $I_1(t)$ of $49.3$
-micrograms/day of lead into the blood but, after $400$ days, the
-person is given an antilead midication that increase the rate $k_{13}$
-at which the lead leaves the bone from $0.000035$ to $0.00035$.
-Draw in a same figure, the quantities of lead in the
-blood, in the bones and in the tissue in function of the time for $0
-\leq t \leq 800$.  Assume that inititally, there is no lead in the
-blood, bone and tissue.  Compare the level of lead in the bone, blood
-and tissue, and draw some conclusions.
-
-d) Suppose that after $400$ days, the person is both placed in a
-lead-free environment and given an antilead medication as in (b) and
-(c).  Draw in a same figure, the quantities of lead in the
-blood, in the bones and in the tissue in function of the time for $0
-\leq t \leq 800$.  Assume that inititally, there is no lead in the
-blood, bone and tissue.  Compare the level of lead in the bone, blood
-and tissue, and draw some conclusions.  What happen if the dose of
-antilead midication is drastically increased such that $k_{13}$ moves
-from $0.000035$ to $0.035$.  Is the person still alive after $800$
-hours.
-</div>
--->
-
-<hr class="MMathSStat">
-
 <h3> Systems of Nonlinear Non-Autonomous ODE </h3>
 
 <p> The analysis of systems of nonlinear non-autonomous ODE is more
 complex than the anaylsis of systems of nonlinear autonomous ODE.
 In particular, the system of ODE \(\vec{x}'= f(t,\vec{x})\) does not
 define a vector field because the right hand side depends explicitly
-of \(t\).  We will only give an example to illustrate
- how <em>Maple</em> can still be used to study such systems of ODE.</p>
+of \(t\).  We will only give one example to illustrate
+how <em>Maple</em> can still be used to study such systems of ODE.</p>
 
 <div class="Example">
 <p><em>Example</em>: A friendly dog is running after a person.  The

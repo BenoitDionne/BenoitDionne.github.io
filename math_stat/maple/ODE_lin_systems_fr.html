@@ -492,8 +492,11 @@ alors toutes les solutions s'éloigneraient de l'origine lorsque
 <h3> Systèmes d'EDO linéaires non-homogènes avec des coefficients
 constants</h3> 
 
-<p>Considérons le système d'EDO linéaires non-homogènes défini par le
-commande suivante de <em>Maple</em>.</p>
+<p>Nous présentons deux exemples.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous considérons le système d'EDO linéaires
+non-homogènes défini par le commande suivante de <em>Maple</em>.</p>
 
 <pre class="matlab">
 > <font class="matlab"> restart: with(plots):
@@ -530,12 +533,226 @@ sol := \text{proc(x\_rkf45) ... end proc}
 <img src="Maple_syst_linODE_5B.png" style="width: 350px"
      alt="Graphe de x2 en fonction de t">
 </div>
+<div>
 
 <div class="Note">
 <p><em>Note</em>: Il existe une formule explicite pour la solution
 générale d'un système d'EDO linéaires non-homogènes comme celui que
 nous venons juste de considérer.  Le lecteur peut trouver cette
 formule dans la majorité des manuels d'introduction aux ODE. </p>
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>: Un modèle mathématique pour le flot du plomb dans
+le corps est décrit schématiquement par la figure suivante.</p>
+
+<div class="center">
+<img src="lead1_fr.png" style="width: 450px"
+     alt="Modèle par compartiments du flot du plomb dans le corps">
+</div>
+<p> En supposant que le taux de variation du plomb est la différence
+entre le taux de variation entrant et sortant, nous obtenons le
+système d'EDO suivant.</p>
+\[
+\begin{split}
+x_1'(t) &= -(k_{01} + k_{21} + k_{31})x_1(t) + k_{12} x_2(t) +
+k_{13}x_3(t) + I_1(t) \\
+x_2'(t) &= k_{21} x_1(t) - (k_{02} + k_{12})x_2(t) \\
+x_3'(t) &= k_{31}x_1(t) - k_{13}x_3(t)
+\end{split}
+\]
+<p> où \(x_1(t),x_2(t)\) et \(x_3(t)\) sont respectivement les
+quantités en microgrammes (&mu;g ou mcg) de plomb dans le sang, les
+tissus et les os au temps \(t\) en jours (j).  Les \(k_{ij}\) sont les
+constantes de proportionnalité pour les taux de transfert du plomb du
+sang aux tissus, du sang aux os, etc.  Nous avons les valeurs
+suivantes pour les \(k_{ij}\).</p>
+<table style="width: inherit;">
+<tr>
+<th class="center"> k<sub>12</sub> </th>
+<th class="center"> k<sub>21</sub> </th>
+<th class="center"> k<sub>13</sub> </th>
+<th class="center"> k<sub>31</sub> </th>
+<th class="center"> k<sub>01</sub> </th>
+<th class="center"> k<sub>02</sub> </th>
+</tr>
+<tr>
+<td> 0.0124 </td>
+<td> 0.0111 </td>
+<td> 0.000035 </td>
+<td> 0.0039 </td>
+<td> 0.0211 </td>
+<td> 0.0162 </td>
+</tr>
+</table>
+
+<p> Nous considérons en premier une personne qui demeure dans un
+environnement contaminé.  Nous assumons que le taux d'absorption
+ \(I_1\) du plomb dans le sang est une constante de \(49.3\) &mu;g/j.
+Nous dessinons sur le même figure les quantités de plomb dans le sang,
+les os et les tissus en fonction du temps for \(0 \leq t \leq 800\).
+Nous assumons qu'il n'y a pas de plomb dans le sang, les os et les
+tissus initialement.</p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(plots):
+   SYST := {diff(x1(t),t) = -(k01+k21+k31)*x1(t) + k12*x2(t) + k13*x3(t) + I1(t),
+      diff(x2(t),t) = k21*x1(t) - (k02+k12)*x2(t),
+      diff(x3(t),t) = k31*x1(t) - k13*x3(t) };
+   SYST1 := subs({k12=0.0124, k21=0.0111, k13=0.000035, k31=0.0039, k01=0.0211,
+      k02=0.0162, I1(t)=49.3}, SYST);
+   SYST1init := SYST1 union {x1(0)=0, x2(0)=0, x3(0)=0};
+   sol1 := dsolve(SYST1init, [x1(t),x2(t),x3(t)] , type=numeric):
+   plot1 := odeplot(sol1, [t,x1(t)], 0..800, color=red):
+   plot2 := odeplot(sol1, [t,x2(t)], 0..800, color=green):
+   plot3 := odeplot(sol1, [t,x3(t)], 0..800, color=black):
+   display( {plot1, plot2, plot3}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+</font>
+</pre>
+
+\[
+\begin{split}
+& SYST := \bigg\{\frac{\text{d}}{\text{d} t} x1(t) = -(k01 + k21 + k31)\,
+x1(t) + k12\,x2(t) + k13\,x3(t) + I1(t),\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = k21\,x1(t) - (k02 + k12)\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = k31\,x1(t) - k13\,x3(t) \bigg\} \\
+& SYST1 := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t) + 49.3,\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.000035\,x3(t) \bigg\}\\
+& SYST1init := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t) + 49.3,\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.000035\,x3(t),\\
+&\qquad x1(0) = 0, x2(0) = 0, x3(0) = 0 \bigg\}
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_lead_1.png" style="width: 350px"
+     alt="Graphes de x_1,x_2 et x_3 en fonction de t pour 0 <= t <= 800 jours">
+</div>
+
+<p>La quantité de plomb dans les os augmente sans limite supérieure.
+Il n'est difficile d'imaginer ce qui va arriver à cette personne. </p>
+
+<p> Nous analysons ce qui arrive si la personne est transférée
+dans un environnement sans plomb après 400 jours.
+Ainsi, le taux d'absorption du plomb dans le sang est donné par
+\(I_1(t) = 49.3\) &mu;g/j pour \( 0 \leq t \leq 400\) jours et
+\(I_1(t) = 0\) &mu;g/j pour \(t > 400\) jours.
+Nous dessinons sur le même figure les quantités de plomb dans le sang,
+les os et les tissus en fonction du temps pour \(0 \leq t \leq 1200\).
+Comme précédemment, nous assumons qu'il n'y a pas de plomb dans le
+sang, les os et les tissus initialement.  Puisque le taux d'absorption
+du plomb dans le sang est une fonction discontinue, nous divisons
+l'intégration numérique en deux parties: de 0 à 400 jours
+avec un taux d'absorption constant de 49.3 &mu;g/j, et de
+400 à 1200 jours avec un taux d'absorption de 0 &mu;g/j.
+Les conditions initiales pour la période de 400 à 1200 jours sont données
+par les valeurs de \(x_1, x_2\) et \(x_3\) à la fin de la période de 0
+à 400 jours.</p>
+
+<pre class="matlab">
+> <font class="matlab"> initx1 := subs(sol1(400), x1(t)):
+   initx2 := subs(sol1(400), x2(t)):
+   initx3 := subs(sol1(400), x3(t)):
+   plot1 := odeplot(sol1, [t,x1(t)], 0..400, color=red):
+   plot2 := odeplot(sol1, [t,x2(t)], 0..400, color=green):
+   plot3 := odeplot(sol1, [t,x3(t)], 0..400, color=black):
+   SYST2 := subs({k12=0.0124, k21=0.0111, k13=0.000035, k31=0.0039, k01=0.0211,
+      k02=0.0162, I1(t)=0}, SYST);
+   SYST2init := SYST2 union {x1(400)=initx1, x2(400)=initx2, x3(400)=initx3};
+   sol2 := dsolve(SYST2init, [x1(t),x2(t),x3(t)] , type=numeric):
+   plot4 := odeplot(sol2, [t,x1(t)], 400..1200, color=red):
+   plot5 := odeplot(sol2, [t,x2(t)], 400..1200, color=green):
+   plot6 := odeplot(sol2, [t,x3(t)], 400..1200, color=black):
+   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+</font>
+</pre>
+
+\[
+\begin{split}
+& SYST2 := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t),\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.000035\,x3(t) \bigg\}\\
+& SYST1init := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t),\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.000035\,x3(t),\\
+&\qquad x1(400) = 1577.65535864022, x2(400) = 611.957598054888,
+ x3(400) = 2215.88561521599 \bigg\}
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_lead_2.png" style="width: 350px"
+     alt="Graphes de x_1,x_2 et x_3 en fonction de t pour 0 <= t <= 800 jours">
+</div>
+
+<p> Il y a une baisse radicale des quantités de plomb dans le sang et
+les tissus.  La présence de plomb dans le sang et les tissus peut être
+éliminée.  Cependant, la décroissance de la quantité de plomb dans les os
+est très faible.  Le rétablissement sera très long.</p>
+
+<p> Nous analysons maintenant ce qui arrive si, après 400 jours, la
+personne est transférée dans un environnement sans plomb et si un
+médicament contre le plomb lui est aussi administré.  Nous assumons
+que le médicament contre le plomb a pour effet d'augmenter le taux
+\(k_{13}\) de transfert du plomb des os au sang de \(0.000035\) à
+\(0.0009\).  Nous dessinons sur le même figure les quantités de plomb
+dans le sang, les os et les tissus en fonction du temps pour
+\(0 \leq t \leq 1200\).  Comme précédemment, nous assumons qu'il n'y a
+pas de plomb dans le sang, les os et les tissus initialement.</p>
+
+<pre class="matlab">
+> <font class="matlab"> SYST3 := subs({k12=0.0124, k21=0.0111, k13=0.0009, k31=0.0039, k01=0.0211,
+      k02=0.0162, I1(t)=0}, SYST);
+   SYST3init := SYST3 union {x1(400)=initx1, x2(400)=initx2, x3(400)=initx3};
+   sol3 := dsolve(SYST3init, [x1(t),x2(t),x3(t)] , type=numeric):
+   plot4 := odeplot(sol3, [t,x1(t)], 400..1200, color=red):
+   plot5 := odeplot(sol3, [t,x2(t)], 400..1200, color=green):
+   plot6 := odeplot(sol3, [t,x3(t)], 400..1200, color=black):
+   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+</font>
+</pre>
+
+\[
+\begin{split}
+& SYST2 := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t),\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.0009\,x3(t) \bigg\}\\
+& SYST1init := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t),\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.0009\,x3(t),\\
+&\qquad x1(400) = 1577.65535864022, x2(400) = 611.957598054888,
+ x3(400) = 2215.88561521599 \bigg\}
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_lead_3.png" style="width: 350px"
+     alt="Graphes de x_1, x_2 et x_3 en fonction de t pour 0 <= t <= 800 jours">
+</div>
+
+<p> Il y a une baisse radicale des quantités de plomb dans le sang et
+les tissus.   De plus, La décroissance de la quantité de plomb dans
+les os est remarquable. </p>
+
+<p>Le lecteur devrait examiner la situation où la personne demeure
+dans un environnement contaminé avec un taux constante d'absorption
+\(I_1\) du plomb dans le sang de \(49.3\) &mu;g/j mais prend le
+médicament contre le plomb à partir du 400<sup>th</sup> jour.</p>
+
+<p><em>Note</em>: Malheureusement, nous ne pouvons pas trouver la
+référence exacte pour l'origine de cet exemple.  Cet exemple se trouve
+à plusieurs endroits mais la référence à la source de cet exemple
+n'est jamais mentionnée.  Cet exemple peut probablement être inclus
+dans la liste des fameux exemples classiques pour lesquelles nous
+avons perdu la référence principale.</p>
 </div>
 
 <hr class="MMathSStat">

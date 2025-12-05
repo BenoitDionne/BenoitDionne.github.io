@@ -476,8 +476,11 @@ The original would then be called a <em>unstable spiral</em> or
 
 <h3> Systems of Non-homogeneous Linear ODE with Constant Coefficients </h3>
 
-<p>Consider the non-homogeneous linear system of ODE defined by the
-following <em>Maple</em> command.</p>
+<p>We provide two examples.</p>
+
+<div class="Example">
+<p><em>Example</em>: We consider the non-homogeneous linear system of
+ODE defined by the following <em>Maple</em> command.</p>
 
 <pre class="matlab">
 > <font class="matlab"> restart: with(plots):
@@ -513,12 +516,223 @@ sol := \text{proc(x\_rkf45) ... end proc}
 <img src="Maple_syst_linODE_5B.png" style="width: 350px"
      alt="Graph of x2 in function of t">
 </div>
+</div>
 
 <div class="Note">
 <p><em>Note</em>: There exists an explicit formula for the general
 solution of a system of non-homogeneous linear ODE like the one that we
 have just considered.  The reader can find it in most introductory textbook on
 ODE. </p>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: A mathematical model for the flow of lead in the
+body is described schematically in the following figure.</p>
+
+<div class="center">
+<img src="lead1.png" style="width: 450px"
+     alt="Compartmental model for the flow of lead in the body">
+</div>
+<p> Assuming that the rate of change of lead is the difference between the
+rate in and the rate out, we get the following system of ODE.</p>
+\[
+\begin{split}
+x_1'(t) &= -(k_{01} + k_{21} + k_{31})x_1(t) + k_{12} x_2(t) +
+k_{13}x_3(t) + I_1(t) \\
+x_2'(t) &= k_{21} x_1(t) - (k_{02} + k_{12})x_2(t) \\
+x_3'(t) &= k_{31}x_1(t) - k_{13}x_3(t)
+\end{split}
+\]
+<p> where \(x_1(t),x_2(t)\) and \(x_3(t)\) are respectively 
+the quantities in micrograms (&mu;g or mcg) of lead in the blood, the
+tissues and the bones at time \(t\) in days (d).  The \(k_{ij}\) are
+constants of proportionality for the rate of transfer of lead from
+blood to tissues, blood to bones, etc.  We have the following values
+for the \(k_{ij}\).</p> 
+<table style="width: inherit;">
+<tr>
+<th class="center"> k<sub>12</sub> </th>
+<th class="center"> k<sub>21</sub> </th>
+<th class="center"> k<sub>13</sub> </th>
+<th class="center"> k<sub>31</sub> </th>
+<th class="center"> k<sub>01</sub> </th>
+<th class="center"> k<sub>02</sub> </th>
+</tr>
+<tr>
+<td> 0.0124 </td>
+<td> 0.0111 </td>
+<td> 0.000035 </td>
+<td> 0.0039 </td>
+<td> 0.0211 </td>
+<td> 0.0162 </td>
+</tr>
+</table>
+
+<p> We first consider a person living in an contaminated environment.
+We assume that the intake rate \(I_1\) of lead into the blood is a
+constant to \(49.3\) &mu;g/d. 
+We draw in a same figure the quantities of lead in the blood, the
+bones and the tissues in function of the time for \(0 \leq t \leq 800\).
+We assume that there is no lead in the blood, bones and tissues
+initially. </p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(plots):
+   SYST := {diff(x1(t),t) = -(k01+k21+k31)*x1(t) + k12*x2(t) + k13*x3(t) + I1(t),
+      diff(x2(t),t) = k21*x1(t) - (k02+k12)*x2(t),
+      diff(x3(t),t) = k31*x1(t) - k13*x3(t) };
+   SYST1 := subs({k12=0.0124, k21=0.0111, k13=0.000035, k31=0.0039, k01=0.0211,
+      k02=0.0162, I1(t)=49.3}, SYST);
+   SYST1init := SYST1 union {x1(0)=0, x2(0)=0, x3(0)=0};
+   sol1 := dsolve(SYST1init, [x1(t),x2(t),x3(t)] , type=numeric):
+   plot1 := odeplot(sol1, [t,x1(t)], 0..800, color=red):
+   plot2 := odeplot(sol1, [t,x2(t)], 0..800, color=green):
+   plot3 := odeplot(sol1, [t,x3(t)], 0..800, color=black):
+   display( {plot1, plot2, plot3}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+</font>
+</pre>
+
+\[
+\begin{split}
+& SYST := \bigg\{\frac{\text{d}}{\text{d} t} x1(t) = -(k01 + k21 + k31)\,
+x1(t) + k12\,x2(t) + k13\,x3(t) + I1(t),\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = k21\,x1(t) - (k02 + k12)\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = k31\,x1(t) - k13\,x3(t) \bigg\} \\
+& SYST1 := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t) + 49.3,\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.000035\,x3(t) \bigg\}\\
+& SYST1init := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t) + 49.3,\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.000035\,x3(t),\\
+&\qquad x1(0) = 0, x2(0) = 0, x3(0) = 0 \bigg\}
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_lead_1.png" style="width: 350px"
+     alt="Graphs of x_1, x_2 and x_3 in function of t for 0 <= t <= 800 days">
+</div>
+
+<p>The quantity of lead in the bones increases without any upper
+bound.  It is not hard to imagine what will happen to this person. </p>
+
+<p> We analyze what happen if the person is transferred in a
+completely lead-free environment after 400 days.
+Thus, the intake rate of lead into the blood is given by
+\(I_1(t) = 49.3\) &mu;g/d for \( 0 \leq t \leq 400\) days and
+\(I_1(t) = 0\) &mu;g/d for \(t > 400\) days.
+We draw in a same figure the quantities of lead in the blood, the
+bones and the tissues in function of the time for \(0 \leq t \leq 1200\).
+As before, we assume that there is no lead in the blood, bones and tissues
+initially.  Since the intake rate of lead in the blood is a discontinuous
+function, we split the numerical integration in two parts: from 0 to 400
+days with the constant intake rate of 49.3 &mu;g/d, and from
+400 to 1200 days with the constant intake rate of 0 &mu;g/d.
+The initial conditions for the period from 400 to 1200 days are given by
+the values of \(x_1, x_2\) and \(x_3\) at the end of the
+period from 0 to 400 days.</p>
+
+<pre class="matlab">
+> <font class="matlab"> initx1 := subs(sol1(400), x1(t)):
+   initx2 := subs(sol1(400), x2(t)):
+   initx3 := subs(sol1(400), x3(t)):
+   plot1 := odeplot(sol1, [t,x1(t)], 0..400, color=red):
+   plot2 := odeplot(sol1, [t,x2(t)], 0..400, color=green):
+   plot3 := odeplot(sol1, [t,x3(t)], 0..400, color=black):
+   SYST2 := subs({k12=0.0124, k21=0.0111, k13=0.000035, k31=0.0039, k01=0.0211,
+      k02=0.0162, I1(t)=0}, SYST);
+   SYST2init := SYST2 union {x1(400)=initx1, x2(400)=initx2, x3(400)=initx3};
+   sol2 := dsolve(SYST2init, [x1(t),x2(t),x3(t)] , type=numeric):
+   plot4 := odeplot(sol2, [t,x1(t)], 400..1200, color=red):
+   plot5 := odeplot(sol2, [t,x2(t)], 400..1200, color=green):
+   plot6 := odeplot(sol2, [t,x3(t)], 400..1200, color=black):
+   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+</font>
+</pre>
+
+\[
+\begin{split}
+& SYST2 := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t),\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.000035\,x3(t) \bigg\}\\
+& SYST1init := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t),\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.000035\,x3(t),\\
+&\qquad x1(400) = 1577.65535864022, x2(400) = 611.957598054888,
+ x3(400) = 2215.88561521599 \bigg\}
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_lead_2.png" style="width: 350px"
+     alt="Graphs of x_1, x_2 and x_3 in function of t for 0 <= t <= 800 days">
+</div>
+
+<p> There is a drastic drop of the quantities of lead in the blood and
+the tissues.  The presence of lead in the blood and tissues can be
+eliminated.  However, the decrease of the quantity of lead in the
+bones is very slow. The recovery will be very long.</p>
+
+<p> We now analyze what happen if, after 400 days, the person is placed in a
+completely lead-free environment and given an anti-lead medication.
+We assume that the effect of the anti-lead medication is to increase
+the rate \(k_{13}\) of transfer of lead from the bones to the blood
+from \(0.000035\) to \(0.0009\).  We draw in a same figure
+the quantities of lead in the blood, the 
+bones and the tissues in function of the time for \(0 \leq t \leq 1200\).
+As before, we assume that there is no lead in the blood, bones and tissues
+initially.</p>
+
+<pre class="matlab">
+> <font class="matlab"> SYST3 := subs({k12=0.0124, k21=0.0111, k13=0.0009, k31=0.0039, k01=0.0211,
+      k02=0.0162, I1(t)=0}, SYST);
+   SYST3init := SYST3 union {x1(400)=initx1, x2(400)=initx2, x3(400)=initx3};
+   sol3 := dsolve(SYST3init, [x1(t),x2(t),x3(t)] , type=numeric):
+   plot4 := odeplot(sol3, [t,x1(t)], 400..1200, color=red):
+   plot5 := odeplot(sol3, [t,x2(t)], 400..1200, color=green):
+   plot6 := odeplot(sol3, [t,x3(t)], 400..1200, color=black):
+   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+</font>
+</pre>
+
+\[
+\begin{split}
+& SYST2 := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t),\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.0009\,x3(t) \bigg\}\\
+& SYST1init := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = -0.0361\,
+x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t),\\
+& \qquad \frac{\text{d}}{\text{d} t} x2(t) = 0.0111\,x1(t) - 0.0286\,x2(t),
+\frac{\text{d}}{\text{d} t} x3(t) = 0.0039\,x1(t) - 0.0009\,x3(t),\\
+&\qquad x1(400) = 1577.65535864022, x2(400) = 611.957598054888,
+ x3(400) = 2215.88561521599 \bigg\}
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_lead_3.png" style="width: 350px"
+     alt="Graphs of x_1, x_2 and x_3 in function of t for 0 <= t <= 800 days">
+</div>
+
+<p> There is still a significant drop of the quantities of lead in the
+blood and the tissues.  Moreover, the decrease of the quantity of lead
+in the bones is also significant. </p> 
+
+<p>The reader should investigate the situation where the person is
+living in an contaminated environment with a constant intake rate
+\(I_1\) of lead into the blood of \(49.3\) &mu;g/d but starts to
+take the anti-lead medication on the 400<sup>th</sup> day.</p>
+
+<p><em>Note</em>: We unfortunately cannot find the exact reference for
+the source of this example.  This example can be found in many places
+but none of them includes a reference to the source of the example.
+This example may probably be included in the list of famous classical
+examples for which we have lost the principal reference.</p> 
 </div>
 
 <hr class="MMathSStat">
