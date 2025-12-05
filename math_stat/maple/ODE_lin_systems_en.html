@@ -499,7 +499,8 @@ Thus, we numerical solve this system of ODE with the initial condition
 \( (-0.5,0.5) \) at \(t=0\).</p>
 
 <pre class="matlab">
-> <font class="matlab"> sol := dsolve(eq6 union {x1(0)=-0.5, x2(0)=0.5},[x1(t),x2(t)],numeric,output= procedurelist, method=rkf45);
+> <font class="matlab"> sol := dsolve(eq6 union {x1(0)=-0.5, x2(0)=0.5},[x1(t),x2(t)],numeric,
+      output= procedurelist, method=rkf45);
    odeplot(sol,[t,x1(t)],0..30,axes=BOXED,labels=[`t`,`x1(t)`],gridlines=true);
    odeplot(sol,[t,x2(t)],0..30,axes=BOXED,labels=[`t`,`x2(t)`],gridlines=true);
 </font></pre>
@@ -569,10 +570,10 @@ for the \(k_{ij}\).</p>
 </table>
 
 <p> We first consider a person living in an contaminated environment.
-We assume that the intake rate \(I_1\) of lead into the blood is a
-constant to \(49.3\) &mu;g/d. 
+We assume that the intake rate \(I_1\) of lead into the blood is
+constant to \(49.3\) &mu;g/d.
 We draw in a same figure the quantities of lead in the blood, the
-bones and the tissues in function of the time for \(0 \leq t \leq 800\).
+bones and the tissues in function of the time \(t\) for \(0 \leq t \leq 800\).
 We assume that there is no lead in the blood, bones and tissues
 initially. </p>
 
@@ -624,7 +625,7 @@ Thus, the intake rate of lead into the blood is given by
 \(I_1(t) = 49.3\) &mu;g/d for \( 0 \leq t \leq 400\) days and
 \(I_1(t) = 0\) &mu;g/d for \(t > 400\) days.
 We draw in a same figure the quantities of lead in the blood, the
-bones and the tissues in function of the time for \(0 \leq t \leq 1200\).
+bones and the tissues in function of the time \(t\) for \(0 \leq t \leq 1200\).
 As before, we assume that there is no lead in the blood, bones and tissues
 initially.  Since the intake rate of lead in the blood is a discontinuous
 function, we split the numerical integration in two parts: from 0 to 400
@@ -648,7 +649,8 @@ period from 0 to 400 days.</p>
    plot4 := odeplot(sol2, [t,x1(t)], 400..1200, color=red):
    plot5 := odeplot(sol2, [t,x2(t)], 400..1200, color=green):
    plot6 := odeplot(sol2, [t,x3(t)], 400..1200, color=black):
-   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true,
+      labels=["t","x_1,x_2,x_3"]);
 </font>
 </pre>
 
@@ -683,7 +685,7 @@ We assume that the effect of the anti-lead medication is to increase
 the rate \(k_{13}\) of transfer of lead from the bones to the blood
 from \(0.000035\) to \(0.0009\).  We draw in a same figure
 the quantities of lead in the blood, the 
-bones and the tissues in function of the time for \(0 \leq t \leq 1200\).
+bones and the tissues in function of the time \(t\) for \(0 \leq t \leq 1200\).
 As before, we assume that there is no lead in the blood, bones and tissues
 initially.</p>
 
@@ -695,7 +697,8 @@ initially.</p>
    plot4 := odeplot(sol3, [t,x1(t)], 400..1200, color=red):
    plot5 := odeplot(sol3, [t,x2(t)], 400..1200, color=green):
    plot6 := odeplot(sol3, [t,x3(t)], 400..1200, color=black):
-   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true,
+      labels=["t","x_1,x_2,x_3"]);
 </font>
 </pre>
 

@@ -516,7 +516,8 @@ système d'EDO avec la condition initiale
 \( (-0.5,0.5) \) à \(t=0\).</p>
 
 <pre class="matlab">
-> <font class="matlab"> sol := dsolve(eq6 union {x1(0)=-0.5, x2(0)=0.5},[x1(t),x2(t)],numeric,output= procedurelist, method=rkf45);
+> <font class="matlab"> sol := dsolve(eq6 union {x1(0)=-0.5, x2(0)=0.5},[x1(t),x2(t)],numeric,
+      output= procedurelist, method=rkf45);
    odeplot(sol,[t,x1(t)],0..30,axes=BOXED,labels=[`t`,`x1(t)`],gridlines=true);
    odeplot(sol,[t,x2(t)],0..30,axes=BOXED,labels=[`t`,`x2(t)`],gridlines=true);
 </font></pre>
@@ -590,7 +591,7 @@ suivantes pour les \(k_{ij}\).</p>
 environnement contaminé.  Nous assumons que le taux d'absorption
  \(I_1\) du plomb dans le sang est une constante de \(49.3\) &mu;g/j.
 Nous dessinons sur le même figure les quantités de plomb dans le sang,
-les os et les tissus en fonction du temps for \(0 \leq t \leq 800\).
+les os et les tissus en fonction du temps \(t\) pour \(0 \leq t \leq 800\).
 Nous assumons qu'il n'y a pas de plomb dans le sang, les os et les
 tissus initialement.</p>
 
@@ -634,7 +635,7 @@ x1(t) + 0.0124\,x2(t) + 0.000035\,x3(t) + 49.3,\\
 </div>
 
 <p>La quantité de plomb dans les os augmente sans limite supérieure.
-Il n'est difficile d'imaginer ce qui va arriver à cette personne. </p>
+Il n'est pas difficile d'imaginer ce qui va arriver à cette personne. </p>
 
 <p> Nous analysons ce qui arrive si la personne est transférée
 dans un environnement sans plomb après 400 jours.
@@ -642,7 +643,7 @@ Ainsi, le taux d'absorption du plomb dans le sang est donné par
 \(I_1(t) = 49.3\) &mu;g/j pour \( 0 \leq t \leq 400\) jours et
 \(I_1(t) = 0\) &mu;g/j pour \(t > 400\) jours.
 Nous dessinons sur le même figure les quantités de plomb dans le sang,
-les os et les tissus en fonction du temps pour \(0 \leq t \leq 1200\).
+les os et les tissus en fonction du temps \(t\) pour \(0 \leq t \leq 1200\).
 Comme précédemment, nous assumons qu'il n'y a pas de plomb dans le
 sang, les os et les tissus initialement.  Puisque le taux d'absorption
 du plomb dans le sang est une fonction discontinue, nous divisons
@@ -667,7 +668,8 @@ par les valeurs de \(x_1, x_2\) et \(x_3\) à la fin de la période de 0
    plot4 := odeplot(sol2, [t,x1(t)], 400..1200, color=red):
    plot5 := odeplot(sol2, [t,x2(t)], 400..1200, color=green):
    plot6 := odeplot(sol2, [t,x3(t)], 400..1200, color=black):
-   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true,
+      labels=["t","x_1,x_2,x_3"]);
 </font>
 </pre>
 
@@ -702,7 +704,7 @@ médicament contre le plomb lui est aussi administré.  Nous assumons
 que le médicament contre le plomb a pour effet d'augmenter le taux
 \(k_{13}\) de transfert du plomb des os au sang de \(0.000035\) à
 \(0.0009\).  Nous dessinons sur le même figure les quantités de plomb
-dans le sang, les os et les tissus en fonction du temps pour
+dans le sang, les os et les tissus en fonction du temps \(t\) pour
 \(0 \leq t \leq 1200\).  Comme précédemment, nous assumons qu'il n'y a
 pas de plomb dans le sang, les os et les tissus initialement.</p>
 
@@ -714,7 +716,8 @@ pas de plomb dans le sang, les os et les tissus initialement.</p>
    plot4 := odeplot(sol3, [t,x1(t)], 400..1200, color=red):
    plot5 := odeplot(sol3, [t,x2(t)], 400..1200, color=green):
    plot6 := odeplot(sol3, [t,x3(t)], 400..1200, color=black):
-   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+   display( {plot1, plot2, plot3, plot4, plot5, plot6}, gridlines=true,
+      labels=["t","x_1,x_2,x_3"]);
 </font>
 </pre>
 

@@ -220,7 +220,7 @@ em.Equations_Display { color: #8F001A; font-family: "Courier", monospace;
 canvas { border: 1px solid #8F001A; background-color: white; }
 
 em.matlab { color: blue; font-weight: bold; font-size: 100%; }
-pre.matlab { font-family: "Courier", monospace; }
+pre.matlab { font-family: "Courier", monospace; overflow-y: scroll; }
 font.matlab { color: blue; font-size: 100%; }
 
 img.MobiusFig { border: 1px  #004870 solid; margin: 0px; padding: 0px;}

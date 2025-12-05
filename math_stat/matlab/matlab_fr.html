@@ -198,7 +198,7 @@ et attend que l'utilisateur tape ses instructions.</p>
 <tr> <th> Opération </th> <th> Description </th> </tr>
 <tr><td class="center"> <font class="matlab">+</font></td><td>
 addition </td></tr> 
-<tr><td class="center"> <font class="matlab">-</font></td><td>
+<tr><td class="center"> <font class="matlab">&minus;</font></td><td>
 soustraction </td></tr>
 <tr><td class="center"> <font class="matlab">*</font></td><td>
 multiplication </td></tr> 
@@ -487,8 +487,8 @@ U = <br>
 <tr> <th> Opération </th> <th> Description </th> </tr>
 <tr><td class="center"> <font class="matlab">+</font></td><td> addition de
 matrices de même dimensions </td></tr>
-<tr><td class="center"> <font class="matlab">-</font></td><td> soustraction
-de matrices de même dimensions </td></tr>
+<tr><td class="center"> <font class="matlab">&minus;</font></td><td>
+soustraction de matrices de même dimensions </td></tr>
 <tr><td class="center"> <font class="matlab">*</font></td><td>
 multiplication de deux matrices où le nombre de colonnes de la
 première matrice égale le nombre de rangées de la deuxième matrice </td></tr>
@@ -791,15 +791,24 @@ aux axes de la figure précédente pour obtenir la figure suivante.</p>
 <p><em>Exemple</em>: Nous traçons l'interpolation linéaire de
 la fonction \(f\) associée aux données dans le tableau ci-dessous.</p>
 
-\[
-\begin{array}{|l|r|r|r|r|r|}
-\hline
-x & 0 & 0.7854 & 1.5708 & 2.3562 & 3.1416 \\
-\hline
-y & 0 & 0.5554 & 1.5708 & 1.6661 & 0.0000 \\
-\hline
-\end{array}
-\]
+<table style="width: inherit;">
+<tr>
+<th class="center"> x </th>
+<td> 0 </td>
+<td> 0.7854 </td>
+<td> 1.5708 </td>
+<td> 2.3562 </td>
+<td> 3.1416 </td>
+</tr>
+<tr>
+<th class="center"> y </th>
+<td> 0 </td>
+<td> 0.5554 </td>
+<td> 1.5708 </td>
+<td> 1.6661 </td>
+<td> 0.0000 </td>
+</tr>
+</table>
 
 <p> Les données pour \(x\) et \(y\) sont représentées par deux vecteurs
 dans <em>Matlab</em>.</p>
