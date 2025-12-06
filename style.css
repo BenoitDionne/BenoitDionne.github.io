@@ -2,7 +2,7 @@
 /* Default style                                                    */
 /********************************************************************/
 body { margin: 0px; background: #eae8e8 url("images/background7.png") repeat;}
-div.page_contents { margin: 0px; padding: 10px; border: 0px; }
+div.page_contents { margin: 0px; padding: 1em; border: 0px; }
 
 /* Font for entire site */
 * { font-weight: normal; font-size: inherit; color: black; font-style: normal; }

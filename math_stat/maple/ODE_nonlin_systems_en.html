@@ -201,19 +201,53 @@ filed.</p>
      alt="Vector field for the Van der Pol system including some orbits">
 </div>
 
-<p>All the orbits converge toward a periodic solution.
-The orbit starting at \((2,2)\) (outside the periodic orbit) is
-getting very close to this periodic solution.  We admit that this is
-not a proof of the existence of a unique periodic orbit but this is
-certainly a good indication of its existence.</p> 
+<p>All the orbits seem to converge toward a periodic solution.
+The orbit with the initial condition \((2,2)\) (outside the
+periodic orbit) is getting very close to this periodic solution.
+To <q lang="en">sketch</q> this periodic orbit, we first select a point
+\( (a,b) = (x_1(t),x_2(t)) \) with \(t\) very large on the orbit with the
+initial condition \((2,2)\).  This new initial condition
+should therefore be closed to the periodic orbit.  We draw the orbit
+with the initial condition \( (a,b) \).
+Since we are now using large values of \(t\), we need to use a more
+efficient numerical method than the classical Runge-Kutta method.
+We select an adaptive Runge-Kutta method that control the step size
+of the integration.</p>
+
+<pre class="matlab">
+> <font class="matlab"> X1 := dsolve(eq3 union {x1(0) = 2, x2(0) = 2}, [x1(t), x2(t)], type = numeric,
+      output = procedurelist, method = rkf45):
+   a := subs(X1(20*Pi),x1(t));
+   b := subs(X1(20*Pi),x2(t));
+   X2 := dsolve(eq3 union {x1(0) = a, x2(0) = b}, [x1(t), x2(t)], type = numeric,
+      output = procedurelist, method = rkf45):
+   odeplot(X2, [x1(t), x2(t)], 0 .. 5*Pi, color = 'blue', gridlines=true,
+      labels=[`x1`,`x2`]);
+</font>
+</pre>
+
+\[
+\begin{split}
+& a := 1.31165172370504 \\
+& b := 1.58727282677840
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_syst_nonlinODE_15.png" style="width: 300px"
+     alt="Sketch of the periodic orbit">
+</div>
+
+<p>In theory, the figure above does not contain the plot of the periodic
+orbit.  But, since the orbit that we have drawn is so closed to
+the periodic orbit, they are visually indistinguishable.
+We admit that this is not a proof of the existence of a unique
+periodic orbit but this is certainly a good indication of its existence.</p> 
 
 <div class="Note">
-<p><em>Note</em>:  There are several other <em>Maple</em>
-functions that may be used to draw vector fields:
-<font class="matlab">odeplot()</font> and even
-<font class="matlab">fieldplot()</font>
-if we consider that the right hand side of a system of ODE is a
-vector field.</p>
+<p><em>Note</em>: We may also use the <em>Maple</em> function
+<font class="matlab">fieldplot()</font> to plot vector fields since
+the right hand side of a system of ODE represents a vector field.</p>
 </div>
 
 <h4> Nonlinear Pendulum </h4>

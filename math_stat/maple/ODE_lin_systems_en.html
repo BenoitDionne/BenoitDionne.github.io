@@ -731,11 +731,127 @@ living in an contaminated environment with a constant intake rate
 \(I_1\) of lead into the blood of \(49.3\) &mu;g/d but starts to
 take the anti-lead medication on the 400<sup>th</sup> day.</p>
 
-<p><em>Note</em>: We unfortunately cannot find the exact reference for
+<p>We unfortunately cannot find the exact reference for
 the source of this example.  This example can be found in many places
 but none of them includes a reference to the source of the example.
 This example may probably be included in the list of famous classical
 examples for which we have lost the principal reference.</p> 
+</div>
+
+<p>The previous example is an example of what is called
+a <em>compartmental problem</em>.  The schema describing the problem in the
+previous example is composed of several boxes and the rate of 
+change in one box is the difference between the rate in and the rate
+out of the box.  This type of problems is frequent in chemistry.</p>
+
+<div class="Example">
+<p><em>Example</em>: Suppose that we have three tanks: T<sub>1</sub>,
+T<sub>2</sub> an T<sub>3</sub>.
+Tank T<sub>1</sub> and T<sub>3</sub> contain 400 litters (l) of pure
+water each.  Tank T<sub>2</sub> contains 400 l of a saline
+solution with a concentration of 2 gr/l of salt.
+The experiment is described as follows. </p>
+<ul>
+<li> A saline solution with a concentration of 3 gr/l of salt
+is added to tank T<sub>1</sub> at a rate of 15 l/min.</li>
+<li> The solution in tank T<sub>1</sub> flow into tank T<sub>2</sub> at
+a rate of 8 l/min. </li>
+<li> The solution in tank T<sub>2</sub> flow into tank T<sub>1</sub> at
+a rate of 4 l/min. </li>
+<li> The solution in tank T<sub>1</sub> flow into tank T<sub>3</sub> at
+a rate of 16 l/min. </li>
+<li> The solution in tank T<sub>3</sub> flow into tank T<sub>1</sub> at
+a rate of 5 l/min. </li>
+<li> 11 l/min is removed from Tank T<sub>3</sub>.</li>
+<li> 4 l/min is removed from Tank T<sub>2</sub>.</li>
+</ul>
+<p>This experiment is illustrated by the following schema.</p>
+
+<div class="center">
+<img src="tanks1.png" style="width: 400px"
+     alt="Schematical representation of the experiment">
+</div>
+
+<p> We assume that the tanks are well stirred and the concentration is
+instantaneously uniform.  The goal is to write a system of first order
+ODE that describe the experiment.  More precisely, we suppose that
+\(x_i(t)\) is the quantity of salt in tank T<sub>i</sub> at time \(t\)
+in minutes.  We need to write a system of first order ODE in terms of
+the \(x_i\), solve this system of ODE, and plot the \(x_i\) in
+function of the time \(t\) to determine the long term behaviour of the
+experiment.</p>
+
+<p>We note that the concentration (gr/l) of salt in tank T<sub>i</sub>
+at time \(t\) in minutes is the quantity \(x_i(t)\) gr of salt at time
+\(t\) divided by 400 litters, the volume of the liquid in the tank.
+Moreover, the rate of change (gr/min) of the quantity of salt flowing
+from one tank to the other or out of a tank is the product of the rate
+of the flow (l/min) times the concentration of salt (gr/l).  Using
+these observation, we find that the system of first order ODE is given
+by the following <em>Maple</em> commands.</p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(plots):
+   eq := { diff(x1(t),t) = 45 - 24*x1(t)/400 + 4*x2(t)/400 + 5*x3(t)/400,
+      diff(x2(t),t) = 8*x1(t)/400 - 8*x2(t)/400,
+      diff(x3(t),t) = 16*x1(t)/400 - 16*x3(t)/400 };
+</font>
+</pre>
+
+\[
+\begin{split}
+& eq := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = 45 - \frac{3 x1(t)}{50}
++ \frac{x2(t)}{100} + \frac{x3(t)}{80}, \frac{\text{d}}{\text{d} t} x2(t)
+= \frac{x1(t)}{50} - \frac{x2(t)}{50}, \\
+& \frac{\text{d}}{\text{d} t} x3(t) = \frac{x1(t)}{25} -
+\frac{x3(t)}{25} \bigg\}
+\end{split}
+\]
+
+<p>Since we initially have 0 gr of salt in tanks T<sub>1</sub> and
+T<sub>3</sub>, and 800 gr of salt in tank T<sub>2</sub>, the initial
+condition is given by the following <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab"> inits := {x1(0)=0, x2(0)=800, x3(0)=0};
+</font>
+</pre>
+
+<p>We can now solve the system of ODE and plot the \(x_i\) in
+function of the time \(t\). </p>
+
+<pre class="matlab">
+> <font class="matlab"> sol := dsolve( eq union inits, [x1(t),x2(t),x3(t)], numeric,
+      output=procedurelist, method=rkf45):
+   plot1 := odeplot(sol,[t,x1(t)],t=0..600,color=red):
+   plot2 := odeplot(sol,[t,x2(t)],t=0..600,color=blue):
+   plot3 := odeplot(sol,[t,x3(t)],t=0..600,color=black):
+   display({plot1,plot2,plot3}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+</font>
+</pre>
+
+<div class="center">
+<img src="Maple_tanks_1.png" style="width: 350px"
+     alt="Graphs of x_1, x_2 and x_3 in function of t for 0 <= t <= 600 min">
+</div>
+
+<p>We seems to have
+\(\displaystyle \lim_{t\to \infty} x_i(t) = 1200\) gr for \(i=1,2,3\).
+This can be confirmed with the following commands of <em>Maple</em>.
+Note that the function <font class="matlab">dsolve()</font> without any
+mention that a numerical solution is requested will find the exact
+solution which is needed for the function
+<font class="matlab">limit()</font>. </p>
+
+<pre class="matlab">
+> <font class="matlab"> sol1 := dsolve( eq union inits, [x1(t),x2(t),x3(t)]);
+   seq( limit(sol1[i],t=infinity) ,i=1..3); </font>
+</pre>
+
+\[
+\lim_{t \to \infty} x1(t) = 1200, \lim_{t \to \infty} x2(t) = 1200,
+\lim_{t\to \infty} x3(t) = 1200
+\]
 </div>
 
 <hr class="MMathSStat">

@@ -208,18 +208,54 @@ contient le champ de vecteurs.</p>
 </div>
 
 <p>Toute les orbites convergent vers une solution périodique.
-L'orbite qui part de \((2,2)\) (extérieur de la solution périodique)
-approche de très près la solution périodique.  Nous devons admettre
-que ce n'est pas une démonstration de l'existence de l'unique solution
-périodique mais c'est une bonne indication de son existence.</p> 
+L'orbite avec la condition initiale \((2,2)\) (extérieur de la
+solution périodique) approche de très près la solution périodique.
+Pour <q lang="fr">tracer</q> cette orbite périodique, nous choisissons
+en premier un point \( (a,b) = (x_1(t),x_2(t)) \) avec \(t\) très
+grand sur l'orbite avec la condition initiale \((2,2)\).  Cette
+nouvelle condition initiale doit donc être près de l'orbite
+périodique.  Nous traçons l'orbite avec la condition initiale \( (a,b) \).
+Puisque nous utilisons maintenant des grandes valeurs de \(t\), nous
+devons utiliser une méthode numérique plus efficace que la méthode de
+Runge-Kutta classique.  Nous avons choisi une méthode adaptative de
+Runge-Kutta qui contrôle le pas de l'intégration.</p>
+
+<pre class="matlab">
+> <font class="matlab"> X1 := dsolve(eq3 union {x1(0) = 2, x2(0) = 2}, [x1(t), x2(t)], type = numeric,
+      output = procedurelist, method = rkf45):
+   a := subs(X1(20*Pi),x1(t));
+   b := subs(X1(20*Pi),x2(t));
+   X2 := dsolve(eq3 union {x1(0) = a, x2(0) = b}, [x1(t), x2(t)], type = numeric,
+      output = procedurelist, method = rkf45):
+   odeplot(X2, [x1(t), x2(t)], 0 .. 5*Pi, color = 'blue', gridlines=true,
+      labels=[`x1`,`x2`]);
+</font>
+</pre>
+
+\[
+\begin{split}
+& a := 1.31165172370504 \\
+& b := 1.58727282677840
+\end{split}
+\]
+
+<div class="center">
+<img src="Maple_syst_nonlinODE_15.png" style="width: 300px"
+     alt="Dessin de la solution périodique">
+</div>
+
+<p>En théorie, la figure ci-dessus ne contient pas le dessin de
+l'orbite périodique.   Mais, puisque l'orbite que nous avons tracé est
+très près de la solution périodique, ils sont visuellement
+indistinguables.  Nous devons admettre que ce n'est pas une
+démonstration de l'existence de l'unique solution périodique mais
+c'est une bonne indication de son existence.</p>  
 
 <div class="Note">
-<p><em>Note</em>: Il y a plusieurs autres fonctions de <em>Maple</em>
-qui peuvent être utilisées pour dessiner les champs de vecteurs:
-<font class="matlab">odeplot(&nbsp;)</font> et même
-<font class="matlab">fieldplot</font>
-si nous considérons que le côté droit d'une système d'EDO est un champ
-de vecteur.</p>
+<p><em>Note</em>: Nous pouvons aussi utiliser la fonction
+de <em>Maple</em> <font class="matlab">fieldplot()</font> pour
+dessiner les champs de vecteurs puisque le côté droit d'une système
+d'EDO représente un champ de vecteurs.</p>
 </div>
 
 <h4> Pendule nonlinéaire </h4>
