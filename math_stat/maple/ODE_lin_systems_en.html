@@ -745,12 +745,12 @@ change in one box is the difference between the rate in and the rate
 out of the box.  This type of problems is frequent in chemistry.</p>
 
 <div class="Example">
-<p><em>Example</em>: Suppose that we have three tanks: T<sub>1</sub>,
-T<sub>2</sub> an T<sub>3</sub>.
-Tank T<sub>1</sub> and T<sub>3</sub> contain 400 litters (l) of pure
+<p><em>Example</em>: We have three tanks: T<sub>1</sub>,
+T<sub>2</sub> and T<sub>3</sub>.
+Tanks T<sub>1</sub> and T<sub>3</sub> contain 400 litters (l) of pure
 water each.  Tank T<sub>2</sub> contains 400 l of a saline
 solution with a concentration of 2 gr/l of salt.
-The experiment is described as follows. </p>
+We conduct the following. </p>
 <ul>
 <li> A saline solution with a concentration of 3 gr/l of salt
 is added to tank T<sub>1</sub> at a rate of 15 l/min.</li>
@@ -762,33 +762,36 @@ a rate of 4 l/min. </li>
 a rate of 16 l/min. </li>
 <li> The solution in tank T<sub>3</sub> flow into tank T<sub>1</sub> at
 a rate of 5 l/min. </li>
-<li> 11 l/min is removed from Tank T<sub>3</sub>.</li>
-<li> 4 l/min is removed from Tank T<sub>2</sub>.</li>
+<li> The solution in Tank T<sub>2</sub> escapes from the tank at a rate
+of 4 l/min.</li>
+<li> The solution in Tank T<sub>3</sub> escapes from the tank at a rate
+of 11 l/min.</li>
 </ul>
-<p>This experiment is illustrated by the following schema.</p>
+<p>This experiment is summarized by the following schema.</p>
 
 <div class="center">
 <img src="tanks1.png" style="width: 400px"
-     alt="Schematical representation of the experiment">
+     alt="Schematic representation of the experiment">
 </div>
 
-<p> We assume that the tanks are well stirred and the concentration is
-instantaneously uniform.  The goal is to write a system of first order
-ODE that describe the experiment.  More precisely, we suppose that
-\(x_i(t)\) is the quantity of salt in tank T<sub>i</sub> at time \(t\)
-in minutes.  We need to write a system of first order ODE in terms of
-the \(x_i\), solve this system of ODE, and plot the \(x_i\) in
-function of the time \(t\) to determine the long term behaviour of the
-experiment.</p>
+<p> We assume for each tank that it is well stirred and that its
+concentration of salt is instantaneously uniform.  Our goal is to
+find and study a system of first order ODE that describes the
+experiment.  More specifically, if \(x_i(t)\) is the quantity of salt in
+tank T<sub>i</sub> at time \(t\) in minutes, then we write a system
+of first order ODE in terms of the \(x_i\), solve this system of ODE,
+and plot the graphs of the \(x_i\) in function of the time \(t\) to
+determine the long term behaviour of the experiment.</p>
 
-<p>We note that the concentration (gr/l) of salt in tank T<sub>i</sub>
-at time \(t\) in minutes is the quantity \(x_i(t)\) gr of salt at time
-\(t\) divided by 400 litters, the volume of the liquid in the tank.
+<p>We have that the concentration (gr/l) of salt in tank T<sub>i</sub>
+at time \(t\) in minutes is the quantity \(x_i(t)\) gr of salt in the
+tank at time \(t\) divided by 400 litters, the volume of the solution
+in the tank. 
 Moreover, the rate of change (gr/min) of the quantity of salt flowing
-from one tank to the other or out of a tank is the product of the rate
-of the flow (l/min) times the concentration of salt (gr/l).  Using
-these observation, we find that the system of first order ODE is given
-by the following <em>Maple</em> commands.</p>
+from one tank to the other or escape from a tank is the product of the rate
+of the flow (l/min) with the concentration of salt (gr/l).  Using
+these observation, we find the system of first order ODE that is given
+by the following <em>Maple</em> command.</p>
 
 <pre class="matlab">
 > <font class="matlab"> restart: with(plots):
@@ -817,7 +820,7 @@ condition is given by the following <em>Maple</em>.</p>
 </font>
 </pre>
 
-<p>We can now solve the system of ODE and plot the \(x_i\) in
+<p>We can now solve this system of ODE and plot the graphs of the \(x_i\) in
 function of the time \(t\). </p>
 
 <pre class="matlab">
@@ -835,13 +838,12 @@ function of the time \(t\). </p>
      alt="Graphs of x_1, x_2 and x_3 in function of t for 0 <= t <= 600 min">
 </div>
 
-<p>We seems to have
+<p>It looks like
 \(\displaystyle \lim_{t\to \infty} x_i(t) = 1200\) gr for \(i=1,2,3\).
 This can be confirmed with the following commands of <em>Maple</em>.
-Note that the function <font class="matlab">dsolve()</font> without any
-mention that a numerical solution is requested will find the exact
-solution which is needed for the function
-<font class="matlab">limit()</font>. </p>
+The function <font class="matlab">dsolve()</font> without a request 
+for a numerical solution will provide (if possible) the exact solution
+which is required for the function <font class="matlab">limit()</font>.</p>
 
 <pre class="matlab">
 > <font class="matlab"> sol1 := dsolve( eq union inits, [x1(t),x2(t),x3(t)]);
@@ -852,6 +854,11 @@ solution which is needed for the function
 \lim_{t \to \infty} x1(t) = 1200, \lim_{t \to \infty} x2(t) = 1200,
 \lim_{t\to \infty} x3(t) = 1200
 \]
+
+<p>Therefore, after a long time, the concentration of salt in each of
+the three tanks is about 3 gr/l.  This should not be a surprise since
+a saline solution with a concentration of 3 gr/l of salt is constantly
+supplied to tank T<sub>1</sub>.</p>
 </div>
 
 <hr class="MMathSStat">
@@ -1154,6 +1161,12 @@ intersect.</p>
 <img src="Maple_syst_linODE_6D.png" style="width: 350px"
      alt="Drawing in the three dimensional space t,x1,x2 of the orbits associated to two initials conditions for 0 <= t <= 5 ">
 </div>
+
+<p>The previous figure could have been generated using the
+function <em>dsolve()</em> to numerically solve the system of three 
+ODE above and the function <em>odeplot()</em> to
+plot the orbit \( \{(t(s),x_1(s),x_2(s)) : s \geq 0 \}\)
+in \(\mathbb{R}^3\).</p>
 
 </div>
 

@@ -128,7 +128,7 @@ est toujours convergente.  La notion de convergence de séries de
 matrices est indépendant du choix de la norme induite de matrices. </p>
 
 <div class="Example">
-<p><em>Example</em>: Noux considérons la matrice définie par la
+<p><em>Exemple</em>: Nous considérons la matrice définie par la
 commande suivante de <em>Maple</em>.</p> 
 
 <pre class="matlab">
@@ -534,7 +534,7 @@ sol := \text{proc(x\_rkf45) ... end proc}
 <img src="Maple_syst_linODE_5B.png" style="width: 350px"
      alt="Graphe de x2 en fonction de t">
 </div>
-<div>
+</div>
 
 <div class="Note">
 <p><em>Note</em>: Il existe une formule explicite pour la solution
@@ -759,8 +759,123 @@ avons perdu la référence principale.</p>
 </div>
 
 <div class="Example">
-<p><em>Exemple</em>:  À venir </p>
+<p><em>Exemple</em>: Nous avons trois réservoirs: T<sub>1</sub>,
+T<sub>2</sub> et T<sub>3</sub>.  Les réservoirs T<sub>1</sub> et
+T<sub>3</sub> contiennent chacun 400 litres (l) d'eau pur.  Le
+réservoir T<sub>2</sub> contient 400 l d'une solution saline avec une
+concentration de 2 gr/l de sel.  Nous conduisons l'expérience
+suivante.</p>
+<ul>
+<li> Une solution saline avec une concentration de 3 gr/l de sel est
+ajoutée au réservoir T<sub>1</sub> à un taux de 15 l/min.</li>
+<li> La solution dans le réservoir T<sub>1</sub> s'écoule dans le
+réservoir T<sub>2</sub> à un taux de 8 l/min. </li>
+<li> La solution dans le réservoir T<sub>2</sub> s'écoule dans le
+réservoir T<sub>1</sub> à un taux de 4 l/min. </li>
+<li> La solution dans le réservoir T<sub>1</sub> s'écoule dans le
+réservoir T<sub>3</sub> à un taux de 16 l/min. </li>
+<li> La solution dans le réservoir T<sub>3</sub> s'écoule dans le
+réservoir T<sub>1</sub> à un taux de 5 l/min. </li>
+<li> La solution dans le réservoir T<sub>2</sub> s'échappe du
+réservoir à un taux de 4 l/min.</li>
+<li> La solution dans le réservoir T<sub>3</sub> s'échappe du
+réservoir à un taux de 11 l/min.</li>
+</ul>
+<p>Cette expérience est résumée par le schéma suivant.</p>
 
+<div class="center">
+<img src="tanks1.png" style="width: 400px"
+     alt="Schéma représentant l'expérience">
+</div>
+
+<p> Nous assumons pour chacun des réservoirs que le contenu est bien
+mélangé et que la concentration de sel est instantanément uniforme.
+Notre but est de trouver et d'analyser un système d'EDO d'ordre un
+qui décrit l'expérience.  Plus spécifiquement, si \(x_i(t)\) est la
+quantité de sel dans le réservoir T<sub>i</sub> au temps \(t\) en
+minutes, nous présentons un système d'EDO d'ordre un en termes des 
+\(x_i\), nous résolvons ce système d'EDO, et traçons les graphes des
+\(x_i\) en fonction de \(t\) pour déterminer le comportement à long
+terme de cette expérience.</p>
+
+<p>Nous avons que la concentration (gr/l) de sel dans le réservoir
+T<sub>i</sub> au temps \(t\) en minutes est la quantité \(x_i(t)\) gr
+de sel dans le réservoir divisée par 400 litres, le volume de la
+solution dans le réservoir.
+De plus, le taux de variation (gr/min) de la quantité de sel qui
+s'écoule d'un réservoir à un autre réservoir ou qui s'échappe d'un
+réservoir est le produit du taux de l'écoulement (l/min) avec
+la concentration de sel (gr/l).  À l'aide de ces observations, nous
+obtenons le système d'EDO d'ordre un qui est décrit par la commande suivante
+dans <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab"> restart: with(plots):
+   eq := { diff(x1(t),t) = 45 - 24*x1(t)/400 + 4*x2(t)/400 + 5*x3(t)/400,
+      diff(x2(t),t) = 8*x1(t)/400 - 8*x2(t)/400,
+      diff(x3(t),t) = 16*x1(t)/400 - 16*x3(t)/400 };
+</font>
+</pre>
+
+\[
+\begin{split}
+& eq := \bigg\{ \frac{\text{d}}{\text{d} t} x1(t) = 45 - \frac{3 x1(t)}{50}
++ \frac{x2(t)}{100} + \frac{x3(t)}{80}, \frac{\text{d}}{\text{d} t} x2(t)
+= \frac{x1(t)}{50} - \frac{x2(t)}{50}, \\
+& \frac{\text{d}}{\text{d} t} x3(t) = \frac{x1(t)}{25} -
+\frac{x3(t)}{25} \bigg\}
+\end{split}
+\]
+
+<p>Puisque que nous avons initialement 0 gr de sel dans les
+réservoirs T<sub>1</sub> et T<sub>3</sub>, et 800 gr de sel dans le
+réservoir T<sub>2</sub>, la condition initiale est donnée par la
+commande suivante dans <em>Maple</em>.</p>
+
+<pre class="matlab">
+> <font class="matlab"> inits := {x1(0)=0, x2(0)=800, x3(0)=0};
+</font>
+</pre>
+
+<p>Nous pouvons maintenant résoudre ce système d'EDO et tracer les
+graphes des \(x_i\) en fonction du temps \(t\). </p> 
+
+<pre class="matlab">
+> <font class="matlab"> sol := dsolve( eq union inits, [x1(t),x2(t),x3(t)], numeric,
+      output=procedurelist, method=rkf45):
+   plot1 := odeplot(sol,[t,x1(t)],t=0..600,color=red):
+   plot2 := odeplot(sol,[t,x2(t)],t=0..600,color=blue):
+   plot3 := odeplot(sol,[t,x3(t)],t=0..600,color=black):
+   display({plot1,plot2,plot3}, gridlines=true, labels=["t","x_1,x_2,x_3"]);
+</font>
+</pre>
+
+<div class="center">
+<img src="Maple_tanks_1.png" style="width: 350px"
+     alt="Graphes de x_1, x_2 et x_3 en fonction de t pour 0 <= t <= 600 min">
+</div>
+
+<p>Il semble que
+\(\displaystyle \lim_{t\to \infty} x_i(t) = 1200\) gr for \(i=1,2,3\).
+Ceci peut être confirmé par les commandes suivantes de <em>Maple</em>.
+La fonction <font class="matlab">dsolve()</font> sans une requête pour
+une solution numérique va fournir (si possible) la solution exacte qui
+est requise pour la fonction <font class="matlab">limit()</font>. </p>
+
+<pre class="matlab">
+> <font class="matlab"> sol1 := dsolve( eq union inits, [x1(t),x2(t),x3(t)]);
+   seq( limit(sol1[i],t=infinity) ,i=1..3); </font>
+</pre>
+
+\[
+\lim_{t \to \infty} x1(t) = 1200, \lim_{t \to \infty} x2(t) = 1200,
+\lim_{t\to \infty} x3(t) = 1200
+\]
+
+<p>Donc, après une longue période, la concentration de sel dans chacun
+des réservoirs est d'environ 3 gr/l.  Ceci ne devrait pas être
+surprenant car une solution saline avec une concentration de
+3 gr/l de sel est constamment ajoutée au réservoir T<sub>1</sub>.</p>
 </div>
 
 <hr class="MMathSStat">
@@ -1071,6 +1186,12 @@ coupent.</p>
 <img src="Maple_syst_linODE_6D.png" style="width: 350px"
      alt="Dessin dans l'espace en trois dimensions t,x1,x2 des orbites associées aux deux conditions initiales pour 0 <= t <= 5 ">
 </div>
+
+<p>La figure précédente aurait peut être générée à l'aide de la
+fonction <em>dsolve()</em> pour résoudre numériquement le système de
+trois EDO ci-dessus et la fonction <em>odeplot()</em> pour tracer
+l'orbite \( \{(t(s),x_1(s),x_2(s)) : s \geq 0 \}\) dans
+\(\mathbb{R}^3\).</p>
 
 </div>
 
