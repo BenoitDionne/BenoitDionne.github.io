@@ -1,0 +1,357 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2025-10-15">
+<meta name="Keywords" content="mathematiques,statistiques,universite,ottawa">
+<meta name="Copyright" content="&copy; 2025 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="fr-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<!-- Use this code if you want to use the dollar sign for inline math.
+This may be an issue if want to use the dollar sign denote curency. -->
+<!--
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      inlineMath: {'[+]' : [['$','$']]} 
+   }
+};
+</script>
+-->
+
+<!-- Instead of tex-svg.js , it is possible to use text-chtml to use
+html and csv instead of scalable vector graphis. -->  
+<script defer type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+    
+</head>
+<body>
+
+<script language="javascript">
+top_function(matlabFunct,"fr");
+</script>
+
+<script language="javascript"> 
+  topPage("TOP", "fr");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStexte, "MMathSStat");
+</script>
+
+<h2 id="TOP"> Fonctions </h2>
+
+<div style="float: left; margin-right: 20px">
+<div class="center">
+<img src="Matlab_Logo.png" style="width: 100px" alt="Logo of Matlab">
+</div>
+<div class="center"><em>Contenu</em></div>
+<ul>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect13", "Fichiers m",
+      "MMathSStat", "sect13ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect14", "Adresses des fonctions",
+      "MMathSStat", "sect14ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect19", "Représenations visuelles des fonctions",
+      "MMathSStat", "sect19ID", "_top");
+  </script></ul>
+</div>
+
+<p><em>Matlab</em> offre une grande collection de fonctions mathématiques
+prédéfinies.  Il est aussi facile de créer nos propres fonctions.
+Ce document explique comme créer des fonctions.  C'est le premier pas
+vers la programmation dans <em>Matlab</em>. </p> 
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect13"> Fichiers m </h3>
+
+<div class="Example">
+<p><em>Exemple</em>: L'exemple suivant explique comment créer la
+fonction <font class="matlab">funct1</font> qui est définie par
+\(x \mapsto x \sin(x)\).</p>
+
+<p>Premièrement, un fichier nommé <font>funct1.m</font> est créé à
+l'aide d'un éditeur de texte ascii.  La première ligne contient
+l'énoncer <font class="matlab">function y = funct1(x)</font>, la
+deuxième ligne contient la formule
+<font class="matlab">y = x.*sin(x);</font> et la dernière ligne
+l'énoncer <font class="matlab">end</font>.  Il n'y a rien de plus à
+ajouter à ce fichier.</p>
+
+<p> Nous pouvons ajouter des commentaires au <em>fichier m</em>
+ci-dessus.  Le texte sur une ligne qui suit le caractère <em>%</em>
+est ignoré par <em>Matlab</em>.</p>
+
+<p>Voici le contenue du <em>fichier m</em>
+  <script language="javascript">
+    buildLinK("funct1.m", "funct1.m","MMathSStat", "id1", "_blank");
+  </script>.</p>
+
+<pre class="matlab">
+% y = funct1(x)
+%
+% This function takes one argument x and returns the result of the
+% computation  x sin(x)
+<font class="matlab">function y = funct1(x)
+    y = x.*sin(x);
+end </font>
+</pre>
+</div>
+
+<div class="Note">
+<p><em>Note</em>: le fichier <em>funct1.m</em> peut être téléchargé en
+cliquant avec le bouton droit de la souris sur le lien précédent et
+ensuite en choisissant <em>Save link as ... &rarr; Save file</em> .</p>
+</div>
+
+<p>Si le fichier <em>funct1.m</em> est dans le répertoire à partir
+duquel <em>Matlab</em> a été démarré ou dans un répertoire inclus
+dans la liste des répertoires que <em>Matlab</em> lie au départ (voir
+le menu de <em>Matlab</em>), alors notre nouvelle fonction
+<em>funct1</em> peut être utilisée comme toutes les autres fonctions
+de <em>Matlab</em> comme on le démontre dans l'exemple suivant.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: La valeur de \(x \sin(x)\) pour \(x=5\) est donnée
+par la commande suivante.</p>
+
+<pre class="matlab">
+>> <font class="matlab">funct1(5)</font> <br>
+ans = <br>
+    -4.7946
+</pre>
+</div>
+
+<p>La première ligne d'un <em>fichier m</em> est dans le format </p>
+
+<div class="center">
+<font class="matlab">function variables_dépendantes = nom_de_la_fonction(variables_indépendantes)</font>
+</div>
+
+<p> Le reste du <em>fichier m</em> définit la fonction en
+utilisant la même syntaxe que celle utilisée dans la fenêtre de commandes.
+Le point-virgule est nécessaire à la fin de chaque ligne autrement le
+résultat de la ligne sera affiché à chaque fois que le
+<em>fichier m</em> est exécuté.  Il est fortement suggéré
+d'utiliser <font class="matlab">.*</font> au lieu de
+<font class="matlab">*</font>, <font class="matlab">./</font> au lieu
+de <font class="matlab">/</font>, etc pour créer une fonction qui est
+<em>array smart</em>.</p>
+
+<p>Le nom du <em>fichier m</em> qui définie la fonction
+<font class="matlab">nom_de_la_fonction</font> doit être
+<em>nom_de_la_fonction.m</em>.  Le nom de la fonction doit satisfaire
+les règles suivantes:</p>
+
+<ul>
+<li> Il doit débuter par une lettre (minuscule ou majuscule).</li>
+<li> Il doit comprendre seulement des lettres, des nombres et le
+caractère de soulignement (_).  Aucun autre symbole est accepté.</li>
+<li> Les noms de fonctions qui existent déjà comme
+<font class="matlab">cos</font>, <font class="matlab">log</font>,
+<font class="matlab">sin</font>, ... ne devraient pas être
+utilisé.   <em>Matlab</em> n'affiche pas d'avertissement si de tels
+noms sont utilisés mais alors ces fonctions ne seront plus
+accessibles.</li>
+</ul>
+
+<p>Les <em>fichiers m</em> peuvent être sauvegardés dans n'importe
+lequel des répertoires.  Cependant, <em>Matlab</em> doit savoir où les
+<em>fichiers m</em> se trouvent.  <em>Matlab</em> a une liste de
+l'emplacement des répertoires où il cherche les <em>fichiers m</em>.  Pour
+vérifier si l'emplacement d'un répertoire contenant un <em>fichier m</em>
+est parmi la liste des répertoires que <em>Matlab</em> cherche pour les
+<em>fichiers m</em>, il suffit d'exécuter la commande
+<font class="matlab">path</font>.  <em>Matlab</em> affiche alors
+l'emplacement de tous les répertoires qu'il cherche.  Le répertoire où
+un <em>fichier m</em> est sauvegardé peut être ajouté à la liste des
+répertoires cherchés par <em>Matlab</em>, s'il n'est pas déjà présent,
+à l'aide des commandes <font class="matlab">path(path, 'emplacement')</font> 
+ou <font class="matlab">addpath emplacement</font>, où <em>emplacement</em>
+est l'emplacement complet du répertoire où le <em> fichier m</em> se
+trouve.  Par exemple, supposons que le <em> fichier m</em>
+<em>funct1.m</em> se trouve dans le répertoire
+<em>/home/utilisateur1/matlab</em>, alors la commande
+<font class="matlab"> path(path,'/home/utilisateur1/matlab')</font> 
+ajoute l'emplacement <em>/home/utilisateur1/matlab</em> à la liste des
+répertoires que <em>Matlab</em> cherche s'il n'est pas déjà inclus
+dans la liste.</p>
+
+<p>La commande <font class="matlab">help nom_de_la_fonction</font>
+affiche les lignes (le premier groupe de lignes) qui débute
+par <em>%</em> et qui se trouvent avant la ligne
+<font class="matlab">function variables_dépendantes = nom_de_la_fonction(variables_indépendantes)</font>
+du fichier <em>nom_de_la_fonction.m</em>.  Un <em>fichier m</em>
+devrait toujours débuter avec des commentaires qui décrivent la
+fonction définie dans le <em>fichier m</em>, qu'est-ce que la fonction
+fait, et comment utiliser cette fonctions avec la liste et description de ses
+arguments.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: </p>
+<pre class="matlab">
+>> <font class="matlab">help funct1</font><br>
+  y = funct1(x) <br>
+  This function takes one argument x and returns the result of the
+  computation  x sin(x)
+</pre>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect14"> Adresses des fonctions </h3>
+
+<p>Pour certaines fonctions de <em>Matlab</em>, le nom d'une
+fonction doit être donné parmi leurs arguments.  Par exemple, la fonction
+<font class="matlab">quadl</font> que l'on a introduite précédemment
+exige que le nom de la fonction qui doit être intégrée soit un des arguments.
+Au lieu de donner le nom de la fonction, il est souvent plus pratique
+de donner l'<em>adresse</em> de la fonction.</p>
+
+<p>Pour obtenir l'<em>adresse</em> d'un fonction, il suffit d'ajouter
+le préfixe <font class="matlab">@</font> au nom de la fonction.  Par
+exemple, <font class="matlab">@funct1</font> donne
+l'<em>adresse</em> de la fonction <font class="matlab">funct1</font> .</p>
+
+<p>L'<em>adresse</em> d'une fonction peut être utilisée au lieu du nom
+de la fonction qu'elle représente.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Les commandes suivantes illustrent comment
+l'<em>adresse</em> d'une fonction peut être manipulée et utilisée.</p>
+
+<pre class="matlab">
+>> <font class="matlab">hand = @funct1;</font>
+>> <font class="matlab">hand(10)</font><br>
+ans = <br>
+   -5.44021110889370 <br>
+>> <font class="matlab">funct1(10)</font> <br>
+ans = <br>
+   -5.44021110889370 <br>
+>> <font class="matlab">hands = {hand, @sin};</font>
+>> <font class="matlab">hands{1}(10)</font> <br>
+ans = <br>
+   -5.44021110889370 <br>
+>> <font class="matlab">hands{2}(10)</font>
+ans = <br>
+   -0.54402111088937
+</pre>
+
+<p><font class="matlab">hand</font> contient l'<em>adresse</em> de la
+fonction <font class="matlab">funct1</font>.  Ainsi,
+<font class="matlab">hand(10)</font> est identique à la commande
+<font class="matlab">funct1(10)</font>.  La variable
+<font class="matlab">hands</font> représente une liste (ordonnée) de
+deux <em>adresses</em>: l'<em>adresse</em>
+de la fonction <font class="matlab">funct1</font> et
+l'<em>adresse</em> de la fonction <font class="matlab">sin</font>
+de <em>Matlab</em> qui est la fonction trigonométrique sinus.
+<font class="matlab">hands{1}(10)</font> est équivalent à la commande
+<font class="matlab">funct1(10)</font> et
+<font class="matlab">hands{2}(10)</font> est équivalent à la commande
+<font class="matlab">sin(10)</font>.</p>
+</div>
+
+<p>Il est occasionnellement fastidieux de créer un <em>fichier m</em>
+pour définir une simple fonction qui sera utilisée seulement lors
+d'une session sur <em>Matlab</em>.  L'<em>adresse</em> d'une fonction
+peut être utilisée pour éliminer le besoin de créer un
+<em>fichier m</em>.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous voulons évaluer la fonction
+\(\displaystyle f(x) = x^3 + 2 x^2 + 1\) pour plusieurs valeurs de \(x\).</p>
+
+<p>Au lieu de créer un <em>fichier m</em> pour la fonction \(f\), nous
+définissons une <em>fonction anonyme</em> qui est seulement représentée
+par son <em>adresse</em> que nous sauvegardons dans une variable comme
+il est fait ci-dessous.</p>
+
+<pre class="matlab">
+>> <font class="matlab"> f = @(x) x.^3 + 2* x.^2 + 1</font><br>
+f = <br>
+    @(x) x .^ 3 + 2 * x .^ 2 + 1 <br>
+</pre>
+
+<p>Nous pouvons exécuter les opérations suivantes.</p>
+
+<pre class="matlab">
+>> <font class="matlab">f(5) , sqrt(f(4)), f(4) + f(5)</font> <br>
+ans = 176
+ans = 9.8489
+ans = 273
+</pre>
+</div>
+
+<p> Les fonctions suivantes pour manipuler les <em>adresses</em> de
+fonctions sont parfois utiles.</p>
+
+<div class="center" style="width: 100%">
+<table style="width: 90%;">
+<col style="width: 40%"> <col style="width: 60%">
+<tr> <th> Commande </th> <th> Description </th> </tr>
+<tr><td class="center">
+<font class="matlab"> functions(adresse)</font> </td><td>
+Affiche la description de la fonction associée à l'<em>adresse</em>
+fournie comme argument.</td></tr>
+<tr><td class="center">
+<font class="matlab">func2str(adresse) </font> </td> <td>
+Affiche le nom de la fonction associée à l'<em>adresse</em> fournie
+comme argument ou, si l'<em>adresse</em> est associée à
+une <em>fonction anonyme</em>, la formule qui définie la fonction. </td></tr>
+<tr><td class="center">
+<font class="matlab">str2func('nom_de_la_fonction')</font> </td><td>
+Fournie l'<em>adresse</em> de la fonction qui porte le nom
+<font class="matlab">nom_de_la_fonction</font>. </td> </tr> 
+<tr><td class="center">
+<font class="matlab">isa(variable. 'function_handle') </font>
+</td><td>
+Retourne 1 (ou vrai) si la variable fournie comme premier argument
+contient une <em>adresse</em> et 0 (ou faux) si cette variable ne
+contient pas une <em>adresse</em>.</td></tr>
+</table>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect19"> Représenations visuelles des fonctions </h3>
+
+
+<hr class="MMathSStat">
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(matlabFunct,"fr");
+</script>
+
+</body>
+</html>

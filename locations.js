@@ -398,6 +398,45 @@ var fractal4 = new item
 websites[websites_nbr++] = fractal4;
 
 /******************************************************************
+ *  under matlab
+ ******************************************************************/
+
+var matlabAlg = new item
+    ("Alg&egrave;bre", "Algebra",
+     location_bd+"math_stat/matlab/algebra_fr.html",
+     location_bd+"math_stat/matlab/algebra_en.html",
+     null, null, null, "matlabAlg", "_top", "matlabAlg");
+websites[websites_nbr++] = matlabAlg;
+
+var matlabPlot = new item
+    ("Repr&eacute;sentations visuelles", "Visual Representations",
+     location_bd+"math_stat/matlab/plots_fr.html",
+     location_bd+"math_stat/matlab/plots_en.html",
+     null, null, null, "matlabPlot", "_top", "matlabPlot");
+websites[websites_nbr++] = matlabPlot;
+
+var matlabFunct = new item
+    ("Fonctions", "Functions",
+     location_bd+"math_stat/matlab/functions_fr.html",
+     location_bd+"math_stat/matlab/functions_en.html",
+     null, null, null, "matlabFunct", "_top", "matlabFunct");
+websites[websites_nbr++] = matlabFunct;
+
+var matlabComp = new item
+    ("Calculs num&eacute;riques", "Numerical Computations",
+     location_bd+"math_stat/matlab/computations_fr.html",
+     location_bd+"math_stat/matlab/computations_en.html",
+     null, null, null, "matlabComp", "_top", "matlabComp");
+websites[websites_nbr++] = matlabComp;
+
+var matlabProgr = new item
+    ("Programmation", "Programming",
+     location_bd+"math_stat/matlab/programming_fr.html",
+     location_bd+"math_stat/matlab/programming_en.html",
+     null, null, null, "matlabProgr", "_top", "matlabProgr");
+websites[websites_nbr++] = matlabProgr;
+
+/******************************************************************
  *  under maple
  ******************************************************************/
 
@@ -754,9 +793,25 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 	}
 	math_nbr++;
 
-	mathLinks[math_nbr++] = initItem
-	    (matlab, welcomeLinks[welcome_nbr], mathLinks, null);
-
+	var matlabLinks = new Array();
+	mathLinks[math_nbr] = initItem
+	    (matlab, welcomeLinks[welcome_nbr], mathLinks, matlabLinks);
+	{
+	    var matlab_nbr = 0;
+	    matlabLinks[matlab_nbr++]
+		= initItem(matlabAlg, mathLinks[math_nbr], matlabLinks, null); 
+	    matlabLinks[matlab_nbr++]
+		= initItem(matlabPlot, mathLinks[math_nbr], matlabLinks, null); 
+	    matlabLinks[matlab_nbr++]
+		= initItem(matlabFunct, mathLinks[math_nbr], matlabLinks, null);
+	    matlabLinks[matlab_nbr++]
+		= initItem(matlabComp, mathLinks[math_nbr], matlabLinks, null); 
+	    matlabLinks[matlab_nbr++]
+		= initItem(matlabProgr, mathLinks[math_nbr], matlabLinks,
+			   null); 
+	}
+	math_nbr++;
+	    
 	var mapleLinks = new Array();
 	mathLinks[math_nbr] = initItem
 	    (maple, welcomeLinks[welcome_nbr], mathLinks, mapleLinks);

@@ -1,0 +1,549 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2025-10-15">
+<meta name="Keywords" content="mathematiques,statistiques,universite,ottawa">
+<meta name="Copyright" content="&copy; 2025 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="fr-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<!-- Use this code if you want to use the dollar sign for inline math.
+This may be an issue if want to use the dollar sign denote curency. -->
+<!--
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      inlineMath: {'[+]' : [['$','$']]} 
+   }
+};
+</script>
+-->
+
+<!-- Instead of tex-svg.js , it is possible to use text-chtml to use
+html and csv instead of scalable vector graphis. -->  
+<script defer type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+    
+</head>
+<body>
+
+<script language="javascript">
+top_function(matlabAlg,"fr");
+</script>
+
+<script language="javascript"> 
+  topPage("TOP", "fr");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStexte, "MMathSStat");
+</script>
+
+<h2 id="TOP"> Algèbre </h2>
+
+<div style="float: left; margin-right: 20px">
+<div class="center">
+<img src="Matlab_Logo.png" style="width: 100px" alt="Logo of Matlab">
+</div>
+<div class="center"><em>Contenu</em></div>
+<ul>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect2", "Opérations arithmétiques de base",
+      "MMathSStat", "sect2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect3", "Nombre de chiffres significatifs affichés",
+      "MMathSStat", "sect3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect4", "Nombres complexes",
+      "MMathSStat", "sect4ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect6", "Matrices dans Matlab",
+      "MMathSStat", "sect6ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect7", "Les vecteurs sont des matrices spéciales",
+      "MMathSStat", "sect7ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect8", "Algèbre matricielle",
+      "MMathSStat", "sect8ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect9", "Opérations sur les tableaux",
+      "MMathSStat", "sect9ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<p> Ce document offre une introduction aux opérations arithmétiques
+et algébriques dans <em>Matlab</em>.  <em>Matlab</em> est un logiciel
+pour les calculs numériques.  Il a sa façon spéciale de représenter
+les nombres et de les manipuler.  Ceci est expliqué dans ce
+document.</p> 
+
+<hr class="MMathSStat">
+
+<h3 id="Sect2"> Opérations arithmétiques de base </h3>
+
+<p> Les opérations arithmétiques de base sont:</p>
+
+<div class="center" style="width: 100%">
+<table style="width: 50%;">
+<col style="width: 20%"> <col style="width: 80%">
+<tr> <th> Opération </th> <th> Description </th> </tr>
+<tr><td class="center"> <font class="matlab">+</font></td><td>
+addition </td></tr> 
+<tr><td class="center"> <font class="matlab">&minus;</font></td><td>
+soustraction </td></tr>
+<tr><td class="center"> <font class="matlab">*</font></td><td>
+multiplication </td></tr> 
+<tr><td class="center"> <font class="matlab">/</font></td><td>
+division à droite </td></tr> 
+<tr><td class="center"> <font class="matlab">\</font></td><td>
+division à gauche </td></tr> 
+<tr><td class="center"> <font class="matlab">^</font></td><td>
+exponentiel </td></tr> 
+<tr><td class="center"> <font class="matlab">(&nbsp;)</font></td><td>
+parenthèses </td></tr>
+</table>
+</div>
+
+<p> <em>Matlab</em> effectue les opérations arithmétiques dans l'ordre
+de priorité suivant.</p>
+
+<ol style="list-style-type:decimal;">
+<li> Parenthèses </li>
+<li> Exponentiel </li>
+<li> Multiplications et divisions </li>
+<li> Additions et soustractions </li>
+</ol>
+
+<p> Quand deux opérations qui se suivent sont au même niveau de priorité,
+<em>Matlab</em> exécute les opérations de gauche à droite.
+L'exponentiel est une exception car <em>Matlab</em> exécute ces
+opérations de droite à gauche. </p>
+
+<div class="Example">
+<p><em>Exemple</em>: Pour calculer
+\(\displaystyle 16.07(42.5 + 387 / 23.8) + 3.6^2\),
+tapez</p>
+
+<pre class="matlab">
+>> <font class="matlab"> 16.07*(42.5+387/23.8) + 3.6^2 </font>
+</pre>
+
+<p> suivi de la touche <em>Enter</em> (nous ne répéterons plus
+<q lang="fr">suivi de la touche <em>Enter</em></q> mais cela doit toujours
+être exécuté) pour obtenir le résultat suivant.</p>
+
+<pre class="matlab">
+ans = <br>
+  957.2413
+</pre>
+
+<p> Le résultat est sauvegardé dans la variable
+<font class="matlab"> ans</font>.
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>: L'exemple suivant montre comment assigner le
+résultat du calcul précédent à la variable <font class="matlab"> x </font>.</p>
+
+<pre class="matlab">
+>> <font class="matlab">x = 16.07*(42.5+387/23.8) + 3.6^2</font><br>
+x = <br>
+   957.2413
+</pre>
+</div>
+
+<p>Si nous ajoutons un point-virgule à la fin d'une commande, alors
+<em>Matlab</em> exécute la commande mais n'affiche pas le résultat.</p>
+
+<pre class="matlab">
+>> <font class="matlab">x = 10 + pi;</font>
+>> <font class="matlab">x</font><br>
+x = <br>
+   13.1416
+</pre>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect3"> Nombre de chiffres significatifs affichés </h3>
+
+<p> Le nombre de chiffres significatifs affichés sur l'écran peut être
+augmenté pour répondre au besoin de l'utilisateur.  Par défaut, les
+nombres qui ne sont pas des entiers sont affichés dans un format court
+qui contient seulement cinq chiffres significatifs.  Les calculs sont
+cependant fait en utilisant le nombre maximum de chiffres décimaux que
+<em>Matlab</em> peut utiliser.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Le cosinus de \(3\) radians est donné par</p>
+
+<pre class="matlab">
+>> <font class="matlab">cos(3)</font> <br>
+ans = <br>
+   -0.9900
+</pre>
+
+<o> Le cosinus de \(1.57\) radians est donné par</p>
+
+<pre class="matlab">
+>> <font class="matlab">cos(1.57)</font> <br>
+ans = <br>
+   7.9633e-04
+</pre>
+</div>
+
+<p>Si nous désirons avoir plus de chiffres significatifs, alors nous
+pouvons utiliser le format long qui contient seize chiffres
+significatifs.  Pour changer au format long, il suffit d'exécuter la
+commande <font class="matlab">format long</font>.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Le cosinus de \(1.57\) radians dans le format
+long est donné par</p>
+
+<pre class="matlab">
+>> <font class="matlab">format long</font>
+>> <font class="matlab">cos(1.57)</font> <br>
+ans = <br>
+      7.963267107332633e-04
+</pre>
+</div>
+
+<p>Pour retourner au format court, il suffit d'exécuter la commande
+<font class="matlab">format short</font>.  Pour voir tous les formats
+possibles dans <em>Matlab</em>, il suffit d'exécuter la commande
+<font class="matlab">help format</font>.
+Il est aussi possible de produire des affichages plus élégants à
+l'aide de la fonction <font class="matlab">sprintf</font>. </p>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect4"> Nombres complexes </h3>
+
+<p>Pour taper un nombre complexe dans <em>Matlab</em>, nous utilisons
+la notation traditionnelle comme il suit.</p> 
+
+<pre class="matlab">
+>> <font class="matlab">z = 5 - 7i</font><br>
+z = <br>
+   5.0000 - 7.0000i
+</pre>
+
+<p> La table des opérations arithmétiques sur les nombres réels
+présentée ci-dessus est aussi valide pour les nombres complexes.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Le produit de \(5 + 3i\) est \(5 - 3i\) est donné
+par</p>
+
+<pre class="matlab">
+>> <font class="matlab">z = 5 - 3i;</font>
+>> <font class="matlab">zbar = 5 + 3i;</font>
+>> <font class="matlab">w1 = z * zbar</font><br>
+w1 = <br>
+    34
+</pre>
+
+<p>La division de \(5 + 3i\) par \(5 -3i\) est donnée par</p>
+
+<pre class="matlab">
+>> <font class="matlab">w2 = z / zbar</font><br>
+w2 = <br>
+   0.4706 - 0.8824i
+</pre>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect6"> Matrices dans Matlab </h3>
+
+<p>En fait, toutes les valeurs numériques dans <em>Matlab</em> sont
+traitées comme des matrices de nombres complexes.  Par exemple, le
+nombre \(5\) dans <em>Matlab</em> est une matrice de dimension
+\(1\times 1\).</p> 
+
+<p>Pour définir une matrice dans <em>Matlab</em>, il suffit de taper
+toutes les composantes de la matrice entre une pair de crochets
+(parenthèses carrées).  La virgule et l'espace sont utilisés pour
+séparer les composantes d'une rangée, et le point-virgule et le
+changement de ligne sont utilisés pour séparer les rangées de la
+matrice.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Pour définir dans <em>Matlab</em> la matrice </p>
+\[
+A = \begin{pmatrix} 1 & \pi & 0 \\ 0 & 4 & 5 \end{pmatrix}
+\]
+<p> de dimension \(2\times 3\), nous pouvons taper une des commandes
+suivantes:</p> 
+
+<pre class="matlab">
+>> <font class="matlab">A = [ 1 pi 0; 0 4 5 ] </font><br>
+A = <br>
+     1.0000    3.1416         0
+          0    4.0000    5.0000
+</pre>
+
+<p>ou</p>
+
+<pre class="matlab">
+>> <font class="matlab">A = [ 1 pi 0
+0 4 5 ]</font><br>
+A = <br>
+     1.0000    3.1416         0
+          0    4.0000    5.0000
+</pre>
+</div>
+
+<p>La commande <font class="matlab">size</font> peut être utilisé pour
+obtenir les dimensions d'une matrice.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Si nous utilisons la matrice \(A\) de l'exemple
+précédent, on obtient</p>
+
+<pre class="matlab">
+>> <font class="matlab">size(A)</font><br>
+ans = <br>
+      2     3
+</pre>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect7"> Les vecteurs sont des matrices spéciales </h3>
+
+<p>Les vecteurs sont des matrices avec une seule rangée ou colonne.
+Nous les appelons des vecteurs rangées et vecteurs colonnes respectivement.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Le vecteur suivant est un vecteur colonne.</p>
+
+<pre class="matlab">
+>> <font class="matlab">V = [1 ; 2 ; -5 ; 3]</font><br>
+V = <br>
+      1
+      2
+     -5
+      3
+</pre>
+
+<p>Ce vecteur est de longueur \(4\) (il a quatre composantes).</p>
+
+<pre class="matlab">
+>> <font class="matlab">length(V)</font> <br>
+ans = <br>
+      4
+</pre>
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>: Le vecteur suivant est un vecteur rangée de
+  longueur \(4\).<p>
+
+<pre class="matlab">
+>> <font class="matlab">U = [sin(2) , -5 , 0 , 1]</font> <br>
+U = <br>
+     0.9093   -5.0000         0    1.0000
+</pre>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect8"> Algèbre matricielle </h3>
+
+<p>Toutes le opérations usuelles peuvent être exécutées par
+<em>Matlab</em>.</p>
+
+<div class="center" style="width: 100%">
+<table style="width: 70%;">
+<col style="width: 20%"> <col style="width: 80%">
+<tr> <th> Opération </th> <th> Description </th> </tr>
+<tr><td class="center"> <font class="matlab">+</font></td><td> addition de
+matrices de même dimensions </td></tr>
+<tr><td class="center"> <font class="matlab">&minus;</font></td><td>
+soustraction de matrices de même dimensions </td></tr>
+<tr><td class="center"> <font class="matlab">*</font></td><td>
+multiplication de deux matrices où le nombre de colonnes de la
+première matrice égale le nombre de rangées de la deuxième matrice </td></tr>
+<tr><td class="center"> <font class="matlab">^</font></td><td>
+exponentiel d'un matrice carrée </td></tr> 
+<tr><td class="center"> <font class="matlab">(&nbsp;)</font></td><td>
+parenthèses </td></tr>
+</table>
+</div>
+
+<p>Il y a deux autres opérations sur les matrices.</p>
+
+<div class="center" style="width: 100%">
+<table style="width: 70%;">
+<col style="width: 20%"> <col style="width: 80%">
+<tr> <th> Opération </th> <th> Description </th> </tr>
+<tr><td class="center"> <font class="matlab">/</font></td><td> \(A/B\) est
+\(A\) multiplié par l'inverse de \(B\) si cette dernière matrice est
+inversible et si le nombre de colonnes de \(A\) égale le nombre de
+rangées de \(B\). </td></tr>
+<tr><td class="center"> <font class="matlab">\</font></td><td>
+\(A\backslash B\) est la matrice \(X\) qui est la solution (à l'aide
+de la méthode d'élimination de Gauss) de \(AX = B\) quand \(A\) est
+une matrice inversible de dimensions \(n \times n\) et \(B\) a \(n\)
+rangées.  \(A\backslash B\) est la solution par la méthode du moindre
+carré de \(AX = B\) quand \(A\) est une matrice de dimension
+\(m \times n\) avec \(m \neq n\) et \(B\) a \(m\) rangées.  Utilisez
+le menu d'aide pour obtenir plus d'information. </td></tr>
+</table>
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>: En plus des matrices et vecteurs définis
+précédemment, nous considérons les matrices suivantes:</p> 
+
+<pre class="matlab">
+>> <font class="matlab">C = [-1 -2 0 ; 0 1 2 ; 1 0 3]</font><br>
+C = <br>
+     -1    -2     0
+      0     1     2
+      1     0     3<br>
+>> <font class="matlab">B = [ -2 0 5
+  2 3 -1
+  0 1 2 ]</font><br>
+B = <br>
+     -2     0     5
+      2     3    -1
+      0     1     2
+</pre>
+
+<p>Voici quelques opérations sur les matrices.</p>
+
+<pre class="matlab">
+>> <font class="matlab">D = B + C</font><br>
+D = <br>
+     -3    -2     5
+      2     4     1
+      1     1     5 <br>
+>> <font class="matlab">M = A * B</font> <br>
+M = <br>
+     4.2832    9.4248    1.8584
+     8.0000   17.0000    6.0000<br>
+>> <font class="matlab">W = U * V</font><br>
+W = <br>
+    -6.0907
+</pre>
+</div>
+
+<p>D'autres opérations sur les matrices peuvent être exécutées avec
+<em>Matlab</em>.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: L'inverse et le déterminant de la matrice \(B\)
+qui a été définie ci-dessus sont calculés par les commandes suivantes.</p>
+
+<pre class="matlab">
+>> <font class="matlab">inv(B)</font><br>
+ans = <br>
+   -1.7500   -1.2500    3.7500
+    1.0000    1.0000   -2.0000
+   -0.5000   -0.5000    1.5000 <br>
+>> <font class="matlab">det(B)</font></br>
+ans = <br>
+    -4
+</pre>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect9"> Opérations sur les tableaux </h3>
+
+<p> Les <em>opérations sur les tableaux</em> sont des opérations sur
+les matrices qui agissent composante par composante.</p>
+
+<ul style="list-style-type:none;">
+<li> <font class="matlab">.*</font>&nbsp; Multiplication de deux
+matrices de même dimensions.  Les composantes des deux matrices ayant
+les mêmes indices sont multipliées.</li>
+<li> <font class="matlab">.^</font>&nbsp; Exponentiel d'une matrice.
+L'exponentiel de chacune des composantes de la matrice est calculé.</li>
+<li> <font class="matlab">./</font>&nbsp; Division de deux matrices de
+même dimensions.  Chaque composante de la première matrice est divisée
+par la composante de la deuxième matrice ayant les mêmes indices.</li>
+</ul>
+
+<div class="Example">
+<p><em>Exemple</em>:</p>
+
+<pre class="matlab">
+>> <font class="matlab">v1=[1 2 3];</font>
+>> <font class="matlab">v2=[2 2 2];</font>
+>> <font class="matlab">v1 .* v2</font><br>
+ans = <br>
+     2     4     6<br>
+>> <font class="matlab">v1 ./ v2</font><br>
+ans = <br>
+     0.5000    1.0000    1.5000 <br>
+>> <font class="matlab">A = [1 2 3 ; 3 2 1]</font> <br>
+A = <br>
+     1     2     3
+     3     2     1 <br>
+>> <font class="matlab">A.^2</font><br>
+ans = <br>
+     1     4     9
+     9     4     1
+</pre>
+</div>
+
+<p>Toutes les fonctions définies par <em>Matlab</em> sont <em>array smart</em>.
+Cela veut dire que lorsque que l'argument d'une fonction est une
+matrice \(A\) alors la fonction est évaluée à chacune des composantes de la
+matrice \(A\).</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Si nous utilisons la matrice \(A\) définie
+ci-dessus et calculons \(sin(A)\), nous obtenons le résultat suivant. </p>
+
+<pre class="matlab">
+>> <font class="matlab">sin(A)</font><br>
+ans = <br>
+    0.8415    0.9093    0.1411
+    0.1411    0.9093    0.8415
+</pre>
+</div>
+
+<hr class="MMathSStat">
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(matlabAlg,"fr");
+</script>
+
+</body>
+</html>

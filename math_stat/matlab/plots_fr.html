@@ -1,0 +1,374 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2025-10-15">
+<meta name="Keywords" content="mathematiques,statistiques,universite,ottawa">
+<meta name="Copyright" content="&copy; 2025 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="fr-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<!-- Use this code if you want to use the dollar sign for inline math.
+This may be an issue if want to use the dollar sign denote curency. -->
+<!--
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      inlineMath: {'[+]' : [['$','$']]} 
+   }
+};
+</script>
+-->
+
+<!-- Instead of tex-svg.js , it is possible to use text-chtml to use
+html and csv instead of scalable vector graphis. -->  
+<script defer type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+    
+</head>
+<body>
+
+<script language="javascript">
+top_function(matlabPlot,"fr");
+</script>
+
+<script language="javascript"> 
+  topPage("TOP", "fr");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStexte, "MMathSStat");
+</script>
+
+<h2 id="TOP"> Représentations visuelles </h2>
+
+<div style="float: left; margin-right: 20px">
+<div class="center">
+<img src="Matlab_Logo.png" style="width: 100px" alt="Logo of Matlab">
+</div>
+<div class="center"><em>Contenu</em></div>
+<ul>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect10", "Tracer en deux dimensions avec Matlab",
+      "MMathSStat", "sect10ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect11", "Interpolation",
+      "MMathSStat", "sect11ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<p> Une des qualités principales de <em>Matlab</em> est sa capacité
+à visualiser les résultats mathématiques.  Il peut tracer des graphes
+de fonctions, représenter des ensembles de données graphiques, etc
+l'accent de ce document est sur la représentation des fonctions.  Ce
+choix est motivé par nos besoins personnels. </p>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect10"> Tracer en deux dimensions avec Matlab </h3>
+
+<p>Supposons que nous voulons tracer le graphe d'une fonction \(f\)
+définie sur un intervalle \([a,b]\).</p>
+ 
+<p>La première étape est de créer une liste
+<font class="matlab">x</font> de points qui forment un maillage
+de l'intervalle \([a,b]\).  Nous utilisons bien souvent \(N + 1\)
+points également distancés de l'intervalle \([a,b]\).  Une façon de
+créer une telle liste est avec la commande
+<font class="matlab">x = a : h : b </font> où
+<font class="matlab"> h = (b-a)/N</font>.  Une autre façon de créer
+une telle liste est avec la commande
+<font class="matlab">x = linspace(a,b,N+1)</font>.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: On considère la fonction \(f\) définie par
+\(\displaystyle y = f(x) = x^3\) sur l'intervalle \([0,1]\).  Les deux exemples
+suivants illustrent comment générer \(11\) points également distancés
+(\(10\) sous-intervalles) incluant les deux points limites de
+l'intervalle.</p>
+
+<pre class="matlab">
+>> <font class="matlab">x = 0:0.1:1</font> <br>
+x = <br>
+   Columns 1 through 7 <br>
+          0    0.1000    0.2000    0.3000    0.4000    0.5000    0.6000 <br>
+   Columns 8 through 11 <br> 
+     0.7000    0.8000    0.9000    1.0000
+</pre>
+
+<p>ou</p>
+
+<pre class="matlab">
+>> <font class="matlab">x = linspace(0,1,11)</font><br>
+x = <br>
+   Columns 1 through 7 <br>
+          0    0.1000    0.2000    0.3000    0.4000    0.5000    0.6000 <br>
+   Columns 8 through 11 <br>
+     0.7000    0.8000    0.9000    1.0000
+</pre>
+
+<p>Pour évaluer la fonction \(f\) définie par \(\displaystyle f(x) = x^3\) aux
+\(11\) points que l'on vient de générer, une simple opération sur les
+tableaux suffit.</p>
+
+<pre class="matlab">
+>> <font class="matlab">y = x.^3</font> <br>
+y = <br>
+   Columns 1 through 7 <br>
+          0    0.0010    0.0080    0.0270    0.0640    0.1250    0.2160 <br>
+   Columns 8 through 11 <br>
+     0.3430    0.5120    0.7290    1.0000
+</pre>
+
+<p>Chacune des composantes de <font class="matlab">y</font> est le
+cube de la composante corresponde de
+<font class="matlab">x</font>.  Finalement, nous fessons appel à la
+fonction <font class="matlab">plot</font> de <em>Matlab</em> pour
+tracer le graphe de \(f\) sur l'intervalle \([0,1]\).  La fonction
+<font class="matlab">plot</font> utilise une interpolation linéaire
+entre les \(11\) points également distancés pour approcher le graphe de la
+fonction \(f\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">plot(x,y)</font>
+</pre>
+
+<p>Après avoir pressé la touche <em>Enter</em>, une nouvelle fenêtre s'ouvre
+avec une figure contenant le graphe de la fonction.</p> 
+
+<div class="center">
+  <img src="Matlab_figure1.gif" style="width: 300px" alt="Graphe de x^3">
+</div>
+
+<p>Nous obtenons un graphe plus précis de la fonction en utilisant plus de
+points également distancés.</p> 
+</div>
+
+<p>Il est possible d'inclure les graphes de plusieurs fonctions dans la
+même figure.  La commande <font class="matlab">hold on</font> après
+avoir produit la première figure force <em>Matlab</em> à tracer
+les graphes suivants dans la figure existante.
+La commande <font class="matlab">hold off</font>
+retourne <em>Matlab</em> à son mode par défaut qui est de remplacer la
+présente figure par une nouvelle figure. </p>
+
+<div class="Example">
+<p><em>Exemple</em>: À l'aide de la variable <font class="matlab">x</font>
+définie ci-dessus et en assumant que la figure précédente existe
+toujours (i.e. elle n'a pas été fermée), Les commandes suivantes
+ajoutent la droite \(y = x + 2\) à la figure contenant le
+graphe de \(f\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">hold on</font>
+>> <font class="matlab">z = x + 2;</font>
+>> <font class="matlab">plot(x,z,'r')</font>
+</pre>
+
+<p> La figure est maintenant </p>
+
+<div class="center">
+  <img src="Matlab_figure2.gif" style="width: 300px"
+       alt="Graphes x^3 et de x + 2">
+</div>
+</div>
+
+<p>Dans l'exemple précédent, le résultat de l'expression
+<font class="matlab"> z = x + 2</font> dans <em>Matlab</em>
+est d'additionner la valeur \(2\) à chacune des composantes de
+<font class="matlab">x</font> et d'emmagasiner les
+résultats dans la variable <font class="matlab">z</font>.  La
+\(\displaystyle i^{e}\) composante de  
+<font class="matlab">z</font> est la somme de la
+\(\displaystyle i^{e}\) composante
+de <font class="matlab">x</font> et de \(2\). C'est un
+des <em>comportement anormal</em> de <em>Matlab</em>.</p>
+
+<p>L'option <font class="matlab">'r'</font> de la commande
+<font class="matlab">plot</font> précédente force <em>Matlab</em> à
+tracer la droite \(y = x + 2\) en rouge.</p>
+
+<p>Un titre et des étiquettes pour les axes peuvent être ajoutés à la
+figure à l'aide des fonctions <font class="matlab">title</font> pour
+produire le titre, <font class="matlab">xlabel</font> pour ajouter une
+étiquette à l'axe des \(x\) et <font class="matlab">ylabel</font> pour
+ajouter une étiquette à l'axe des \(y\).  L'exemple suivant montre comment
+utiliser ces fonctions.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Supposons que les commandes suivantes font
+parties de la session qui a produit la figure précédente et que
+cette figure existe toujours (i.e. elle n'a pas été fermée).</p>
+
+<pre class="matlab">
+>> <font class="matlab">title('sample plotting with MATLAB')</font>
+>> <font class="matlab">xlabel('x-axis')</font>
+>> <font class="matlab">ylabel('y-axis')</font>
+</pre>
+
+<p> Le résultat de ces commandes est l'ajout du titre
+<em>sample plotting with MATLAB</em> et des étiquettes
+aux axes de la figure précédente pour obtenir la figure suivante.</p>
+
+<div class="center">
+  <img src="Matlab_figure5.gif" style="width: 300px"
+       alt="Graphe de x^3 et x+2 avec un titre et des étiquettes">
+</div>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect11"> Interpolationo </h3>
+
+<p>L'interpolation polynomiale peut être utilisée avec <em>Matlab</em>.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous traçons l'interpolation linéaire de
+la fonction \(f\) associée aux données dans le tableau ci-dessous.</p>
+
+<table style="width: inherit;">
+<tr>
+<th class="center"> x </th>
+<td> 0 </td>
+<td> 0.7854 </td>
+<td> 1.5708 </td>
+<td> 2.3562 </td>
+<td> 3.1416 </td>
+</tr>
+<tr>
+<th class="center"> y </th>
+<td> 0 </td>
+<td> 0.5554 </td>
+<td> 1.5708 </td>
+<td> 1.6661 </td>
+<td> 0.0000 </td>
+</tr>
+</table>
+
+<p> Les données pour \(x\) et \(y\) sont représentées par deux vecteurs
+dans <em>Matlab</em>.</p>
+
+<pre class="matlab">
+>> <font class="matlab">x = [ 0  0.7854  1.5708  2.3562  3.1416 ] </font><br>
+x = <br>
+         0    0.7854    1.5708    2.3562    3.1416 <br>
+>> <font class="matlab">y = [ 0  0.5554  1.5708  1.6661  0.0000 ]</font><br>
+y = <br>
+         0    0.5554    1.5708    1.6661         0
+</pre>
+
+<p>Il est en fait plus facile de tracer l'interpolation linéaire de
+\(f\) que d'évaluer \(f\) à des points. Si nous assumons que la
+figure précédente n'est plus présente (ou que la commande
+<font class="matlab">hold off</font> a été utilisée), alors la commande
+suivante trace l'interpolation linéaire de \(f\).</p> 
+
+<pre class="matlab">
+>> <font class="matlab">plot(x,y);</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure7.png" style="width: 300px"
+       alt="Graphe de l'interpolation linéaire de f">
+</div>
+</div>
+
+<p>L'interpolation linéaire de \(f\) peut être évaluée à plusieurs
+points à l'aide de la fonction <font class="matlab">interp1</font>
+de <em>Matlab</em>.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Supposons que nous voulions évaluer
+l'interpolation linéaire de la fonction \(f\) aux points
+ \(0, \pi/10 , \pi/5 , 3\pi/10, \ldots, \pi\).  Nous pouvons
+représenter ces points dans <em>Matlab</em> à l'aide de la liste
+suivante.</p>  
+
+<pre class="matlab">
+>> <font class="matlab">z = linspace(0,pi,11)</font><br>
+z = <br>
+   Columns 1 through 9 <br>
+       0    0.3142    0.6283    0.9425    1.2566    1.5708    1.8850   2.1991    2.5133 <br>
+   Columns 10 through 11 <br>
+       2.8274    3.1416
+</pre>
+
+<p>La commande suivante dans <em>Matlab</em> calcul la valeur de
+l'interpolation linéaire de \(f\) aux \(11\) points également
+distancés donnés par <font class="matlab">z</font>.</p>
+
+<pre class="matlab">
+>> <font class="matlab">w = interp1(x,y,z,'linear')</font> <br>
+w = <br>
+   Columns 1 through 9 <br>
+       0    0.2222    0.4443    0.7585    1.1646    1.5708    1.6089    1.6470    1.3329 <br>
+   Columns 10 through 11 <br>
+       0.6665    0.0000
+</pre>
+
+<p>La \(\displaystyle k^{e}\) composante de <font class="matlab">w</font> est la
+valeur de l'interpolation linéaire de la fonction \(f\) à la
+\(\displaystyle k^{e}\) composante de <font class="matlab">z</font>.
+Les commandes suivantes tracent les points de coordonnées \((x,y)\) où
+\(x\) et \(y\) sont les \(\displaystyle k^{e}\) composantes
+de <font class="matlab">z</font> et 
+<font class="matlab">w</font> respectivement pour
+\(k = 1, 2, \ldots, 11\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">hold on</font>
+>> <font class="matlab">plot(z,w,'or');</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure8.png" style="width: 300px"
+       alt="Graphe de l'interpolation linéaire de f est des points ci-dessus">
+</div>
+
+<p>Le troisième argument de <font class="matlab">plot</font> ci-dessus
+force <em>Matlab</em> à tracer seulement un cercle rouge pour chacun
+des points.</p>
+</div>
+
+<p> Il y a d'autres méthodes d'interpolation que linéaire (le défaut)
+comme cubique et <q lang="fr">spline</q>.  Pour utiliser ces méthodes,
+il suffit de suivre les même étapes que nous avons présentées dans
+  l'exemple précédant mais en remplaçant <font class="matlab">linear</font> par
+<font class="matlab">cubic</font> ou <font class="matlab">spline</font>.
+Le lecteur devrait essayé ces méthodes avec l'exemple précédent afin
+de comparer ces méthodes. </p>
+
+<hr class="MMathSStat">
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(matlabPlot,"fr");
+</script>
+
+</body>
+</html>

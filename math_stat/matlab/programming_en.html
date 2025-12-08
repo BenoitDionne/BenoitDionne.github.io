@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2025-10-15">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<!-- Use this code if you want to use the dollar sign for inline math.
+This may be an issue if want to use the dollar sign denote curency. -->
+<!--
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      inlineMath: {'[+]' : [['$','$']]} 
+   }
+};
+</script>
+-->
+
+<!-- Instead of tex-svg.js , it is possible to use text-chtml to use
+html and csv instead of scalable vector graphis. -->  
+<script defer type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(matlabProgr,"en");
+</script>
+
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2 id="TOP"> Programming </h2>
+
+<div style="float: left; margin-right: 20px">
+<div class="center">
+<img src="Matlab_Logo.png" style="width: 100px" alt="Logo of Matlab">
+</div>
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect16", "Iterative Mappings",
+      "MMathSStat", "sect16ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<p> We have already introduced programming in the document
+<script language="javascript"> 
+  buildLinK(matlabFunct.url_en, matlabFunct.text_en, "MMathSStat",
+  matlabFunct.id, matlabFunct.target);
+</script>.  Defining functions is fundamental to programming
+in <em>Matlab</em>.  We must admit that this document is in
+development and that we hope to add more information in the near
+future.</p>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect16"> Iterative Mappings </h3>
+
+<p>The plain version of <em>Matlab</em> does not have functions to
+execute iterative methods.  Therefore, the user has to
+program <em>Matlab</em> to execute iterative methods.  The following
+example will illustrate how this could be done for the fixed point
+method.  The approach is similar for other iterative methods.</p>
+
+<div class="Example">
+<p><em>Example</em>: We want to use the fixed point method to
+approximate the solution of the equation
+\(\displaystyle -(x^2/8) - x/4 + 1/2 = x\) in the
+interval \([0,1]\).  We start the iterations with \(x = 0.5\).  A
+possible solution of this problem is to execute a little <em>m-file</em>
+containing the following code.</p>
+
+<pre class="matlab">
+%  Starting value of x for the iteration:
+<font class="matlab">x = 0.5;</font> <br>
+%  Number of iterations:
+<font class="matlab">n = 20;</font> <br>
+% loop:
+<font class="matlab">
+for i = 1:n
+   x = -(x.^2/8) - x/4 + 1/2;
+end </font> <br>
+% Return the final value of the iteration
+<font class="matlab">x</font>
+</pre>
+
+<p>This <em>m-file</em> is called <script language="javascript">
+buildLinK("fxpt1.m", "fxpt1.m","MMathSStat", "id3", "_blank");
+</script>,.  It is not a function but only a simple script that
+<em>Matlab</em> can execute.  With a deeper knowledge
+of <em>Matlab</em>, we can write much more sophisticated programs
+but this example is enough to understand the basic of programming in
+<em>Matlab</em>.</p>
+
+<p>If we run <font class="matlab">fxpt1</font> in <em>Matlab</em>,
+then it executes \(20\) iterations of the function
+\(\displaystyle x \mapsto -(x^2/8) - x/4 + 1/2\) starting with
+\(x = 0.5\) and return the \(\displaystyle 20^{th}\) iteration.</p>
+
+<pre class="matlab">
+>> <font class="matlab">fxpt1</font><br>
+x = <br>
+    0.3852
+</pre>
+</div>
+
+<p>However, the script above is not convenient because we have to modify the
+file <em>fxpt1.m</em> each time that the function to be iterated, the initial
+value or the number of iterations are modified.</p>
+
+<div class="Example">
+<p><em>Example (continued)</em>: The function
+<font class="matlab">fxpt2</font> defined in the file
+  <script language="javascript">
+    buildLinK("fxpt2.m", "fxpt2.m","MMathSStat", "id4", "_blank");
+  </script> takes as arguments the <em>name</em> or <em>handle</em> of
+the function to iterate, the initial value and the number of iterations.</p>
+
+<pre class="matlab">
+% y = fxpt2(funct,x0,n)
+%
+% This function returns the result of n iterations of the function
+% y = funct(x) starting with the value x = x0 .
+<font class="matlab">function y = fxpt2(funct,x0,n)
+    y = x0;
+    for i=1:n
+      y = feval(funct,y);
+    end
+end  </font>
+</pre>
+
+<p>To execute \(20\) iterations of the function
+\(\displaystyle x \mapsto -(x^2/8) - x/4 + 1/2\) starting with
+\(x = 0.5\), we define 
+the function <font class="matlab">funct3</font> by creating the
+<em>m-file</em> <script language="javascript">
+buildLinK("funct3.m", "funct3.m","MMathSStat", "id5", "_blank");
+</script> with the following content.</p>
+
+<pre class="matlab">
+% y = funct3(x)
+%
+% This function takes one argument x and return the result of the
+% computation  -(x.^2/8) - x/4 + 1/2 .
+<font class="matlab">function y = funct3(x)
+   y = -(x.^2/8) - x/4 + 1/2;
+end </font>
+</pre>
+
+<p> The function
+<font class="matlab">fxpt2</font>
+can then be invoked with the
+arguments <font class="matlab">@funct3</font> or
+<font class="matlab">'funct3'</font>,
+<font class="matlab">0.5</font> and <font class="matlab">20</font>.</p>
+
+<pre class="matlab">
+>> <font class="matlab">fxpt2(@funct3,0.5,20)</font> <br>
+ans = <br>
+    0.3852
+</pre>
+</div>
+
+<div class="Note">
+<p><em>Note</em>: If we had used the line
+<font class="matlab">y = funct(y);</font> instead of the line
+<font class="matlab">y = feval(funct,y);</font> in the previous
+script, then the function <font class="matlab">fxpt2</font> would have
+only accepted function <em>handles</em> as its first argument.  By
+using the function <font class="matlab">feval()</font>, function
+<em>names</em> can also be given as first argument of the
+function <font class="matlab">fxpt2</font>.</p> 
+</div>
+
+<p> Instead of defining <font class="matlab">funct3</font> using a
+<em>m-file</em>, we could have simply defined an
+<em>anonymous function</em> as it follows. </p>
+
+<pre class="matlab">
+>> <font class="matlab">Hfunct3 = @(x) -(x.^2/8) - x/4 + 1/2;</font>
+</pre>
+
+<p> This way, it is now easy to modify the function to be iterated. </p>
+
+<hr class="MMathSStat">
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(matlabProgr,"en");
+</script>
+
+</body>
+</html>

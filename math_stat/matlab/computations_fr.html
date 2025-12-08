@@ -1,0 +1,446 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2025-10-15">
+<meta name="Keywords" content="mathematiques,statistiques,universite,ottawa">
+<meta name="Copyright" content="&copy; 2025 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="fr-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<!-- Use this code if you want to use the dollar sign for inline math.
+This may be an issue if want to use the dollar sign denote curency. -->
+<!--
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      inlineMath: {'[+]' : [['$','$']]} 
+   }
+};
+</script>
+-->
+
+<!-- Instead of tex-svg.js , it is possible to use text-chtml to use
+html and csv instead of scalable vector graphis. -->  
+<script defer type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+    
+</head>
+<body>
+
+<script language="javascript">
+top_function(matlabComp,"fr");
+</script>
+
+<script language="javascript"> 
+  topPage("TOP", "fr");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStexte, "MMathSStat");
+</script>
+
+<h2 id="TOP"> Calculs numériques </h2>
+
+<div style="float: left; margin-right: 20px">
+<div class="center">
+<img src="Matlab_Logo.png" style="width: 100px" alt="Logo of Matlab">
+</div>
+<div class="center"><em>Contenu</em></div>
+<ul>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect12", "Intégration numérique",
+      "MMathSStat", "sect12ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect15", "Équations différentielles ordinaires (EDO)",
+      "MMathSStat", "sect15ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<p>Ce document illustre une minuscule portion du genre de calcul
+numériques qui peuvent être faits avec <em>Matlab</em>.  La version de
+base de <em>Matlab</em> n'a pas des millions de fonctions prédéfinies.
+Les concepteurs de <em>Matlab</em> assument que les utilisateurs vont
+définir les fonctions qu'ils ou elles ont besoin.  La
+programmation dans <em>Matlab</em> est donc essentielle.  Il y a cependant
+un très grand nombre des boîtes à outils sur toutes sortes de sujets.
+Ces boîtes à outils sont ajoutées à l'installation de basse de 
+<em>Matlab</em> et étendent énormément le choix de fonctions.  Nous ne
+parlerons pas des boîtes à outils dans notre introduction
+à <em>Matlab</em>.  Une des raisons principales est que chaque boîte à
+outils doit être achetée séparément.  Ceci peut être dispendieux.</p>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect12"> Intégration numérique </h3>
+
+<p>Il y a trois principales fonctions de <em>Matlab</em> pour
+l'intégration numérique d'une fonction: <font class="matlab">trapz</font>,
+<font class="matlab">quad</font>
+et <font class="matlab">quadl</font>.
+La fonction <font class="matlab">trapz</font> utilise la méthode
+des trapèzes pour estimer l'intégral d'une fonction .</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous utilisons la méthode des trapèzes pour
+estimer l'aire sous la courbe \(y = x \sin(x)\) pour \(0 < x < \pi\)
+avec \(10\) sous-intervalles.  Nous utilisons les \(11\) points
+également distancés donnés dans la liste suivante.</p> 
+
+<pre class="matlab">
+>> <font class="matlab">x = linspace(0,pi,11)</font><br>
+x = <br>
+  Columns 1 through 7 <br>
+          0    0.3142    0.6283    0.9425    1.2566    1.5708    1.8850 <br>
+  Columns 8 through 11 <br>
+    2.1991    2.5133    2.8274    3.1416
+</pre>
+
+<p> L'étape suivante consiste à évaluer \(x \sin(x)\) à chacune des
+composantes de la liste <font class="matlab">x</font> (les composantes
+de <font class="matlab">x</font> sont les points qui forment la
+partition de l'intervalle \([0.\pi]\).) 
+
+<pre class="matlab">
+>> <font class="matlab">y = x .* sin(x);</font>
+</pre>
+
+<p>La somme pour la méthode des trapèzes est calculée avec la commande
+suivante. </p>
+
+<pre class="matlab">
+>> <font class="matlab">trapz(x,y)</font> <br>
+ans = <br>
+    3.1157
+</pre>
+</div>
+
+<p>La fonction <font class="matlab">quad</font> est une version de
+la méthode adaptative de Simpson et la fonction
+<font class="matlab">quadl</font> est une version de la méthode
+adaptative de Newton-Cotes.  Afin d'utiliser ces deux fonctions, il
+faut définir de nouvelles fonctions à l'aide des
+<em>fichiers m</em> ou de définir des <em>fonctions anonymes</em>.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Pour estimer l'aire sous la courbe \(y = x \sin(x)\) pour
+\(0 \leq x \leq \pi\), nous utilisons notre fonction
+<font class="matlab">funct1</font>.
+Pour évaluer numériquement l'intégrale de \(x \sin(x)\) sur l'intervalle
+\(0 \leq x \leq \pi\), nous utilisons la commande suivante.</p>
+
+<pre class="matlab">
+>> <font class="matlab">quadl(@funct1,0,pi)</font>
+ans = <br>
+    3.1416
+</pre>
+</div>
+
+<p> Le format minimal des fonctions <font class="matlab">quadl</font> et
+<font class="matlab">quad</font> est
+<font class="matlab">quadl(@Funct, a, b);</font> où
+<font class="matlab">Funct</font> est le nom de la fonction définie
+pour \(a \leq x \leq b\), l'intervalle d'intégration.  Le résultat est
+une estimation de la valeur exacte avec une erreur relative d'au plus
+\(\displaystyle 10^{-3}\).  Pour spécifier une différente borne
+supérieure sur l'erreur relative, il faut utiliser la commande
+<font class="matlab">quadl(@Funct,a,b,tol)</font> où
+<font class="matlab">tol</font> est la nouvelle borne sur l'erreur
+relative.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous voulons estimer la valeur de l'intégrale de
+\(\displaystyle f(x) = x^3 + 2 x^2 + 1\) pour \(3 \leq x \leq 5\).</p>
+
+<p>Au lieu de créer un <em>fichier m</em> pour la fonction \(f\), nous
+définissons une <em>fonction anonyme</em> qui est seulement représentée
+par son <em>adresse</em> que nous sauvegardons dans une variable comme
+il est fait ci-dessous.</p>
+
+<pre class="matlab">
+>> <font class="matlab"> f = @(x) x.^3 + 2* x.^2 + 1</font><br>
+f = <br>
+    @(x) x .^ 3 + 2 * x .^ 2 + 1 <br>
+</pre>
+
+<p> Cette <em>adresse</em> peut alors être utilisée avec la fonction 
+<font class="matlab">quadl</font>.  La commande suivante illustre
+comment cela est fait.</p>
+
+<pre class="matlab">
+>> <font class="matlab">quadl(f,3,5)</font> <br>
+ans =  <br>
+     2.033333333333333e+02
+</pre>
+</div>
+
+
+<hr class="MMathSStat">
+
+<h3 id="Sect15"> Équations différentielles ordinaires (EDO) </h3>
+
+<p>Trois des fonctions de <em>Matlab</em> pour résoudre les (systèmes d')
+EDO (non-raides) d'ordre un sont <font class="matlab">ode23</font>,
+<font class="matlab">ode45</font>
+et <font class="matlab">ode113</font> (<em>Octave</em> n'a pas la
+fonction <font class="matlab">ode113</font> mais offre la fonction
+<font class="matlab">ode115s</font> en remplacement).
+Ce sont des méthodes à pas variables dérivées des méthodes de
+Runge-Kutta.  Ils font partis de la famille de solveurs d'EDO
+de <em>Matlab</em>.  Pour obtenir de l'aide au sujet d'un solveur
+et/ou une liste des autres solveurs de <em>Matlab</em> pour résoudre les EDO,
+il suffit d'utiliser la commande <font class="matlab">help ode23 </font>
+par exemple.  Le nom <font class="matlab">ode23</font> peut être
+remplacé par tout autre nom de solveur d'EDO de <em>Matlab</em>. </p>
+
+<p>Nous allons seulement expliquer la procédure pour utiliser le
+solveur <font class="matlab">ode45</font>.  Cependant, la procédure pour
+utiliser les autres solveurs d'EDO de <em>Matlab</em> est très semblable. </p>
+
+<p>Le format de le solveur <font class="matlab">ode45</font> est
+<font class="matlab"> [xx,yy] = ode45(@yprime ,[x_zero , x_final], y0, options)
+</font>.</p>
+
+<p> La fonction <font class="matlab">yprime</font> (qui dépend de
+\(x\) et \(y\)) est le côté droit de l'EDO \(y'(x) = \mathrm{yprime}(x,y)\).
+La valeur <font class="matlab">x_zero</font> est le temps initial et
+la valeur <font class="matlab">x_final</font> est le temps quand arrêter
+l'intégration numérique.  L'expression <font class="matlab">y0</font>
+est un vecteur rangée avec les valeurs initiales de \(y\) à
+<font class="matlab">x_zero</font>.  Une solution est calculée pour
+chacune des conditions initiales.</p>
+
+<p>Le vecteur <font class="matlab">xx</font> et la matrice
+<font class="matlab">yy</font> que <font class="matlab">ode45</font>
+retourne ont le même nombre de rangées. Le nombre de colonnes de la matrice
+<font class="matlab">yy</font> est égale à la longueur du vecteur
+rangée <font class="matlab">y0</font>.  La \(\displaystyle i^{e}\) colonne de
+<font class="matlab">yy</font> est l'estimé à chacune des valeurs de
+<font class="matlab">xx</font> de la solution \(y\) de
+\(y'(x) = \mathrm{yprime}(x,y)\) avec la condition initiale à
+<font class="matlab">x_zero</font> donnée par
+la \(\displaystyle i^{e}\) composante de <font class="matlab">y0</font>.
+La \(\displaystyle k^{e}\) rangée de <font class="matlab">yy</font> est une
+approximation de la solution \(y\) de \(y'(x) = \mathrm{yprime}(x,y)\)
+évaluée à la \(\displaystyle k^{e}\) composante
+de <font class="matlab">xx</font>
+pour chacune des conditions initiales données par les composantes de
+<font class="matlab">y0</font> à <font class="matlab">x_zero</font>.</p>
+
+<p>Il y a un grand nombre d'options qui peuvent être fournies aux
+solveurs d'EDO de <em>Matlab</em>.  Pour fournir une
+borne sur la tolérance relative, une borne sur la tolérance absolue,
+etc, nous devons premièrement définir une structure d'options comme
+celle ci-dessous.</p>  
+
+<pre class="matlab">
+>> <font class="matlab"> option = odeset('reltol', 0.001, 'abstol', [0.000001]) </font>
+</pre>
+
+<p>Seulement les bornes sur la tolérance relative et la tolérance absolue ont
+été incluses dans l'exemple précédent mais il y a beaucoup plus
+d'options qui peuvent être incluses selon le solveur d'EDO utilisé pour
+résoudre numériquement l'EDO.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous voulons estimer la solution de l'EDO
+\(y'(x) = f(x,y) = x \sin(x)\) pur \(0 \leq x \leq \pi\) à l'aide du solveur
+<font class="matlab">ode45</font>.  La condition initial est
+\(y(0) = 0\) et la borne supérieure sur la tolérance relative est de 
+\(\displaystyle 10^{-5}\).  Nous avons déjà défini à l'aide
+du <em>fichier m</em>
+<em>funct1.m</em> une fonction \(x \mapsto x \sin(x)\).  Cependant, cette
+fonction <font class="matlab">funct1</font> ne peut pas être utilisé avec
+le solveur <font class="matlab">ode45</font> car la fonction
+<font class="matlab">funct1</font> dépend seulement de \(x\).  Le côté
+droit d'une EDO \(y'(x)= \ldots\) doit être une fonction de \(x\) et
+\(y\).</p>
+
+<p>La fonction <font class="matlab">funct1</font> est redéfinie pour
+obtenir la nouvelle fonction <font class="matlab">funct2</font>
+définie dans le fichier <em>funct2.m</em>. Le <em>fichier m</em> 
+<script language="javascript">
+buildLinK("funct2.m", "funct2.m","MMathSStat", "id2", "_blank");
+</script> contient les lignes de code suivantes:</p>
+
+<pre class="matlab">
+% yprime = funct2(x,y)
+%
+% This function takes two arguments, x and y, and returns the
+% result of the computation  x sin(x)
+<font class="matlab">function yprime = funct2(x,y)
+     yprime = x.*sin(x);
+end </font>
+</pre>
+
+<p>La seule option qui est fournie au solveur
+<font class="matlab">ode45</font> est la borne supérieure
+\(\displaystyle 10^{-5}\) pour la tolérance relative.</p> 
+
+<pre class="matlab">
+>> <font class="matlab">options = odeset('reltol',10^(-5));</font>
+</pre>
+
+<p> Finalement, nous pouvons utiliser le solveur
+<font class="matlab">ode45</font> pour résoudre numériquement l'EDO
+\(y' = f(x,y)\) pour \(0 \leq x\leq \pi\)
+avec la condition initiale \(y(0) = 0\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">[xx,yy] = ode45('funct2',[0,pi],0,options)</font> <br>
+xx = <br>
+         0
+    0.0785
+    0.1571
+    0.2356
+    0.3142
+    0.3927
+    0.4712
+    0.5498
+    0.6283
+    0.7069
+    0.7854
+    0.8639
+    0.9425
+    1.0210
+    1.0996
+    1.1781
+    1.2566
+    1.3352
+    1.4137
+    1.4923
+    1.5708
+    1.6493
+    1.7279
+    1.8064
+    1.8850
+    1.9635
+    2.0420
+    2.1206
+    2.1991
+    2.2777
+    2.3562
+    2.4347
+    2.5133
+    2.5918
+    2.6704
+    2.7489
+    2.8274
+    2.9060
+    2.9845
+    3.0631
+    3.1416<br>
+ yy = <br>
+         0
+    0.0002
+    0.0013
+    0.0043
+    0.0102
+    0.0199
+    0.0341
+    0.0537
+    0.0795
+    0.1119
+    0.1517
+    0.1993
+    0.2550
+    0.3192
+    0.3918
+    0.4730
+    0.5627
+    0.6607
+    0.7665
+    0.8798
+    1.0000
+    1.1263
+    1.2580
+    1.3941
+    1.5335
+    1.6753
+    1.8181
+    1.9606
+    2.1016
+    2.2396
+    2.3732
+    2.5008
+    2.6211
+    2.7324
+    2.8333
+    2.9223
+    2.9981
+    3.0591
+    3.1042
+    3.1321
+    3.1416
+</pre>
+
+<p> Ce n'est pas très sage d'énumérer les valeurs de
+<font class="matlab">[xx,yy]</font> en raison du grand nombre possible
+de valeurs retournées par le solveur.  Il est préférable de tracer
+l'interpolation linéaire de la solution en utilisant les données
+fournies par <font class="matlab">[xx,yy]</font>.</p>
+
+<pre class="matlab">
+>> <font class="matlab">plot(xx,yy);</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure4.gif" style="width: 300px"
+       alt="Graphe de la solution de l'EDO">
+</div>
+</div>
+
+<p><em>Question Mathématique</em>: Quelle est la relation entre la
+solution de l'EDO \(y' = x\sin(x)\) et l'intégral de la fonction
+\(f(x) = x \sin(x)\) sur l'intervalle \([0,\pi]\)?</p>
+
+<p> À l'aide de l'interpolation linéaire construite à partir des données 
+fournies par <font class="matlab">[xx,yy]</font>, nous pouvons estimer
+la valeur de la solution de l'EDO à tous points de l'intervalle
+  \([0,\pi]\).</p>
+
+<div class="Example">
+<p><em>Exemple</em>: La valeur approximative de la solution de
+l'EDO précédente à \(x=2\) est donnée par la comande</p>
+
+<pre class="matlab">
+>> <font class="matlab">w = interp1(xx,yy,2,'linear')</font> <br>
+w = <br>
+    1.7416
+</pre>
+</div>
+
+<hr class="MMathSStat">
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(matlabComp,"fr");
+</script>
+
+</body>
+</html>

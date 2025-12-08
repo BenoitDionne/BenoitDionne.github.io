@@ -1,0 +1,635 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. and Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematics and Statistics">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2025-10-15">
+<meta name="Keywords" content="mathematics,statistics,university,ottawa">
+<meta name="Copyright" content="&copy; 2023 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="en-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+<!-- Use this code if you want to use the dollar sign for inline math.
+This may be an issue if want to use the dollar sign denote curency. -->
+<!--
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      inlineMath: {'[+]' : [['$','$']]} 
+   }
+};
+</script>
+-->
+
+<!-- Instead of tex-svg.js , it is possible to use text-chtml to use
+html and csv instead of scalable vector graphis. -->  
+<script defer type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(matlabPlot,"en");
+</script>
+
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
+
+<script language="javascript">
+main_title( MStext, "MMathSStat");
+</script>
+
+<h2 id="TOP"> Visual Representations </h2>
+
+<div style="float: left; margin-right: 20px">
+<div class="center">
+<img src="Matlab_Logo.png" style="width: 100px" alt="Logo of Matlab">
+</div>
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect10", "Two Dimensional Plotting in Matlab",
+      "MMathSStat", "sect10ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect11", "Interpolation",
+      "MMathSStat", "sect11ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect18", "Three Dimensional Plotting in Matlab",
+      "MMathSStat", "sect18ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<p> One of the main quality of <em>Matlab</em> is its capability to
+visualize mathematical results.  It could be plotting graphs of
+functions, representing data sets with charts, etc.  The focus of
+this document is on the representation of function.  This choice is
+motivated by our personal needs. </p>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect10"> Two Dimensional Plotting in Matlab </h3>
+
+<h4>Graph of a Function</h4>
+
+<p>Suppose that we want to plot the graph of a function \(f\) defined
+on an interval \([a,b]\).</p>
+
+<ol style="list-style-type:decimal;">
+<li> The first step is to create a list <font class="matlab">x</font>
+of mesh points for the interval \([a,b]\).  It is usual to take \(N + 1\)
+equally spaced points in the interval \([a,b]\).
+One way to create such a list is with the command
+<font class="matlab">x = a : h : b </font> where
+<font class="matlab"> h = (b-a)/N</font>.  Another way to create such a
+list is with the command <font class="matlab">x = linspace(a,b,N+1)</font>.
+</li>
+<li> The second step is to evaluate the function at each of the mesh
+points.  To benefit from the <em>matlab</em> optimisation, the
+function <em>must be</em> an <em>array smart</em> function.  The step
+can then be done with the simple command
+<font class="matlab">y = f(x)</font>.</li>
+<li> Finally, we use the command
+<font class="matlab">plot(x,y, options)</font> to draw the graph.
+There are several options that can be used.  We use some of them in
+the examples below.  The reader should use the help for the function
+<font class="matlab">plot</font> to get a full list of these options.</li>
+</ol>
+
+<div class="Example">
+<p><em>Example</em>: We consider the function \(f\) defined by
+\(\displaystyle f(x) = x^3\) on the interval \([0,1]\).  The following
+two examples show how to generate \(11\) equally spaced points (\(10\)
+subintervals) including the end points of the interval.</p>
+
+<pre class="matlab">
+>> <font class="matlab">x = 0:0.1:1</font> <br>
+x = <br>
+   Columns 1 through 7 <br>
+          0    0.1000    0.2000    0.3000    0.4000    0.5000    0.6000 <br>
+   Columns 8 through 11 <br> 
+     0.7000    0.8000    0.9000    1.0000
+</pre>
+
+<p>or</p>
+
+<pre class="matlab">
+>> <font class="matlab">x = linspace(0,1,11)</font><br>
+x = <br>
+   Columns 1 through 7 <br>
+          0    0.1000    0.2000    0.3000    0.4000    0.5000    0.6000 <br>
+   Columns 8 through 11 <br>
+     0.7000    0.8000    0.9000    1.0000
+</pre>
+
+<p>To evaluate the function \(f\) defined by \(\displaystyle f(x) = x^3\)
+at the \(11\) points generated above, a simple array operation can be used.</p>
+
+<pre class="matlab">
+>> <font class="matlab">y = x.^3</font> <br>
+y = <br>
+   Columns 1 through 7 <br>
+          0    0.0010    0.0080    0.0270    0.0640    0.1250    0.2160 <br>
+   Columns 8 through 11 <br>
+     0.3430    0.5120    0.7290    1.0000
+</pre>
+
+<p>Each component of <font class="matlab">y</font> is the cube of the
+corresponding component in <font class="matlab">x</font>.  Finally, the
+following call to the <em>Matlab</em> function <font class="matlab">plot</font>
+draws the graph of \(f\) over the interval \([0,1]\).  The
+function <font class="matlab">plot</font> use linear interpolation 
+between the \(11\) equally spaced points to approximate the graph of the
+function \(f\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">plot(x,y)</font>
+</pre>
+
+<p>After having pressed the <em>Enter</em> key, a new window pops up
+with a figure containing the graph of the function.</p>
+
+<div class="center">
+  <img src="Matlab_figure1.gif" style="width: 300px" alt="Graph of x^3">
+</div>
+
+<p>More equally spaced points will produce a more accurate graph of
+the function.</p> 
+</div>
+
+<p>It is possible to include in the same figure the graphs of several
+functions.  The command <font class="matlab">hold on</font> after
+having produce the first figure tells <em>Matlab</em> to draw the
+following graphs in the existing figure.   The command
+<font class="matlab">hold off</font> returns <em>Matlan</em> to the
+default mode which is to replace the present figure by a new one.</p>
+
+<div class="Example">
+<p><em>Example</em>: Using the definition of the variable
+<font class="matlab">x</font> above and assuming that the previous
+figure exists (i.e. it has not been closed), the following 
+commands add the straight line \(y = x + 2\) to
+the previous figure containing the graph of \(f\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">hold on</font>
+>> <font class="matlab">z = x + 2;</font>
+>> <font class="matlab">plot(x,z,'r')</font>
+</pre>
+
+<p> The figure is now</p>
+
+<div class="center">
+  <img src="Matlab_figure2.gif" style="width: 300px"
+       alt="Graphes of x^3 and of x + 2">
+</div>
+</div>
+
+<p>In the previous example, the result of the <em>Matlab</em>
+expression <font class="matlab"> z = x + 2</font> is to add the
+value \(2\) to each component of <font class="matlab">x</font> and store the
+results in the variable <font class="matlab">z</font>.
+The \(\displaystyle i^{th}\) component of 
+<font class="matlab">z</font> is the sum of the \(\displaystyle i^{th}\)
+component of <font class="matlab">x</font> with \(2\).  This is one of
+the <em>unnatural behaviours</em> of <em>Matlab</em>.</p>
+
+<p>The option <font class="matlab">'r'</font> of the previous
+<font class="matlab">plot</font> command tells <em>Matlab</em> to draw
+the line \(y = x + 2\) in red.</p>
+
+<p>A title and axis labels can be added to the figure using
+the <em>Matlab</em> functions <font class="matlab">title</font> to
+produce the title, <font class="matlab">xlabel</font> to label the
+\(x\) axis and <font class="matlab">ylabel</font> to label the \(y\)
+axis.  The following example shows how to use these functions.</p>
+
+<div class="Example">
+<p><em>Example</em>: Suppose that the following commands are parts of
+the session that produced the previous figure and that this figure
+is still existing (i.e. the figure has not been closed).</p>
+
+<pre class="matlab">
+>> <font class="matlab">title('sample plotting with MATLAB')</font>
+>> <font class="matlab">xlabel('x-axis')</font>
+>> <font class="matlab">ylabel('y-axis')</font>
+</pre>
+
+<p> The effect of these commands is to add the title
+<em>sample plotting with MATLAB</em> and the labels to
+the axes to the previous figure to get the following figure.</p>
+
+<div class="center">
+  <img src="Matlab_figure5.gif" style="width: 300px"
+       alt="Graph of x^3 and x+2 with a title and labels">
+</div>
+</div>
+
+<h4>Drawing a Curve</h4>
+
+<p>Suppose that we want to draw a curve given by the parametric
+representation \( (x,y) = (f(t),g(t)) \) for \( a \leq t \leq b \).</p>
+
+<ol style="list-style-type:decimal;">
+<li> The first step is to create a list <font class="matlab">t</font>
+of mesh points for the interval \([a,b]\).  As we did for the graph of
+a function, it is usual to take \(N + 1\) equally spaced points in the interval 
+\([a,b]\).</li>
+<li> The second step is to evaluate the parametric representation at
+each of the mesh points.  As usual, we assume that the functions that
+define the components of the parametric representation are
+<em>array smart</em> functions.  The step can then be done with commands
+<font class="matlab">x = f(t)</font> and
+<font class="matlab">y = g(t)</font>.</li>
+<li> Finally, we use the command
+<font class="matlab">plot(x,y, options)</font> to draw the curve.</li>
+</ol>
+
+<div class="Example">
+<p><em>Example</em>: Suppose that we want to plot the curve with the parametric
+representation \( (x,y) = (\sin(t), t\cos(t)) \) for
+\(0 \leq  t \leq 20 \).</p>
+
+<p>The following <em>Matlab<em> commands draw this curve.</p>
+
+<pre class="matlab">
+>> <font class="matlab">t = 0:0.05:20;</font>
+>> <font class="matlab">x = sin(t);</font>
+>> <font class="matlab">y = t.*cos(t);</font>
+>> <font class="matlab">plot(x,y,'b');</font>
+>> <font class="matlab">xlabel('x');</font>
+>> <font class="matlab">ylabel('y');</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure6.png" style="width: 300px"
+       alt="Drawing of the curve t -> (sin(t), t cos(t) ) for 0 <=t<=20.">
+</div>
+
+<p>To mark the points on the curve with \(t\) an integer, we use
+the following commands.</p>
+
+<pre class="matlab">
+>> <font class="matlab">hold on</font>
+>> <font class="matlab">t = 0:1:20;</font>
+>> <font class="matlab">x = sin(t);</font>
+>> <font class="matlab">y = t.*cos(t);</font>
+>> <font class="matlab">plot(x,y,'*b');</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure10.png" style="width: 300px"
+       alt="Drawing of the curve t -> (sin(t), t cos(t) ) for 0<=t<=20 with an asterix at each of the points on the curve given by t an integer.">
+</div>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect11"> Interpolation </h3>
+
+<p>Polynomial interpolation can be used in <em>Matlab</em>.</p>
+
+<div class="Example">
+<p><em>Example</em>: We draw the linear interpolation of the function
+\(f\) associated to the data in the table below.</p>
+
+<table style="width: inherit;">
+<tr>
+<th class="center"> x </th>
+<td> 0 </td>
+<td> 0.7854 </td>
+<td> 1.5708 </td>
+<td> 2.3562 </td>
+<td> 3.1416 </td>
+</tr>
+<tr>
+<th class="center"> y </th>
+<td> 0 </td>
+<td> 0.5554 </td>
+<td> 1.5708 </td>
+<td> 1.6661 </td>
+<td> 0.0000 </td>
+</tr>
+</table>
+
+<p> The data for \(x\) and \(y\) are stored in two vectors in
+<em>Matlab</em>.</p> 
+
+<pre class="matlab">
+>> <font class="matlab">x = [ 0  0.7854  1.5708  2.3562  3.1416 ] </font><br>
+x = <br>
+         0    0.7854    1.5708    2.3562    3.1416 <br>
+>> <font class="matlab">y = [ 0  0.5554  1.5708  1.6661  0.0000 ]</font><br>
+y = <br>
+         0    0.5554    1.5708    1.6661         0
+</pre>
+
+<p>It is in fact easier to draw the linear interpolation of \(f\) than to
+evaluate \(f\) at some points.  Assuming that the previous figure has been
+closed (or that the command <font class="matlab">hold off</font> has
+been used), the following command draws the linear interpolation of
+\(f\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">plot(x,y);</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure7.png" style="width: 300px"
+       alt="Graph of the linear interpolation of f">
+</div>
+</div>
+
+<p>The linear interpolation of \(f\) can be evaluated at some points
+using the <em>Matlab</em> function <font class="matlab">interp1</font>.</p>
+
+<div class="Example">
+<p><em>Example</em>: Suppose that the points where the linear interpolation
+of \(f\) has to be evaluated are \(0, \pi/10 , \pi/5 , 3\pi/10, \ldots, \pi\). 
+These points may be listed in <em>Matlab</em> as it follows. </p>
+
+<pre class="matlab">
+>> <font class="matlab">z = linspace(0,pi,11)</font><br>
+z = <br>
+   Columns 1 through 9 <br>
+       0    0.3142    0.6283    0.9425    1.2566    1.5708    1.8850   2.1991    2.5133 <br>
+   Columns 10 through 11 <br>
+       2.8274    3.1416
+</pre>
+
+<p>The next <em>Matlab</em> command computes the value of the linear
+interpolation of \(f\) at the \(11\) equally spaced points
+in <font class="matlab">z</font>.</p>
+
+<pre class="matlab">
+>> <font class="matlab">w = interp1(x,y,z,'linear')</font> <br>
+w = <br>
+   Columns 1 through 9 <br>
+       0    0.2222    0.4443    0.7585    1.1646    1.5708    1.6089    1.6470    1.3329 <br>
+   Columns 10 through 11 <br>
+       0.6665    0.0000
+</pre>
+
+<p>The \(\displaystyle k^{th}\) component
+of <font class="matlab">w</font> is the value of the 
+linear interpolation of the function \(f\) at the
+\(\displaystyle k^{th}\) component
+of <font class="matlab">z</font>.  The following commands plot the points
+with coordinates \((x,y)\) where \(x\) and \(y\) are the
+\(\displaystyle k^{th}\)
+components of <font class="matlab">z</font> and
+<font class="matlab">w</font> respectively
+for \(k = 1, 2, \ldots, 11\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">hold on</font>
+>> <font class="matlab">plot(z,w,'or');</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure8.png" style="width: 300px"
+       alt="Graph of the linear interpolation of f and the points above">
+</div>
+
+<p>The third argument in <font class="matlab">plot</font> above
+tells <em>Matlab</em> to only plot a red circle at each point.</p>
+</div>
+
+<p> There are other methods of interpolation than linear (the default)
+like cubic and spline.  To use these methods, it suffices to follow
+the steps in the previous example but substituting
+<font class="matlab">linear</font> by
+<font class="matlab">cubic</font> or <font class="matlab">spline</font>.
+To compare these methods, the reader should try these methods with the
+previous example. </p>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect18"> Three Dimensional Plotting in Matlab </h3>
+
+<h4>Graph of a Function</h4>
+
+<p> The procedure to draw the graph of a real valued function of two
+variables is very similar to the procedure to draw a real
+valued function of one variable.  Suppose that we want to plot the
+graph of a function \(f\) defined on the rectangle \([a,b]\times [c,d]\).</p>
+
+<ol style="list-style-type:decimal;">
+<li> The first step is to create mesh points.  For a function of
+two variables, we use the command <em>meshgrid</em>.  This function
+takes two lists of mesh points, a list <font class="matlab">x</font>
+of mesh points for the interval \([a,b]\) and a list
+<font class="matlab">y</font> of mesh points for the interval \([c,d]\),
+and returns two matrices.  Suppose
+that <font class="matlab">x</font> is a list of
+N<sub>x</sub> mesh points and <font class="matlab">y</font> is a list of
+N<sub>y</sub> mesh points.  Then
+<font class="matlab">[X,Y] = meshgrid(x,y)</font> returns two matrices,
+<font class="matlab">X</font> and <font class="matlab">Y</font>, of
+dimensions N<sub>y</sub> &times; N<sub>x</sub>, where the list of mesh
+points <font class="matlab">x</font> is repeated in each row of
+<font class="matlab">X</font> and the list of mesh points
+<font class="matlab">y</font> is repeated in each collumn of
+<font class="matlab">Y</font>.  Hence, the (i,j) componente of
+<font class="matlab">X</font> and the (i,j) conponente of
+<font class="matlab">y</font> gives the point
+<font class="matlab">(x<sub>j</sub>,y<sub>i</sub>)</font> where
+<font class="matlab">x<sub>j</sub></font> is the j<sup>th</sup> mesh point of
+<font class="matlab">x</font> and
+<font class="matlab">y<sub>i</sub></font> is the i<sup>th</sup> mesh point of
+<font class="matlab">y</font>.</li>
+<li> The second step is to evaluate the function at each of the mesh
+points <font class="matlab">(x<sub>j</sub>,y<sub>i</sub>)</font>.
+As usual, we assume that the function function is <em>array smart</em>.
+The step can then be done with the command
+<font class="matlab">Z = f(X,Y)</font>.
+The matrix <font class="matlab">Z</font> returned by the function is
+of dimension N<sub>y</sub> &times; N<sub>x</sub> where the (i,j)
+componente of <font class="matlab">Z</font> is the value of
+<font class="matlab">f</font> at the point 
+<font class="matlab">(x<sub>j</sub>,y<sub>i</sub>)</font>.</li>
+<li> Finally, we use the command
+<font class="matlab">surf(X,Y,Z,options)</font> to draw the graph.</li>
+</ol>
+
+<div class="Example">
+<p><em>Example</em>: To plot the graph of the function \(f\)
+defined by \(f(x,y) = sin(x+y) x^2 y \) for \(-5 \leq x \leq 5\) and
+\(-3 \leq y \leq 3\), we use the following commands. </p>
+
+<pre class="matlab">
+>> <font class="matlab">[X,Y] = meshgrid(-5:0.1:5,-3:0.1:3);</font>
+>> <font class="matlab">Z = sin(X+Y).*X.^2.*Y;</font>
+>> <font class="matlab">surf(X,Y,Z); </font>
+>> <font class="matlab">xlabel('x') , ylabel('y') , zlabel('z');</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure9.png" style="width: 300px"
+       alt="Graph of sin(x+y) x^2 y">
+</div>
+</div>
+
+<p>If we select the option
+<em>Tools &Longrightarrow; GUI mode (on all axes) &Longrightarrow;
+Rotate on</em> in the menu on
+the top of the window displaying the figure, we can then use the left
+button of our mouse to rotate the figure in the space.  This is quite
+useful when we need to change the direction to look at the graph in
+order to get a better representation of the graph.</p>
+
+<h4>Drawing a Curve</h4>
+
+<p> The procedure to draw the graph of a real valued function of two
+variables is basically identical to the procedure to draw a real
+valued function of one variable.  Suppose that we want to draw a curve
+given by the parametric representation
+\( (x,y,z) = (f(t),g(t),h(t)) \) for \( a \leq t \leq b \).</p>
+
+<ol style="list-style-type:decimal;">
+<li> The first step is to create a list <font class="matlab">t</font>
+of mesh points for the interval \([a,b]\).</li>
+<li> The second step is to evaluate the parametric representation at
+each of the mesh points.  As usual, we assume that the functions that
+define the components of the parametric representation are
+<em>array smart</em> functions.  The step can then be done with commands
+<font class="matlab">x = f(t)</font>, <font class="matlab">y = g(t)</font>
+and <font class="matlab">z = h(t)</font>.</li>
+<li> Finally, we use the command
+<font class="matlab">plot3(x,y,z,options)</font> to draw the curve.</li>
+</ol>
+
+<div class="Example">
+<p><em>Example</em>: Suppose that we want to plot the curve with the parametric
+representation \( (x,y) = (\sin(t), t\cos(t), t^2)  \) for
+\(0 \leq  t \leq 20 \).</p>
+
+<p>The following <em>Matlab<em> commands draw this curve.</p>
+
+<pre class="matlab">
+>> <font class="matlab">t = 0:0.05:20;</font>
+>> <font class="matlab">x = sin(t);</font>
+>> <font class="matlab">y = t.*cos(t);</font>
+>> <font class="matlab">z = t.^2;</font>
+>> <font class="matlab">plot3(x,y,z,'b');</font>
+>> <font class="matlab">xlabel('x');</font>
+>> <font class="matlab">ylabel('y');</font>
+>> <font class="matlab">zlabel('z');</font>
+>> <font class="matlab">grid on</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure11.png" style="width: 300px"
+       alt="Drawing of the curve t -> (sin(t), t cos(t), t^2) for 0 <=t<=20.">
+</div>
+</div>
+
+<h4> More on Drawing</h4>
+
+<p>All types of plots that are available with <em>Matlab</em> are
+liste don the website
+<script language="javascript"> 
+  buildLinK("https://www.mathworks.com/help/matlab/creating_plots/types-of-matlab-plots.html",
+  "Types or MATLAB Plots", "MMathSStat","matlabID", "_blank");
+</script>.  We are only going to present examples for some of them.</p>
+
+<div class="Example">
+<p><em>Example</em>: To plot 10 level curves of the function \(f\)
+defined by \(f(x,y) = sin(x+y) x^2 y \) for \(-5 \leq x \leq 5\) and
+\(-3 \leq y \leq 3\), we use the following commands. </p>
+
+<pre class="matlab">
+>> <font class="matlab">[X,Y] = meshgrid(-5:0.1:5,-3:0.1:3);</font>
+>> <font class="matlab">Z = sin(X+Y).*X.^2.*Y;</font>
+>> <font class="matlab">contour(X,Y,Z,10,'ShowText','on'); </font>
+>> <font class="matlab">xlabel('x') , ylabel('y');</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure12.png" style="width: 400px"
+       alt="10 level curves of the function f(x,y) = sin(x+y) x^2 y">
+</div>
+
+<p>We may select the level curve that we want to plot.  For instance,
+suppose that we want the level curves qiven by
+\(f(x,y) = -2\) and \(f(x,y) = -6\).  We can plot them with the
+following commands. </p>  
+
+<pre class="matlab">
+>> <font class="matlab">contour(X,Y,Z,[-2,-6],'ShowText','on'); </font>
+>> <font class="matlab">xlabel('x') , ylabel('y');</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure13.png" style="width: 400px"
+       alt="Plot of the level curves f(x,y) = -2 and f(x,y) = -6">
+</div>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: To plot the curve defined by the equation in
+polar coordinates \( r = 1 + \cos(\theta) \), we use the following
+commands.</p>
+
+<pre class="matlab">
+>> <font class="matlab">theta = 0:0.01:2*pi;</font>
+>> <font class="matlab">r = 1 +cos(theta);</font>
+>> <font class="matlab">polarplot(theta,rho);</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure14.png" style="width: 400px"
+       alt="Drawing of the curve r = 1 + cos(theta) for 0 <= theta <= 2 pi">
+</div>
+</div>
+
+<p>The function <font class="matlab">polarplot</font> is not
+implemented in <em>Octave</em>.  Instead, we have to use the
+<font class="matlab">polar</font>.</p>
+
+<p>There are versions of the functions
+<font class="matlab">plot</font>, <font class="matlab">surf</font>,
+<font class="matlab">plot3</font> and <font class="matlab">contour</font>
+that can be used with the defined functions that we
+present in the document
+<script language="javascript"> 
+  buildLinK(matlabFunct.url_en, matlabFunct.text_en, "MMathSStat",
+  matlabFunct.id, matlabFunct.target);
+</script>.  That document also provides some examples using these new
+functions.</p>
+
+<hr class="MMathSStat">
+
+</div> <!--  The contents ends here -->
+
+<script language="javascript">
+bottom_function(matlabPlot,"en");
+</script>
+
+</body>
+</html>
