@@ -71,7 +71,7 @@ main_title( MStext, "MMathSStat");
 <div class="center"><em>Content</em></div>
 <ul>
   <li> <script language="javascript"> 
-      buildLinK("#Sect10", "Two Dimensional Plotting in Matlab",
+      buildLinK("#Sect10", "Drawings in &#8477;<sup>2</sup>",
       "MMathSStat", "sect10ID", "_top");
   </script> </li>
   <li> <script language="javascript"> 
@@ -79,21 +79,21 @@ main_title( MStext, "MMathSStat");
       "MMathSStat", "sect11ID", "_top");
   </script> </li>
   <li> <script language="javascript"> 
-      buildLinK("#Sect18", "Three Dimensional Plotting in Matlab",
+      buildLinK("#Sect18", "Drawings in &#8477;<sup>3</sup>",
       "MMathSStat", "sect18ID", "_top");
   </script> </li>
 </ul>
 </div>
 
-<p> One of the main quality of <em>Matlab</em> is its capability to
-visualize mathematical results.  It could be plotting graphs of
-functions, representing data sets with charts, etc.  The focus of
+<p> One of the main qualities of <em>Matlab</em> is its capability to
+visualize mathematical results.  It can plot graphs of functions,
+represents data sets using charts, etc.  The focus of 
 this document is on the representation of function.  This choice is
 motivated by our personal needs. </p>
 
 <hr class="MMathSStat" style="clear: both;">
 
-<h3 id="Sect10"> Two Dimensional Plotting in Matlab </h3>
+<h3 id="Sect10"> Drawings in &#8477;<sup>2</sup> </h3>
 
 <h4>Graph of a Function</h4>
 
@@ -106,7 +106,7 @@ of mesh points for the interval \([a,b]\).  It is usual to take \(N + 1\)
 equally spaced points in the interval \([a,b]\).
 One way to create such a list is with the command
 <font class="matlab">x = a : h : b </font> where
-<font class="matlab"> h = (b-a)/N</font>.  Another way to create such a
+<font class="matlab"> h = (b-a)/N</font>.  Another way to create the same
 list is with the command <font class="matlab">x = linspace(a,b,N+1)</font>.
 </li>
 <li> The second step is to evaluate the function at each of the mesh
@@ -118,13 +118,14 @@ the simple command <font class="matlab">y = f(x)</font>.</li>
 <font class="matlab">plot(x,y, options)</font> to draw the graph.
 There are several available options.  We use some of them in
 the examples below.  The reader may use the help for the function
-<font class="matlab">plot</font> to get a full list of these options.</li>
+<font class="matlab">plot</font> to get a complete listing of these
+options.</li>
 </ol>
 
 <div class="Example">
 <p><em>Example</em>: We consider the function \(f\) defined by
 \(\displaystyle f(x) = x^3\) on the interval \([0,1]\).  The following
-two examples show how to generate \(11\) equally spaced points (\(10\)
+two commandes show how to generate \(11\) equally spaced points (\(10\)
 subintervals) including the end points of the interval.</p>
 
 <pre class="matlab">
@@ -169,6 +170,7 @@ function \(f\).</p>
 
 <pre class="matlab">
 >> <font class="matlab">plot(x,y)</font>
+>> <font class="matlab">grid on</font>
 </pre>
 
 <p>After having pressed the <em>Enter</em> key, a new window pops up
@@ -208,6 +210,10 @@ the previous figure containing the graph of \(f\).</p>
   <img src="Matlab_figure2.png" style="width: 300px"
        alt="Graphes of x^3 and of x + 2">
 </div>
+
+<p>The option <font class="matlab">'r'</font> of the previous
+<font class="matlab">plot</font> command tells <em>Matlab</em> to draw
+the line \(y = x + 2\) in red.</p>
 </div>
 
 <p>In the previous example, the result of the <em>Matlab</em>
@@ -216,10 +222,6 @@ value \(2\) to each component of <font class="matlab">x</font> and store the
 results in the variable <font class="matlab">z</font>.
 Thus <font class="matlab">z(i) = x(i) + 2</font> for all i.  This is one of
 the <em>unnatural behaviours</em> of <em>Matlab</em>.</p>
-
-<p>The option <font class="matlab">'r'</font> of the previous
-<font class="matlab">plot</font> command tells <em>Matlab</em> to draw
-the line \(y = x + 2\) in red.</p>
 
 <p>A title and axis labels can be added to the figure using
 the <em>Matlab</em> functions <font class="matlab">title</font> to
@@ -233,14 +235,15 @@ the session that produced the previous figure and that this figure
 is still existing (i.e. the figure has not been closed).</p>
 
 <pre class="matlab">
->> <font class="matlab">title('sample plotting with MATLAB')</font>
+>> <font class="matlab">title('Sample plotting with MATLAB')</font>
 >> <font class="matlab">xlabel('x-axis')</font>
 >> <font class="matlab">ylabel('y-axis')</font>
 </pre>
 
-<p> The effect of these commands is to add the title
-<em>sample plotting with MATLAB</em> and the labels to
-the axes to the previous figure to get the following figure.</p>
+<p> These commands add to the previous figure the
+title <q lang="en">Sample plotting with MATLAB</q> and the labels
+<q lang="en">x-axis</q> and <q lang="en">y-axis</q>
+to obtain the following figure.</p>
 
 <div class="center">
   <img src="Matlab_figure5.png" style="width: 300px"
@@ -262,7 +265,7 @@ interval \([a,b]\).</li>
 each of the mesh points.  As usual, we assume that the functions
 <font class="matlab">f</font> and <font class="matlab">g</font>
 that form the components of the parametric representation are
-<em>array smart</em> functions.  The step can then be completed with commands
+<em>array smart</em>.  This step can then be completed with commands
 <font class="matlab">x = f(t)</font> and
 <font class="matlab">y = g(t)</font>.</li>
 <li> Finally, we use the command
@@ -303,8 +306,11 @@ values of \(t\), we use the following commands.</p>
 
 <div class="center">
   <img src="Matlab_figure10.png" style="width: 300px"
-       alt="Drawing of the curve t -> (sin(t), t cos(t) ) for 0<=t<=20 with an asterix at each of the points on the curve given by an integer value of t.">
+       alt="Drawing of the curve t -> (sin(t), t cos(t) ) for 0<=t<=20 with an asterisk at each point of the curve given by an integer value of t.">
 </div>
+
+<p>The third argument in <font class="matlab">plot</font> above
+tells <em>Matlab</em> to only plot a red asterisk at each point.</p>
 </div>
 
 <hr class="MMathSStat">
@@ -348,8 +354,7 @@ y = <br>
          0    0.5554    1.5708    1.6661         0
 </pre>
 
-<p>It is in fact easier to draw the linear interpolation of \(f\) than to
-evaluate \(f\) at some points.  Assuming that the previous figure has been
+<p> Assuming that the previous figure has been
 closed (or that the command <font class="matlab">hold off</font> has
 been used), the following command draws the linear interpolation of
 \(f\).</p>
@@ -395,7 +400,7 @@ w = <br>
 </pre>
 
 <p>We have that <font class="matlab">w(k)</font> is the value of the 
-linear interpolation of the function \(f\) at
+linear interpolation of the function \(f\) evaluated at
 <font class="matlab">z(k)</font>.  The following commands plot the points
 with coordinates \((x,y)\) where \(x\) and \(y\) are
 <font class="matlab">z(k)</font> and
@@ -416,17 +421,17 @@ for \(k = 1, 2, \ldots, 11\).</p>
 tells <em>Matlab</em> to only plot a red circle at each point.</p>
 </div>
 
-<p> There are other methods of interpolation than linear (the default)
+<p> There are other methods of interpolation than linear (the default),
 like cubic and spline.  To use these methods, it suffices to follow
 the steps in the previous example but substituting
 <font class="matlab">linear</font> by
 <font class="matlab">cubic</font> or <font class="matlab">spline</font>.
-To compare these methods, the reader should try these methods with the
-previous example. </p>
+To compare these methods, the reader should try these methods with
+the two previous examples. </p>
 
 <hr class="MMathSStat">
 
-<h3 id="Sect18"> Three Dimensional Plotting in Matlab </h3>
+<h3 id="Sect18"> Drawings in &#8477;<sup>3</sup> </h3>
 
 <h4>Graph of a Function</h4>
 
@@ -458,12 +463,12 @@ points <font class="matlab">x</font> is repeated in each row of
 <li> The second step is to evaluate the function at each of the mesh
 points <font class="matlab">(x(j),y(i))</font>.
 As usual, we assume that the function
-function <font class="matlab">f</font> is <em>array smart</em>.
+<font class="matlab">f</font> is <em>array smart</em>.
 This step can then be completed with the command
 <font class="matlab">Z = f(X,Y)</font>.
 The matrix <font class="matlab">Z</font> generated by the function
 <font class="matlab">f</font> is
-of dimension N<sub>y</sub> &times; N<sub>x</sub> where
+of dimensions N<sub>y</sub> &times; N<sub>x</sub> where
 <font class="matlab">Z(i,j)</font> is the value of
 <font class="matlab">f</font> at the point 
 <font class="matlab">(x(j),y(i))</font>.</li>
@@ -511,8 +516,8 @@ of mesh points for the interval \([a,b]\).</li>
 each of the mesh points.  As usual, we assume that the functions
 <font class="matlab">f</font>, <font class="matlab">g</font> and
 <font class="matlab">h</font> that form the components of the
-parametric representation are <em>array smart</em> functions.
-The step can then be completed with commands
+parametric representation are <em>array smart</em>.
+This step can then be completed with commands
 <font class="matlab">x = f(t)</font>, <font class="matlab">y = g(t)</font>
 and <font class="matlab">z = h(t)</font>.</li>
 <li> Finally, we use the command
@@ -524,7 +529,7 @@ and <font class="matlab">z = h(t)</font>.</li>
 the parametric representation \( (x,y) = (\sin(t), t\cos(t), t^2)  \) for
 \(0 \leq  t \leq 20 \).</p>
 
-<p>The following <em>Matlab<em> commands draw this curve.</p>
+<p>The following <em>Matlab</em> commands draw this curve.</p>
 
 <pre class="matlab">
 >> <font class="matlab">t = 0:0.05:20;</font>
@@ -584,7 +589,8 @@ command to observe how the frame of the box is drawn.  For instance, the first
 call to <font class="matlab">plot3</font> draws successively a
 straight line from \( (0.0.0) \) to \( (1,0,0) \),
 a straight line from \( (1,0,0) \) to \( (1,1,0) \),
-a straight line from \( (1,1,0) \) back to \( (0,0,0) \),
+a straight line from \( (1,1,0) \) to \( (0,1,0) \),
+a straight line from \( (0,1,0) \) back to \( (0,0,0) \),
 a straight line from \( (0,0,0) \) to \( (0,0,1) \), and so one.  The
 other calls to <font class="matlab">plot3</font> draw the missing
 edges of the box. 
@@ -615,7 +621,7 @@ after \( (NaN,NaN,NaN) \).  For instance, no straight line is drawn
 between \( (0,0,1) \) and \( (NaN,NaN,NaN) \).</p>
 
 <p> We can use the following command to rotate the frame of our box by 45
-degrees around the axis in the direction \( (1,1,1)\), .</p>
+degrees around the axis that contains the vector \( (1,1,1)\), .</p>
 
 <pre class="matlab">
 >> <font class="matlab"> rotate(cube, [ 1 1 1 ], 45 ); </font>
@@ -625,6 +631,10 @@ degrees around the axis in the direction \( (1,1,1)\), .</p>
   <img src="Matlab_figure17.png" style="width: 350px"
        alt="Drawing of the frame of our box after the rotation">
 </div>
+
+<p>It is possible to perform more general rotation in
+\(\displaystyle \mathbb{R}^3\) by selecting origin and direction of
+the axis of rotation.</p>
 </div>
 
 <h4> More on Drawing</h4>
@@ -653,7 +663,7 @@ defined by \(f(x,y) = \sin(x+y) x^2 y \) for \(-5 \leq x \leq 5\) and
        alt="10 level curves of the function f(x,y) = sin(x+y) x^2 y">
 </div>
 
-<p>We may select the level curve that we want to plot.  For instance,
+<p>We may select the level curves that we want to plot.  For instance,
 suppose that we want the level curves given by
 \(f(x,y) = -2\) and \(f(x,y) = -6\).  We can plot them with the
 following command. </p>  
@@ -686,7 +696,7 @@ commands.</p>
 </div>
 
 <p>The function <font class="matlab">polarplot</font> is not
-implemented in <em>Octave</em>.  The <font class="matlab">polar</font>
+implemented in <em>Octave</em>.  The function <font class="matlab">polar</font>
 may be used instead.</p>
 </div>
 
@@ -748,6 +758,13 @@ display the surface of revolution horizontally instead of vertically.
 We also have to map the value on each row
 of <font class="matlab">Z</font> to its associated value of
 <font class="matlab">x</font>.</p>
+
+<p><em>Hint</em>: Increasing the number of mesh points in
+<font class="matlab">x</font> will generate a smoother surface of
+revolution but the resulting figure may not display a clear image of
+the surface of revolution.  The reader should repeat this example
+with <font class="matlab">x = 0:0.01:4;</font> to understand why it is
+so.</p>
 </div>
 
 <p>There are versions of the functions

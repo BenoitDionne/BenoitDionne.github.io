@@ -71,7 +71,7 @@ main_title( MStexte, "MMathSStat");
 <div class="center"><em>Contenu</em></div>
 <ul>
   <li> <script language="javascript"> 
-      buildLinK("#Sect10", "Tracer en deux dimensions avec Matlab",
+      buildLinK("#Sect10", "Dessins dans &#8477;<sup>2</sup>",
       "MMathSStat", "sect10ID", "_top");
   </script> </li>
   <li> <script language="javascript"> 
@@ -79,7 +79,7 @@ main_title( MStexte, "MMathSStat");
       "MMathSStat", "sect11ID", "_top");
   </script> </li>
   <li> <script language="javascript"> 
-      buildLinK("#Sect18", "Tracer en trois dimensions avec Matlab",
+      buildLinK("#Sect18", "Dessins dans &#8477;<sup>3</sup>",
       "MMathSStat", "sect18ID", "_top");
   </script> </li>
 </ul>
@@ -87,13 +87,13 @@ main_title( MStexte, "MMathSStat");
 
 <p> Une des qualités principales de <em>Matlab</em> est sa capacité
 à visualiser les résultats mathématiques.  Il peut tracer des graphes
-de fonctions, représenter des ensembles de données graphiques, etc
-l'accent de ce document est sur la représentation des fonctions.  Ce
+de fonctions, représenter des ensembles de données à l'aide de graphiques, etc.
+L'accent de ce document est sur la représentation des fonctions.  Ce
 choix est motivé par nos besoins personnels. </p>
 
 <hr class="MMathSStat" style="clear: both;">
 
-<h3 id="Sect10"> Tracer en deux dimensions avec Matlab </h3>
+<h3 id="Sect10"> Dessins dans &#8477;<sup>2</sup></h3>
 
 <h4>Graphe d'une fonction</h4>
 
@@ -108,7 +108,7 @@ points également distancés de l'intervalle \([a,b]\).  Une façon de
 créer une telle liste est avec la commande
 <font class="matlab">x = a : h : b </font> où
 <font class="matlab"> h = (b-a)/N</font>.  Une autre façon de créer
-une telle liste est avec la commande
+la même liste est avec la commande
 <font class="matlab">x = linspace(a,b,N+1)</font>. </li>
 <li> La deuxième étape est d'évaluer la fonction à chacun des points
 du maillage.  Pour bénéficier de l'optimisation de <em>Matlab</em>, la
@@ -128,9 +128,9 @@ liste complète de ces options.</li>
 
 <div class="Example">
 <p><em>Exemple</em>: On considère la fonction \(f\) définie par
-\(\displaystyle y = f(x) = x^3\) sur l'intervalle \([0,1]\).  Les deux exemples
-suivants illustrent comment générer \(11\) points également distancés
-(\(10\) sous-intervalles) incluant les deux points limites de
+\(\displaystyle y = f(x) = x^3\) sur l'intervalle \([0,1]\).  Les deux
+commandes suivantes illustrent comment générer \(11\) points également
+distancés (\(10\) sous-intervalles) incluant les deux points limites de
 l'intervalle.</p>
 
 <pre class="matlab">
@@ -177,6 +177,7 @@ fonction \(f\).</p>
 
 <pre class="matlab">
 >> <font class="matlab">plot(x,y)</font>
+>> <font class="matlab">grid on</font>
 </pre>
 
 <p>Après avoir pressé la touche <em>Enter</em>, une nouvelle fenêtre s'ouvre
@@ -217,6 +218,10 @@ graphe de \(f\).</p>
   <img src="Matlab_figure2.png" style="width: 300px"
        alt="Graphes x^3 et de x + 2">
 </div>
+
+<p>L'option <font class="matlab">'r'</font> de la commande
+<font class="matlab">plot</font> précédente force <em>Matlab</em> à
+tracer la droite \(y = x + 2\) en rouge.</p>
 </div>
 
 <p>Dans l'exemple précédent, le résultat de l'expression
@@ -226,10 +231,6 @@ est d'additionner la valeur \(2\) à chacune des composantes de
 résultats dans la variable <font class="matlab">z</font>.
 Donc <font class="matlab">z(i) = x(i) + 2</font> pour tous i.
 C'est un des <em>comportement anormal</em> de <em>Matlab</em>.</p>
-
-<p>L'option <font class="matlab">'r'</font> de la commande
-<font class="matlab">plot</font> précédente force <em>Matlab</em> à
-tracer la droite \(y = x + 2\) en rouge.</p>
 
 <p>Un titre et des étiquettes pour les axes peuvent être ajoutés à la
 figure à l'aide des fonctions <font class="matlab">title</font> pour
@@ -244,17 +245,18 @@ parties de la session qui a produit la figure précédente et que
 cette figure existe toujours (i.e. elle n'a pas été fermée).</p>
 
 <pre class="matlab">
->> <font class="matlab">title('sample plotting with MATLAB')</font>
->> <font class="matlab">xlabel('x-axis')</font>
->> <font class="matlab">ylabel('y-axis')</font>
+>> <font class="matlab">title('Exemple de dessin avec MATLAB')</font>
+>> <font class="matlab">xlabel('axe des x')</font>
+>> <font class="matlab">ylabel('axe des y')</font>
 </pre>
 
-<p> Le résultat de ces commandes est l'ajout du titre
-<em>sample plotting with MATLAB</em> et des étiquettes
-aux axes de la figure précédente pour obtenir la figure suivante.</p>
+<p> Ces commandes ont pour effet d'ajouter à la figure précédente le
+titre <q lang="fr">Exemple de dessin avec MATLAB</q> et des étiquettes
+<q lang="fr">axe des x</q> et <q lang="fr">axe des y</q>
+pour obtenir la figure suivante.</p>
 
 <div class="center">
-  <img src="Matlab_figure5.png" style="width: 300px"
+  <img src="Matlab_figure5_fr.png" style="width: 300px"
        alt="Graphe de x^3 et x+2 avec un titre et des étiquettes">
 </div>
 </div>
@@ -276,7 +278,7 @@ chacun des points du maillage.  Comme d'habitude, nous assumons que les
 fonctions <font class="matlab">f</font> et <font class="matlab">g</font>
 qui forment les composantes de la représentation paramétrique
 sont <em>array smart</em>.  Cette étape peut
-alors être complété avec les commandes 
+alors être complétée avec les commandes 
 <font class="matlab">x = f(t)</font> et
 <font class="matlab">y = g(t)</font>.</li>
 <li> Finalement, nous utilisons la commande
@@ -317,8 +319,12 @@ valeurs entières de \(t\), nous utilisons les commandes suivantes.</p>
 
 <div class="center">
   <img src="Matlab_figure10.png" style="width: 300px"
-       alt="Dessin de la courbe t -> (sin(t), t cos(t) ) pour 0<=t<=20 avec un astérix à chaque point sur la courbe qui est donné par une valeur entière de t">
+       alt="Dessin de la courbe t -> (sin(t), t cos(t) ) pour 0<=t<=20 avec un astérisque à chaque point sur la courbe qui est donné par une valeur entière de t">
 </div>
+
+<p>Le troisième argument de <font class="matlab">plot</font> ci-dessus
+force <em>Matlab</em> à tracer seulement un astérisque bleu à chacun
+des points.</p>
 </div>
 
 <hr class="MMathSStat">
@@ -362,8 +368,7 @@ y = <br>
          0    0.5554    1.5708    1.6661         0
 </pre>
 
-<p>Il est en fait plus facile de tracer l'interpolation linéaire de
-\(f\) que d'évaluer \(f\) à des points. Si nous assumons que la
+<p> Si nous assumons que la
 figure précédente n'est plus présente (ou que la commande
 <font class="matlab">hold off</font> a été utilisée), alors la commande
 suivante trace l'interpolation linéaire de \(f\).</p> 
@@ -398,7 +403,7 @@ z = <br>
        2.8274    3.1416
 </pre>
 
-<p>La commande suivante dans <em>Matlab</em> calcul la valeur de
+<p>La commande suivante dans <em>Matlab</em> calcule la valeur de
 l'interpolation linéaire de \(f\) aux \(11\) points également
 distancés donnés par <font class="matlab">z</font>.</p>
 
@@ -412,7 +417,7 @@ w = <br>
 </pre>
 
 <p>Nous avons que <font class="matlab">w(k)</font> est la
-valeur de l'interpolation linéaire de la fonction \(f\) au point
+valeur de l'interpolation linéaire de la fonction \(f\) évaluée au point
 <font class="matlab">z(k)</font>.
 Les commandes suivantes tracent les points de coordonnées \((x,y)\) où
 \(x\) et \(y\) sont <font class="matlab">z(k)</font> et 
@@ -434,17 +439,18 @@ force <em>Matlab</em> à tracer seulement un cercle rouge pour chacun
 des points.</p>
 </div>
 
-<p> Il y a d'autres méthodes d'interpolation que linéaire (le défaut)
-comme cubique et <q lang="fr">spline</q>.  Pour utiliser ces méthodes,
-il suffit de suivre les même étapes que nous avons présentées dans
-  l'exemple précédant mais en remplaçant <font class="matlab">linear</font> par
+<p> Il y a d'autres méthodes d'interpolation que linéaire (le défaut),
+comme par exemple cubique et <q lang="fr">spline</q>.  Pour utiliser
+ces méthodes, il suffit de suivre les même étapes que nous avons
+présentées dans l'exemple précédant mais en
+remplaçant <font class="matlab">linear</font> par 
 <font class="matlab">cubic</font> ou <font class="matlab">spline</font>.
-Le lecteur devrait essayé ces méthodes avec l'exemple précédent afin
-de comparer ces méthodes. </p>
+Le lecteur devrait essayé ces méthodes avec les deux exemples
+précédents afin de comparer ces méthodes. </p>
 
 <hr class="MMathSStat">
 
-<h3 id="Sect18"> Tracer en trois dimension avec Matlab </h3>
+<h3 id="Sect18"> Dessins dans &#8477;<sup>3</sup></h3>
 
 <h4>Graphe d'une fonction</h4>
 
@@ -467,7 +473,7 @@ N<sub>x</sub> points et <font class="matlab">y</font> est un maillage
 avec N<sub>y</sub> points.  Alors
 <font class="matlab">[X,Y] = meshgrid(x,y)</font> produit deux matrices,
 <font class="matlab">X</font> et <font class="matlab">Y</font>, de
-dimensions N<sub>y</sub> &times; N<sub>x</sub>, où les points du
+dimensions N<sub>y</sub> &times; N<sub>x</sub> où les points du
 maillage <font class="matlab">x</font> sont répétés sur chacune des
 rangés de <font class="matlab">X</font> et les points du maillage
 <font class="matlab">y</font> sont répétés sur chacune des colonnes de
@@ -533,7 +539,7 @@ chacun des points du maillage.  Comme d'habitude, nous assumons que les
 fonctions <font class="matlab">f</font>, <font class="matlab">g</font>
 et <font class="matlab">h</font> qui forment les composantes de la
 représentation paramétrique sont <em>array smart</em>.  Cette étape peut
-alors être complété avec les commandes 
+alors être complétée avec les commandes 
 <font class="matlab">x = f(t)</font>, <font class="matlab">y = g(t)</font>
 et <font class="matlab">z = h(t)</font>.</li>
 <li> Finalement, nous utilisons la commande
@@ -608,11 +614,13 @@ centrée à l'origine.</p>
 dessiné.  Par exemple, la première commande
 <font class="matlab">plot3</font> dessine successivement le segment
 de \( (0.0.0) \) à \( (1,0,0) \), le segment de \( (1,0,0) \) à \( (1,1,0) \),
-le segment de \( (1,1,0) \) à \( (0,0,0) \), le segment de
-\( (0,0,0) \) à \( (0,0,1) \), et ainsi de suite.  Les autres commandes
+le segment de \( (1,1,0) \) à \( (0,1,0) \),
+le segment de \( (0,1,0) \) à \( (0,0,0) \),
+le segment de \( (0,0,0) \) à \( (0,0,1) \), et ainsi de suite.  Les
+autres commandes
 <font class="matlab">plot3</font> dessinent les bords de la boite qui
 manquent.  La commande <font class="matlab">axis('square')</font>
-garanti que la même échelle est utilisée pour les trois axes.
+garantit que la même échelle est utilisée pour les trois axes.
 De cette façon, notre boite ressemble vraiment à une boite qui a des bords de
 même longueur.</p>
 
@@ -639,8 +647,8 @@ le point \( (NaN,NaN,NaN) \).  Par exemple, aucun segment n'est tracé
 entre \( (0,0,1) \) et \( (NaN,NaN,NaN) \).</p>
 
 <p>Nous pouvons utiliser la commande suivante pour faire une rotation
-du cadre de notre boite de 45 degrés autour de l'axe dans la direction
-\( (1,1,1)\).</p>
+du cadre de notre boite de 45 degrés autour de l'axe qui contient le
+vecteur \( (1,1,1)\).</p>
 
 <pre class="matlab">
 >> <font class="matlab"> rotate(cube, [ 1 1 1 ], 45 ); </font>
@@ -650,11 +658,15 @@ du cadre de notre boite de 45 degrés autour de l'axe dans la direction
   <img src="Matlab_figure17.png" style="width: 350px"
        alt="Dessin du cadre de notre boite après la rotation">
 </div>
+
+<p>Il est possible d'effectuer des rotations plus générales
+dans \(\displaystyle \mathbb{R}^3\) en choisissant l'origine et la
+direction de l'axe de rotation.</p>
 </div>
 
 <h4> Plus sur les dessins</h4>
 
-<p>Tous les genres de dessins qui peuvent fait avec <em>Matlab</em>
+<p>Tous les genres de dessins qui peuvent être faits avec <em>Matlab</em>
 sont catalogués sur le site  
 <script language="javascript"> 
   buildLinK("https://www.mathworks.com/help/matlab/creating_plots/types-of-matlab-plots.html",
@@ -721,7 +733,7 @@ commandes suivantes .</p>
 différentiel et intégral est les surfaces de révolution.  Par
 exemple, supposons que nous voulons dessiner la surface de
 révolution générée par la rotation de la courbe
-\( y = 2 + \cos(\pi x) \) pour \(0 \leq x \leq 4\) autour l'axe des
+\( y = 2 + \cos(\pi x) \) pour \(0 \leq x \leq 4\) autour de l'axe des
 \(x\).  Nous dessinons cette courbe en premier.</p>
 
 <pre class="matlab">
@@ -777,6 +789,14 @@ afficher la surface de révolution horizontalement au lieu de
 verticalement.  Nous devons aussi transformer la valeur sur chaque
 rangé de <font class="matlab">Z</font> en la valeur correspondante 
 de <font class="matlab">x</font>.</p>
+
+<p><em>Suggestion</em>: Utiliser un maillage
+<font class="matlab">x</font> plus fin (avec plus de points)
+va produire une surface plus douce mais la figure qui en résulte pourrait ne
+pas afficher une image claire de la surface de révolution.  Le lecteur
+devrait répéter cet exemple avec
+<font class="matlab">x = 0:0.01:4;</font> pour comprendre pourquoi
+c'est le cas..</p>
 </div>
 
 <p>Il existe des versions des fonctions
@@ -787,7 +807,7 @@ définissons dans le document
 <script language="javascript"> 
   buildLinK(matlabFunct.url_fr, matlabFunct.text_fr, "MMathSStat",
   matlabFunct.id, matlabFunct.target);
-</script>.  Ce document inclus aussi des exemples qui illustre
+</script>.  Ce document inclus aussi des exemples qui illustrent
 comment utiliser ces nouvelles fonctions graphiques.</p>
 
 <hr class="MMathSStat">
