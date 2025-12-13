@@ -221,12 +221,12 @@ remplacé par tout autre nom de solveur d'EDO de <em>Matlab</em>. </p>
 solveur <font class="matlab">ode45</font>.  Cependant, la procédure pour
 utiliser les autres solveurs d'EDO de <em>Matlab</em> est très semblable. </p>
 
-<p>Le format de le solveur <font class="matlab">ode45</font> est
-<font class="matlab"> [xx,yy] = ode45(@yprime ,[x_zero , x_final], y0, options)
+<p>Le format du solveur <font class="matlab">ode45</font> est
+<font class="matlab"> [xx,yy] = ode45(@f ,[x_zero , x_final], y0, options)
 </font>.</p>
 
-<p> La fonction <font class="matlab">yprime</font> (qui dépend de
-\(x\) et \(y\)) est le côté droit de l'EDO \(y'(x) = \mathrm{yprime}(x,y)\).
+<p> La fonction <font class="matlab">f</font> (qui dépend de
+\(x\) et \(y\)) est le côté droit de l'EDO \(y'(x) = f(x,y)\).
 La valeur <font class="matlab">x_zero</font> est le temps initial et
 la valeur <font class="matlab">x_final</font> est le temps quand arrêter
 l'intégration numérique.  L'expression <font class="matlab">y0</font>
@@ -241,11 +241,11 @@ retourne ont le même nombre de rangées. Le nombre de colonnes de la matrice
 rangée <font class="matlab">y0</font>.  La \(\displaystyle i^{e}\) colonne de
 <font class="matlab">yy</font> est l'estimé à chacune des valeurs de
 <font class="matlab">xx</font> de la solution \(y\) de
-\(y'(x) = \mathrm{yprime}(x,y)\) avec la condition initiale à
+\(y'(x) = f(x,y)\) avec la condition initiale à
 <font class="matlab">x_zero</font> donnée par
 la \(\displaystyle i^{e}\) composante de <font class="matlab">y0</font>.
 La \(\displaystyle k^{e}\) rangée de <font class="matlab">yy</font> est une
-approximation de la solution \(y\) de \(y'(x) = \mathrm{yprime}(x,y)\)
+approximation de la solution \(y\) de \(y'(x) = f(x,y)\)
 évaluée à la \(\displaystyle k^{e}\) composante
 de <font class="matlab">xx</font>
 pour chacune des conditions initiales données par les composantes de
@@ -255,7 +255,7 @@ pour chacune des conditions initiales données par les composantes de
 solveurs d'EDO de <em>Matlab</em>.  Pour fournir une
 borne sur la tolérance relative, une borne sur la tolérance absolue,
 etc, nous devons premièrement définir une structure d'options comme
-celle ci-dessous.</p>  
+celle ci-dessous.</p>
 
 <pre class="matlab">
 >> <font class="matlab"> option = odeset('reltol', 0.001, 'abstol', [0.000001]) </font>
@@ -424,7 +424,7 @@ la valeur de la solution de l'EDO à tous points de l'intervalle
   \([0,\pi]\).</p>
 
 <div class="Example">
-<p><em>Exemple</em>: La valeur approximative de la solution de
+<p><em>Exemple</em>: Une valeur approximative de la solution de
 l'EDO précédente à \(x=2\) est donnée par la comande</p>
 
 <pre class="matlab">

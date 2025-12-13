@@ -82,6 +82,14 @@ main_title( MStexte, "MMathSStat");
       buildLinK("#Sect18", "Dessins dans &#8477;<sup>3</sup>",
       "MMathSStat", "sect18ID", "_top");
   </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect20", "Plus de dessins",
+      "MMathSStat", "sect20ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect21", "La fonction <font class=\"matlab\">subplot</font>",
+      "MMathSStat", "sect21ID", "_top");
+  </script> </li>
 </ul>
 </div>
 
@@ -90,6 +98,17 @@ main_title( MStexte, "MMathSStat");
 de fonctions, représenter des ensembles de données à l'aide de graphiques, etc.
 L'accent de ce document est sur la représentation des fonctions.  Ce
 choix est motivé par nos besoins personnels. </p>
+
+<p>Il existe des versions des fonctions
+<font class="matlab">plot</font>, <font class="matlab">surf</font>,
+<font class="matlab">plot3</font>, <font class="matlab">contour</font>, ...
+présentées ci-dessous qui acceptent pour arguments les
+fonctions mathématiques que nous définissons dans le document
+<script language="javascript"> 
+  buildLinK(matlabFunct.url_fr, matlabFunct.text_fr, "MMathSStat",
+  matlabFunct.id, matlabFunct.target);
+</script>.  Ce document inclus des exemples qui illustrent
+comment utiliser ces nouvelles fonctions graphiques.</p>
 
 <hr class="MMathSStat" style="clear: both;">
 
@@ -297,13 +316,12 @@ donnée par la représentation paramétrique \( (x,y) = (\sin(t), t\cos(t)) \) p
 >> <font class="matlab">x = sin(t);</font>
 >> <font class="matlab">y = t.*cos(t);</font>
 >> <font class="matlab">plot(x,y,'b');</font>
->> <font class="matlab">xlabel('x');</font>
->> <font class="matlab">ylabel('y');</font>
+>> <font class="matlab">xlabel('x') , ylabel('y');</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure6.png" style="width: 300px"
-       alt="Dessin de la courbe t -> (sin(t), t cos(t) ) pour 0 <=t<=20.">
+       alt="Dessin de la courbe t &rarr; (sin(t), t cos(t) ) pour 0 &le;t&le;20.">
 </div>
 
 <p>Pour identifier les points sur la courbe qui sont associés aux
@@ -319,7 +337,7 @@ valeurs entières de \(t\), nous utilisons les commandes suivantes.</p>
 
 <div class="center">
   <img src="Matlab_figure10.png" style="width: 300px"
-       alt="Dessin de la courbe t -> (sin(t), t cos(t) ) pour 0<=t<=20 avec un astérisque à chaque point sur la courbe qui est donné par une valeur entière de t">
+       alt="Dessin de la courbe t &rarr; (sin(t), t cos(t) ) pour 0&le;t&le;20 avec un astérisque à chaque point sur la courbe qui est donné par une valeur entière de t">
 </div>
 
 <p>Le troisième argument de <font class="matlab">plot</font> ci-dessus
@@ -510,7 +528,7 @@ définie par \(f(x,y) = \sin(x+y) x^2 y \) pour \(-5 \leq x \leq 5\) et
 
 <div class="center">
   <img src="Matlab_figure9.png" style="width: 300px"
-       alt="Graphe de sin(x+y) x^2 y pour -5 <= x <= 5 and -3 <= y <= 3">
+       alt="Graphe de sin(x+y) x^2 y pour -5 &le; x &le; 5 and -3 &le; y &le; 3">
 </div>
 </div>
 
@@ -561,15 +579,13 @@ donnée par la représentation paramétrique
 >> <font class="matlab">y = t.*cos(t);</font>
 >> <font class="matlab">z = t.^2;</font>
 >> <font class="matlab">plot3(x,y,z,'b');</font>
->> <font class="matlab">xlabel('x');</font>
->> <font class="matlab">ylabel('y');</font>
->> <font class="matlab">zlabel('z');</font>
+>> <font class="matlab">xlabel('x'), ylabel('y'), zlabel('z');</font>
 >> <font class="matlab">grid on</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure11.png" style="width: 300px"
-       alt="Dessin de la courbe t -> (sin(t), t cos(t), t^2) pour 0 <=t<=20.">
+       alt="Dessin de la courbe t &rarr; (sin(t), t cos(t), t^2) pour 0 &le;t&le;20.">
 </div>
 </div>
 
@@ -641,10 +657,13 @@ même longueur.</p>
        alt="Deuxième méthode pour dessiner le cadre de la boite">
 </div>
 
-<p>Les points avec les coordonnées \( (NaN,NaN,NaN) \) interrompent
+<p>Les points avec les coordonnées
+<font class="matlab">[NaN NaN NaN]</font> interrompent
 le dessin et insèrent un saut du point qui précède au point qui suit
-le point \( (NaN,NaN,NaN) \).  Par exemple, aucun segment n'est tracé
-entre \( (0,0,1) \) et \( (NaN,NaN,NaN) \).</p>
+le point <font class="matlab">[NaN NaN NaN]</font>.  Par exemple,
+aucun segment n'est tracé entre
+<font class="matlab">[0 0 1]</font> et
+<font class="matlab">[NaN NaN NaN]</font>.</p>
 
 <p>Nous pouvons utiliser la commande suivante pour faire une rotation
 du cadre de notre boite de 45 degrés autour de l'axe qui contient le
@@ -664,7 +683,9 @@ dans \(\displaystyle \mathbb{R}^3\) en choisissant l'origine et la
 direction de l'axe de rotation.</p>
 </div>
 
-<h4> Plus sur les dessins</h4>
+<hr class="MMathSStat">
+
+<h3 id="Sect20"> Plus de dessins</h3>
 
 <p>Tous les genres de dessins qui peuvent être faits avec <em>Matlab</em>
 sont catalogués sur le site  
@@ -720,7 +741,7 @@ commandes suivantes .</p>
 
 <div class="center">
   <img src="Matlab_figure14.png" style="width: 400px"
-       alt="Dessin de la courbe r = 1 + cos(theta) pour 0 <= theta <= 2 pi">
+       alt="Dessin de la courbe r = 1 + cos(theta) pour 0 &le; theta &le; 2 pi">
 </div>
 
 <p>La fonction <font class="matlab">polarplot</font> n'existe pas dans
@@ -740,14 +761,13 @@ révolution générée par la rotation de la courbe
 >> <font class="matlab">x = 0:0.02:4;</font>
 >> <font class="matlab">y = 2+cos(pi*x);</font>
 >> <font class="matlab">plot(x,y,'b');</font>
->> <font class="matlab">xlabel('x');</font>
->> <font class="matlab">ylabel('y');</font>
+>> <font class="matlab">xlabel('x'), ylabel('y');</font>
 >> <font class="matlab">grid on</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure18.png" style="width: 300px"
-       alt="Graphe de 2+cos(pi*x) pour 0 <= x <= 4">
+       alt="Graphe de 2+cos(pi*x) pour 0 &le; x &le; 4">
 </div>
 
 <p> Nous utilisons <em>Matlab</em> pour dessiner la surface de
@@ -757,15 +777,13 @@ révolution.</p>
 >> <font class="matlab">cla</font>
 >> <font class="matlab">[X,Y,Z] = cylinder(y);</font>
 >> <font class="matlab">surf(4*Z,X,Y);</font>
->> <font class="matlab">xlabel('x');</font>
->> <font class="matlab">ylabel('y');</font>
->> <font class="matlab">zlabel('z');</font>
+>> <font class="matlab">xlabel('x'), ylabel('y'), zlabel('z');</font>
 >> <font class="matlab">grid on</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure19.png" style="width: 300px"
-       alt="Surface de révolution de y = 2+cos(pi*x) pour 0 <= x <= 4">
+       alt="Surface de révolution de y = 2+cos(pi*x) pour 0 &le; x &le; 4">
 </div>
 
 <p> Le lecteur a probablement remarqué que nous avons utilisé la
@@ -799,16 +817,64 @@ devrait répéter cet exemple avec
 c'est le cas..</p>
 </div>
 
-<p>Il existe des versions des fonctions
-<font class="matlab">plot</font>, <font class="matlab">surf</font>,
-<font class="matlab">plot3</font> et <font class="matlab">contour</font>
-qui peuvent être utilisées avec les fonctions mathématiques que nous
-définissons dans le document
-<script language="javascript"> 
-  buildLinK(matlabFunct.url_fr, matlabFunct.text_fr, "MMathSStat",
-  matlabFunct.id, matlabFunct.target);
-</script>.  Ce document inclus aussi des exemples qui illustrent
-comment utiliser ces nouvelles fonctions graphiques.</p>
+<hr class="MMathSStat">
+
+<h3 id="Sect21"> La fonction <font class="matlab">subplot</font> </h3>
+
+<p>Il est possible de regrouper plusieurs dessins dans une même figure
+à l'aide de la fonction <font class="matlab">subplot</font> de
+<em>matlab</em>.  Le format primaire de cette fonction est
+<font class="matlab">subplot(n,m,k);</font> où
+\(n\) est le nombre de rangées, \(m\) est le nombre de dessins par
+rangée, et \( k \) est le nombre associé au dessin sur la
+\(p^{e}\) rangée et \( r^{e} \) colonne tel que
+\( (k-1)/m = (p-1) m + (r-1)\) avec \(0 < r \leq m\)
+et \(0 < p \leq n\).</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous voulons dessiner les graphes de la fonction
+\(f_\mu\) définie par \(f_\mu(x,y) = (x\cos(\mu) -
+y\sin(\mu))(x\sin(\mu) + y \cos(\mu)) \) pour \( -2 \leq x,y \leq y\)
+et \( \mu = 0, \pi/4, \pi/2, 3\pi/4 \), et les afficher sur deux
+rangées dans une même figure.</p>
+
+<pre class="matlab">
+>> <font class="matlab">[X,Y] = meshgrid(-2:0.05:2,-2:0.05:2);</font>
+>> <font class="matlab">for i = 1:4
+      mu = (i-1)*pi/4;     
+      Z = (X.*cos(mu) - Y.*sin(mu)).*(X.*sin(mu) + Y.*cos(mu));
+      subplot(2,2,i);
+      surf(X,Y,Z);
+      xlabel('x'), ylabel('y'), zlabel('z'), grid on;
+      if ( i == 1 )
+         ttl = title('\mu = 0','interpreter','latex');
+      elseif ( i == 2 )
+         ttl = title('\mu = \pi/4','interpreter','latex');
+      elseif ( i == 3 )
+         ttl = title('\mu = \pi/2','interpreter','latex');
+      else
+         ttl = title(['\mu = ',num2str(i-1),'\pi/4'],'interpreter','latex');
+      end
+   end
+</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure28.png" style="width: 350px"
+       alt="Figure avec un tableau de dimensions 2 x 2 où chacune des composantes contient le graphe de f_mu pour une des quatre valeurs de mu">
+</div>
+
+<p> Le code précédent demande probablement quelques explications.
+plutôt que de répéter quatre fois le groupe de commandes qui
+commence avec <font class="matlab">subplot(2,2,i)</font> pour
+ 1 &le i &le 4, nous avons créé une boucle.  Pour obtenir un joli
+titre pour chaque dessin, nous avons demandé que
+<em>LaTeX</em> soit utilisé pour interpréter le titre.  Ainsi
+<q lang="en">\mu</q> et <q lang="en">\pi</q> sont affichés &mu; et &pi;
+respectivement.  Le lecteur ne doit pas espérer une version
+complète de <em>LaTeX</em> mais une version qui est suffisante pour
+afficher la plus part des formules mathématiques.</p>
+</div>
 
 <hr class="MMathSStat">
 

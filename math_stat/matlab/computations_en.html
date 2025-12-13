@@ -218,12 +218,11 @@ any other <em>Matlab</em> ODE solver name.</p>
 procedure to use the other solvers is similar.</p>
 
 <p>The format of the ODE solver <font class="matlab">ode45</font> is
-<font class="matlab"> [xx,yy] = ode45(@yprime ,[x_zero , x_final], y0, options)
+<font class="matlab"> [xx,yy] = ode45(@f ,[x_zero , x_final], y0, options)
 </font>.</p>
 
-<p> The function <font class="matlab">yprime</font> (depending on
-\(x\) and \(y\)) is the right hand side of the ODE
-\(y'(x) = \mathrm{yprime}(x,y)\).
+<p> The function <font class="matlab">f</font> (depending on
+\(x\) and \(y\)) is the right hand side of the ODE \(y'(x) = f(x,y)\).
 The value <font class="matlab">x_zero</font> is the initial time and
 the value <font class="matlab">x_final</font> is when to stop the
 numerical integration.  The expression
@@ -239,21 +238,21 @@ of the row vector <font class="matlab">y0</font>.  The
 \(\displaystyle i^{th}\) column of
 <font class="matlab">yy</font> is an approximation at each component of 
 <font class="matlab">xx</font> of the solution \(y\) of
-\(y'(x) = \mathrm{yprime}(x,y)\) with initial condition
+\(y'(x) = f(x,y)\) with initial condition
 at <font class="matlab">x0</font> given by the
 \(\displaystyle i^{th}\) component of <font class="matlab">y0</font>.
 The \(\displaystyle k^{th}\) row of <font class="matlab">yy</font> is the
 approximation of the solution \(y\) of 
-\(y'(x) = \mathrm{yprime}(x,y)\) evaluated at the
+\(y'(x) = f(x,y)\) evaluated at the
 \(\displaystyle k^{th}\) component of
 <font class="matlab">xx</font> for each initial condition given by
 the components of <font class="matlab">y0</font> at
 <font class="matlab">x_zero</font>.</p>
 
-<p>Many options can be given to the <em>Matlab</em> ODE solvers.  To provide the
-solver with a bound on the relative tolerance, a bound on the absolute
-tolerance, etc, we have to first define a structure of options like
-the following one.</p> 
+<p>Many options can be given to the <em>Matlab</em> ODE solvers.  To
+provide the solver with a bound on the relative tolerance, a bound on
+the absolute tolerance, etc, we have to first define a structure of
+options like the following one.</p> 
 
 <pre class="matlab">
 >> <font class="matlab"> option = odeset('reltol', 0.001, 'abstol', [0.000001]) </font>
@@ -417,7 +416,7 @@ of the ODE \(y' = x\sin(x)\) and the integral of the function
 of the ODE at any points of the interval \([0,\pi]\).</p>
 
 <div class="Example">
-<p><em>Example</em>: The approximated value of the solution of the
+<p><em>Example</em>: An approximated value of the solution of the
 previous ODE at \(x = 2\) is given by the command</p>
 
 <pre class="matlab">

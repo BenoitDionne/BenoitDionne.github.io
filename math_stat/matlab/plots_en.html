@@ -82,6 +82,18 @@ main_title( MStext, "MMathSStat");
       buildLinK("#Sect18", "Drawings in &#8477;<sup>3</sup>",
       "MMathSStat", "sect18ID", "_top");
   </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect20", "More Drawings",
+      "MMathSStat", "sect20ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect21", "The <font class=\"matlab\">subplot</font> Function",
+      "MMathSStat", "sect21ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect22", "Graphics Objects", "MMathSStat", "sect22ID",
+      "_top");
+  </script> </li>
 </ul>
 </div>
 
@@ -90,6 +102,17 @@ visualize mathematical results.  It can plot graphs of functions,
 represents data sets using charts, etc.  The focus of 
 this document is on the representation of function.  This choice is
 motivated by our personal needs. </p>
+
+<p>There are versions of the functions
+<font class="matlab">plot</font>, <font class="matlab">surf</font>,
+<font class="matlab">plot3</font>, <font class="matlab">contour</font>,
+... presented below that accept as arguments the
+mathematical functions that we define in the document
+<script language="javascript">
+  buildLinK(matlabFunct.url_en, matlabFunct.text_en, "MMathSStat",
+  matlabFunct.id, matlabFunct.target);
+</script>.  That document includes some examples that illustrate
+how to use these new graphics functions.</p>
 
 <hr class="MMathSStat" style="clear: both;">
 
@@ -202,13 +225,14 @@ the previous figure containing the graph of \(f\).</p>
 >> <font class="matlab">hold on</font>
 >> <font class="matlab">z = x + 2;</font>
 >> <font class="matlab">plot(x,z,'r')</font>
+>> <font class="matlab">text(0.5,2.4,'y = x + 2','Color','red','FontSize',16)</font>
 </pre>
 
 <p> The figure is now</p>
 
 <div class="center">
   <img src="Matlab_figure2.png" style="width: 300px"
-       alt="Graphes of x^3 and of x + 2">
+       alt="Graphs of x^3 and of x + 2">
 </div>
 
 <p>The option <font class="matlab">'r'</font> of the previous
@@ -284,13 +308,12 @@ the parametric representation \( (x,y) = (\sin(t), t\cos(t)) \) for
 >> <font class="matlab">x = sin(t);</font>
 >> <font class="matlab">y = t.*cos(t);</font>
 >> <font class="matlab">plot(x,y,'b');</font>
->> <font class="matlab">xlabel('x');</font>
->> <font class="matlab">ylabel('y');</font>
+>> <font class="matlab">xlabel('x') , ylabel('y');</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure6.png" style="width: 300px"
-       alt="Drawing of the curve t -> (sin(t), t cos(t) ) for 0 <=t<=20.">
+       alt="Drawing of the curve t &rarr; (sin(t), t cos(t) ) for 0 &le; t &le; 20.">
 </div>
 
 <p>To mark the points on the curve that are associated to the integer
@@ -306,7 +329,7 @@ values of \(t\), we use the following commands.</p>
 
 <div class="center">
   <img src="Matlab_figure10.png" style="width: 300px"
-       alt="Drawing of the curve t -> (sin(t), t cos(t) ) for 0<=t<=20 with an asterisk at each point of the curve given by an integer value of t.">
+       alt="Drawing of the curve t &rarr; (sin(t), t cos(t) ) for 0 &le; t &le; 20 with an asterisk at each point of the curve given by an integer value of t.">
 </div>
 
 <p>The third argument in <font class="matlab">plot</font> above
@@ -490,7 +513,7 @@ defined by \(f(x,y) = \sin(x+y) x^2 y \) for \(-5 \leq x \leq 5\) and
 
 <div class="center">
   <img src="Matlab_figure9.png" style="width: 300px"
-       alt="Graph of sin(x+y) x^2 y for -5 <= x <= 5 and -3 <= y <= 3">
+       alt="Graph of sin(x+y) x^2 y for -5 &le; x &le; 5 and -3 &le; y &le; 3">
 </div>
 </div>
 
@@ -537,15 +560,13 @@ the parametric representation \( (x,y) = (\sin(t), t\cos(t), t^2)  \) for
 >> <font class="matlab">y = t.*cos(t);</font>
 >> <font class="matlab">z = t.^2;</font>
 >> <font class="matlab">plot3(x,y,z,'b');</font>
->> <font class="matlab">xlabel('x');</font>
->> <font class="matlab">ylabel('y');</font>
->> <font class="matlab">zlabel('z');</font>
+>> <font class="matlab">xlabel('x'), ylabel('y'), zlabel('z');</font>
 >> <font class="matlab">grid on</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure11.png" style="width: 300px"
-       alt="Drawing of the curve t -> (sin(t), t cos(t), t^2) for 0 <=t<=20.">
+       alt="Drawing of the curve t &rarr; (sin(t), t cos(t), t^2) for 0 &le; t &le; 20.">
 </div>
 </div>
 
@@ -615,10 +636,13 @@ like a box with edges of equal length.</p>
        alt="Second method to draw the frame of the box">
 </div>
 
-<p> The points with coordinates \( (NaN,NaN,NaN) \) interrupt the
+<p> The points with coordinates
+<font class="matlab">[NaN NaN NaN]</font> interrupt the
 drawing and thus insert a jump from the point before to the point
-after \( (NaN,NaN,NaN) \).  For instance, no straight line is drawn
-between \( (0,0,1) \) and \( (NaN,NaN,NaN) \).</p>
+after <font class="matlab">[NaN NaN NaN]</font>.  For instance, no
+straight line is drawn between
+<font class="matlab">[0 0 1]</font> to
+<font class="matlab">[NaN NaN NaN]</font>.</p>
 
 <p> We can use the following command to rotate the frame of our box by 45
 degrees around the axis that contains the vector \( (1,1,1)\), .</p>
@@ -637,7 +661,9 @@ degrees around the axis that contains the vector \( (1,1,1)\), .</p>
 the axis of rotation.</p>
 </div>
 
-<h4> More on Drawing</h4>
+<hr class="MMathSStat">
+
+<h3 id="Sect20"> More Drawings</h3>
 
 <p>All types of plots that can be done with <em>Matlab</em> are
 listed on the website
@@ -692,7 +718,7 @@ commands.</p>
 
 <div class="center">
   <img src="Matlab_figure14.png" style="width: 400px"
-       alt="Drawing of the curve r = 1 + cos(theta) for 0 <= theta <= 2 pi">
+       alt="Drawing of the curve r = 1 + cos(theta) for 0 &le; theta &le; 2 pi">
 </div>
 
 <p>The function <font class="matlab">polarplot</font> is not
@@ -711,14 +737,13 @@ axis.  We first plot this curve.</p>
 >> <font class="matlab">x = 0:0.02:4;</font>
 >> <font class="matlab">y = 2+cos(pi*x);</font>
 >> <font class="matlab">plot(x,y,'b');</font>
->> <font class="matlab">xlabel('x');</font>
->> <font class="matlab">ylabel('y');</font>
+>> <font class="matlab">xlabel('x'), ylabel('y');</font>
 >> <font class="matlab">grid on</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure18.png" style="width: 300px"
-       alt="Graph of 2+cos(pi*x) for 0 <= x <= 4">
+       alt="Graph of 2+cos(pi*x) for 0 &le; x &le; 4">
 </div>
 
 <p> We use <em>Matlab</em> to draw the surface of revolution.</p>
@@ -727,15 +752,13 @@ axis.  We first plot this curve.</p>
 >> <font class="matlab">cla</font>
 >> <font class="matlab">[X,Y,Z] = cylinder(y);</font>
 >> <font class="matlab">surf(4*Z,X,Y);</font>
->> <font class="matlab">xlabel('x');</font>
->> <font class="matlab">ylabel('y');</font>
->> <font class="matlab">zlabel('z');</font>
+>> <font class="matlab">xlabel('x'), ylabel('y'), zlabel('z');</font>
 >> <font class="matlab">grid on</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure19.png" style="width: 300px"
-       alt="Surface of revolution of y = 2+cos(pi*x) for 0 <= x <= 4">
+       alt="Surface of revolution of y = 2+cos(pi*x) for 0 &le; x &le; 4">
 </div>
 
 <p> The reader has probably noted that we have used the command
@@ -767,16 +790,339 @@ with <font class="matlab">x = 0:0.01:4;</font> to understand why it is
 so.</p>
 </div>
 
-<p>There are versions of the functions
-<font class="matlab">plot</font>, <font class="matlab">surf</font>,
-<font class="matlab">plot3</font> and <font class="matlab">contour</font>
-that can be used with the mathematical functions that we define
-in the document
-<script language="javascript"> 
-  buildLinK(matlabFunct.url_en, matlabFunct.text_en, "MMathSStat",
-  matlabFunct.id, matlabFunct.target);
-</script>.  That document also includes some examples that illustrate
-how to use these new graphical functions.</p>
+<hr class="MMathSStat">
+
+<h3 id="Sect21"> The <font class="matlab">subplot</font> Function</h3>
+
+<p>It is possible to stack many drawings in the same figure with
+the <em>matlab</em> function <font class="matlab">subplot</font>.  The
+basic format of this function is
+<font class="matlab">subplot(n,m,k);</font> where
+\(n\) is the number of rows, \(m\) is the number of drawings per row,
+and \( k \) is the number associated to the drawing on the
+\(p^{th}\) row and \( r^{th} \) column
+such that \( (k-1)/m = (p-1) m + (r-1)\) with \(0 < r \leq m\)
+and \(0 < p \leq n\).</p>
+
+<div class="Example">
+<p><em>Example</em>: We want to plot the graphs of the function
+\(f_\mu\) defined by \(f_\mu(x,y) = (x\cos(\mu) -
+y\sin(\mu))(x\sin(\mu) + y \cos(\mu)) \) for \( -2 \leq x,y \leq y\)
+and \( \mu = 0, \pi/4, \pi/2, 3\pi/4 \), and display them on two rows
+in the same figure.</p>
+
+<pre class="matlab">
+>> <font class="matlab">[X,Y] = meshgrid(-2:0.05:2,-2:0.05:2);</font>
+>> <font class="matlab">for i = 1:4
+      mu = (i-1)*pi/4;     
+      Z = (X.*cos(mu) - Y.*sin(mu)).*(X.*sin(mu) + Y.*cos(mu));
+      subplot(2,2,i);
+      surf(X,Y,Z);
+      xlabel('x'), ylabel('y'), zlabel('z'), grid on;
+      if ( i == 1 )
+         ttl = title('\mu = 0','interpreter','latex');
+      elseif ( i == 2 )
+         ttl = title('\mu = \pi/4','interpreter','latex');
+      elseif ( i == 3 )
+         ttl = title('\mu = \pi/2','interpreter','latex');
+      else
+         ttl = title(['\mu = ',num2str(i-1),'\pi/4'],'interpreter','latex');
+      end
+   end
+</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure28.png" style="width: 350px"
+       alt="Figure with a 2 x 2 array where each component contains the graph of f_mu for one of the four values of mu">
+</div>
+
+<p> The previous code probably requires some explanation.
+Instead of repeating four time the block of commands starting with
+<font class="matlab">subplot(2,2,i)</font> for 1 &le i &le 4, we have
+created a loop.  To get a nice title for each dessin, we have requested that
+<em>LaTeX</em> be used to interpret the title.  Hence <q lang="en">\mu</q>
+and <q lang="en">\pi</q> are displayed as &mu; and &pi;
+respectively.  The reader should not expect a full version
+of <em>LaTeX</em> but one that is sufficient for displaying must
+mathematical formulae.</p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect22"> Graphics Objects </h3>
+
+<p> We end this document with a brief and simplified presentation of
+the graphics object hierarchy.  Knowledge of objects that compose a
+figure and being able to modify some of their properties is sometime
+useful to generate a beautiful and accurate figure.  The following
+diagram is a simplified version of the structure of a figure.</p>
+
+<div class="center">
+  <img src="hierarchy1.png" style="width: 300px"
+       alt="diagram of the structure of a figure">
+</div>
+
+<p> When the functions <font class="matlab">plot</font>,
+<font class="matlab">surf</font>, ... are used, the following objects
+are created.</p>
+<ol style="list-style-type:decimal;">
+<li> A Figure object. </li>
+<li> An Axes object which is a child to the Figure object. </li>
+<li> Some Lines objects (a graph, a surface, ...) and 
+some Text objects (text added to the drawing) which are children
+of the Axes object.</li>
+<li> A Legend object, if on is created, which is a child of the Figure
+object.</li>
+<li> Some Lines objects (lines) and some Text objects (labels) which
+are children of the Legend object if one is created.</li>
+</ol>
+
+<p> Suppose that we execute the following commands. </p>
+
+<pre class="matlab">
+>> <font class="matlab">x = 0:0.02:4; ...
+   y = x.^2.*exp(-x); ...
+   p1 = plot(x,y,'b'); ...
+   hold on; ...
+   y = x.^2.*exp(-2*x); ...
+   p2 = plot(x,y,'r'); ...
+   xl = xlabel('x'); ...
+   yl = ylabel('y'); ...
+   l1 = legend('x^2 exp(-x)','x^2 exp(-2x)');</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics1.png" style="width: 300px"
+       alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x)">
+</div>
+
+<div class="Note">
+<p><em>Note</em> The ellipsis (...) at the end of a line
+tells <em>Matlab</em> to read the next line before executing the
+command.</p>
+</div>
+
+<p> The following command with return the handle of the current Figure object
+that has been created by the function <font class="matlab">plot</font>. </p>
+
+<pre class="matlab">
+>> <font class="matlab">h1 = gcf;</font>
+</pre>
+
+<p> You can then use this handle to modify the figure.  For instance,
+you can change the background color with the following command. </p>
+  
+<pre class="matlab">
+>> <font class="matlab">h1.Color = [ 0.5 0.5 0.5];</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics2.png" style="width: 300px"
+       alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x) with the grey background of the Figure object">
+</div>
+
+<p>The previous command does not work for old versions
+of <em>Matlab</em>.  Instead, the command
+<font class="matlab">set(h1,'Color', [ 0.5 0.5 0.5])</font>
+must be used.  The command <font class="matlab">get(h1)</font> lists
+all the possible properties of the Figure object with their values.</p>
+
+<p> The following command with return the handle of the Axes object of
+the Figure object that has been created by the function
+<font class="matlab">plot</font>. </p>
+
+<pre class="matlab">
+>> <font class="matlab">h2 = gca;</font>
+</pre>
+
+<p> You can then use this handle to modify the axes.  For instance,
+you can change the background color and the colors of the axes
+with the following command. </p>
+  
+<pre class="matlab">
+>> <font class="matlab">h2.Color = [ 0.7 0.8 0.9]; ...
+   h2.Xcolor = [ 1 0 0]; ...
+   h2.Ycolor = [ 1 0 0];</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics3.png" style="width: 300px"
+       alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x) with the grey background of the Figure object, the blue background and red axes for the Axrs object.">
+</div>
+
+<p>As before, the previous commands do not work for old versions
+of <em>Matlab</em>.  Instead, the commands
+<font class="matlab">set(h2,'Color',[ 0.7 0.8 0.9])</font>,
+<font class="matlab">set(h2,'Xcolor',[ 1 0 0])</font> and
+<font class="matlab">set(h2,'Ycolor',[ 1 0 0])</font> must be used.
+The command <font class="matlab">get(h2)</font> lists
+all the possible properties of the Axes object with their values.</p>
+
+<p> The following command list the handles of the children of the
+Figure object,</p> 
+
+<pre class="matlab">
+>> <font class="matlab">h1c = h1.Children</font> <br>
+h1c = <br>
+  -41.770
+  -34.638
+</pre>
+
+<p>For old versions of <em>Matlab</em>, we must use the command
+<font class="matlab">h1c = get(h1,'children')</font>.
+As expected, there are two children.  One of them is the Axes object
+and the other is the Legend object. </p>
+
+<pre class="matlab">
+>> <font class="matlab">h1c(1).Children, h1c(2).Children, h2.Children, l1.Children </font> <br>
+ans =<br>
+  -10.170
+  -12.526
+  -13.619
+  -15.234<br>
+ans =</br>
+  -21.225
+  -22.827<br>
+ans =<br>
+  -21.225
+  -22.827<br>
+ans = <br>
+  -10.170
+  -12.526
+  -13.619
+  -15.234
+</pre>
+
+<p>For old versions of <em>Matlab</em>, we must use the command
+<font class="matlab">get(h1c(1),'children')</font>,
+<font class="matlab">get(h1c(2),'children')</font>,
+<font class="matlab">get(h2,'children')</font> and
+<font class="matlab">get(l1,'children')</font>.
+The Axes object has two children: one Lines object for each of the two
+plots.  The Legend object has four children: two Lines objects and two Text
+objects, one each for \(x^2 e^{-x}\) and \( x^2 e^{-2x}\).</p>
+
+<p> The following command list the handles of the children of the Axes
+object, and the handles for the two Lines objects (one for each curve)
+created with <font class="matlab">plot</font>.</p>
+
+<pre class="matlab">
+>> <font class="matlab">h2c = h2.Children, p1, p1.Displayname, p1.Type, ...
+   p2, p2.Displayname, p2.type </font> <br>
+h2c = <br>
+  -21.225
+  -22.827<br>
+p1 = -22.827
+ans = x^2 exp(-x)
+ans = line
+p2 = -21.225
+ans = x^2 exp(-2x)
+ans = line
+</pre>
+
+<p>For old versions of <em>Matlab</em>, we must use the commands
+<font class="matlab">h2c = get(h2,'children')</font>,
+<font class="matlab">get(p1,'displayname')</font>,
+<font class="matlab">get(p1,'type')</font>,
+<font class="matlab">get(p2,'displayname')</font> and
+<font class="matlab">get(p2,'type')</font>.
+As expected, there are two children.  One Lines object for each of the
+two curves that have been drawn.  We can change the line style of the
+first curve with the following command.</p>
+
+<pre class="matlab">
+>> <font class="matlab">p1.Linestyle = '.-'; p1.color = 'g';</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics4.png" style="width: 300px"
+       alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x) with the grey background of the Figure object, the blue background and red axes for the Axrs object, and the dot-dashed black line for oneof the graphs.">
+</div>
+
+<p>For old versions of <em>Matlab</em>, we must use the commands
+<font class="matlab">set(p1,'linestyle','.-')</font> and
+<font class="matlab">set(p1,'color','g')</font>. </p>
+
+<div class="Note">
+<p><em>Advises</em>: We should avoid using the Children option to
+retrieve the handles of the Figure or Axes objects.  The order in
+which the handles are listed may vary and thus makes it more
+difficult to locate the handle associated to the object that we want to
+modify.  It is better to get the handle of the object when it is
+created as we did with <font class="matlab">p1 = plot(x,y,'b')</font>,
+<font class="matlab">p2 = plot(x,y,'r')</font>,
+<font class="matlab">xl = xlabel('x')</font>,
+<font class="matlab">yl = ylabel('y')</font> and
+<font class="matlab">l1 = legend('x^2 exp(-x)','x^2 exp(-2x)')</font>
+above.</p>
+
+<p>It is also preferable to avoid as much as possible modifying the
+properties of an object using its handle.  It is preferable to set the
+properties when the object is created as we did for
+<font class="matlab">p1 = plot(x,y,'b')</font> and
+<font class="matlab">p2 = plot(x,y,'r')</font>.  The general format to
+set properties when creating an object is</p>
+
+<pre class="matlab">
+<font class="matlab">handle_name = object_namet(...,'property_name1',value1,'property_name2',value2, ...);</font>
+</pre>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: We can have more then one active figure at the
+same time.  The following commands demonstrate how this can be
+done. </p>
+
+<pre class="matlab">  
+>> <font class="matlab">x = 0:0.02:2; y = x.^2; z = sqrt(x); w = x.^(3/2); ...
+   f1 = figure; plot(x,y); title('y = x^2 and y = x^{3/2}'); ...
+   f2 = figure; plot(x,z); title('$y = \sqrt{x}$','Interpreter','latex'); ...
+   figure(f1); hold on; plot(x,w,'r'); text(1,0.9,'(1,1)'); </font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics5a.png" style="width: 300px"
+       alt="Graphs of y = x^2 and y = x^(3/2)"> &nbsp;
+  <img src="Matlab_graphics5b.png" style="width: 300px"
+       alt="Graphs of y = x^(1/2)">
+</div>
+
+<p> The command <font class="matlab">f1 = figure</font> creates a
+Figure object that becomes the current figure.  The following
+two graphics commands use this figure.
+The command <font class="matlab">f2 = figure</font> creates a new
+Figure object that becomes the current figure.  The following
+two graphics commands use this figure.  Finaly, the command
+<font class="matlab">figure(f1)</font> set the figure with the handle
+<font class="matlab">f1</font> as the current figure for the future
+graphics commands.</p>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: A Figure object can have more than one
+Axes object as children.   The following example taken from the
+<em>Matlab</em> website demonstrates how this can be
+done.  The <em>Matlab</em> function <font class="matlab">peaks</font>
+is a predefined real valued function of two variables.</p>
+
+<pre class="matlab">  
+>> <font class="matlab">x = -2.5:0.02:2.5; ...
+   y = -4:0.02:4; ...
+   [X,Y] = meshgrid(x,y); ...
+   Z = peaks(X,Y); ...
+   figure; ...
+   ax1 = axes('Position',[0.1 0.1 0.7 0.7]); ...
+   ax2 = axes('Position',[0.65 0.65 0.28 0.28]); ...
+   contour(ax1,X,Y,Z); ...
+   surf(ax2,X,Y,Z); </font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics6.png" style="width: 350px"
+       alt="Contour plot of the peaks function in the central Axes object and the graph of the peaks function in the Axes object in the upper right corner.">
+</div>
+</div>
 
 <hr class="MMathSStat">
 
