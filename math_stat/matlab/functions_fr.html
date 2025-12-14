@@ -75,7 +75,7 @@ main_title( MStexte, "MMathSStat");
       "MMathSStat", "sect13ID", "_top");
   </script> </li>
   <li> <script language="javascript"> 
-      buildLinK("#Sect14", "Adresses des fonctions",
+      buildLinK("#Sect14", "Anses des fonctions",
       "MMathSStat", "sect14ID", "_top");
   </script> </li>
   <li> <script language="javascript"> 
@@ -228,26 +228,27 @@ arguments.</p>
 
 <hr class="MMathSStat">
 
-<h3 id="Sect14"> Adresses des fonctions </h3>
+<h3 id="Sect14"> Anses des fonctions </h3>
 
 <p>Pour certaines fonctions de <em>Matlab</em>, le nom d'une
 fonction doit être donné parmi leurs arguments.  Par exemple, la fonction
 <font class="matlab">quadl</font> que l'on a introduite précédemment
 exige que le nom de la fonction qui doit être intégrée soit un des arguments.
 Au lieu de donner le nom de la fonction, il est souvent plus pratique
-de donner l'<em>adresse</em> de la fonction.</p>
+de donner l'<em>anse</em> de la fonction.  L'anse d'une fonction est
+une sorte d'adresse de la fonction.</p>
 
-<p>Pour obtenir l'<em>adresse</em> d'un fonction, il suffit d'ajouter
+<p>Pour obtenir l'<em>anse</em> d'un fonction, il suffit d'ajouter
 le préfixe <font class="matlab">@</font> au nom de la fonction.  Par
 exemple, <font class="matlab">@funct1</font> donne
-l'<em>adresse</em> de la fonction <font class="matlab">funct1</font> .</p>
+l'<em>anse</em> de la fonction <font class="matlab">funct1</font> .</p>
 
-<p>L'<em>adresse</em> d'une fonction peut être utilisée au lieu du nom
+<p>L'<em>anse</em> d'une fonction peut être utilisée au lieu du nom
 de la fonction qu'elle représente.</p>
 
 <div class="Example">
 <p><em>Exemple</em>: Les commandes suivantes illustrent comment
-l'<em>adresse</em> d'une fonction peut être manipulée et utilisée.</p>
+l'<em>anse</em> d'une fonction peut être manipulée et utilisée.</p>
 
 <pre class="matlab">
 >> <font class="matlab">hand = @funct1;</font>
@@ -266,14 +267,14 @@ ans = <br>
    -0.54402111088937
 </pre>
 
-<p><font class="matlab">hand</font> contient l'<em>adresse</em> de la
+<p><font class="matlab">hand</font> contient l'<em>anse</em> de la
 fonction <font class="matlab">funct1</font>.  Ainsi,
 <font class="matlab">hand(10)</font> est identique à la commande
 <font class="matlab">funct1(10)</font>.  La variable
 <font class="matlab">hands</font> représente une liste (ordonnée) de
-deux <em>adresses</em>: l'<em>adresse</em>
+deux <em>anses</em>: l'<em>anse</em>
 de la fonction <font class="matlab">funct1</font> et
-l'<em>adresse</em> de la fonction <font class="matlab">sin</font>
+l'<em>anse</em> de la fonction <font class="matlab">sin</font>
 de <em>Matlab</em> qui est la fonction trigonométrique sinus.
 <font class="matlab">hands{1}(10)</font> est équivalent à la commande
 <font class="matlab">funct1(10)</font> et
@@ -283,7 +284,7 @@ de <em>Matlab</em> qui est la fonction trigonométrique sinus.
 
 <p>Il est occasionnellement fastidieux de créer un <em>fichier m</em>
 pour définir une simple fonction qui sera utilisée seulement lors
-d'une session sur <em>Matlab</em>.  L'<em>adresse</em> d'une fonction
+d'une session sur <em>Matlab</em>.  L'<em>anse</em> d'une fonction
 peut être utilisée pour éliminer le besoin de créer un
 <em>fichier m</em>.</p>
 
@@ -293,7 +294,7 @@ peut être utilisée pour éliminer le besoin de créer un
 
 <p>Au lieu de créer un <em>fichier m</em> pour la fonction \(f\), nous
 définissons une <em>fonction anonyme</em> qui est seulement représentée
-par son <em>adresse</em> que nous sauvegardons dans une variable comme
+par son <em>anse</em> que nous sauvegardons dans une variable comme
 il est fait ci-dessous.</p>
 
 <pre class="matlab">
@@ -433,7 +434,7 @@ de \(f\), nous devons utiliser les commandes suivantes.</p>
 </pre>
 </div>
 
-<p> Les fonctions suivantes pour manipuler les <em>adresses</em> de
+<p> Les fonctions suivantes pour manipuler les <em>anses</em> de
 fonctions sont parfois utiles.</p>
 
 <div class="center" style="width: 100%">
@@ -441,24 +442,24 @@ fonctions sont parfois utiles.</p>
 <col style="width: 40%"> <col style="width: 60%">
 <tr> <th> Commande </th> <th> Description </th> </tr>
 <tr><td class="center">
-<font class="matlab"> functions(adresse)</font> </td><td>
-Affiche la description de la fonction associée à l'<em>adresse</em>
+<font class="matlab"> functions(anse)</font> </td><td>
+Affiche la description de la fonction associée à l'<em>anse</em>
 fournie comme argument.</td></tr>
 <tr><td class="center">
-<font class="matlab">func2str(adresse) </font> </td> <td>
-Affiche le nom de la fonction associée à l'<em>adresse</em> fournie
-comme argument ou, si l'<em>adresse</em> est associée à
+<font class="matlab">func2str(anse) </font> </td> <td>
+Affiche le nom de la fonction associée à l'<em>anse</em> fournie
+comme argument ou, si l'<em>anse</em> est associée à
 une <em>fonction anonyme</em>, la formule qui définie la fonction. </td></tr>
 <tr><td class="center">
 <font class="matlab">str2func('nom_de_la_fonction')</font> </td><td>
-Fournie l'<em>adresse</em> de la fonction qui porte le nom
+Fournie l'<em>anse</em> de la fonction qui porte le nom
 <font class="matlab">nom_de_la_fonction</font>. </td> </tr> 
 <tr><td class="center">
 <font class="matlab">isa(variable. 'function_handle') </font>
 </td><td>
 Retourne 1 (ou vrai) si la variable fournie comme premier argument
-contient une <em>adresse</em> et 0 (ou faux) si cette variable ne
-contient pas une <em>adresse</em>.</td></tr>
+contient une <em>anse</em> et 0 (ou faux) si cette variable ne
+contient pas une <em>anse</em>.</td></tr>
 </table>
 </div>
 

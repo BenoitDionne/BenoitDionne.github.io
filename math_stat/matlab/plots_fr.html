@@ -86,9 +86,13 @@ main_title( MStexte, "MMathSStat");
       buildLinK("#Sect20", "Plus de dessins",
       "MMathSStat", "sect20ID", "_top");
   </script> </li>
-  <li> <script language="javascript"> 
+  <li> <script language="javascript">
       buildLinK("#Sect21", "La fonction <font class=\"matlab\">subplot</font>",
       "MMathSStat", "sect21ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect22", "Objets graphiques", "MMathSStat", "sect22ID",
+      "_top");
   </script> </li>
 </ul>
 </div>
@@ -847,13 +851,13 @@ rangées dans une même figure.</p>
       surf(X,Y,Z);
       xlabel('x'), ylabel('y'), zlabel('z'), grid on;
       if ( i == 1 )
-         ttl = title('\mu = 0','interpreter','latex');
+         ttl = title('$\mu = 0$','interpreter','latex');
       elseif ( i == 2 )
-         ttl = title('\mu = \pi/4','interpreter','latex');
+         ttl = title('$\mu = \pi/4$','interpreter','latex');
       elseif ( i == 3 )
-         ttl = title('\mu = \pi/2','interpreter','latex');
+         ttl = title('$\mu = \pi/2$','interpreter','latex');
       else
-         ttl = title(['\mu = ',num2str(i-1),'\pi/4'],'interpreter','latex');
+         ttl = title(['$\mu = ',num2str(i-1),'\pi/4$'],'interpreter','latex');
       end
    end
 </font>
@@ -874,6 +878,294 @@ titre pour chaque dessin, nous avons demandé que
 respectivement.  Le lecteur ne doit pas espérer une version
 complète de <em>LaTeX</em> mais une version qui est suffisante pour
 afficher la plus part des formules mathématiques.</p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect22"> Objets graphiques </h3>
+
+<p> Nous terminons ce document avec une brève présentation 
+simplifiée de la hiérarchie des objets graphiques.   Une connaissance
+des objets qui composent une figure et être capable de modifier
+certaines de leurs propriétés sont de temps à autre utiles pour
+produire une figure belle et précise.  Le diagramme suivant est une
+version simplifiée de la structure d'une figure.</p>
+
+<div class="center">
+  <img src="hierarchy1_fr.png" style="width: 350px"
+       alt="diagramme de la structure d'une figure">
+</div>
+
+<p> Quand les fonctions <font class="matlab">plot</font>,
+<font class="matlab">surf</font>, ... sont utilisées, les objets
+suivants sont créés.</p>
+<ol style="list-style-type:decimal;">
+<li> Un objet <em>Figure</em>. </li>
+<li> Un objet <em>Axes</em> qui est un enfant de l'objet <em>Figure</em>. </li> 
+<li> Quelques objets <em>Lignes</em> (un graphe, une surface, ...) et
+quelques objets <em>Texte</em> (le texte ajouté à un dessin) qui sont
+  des enfants de l'objet <em>Axes</em>.</li>
+<li> Un objet <em>Légende</em>, si une légende est requise, qui est un
+  enfant de l'objet <em>Figure</em>.</li>
+<li> Quelques objets <em>Lignes</em> (lignes) et quelques objets <em>Texte</em>
+(étiquettes) qui sont des enfant de l'objet <em>Légende</em> si une
+légende est créée.</li> 
+</ol>
+
+<p> Supposons que nous exécutons les commandes suivantes. </p>
+
+<pre class="matlab">
+>> <font class="matlab">x = 0:0.02:4; ...
+   y = x.^2.*exp(-x); ...
+   p1 = plot(x,y,'b'); ...
+   hold on; ...
+   y = x.^2.*exp(-2*x); ...
+   p2 = plot(x,y,'r'); ...
+   xl = xlabel('x'); ...
+   yl = ylabel('y'); ...
+   l1 = legend('x^2 exp(-x)','x^2 exp(-2x)');</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics1.png" style="width: 300px"
+       alt="Graphes de x &rarr; x^2 e^(-x) et x &rarr; x^2 e^(-2x)">
+</div>
+
+<div class="Note">
+<p><em>Note</em>: Les points de suspension (...) à la fin d'une ligne
+force <em>Matlab</em> à lire la ligne suivante avant d'exécuter les
+commandes.</p>
+</div>
+
+<p> La commande suivante donne l'anse de l'objet <em>Figure</em> actuel
+qui a été créé par la fonction <font class="matlab">plot</font>. </p> 
+
+<pre class="matlab">
+>> <font class="matlab">h1 = gcf;</font>
+</pre>
+
+<p> Nous pouvons alors utiliser cette anse pour modifier l'objet
+<em>Figure</em>.  Par exemple, nous pouvons changer la couleur de fond
+avec la commande suivante.</p>
+  
+<pre class="matlab">
+>> <font class="matlab">h1.Color = [ 0.5 0.5 0.5];</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics2.png" style="width: 300px"
+       alt="Graphes de x &rarr; x^2 e^(-x) et x &rarr; x^2 e^(-2x) avec un fond gris pour l'objet Figure">
+</div>
+
+<p>La commande précédente ne fonctionne pas avec les vieilles versions
+de <em>Matlab</em>.  Á sa place, la commande
+<font class="matlab">set(h1,'Color', [ 0.5 0.5 0.5])</font>
+doit être utilisée.  La commande <font class="matlab">get(h1)</font>
+énumère toutes les propriétés possibles de l'objet <em>Figure</em>
+avec leurs valeurs.</p>
+
+<p> La commande suivante donne l'anse de l'objet <em>Axes</em> qui est
+un enfant de l'objet <em>Figure</em> actuel qui a été créé par la
+fonction <font class="matlab">plot</font>. </p>
+
+<pre class="matlab">
+>> <font class="matlab">h2 = gca;</font>
+</pre>
+
+<p> Nous pouvons utiliser cette anse pour modifier l'objet <em>Axes</em>.
+Par exemple, nous pouvons changer la couleur de fond et les couleurs
+des axes avec les commandes suivantes. </p>
+  
+<pre class="matlab">
+>> <font class="matlab">h2.Color = [ 0.7 0.8 0.9]; ...
+   h2.Xcolor = [ 1 0 0]; ...
+   h2.Ycolor = [ 1 0 0];</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics3.png" style="width: 300px"
+       alt="Graphes de x &rarr; x^2 e^(-x) et x &rarr; x^2 e^(-2x) avec un fond gris pour l'objet Figure, un fond bleu et des axes rouges pour l'objet Axes.">
+</div>
+
+<p>Comme précédemment, les commandes précédentes ne fonctionnent pas
+avec les vieilles versions de <em>Matlab</em>.  À leurs places, Les
+commandes <font class="matlab">set(h2,'Color',[ 0.7 0.8 0.9])</font>,
+<font class="matlab">set(h2,'Xcolor',[ 1 0 0])</font> et
+<font class="matlab">set(h2,'Ycolor',[ 1 0 0])</font> doivent être
+utilisées.  La commande <font class="matlab">get(h2)</font> énumère
+toutes les propriétés possibles de l'objet <em>Axes</em> avec leurs
+valeurs.</p>
+
+<p> La commande suivante énumère les anses des enfants de l'objet
+<em>Figure</em>,</p> 
+
+<pre class="matlab">
+>> <font class="matlab">h1c = h1.Children</font> <br>
+h1c = <br>
+  -41.770
+  -34.638
+</pre>
+
+<p>Pour les vieilles versions de <em>Matlab</em>, nous devons utiliser
+la commande <font class="matlab">h1c = get(h1,'children')</font>.
+Comme nous nous y attendions, il y a deux enfants.  Un d'eux est
+l'objet <em>Axes</em> et l'autre est l'objet <em>Légende</em>. </p>
+
+<pre class="matlab">
+>> <font class="matlab">h1c(1).Children, h1c(2).Children, h2.Children, l1.Children </font> <br>
+ans =<br>
+  -10.170
+  -12.526
+  -13.619
+  -15.234<br>
+ans =</br>
+  -21.225
+  -22.827<br>
+ans =<br>
+  -21.225
+  -22.827<br>
+ans = <br>
+  -10.170
+  -12.526
+  -13.619
+  -15.234
+</pre>
+
+<p>Pour les vieilles versions de <em>Matlab</em>, nous devons utiliser
+les commandes suivantes <font class="matlab">get(h1c(1),'children')</font>,
+<font class="matlab">get(h1c(2),'children')</font>,
+<font class="matlab">get(h2,'children')</font> et
+<font class="matlab">get(l1,'children')</font>.
+L'objet <em>Axes</em> a deux enfants: un objet <em>Lignes</em> pour
+chacun des deux courbes produites par la
+fonction <font class="matlab">plot</font>.  L'objet
+<em>Légende</em> a quatre enfants: deux objets <em>Lignes</em> et deux
+objets <em>Texte</em>, un de chaque pour \(x^2 e^{-x}\) et \( x^2 e^{-2x}\).</p>
+
+<p> La commandes suivante énumère les anses des enfants de l'objet
+<em>Axe</em>, les anses des objets <em>Lignes</em> associés aux deux
+courbes produites par la fonction <font class="matlab">plot</font>, et
+les descriptions de ces objets <em>Lignes</em>.</p>
+
+<pre class="matlab">
+>> <font class="matlab">h2c = h2.Children, p1, p1.Displayname, p1.Type, ...
+   p2, p2.Displayname, p2.type </font> <br>
+h2c = <br>
+  -21.225
+  -22.827<br>
+p1 = -22.827
+ans = x^2 exp(-x)
+ans = line
+p2 = -21.225
+ans = x^2 exp(-2x)
+ans = line
+</pre>
+
+<p>Pour les vieilles versions de <em>Matlab</em>, nous devons utiliser
+les commandes <font class="matlab">h2c = get(h2,'children')</font>,
+<font class="matlab">get(p1,'displayname')</font>,
+<font class="matlab">get(p1,'type')</font>,
+<font class="matlab">get(p2,'displayname')</font> et
+<font class="matlab">get(p2,'type')</font>.
+Nous pouvons changer le style et la couleur de la première courbe avec
+les commandes suivantes.</p>
+
+<pre class="matlab">
+>> <font class="matlab">p1.Linestyle = '.-'; p1.color = 'g';</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics4.png" style="width: 300px"
+       alt="Graphes de x &rarr; x^2 e^(-x) et x &rarr; x^2 e^(-2x) avec un fond gris pour l'objet Figure, un fond bleu et des axes rouges pour l'objet Axes, et une courbe point-tiret noir pour une des graphes.">
+</div>
+
+<p>Pour les vieilles versions de <em>Matlab</em>, nous devons utiliser
+les commandes suivantes <font class="matlab">set(p1,'linestyle','.-')</font>
+et <font class="matlab">set(p1,'color','g')</font>. </p>
+
+<div class="Note">
+<p><em>Conseil</em>: L'utilisation de la propriété Children pour
+récupérer les anses des enfants des objets <em>Figure</em>
+et <em>Axes</em> est fortement déconseillée.  L'ordre dans laquelle
+les anses sont énumérées est arbitraire.   Il est alors difficile de
+localiser l'anse qui est associée à l'objet que l'on veut modifier.
+Il est préférable d'obtenir l'anse d'un objet quand celui-ci est créé
+comme nous avons fait avec les commandes 
+<font class="matlab">p1 = plot(x,y,'b')</font>,
+<font class="matlab">p2 = plot(x,y,'r')</font>,
+<font class="matlab">xl = xlabel('x')</font>,
+<font class="matlab">yl = ylabel('y')</font> et
+<font class="matlab">l1 = legend('x^2 exp(-x)','x^2 exp(-2x)')</font>
+ci-dessus.</p>
+
+<p>Au temps que possible, il est aussi préférable d'éviter de modifier
+un objet à l'aide de son anse.  Il est préférable de définir les
+propriétés quand un objet est créé comme nous avons fait avec les
+commandes
+<font class="matlab">p1 = plot(x,y,'b')</font> et
+<font class="matlab">p2 = plot(x,y,'r')</font>.  Le format générale
+pour définir les propriétés quand un objet est créé est</p>
+
+<div class="center">
+<font class="matlab">nom_anse = nom_objet(...,'nom_propriété1',valeur1,'nom_propriété2',valeur2, ...);</font>
+</div>
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous pouvons avoir plus d'une figure présentent
+en même temps   Les commandes suivantes démontrent comment cela peut
+être fait.</p>
+
+<pre class="matlab">  
+>> <font class="matlab">x = 0:0.02:2; y = x.^2; z = sqrt(x); w = x.^(3/2); ...
+   f1 = figure; plot(x,y); title('y = x^2 and y = x^{3/2}'); ...
+   f2 = figure; plot(x,z); title('$y = \sqrt{x}$','Interpreter','latex'); ...
+   figure(f1); hold on; plot(x,w,'r'); text(1,0.9,'(1,1)'); </font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics5a.png" style="width: 300px"
+       alt="Graphes de y = x^2 et y = x^(3/2)"> &nbsp;
+  <img src="Matlab_graphics5b.png" style="width: 300px"
+       alt="Graphe de y = x^(1/2)">
+</div>
+
+<p> La commande <font class="matlab">f1 = figure</font> génère un
+objet <em>Figure</em> qui devient la figure actuelle.  Les deux
+commandes graphiques qui suivent utilisent cet objet <em>Figure</em>.
+La commande <font class="matlab">f2 = figure</font> génère un nouvel
+objet <em>Figure</em> qui devient la figure actuelle.  Les deux
+commandes graphiques qui suivent utilisent ce nouvel objet <em>Figure</em>.
+Finalement, la commande <font class="matlab">figure(f1)</font> 
+désigne l'objet <em>Figure</em> avec l'anse
+<font class="matlab">f1</font> comme étant la figure actuelle pour les
+futures commandes graphiques.</p>
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>: Un objet <em>Figure</em> peut avoir plus d'un
+objet <em>Axes</em> comme enfants.   l'exemple suivant provenant du
+site Internet de <em>Matlab</em> démontre comment cela peut être
+fait.  La fonction <font class="matlab">peaks</font> de <em>Matlab</em> 
+est une fonction de deux variables à valeurs réelles qui est
+prédéfinie.</p>
+
+<pre class="matlab">  
+>> <font class="matlab">x = -2.5:0.02:2.5; ...
+   y = -4:0.02:4; ...
+   [X,Y] = meshgrid(x,y); ...
+   Z = peaks(X,Y); ...
+   figure; ...
+   ax1 = axes('Position',[0.1 0.1 0.7 0.7]); ...
+   ax2 = axes('Position',[0.65 0.65 0.28 0.28]); ...
+   contour(ax1,X,Y,Z); ...
+   surf(ax2,X,Y,Z); </font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_graphics6.png" style="width: 350px"
+       alt="Courbes de niveau de la fonction peaks dans l'objet Axes situé au centre et le graphe de la fonction peaks dans l'objet Axes qui est situé dans le coin supérieur droit.">
+</div>
 </div>
 
 <hr class="MMathSStat">

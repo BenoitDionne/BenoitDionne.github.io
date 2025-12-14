@@ -820,13 +820,13 @@ in the same figure.</p>
       surf(X,Y,Z);
       xlabel('x'), ylabel('y'), zlabel('z'), grid on;
       if ( i == 1 )
-         ttl = title('\mu = 0','interpreter','latex');
+         ttl = title('$\mu = 0$','interpreter','latex');
       elseif ( i == 2 )
-         ttl = title('\mu = \pi/4','interpreter','latex');
+         ttl = title('$\mu = \pi/4$','interpreter','latex');
       elseif ( i == 3 )
-         ttl = title('\mu = \pi/2','interpreter','latex');
+         ttl = title('$\mu = \pi/2$','interpreter','latex');
       else
-         ttl = title(['\mu = ',num2str(i-1),'\pi/4'],'interpreter','latex');
+         ttl = title(['$\mu = ',num2str(i-1),'\pi/4$'],'interpreter','latex');
       end
    end
 </font>
@@ -854,12 +854,12 @@ mathematical formulae.</p>
 
 <p> We end this document with a brief and simplified presentation of
 the graphics object hierarchy.  Knowledge of objects that compose a
-figure and being able to modify some of their properties is sometime
+figure and being able to modify some of their properties are sometime
 useful to generate a beautiful and accurate figure.  The following
 diagram is a simplified version of the structure of a figure.</p>
 
 <div class="center">
-  <img src="hierarchy1.png" style="width: 300px"
+  <img src="hierarchy1.png" style="width: 350px"
        alt="diagram of the structure of a figure">
 </div>
 
@@ -867,15 +867,17 @@ diagram is a simplified version of the structure of a figure.</p>
 <font class="matlab">surf</font>, ... are used, the following objects
 are created.</p>
 <ol style="list-style-type:decimal;">
-<li> A Figure object. </li>
-<li> An Axes object which is a child to the Figure object. </li>
-<li> Some Lines objects (a graph, a surface, ...) and 
-some Text objects (text added to the drawing) which are children
-of the Axes object.</li>
-<li> A Legend object, if on is created, which is a child of the Figure
-object.</li>
-<li> Some Lines objects (lines) and some Text objects (labels) which
-are children of the Legend object if one is created.</li>
+<li> A <em>Figure</em> object. </li>
+<li> An <em>Axes</em> object which is a child to the <em>Figure</em>
+object. </li> 
+<li> Some <em>Lines</em> objects (a graph, a surface, ...) and 
+some <em>Text</em> objects (text added to the drawing) which are children
+of the <em>Axes</em> object.</li>
+<li> A <em>Legend</em> object, if one is requested, which is a child of
+the <em>Figure</em> object.</li>
+<li> Some <em>Lines</em> objects (lines) and some <em>Text</em>
+objects (labels) which are children of the <em>Legend</em> object if
+one is created.</li> 
 </ol>
 
 <p> Suppose that we execute the following commands. </p>
@@ -898,20 +900,22 @@ are children of the Legend object if one is created.</li>
 </div>
 
 <div class="Note">
-<p><em>Note</em> The ellipsis (...) at the end of a line
+<p><em>Note</em>: The ellipsis (...) at the end of a line
 tells <em>Matlab</em> to read the next line before executing the
-command.</p>
+commands.</p>
 </div>
 
-<p> The following command with return the handle of the current Figure object
-that has been created by the function <font class="matlab">plot</font>. </p>
+<p> The following command returns the handle of the
+current <em>Figure</em> object that has been created by the
+function <font class="matlab">plot</font>. </p> 
 
 <pre class="matlab">
 >> <font class="matlab">h1 = gcf;</font>
 </pre>
 
-<p> You can then use this handle to modify the figure.  For instance,
-you can change the background color with the following command. </p>
+<p> We can then use this handle to modify the <em>Figure</em> object.
+For instance, we can change the background colour with the following
+command. </p> 
   
 <pre class="matlab">
 >> <font class="matlab">h1.Color = [ 0.5 0.5 0.5];</font>
@@ -926,18 +930,20 @@ you can change the background color with the following command. </p>
 of <em>Matlab</em>.  Instead, the command
 <font class="matlab">set(h1,'Color', [ 0.5 0.5 0.5])</font>
 must be used.  The command <font class="matlab">get(h1)</font> lists
-all the possible properties of the Figure object with their values.</p>
+all the possible properties of the <em>Figure</em> object with their
+values.</p>
 
-<p> The following command with return the handle of the Axes object of
-the Figure object that has been created by the function
+<p> The following command returns the handle of the <em>Axes</em>
+object which is a children of the current <em>Figure</em> object that
+has been created by the function 
 <font class="matlab">plot</font>. </p>
 
 <pre class="matlab">
 >> <font class="matlab">h2 = gca;</font>
 </pre>
 
-<p> You can then use this handle to modify the axes.  For instance,
-you can change the background color and the colors of the axes
+<p> We can then use this handle to modify the <em>Axes</em> object.
+For instance, we can change the background colour and the colours of the axes
 with the following command. </p>
   
 <pre class="matlab">
@@ -948,7 +954,7 @@ with the following command. </p>
 
 <div class="center">
   <img src="Matlab_graphics3.png" style="width: 300px"
-       alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x) with the grey background of the Figure object, the blue background and red axes for the Axrs object.">
+       alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x) with the grey background of the Figure object, the blue background and red axes for the Axes object.">
 </div>
 
 <p>As before, the previous commands do not work for old versions
@@ -957,10 +963,10 @@ of <em>Matlab</em>.  Instead, the commands
 <font class="matlab">set(h2,'Xcolor',[ 1 0 0])</font> and
 <font class="matlab">set(h2,'Ycolor',[ 1 0 0])</font> must be used.
 The command <font class="matlab">get(h2)</font> lists
-all the possible properties of the Axes object with their values.</p>
+all the possible properties of the <em>Axes</em> object with their values.</p>
 
 <p> The following command list the handles of the children of the
-Figure object,</p> 
+<em>Figure</em> object,</p> 
 
 <pre class="matlab">
 >> <font class="matlab">h1c = h1.Children</font> <br>
@@ -971,8 +977,8 @@ h1c = <br>
 
 <p>For old versions of <em>Matlab</em>, we must use the command
 <font class="matlab">h1c = get(h1,'children')</font>.
-As expected, there are two children.  One of them is the Axes object
-and the other is the Legend object. </p>
+As expected, there are two children.  One of them is the <em>Axes</em> object
+and the other is the <em>Legend</em> object. </p>
 
 <pre class="matlab">
 >> <font class="matlab">h1c(1).Children, h1c(2).Children, h2.Children, l1.Children </font> <br>
@@ -999,13 +1005,17 @@ ans = <br>
 <font class="matlab">get(h1c(2),'children')</font>,
 <font class="matlab">get(h2,'children')</font> and
 <font class="matlab">get(l1,'children')</font>.
-The Axes object has two children: one Lines object for each of the two
-plots.  The Legend object has four children: two Lines objects and two Text
+The <em>Axes</em> object has two children: one <em>Lines</em> object
+for each of the two curves generated by the
+function <font class="matlab">plot</font>.  The <em>Legend</em> object has four
+children: two <em>Lines</em> objects and two <em>Text</em> 
 objects, one each for \(x^2 e^{-x}\) and \( x^2 e^{-2x}\).</p>
 
-<p> The following command list the handles of the children of the Axes
-object, and the handles for the two Lines objects (one for each curve)
-created with <font class="matlab">plot</font>.</p>
+<p> The following command list the handles of the children of
+the <em>Axe</em> object, the handles of the <em>Lines</em> objects
+associated to the two curves drawn with the function
+<font class="matlab">plot</font>, and the descriptions of
+these <em>Lines</em> objects.</p>
 
 <pre class="matlab">
 >> <font class="matlab">h2c = h2.Children, p1, p1.Displayname, p1.Type, ...
@@ -1027,9 +1037,8 @@ ans = line
 <font class="matlab">get(p1,'type')</font>,
 <font class="matlab">get(p2,'displayname')</font> and
 <font class="matlab">get(p2,'type')</font>.
-As expected, there are two children.  One Lines object for each of the
-two curves that have been drawn.  We can change the line style of the
-first curve with the following command.</p>
+We can change the line style and color of the first curve with the following
+commands.</p>
 
 <pre class="matlab">
 >> <font class="matlab">p1.Linestyle = '.-'; p1.color = 'g';</font>
@@ -1037,7 +1046,7 @@ first curve with the following command.</p>
 
 <div class="center">
   <img src="Matlab_graphics4.png" style="width: 300px"
-       alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x) with the grey background of the Figure object, the blue background and red axes for the Axrs object, and the dot-dashed black line for oneof the graphs.">
+       alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x) with the grey background of the Figure object, the blue background and red axes for the Axes object, and the dot-dashed black curve for one of the graphs.">
 </div>
 
 <p>For old versions of <em>Matlab</em>, we must use the commands
@@ -1045,28 +1054,30 @@ first curve with the following command.</p>
 <font class="matlab">set(p1,'color','g')</font>. </p>
 
 <div class="Note">
-<p><em>Advice</em>: We should avoid using the Children option to
-retrieve the handles of the Figure or Axes objects.  The order in
-which the handles are listed may vary and thus makes it more
-difficult to locate the handle associated to the object that we want to
-modify.  It is better to get the handle of the object when it is
-created as we did with <font class="matlab">p1 = plot(x,y,'b')</font>,
+<p><em>Advice</em>: The use of the Children property to
+retrieve the handles of the children of
+<em>Figure</em> or <em>Axes</em> objects is strongly discouraged.
+The order in which the handles are listed is
+arbitrary.  It is then difficult to locate the handle associated to
+the object that we want to modify.  It is better to get the handle of
+the object when it is created as we did with the commands
+<font class="matlab">p1 = plot(x,y,'b')</font>,
 <font class="matlab">p2 = plot(x,y,'r')</font>,
 <font class="matlab">xl = xlabel('x')</font>,
 <font class="matlab">yl = ylabel('y')</font> and
 <font class="matlab">l1 = legend('x^2 exp(-x)','x^2 exp(-2x)')</font>
 above.</p>
 
-<p>It is also preferable to avoid as much as possible modifying the
+<p>As much as possible, it is also preferable to avoid modifying the
 properties of an object using its handle.  It is preferable to set the
-properties when the object is created as we did for
+properties when the object is created as we did with the commands
 <font class="matlab">p1 = plot(x,y,'b')</font> and
 <font class="matlab">p2 = plot(x,y,'r')</font>.  The general format to
 set properties when creating an object is</p>
 
-<pre class="matlab">
-<font class="matlab">handle_name = object_namet(...,'property_name1',value1,'property_name2',value2, ...);</font>
-</pre>
+<div class="center">
+<font class="matlab">handle_name = object_name(...,'property_name1',value1,'property_name2',value2, ...);</font>
+</div>
 </div>
 
 <div class="Example">
@@ -1085,26 +1096,27 @@ done. </p>
   <img src="Matlab_graphics5a.png" style="width: 300px"
        alt="Graphs of y = x^2 and y = x^(3/2)"> &nbsp;
   <img src="Matlab_graphics5b.png" style="width: 300px"
-       alt="Graphs of y = x^(1/2)">
+       alt="Graph of y = x^(1/2)">
 </div>
 
 <p> The command <font class="matlab">f1 = figure</font> creates a
-Figure object that becomes the current figure.  The following
-two graphics commands use this figure.
+<em>Figure</em> object that becomes the current figure.  The following
+two graphics commands use this <em>Figure</em> object.
 The command <font class="matlab">f2 = figure</font> creates a new
-Figure object that becomes the current figure.  The following
-two graphics commands use this figure.  Finaly, the command
-<font class="matlab">figure(f1)</font> set the figure with the handle
-<font class="matlab">f1</font> as the current figure for the future
-graphics commands.</p>
+<em>Figure</em> object that becomes the current figure.  The following
+two graphics commands use this new <em>Figure</em> object.  Finally,
+the command <font class="matlab">figure(f1)</font> set
+the <em>Figure</em> object with the
+handle <font class="matlab">f1</font> as the current figure for
+the future graphics commands.</p>
 </div>
 
 <div class="Example">
-<p><em>Example</em>: A Figure object can have more than one
-Axes object as children.   The following example taken from the
+<p><em>Example</em>: A <em>Figure</em> object can have more than one
+<em>Axes</em> object as children.   The following example taken from the
 <em>Matlab</em> website demonstrates how this can be
 done.  The <em>Matlab</em> function <font class="matlab">peaks</font>
-is a predefined real valued function of two variables.</p>
+is a built-in real valued function of two variables.</p>
 
 <pre class="matlab">  
 >> <font class="matlab">x = -2.5:0.02:2.5; ...
@@ -1120,7 +1132,7 @@ is a predefined real valued function of two variables.</p>
 
 <div class="center">
   <img src="Matlab_graphics6.png" style="width: 350px"
-       alt="Contour plot of the peaks function in the central Axes object and the graph of the peaks function in the Axes object in the upper right corner.">
+       alt="Level curves of the peaks function in the Axes object located in the centre and the graph of the peaks function in the Axes object located in the upper right corner.">
 </div>
 </div>
 
