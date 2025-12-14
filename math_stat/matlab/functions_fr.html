@@ -312,6 +312,127 @@ ans = 273
 </pre>
 </div>
 
+<div class="Example">
+<p><em>Exemple</em>: Nous utilisons <em>Matlab</em> pour tracer le
+graphe de la fonction \(f\) définie par
+\(f(x) = (x^2+1) H(x-1) -2 \cos(\pi x) H(x-2)\)
+sur l'intervalle \([0,4]\), où le fonction \(H\) est la fonction de
+Heaviside.</p>
+
+<p>La fonction de Heaviside prend la valeur 1 si son argument est un
+nombre positif, elle prend la valeur 0 si son argument est un nombre négatif,
+et elle n'est pas définie à l'origine.  <em>Matlab</em> et <em>Octave</em> 
+ont une fonction <font class="matlab">heaviside</font> prédéfinie dans
+leur boite à outils symbolique (sic).  Nous prenons pour acquis
+que cette boite à outils n'a pas été installée.  Donc, nous définissons
+en premier la fonction Heaviside <font class="matlab">heaviside</font>.</p>
+
+<p>Voici le contenu du <em>fichier m</em>
+<script language="javascript">
+  buildLinK("heaviside.m", "heaviside.m","MMathSStat", "id1HS", "_blank");
+</script>.</p>
+
+<pre class="matlab">
+% Y = heaviside(X)
+%
+% This function accept a matrix X as argument and evaluate the
+% Heaviside function at each of the components of X.
+% The Heaviside function is defined as 1 if the argument is a positive
+% number, 0 if the argument is a negative number, and NaN if the
+% argument is 0.
+<font class="matlab">function Y = heaviside(X)
+  Y = (sign(X)+1)/2;
+  Y(Y == 1/2) = NaN;
+end </font>
+</pre>
+
+<p>Cette définition de la fonction <font class="matlab">heaviside</font>
+peut paraître  excessivement compliquée mais
+notre but était de créer une fonction qui soit <em>array smart</em>
+pour prendre avantage de l'optimisation de <em>Matlab</em>.  Comme il
+se doit, nous avons les résultats suivants.</p> 
+
+<pre class="matlab">
+>> <font class="matlab"> X = [ 1 -2 0 3];</font>
+>> <font class="matlab">heaviside(X)</font>
+ans = <br>
+     [ 1 0 NaN 1 ]
+</pre>
+
+<p>Nous pouvons maintenant définir la fonction \(f\) et tracer son
+graphe avec la fonction <font class="matlab">fplot</font> de
+<em>Matlab</em>.</p>
+
+<pre class="matlab">
+>> <font class="matlab">f = @(x) (x.^2+1).*heaviside(x-1) - 2*cos(pi*x).*heaviside(x-2);</font>
+>> <font class="matlab">x = 0:0.02:4;</font>
+>> <font class="matlab">y = f(x);</font>
+>> <font class="matlab">plot(x,y,'b');</font>
+>> <font class="matlab">grid on, xlabel('x'), ylabel('y')</font>
+>> <font class="matlab">title('Graphe de f')</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_figure20_fr.png" style="width: 350px"
+       alt="Graphe de f">
+</div>
+</div>
+
+<div class="Note">
+<p><em>Remarque</em>: Nous avons vu dans l'exemple portant sur le
+dessin du cadre d'une boite dans le document
+<script language="javascript"> 
+  buildLinK(matlabPlot.url_fr, matlabPlot.text_fr, "MMathSStat",
+  matlabPlot.id, matlabPlot.target);
+</script>
+que nous pouvons utiliser un point avec les coordonnées
+<font class="matlab">[NaN NaN NaN]</font> pour briser une courbe
+continue.  Cette technique a aussi été utilisée dans l'exemple
+précédent pour briser le graphe de la fonction \(f\).
+Puisque la fonction de Heaviside prend la <q lang="en">valeur</q>
+<font class="matlab">NaN</font> à l'origine, nous avons que
+\(f\) prend la <q lang="en">valeur</q>
+<font class="matlab">NaN</font> à 1 et 2.
+Nous avons choisi un maillage <font class="matlab">x</font> qui
+contient les points 1 et 2.
+Donc, aucune ligne est tracée entre \( (1,f(1-)) \) et \( (1,f(1+)) \),
+et entre \( (2,f(2-)) \) et \( (2,f(2+)) \).</p>
+
+<p>Pour obtenir une meilleure appréciation du rôle que
+<font class="matlab">NaN</font> joue, nous considérons la fonction
+\(f(x) = (x^2+1) F(x-1) -2 \cos(\pi x) F(x-2)\)
+sur l'intervalle \([0,4]\), où \(F(x) = (\text{sgn}(x)+1)/2 \).
+Nous avons que \(F(x) = 0 \) pour \(x < 0\), \(F(x) = 1\) pour
+\(x >0\), et \(F(0) = 1/2\).  Si nous utilisons les commandes </p>
+
+<pre class="matlab">
+>> <font class="matlab">f = @(x) (x.^2+1).*((sign(x-1)+1)/2) - 2*cos(pi*x).*((sign(x-2)+1)/2); ...
+   x = 0:0.01:4; ...
+   y = f(x); ...
+   plot(x,y,'b');</font>
+</pre>
+
+<p>nous n'obtenons pas le graphe d'une fonction.  Il y a des lignes
+verticales où il devrait y avoir un seul point.  Pour tracer le graphe
+de \(f\), nous devons utiliser les commandes suivantes.</p>
+
+<pre class="matlab">
+>> <font class="matlab">f = @(x) (x.^2+1).*((sign(x-1)+1)/2) - 2*cos(pi*x).*((sign(x-2)+1)/2); ...
+   x = 0:0.02:0.99; ...
+   y = f(x); ...
+   plot(x,y,'b'); ...
+   hold on; ...
+   x = 1.01:0.02:1.99; ...
+   y = f(x); ...
+   plot(x,y,'b'); ...
+   x = 2.01:0.02:4; ...
+   y = f(x); ...
+   plot(x,y,'b'); ...
+   plot(1,f(1),'.b'); ...
+   plot(2,f(2),'.b');</font>
+</pre>
+</div>
+
 <p> Les fonctions suivantes pour manipuler les <em>adresses</em> de
 fonctions sont parfois utiles.</p>
 
@@ -358,112 +479,47 @@ Nous fournissons des exemples de ces nouvelles fonctions graphiques
 ci-dessous.</p>
 
 <div class="Example">
-<p><em>Exemple</em>: Nous utilisons <em>Matlab</em> pour tracer le
-graphe de la fonction \(f\) définie par
-\(f(x) = (x^2+1) H(x-1) -2 \cos(\pi x) H(x-2)\)
-sur l'intervalle \([0,4]\), où le fonction \(H\) est la fonction de
-Heaviside.</p>
-
-<p>La fonction de Heaviside prend la valeur 1 si son argument est un
-nombre positif, elle prend la valeur 0 si son argument est un nombre négatif,
-et elle n'est pas définie à l'origine.  <em>Matlab</em> et <em>Octave</em> 
-ont une fonction <font class="matlab">heaviside</font> prédéfinie dans
-leur boite à outils symbolique (sic).  Nous prenons pour acquis
-que cette boite à outils n'a pas été installée.  Donc, nous définissons
-en premier la fonction Heaviside <font class="matlab">heaviside</font>.</p>
-
-<p>Voici le contenu du <em>fichier m</em>
-<script language="javascript">
-  buildLinK("heaviside.m", "heaviside.m","MMathSStat", "id1HS", "_blank");
-</script>.</p>
+<p><em>Exemple</em>: Nous pouvons utiliser la fonction
+<font class="matlab">fplot</font> de <em>Matlab</em> pour tracer le
+graphe de la fonction \(\displaystyle f(x) = x^3 + 2 x^2 + 1\) que
+nous avons considérée dans un exemple précédent.</p>
 
 <pre class="matlab">
-% Y = heaviside(X)
-%
-% This function accept a matrix X as argument and evaluate the
-% Heaviside function at each of the components of X.
-% The Heaviside function is defined as 1 if the argument is a positive
-% number, 0 if the argument is a negative number, and NaN if the
-% argument is 0.
-<font class="matlab">function Y = heaviside(X)
-  Y = (sign(X)+1)/2;
-  Y(Y == 1/2) = NaN;
-end </font>
-</pre>
-
-<p>Cela peut paraître comme étant une définition excessivement
-compliquée pour la fonction <font class="matlab">heaviside</font> mais
-notre but était de créer une fonction qui est <em>array smart</em>
-pour prendre avantage de l'optimisation de <em>Matlab</em>.  Comme il
-se doit, nous avons les résultats suivants.</p> 
-
-<pre class="matlab">
->> <font class="matlab"> X = [ 1 -2 0 3];</font>
->> <font class="matlab">heaviside(X)</font>
-ans = <br>
-     [ 1 0 NaN 1 ]
-</pre>
-
-<p>Nous pouvons maintenant définir la fonction \(f\) et tracer son
-graphe avec la fonction <font class="matlab">fplot</em> de
-<em>Matlab</em>.</p>
-
-<pre class="matlab">
->> <font class="matlab">f = @(x) (x.^2)+1.*heaviside(x-1) - 2*cos(pi*x).*heaviside(x-2);</font>
->> <font class="matlab">fplot(f,[0,4],'b', MeshDensity=100);</font>
->> <font class="matlab">grid on, xlabel('x'), ylabel('y')</font>
->> <font class="matlab">title('Graph of f')</font>
+>> <font class="matlab"> f = @(x) x.^3 + 2*x.^2 + 1;</font>
+>> <font class="matlab"> fplot(f,[-4,4],'b', MeshDensity=100);</font>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure20.png" style="width: 350px"
-       alt="Graphe de f">
+  <img src="Matlab_figure29.png" style="width: 350px"
+       alt="Graphe de la fonction f(x) = x^3 + 2 x^2 + 1 pour -4 &le; x &le; 4">
 </div>
 </div>
 
 <div class="Note">
-<p><em>Remarque</em>: Nous avons vu dans l'exemple portant sur le
-dessin du cadre d'une boite dans le document
-<script language="javascript"> 
-  buildLinK(matlabPlot.url_fr, matlabPlot.text_fr, "MMathSStat",
-  matlabPlot.id, matlabPlot.target);
-</script>
-que nous pouvons utiliser un point avec les coordonnées
-<font class="matlab">[NaN NaN NaN]</font> pour briser une courbe
-continue.  Cette technique a aussi été utilisée dans l'exemple
-précédent pour briser le graphe de la fonction \(f\).
-Puisque la fonction de Heaviside prend la <q lang="en">valeur</q>
-<font class="matlab">NaN</font> à l'origine, nous avons que
-\(f\) prend la <q lang="en">valeur</q>
-<font class="matlab">NaN</font> à 1 et 2.
-Donc, aucune ligne est tracée entre \( (1,f(1-)) \) et \( (1,f(1+)) \),
-et entre \( (2,f(2-)) \) et \( (2,f(2+)) \).</p>
+<p><em>Conseil</em>: La méthode qui utilise la
+<q lang="en">valeur</q> <font class="matlab">NaN</font> pour briser le
+graphe d'une fonction
+ne fonctionne pas avec <font class="matlab">fplot</font> car il n'est
+pas possible de garantir que les points où la fonction est discontinue
+sont inclus dans le maillage choisi par <font class="matlab">fplot</font>.
+Donc, pour les fonctions qui sont discontinues, il est préférable
+d'utiliser la fonction <font class="matlab">plot</font> et de
+choisir le maillage nous-mêmes comme nous avons fait dans un exemple
+ci-dessus.</p>
 
-<p>Pour obtenir une meilleure appréciation du rôle que
-<font class="matlab">NaN</font> joue, nous considérons la fonction
-\(f(x) = (x^2+1) F(x-1) -2 \cos(\pi x) F(x-2)\)
-sur l'intervalle \([0,4]\), où \(F(x) = (\text{sgn}(x)+1)/2 \).
-Nous avons que \(F(x) = 0 \) pour \(x < 0\), \(F(x) = 1\) pour
-\(x >0\), et \(F(0) = 1/2\).  Si nous utilisons les commandes </p>
+<p> Nous avons considéré la fonction
+\(f(x) = (x^2+1) H(x-1) -2 \cos(\pi x) H(x-2)\) dans un exemple
+précédent.  Le lecteur devrait exécuter les commandes suivantes.</p>
 
 <pre class="matlab">
->> <font class="matlab">f = @(x) (x.^2)+1.*((sign(x-1)+1)/2) - 2*cos(pi*x).*((sign(x-2)+1)/2);</font>
->> <font class="matlab">fplot(f,[0,4],'b', MeshDensity=200);</font>
+>> <font class="matlab">f = @(x) (x.^2+1).*heaviside(x-1) - 2*cos(pi*x).*heaviside(x-2); ...
+   fplot(f,[0,4],'b', MeshDensity=100);</font>
 </pre>
 
-<p>nous n'obtenons pas le graphe d'une fonction.  Il y a des lignes
-verticales où il devrait y avoir un seul point.  Pour tracer le graphe
-de \(f\), nous devons utiliser les commandes suivantes.</p>
-
-<pre class="matlab">
->> <font class="matlab">f = @(x) (x.^2)+1.*((sign(x-1)+1)/2) - 2*cos(pi*x).*((sign(x-2)+1)/2);</font>
->> <font class="matlab">fplot(f,[0,0.99],'b', MeshDensity=50);</font>
->> <font class="matlab">hold on</font>
->> <font class="matlab">fplot(f,[1.01,1.99],'b', MeshDensity=50);</font>
->> <font class="matlab">fplot(f,[2.01,4],'b', MeshDensity=100);</font>
->> <font class="matlab">plot([1,f(1)],'ob');</font>
->> <font class="matlab">plot([2,f(2)],'ob');</font>
-</pre>
+<p>Sur notre ordinateur, il y a une ligne verticale à \(x=1\) car le
+point 1 n'est pas inclus dans le maillage choisi par
+<font class="matlab">fplot</font>.  Le lecteur devrait varier la
+densité du maillage pour voir ce qui arrive.</p>
 </div>
 
 <div class="Example">
@@ -473,10 +529,10 @@ de \(f\), nous devons utiliser les commandes suivantes.</p>
 \(0 \leq  t \leq 20 \).</p>
 
 <pre class="matlab">
->> <font class="matlab">f = @(t) t.*sin(t).*cos(t);</font>
->> <font class="matlab">g = @(t) (t-1).*cos(t);</font>
->> <font class="matlab">fplot(f,g,[0,20]);</font>
->> <font class="matlab">grid on, xlabel('x'), ylabel('y')</font>
+>> <font class="matlab">f = @(t) t.*sin(t).*cos(t); ...
+   g = @(t) (t-1).*cos(t); ...
+   fplot(f,g,[0,20]); ...
+   grid on, xlabel('x'), ylabel('y')</font>
 </pre>
 
 <div class="center">
@@ -496,11 +552,11 @@ est <font class="matlab">ezplot</font>.</p>
 \(0 \leq  t \leq 20 \).</p>
 
 <pre class="matlab">
->> <font class="matlab">f = @(t) t.*sin(t).*cos(t);</font>
->> <font class="matlab">g = @(t) (t-1).*cos(t);</font>
->> <font class="matlab">h = @(t) t;</font>
->> <font class="matlab">fplot3(f,g,h,[0,20]);</font>
->> <font class="matlab">grid on, xlabel('x'), ylabel('y'), zlabel('z')</font>
+>> <font class="matlab">f = @(t) t.*sin(t).*cos(t); ...
+   g = @(t) (t-1).*cos(t); ...
+   h = @(t) t; ...
+   fplot3(f,g,h,[0,20]); ...
+   grid on, xlabel('x'), ylabel('y'), zlabel('z')</font>
 </pre>
 
 <div class="center">
@@ -519,9 +575,9 @@ implicitement.  Par exemple, nous pouvons tracer la courbe définie par
 l'équation \( 9x^2 - 4 y^2 - 18 x + 16 y = 43 \).</p>
 
 <pre class="matlab">
->> <font class="matlab">h = @(x,y) 9*x.^2 -4*y.^2 - 18*x +16*y - 43;</font>
->> <font class="matlab">fimplicit(h,'r');</font>
->> <font class="matlab">xlabel('x') , ylabel('y');</font>
+>> <font class="matlab">h = @(x,y) 9*x.^2 -4*y.^2 - 18*x +16*y - 43; ...
+   fimplicit(h,'r'); ...
+   xlabel('x') , ylabel('y');</font>
 </pre>
 
 <div class="center">
@@ -537,39 +593,39 @@ l'équation \( 9x^2 - 4 y^2 - 18 x + 16 y = 43 \).</p>
 <div class="Example">
 <p><em>Exemple</em>: Nous utilisons <em>Matlab</em> pour dessiner le
 graphe de la fonction \(f\) définie par
-\( f(x,y) = x y \sin(y) \cos(x))  \) pour
+\( f(x,y) = x y \sin(y) \cos(x) \) pour
 \(0 \leq x,y \leq 2 \pi \).</p>
 
 <pre class="matlab">
->> <font class="matlab">f = @(x,y) x.*y.*sin(y).*cos(x);</font>
->> <font class="matlab">fsurf(f,[0 2*pi 0 2*pi]);</font>
->> <font class="matlab">grid on, xlabel('x'), ylabel('y'), zlabel('z')</font>
+>> <font class="matlab">f = @(x,y) x.*y.*sin(y).*cos(x); ...
+   fsurf(f,[0 2*pi 0 2*pi]); ...
+   grid on, xlabel('x'), ylabel('y'), zlabel('z')</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure24.png" style="width: 350px"
-       alt="Graphe de la fonction f définie par f(x,y) = x y sin(y)\cos(x)) pour 0 &le; x,y &le; 2 \pi">
+       alt="Graphe de la fonction f définie par f(x,y) = x y sin(y) cos(x) pour 0 &le; x,y &le; 2 &pi;">
 </div>
 
 <p>Nous pouvons aussi tracer des courbes de niveau de \(f\).</p>
 
 <pre class="matlab">
->> <font class="matlab">fcontour(f,[ 0 2*pi 0 2*pi]);</font>
->> <font class="matlab">grid on, xlabel('x'), ylabel('y')</font>
->> <font class="matlab">colourbar</font>
+>> <font class="matlab">fcontour(f,[ 0 2*pi 0 2*pi]); ...
+   grid on, xlabel('x'), ylabel('y'), ...
+   colourbar</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure25.png" style="width: 350px"
-       alt="Quelques courbes de niveau de la fonction f définie par f(x,y) = x y sin(y)\cos(x)) pour 0 &le; x,y &le; 2 \pi">
+       alt="Quelques courbes de niveau de la fonction f définie par f(x,y) = x y sin(y) cos(x) pour 0 &le; x,y &le; 2 &pi;">
 </div>
 
 <p>Nous pouvons même choisir les courbes de niveau de \(f\) que nous
 voulons tracer.</p>
 
 <pre class="matlab">
->> <font class="matlab">fcontour(f,[ 0 2*pi 0 2*pi], 'LevelList', [-1 0 1]);</font>
->> <font class="matlab">grid on, xlabel('x'), ylabel('y')</font>
+>> <font class="matlab">fcontour(f,[ 0 2*pi 0 2*pi], 'LevelList', [-1 0 1]); ...
+   grid on, xlabel('x'), ylabel('y')</font>
 </pre>
 
 <div class="center">
@@ -589,20 +645,20 @@ une sphère de rayon 2 centrée au point \( (1,1,1)\) et
 l'hyperboloïde \( x^2 + z^2 - y^2 = 1\).</p> 
 
 <pre class="matlab">
->> <font class="matlab">F1 = @(x,y) (x-1).^2 + (y-1).^2 + (z-1).^2 -4;</font>
->> <font class="matlab">F2 = @(x,y) x.^2 + z.^2 - y.^2 -1;</font>
->> <font class="matlab">subplot(2,1,1);</font>
->> <font class="matlab">fimplicit3(F1);<font>
->> <font class="matlab">title('A sphere');</font>
->> <font class="matlab">axis('equal'), grid on;</font>
->> <font class="matlab">subplot(2,1,2);</font>
->> <font class="matlab">fimplicit3(F2);<font>
->> <font class="matlab">title('A hyperboloid');</font>
->> <font class="matlab">axis('equal'), grid on;</font>
+>> <font class="matlab">F1 = @(x,y) (x-1).^2 + (y-1).^2 + (z-1).^2 -4; ...
+   F2 = @(x,y) x.^2 + z.^2 - y.^2 -1; ...
+   subplot(2,1,1); ...
+   fimplicit3(F1); ...
+   title('Une sphêre'); ...
+   axis('equal'), grid on; ...
+   subplot(2,1,2); ...
+   fimplicit3(F2); ...
+   title('Un hyperboloïde'); ...
+   axis('equal'), grid on;</font>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure26.png" style="width: 400px"
+  <img src="Matlab_figure26_fr.png" style="width: 400px"
        alt="Affichasse des deux dessins: le premier dessin est celui de la sphère et le dessin en dessous est celui de l'hyperboloïde."> 
 </div>
 </div>
