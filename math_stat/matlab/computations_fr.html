@@ -98,10 +98,12 @@ outils doit être achetée séparément.  Ceci peut être dispendieux.</p>
 
 <h3 id="Sect12"> Intégration numérique </h3>
 
-<p>Il y a trois principales fonctions de <em>Matlab</em> pour
-l'intégration numérique d'une fonction: <font class="matlab">trapz</font>,
-<font class="matlab">quad</font>
-et <font class="matlab">quadl</font>.
+<p>Il y a deux principales fonctions de <em>Matlab</em> pour
+l'intégration numérique d'une fonction: <font class="matlab">trapz</font>
+et <font class="matlab">integral</font> (avec
+<font class="matlab">integral2</font> et
+<font class="matlab">integral3</font> pour les intégrales sur les
+sous-ensembles de \(\mathbb{R}^2\) et \(\mathbb{R}^3\) respectivement).
 La fonction <font class="matlab">trapz</font> utilise la méthode
 des trapèzes pour estimer l'intégral d'une fonction .</p>
 
@@ -122,8 +124,8 @@ x = <br>
 
 <p> L'étape suivante consiste à évaluer \(x \sin(x)\) à chacune des
 composantes de la liste <font class="matlab">x</font> (les composantes
-de <font class="matlab">x</font> sont les points qui forment la
-partition de l'intervalle \([0.\pi]\).) 
+de <font class="matlab">x</font> sont les points du maillage de
+l'intervalle \([0.\pi]\).) 
 
 <pre class="matlab">
 >> <font class="matlab">y = x .* sin(x);</font>
@@ -139,42 +141,50 @@ ans = <br>
 </pre>
 </div>
 
-<p>La fonction <font class="matlab">quad</font> est une version de
-la méthode adaptative de Simpson et la fonction
-<font class="matlab">quadl</font> est une version de la méthode
-adaptative de Newton-Cotes.  Afin d'utiliser ces deux fonctions, il
+<p>La fonction <font class="matlab">integral</font> est une version de
+d'une méthode adaptative de quadrature.  Afin d'utiliser cette fonction, il
 faut définir de nouvelles fonctions à l'aide des
 <em>fichiers m</em> ou de définir des <em>fonctions anonymes</em>.</p>
 
 <div class="Example">
 <p><em>Exemple</em>: Pour estimer l'aire sous la courbe \(y = x \sin(x)\) pour
-\(0 \leq x \leq \pi\), nous utilisons notre fonction
-<font class="matlab">funct1</font>.
-Pour évaluer numériquement l'intégrale de \(x \sin(x)\) sur l'intervalle
-\(0 \leq x \leq \pi\), nous utilisons la commande suivante.</p>
+\(0 \leq x \leq \pi\), nous utilisons la fonction
+<font class="matlab">funct1</font> que nous avons définie dans le
+document <script language="javascript"> 
+  buildLinK(matlabFunct.url_fr, matlabFunct.text_fr,
+  "MMathSStat", matlabFunct.id, matlabFunct.target);
+</script>.  Pour évaluer numériquement l'intégrale de \(x \sin(x)\)
+sur l'intervalle \(0 \leq x \leq \pi\), nous utilisons la commande
+suivante.</p>
 
 <pre class="matlab">
->> <font class="matlab">quadl(@funct1,0,pi)</font>
+>> <font class="matlab">integral(@funct1,0,pi)</font>
 ans = <br>
     3.1416
 </pre>
 </div>
 
-<p> Le format minimal des fonctions <font class="matlab">quadl</font> et
-<font class="matlab">quad</font> est
-<font class="matlab">quadl(@Funct, a, b);</font> où
-<font class="matlab">Funct</font> est le nom de la fonction définie
-pour \(a \leq x \leq b\), l'intervalle d'intégration.  Le résultat est
-une estimation de la valeur exacte avec une erreur relative d'au plus
-\(\displaystyle 10^{-3}\).  Pour spécifier une différente borne
-supérieure sur l'erreur relative, il faut utiliser la commande
-<font class="matlab">quadl(@Funct,a,b,tol)</font> où
-<font class="matlab">tol</font> est la nouvelle borne sur l'erreur
-relative.</p>
+<p> Le format minimal de la fonction <font class="matlab">integral</font>
+est</p>
+<div class="center">
+<font class="matlab">integral(@Funct, a, b, 'propriété1', valeur1,
+  'propriété2', valeur2, ...);</font>
+</div>
+où <font class="matlab">Funct</font> est le nom d'une fonction définie
+pour \(a \leq x \leq b\), l'intervalle d'intégration.
+Par exemple, pour spécifier une borne supérieure pour l'erreur
+relative ou pour l'erreur absolue, il suffit d'utiliser une commande
+de la forme
+<font class="matlab">integral(@Funct,a,b,'RelTol',valeur1,'AbsTol',valeur2)
+</font> où <font class="matlab">valeur1</font> est la nouvelle borne
+supérieure pour l'erreur relative et
+<font class="matlab">valeur2</font> est la nouvelle borne supérieure
+pour l'erreur absolue..</p> 
 
 <div class="Example">
 <p><em>Exemple</em>: Nous voulons estimer la valeur de l'intégrale de
-\(\displaystyle f(x) = x^3 + 2 x^2 + 1\) pour \(3 \leq x \leq 5\).</p>
+\(\displaystyle f(x) = \sqrt{x} + 2 \sin(1/x^2) + 1\) pour \(1 \leq x \leq 5\).
+</p>
 
 <p>Au lieu de créer un <em>fichier m</em> pour la fonction \(f\), nous
 définissons une <em>fonction anonyme</em> qui est seulement représentée
@@ -182,22 +192,79 @@ par son <em>anse</em> que nous sauvegardons dans une variable comme
 il est fait ci-dessous.</p>
 
 <pre class="matlab">
->> <font class="matlab"> f = @(x) x.^3 + 2* x.^2 + 1</font><br>
+>> <font class="matlab"> f = @(x) sqrt(x) + sin(1./x.^2) + 1</font><br>
 f = <br>
-    @(x) x .^ 3 + 2 * x .^ 2 + 1 <br>
+    @(x) sqrt(x) + sin(1 ./ x .^ 2) + 1
 </pre>
 
 <p> Cette <em>anse</em> peut alors être utilisée avec la fonction 
-<font class="matlab">quadl</font>.  La commande suivante illustre
-comment cela est fait.</p>
+<font class="matlab">integral</font>.  La commande suivante illustre
+comment cela est fait.  Nous exigeons une erreur relative d'au plus
+\(10^{-6}\).</p>
 
 <pre class="matlab">
->> <font class="matlab">quadl(f,3,5)</font> <br>
+>> <font class="matlab">integral(f,1,5,'RelTol',10^(-6))</font> <br>
 ans =  <br>
-     2.033333333333333e+02
+     11.55448141551789
 </pre>
 </div>
 
+<div class="Example">
+<p><em>Exemple</em>: Nous voulons estimer la valeur de l'intégrale
+de \(\displaystyle f(x,y) = x^2 y^2\) sur le disque de rayon 2
+centré à l'origine.</p>
+
+<p><em>Première méthode</em>: Nous calculons en premier l'intégrale</p>
+\[
+\int_{-2}^2 \int_{-\sqrt{4-x^2}}^{\sqrt{4-x^2}} f(x,y) \text{d} y
+\text{d} x \ .
+\]
+<p>Pour calculer cette intégrale à l'aide de <em>Matlab</em>, nous
+exécutons les commandes suivantes.</p>
+
+<pre class="matlab">
+>> <font class="matlab">format long; ...
+   f = @(x,y) x.^2 .* y.^2; ...
+   ymax = @(x) sqrt(4-x.^2); ...
+   ymin = @(x) -sqrt(4-x.^2); ...
+   integral2(f, -2,2, ymin, ymax,'Method','iterated')
+</font>
+ans = <br>
+   8.377580360000902
+</pre>
+
+<p><em>Deuxième méthode</em>: Nous calculons l'intégrale précédente à
+l'aide des coordonnées polaires.  C'est-à-dire, nous posons
+\(x = r \cos(\theta)\) et
+\(y = r \sin(\theta)\) pour \(0 \leq r \leq 2\) et
+\(0 \leq \theta \leq 2\pi \), et calculons l'intégrale</p>
+\[
+\int_0^2 \int_0^{2\pi} f(r\cos(\theta),r\sin(\theta)) r \text{d} \theta
+\text{d} r \ .
+\]
+<p> Pour calculer cette intégrale à l'aide de <em>Matlab</em>, nous
+exécutons les commandes suivantes.</p>
+
+<pre class="matlab">
+>> <font class="matlab">X = @(r,theta) r.*cos(theta); ...
+   Y = @(r,theta) r.*sin(theta); ...
+   frt = @(r,theta) f(X(r,theta),Y(r,theta)); ...
+   frtD = @(r,theta) f(X(r,theta),Y(r,theta)).*r; ...
+   integral2(frtD, 0,2, 0, 2*pi,'Method','tiled')
+</font>
+ans = <br>
+   8.377580409572781
+</pre>
+</div>
+
+<p>Il y a trois options pour la propriété
+<font class="method">Method</font>: <em>auto</em>, <em>tiled</em>
+et <em>iterated</em>.  Nous choisissons l'option <em>tiled</em> quand nous
+voulons que l'intégrale soit calculée avec des sommes partielles sur des
+<q lang="fr">petits rectangles</q> comme cela est fait pour la
+définition de l'intégrale de fonctions de deux variables et plus.
+Nous choisissons l'option <em>iterated</em> quand nous voulons que
+l'intégrale soit calculer comme une intégrale double ou triple.</p>
 
 <hr class="MMathSStat">
 
@@ -274,7 +341,7 @@ résoudre numériquement l'EDO.</p>
 \(\displaystyle 10^{-5}\).  Nous avons déjà défini à l'aide
 du <em>fichier m</em>
 <em>funct1.m</em> une fonction \(x \mapsto x \sin(x)\).  Cependant, cette
-fonction <font class="matlab">funct1</font> ne peut pas être utilisé avec
+fonction <font class="matlab">funct1</font> ne peut pas être utilisée avec
 le solveur <font class="matlab">ode45</font> car la fonction
 <font class="matlab">funct1</font> dépend seulement de \(x\).  Le côté
 droit d'une EDO \(y'(x)= \ldots\) doit être une fonction de \(x\) et

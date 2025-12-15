@@ -97,10 +97,12 @@ to be purchased separately.  That can be expensive.</p>
 
 <h3 id="Sect12"> Numerical Integration </h3>
 
-<p>There are three fundamental <em>Matlab</em> functions to
+<p>There are two fundamental <em>Matlab</em> functions to
 numerically integrate a function:
-<font class="matlab">trapz</font>, <font class="matlab">quad</font>
-and <font class="matlab">quadl</font>.
+<font class="matlab">trapz</font> and <font class="matlab">integral</font>
+(with <font class="matlab">integral2</font> and
+<font class="matlab">integral3</font> for the integrals over subsets
+of \(\mathbb{R}^2\) and \(\mathbb{R}^3\) respectively).
 The function <font class="matlab">trapz</font> uses the Trapezoidal
 method to approximate the integral of a function.</p>
 
@@ -121,8 +123,7 @@ x = <br>
 
 <p> The next step is to evaluate \(x \sin(x)\) at each of the components
 of the list <font class="matlab">x</font> (the components of
-<font class="matlab">x</font> are the mesh points of the partition of the
-interval \([0.\pi]\).)
+<font class="matlab">x</font> are the mesh points of the interval \([0.\pi]\).)
 
 <pre class="matlab">
 >> <font class="matlab">y = x .* sin(x);</font>
@@ -138,62 +139,126 @@ ans = <br>
 </pre>
 </div>
 
-<p>The function <font class="matlab">quad</font> is based on an an
-adaptive recursive Simpson's rule and the function
-<font class="matlab">quadl</font> is based on an adaptive recursive 
-Newton-Cotes method.  To be able to use these functions, we need to
-define new functions using <em>m-files</em> or to 
+<p>The function <font class="matlab">integral</font> is based on an
+adaptive quadrature method.  To be able to use this function, we need to
+define new functions using <em>m-files</em> or to
 define <em>anonymous functions</em>.</p>
 
 <div class="Example">
 <p><em>Example</em>: To approximate the area under the curve
-\(y = x \sin(x)\) for \(0 \leq x \leq \pi\), we use our function
-<font class="matlab">funct1</font>.  To evaluate numerically the
+\(y = x \sin(x)\) for \(0 \leq x \leq \pi\), we use the function
+<font class="matlab">funct1</font> that we have defined in the
+document <script language="javascript"> 
+  buildLinK(matlabFunct.url_en, matlabFunct.text_en,
+  "MMathSStat", matlabFunct.id, matlabFunct.target);
+</script>.  To evaluate numerically the
 integral of \(x \sin(x)\) over the interval \(0 \leq x \leq \pi\),
 we only have to execute the following command.</p>
 
 <pre class="matlab">
->> <font class="matlab">quadl(@funct1,0,pi)</font>
+>> <font class="matlab">integral(@funct1,0,pi)</font>
 ans = <br>
     3.1416
 </pre>
 </div>
 
-<p> The basic format of <font class="matlab">quadl</font> and
-<font class="matlab">quad</font> is
-<font class="matlab">quadl(@Funct, a, b);</font>,
-where <font class="matlab">Funct</font> is the name of the function
-defined for \(a \leq x \leq b\), the interval of integration.  The
-result is an approximation of the exact result with a relative
-error of no more than \(\displaystyle 10^{-3}\).  To specify a
-different upper bound on the relative error, it suffices to use the command
-<font class="matlab">quadl(@Funct,a,b,tol)</font>, where
-<font class="matlab">tol</font> is the new bound on the relative error.</p>
+<p> The basic format of the function <font class="matlab">integral</font>
+is </p>
+<div class="center">
+<font class="matlab">integral(@Funct, a, b, 'property1', value1,
+  'property2', value2, ...);</font>
+</div>
+<p> where <font class="matlab">Funct</font> is the name of a function
+defined for \(a \leq x \leq b\), the interval of integration.
+For instance, to specify the upper bound on the relative error or the
+absolute error, it suffices to use a command like
+<font class="matlab">integral(@Funct,a,b,'RelTol',value1,'AbsTol',value2)
+</font> where <font class="matlab">value1</font> is the new upper bound on
+the relative error and <font class="matlab">value2</font> is the new
+upper bound on the absolute error.</p> 
 
 <div class="Example">
 <p><em>Example</em>: We want to approximate the value of the integral
-of \(\displaystyle f(x) = x^3 + 2 x^2 + 1\) for \(3 \leq x \leq 5\).</p>
+of \(\displaystyle f(x) = \sqrt{x} + 2 \sin(1/x^2) + 1\) for
+\(1 \leq x \leq 5\).</p>
 
 <p>Instead of creating an <em>m-file</em> for the function \(f\), we
 define an <em>anonymous function</em> which is only represented by its
 <em>handle</em> that we store in a variable as it follows.</p>
 
 <pre class="matlab">
->> <font class="matlab"> f = @(x) x.^3 + 2* x.^2 + 1</font><br>
+>> <font class="matlab"> f = @(x) sqrt(x) + sin(1./x.^2) + 1</font><br>
 f = <br>
-    @(x) x .^ 3 + 2 * x .^ 2 + 1 <br>
+   @(x) sqrt(x) + sin(1 ./ x .^ 2) + 1
 </pre>
 
-<p> This function <em>handle</em> can then be used in with
-function <font class="matlab">quadl</font>.  The following command
-illustrates how to do it.</p>
+<p> This function <em>handle</em> can then be used with the
+function <font class="matlab">integral</font>.  The following command
+illustrates how to do it.  We require a relative error of no more
+than \(10^{-6}\). </p>
 
 <pre class="matlab">
->> <font class="matlab">quadl(f,3,5)</font> <br>
+>> <font class="matlab">integral(f,1,5,'RelTol',10^(-6))</font> <br>
 ans =  <br>
-     2.033333333333333e+02
+     11.55448141551789
 </pre>
 </div>
+
+<div class="Example">
+<p><em>Example</em>: We want to approximate the value of the integral
+of \(\displaystyle f(x,y) = x^2 y^2\) over the disk of radius 2
+centred at the origin.</p>
+
+<p><em>First method</em>: We first compute the integral</p>
+\[
+\int_{-2}^2 \int_{-\sqrt{4-x^2}}^{\sqrt{4-x^2}} f(x,y) \text{d} y
+\text{d} x \ .
+\]
+<p>To compute this integral using <em>Matlab</em>, we execute the
+following commands.</p>
+
+<pre class="matlab">
+>> <font class="matlab">format long; ...
+   f = @(x,y) x.^2 .* y.^2; ...
+   ymax = @(x) sqrt(4-x.^2); ...
+   ymin = @(x) -sqrt(4-x.^2); ...
+   integral2(f, -2,2, ymin, ymax,'Method','iterated')
+</font>
+ans = <br>
+   8.377580360000902
+</pre>
+
+<p><em>Second method</em>: We compute the previous integral using polar
+coordinates.  Namely, we set \(x = r \cos(\theta)\) and
+\(y = r \sin(\theta)\) for \(0 \leq r \leq 2\) and
+  \(0 \leq \theta \leq 2\pi \), and compute the integral</p>
+\[
+\int_0^2 \int_0^{2\pi} f(r\cos(\theta),r\sin(\theta)) r \text{d} \theta
+\text{d} r \ .
+\]
+<p> To compute this integral using <em>Matlab</em>, we execute the
+following commands.</p>
+
+<pre class="matlab">
+>> <font class="matlab">X = @(r,theta) r.*cos(theta); ...
+   Y = @(r,theta) r.*sin(theta); ...
+   frt = @(r,theta) f(X(r,theta),Y(r,theta)); ...
+   frtD = @(r,theta) f(X(r,theta),Y(r,theta)).*r; ...
+   integral2(frtD, 0,2, 0, 2*pi,'Method','tiled')
+</font>
+ans = <br>
+   8.377580409572781
+</pre>
+</div>
+
+<p>There are three options for the
+property <font class="method">Method</font>: <e>auto</em>, <em>tiled</em>
+and <em>iterated</em>.  We select the option <em>tiled</em> when we
+want the integral to be computed with partial sums over
+<q lang="en">tiny rectangles</q> as it is done for the definition of
+the integral of fonctions of two or more variables.  We select the
+option <em>iterated</em> when we want the integral to be computed as a
+double or triple integral.</p>
 
 <hr class="MMathSStat">
 
