@@ -934,7 +934,7 @@ all the possible properties of the <em>Figure</em> object with their
 values.</p>
 
 <p> The following command returns the handle of the <em>Axes</em>
-object which is a children of the current <em>Figure</em> object that
+object which is a child of the current <em>Figure</em> object that
 has been created by the function 
 <font class="matlab">plot</font>. </p>
 
@@ -977,8 +977,9 @@ h1c = <br>
 
 <p>For old versions of <em>Matlab</em>, we must use the command
 <font class="matlab">h1c = get(h1,'children')</font>.
-As expected, there are two children.  One of them is the <em>Axes</em> object
-and the other is the <em>Legend</em> object. </p>
+As expected, there are two children.  One of the two handles is the handle
+associated to the <em>Axes</em> object and the other is the handle
+associated to the <em>Legend</em> object. </p>
 
 <pre class="matlab">
 >> <font class="matlab">h1c(1).Children, h1c(2).Children, h2.Children, l1.Children </font> <br>
@@ -1055,8 +1056,8 @@ commands.</p>
 
 <div class="Note">
 <p><em>Advice</em>: The use of the Children property to
-retrieve the handles of the children of
-<em>Figure</em> or <em>Axes</em> objects is strongly discouraged.
+retrieve the handles of the children of the
+<em>Figure</em> and <em>Axes</em> objects is strongly discouraged.
 The order in which the handles are listed is
 arbitrary.  It is then difficult to locate the handle associated to
 the object that we want to modify.  It is better to get the handle of
@@ -1073,7 +1074,7 @@ properties of an object using its handle.  It is preferable to set the
 properties when the object is created as we did with the commands
 <font class="matlab">p1 = plot(x,y,'b')</font> and
 <font class="matlab">p2 = plot(x,y,'r')</font>.  The general format to
-set properties when creating an object is</p>
+set the properties of an object when it is created is</p>
 
 <div class="center">
 <font class="matlab">handle_name = object_name(...,'property_name1',value1,'property_name2',value2, ...);</font>

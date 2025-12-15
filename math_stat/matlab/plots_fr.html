@@ -888,7 +888,7 @@ afficher la plus part des formules mathématiques.</p>
 simplifiée de la hiérarchie des objets graphiques.   Une connaissance
 des objets qui composent une figure et être capable de modifier
 certaines de leurs propriétés sont de temps à autre utiles pour
-produire une figure belle et précise.  Le diagramme suivant est une
+produire une belle figure qui est aussi précise.  Le diagramme suivant est une
 version simplifiée de la structure d'une figure.</p>
 
 <div class="center">
@@ -908,7 +908,7 @@ quelques objets <em>Texte</em> (le texte ajouté à un dessin) qui sont
 <li> Un objet <em>Légende</em>, si une légende est requise, qui est un
   enfant de l'objet <em>Figure</em>.</li>
 <li> Quelques objets <em>Lignes</em> (lignes) et quelques objets <em>Texte</em>
-(étiquettes) qui sont des enfant de l'objet <em>Légende</em> si une
+(étiquettes) qui sont des enfants de l'objet <em>Légende</em> si une
 légende est créée.</li> 
 </ol>
 
@@ -937,8 +937,9 @@ force <em>Matlab</em> à lire la ligne suivante avant d'exécuter les
 commandes.</p>
 </div>
 
-<p> La commande suivante donne l'anse de l'objet <em>Figure</em> actuel
-qui a été créé par la fonction <font class="matlab">plot</font>. </p> 
+<p> La commande suivante donne l'anse de l'objet <em>Figure</em>
+couramment actif qui a été créé par la fonction
+<font class="matlab">plot</font>. </p> 
 
 <pre class="matlab">
 >> <font class="matlab">h1 = gcf;</font>
@@ -958,14 +959,14 @@ avec la commande suivante.</p>
 </div>
 
 <p>La commande précédente ne fonctionne pas avec les vieilles versions
-de <em>Matlab</em>.  Á sa place, la commande
+de <em>Matlab</em>.  À sa place, la commande
 <font class="matlab">set(h1,'Color', [ 0.5 0.5 0.5])</font>
 doit être utilisée.  La commande <font class="matlab">get(h1)</font>
 énumère toutes les propriétés possibles de l'objet <em>Figure</em>
 avec leurs valeurs.</p>
 
 <p> La commande suivante donne l'anse de l'objet <em>Axes</em> qui est
-un enfant de l'objet <em>Figure</em> actuel qui a été créé par la
+un enfant de l'objet <em>Figure</em> couramment actif qui a été créé par la
 fonction <font class="matlab">plot</font>. </p>
 
 <pre class="matlab">
@@ -1008,8 +1009,9 @@ h1c = <br>
 
 <p>Pour les vieilles versions de <em>Matlab</em>, nous devons utiliser
 la commande <font class="matlab">h1c = get(h1,'children')</font>.
-Comme nous nous y attendions, il y a deux enfants.  Un d'eux est
-l'objet <em>Axes</em> et l'autre est l'objet <em>Légende</em>. </p>
+Comme nous nous y attendions, il y a deux enfants.  Une des deux anses est
+l'anse associée à l'objet <em>Axes</em> et l'autre est l'anse associée
+à l'objet <em>Légende</em>. </p>
 
 <pre class="matlab">
 >> <font class="matlab">h1c(1).Children, h1c(2).Children, h2.Children, l1.Children </font> <br>
@@ -1032,12 +1034,12 @@ ans = <br>
 </pre>
 
 <p>Pour les vieilles versions de <em>Matlab</em>, nous devons utiliser
-les commandes suivantes <font class="matlab">get(h1c(1),'children')</font>,
+les commandes <font class="matlab">get(h1c(1),'children')</font>,
 <font class="matlab">get(h1c(2),'children')</font>,
 <font class="matlab">get(h2,'children')</font> et
 <font class="matlab">get(l1,'children')</font>.
 L'objet <em>Axes</em> a deux enfants: un objet <em>Lignes</em> pour
-chacun des deux courbes produites par la
+chacune des deux courbes produites par la
 fonction <font class="matlab">plot</font>.  L'objet
 <em>Légende</em> a quatre enfants: deux objets <em>Lignes</em> et deux
 objets <em>Texte</em>, un de chaque pour \(x^2 e^{-x}\) et \( x^2 e^{-2x}\).</p>
@@ -1080,7 +1082,7 @@ les commandes suivantes.</p>
 </div>
 
 <p>Pour les vieilles versions de <em>Matlab</em>, nous devons utiliser
-les commandes suivantes <font class="matlab">set(p1,'linestyle','.-')</font>
+les commandes <font class="matlab">set(p1,'linestyle','.-')</font>
 et <font class="matlab">set(p1,'color','g')</font>. </p>
 
 <div class="Note">
@@ -1104,7 +1106,7 @@ propriétés quand un objet est créé comme nous avons fait avec les
 commandes
 <font class="matlab">p1 = plot(x,y,'b')</font> et
 <font class="matlab">p2 = plot(x,y,'r')</font>.  Le format générale
-pour définir les propriétés quand un objet est créé est</p>
+pour définir les propriétés d'un objet lors de sa création est</p>
 
 <div class="center">
 <font class="matlab">nom_anse = nom_objet(...,'nom_propriété1',valeur1,'nom_propriété2',valeur2, ...);</font>
@@ -1131,15 +1133,15 @@ en même temps   Les commandes suivantes démontrent comment cela peut
 </div>
 
 <p> La commande <font class="matlab">f1 = figure</font> génère un
-objet <em>Figure</em> qui devient la figure actuelle.  Les deux
+objet <em>Figure</em> qui devient la figure couramment active.  Les deux
 commandes graphiques qui suivent utilisent cet objet <em>Figure</em>.
 La commande <font class="matlab">f2 = figure</font> génère un nouvel
-objet <em>Figure</em> qui devient la figure actuelle.  Les deux
+objet <em>Figure</em> qui devient la figure couramment active.  Les deux
 commandes graphiques qui suivent utilisent ce nouvel objet <em>Figure</em>.
 Finalement, la commande <font class="matlab">figure(f1)</font> 
 désigne l'objet <em>Figure</em> avec l'anse
-<font class="matlab">f1</font> comme étant la figure actuelle pour les
-futures commandes graphiques.</p>
+<font class="matlab">f1</font> comme étant la figure couramment active
+pour les futures commandes graphiques.</p>
 </div>
 
 <div class="Example">
