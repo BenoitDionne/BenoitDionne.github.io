@@ -271,11 +271,8 @@ l'intégrale soit calculer comme une intégrale double ou triple.</p>
 <h3 id="Sect15"> Équations différentielles ordinaires (EDO) </h3>
 
 <p>Trois des fonctions de <em>Matlab</em> pour résoudre les (systèmes d')
-EDO (non-raides) d'ordre un sont <font class="matlab">ode23</font>,
-<font class="matlab">ode45</font>
-et <font class="matlab">ode113</font> (<em>Octave</em> n'a pas la
-fonction <font class="matlab">ode113</font> mais offre la fonction
-<font class="matlab">ode115s</font> en remplacement).
+EDO d'ordre un sont <font class="matlab">ode23</font>,
+<font class="matlab">ode45</font> et <font class="matlab">ode113</font>.
 Ce sont des méthodes à pas variables dérivées des méthodes de
 Runge-Kutta.  Ils font partis de la famille de solveurs d'EDO
 de <em>Matlab</em>.  Pour obtenir de l'aide au sujet d'un solveur
@@ -289,23 +286,24 @@ solveur <font class="matlab">ode45</font>.  Cependant, la procédure pour
 utiliser les autres solveurs d'EDO de <em>Matlab</em> est très semblable. </p>
 
 <p>Le format du solveur <font class="matlab">ode45</font> est
-<font class="matlab"> [xx,yy] = ode45(@f ,[x_zero , x_final], y0, options)
+<font class="matlab"> [t,x] = ode45(@f ,[t_zero , t_final], x0, options)
 </font>.</p>
 
 <p> La fonction <font class="matlab">f</font> (qui dépend de
-\(x\) et \(y\)) est le côté droit de l'EDO \(y'(x) = f(x,y)\).
-La valeur <font class="matlab">x_zero</font> est le temps initial et
-la valeur <font class="matlab">x_final</font> est le temps quand arrêter
-l'intégration numérique.  L'expression <font class="matlab">y0</font>
-est un vecteur rangée avec les valeurs initiales de \(y\) à
-<font class="matlab">x_zero</font>.  Une solution est calculée pour
-chacune des conditions initiales.</p>
+\(t\) et \(x\)) est le côté droit de l'EDO \(x'(t) = f(t,x)\).
+La valeur <font class="matlab">t_zero</font> est le temps initial et
+la valeur <font class="matlab">t_final</font> est le temps quand arrêter
+l'intégration numérique.  L'expression <font class="matlab">x0</font>
+est un vecteur colonne qui représente une condition initiale de \(x\) à
+<font class="matlab">t_zero</font>.</p>
 
-<p>Le vecteur <font class="matlab">xx</font> et la matrice
-<font class="matlab">yy</font> que <font class="matlab">ode45</font>
+<p>Le vecteur <font class="matlab">t</font> et la matrice
+<font class="matlab">x</font> que <font class="matlab">ode45</font>
 retourne ont le même nombre de rangées. Le nombre de colonnes de la matrice
-<font class="matlab">yy</font> est égale à la longueur du vecteur
-rangée <font class="matlab">y0</font>.  La \(\displaystyle i^{e}\) colonne de
+<font class="matlab">x</font> est égale à la longueur du vecteur
+colonne <font class="matlab">x0</font>.
+<!--
+La \(\displaystyle i^{e}\) colonne de
 <font class="matlab">yy</font> est l'estimé à chacune des valeurs de
 <font class="matlab">xx</font> de la solution \(y\) de
 \(y'(x) = f(x,y)\) avec la condition initiale à
@@ -316,16 +314,18 @@ approximation de la solution \(y\) de \(y'(x) = f(x,y)\)
 évaluée à la \(\displaystyle k^{e}\) composante
 de <font class="matlab">xx</font>
 pour chacune des conditions initiales données par les composantes de
-<font class="matlab">y0</font> à <font class="matlab">x_zero</font>.</p>
+<font class="matlab">y0</font> à <font class="matlab">x_zero</font>.
+-->
+</p>
 
 <p>Il y a un grand nombre d'options qui peuvent être fournies aux
-solveurs d'EDO de <em>Matlab</em>.  Pour fournir une
-borne sur la tolérance relative, une borne sur la tolérance absolue,
-etc, nous devons premièrement définir une structure d'options comme
+solveurs d'EDO de <em>Matlab</em>.  Par exemple, pour fournir une
+borne sur la tolérance relative et une borne sur la tolérance absolue,
+nous devons premièrement définir une structure d'options comme
 celle ci-dessous.</p>
 
 <pre class="matlab">
->> <font class="matlab"> option = odeset('reltol', 0.001, 'abstol', [0.000001]) </font>
+>> <font class="matlab"> option = odeset('reltol', 10^(-6), 'abstol', 10^(-5)) </font>
 </pre>
 
 <p>Seulement les bornes sur la tolérance relative et la tolérance absolue ont
@@ -335,32 +335,31 @@ résoudre numériquement l'EDO.</p>
 
 <div class="Example">
 <p><em>Exemple</em>: Nous voulons estimer la solution de l'EDO
-\(y'(x) = f(x,y) = x \sin(x)\) pur \(0 \leq x \leq \pi\) à l'aide du solveur
+\(x'(t) = f(t,x) = x \sin(x)\) pur \(0 \leq t \leq \pi\) à l'aide du solveur
 <font class="matlab">ode45</font>.  La condition initial est
-\(y(0) = 0\) et la borne supérieure sur la tolérance relative est de 
-\(\displaystyle 10^{-5}\).  Nous avons déjà défini à l'aide
-du <em>fichier m</em>
-<em>funct1.m</em> une fonction \(x \mapsto x \sin(x)\).  Cependant, cette
-fonction <font class="matlab">funct1</font> ne peut pas être utilisée avec
-le solveur <font class="matlab">ode45</font> car la fonction
-<font class="matlab">funct1</font> dépend seulement de \(x\).  Le côté
-droit d'une EDO \(y'(x)= \ldots\) doit être une fonction de \(x\) et
-\(y\).</p>
+\(x(0) = 1\) et la borne supérieure sur la tolérance relative est de 
+\(\displaystyle 10^{-5}\).  Nous avons déjà défini dans le
+<em>fichier m</em> <em>funct1.m</em> une fonction \(x \mapsto x \sin(x)\).
+Cependant, cette fonction <font class="matlab">funct1</font> ne peut
+pas être utilisée avec le solveur <font class="matlab">ode45</font>
+car la fonction <font class="matlab">funct1</font> dépend seulement de
+\(x\).  Le côté droit d'une EDO \(x'(t)= \ldots\) doit être une
+fonction de \(t\) et \(x\).</p>
 
 <p>La fonction <font class="matlab">funct1</font> est redéfinie pour
 obtenir la nouvelle fonction <font class="matlab">funct2</font>
 définie dans le fichier <em>funct2.m</em>. Le <em>fichier m</em> 
 <script language="javascript">
 buildLinK("funct2.m", "funct2.m","MMathSStat", "id2", "_blank");
-</script> contient les lignes de code suivantes:</p>
+</script> contient le code suivant:</p>
 
 <pre class="matlab">
-% yprime = funct2(x,y)
+% xp = funct2(t,x)
 %
-% This function takes two arguments, x and y, and returns the
+% This function takes two arguments, t and x, and returns the
 % result of the computation  x sin(x)
-<font class="matlab">function yprime = funct2(x,y)
-     yprime = x.*sin(x);
+<font class="matlab">function xp = funct2(t,x)
+     xp = x.*sin(x);
 end </font>
 </pre>
 
@@ -374,105 +373,30 @@ end </font>
 
 <p> Finalement, nous pouvons utiliser le solveur
 <font class="matlab">ode45</font> pour résoudre numériquement l'EDO
-\(y' = f(x,y)\) pour \(0 \leq x\leq \pi\)
-avec la condition initiale \(y(0) = 0\).</p>
+\(x' = f(t,x)\) pour \(0 \leq t\leq \pi\)
+avec la condition initiale \(x(0) = 1\).</p>
 
 <pre class="matlab">
->> <font class="matlab">[xx,yy] = ode45('funct2',[0,pi],0,options)</font> <br>
-xx = <br>
-         0
-    0.0785
-    0.1571
-    0.2356
-    0.3142
-    0.3927
-    0.4712
-    0.5498
-    0.6283
-    0.7069
-    0.7854
-    0.8639
-    0.9425
-    1.0210
-    1.0996
-    1.1781
-    1.2566
-    1.3352
-    1.4137
-    1.4923
-    1.5708
-    1.6493
-    1.7279
-    1.8064
-    1.8850
-    1.9635
-    2.0420
-    2.1206
-    2.1991
-    2.2777
-    2.3562
-    2.4347
-    2.5133
-    2.5918
-    2.6704
-    2.7489
-    2.8274
-    2.9060
-    2.9845
-    3.0631
-    3.1416<br>
- yy = <br>
-         0
-    0.0002
-    0.0013
-    0.0043
-    0.0102
-    0.0199
-    0.0341
-    0.0537
-    0.0795
-    0.1119
-    0.1517
-    0.1993
-    0.2550
-    0.3192
-    0.3918
-    0.4730
-    0.5627
-    0.6607
-    0.7665
-    0.8798
-    1.0000
-    1.1263
-    1.2580
-    1.3941
-    1.5335
-    1.6753
-    1.8181
-    1.9606
-    2.1016
-    2.2396
-    2.3732
-    2.5008
-    2.6211
-    2.7324
-    2.8333
-    2.9223
-    2.9981
-    3.0591
-    3.1042
-    3.1321
-    3.1416
+>> <font class="matlab">[t,x] = ode45('funct2',[0,pi],1,options);</font>
+>> <font class="matlab">size(t), size(x)</font><br>
+ans =<br>
+
+   17    1
+
+ans =<br>
+
+   17    1
 </pre>
 
 <p> Ce n'est pas très sage d'énumérer les valeurs de
-<font class="matlab">[xx,yy]</font> en raison du grand nombre possible
+<font class="matlab">[t,x]</font> en raison du grand nombre possible
 de valeurs retournées par le solveur.  Il est préférable de tracer
 l'interpolation linéaire de la solution en utilisant les données
-fournies par <font class="matlab">[xx,yy]</font>.</p>
+fournies par <font class="matlab">[t,x]</font>.</p>
 
 <pre class="matlab">
->> <font class="matlab">plot(xx,yy);</font>
+>> <font class="matlab">plot(t,x); ...
+   grid on, xlabel('t'), ylabel('x') </font>
 </pre>
 
 <div class="center">
@@ -481,24 +405,30 @@ fournies par <font class="matlab">[xx,yy]</font>.</p>
 </div>
 </div>
 
-<p><em>Question Mathématique</em>: Quelle est la relation entre la
-solution de l'EDO \(y' = x\sin(x)\) et l'intégral de la fonction
-\(f(x) = x \sin(x)\) sur l'intervalle \([0,\pi]\)?</p>
-
 <p> À l'aide de l'interpolation linéaire construite à partir des données 
-fournies par <font class="matlab">[xx,yy]</font>, nous pouvons estimer
+fournies par <font class="matlab">[t,x]</font>, nous pouvons estimer
 la valeur de la solution de l'EDO à tous points de l'intervalle
-  \([0,\pi]\).</p>
+\([0,\pi]\).</p>
 
 <div class="Example">
 <p><em>Exemple</em>: Une valeur approximative de la solution de
-l'EDO précédente à \(x=2\) est donnée par la comande</p>
+l'EDO précédente à \(t=2\) est donnée par la commande</p>
 
 <pre class="matlab">
->> <font class="matlab">w = interp1(xx,yy,2,'linear')</font> <br>
+>> <font class="matlab">w = interp1(t,x,2,'linear')</font> <br>
 w = <br>
-    1.7416
+   3.1025
 </pre>
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>:
+
+<!-- 
+van der Pol equation
+dydt = [y(2); 1000*(1-y(1)^2)*y(2)-y(1)];
+  -->
+<p>
 </div>
 
 <hr class="MMathSStat">
