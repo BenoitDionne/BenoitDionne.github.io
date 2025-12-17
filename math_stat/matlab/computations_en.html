@@ -279,39 +279,53 @@ any other <em>Matlab</em> ODE solver name.</p>
 <font class="matlab">ode45</font> will be explained below.  However, the
 procedure to use the other solvers is similar.</p>
 
+<p> The systems of ODE that we consider are of the form
+\(\vec{x}'(t) = f(t,\vec{x}(t))\) where
+\(\displaystyle f:\mathbb{R}\times \mathbb{R}^n \to \mathbb{R}^n\)
+is a continuous function which is <em>locally Lipshitz</em> with respect to
+the variable \(\vec{x}\).   The theory asserts that, for a given
+initial condition \(\vec{x}_0\), there always exists a
+unique solution \(\displaystyle \vec{x}:I \to \mathbb{R}^n\) of the
+system of ODE such that \(\vec{x}(0) = \vec{x}_0\) where \(I\) is an
+open interval containing \(0\).   If \(f\) does not depend of \(t\),
+then we say that the system of ODE is <em>autonomous</em>. In this case, if
+\(\displaystyle \vec{x}:I \to \mathbb{R}^n\) is a solution of the
+system of ODE, then \(f(\vec{x}(t))\) gives the direction and velocity of
+this solution at the point \(\vec{x}(t)\). In particular,
+\(f(\vec{x}(t))\) is tangent to the <em>orbit</em>
+\( \{\vec{x}(t) : t \in I\} \) at the point \(\vec{x}(t)\).</p> 
+
 <p>The format of the ODE solver <font class="matlab">ode45</font> is
 <font class="matlab"> [t,x] = ode45(@f ,[t_zero , t_final], x0, options)
 </font>.</p>
 
-<p> The function <font class="matlab">f</font> (depending on
-\(t\) and \(x\)) is the right hand side of the ODE \(x'(t) = f(t,x)\).
+<p> The function <font class="matlab">f</font> is the right hand side
+of the ODE \(\vec{x}'(t) = f(t,\vec{x}(t))\). 
 The value <font class="matlab">t_zero</font> is the initial time and
 the value <font class="matlab">t_final</font> is when to stop the
 numerical integration.  The expression
 <font class="matlab">x0</font> is a column vector representing an
-initial condition of \(x\) at <font class="matlab">t_zero</font>.</p>
+initial condition at <font class="matlab">t_zero</font>.</p>
 
-<p>The vector <font class="matlab">t</font> and the matrix
+<p>The column vector <font class="matlab">t</font> and the matrix
 <font class="matlab">x</font> returned by <font class="matlab">ode45</font>
 have the same number of rows.  The number of columns of the
 matrix <font class="matlab">x</font> is equal to the length
 of the column vector <font class="matlab">x0</font>.
-<!--
-The \(\displaystyle i^{th}\) column of
-<font class="matlab">yy</font> is an approximation at each component of 
-<font class="matlab">xx</font> of the solution \(y\) of
-\(y'(x) = f(x,y)\) with initial condition
-at <font class="matlab">x0</font> given by the
-\(\displaystyle i^{th}\) component of <font class="matlab">y0</font>.
-The \(\displaystyle k^{th}\) row of <font class="matlab">yy</font> is the
-approximation of the solution \(y\) of 
-\(y'(x) = f(x,y)\) evaluated at the
-\(\displaystyle k^{th}\) component of
-<font class="matlab">xx</font> for each initial condition given by
-the components of <font class="matlab">y0</font> at
-<font class="matlab">x_zero</font>.
--->
-</p>
+The i<sup>th</sup column of <font class="matlab">x</font> lists the values of
+\(x_i\), the i<sup>th</sup> component of the solution, at all the values of
+\(t\) listed in the column vector <font class="matlab">t</font>.</p>
+
+<p> If we have a one dimensional ODE (i.e \(n = 1\)), then
+<font class="matlab">x0</font> can be a row vector representing several
+initial conditions at <font class="matlab">t_zero</font>.
+In this situation, <font class="matlab">ode45</font> computes the
+numerical solution for each of these initial conditions.
+The i<sup>th</sup> column of <font class="matlab">x</font> lists
+the values of the solution associated to the
+i<sup>th</sup> initial condition in <font class="matlab">x0</font>
+at all the values of \(t\) listed in the column
+vector <font class="matlab">t</font>.</p>
 
 <p>Many options can be given to the <em>Matlab</em> ODE solvers.  For
 instance, to provide the solver with a bound on the relative tolerance
@@ -410,16 +424,177 @@ w = <br>
 </div>
 
 <div class="Example">
-<p><em>Example</em>:
+<p><em>Example</em>: A famous second order ODE is the
+<em>van der Pol</em> equation    
+\(x''(t) - \mu (1 - x(t)^2) x'(t) + x(t) = 0\).  If we pose
+\(x_1 = x\) and \(x_2 = x'\), we get the following system of first
+order ODE.</p>
+\[
+\begin{split}
+x_1'(t) &= x_2(t) \\
+x_2'(t) &= \mu (1-x_1(t)^2) x_2(t) - x_1(t)
+\end{split}
+\]
+<p>This is a simple model for an oscillating system with a non-linear
+damping represented by \(\mu (1-x_1(t)^2) x_2(t)\).  From a purely
+mathematical point of view, this system of ODE is really
+interesting.  The van der Pol equation is included in basically all
+textbooks on ODE.</p>
 
-<!-- 
-van der Pol equation
-dydt = [y(2); 1000*(1-y(1)^2)*y(2)-y(1)];
-  -->
-<p>
+<p> For \(\mu = 0\), all the solutions are periodic.
+In fact, the solutions are of the form </p>
+\[
+\begin{pmatrix} x_1(t) \\ x_2(t) \end{pmatrix}
+= \text{exp}\left( t\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}\right)
+\begin{pmatrix} a \\ b \end{pmatrix}
+= \begin{pmatrix} \cos(t) & \sin(t) \\ -\sin(t) & \cos(t) \end{pmatrix}
+\begin{pmatrix} a \\ b \end{pmatrix}
+\]
+<p>where \(\displaystyle \begin{pmatrix} x_1(0) \\ x_2(0) \end{pmatrix}
+= \begin{pmatrix} a \\ b \end{pmatrix}\) is the initial condition.<p> 
 
+<p>For \(\mu > 0\), the dynamic of the system of ODE is very interesting.
+There exists only one attracting periodic solution.  Except for the
+trivial solution given by
+\(\displaystyle \begin{pmatrix} x_1(t) \\ x_2(t) \end{pmatrix}
+= \begin{pmatrix} 0 \\ 0 \end{pmatrix}\) for all \(t\), all the other
+solutions <q lang="en">converge</q> toward the periodic solution.</p>
+
+<p>We use <em>Matlab</em> to study the van der Pol equation.
+We solve the system of ODE for \(\mu = 0.5\) and
+\(\displaystyle \begin{pmatrix} x_1(0) \\ x_2(0) \end{pmatrix}
+= \begin{pmatrix} 3 \\ 1 \end{pmatrix}\), and plot the graphs of
+\(x_1\) and \(x_2\) in function of the time.</p>
+
+<pre class="matlab">
+>> <font class="matlab">mu = 0.5; ...
+   x0 = [ 3 ; 1]; ...
+   F = @(t,x) [x(2), mu*(1-x(1).^2).*x(2) - x(1)]; ...
+   options = odeset('reltol',10^(-5)); ...
+   [t,x] = ode45(F,[0,40],x0,options); ...
+   plot(t,x(:,1),'r',t,x(:,2),'b'), ...
+   grid on, xlabel('t'), ylabel('x_1,x_2')
+</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE1.png" style="width: 300px"
+       alt="Graph of x_1 and x_2 in function of t">
 </div>
-    
+
+<p>To get a better idea of the behaviour of the solution of the system
+of ODE with the initial condition
+\(\displaystyle \begin{pmatrix} x_1(0) \\ x_2(0) \end{pmatrix}
+= \begin{pmatrix} 3 \\ 1 \end{pmatrix}\), we plot the orbit
+\( \{ (x_1(t),x_2(t)) : t \geq 0 \} \).</p>
+
+<pre class="matlab">
+>> <font class="matlab">plot(x(:,1),x(:,2),'b'), ...
+   grid on, xlabel('x_1'), ylabel('x_2')
+</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE2.png" style="width: 300px"
+       alt="Drawing of the orbit given by (x_1(t),x_2(t)) for : t &ge; 0">
+</div>
+
+<p>We have that the solution with the initial condition
+\(\displaystyle \begin{pmatrix} x_1(0) \\ x_2(0) \end{pmatrix}
+= \begin{pmatrix} 3 \\ 1 \end{pmatrix}\) converges very rapidly to the
+periodic solution.</p>
+
+<p>If we plot again the previous orbit bu using the format
+<font class="matlab">-ob</font>, we get the following figure.</p>
+
+<pre class="matlab">
+>> <font class="matlab">plot(x(:,1),x(:,2),'-ob'), ...
+   grid on, xlabel('x_1'), ylabel('x_2')
+</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE3.png" style="width: 300px"
+       alt="Drawing of the orbit given by (x_1(t),x_2(t)) for : t &ge; 0">
+</div>
+
+<p>The circles indicate the location of the points on the orbit
+computed by <font class="matlab">ode45</font>.  There are more points
+in the section of the orbit where the solution varies rapidly and less
+points in the section where the solution varies more slowly.  The speed
+and direction of the orbits is determined by the length and direction
+of the vectors in the vector field associated to the system of
+autonomous ODE \( \vec{x}' = f(\vec{x}) \).  We remind the reader that
+a <em>vector field</em> associated to a system of autonomous ODE is
+generated as it follows.  We select many (equally spaced) points
+\(\vec{x}\) in the plane and draw from each of these points
+\(\vec{x}\) a vector in the direction \(f(\vec{x})\).  The vectors
+drawn are often of the same length but sometimes the length of the
+vector drawn is proportional to the norm of \(f(\vec{x})\).  The
+function <font class="matlab">quiver</font> of <em>Matlab</em> does
+exactly that.</p> 
+
+<p>It is traditional to draw the vector field associated to an
+autonomous system of ODE of the form \( \vec{x}' = f(\vec{x}) \) to
+get a qualitative picture of the global behaviour of the orbits of
+this system.</p> 
+
+<pre class="matlab">
+>> <font class="matlab">[X,Y]=meshgrid(-3:0.5:4,-3:0.5:3); ...
+   U = Y; V = mu*(1-X.^2).*Y - X; ...
+   quiver(X,Y,U,V,'r'), grid on
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE4.png" style="width: 300px"
+       alt="Drawing of the vector field associated to (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1)">
+</div>
+
+<p>We can add the orbit associated to the initial condition
+\(\displaystyle \begin{pmatrix} x_1(0) \\ x_2(0) \end{pmatrix}
+= \begin{pmatrix} 3 \\ 1 \end{pmatrix}\) to the previous vector field.</p>
+
+<pre class="matlab">
+>> <font class="matlab">hold on, ...
+   plot(x(:,1),x(:,2),'b'), ...
+   grid on, xlabel('x_1'), ylabel('x_2')
+</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE6.png" style="width: 300px"
+       alt="Drawing of the vector field associated to (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1) with th eorbit associated to the initial condition (x_1(0),x_2(0)) = (3,1)">
+</div>
+
+<p>Unfortunately, there are large variations in the length of the
+vectors in the vector field.  The length of the vectors is smaller
+near the centre of the plane but this is misleading because that are
+also large variations (at a smaller scale) in the length of the
+vectors near the periodic orbit as the following close up of the
+vector field shows.</p>
+
+<pre class="matlab">
+>> <font class="matlab">[X,Y]=meshgrid(1:0.2:3,-1:0.2:1); ...
+   U = Y; V = mu*(1-X.^2).*Y - X; ...
+   quiver(X,Y,U,V,'r'), grid on
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE5.png" style="width: 300px"
+       alt="Drawing of the vector field associated to (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1) on a smaller region of the plane">
+</div>
+
+<p>Studying a system of autonomous ODE with a vector field may requires
+a very careful analysis, in particular if the lengths of the
+vectors vary widely.  We will write a program in the document
+<script language="javascript"> 
+  buildLinK(matlabProgr.url_en, matlabProgr.text_en,
+  "MMathSStat", matlabProgr.id, matlabProgr.target);
+</script>
+to draw vector field where the vectors are all of the same length,
+and revisit the van der Pol equation using this program.</p>
+</div>
+
 <hr class="MMathSStat">
 
 </div> <!--  The contents ends here -->
