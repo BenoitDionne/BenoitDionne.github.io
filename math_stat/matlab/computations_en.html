@@ -316,7 +316,7 @@ The i<sup>th</sup column of <font class="matlab">x</font> lists the values of
 \(x_i\), the i<sup>th</sup> component of the solution, at all the values of
 \(t\) listed in the column vector <font class="matlab">t</font>.</p>
 
-<p> If we have a one dimensional ODE (i.e \(n = 1\)), then
+<p> If we have a one dimensional ODE (i.e. \(n = 1\)), then
 <font class="matlab">x0</font> can be a row vector representing several
 initial conditions at <font class="matlab">t_zero</font>.
 In this situation, <font class="matlab">ode45</font> computes the
@@ -424,10 +424,10 @@ w = <br>
 </div>
 
 <div class="Example">
-<p><em>Example</em>: A famous second order ODE is the
+<p><em>Example</em>: A very famous second order ODE is the
 <em>van der Pol</em> equation    
 \(x''(t) - \mu (1 - x(t)^2) x'(t) + x(t) = 0\).  If we pose
-\(x_1 = x\) and \(x_2 = x'\), we get the following system of first
+\(x_1 = x\) and \(x_2 = x'\), then we get the following system of first
 order ODE.</p>
 \[
 \begin{split}
@@ -435,36 +435,34 @@ x_1'(t) &= x_2(t) \\
 x_2'(t) &= \mu (1-x_1(t)^2) x_2(t) - x_1(t)
 \end{split}
 \]
-<p>This is a simple model for an oscillating system with a non-linear
-damping represented by \(\mu (1-x_1(t)^2) x_2(t)\).  From a purely
-mathematical point of view, this system of ODE is really
-interesting.  The van der Pol equation is included in basically all
+<p>This is a simple model for a system of oscillators with a non-linear
+damping represented represented by the term by \(\mu (1-x_1(t)^2) x_2(t)\).
+From a purely mathematical point of view, this system of ODE is really
+interesting.  The van der Pol equation is a topic of basically all
 textbooks on ODE.</p>
 
-<p> For \(\mu = 0\), all the solutions are periodic.
+<p> For \(\mu = 0\), all the solutions are periodic with the same period.
 In fact, the solutions are of the form </p>
 \[
-\begin{pmatrix} x_1(t) \\ x_2(t) \end{pmatrix}
+\vec{x}(t)
 = \text{exp}\left( t\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}\right)
 \begin{pmatrix} a \\ b \end{pmatrix}
 = \begin{pmatrix} \cos(t) & \sin(t) \\ -\sin(t) & \cos(t) \end{pmatrix}
 \begin{pmatrix} a \\ b \end{pmatrix}
 \]
-<p>where \(\displaystyle \begin{pmatrix} x_1(0) \\ x_2(0) \end{pmatrix}
+<p>where \(\vec{x}(0)
 = \begin{pmatrix} a \\ b \end{pmatrix}\) is the initial condition.<p> 
 
 <p>For \(\mu > 0\), the dynamic of the system of ODE is very interesting.
-There exists only one attracting periodic solution.  Except for the
-trivial solution given by
-\(\displaystyle \begin{pmatrix} x_1(t) \\ x_2(t) \end{pmatrix}
-= \begin{pmatrix} 0 \\ 0 \end{pmatrix}\) for all \(t\), all the other
+There exists only one periodic solution and it is an attractor.
+Except for the trivial solution given by
+\(\vec{x}(t) = \vec{0}\) for all \(t\), all the other
 solutions <q lang="en">converge</q> toward the periodic solution.</p>
 
 <p>We use <em>Matlab</em> to study the van der Pol equation.
-We solve the system of ODE for \(\mu = 0.5\) and
-\(\displaystyle \begin{pmatrix} x_1(0) \\ x_2(0) \end{pmatrix}
-= \begin{pmatrix} 3 \\ 1 \end{pmatrix}\), and plot the graphs of
-\(x_1\) and \(x_2\) in function of the time.</p>
+We numerically solve the system of ODE for \(\mu = 0.5\) and
+\(\displaystyle \vec{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\),
+and plot the graphs of \(x_1\) and \(x_2\) in function of the time \(t\).</p>
 
 <pre class="matlab">
 >> <font class="matlab">mu = 0.5; ...
@@ -482,11 +480,10 @@ We solve the system of ODE for \(\mu = 0.5\) and
        alt="Graph of x_1 and x_2 in function of t">
 </div>
 
-<p>To get a better idea of the behaviour of the solution of the system
+<p>To get a better picture of the behaviour of the solutions of the system
 of ODE with the initial condition
-\(\displaystyle \begin{pmatrix} x_1(0) \\ x_2(0) \end{pmatrix}
-= \begin{pmatrix} 3 \\ 1 \end{pmatrix}\), we plot the orbit
-\( \{ (x_1(t),x_2(t)) : t \geq 0 \} \).</p>
+\(\displaystyle \vec{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\),
+we plot its orbit \( \{ \vec{x}(t) : t \geq 0 \} \).</p>
 
 <pre class="matlab">
 >> <font class="matlab">plot(x(:,1),x(:,2),'b'), ...
@@ -496,15 +493,14 @@ of ODE with the initial condition
 
 <div class="center">
   <img src="Matlab_ODE2.png" style="width: 300px"
-       alt="Drawing of the orbit given by (x_1(t),x_2(t)) for : t &ge; 0">
+       alt="Drawing of the orbit { (x_1(t),x_2(t)) : 0 &le; t &le; 40 }">
 </div>
 
-<p>We have that the solution with the initial condition
-\(\displaystyle \begin{pmatrix} x_1(0) \\ x_2(0) \end{pmatrix}
-= \begin{pmatrix} 3 \\ 1 \end{pmatrix}\) converges very rapidly to the
-periodic solution.</p>
+<p>The solution with the initial condition
+\(\displaystyle \vec{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\)
+converges very rapidly to the periodic solution.</p>
 
-<p>If we plot again the previous orbit bu using the format
+<p>If we plot again the previous orbit in the format
 <font class="matlab">-ob</font>, we get the following figure.</p>
 
 <pre class="matlab">
@@ -515,24 +511,25 @@ periodic solution.</p>
 
 <div class="center">
   <img src="Matlab_ODE3.png" style="width: 300px"
-       alt="Drawing of the orbit given by (x_1(t),x_2(t)) for : t &ge; 0">
+       alt="Drawing of the orbit { (x_1(t),x_2(t)) : 0 &le; t &le; 40 } in the new format">
 </div>
 
 <p>The circles indicate the location of the points on the orbit
 computed by <font class="matlab">ode45</font>.  There are more points
-in the section of the orbit where the solution varies rapidly and less
-points in the section where the solution varies more slowly.  The speed
-and direction of the orbits is determined by the length and direction
-of the vectors in the vector field associated to the system of
-autonomous ODE \( \vec{x}' = f(\vec{x}) \).  We remind the reader that
+on the sections of the orbit where the solution varies rapidly and less
+points on the sections where the solution varies more slowly.  The
+speed on the orbits and the direction of the orbits are determined by the
+length and direction of the vectors given by the vector field
+associated to the system of autonomous ODE \( \vec{x}' = f(\vec{x}) \).
+We remind the reader that 
 a <em>vector field</em> associated to a system of autonomous ODE is
 generated as it follows.  We select many (equally spaced) points
 \(\vec{x}\) in the plane and draw from each of these points
 \(\vec{x}\) a vector in the direction \(f(\vec{x})\).  The vectors
 drawn are often of the same length but sometimes the length of the
-vector drawn is proportional to the norm of \(f(\vec{x})\).  The
-function <font class="matlab">quiver</font> of <em>Matlab</em> does
-exactly that.</p> 
+vector drawn from \(\vec{x}\) is proportional to the norm of the vector
+\(f(\vec{x})\).  The function <font class="matlab">quiver</font>
+of <em>Matlab</em> does exactly that.</p> 
 
 <p>It is traditional to draw the vector field associated to an
 autonomous system of ODE of the form \( \vec{x}' = f(\vec{x}) \) to
@@ -550,9 +547,9 @@ this system.</p>
        alt="Drawing of the vector field associated to (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1)">
 </div>
 
-<p>We can add the orbit associated to the initial condition
-\(\displaystyle \begin{pmatrix} x_1(0) \\ x_2(0) \end{pmatrix}
-= \begin{pmatrix} 3 \\ 1 \end{pmatrix}\) to the previous vector field.</p>
+<p>We can add to the previous vector field the orbit associated to the
+initial condition
+\(\displaystyle \vec{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\).</p>
 
 <pre class="matlab">
 >> <font class="matlab">hold on, ...
@@ -563,15 +560,16 @@ this system.</p>
 
 <div class="center">
   <img src="Matlab_ODE6.png" style="width: 300px"
-       alt="Drawing of the vector field associated to (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1) with th eorbit associated to the initial condition (x_1(0),x_2(0)) = (3,1)">
+       alt="Drawing of the vector field associated to (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1) with the orbit associated to the initial condition (x_1(0),x_2(0)) = (3,1)">
 </div>
 
-<p>Unfortunately, there are large variations in the length of the
-vectors in the vector field.  The length of the vectors is smaller
-near the centre of the plane but this is misleading because that are
-also large variations (at a smaller scale) in the length of the
-vectors near the periodic orbit as the following close up of the
-vector field shows.</p>
+<p>Unfortunately, there are very large variations between the lengths
+of the vectors in some regions of the plane and the lengths of the
+vectors in other regions of the plane.  The lengths of the vectors
+seem to be smaller near the origin of the plane but this is misleading
+because that are also large variations (at a smaller scale) in the
+lengths of the vectors near the periodic orbit as the following close
+up of the vector field shows.</p>
 
 <pre class="matlab">
 >> <font class="matlab">[X,Y]=meshgrid(1:0.2:3,-1:0.2:1); ...
@@ -584,15 +582,16 @@ vector field shows.</p>
        alt="Drawing of the vector field associated to (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1) on a smaller region of the plane">
 </div>
 
-<p>Studying a system of autonomous ODE with a vector field may requires
-a very careful analysis, in particular if the lengths of the
-vectors vary widely.  We will write a program in the document
+<p>Studying a system of autonomous ODE with a vector field may require
+a very meticulous analysis, in particular if the lengths of the
+vectors vary widely.  We will supply a program in the document
 <script language="javascript"> 
   buildLinK(matlabProgr.url_en, matlabProgr.text_en,
   "MMathSStat", matlabProgr.id, matlabProgr.target);
 </script>
-to draw vector field where the vectors are all of the same length,
-and revisit the van der Pol equation using this program.</p>
+to draw vector field where the vectors are all drawn of the same length.
+We will also come back on the analysis of the van der Pol equation
+using this program.</p>
 </div>
 
 <hr class="MMathSStat">

@@ -438,13 +438,177 @@ w = <br>
 </div>
 
 <div class="Example">
-<p><em>Exemple</em>:
+<p><em>Exemple</em>: Une EDO d'ordre deux très célèbre est l'équation
+de <em>van der Pol</em>
+\(x''(t) - \mu (1 - x(t)^2) x'(t) + x(t) = 0\).  Si nous posons
+\(x_1 = x\) et \(x_2 = x'\), nous obtenons alors le système d'EDO
+d'ordre suivant.</p>
+\[
+\begin{split}
+x_1'(t) &= x_2(t) \\
+x_2'(t) &= \mu (1-x_1(t)^2) x_2(t) - x_1(t)
+\end{split}
+\]
+<p>C'est un modèle simple d'un système d'oscillateurs avec un
+amortissement non-linéaire qui est représenté par le terme 
+\(\mu (1-x_1(t)^2) x_2(t)\).  D'un point de vue mathématique, ce
+système d'EDO est très intéressant.  L'équation de van der Pol est un
+sujet dans presque tous les manuels d'EDO.</p>
 
-<!-- 
-van der Pol equation
-dydt = [y(2); 1000*(1-y(1)^2)*y(2)-y(1)];
-  -->
-<p>
+<p> Pour \(\mu = 0\), toutes les solutions sont périodiques avec la
+même période.  En fait, les solutions sont de la forme</p>
+\[
+\vec{x}(t)
+= \text{exp}\left( t\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}\right)
+\begin{pmatrix} a \\ b \end{pmatrix}
+= \begin{pmatrix} \cos(t) & \sin(t) \\ -\sin(t) & \cos(t) \end{pmatrix}
+\begin{pmatrix} a \\ b \end{pmatrix}
+\]
+<p>où \(\displaystyle \vec{x}(0)
+= \begin{pmatrix} a \\ b \end{pmatrix}\) est la condition initiale.<p> 
+
+<p>Pour \(\mu > 0\), la dynamique du système d'EDO est très
+intéressante.  Il existe seulement une solution périodique et elle est un
+attracteur.  Sauf pour la solution triviale donnée par
+\(\vec{x}(t) = \vec{0}\) pour tous \(t\), toutes les
+autres solutions <q lang="en">converge</q> vers la solution
+périodique.</p>
+
+<p>Nous utilisons <em>Matlab</em> pour étudier l'équation de van der Pol.
+Nous résolvons numériquement le système d'EDO pour \(\mu = 0.5\) et
+\(\displaystyle \vec{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\),
+et traçons les graphes de \(x_1\) et \(x_2\) en fonction du temps \(t\)s.</p>
+
+<pre class="matlab">
+>> <font class="matlab">mu = 0.5; ...
+   x0 = [ 3 ; 1]; ...
+   F = @(t,x) [x(2), mu*(1-x(1).^2).*x(2) - x(1)]; ...
+   options = odeset('reltol',10^(-5)); ...
+   [t,x] = ode45(F,[0,40],x0,options); ...
+   plot(t,x(:,1),'r',t,x(:,2),'b'), ...
+   grid on, xlabel('t'), ylabel('x_1,x_2')
+</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE1.png" style="width: 300px"
+       alt="Graphe de x_1 et x_2 en fonction de t">
+</div>
+
+<p>Pour obtenir une meilleure image du comportement de la solution du
+système d'EDO avec la condition initiale
+\(\displaystyle \vec{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\),
+nous traçons son orbite \( \{ \vec{x}(t) : t \geq 0 \} \).</p>
+
+<pre class="matlab">
+>> <font class="matlab">plot(x(:,1),x(:,2),'b'), ...
+   grid on, xlabel('x_1'), ylabel('x_2')
+</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE2.png" style="width: 300px"
+       alt="Dessin de l'orbite { (x_1(t),x_2(t)) : 0 &le; t &le; 40 }">
+</div>
+
+<p>La solution avec la condition initiale
+\(\displaystyle \vec{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\)
+converge très rapidement vers la solution périodique.</p>
+
+<p>Si nous traçons l'orbite précédente dans le format
+<font class="matlab">-ob</font>, nous obtenons la figure suivante.</p>
+
+<pre class="matlab">
+>> <font class="matlab">plot(x(:,1),x(:,2),'-ob'), ...
+   grid on, xlabel('x_1'), ylabel('x_2')
+</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE3.png" style="width: 300px"
+       alt="Dessin de l'orbite { (x_1(t),x_2(t)) : 0 &le; t &le; 40 } dans le nouveau format">
+</div>
+
+<p>Les cercles indiquent la position des points sur l'orbite qui ont
+été calculés par <font class="matlab">ode45</font>.  Il y a plus de
+points sur les sections de l'orbite où la solution varie rapidement
+et moins de points sur les sections où la solution varie plus
+lentement.  La vitesse sur les orbites et la direction des orbites
+sont déterminées par la longueur et la direction des vecteurs fournis
+par le champ de vecteurs associé au système d'EDO autonome
+\( \vec{x}' = f(\vec{x}) \).  Nous rappelons au lecteur qu'un
+<em>champ de vecteurs</em> associé a un système d'EDO autonome 
+est généré de la façon suivante.  Nous choisissons plusieurs 
+points (également distancés) \(\vec{x}\) du plan et traçons à partir
+de chacun ces points \(\vec{x}\) un vecteur dans la direction
+\(f(\vec{x})\).  Les vecteurs dessinés sont souvent de la même
+longueur mais à l'occasion la longueur du vecteur tracé à partir de
+\(\vec{x}\) est proportionnel à la norme du vecteur \(f(\vec{x})\).  La
+fonction <font class="matlab">quiver</font> de <em>Matlab</em> fait
+exactement cela.</p> 
+
+<p>C'est traditionnel de dessiner le champ de vecteurs associé à un
+système d'EDO autonome de la forme \( \vec{x}' = f(\vec{x}) \) pour
+obtenir une image qualitative du comportement global des orbites du
+système.</p> 
+
+<pre class="matlab">
+>> <font class="matlab">[X,Y]=meshgrid(-3:0.5:4,-3:0.5:3); ...
+   U = Y; V = mu*(1-X.^2).*Y - X; ...
+   quiver(X,Y,U,V,'r'), grid on
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE4.png" style="width: 300px"
+       alt="Dessin du champ de vecteurs associé à (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1)">
+</div>
+
+<p>Nous pouvons ajouter au champ de vecteurs précédent l'orbite
+associée à la condition initiale
+\(\displaystyle \vec{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">hold on, ...
+   plot(x(:,1),x(:,2),'b'), ...
+   grid on, xlabel('x_1'), ylabel('x_2')
+</font>
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE6.png" style="width: 300px"
+       alt="Dessin du champ de vecteurs associé à (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1) avec l'orbite associée à la condition initiale (x_1(0),x_2(0)) = (3,1)">
+</div>
+
+<p>Malheureusement, il y a de grandes variations entre les longueurs des
+vecteurs dans certaines régions du plan et les longueurs des vecteurs dans
+d'autres régions du plan.  Les longueurs des vecteurs sont plus
+petites prêt de l'origine mais cela peut être trompeur car il y a 
+de grandes variations (sur une plus petite échelle) des longueurs des 
+vecteurs prêt de la solution périodique comme le gros plan suivant du
+champ de vecteurs le démontre.</p>
+
+<pre class="matlab">
+>> <font class="matlab">[X,Y]=meshgrid(1:0.2:3,-1:0.2:1); ...
+   U = Y; V = mu*(1-X.^2).*Y - X; ...
+   quiver(X,Y,U,V,'r'), grid on
+</pre>
+
+<div class="center">
+  <img src="Matlab_ODE5.png" style="width: 300px"
+       alt="Dessin du champ de vecteurs associé à (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1) pour une plus petite région du plan">
+</div>
+
+<p>L'étude d'un système d'EDO autonome à l'aide d'un champ de vecteurs
+peut exiger une analyse très soigneuse, en particulier s'il y a des
+grandes variations dans les longueurs des vecteurs. 
+Nous allons fournir un programme dans le document
+<script language="javascript"> 
+  buildLinK(matlabProgr.url_fr, matlabProgr.text_fr,
+  "MMathSStat", matlabProgr.id, matlabProgr.target);
+</script>
+pour dessiner les champs de vecteurs où tous les vecteurs sont dessinés
+de la même longueur.  Nous allons aussi revenir sur l'étude de
+l'équation de van der Pol à l'aide de ce programme.</p>
 </div>
 
 <hr class="MMathSStat">
