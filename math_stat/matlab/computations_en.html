@@ -243,7 +243,7 @@ following commands.</p>
 >> <font class="matlab">X = @(r,theta) r.*cos(theta); ...
    Y = @(r,theta) r.*sin(theta); ...
    frt = @(r,theta) f(X(r,theta),Y(r,theta)); ...
-   frtD = @(r,theta) f(X(r,theta),Y(r,theta)).*r; ...
+   frtD = @(r,theta) frt(r,theta).*r; ...
    integral2(frtD, 0,2, 0, 2*pi,'Method','tiled')
 </font>
 ans = <br>
@@ -252,20 +252,21 @@ ans = <br>
 </div>
 
 <p>There are three options for the
-property <font class="method">Method</font>: <e>auto</em>, <em>tiled</em>
+property <font class="method">Method</font>: <em>auto</em>, <em>tiled</em>
 and <em>iterated</em>.  We select the option <em>tiled</em> when we
 want the integral to be computed with partial sums over
 <q lang="en">tiny rectangles</q> as it is done for the definition of
 the integral of fonctions of two or more variables.  We select the
 option <em>iterated</em> when we want the integral to be computed as a
-double or triple integral.</p>
+double or triple integral (as we have <q lang="en>">learned</q> in our
+calculus courses).</p>
 
 <hr class="MMathSStat">
 
 <h3 id="Sect15"> Ordinary Differential Equations (ODE) </h3>
 
 <p>Three of the <em>Matlab</em> functions to solve first order
-(systems of) ODE are <font class="matlab">ode23</font>,
+systems of ODE are <font class="matlab">ode23</font>,
 <font class="matlab">ode45</font> and <font class="matlab">ode113</font>.
 They are variable step size methods based on Runge-Kutta methods.
 They are parts of the family of ODE solvers for <em>Matlab</em>.
@@ -274,10 +275,6 @@ in <em>Matlab</em>, it suffices to execute the command
 <font class="matlab">help ode23 </font> for instance. The function name
 <font class="matlab">ode23</font> can be replaced by
 any other <em>Matlab</em> ODE solver name.</p>
-
-<p>Only the procedure to use the ODE solver
-<font class="matlab">ode45</font> will be explained below.  However, the
-procedure to use the other solvers is similar.</p>
 
 <p> The systems of ODE that we consider are of the form
 \(\vec{x}'(t) = f(t,\vec{x}(t))\) where
@@ -295,7 +292,10 @@ this solution at the point \(\vec{x}(t)\). In particular,
 \(f(\vec{x}(t))\) is tangent to the <em>orbit</em>
 \( \{\vec{x}(t) : t \in I\} \) at the point \(\vec{x}(t)\).</p> 
 
-<p>The format of the ODE solver <font class="matlab">ode45</font> is
+<p>Only the procedure to use the ODE solver
+<font class="matlab">ode45</font> will be explained below.  However, the
+procedure to use the other solvers is similar.
+The format of the ODE solver <font class="matlab">ode45</font> is
 <font class="matlab"> [t,x] = ode45(@f ,[t_zero , t_final], x0, options)
 </font>.</p>
 
@@ -312,7 +312,7 @@ initial condition at <font class="matlab">t_zero</font>.</p>
 have the same number of rows.  The number of columns of the
 matrix <font class="matlab">x</font> is equal to the length
 of the column vector <font class="matlab">x0</font>.
-The i<sup>th</sup column of <font class="matlab">x</font> lists the values of
+The i<sup>th</sup> column of <font class="matlab">x</font> lists the values of
 \(x_i\), the i<sup>th</sup> component of the solution, at all the values of
 \(t\) listed in the column vector <font class="matlab">t</font>.</p>
 
@@ -347,11 +347,11 @@ approximate the solution of \(x'(t) = f(t,x) = x \sin(x)\) for
 \(0 \leq t \leq \pi\).  The initial condition is \(x(0) = 1\) and the
 upper bound on the relative tolerance is \(\displaystyle 10^{-5}\).
 We have already defined in the <em>m-file</em> <em>funct1.m</em>
-a function \(x \mapsto x \sin(x) \).
+the function \(x \mapsto x \sin(x) \).
 However, this function <font class="matlab">funct1</font> cannot 
 be used with the ODE solver <font class="matlab">ode45</font>
 because the function <font class="matlab">funct1</font> depends only
-of \(x\).  The right hand side of an ODE \(x'(t)=\ldots\) must be a
+of \(x\).  The right hand side of an ODE \(x'(t)=f(t,\vec{x}) \) must be a
 function of \(t\) and \(x\).</p>
 
 <p>The function <font class="matlab">funct1</font> is modified to get
@@ -370,8 +370,8 @@ buildLinK("funct2.m", "funct2.m","MMathSStat", "id2", "_blank");
 end </font>
 </pre>
 
-<p>The only option given to the solver <font class="matlab">ode45</font> is the
-upper bound \(\displaystyle 10^{-5}\) for the relative tolerance.</p>
+<p>We set the upper bound on the relative tolerance to be
+\(\displaystyle 10^{-5}\).</p>
 
 <pre class="matlab">
 >> <font class="matlab">options = odeset('reltol',10^(-5));</font>
@@ -409,8 +409,8 @@ linear interpolation of the solution using the data provided by
 </div>
 
 <p> Using linear interpolation at the data given in
-<font class="matlab">[xx,yy]</font>, we can approximate the solution
-of the ODE at any points of the interval \([0,\pi]\).</p>
+<font class="matlab">[t,x]</font>, we can approximate the solution
+of the ODE at any point of the interval \([0,\pi]\).</p>
 
 <div class="Example">
 <p><em>Example</em>: An approximated value of the solution of the
@@ -436,7 +436,7 @@ x_2'(t) &= \mu (1-x_1(t)^2) x_2(t) - x_1(t)
 \end{split}
 \]
 <p>This is a simple model for a system of oscillators with a non-linear
-damping represented represented by the term by \(\mu (1-x_1(t)^2) x_2(t)\).
+damping represented by the term by \(\mu (1-x_1(t)^2) x_2(t)\).
 From a purely mathematical point of view, this system of ODE is really
 interesting.  The van der Pol equation is a topic of basically all
 textbooks on ODE.</p>
@@ -589,9 +589,9 @@ vectors vary widely.  We will supply a program in the document
   buildLinK(matlabProgr.url_en, matlabProgr.text_en,
   "MMathSStat", matlabProgr.id, matlabProgr.target);
 </script>
-to draw vector field where the vectors are all drawn of the same length.
-We will also come back on the analysis of the van der Pol equation
-using this program.</p>
+to draw vector field where all the vectors that are drawn are of the
+same length.  We will also resume our analysis of the van der
+Pol equation using this program.</p>
 </div>
 
 <hr class="MMathSStat">

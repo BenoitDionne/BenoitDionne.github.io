@@ -249,7 +249,7 @@ exécutons les commandes suivantes.</p>
 >> <font class="matlab">X = @(r,theta) r.*cos(theta); ...
    Y = @(r,theta) r.*sin(theta); ...
    frt = @(r,theta) f(X(r,theta),Y(r,theta)); ...
-   frtD = @(r,theta) f(X(r,theta),Y(r,theta)).*r; ...
+   frtD = @(r,theta) frt(r,theta).*r; ...
    integral2(frtD, 0,2, 0, 2*pi,'Method','tiled')
 </font>
 ans = <br>
@@ -264,33 +264,31 @@ voulons que l'intégrale soit calculée avec des sommes partielles sur des
 <q lang="fr">petits rectangles</q> comme cela est fait pour la
 définition de l'intégrale de fonctions de deux variables et plus.
 Nous choisissons l'option <em>iterated</em> quand nous voulons que
-l'intégrale soit calculer comme une intégrale double ou triple.</p>
+l'intégrale soit calculer comme une intégrale double ou triple (comme
+nous avons <q lang="fr">appris</q> dans nos cours de calcul
+différentiel et intégral).</p>
 
 <hr class="MMathSStat">
 
 <h3 id="Sect15"> Équations différentielles ordinaires (EDO) </h3>
 
-<p>Trois des fonctions de <em>Matlab</em> pour résoudre les (systèmes d')
-EDO d'ordre un sont <font class="matlab">ode23</font>,
+<p>Trois des fonctions de <em>Matlab</em> pour résoudre les systèmes
+d'EDO d'ordre un sont <font class="matlab">ode23</font>,
 <font class="matlab">ode45</font> et <font class="matlab">ode113</font>.
 Ce sont des méthodes à pas variables dérivées des méthodes de
-Runge-Kutta.  Ils font partis de la famille de solveurs d'EDO
+Runge-Kutta.  Elles font partie de la famille de solveurs d'EDO
 de <em>Matlab</em>.  Pour obtenir de l'aide au sujet d'un solveur
 et/ou une liste des autres solveurs de <em>Matlab</em> pour résoudre les EDO,
 il suffit d'utiliser la commande <font class="matlab">help ode23 </font>
 par exemple.  Le nom <font class="matlab">ode23</font> peut être
 remplacé par tout autre nom de solveur d'EDO de <em>Matlab</em>. </p>
 
-<p>Nous allons seulement expliquer la procédure pour utiliser le
-solveur <font class="matlab">ode45</font>.  Cependant, la procédure pour
-utiliser les autres solveurs d'EDO de <em>Matlab</em> est très semblable. </p>
-
 <p> Les systèmes d'EDO que nous considérons sont de la forme
 \(\vec{x}'(t) = f(t,\vec{x}(t))\) où
 \(\displaystyle f:\mathbb{R}\times \mathbb{R}^n \to \mathbb{R}^n\)
 est une fonction continue qui est <em>localement Lipshitz</em> par
 rapport à la variable \(\vec{x}\).  Le théorie affirme que, étant
-données une condition initiale \(\vec{x}_0\), il existe toujours une
+donnée une condition initiale \(\vec{x}_0\), il existe toujours une
 solution unique \(\displaystyle \vec{x}:I \to \mathbb{R}^n\) du
 système d'EDO telle que \(\vec{x}(0) = \vec{x}_0\) où \(I\) est un
 intervalle ouvert contenant \(0\).   Si \(f\) ne dépend pas de \(t\),
@@ -301,7 +299,10 @@ de cette solution au point \(\vec{x}(t)\).  En particulier,
 \(f(\vec{x}(t))\) est tangent à l'<em>orbite</em>
 \( \{\vec{x}(t) : t \in I\} \) au point \(\vec{x}(t)\).</p> 
 
-<p>Le format du solveur <font class="matlab">ode45</font> est
+<p>Nous allons seulement expliquer la procédure pour utiliser le
+solveur <font class="matlab">ode45</font>.  Cependant, la procédure pour
+utiliser les autres solveurs d'EDO de <em>Matlab</em> est très semblable.
+Le format du solveur <font class="matlab">ode45</font> est
 <font class="matlab"> [t,x] = ode45(@f ,[t_zero , t_final], x0, options)
 </font>.</p>
 
@@ -318,7 +319,7 @@ est un vecteur colonne qui représente une condition initiale à
 retourne ont le même nombre de rangées. Le nombre de colonnes de la matrice
 <font class="matlab">x</font> est égale à la longueur du vecteur
 colonne <font class="matlab">x0</font>.
-La i<sup>e</sup colonne de <font class="matlab">x</font> énumère les
+La i<sup>e</sup> colonne de <font class="matlab">x</font> énumère les
 valeurs de \(x_i\), la i<sup>e</sup> composante de la solution, à
 toutes les valeurs de \(t\) énumérées dans le vecteur colonne
 <font class="matlab">t</font>.</p>
@@ -355,11 +356,11 @@ résoudre numériquement l'EDO.</p>
 <font class="matlab">ode45</font>.  La condition initial est
 \(x(0) = 1\) et la borne supérieure sur la tolérance relative est de 
 \(\displaystyle 10^{-5}\).  Nous avons déjà défini dans le
-<em>fichier m</em> <em>funct1.m</em> une fonction \(x \mapsto x \sin(x)\).
+<em>fichier m</em> <em>funct1.m</em> la fonction \(x \mapsto x \sin(x)\).
 Cependant, cette fonction <font class="matlab">funct1</font> ne peut
 pas être utilisée avec le solveur <font class="matlab">ode45</font>
 car la fonction <font class="matlab">funct1</font> dépend seulement de
-\(x\).  Le côté droit d'une EDO \(x'(t)= \ldots\) doit être une
+\(x\).  Le côté droit d'une EDO \(x'(t)= f(t,\vec{x}) \) doit être une
 fonction de \(t\) et \(x\).</p>
 
 <p>La fonction <font class="matlab">funct1</font> est redéfinie pour
@@ -379,9 +380,8 @@ buildLinK("funct2.m", "funct2.m","MMathSStat", "id2", "_blank");
 end </font>
 </pre>
 
-<p>La seule option qui est fournie au solveur
-<font class="matlab">ode45</font> est la borne supérieure
-\(\displaystyle 10^{-5}\) pour la tolérance relative.</p> 
+<p>Nous fixons la borne supérieure sur la tolérance relative
+à \(\displaystyle 10^{-5}\).</p> 
 
 <pre class="matlab">
 >> <font class="matlab">options = odeset('reltol',10^(-5));</font>
@@ -423,7 +423,7 @@ fournies par <font class="matlab">[t,x]</font>.</p>
 
 <p> À l'aide de l'interpolation linéaire construite à partir des données 
 fournies par <font class="matlab">[t,x]</font>, nous pouvons estimer
-la valeur de la solution de l'EDO à tous points de l'intervalle
+la valeur de la solution de l'EDO à tous les points de l'intervalle
 \([0,\pi]\).</p>
 
 <div class="Example">
@@ -449,7 +449,7 @@ x_1'(t) &= x_2(t) \\
 x_2'(t) &= \mu (1-x_1(t)^2) x_2(t) - x_1(t)
 \end{split}
 \]
-<p>C'est un modèle simple d'un système d'oscillateurs avec un
+<p>C'est un modèle simple pour un système d'oscillateurs avec un
 amortissement non-linéaire qui est représenté par le terme 
 \(\mu (1-x_1(t)^2) x_2(t)\).  D'un point de vue mathématique, ce
 système d'EDO est très intéressant.  L'équation de van der Pol est un
@@ -477,7 +477,7 @@ périodique.</p>
 <p>Nous utilisons <em>Matlab</em> pour étudier l'équation de van der Pol.
 Nous résolvons numériquement le système d'EDO pour \(\mu = 0.5\) et
 \(\displaystyle \vec{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\),
-et traçons les graphes de \(x_1\) et \(x_2\) en fonction du temps \(t\)s.</p>
+et traçons les graphes de \(x_1\) et \(x_2\) en fonction du temps \(t\).</p>
 
 <pre class="matlab">
 >> <font class="matlab">mu = 0.5; ...
@@ -537,17 +537,17 @@ lentement.  La vitesse sur les orbites et la direction des orbites
 sont déterminées par la longueur et la direction des vecteurs fournis
 par le champ de vecteurs associé au système d'EDO autonome
 \( \vec{x}' = f(\vec{x}) \).  Nous rappelons au lecteur qu'un
-<em>champ de vecteurs</em> associé a un système d'EDO autonome 
-est généré de la façon suivante.  Nous choisissons plusieurs 
+<em>champ de vecteurs</em> associé à un système d'EDO autonome 
+est généré de la façon suivante.  Nous choisissons plusieurs
 points (également distancés) \(\vec{x}\) du plan et traçons à partir
-de chacun ces points \(\vec{x}\) un vecteur dans la direction
+de chacun de ces points \(\vec{x}\) un vecteur dans la direction
 \(f(\vec{x})\).  Les vecteurs dessinés sont souvent de la même
 longueur mais à l'occasion la longueur du vecteur tracé à partir de
 \(\vec{x}\) est proportionnel à la norme du vecteur \(f(\vec{x})\).  La
 fonction <font class="matlab">quiver</font> de <em>Matlab</em> fait
 exactement cela.</p> 
 
-<p>C'est traditionnel de dessiner le champ de vecteurs associé à un
+<p>Il est de tradition de dessiner le champ de vecteurs associé à un
 système d'EDO autonome de la forme \( \vec{x}' = f(\vec{x}) \) pour
 obtenir une image qualitative du comportement global des orbites du
 système.</p> 
@@ -563,7 +563,7 @@ système.</p>
        alt="Dessin du champ de vecteurs associé à (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1)">
 </div>
 
-<p>Nous pouvons ajouter au champ de vecteurs précédent l'orbite
+<p>Nous pouvons ajouter au champ de vecteurs précédant l'orbite
 associée à la condition initiale
 \(\displaystyle \vec{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\).</p>
 
@@ -581,7 +581,7 @@ associée à la condition initiale
 
 <p>Malheureusement, il y a de grandes variations entre les longueurs des
 vecteurs dans certaines régions du plan et les longueurs des vecteurs dans
-d'autres régions du plan.  Les longueurs des vecteurs sont plus
+d'autres régions du plan.  Les longueurs des vecteurs semblent être plus
 petites prêt de l'origine mais cela peut être trompeur car il y a 
 de grandes variations (sur une plus petite échelle) des longueurs des 
 vecteurs prêt de la solution périodique comme le gros plan suivant du
@@ -606,8 +606,8 @@ Nous allons fournir un programme dans le document
   buildLinK(matlabProgr.url_fr, matlabProgr.text_fr,
   "MMathSStat", matlabProgr.id, matlabProgr.target);
 </script>
-pour dessiner les champs de vecteurs où tous les vecteurs sont dessinés
-de la même longueur.  Nous allons aussi revenir sur l'étude de
+pour dessiner les champs de vecteurs où tous les vecteurs qui sont dessinés
+sont de même longueur.  Nous allons aussi reprendre notre étude de
 l'équation de van der Pol à l'aide de ce programme.</p>
 </div>
 
