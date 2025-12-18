@@ -6,7 +6,7 @@ n = 20;
 
 % loop:
 for i = 1:n
-  x = -(x.^2/8) - x/4 + 1/2;
+  x = -x.^(5/2)/8 - x/4 + 1/2;
 end
 
 % Return the final value of the iteration

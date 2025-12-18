@@ -97,12 +97,31 @@ example will illustrate how this could be done for the fixed point
 method.  The approach is similar for other iterative methods.</p>
 
 <div class="Example">
-<p><em>Example</em>: We want to use the fixed point method to
-approximate the solution of the equation
-\(\displaystyle -(x^2/8) - x/4 + 1/2 = x\) in the
-interval \([0,1]\).  We start the iterations with \(x = 0.5\).  A
-possible solution of this problem is to execute a little <em>m-file</em>
-containing the following code.</p>
+<p><em>Example</em>: We consider the equation
+\(\displaystyle p(x) = -x^{5/2}/8 - 5x/4 + 1/2 = 0\).
+Since \(p\) is a continuous function, \(p(0) = 1/2 > 0\) and
+\(p(1) = -7/8 < 0\), it follows from the intermediate value theorem
+that there exists at least one solution of this equation in the interval
+\([0,1]\).</p>
+
+<p>We have that \(p(x) = 0 \iff g(x) = -x^{5/2}/8 - x/4 + 1/2 = x \).
+Thus, the solutions of \(p(x) = 0\) are the fixed points of \(g\).
+Since \( 1/8 \leq g(x) \leq 1/2 \) and
+\(|g'(x)| = |-5x^{3/2}/16 - 1/4| \leq 9/16 < 1 \) for \(0 \leq x \leq 1\),
+we get from the fixed point theorem that there exists a unique fixed
+point of \(g\) in \([0,1]\) and that the sequence
+\(x_0, x_1 = g(x_0), x_2 = g(x_1), \ldots, x_{n+1} = g(x_n), \ldots \)
+converges to this fixed point whatever the initial value
+\(x_0 \in [0,1]\).  Therefore, we find the solution of \(p(x) = 0\) in the
+interval \([0,1]\) by finding the fixed point of \(g\) in that
+interval.</p>
+
+<p> We start the iterations with \(x_0 = 0.5\) and use
+\(x_20\) as an approximation of the solution.
+The following <em>Matlab</em> code, that is found in the
+<em>m-file</em> <script language="javascript">
+buildLinK("fxpt1.m", "fxpt1.m","MMathSStat", "id3", "_blank");
+</script>, does all that work for us.</p>
 
 <pre class="matlab">
 %  Starting value of x for the iteration:
@@ -112,109 +131,72 @@ containing the following code.</p>
 % loop:
 <font class="matlab">
 for i = 1:n
-   x = -(x.^2/8) - x/4 + 1/2;
+   x = -x.^(5/2)/8 - x/4 + 1/2;
 end </font> <br>
 % Return the final value of the iteration
 <font class="matlab">x</font>
 </pre>
 
-<p>This <em>m-file</em> is called <script language="javascript">
-buildLinK("fxpt1.m", "fxpt1.m","MMathSStat", "id3", "_blank");
-</script>,.  It is not a function but only a simple script that
-<em>Matlab</em> can execute.  With a deeper knowledge
-of <em>Matlab</em>, we can write much more sophisticated programs
-but this example is enough to understand the basic of programming in
-<em>Matlab</em>.</p>
-
-<p>If we run <font class="matlab">fxpt1</font> in <em>Matlab</em>,
-then it executes \(20\) iterations of the function
-\(\displaystyle x \mapsto -(x^2/8) - x/4 + 1/2\) starting with
+<p>It is not a function but only a simple script that
+<em>Matlab</em> can execute.  If we run
+<font class="matlab">fxpt1</font> in <em>Matlab</em>,
+then it computes \(20\) iterations of the function \(g\) starting with
 \(x = 0.5\) and return the \(\displaystyle 20^{th}\) iteration.</p>
 
 <pre class="matlab">
 >> <font class="matlab">fxpt1</font><br>
 x = <br>
-    0.3852
+    0.3905
 </pre>
-</div>
 
 <p>However, the script above is not convenient because we have to modify the
 file <em>fxpt1.m</em> each time that the function to be iterated, the initial
 value or the number of iterations are modified.</p>
 
-<div class="Example">
-<p><em>Example (continued)</em>: The function
-<font class="matlab">fxpt2</font> defined in the file
-  <script language="javascript">
+<p>The function <font class="matlab">fxpt2</font> defined in
+the <em>m-file</em>  <script language="javascript">
     buildLinK("fxpt2.m", "fxpt2.m","MMathSStat", "id4", "_blank");
   </script> takes as arguments the <em>name</em> or <em>handle</em> of
 the function to iterate, the initial value and the number of iterations.</p>
 
 <pre class="matlab">
-% y = fxpt2(funct,x0,n)
+% x = fxpt2(funct,x0,n)
 %
 % This function returns the result of n iterations of the function
-% y = funct(x) starting with the value x = x0 .
-<font class="matlab">function y = fxpt2(funct,x0,n)
-    y = x0;
+% funct starting with the value x = x0 .
+<font class="matlab">function x = fxpt2(funct,x0,n)
+    x = x0;
     for i=1:n
-      y = feval(funct,y);
+      x = feval(funct,x);
     end
 end  </font>
 </pre>
 
-<p>To execute \(20\) iterations of the function
-\(\displaystyle x \mapsto -(x^2/8) - x/4 + 1/2\) starting with
-\(x = 0.5\), we define 
-the function <font class="matlab">funct3</font> by creating the
-<em>m-file</em> <script language="javascript">
-buildLinK("funct3.m", "funct3.m","MMathSStat", "id5", "_blank");
-</script> with the following content.</p>
+<p>To execute \(20\) iterations of the function \(g\) starting with
+\(x = 0.5\), we first define the function \(g\) in <em>Matlab</em>
+and then use the function <font class="matlab">fxp2</font> with the
+arguments <font class="matlab">g</font>, <font class="matlab">0</font>
+and <font class="matlab">20</font>.</p> 
 
 <pre class="matlab">
-% y = funct3(x)
-%
-% This function takes one argument x and return the result of the
-% computation  -(x.^2/8) - x/4 + 1/2 .
-<font class="matlab">function y = funct3(x)
-   y = -(x.^2/8) - x/4 + 1/2;
-end </font>
-</pre>
-
-<p> The function
-<font class="matlab">fxpt2</font>
-can then be invoked with the
-arguments <font class="matlab">@funct3</font> or
-<font class="matlab">'funct3'</font>,
-<font class="matlab">0.5</font> and <font class="matlab">20</font>.</p>
-
-<pre class="matlab">
->> <font class="matlab">fxpt2(@funct3,0.5,20)</font> <br>
+>> <font class="matlab">g = @(x) -x.^(5/2)/8 - x/4 + 1/2; ...
+   fxpt2(g,0.5,20)</font> <br>
 ans = <br>
-    0.3852
+    0.3905
 </pre>
 </div>
 
 <div class="Note">
-<p><em>Note</em>: If we had used the line
-<font class="matlab">y = funct(y);</font> instead of the line
-<font class="matlab">y = feval(funct,y);</font> in the previous
-script, then the function <font class="matlab">fxpt2</font> would have
-only accepted function <em>handles</em> as its first argument.  By
+<p><em>Note</em>: If we use the line
+<font class="matlab">x = funct(x);</font> instead of the line
+<font class="matlab">x = feval(funct,x);</font> in the code for
+the function <font class="matlab">fxpt2</font>, then the function
+<font class="matlab">fxpt2</font> will only accept
+function <em>handles</em> as its first argument.  By
 using the function <font class="matlab">feval()</font>, function
 <em>names</em> can also be given as first argument of the
 function <font class="matlab">fxpt2</font>.</p> 
 </div>
-
-<p> Instead of defining <font class="matlab">funct3</font> using a
-<em>m-file</em>, we could have simply defined an
-<em>anonymous function</em> as it follows. </p>
-
-<pre class="matlab">
->> <font class="matlab">Hfunct3 = @(x) -(x.^2/8) - x/4 + 1/2;</font>
-</pre>
-
-<p> This way, it is now easy to modify the function to be iterated. </p>
 
 <hr class="MMathSStat">
 
