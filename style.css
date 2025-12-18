@@ -235,6 +235,9 @@ border-bottom: 1px dashed #8F001A; border-right: 1px dashed #8F001A;
 padding-left: 1em; padding-right: 1em; background-color: #F1F1F1;
 margin-top: 1em;}
 
+div.Code { border: 1px dashed blue; margin: 3em; padding-left: 1em;
+padding-right: 1em; background-color: #E7E7E7; width: 75%; }
+
 /* Ordered and non-ordered list */
 ol.Code { list-style-type: upper-alpha; }
 ol.Code > li { border-top: 2px solid #8F001A; }

@@ -100,15 +100,15 @@ method.  The approach is similar for other iterative methods.</p>
 <p><em>Example</em>: We consider the equation
 \(\displaystyle p(x) = -x^{5/2}/8 - 5x/4 + 1/2 = 0\).
 Since \(p\) is a continuous function, \(p(0) = 1/2 > 0\) and
-\(p(1) = -7/8 < 0\), it follows from the intermediate value theorem
+\(p(1) = -7/8 < 0\), it follows from the <em>intermediate value theorem</em>
 that there exists at least one solution of this equation in the interval
 \([0,1]\).</p>
 
 <p>We have that \(p(x) = 0 \iff g(x) = -x^{5/2}/8 - x/4 + 1/2 = x \).
-Thus, the solutions of \(p(x) = 0\) are the fixed points of \(g\).
-Since \( 1/8 \leq g(x) \leq 1/2 \) and
+Thus, the solutions of \(p(x) = 0\) are the fixed points of \(g\) and
+vice-versa.  Since \( 1/8 \leq g(x) \leq 1/2 \) and
 \(|g'(x)| = |-5x^{3/2}/16 - 1/4| \leq 9/16 < 1 \) for \(0 \leq x \leq 1\),
-we get from the fixed point theorem that there exists a unique fixed
+we get from the <em>fixed point theorem</em> that there exists a unique fixed
 point of \(g\) in \([0,1]\) and that the sequence
 \(x_0, x_1 = g(x_0), x_2 = g(x_1), \ldots, x_{n+1} = g(x_n), \ldots \)
 converges to this fixed point whatever the initial value
@@ -117,12 +117,13 @@ interval \([0,1]\) by finding the fixed point of \(g\) in that
 interval.</p>
 
 <p> We start the iterations with \(x_0 = 0.5\) and use
-\(x_20\) as an approximation of the solution.
+\(x_{20}\) as an approximation of the solution.
 The following <em>Matlab</em> code, that is found in the
 <em>m-file</em> <script language="javascript">
 buildLinK("fxpt1.m", "fxpt1.m","MMathSStat", "id3", "_blank");
 </script>, does all that work for us.</p>
 
+<div class="Code">
 <pre class="matlab">
 %  Starting value of x for the iteration:
 <font class="matlab">x = 0.5;</font> <br>
@@ -136,6 +137,7 @@ end </font> <br>
 % Return the final value of the iteration
 <font class="matlab">x</font>
 </pre>
+</div>
 
 <p>It is not a function but only a simple script that
 <em>Matlab</em> can execute.  If we run
@@ -159,6 +161,7 @@ the <em>m-file</em>  <script language="javascript">
   </script> takes as arguments the <em>name</em> or <em>handle</em> of
 the function to iterate, the initial value and the number of iterations.</p>
 
+<div class="Code">
 <pre class="matlab">
 % x = fxpt2(funct,x0,n)
 %
@@ -171,6 +174,7 @@ the function to iterate, the initial value and the number of iterations.</p>
     end
 end  </font>
 </pre>
+</div>
 
 <p>To execute \(20\) iterations of the function \(g\) starting with
 \(x = 0.5\), we first define the function \(g\) in <em>Matlab</em>

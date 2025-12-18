@@ -83,7 +83,7 @@ main_title( MStexte, "MMathSStat");
   matlabFunct.id, matlabFunct.target);
 </script>.  Définir des fonctions est fondamental pour la
 programmation dans <em>Matlab</em>.  Nous devons admettre que ce
-document est en voix de développement et que nous espérons ajouter
+document est en développement et que nous espérons ajouter
 plus d'information dans un avenir proche.</p>
 
 <hr class="MMathSStat" style="clear: both;">
@@ -100,15 +100,15 @@ L'approche est semblable pour d'autres méthodes itératives.</p>
 <p><em>Exemple</em>:  Nous considérons l'équation
 \(\displaystyle p(x) = -x^{5/2}/8 - 5x/4 + 1/2 = 0\).
 Puisque \(p\) est une fonction continue, \(p(0) = 1/2 > 0\) et
-\(p(1) = -7/8 < 0\), il découle du théorème des valeurs intermédiaires
+\(p(1) = -7/8 < 0\), il découle du <em>théorème des valeurs intermédiaires</em>
 qu'il existe au moins une solution de cette équation dans l'intervalle
 \([0,1]\).</p>
 
 <p>Nous avons que \(p(x) = 0 \iff g(x) = -x^{5/2}/8 - x/4 + 1/2 = x \).
-Ainsi, les solutions de \(p(x) = 0\) sont les points fixes de \(g\).
-Puisque \( 1/8 \leq g(x) \leq 1/2 \) et
+Ainsi, les solutions de \(p(x) = 0\) sont les points fixes de \(g\) et
+vice-versa.  Puisque \( 1/8 \leq g(x) \leq 1/2 \) et
 \(|g'(x)| = |-5x^{3/2}/16 - 1/4| \leq 9/16 < 1 \) pour \(0 \leq x \leq 1\),
-nous obtenons du théorème des points fixes qu'il existe un point fixe
+nous obtenons du <em>théorème des points fixes</em> qu'il existe un point fixe
 unique de \(g\) dans l'intervalle \([0,1]\) et que la suite
 \(x_0, x_1 = g(x_0), x_2 = g(x_1), \ldots, x_{n+1} = g(x_n), \ldots \)
 converge vers ce point fixe quelque soit la valeur initiale 
@@ -117,12 +117,13 @@ converge vers ce point fixe quelque soit la valeur initiale
 \(g\) dans cet intervalle.</p>
 
 <p> Nous débutons les itérations avec \(x_0 = 0.5\) et utilisons
-\(x_20\) comme estimée de la solution.  Le code en <em>Matlab</em>
+\(x_{20}\) comme estimée de la solution.  Le code en <em>Matlab</em>
 suivant, qui se trouve dans le <em>fichier m</em>
 <script language="javascript">
 buildLinK("fxpt1.m", "fxpt1.m","MMathSStat", "id3", "_blank");
 </script>, fait tout le travail pour nous.</p>
 
+<div class="Code">
 <pre class="matlab">
 %  Starting value of x for the iteration:
 <font class="matlab">x = 0.5;</font> <br>
@@ -136,6 +137,7 @@ end </font> <br>
 % Return the final value of the iteration
 <font class="matlab">x</font>
 </pre>
+</div>
 
 <p>Ce n'est pas une fonction mais un simple script que
 <em>Matlab</em> peut exécuter.
@@ -162,6 +164,7 @@ buildLinK("fxpt2.m", "fxpt2.m","MMathSStat", "id4", "_blank");
 de la fonction qui doit être itérée, la valeur initiale et le nombre
 d'itérations.</p> 
 
+<div class="Code">
 <pre class="matlab">
 % x = fxpt2(funct,x0,n)
 %
@@ -174,6 +177,7 @@ d'itérations.</p>
     end
 end  </font>
 </pre>
+</div>
 
 <p>Pour exécuter \(20\) itérations de la fonction \(g\) à partir de
 \(x = 0.5\), nous définissons en premier la fonction \(g\)

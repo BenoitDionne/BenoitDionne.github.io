@@ -91,10 +91,10 @@ document.write("<img class=\"MMathSStat\" alt=\"Signe de Construction\" src=\""
       previousID = "history"+(n-1);
     }
     document.write("<div class=\"history_BUT\"> <button type=\"button\" "
-    +"onclick=\"hideElement('"+ID+"'); showElement('"+nextID
-    +"');\"> Suivant </button> <button type=\"button\" "
     +"onclick=\"hideElement('"+ID+"'); showElement('"+previousID
     +"');\"> Précédant </button> <button type=\"button\" "
+    +"onclick=\"hideElement('"+ID+"'); showElement('"+nextID
+    +"');\"> Suivant </button> <button type=\"button\" "
    +"onclick=\"hideElement('historyFrame');hideElement('"+ID
     +"')\"> Cacher </button> </div> </div>");
   }

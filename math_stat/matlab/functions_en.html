@@ -115,6 +115,7 @@ following the character <em>%</em> on a line is ignored by
   buildLinK("funct1.m", "funct1.m","MMathSStat", "id1", "_blank");
 </script>.</p>
 
+<div class="Code">
 <pre class="matlab">
 % y = funct1(x)
 %
@@ -124,6 +125,7 @@ following the character <em>%</em> on a line is ignored by
     y = x.*sin(x);
 end </font>
 </pre>
+</div>
 </div>
 
 <div class="Note">
@@ -331,6 +333,7 @@ installed.  Therefore, we first define the Heaviside function
   buildLinK("heaviside.m", "heaviside.m","MMathSStat", "id1HS", "_blank");
 </script>.</p>
 
+<div class="Code">
 <pre class="matlab">
 % Y = heaviside(X)
 %
@@ -344,6 +347,7 @@ installed.  Therefore, we first define the Heaviside function
   Y(Y == 1/2) = NaN;
 end </font>
 </pre>
+</div>
 
 <p>This defintion of the function <font class="matlab">heaviside</font>
 may seem to be over complicated but our goal was to create an
@@ -362,12 +366,12 @@ ans = <br>
 the <em>Matlab</em> function <font class="matlab">fplot</font>.</p>
 
 <pre class="matlab">
->> <font class="matlab">f = @(x) (x.^2+1).*heaviside(x-1) - 2*cos(pi*x).*heaviside(x-2);</font>
->> <font class="matlab">x = 0:0.02:4;</font>
->> <font class="matlab">y = f(x);</font>
->> <font class="matlab">plot(x,y,'b');</font>
->> <font class="matlab">grid on, xlabel('x'), ylabel('y')</font>
->> <font class="matlab">title('Graph of f')</font>
+>> <font class="matlab">f = @(x) (x.^2+1).*heaviside(x-1) - 2*cos(pi*x).*heaviside(x-2); ...
+   x = 0:0.02:4; ...
+   y = f(x); ...
+   plot(x,y,'b'); ...
+   grid on, xlabel('x'), ylabel('y'), ...
+   title('Graph of f')</font>
 </pre>
 
 <div class="center">
@@ -483,8 +487,8 @@ We provide examples of these new graphics functions below.</p>
 previous example.</p>
 
 <pre class="matlab">
->> <font class="matlab"> f = @(x) x.^3 + 2*x.^2 + 1;</font>
->> <font class="matlab"> fplot(f,[-4,4],'b', MeshDensity=100);</font>
+>> <font class="matlab">f = @(x) x.^3 + 2*x.^2 + 1; ...
+   fplot(f,[-4,4],'b', MeshDensity=100);</font>
 </pre>
 
 <div class="center">
@@ -573,9 +577,9 @@ instance, we can draw the curve defined by the equation
 \( 9x^2 - 4 y^2 - 18 x + 16 y = 43 \).</p>
 
 <pre class="matlab">
->> <font class="matlab">h = @(x,y) 9*x.^2 -4*y.^2 - 18*x +16*y - 43;</font>
->> <font class="matlab">fimplicit(h,'r');</font>
->> <font class="matlab">xlabel('x') , ylabel('y');</font>
+>> <font class="matlab">h = @(x,y) 9*x.^2 -4*y.^2 - 18*x +16*y - 43; ...
+   fimplicit(h,'r'); ...
+   xlabel('x') , ylabel('y');</font>
 </pre>
 
 <div class="center">

@@ -360,6 +360,7 @@ file <em>funct2.m</em>. The <em>m-file</em>  <script language="javascript">
 buildLinK("funct2.m", "funct2.m","MMathSStat", "id2", "_blank");
 </script> contains the following code:</p>
 
+<div class="Code">
 <pre class="matlab">
 % xp = funct2(t,x)
 %
@@ -369,6 +370,7 @@ buildLinK("funct2.m", "funct2.m","MMathSStat", "id2", "_blank");
   xp = x.*sin(x);
 end </font>
 </pre>
+</div>
 
 <p>We set the upper bound on the relative tolerance to be
 \(\displaystyle 10^{-5}\).</p>
@@ -382,8 +384,8 @@ numerically solve the ODE \(x' = f(t,x)\) for \(0 \leq t\leq \pi\)
 with the initial condition \(x(0) = 1\).</p>
 
 <pre class="matlab">
->> <font class="matlab">[t,x] = ode45('funct2',[0,pi],1,options);</font>
->> <font class="matlab">size(t), size(x)</font>
+>> <font class="matlab">[t,x] = ode45('funct2',[0,pi],1,options); ...
+   size(t), size(x)</font>
 ans =<br>
    17    1
 

@@ -316,11 +316,11 @@ donnée par la représentation paramétrique \( (x,y) = (\sin(t), t\cos(t)) \) p
 <p>Les commandes suivantes de <em>Matlab<em> tracent cette courbe.</p>
 
 <pre class="matlab">
->> <font class="matlab">t = 0:0.05:20;</font>
->> <font class="matlab">x = sin(t);</font>
->> <font class="matlab">y = t.*cos(t);</font>
->> <font class="matlab">plot(x,y,'b');</font>
->> <font class="matlab">xlabel('x') , ylabel('y');</font>
+>> <font class="matlab">t = 0:0.05:20; ...
+   x = sin(t); ...
+   y = t.*cos(t); ...
+   plot(x,y,'b'); ...
+   xlabel('x') , ylabel('y');</font>
 </pre>
 
 <div class="center">
@@ -332,11 +332,11 @@ donnée par la représentation paramétrique \( (x,y) = (\sin(t), t\cos(t)) \) p
 valeurs entières de \(t\), nous utilisons les commandes suivantes.</p>
 
 <pre class="matlab">
->> <font class="matlab">hold on</font>
->> <font class="matlab">t = 0:1:20;</font>
->> <font class="matlab">x = sin(t);</font>
->> <font class="matlab">y = t.*cos(t);</font>
->> <font class="matlab">plot(x,y,'*b');</font>
+>> <font class="matlab">hold on, ...
+   t = 0:1:20; ...
+   x = sin(t); ...
+   y = t.*cos(t); ...
+   plot(x,y,'*b');</font>
 </pre>
 
 <div class="center">
@@ -347,6 +347,12 @@ valeurs entières de \(t\), nous utilisons les commandes suivantes.</p>
 <p>Le troisième argument de <font class="matlab">plot</font> ci-dessus
 force <em>Matlab</em> à tracer seulement un astérisque bleu à chacun
 des points.</p>
+</div>
+
+<div class="Note">
+<p><em>Note</em>: Les points de suspension (...) à la fin d'une ligne
+force <em>Matlab</em> à lire la ligne suivante avant d'exécuter les
+commandes.</p>
 </div>
 
 <hr class="MMathSStat">
@@ -524,10 +530,10 @@ définie par \(f(x,y) = \sin(x+y) x^2 y \) pour \(-5 \leq x \leq 5\) et
 \(-3 \leq y \leq 3\), nous utilisons les commandes suivantes. </p>
 
 <pre class="matlab">
->> <font class="matlab">[X,Y] = meshgrid(-5:0.1:5,-3:0.1:3);</font>
->> <font class="matlab">Z = sin(X+Y).*X.^2.*Y;</font>
->> <font class="matlab">surf(X,Y,Z); </font>
->> <font class="matlab">xlabel('x') , ylabel('y') , zlabel('z');</font>
+>> <font class="matlab">[X,Y] = meshgrid(-5:0.1:5,-3:0.1:3); ...
+   Z = sin(X+Y).*X.^2.*Y; ...
+   surf(X,Y,Z); ...
+   xlabel('x') , ylabel('y') , zlabel('z');</font>
 </pre>
 
 <div class="center">
@@ -578,13 +584,13 @@ donnée par la représentation paramétrique
 <p>Les commandes suivantes de <em>Matlab<em> tracent cette courbe.</p>
 
 <pre class="matlab">
->> <font class="matlab">t = 0:0.05:20;</font>
->> <font class="matlab">x = sin(t);</font>
->> <font class="matlab">y = t.*cos(t);</font>
->> <font class="matlab">z = t.^2;</font>
->> <font class="matlab">plot3(x,y,z,'b');</font>
->> <font class="matlab">xlabel('x'), ylabel('y'), zlabel('z');</font>
->> <font class="matlab">grid on</font>
+>> <font class="matlab">t = 0:0.05:20; ...
+   x = sin(t); ...
+   y = t.*cos(t); ...
+   z = t.^2; ...
+   plot3(x,y,z,'b'); ...
+   xlabel('x'), ylabel('y'), zlabel('z'); ...
+   grid on</font>
 </pre>
 
 <div class="center">
@@ -603,25 +609,25 @@ pour dessiner le cadre d'une boite avec tous ses bords de longueur 1 et
 centrée à l'origine.</p>
 
 <pre class="matlab">
->> <font class="matlab"> x=[ 0 1 1 0 0 0 1 1 0 0 ];</font>
->> <font class="matlab"> y=[ 0 0 1 1 0 0 0 1 1 0 ];</font>
->> <font class="matlab"> z=[ 0 0 0 0 0 1 1 1 1 1 ];</font>
->> <font class="matlab"> plot3(x-0.5,y-0.5,z-0.5,'b');</font>
->> <font class="matlab"> hold on</font>
->> <font class="matlab"> x=[ 1 1 ];</font>
->> <font class="matlab"> y=[ 0 0 ];</font>
->> <font class="matlab"> z=[ 1 0 ];</font>
->> <font class="matlab"> plot3(x-0.5,y-0.5,z-0.5,'b');</font>
->> <font class="matlab"> x=[ 1 1 ];</font>
->> <font class="matlab"> y=[ 1 1 ];</font>
->> <font class="matlab"> z=[ 0 1 ];</font>
->> <font class="matlab"> plot3(x-0.5,y-0.5,z-0.5,'b');</font>
->> <font class="matlab"> x=[ 0 0 ];</font>
->> <font class="matlab"> y=[ 1 1 ];</font>
->> <font class="matlab"> z=[ 1 0 ];</font>
->> <font class="matlab"> plot3(x-0.5,y-0.5,z-0.5,'b');</font>
->> <font class="matlab"> axis('square');</font>
->> <font class="matlab"> grid on</font>
+>> <font class="matlab">x=[ 0 1 1 0 0 0 1 1 0 0 ]; ...
+   y=[ 0 0 1 1 0 0 0 1 1 0 ]; ...
+   z=[ 0 0 0 0 0 1 1 1 1 1 ]; ...
+   plot3(x-0.5,y-0.5,z-0.5,'b');</font>
+>> <font class="matlab">hold on, ....
+   x=[ 1 1 ]; ...
+   y=[ 0 0 ]; ...
+   z=[ 1 0 ]; ...
+   plot3(x-0.5,y-0.5,z-0.5,'b');</font>
+>> <font class="matlab">x=[ 1 1 ]; ...
+   y=[ 1 1 ]; ...
+   z=[ 0 1 ]; ...
+   plot3(x-0.5,y-0.5,z-0.5,'b');</font>
+>> <font class="matlab">x=[ 0 0 ]; ...
+   y=[ 1 1 ]; ...
+   z=[ 1 0 ]; ...
+   plot3(x-0.5,y-0.5,z-0.5,'b'); ...
+   axis('square'); ...
+   grid on</font>
 </pre>
 
 <div class="center">
@@ -629,7 +635,7 @@ centrée à l'origine.</p>
        alt="Première méthode pour dessiner le cadre de la boite">
 </div>
 
-<p> Le lecteur devrait arrêter après chaque commande
+<p> Le lecteur devrait faire une pause après chaque commande
 <font class="matlab">plot3</font> pour observer comment le cadre est
 dessiné.  Par exemple, la première commande
 <font class="matlab">plot3</font> dessine successivement le segment
@@ -647,13 +653,13 @@ même longueur.</p>
 <p>Il y a une façon plus succincte de tracer le cadre de notre boite.</p>
 
 <pre class="matlab">
->> <font class="matlab"> cla </font>
->> <font class="matlab"> x=[ 0 1 1 0 0 0 1 1 0 0 NaN 1 1 NaN 1 1 NaN 0 0];</font>
->> <font class="matlab"> y=[ 0 0 1 1 0 0 0 1 1 0 NaN 0 0 NaN 1 1 NaN 1 1];</font>
->> <font class="matlab"> z=[ 0 0 0 0 0 1 1 1 1 1 NaN 1 0 NaN 0 1 NaN 1 0];</font>
->> <font class="matlab"> cube = plot3(x-0.5,y-0.5,z-0.5,'b');</font>
->> <font class="matlab"> axis('square');</font>
->> <font class="matlab"> grid on</font>
+>> <font class="matlab">cla, ...
+   x=[ 0 1 1 0 0 0 1 1 0 0 NaN 1 1 NaN 1 1 NaN 0 0]; ...
+   y=[ 0 0 1 1 0 0 0 1 1 0 NaN 0 0 NaN 1 1 NaN 1 1]; ...
+   z=[ 0 0 0 0 0 1 1 1 1 1 NaN 1 0 NaN 0 1 NaN 1 0]; ...
+   cube = plot3(x-0.5,y-0.5,z-0.5,'b'); ...
+   axis('square'); ...
+   grid on</font>
 </pre>
 
 <div class="center">
@@ -705,10 +711,10 @@ genres de dessins.</p>
 et \(-3 \leq y \leq 3\), nous utilisons les commandes suivantes.</p>
 
 <pre class="matlab">
->> <font class="matlab">[X,Y] = meshgrid(-5:0.1:5,-3:0.1:3);</font>
->> <font class="matlab">Z = sin(X+Y).*X.^2.*Y;</font>
->> <font class="matlab">contour(X,Y,Z,10,'ShowText','on'); </font>
->> <font class="matlab">xlabel('x') , ylabel('y');</font>
+>> <font class="matlab">[X,Y] = meshgrid(-5:0.1:5,-3:0.1:3); ...
+   Z = sin(X+Y).*X.^2.*Y; ...
+   contour(X,Y,Z,10,'ShowText','on'); ...
+   xlabel('x') , ylabel('y');</font>
 </pre>
 
 <div class="center">
@@ -722,8 +728,8 @@ données par \(f(x,y) = -2\) et \(f(x,y) = -6\).  Nous pouvons tracer
 ces courbes de niveau avec la commande suivante. </p>  
 
 <pre class="matlab">
->> <font class="matlab">contour(X,Y,Z,[-2,-6],'ShowText','on'); </font>
->> <font class="matlab">xlabel('x') , ylabel('y');</font>
+>> <font class="matlab">contour(X,Y,Z,[-2,-6],'ShowText','on'); ...
+   xlabel('x') , ylabel('y');</font>
 </pre>
 
 <div class="center">
@@ -738,9 +744,9 @@ ces courbes de niveau avec la commande suivante. </p>
 commandes suivantes .</p>
 
 <pre class="matlab">
->> <font class="matlab">theta = 0:0.01:2*pi;</font>
->> <font class="matlab">r = 1 +cos(theta);</font>
->> <font class="matlab">polarplot(theta,rho);</font>
+>> <font class="matlab">theta = 0:0.01:2*pi; ...
+   r = 1 +cos(theta); ...
+   polarplot(theta,rho);</font>
 </pre>
 
 <div class="center">
@@ -762,11 +768,11 @@ révolution générée par la rotation de la courbe
 \(x\).  Nous dessinons cette courbe en premier.</p>
 
 <pre class="matlab">
->> <font class="matlab">x = 0:0.02:4;</font>
->> <font class="matlab">y = 2+cos(pi*x);</font>
->> <font class="matlab">plot(x,y,'b');</font>
->> <font class="matlab">xlabel('x'), ylabel('y');</font>
->> <font class="matlab">grid on</font>
+>> <font class="matlab">x = 0:0.02:4; ...
+   y = 2+cos(pi*x); ...
+   plot(x,y,'b'); ...
+   xlabel('x'), ylabel('y'); ...
+   grid on</font>
 </pre>
 
 <div class="center">
@@ -778,11 +784,11 @@ révolution générée par la rotation de la courbe
 révolution.</p>
 
 <pre class="matlab">
->> <font class="matlab">cla</font>
->> <font class="matlab">[X,Y,Z] = cylinder(y);</font>
->> <font class="matlab">surf(4*Z,X,Y);</font>
->> <font class="matlab">xlabel('x'), ylabel('y'), zlabel('z');</font>
->> <font class="matlab">grid on</font>
+>> <font class="matlab">cla, ...
+   [X,Y,Z] = cylinder(y); ...
+   surf(4*Z,X,Y); ...
+   xlabel('x'), ylabel('y'), zlabel('z'); ...
+   grid on</font>
 </pre>
 
 <div class="center">
@@ -871,7 +877,7 @@ rangées dans une même figure.</p>
 <p> Le code précédent demande probablement quelques explications.
 plutôt que de répéter quatre fois le groupe de commandes qui
 commence avec <font class="matlab">subplot(2,2,i)</font> pour
- 1 &le i &le 4, nous avons créé une boucle.  Pour obtenir un joli
+ 1 &le; i &le; 4, nous avons créé une boucle.  Pour obtenir un joli
 titre pour chaque dessin, nous avons demandé que
 <em>LaTeX</em> soit utilisé pour interpréter le titre.  Ainsi
 <q lang="en">\mu</q> et <q lang="en">\pi</q> sont affichés &mu; et &pi;
@@ -929,12 +935,6 @@ légende est créée.</li>
 <div class="center">
   <img src="Matlab_graphics1.png" style="width: 300px"
        alt="Graphes de x &rarr; x^2 e^(-x) et x &rarr; x^2 e^(-2x)">
-</div>
-
-<div class="Note">
-<p><em>Note</em>: Les points de suspension (...) à la fin d'une ligne
-force <em>Matlab</em> à lire la ligne suivante avant d'exécuter les
-commandes.</p>
 </div>
 
 <p> La commande suivante donne l'anse de l'objet <em>Figure</em>

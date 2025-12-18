@@ -115,6 +115,7 @@ est ignoré par <em>Matlab</em>.</p>
     buildLinK("funct1.m", "funct1.m","MMathSStat", "id1", "_blank");
   </script>.</p>
 
+<div class="Code">
 <pre class="matlab">
 % y = funct1(x)
 %
@@ -124,6 +125,7 @@ est ignoré par <em>Matlab</em>.</p>
     y = x.*sin(x);
 end </font>
 </pre>
+</div>
 </div>
 
 <div class="Note">
@@ -333,6 +335,7 @@ en premier la fonction Heaviside <font class="matlab">heaviside</font>.</p>
   buildLinK("heaviside.m", "heaviside.m","MMathSStat", "id1HS", "_blank");
 </script>.</p>
 
+<div class="Code">
 <pre class="matlab">
 % Y = heaviside(X)
 %
@@ -346,6 +349,7 @@ en premier la fonction Heaviside <font class="matlab">heaviside</font>.</p>
   Y(Y == 1/2) = NaN;
 end </font>
 </pre>
+</div>
 
 <p>Cette définition de la fonction <font class="matlab">heaviside</font>
 peut paraître  excessivement compliquée mais
@@ -365,12 +369,12 @@ graphe avec la fonction <font class="matlab">fplot</font> de
 <em>Matlab</em>.</p>
 
 <pre class="matlab">
->> <font class="matlab">f = @(x) (x.^2+1).*heaviside(x-1) - 2*cos(pi*x).*heaviside(x-2);</font>
->> <font class="matlab">x = 0:0.02:4;</font>
->> <font class="matlab">y = f(x);</font>
->> <font class="matlab">plot(x,y,'b');</font>
->> <font class="matlab">grid on, xlabel('x'), ylabel('y')</font>
->> <font class="matlab">title('Graphe de f')</font>
+>> <font class="matlab">f = @(x) (x.^2+1).*heaviside(x-1) - 2*cos(pi*x).*heaviside(x-2); ...
+   x = 0:0.02:4; ...
+   y = f(x); ...
+   plot(x,y,'b'); ...
+   grid on, xlabel('x'), ylabel('y'), ...
+   title('Graphe de f')</font>
 </pre>
 
 <div class="center">
@@ -486,8 +490,8 @@ graphe de la fonction \(\displaystyle f(x) = x^3 + 2 x^2 + 1\) que
 nous avons considérée dans un exemple précédent.</p>
 
 <pre class="matlab">
->> <font class="matlab"> f = @(x) x.^3 + 2*x.^2 + 1;</font>
->> <font class="matlab"> fplot(f,[-4,4],'b', MeshDensity=100);</font>
+>> <font class="matlab">f = @(x) x.^3 + 2*x.^2 + 1; ...
+   fplot(f,[-4,4],'b', MeshDensity=100);</font>
 </pre>
 
 <div class="center">
