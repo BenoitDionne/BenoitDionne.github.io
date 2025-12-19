@@ -331,9 +331,9 @@ de la fonction <font class="matlab">display()</font> de la librairie
 <font class="matlab">plots</font>.</p>
 
 <pre class="matlab">
-> <font class="matlab">plot1:=plot(x*sin(x),x=-2*Pi..2*Pi,color=red):</font>
-> <font class="matlab">plot2:=plot(x*cos(x),x=-2*Pi..2*Pi,color=blue):</font>
-> <font class="matlab">plots[display]({plot1,plot2});</font>
+> <font class="matlab">plot1:=plot(x*sin(x),x=-2*Pi..2*Pi,color=red):
+  plot2:=plot(x*cos(x),x=-2*Pi..2*Pi,color=blue):
+  plots[display]({plot1,plot2});</font>
 </pre>
 
 <div class="center">
@@ -367,9 +367,9 @@ point suivant; l'interpolation linéaire est la procédure standard
 utilisée par <em>Maple</em> pour tracer le graphe d'une fonction</p>
 
 <pre class="matlab">
-> <font class="matlab"> a := seq(x, x = 1 .. 20): </font>
-> <font class="matlab"> b := seq(x^2, x = 1 .. 20): </font>
-> <font class="matlab"> plot(&lt;&lt;a>|&lt;b>>, style = point, symbol = circle, gridlines=true); </font>
+> <font class="matlab">a := seq(x, x = 1 .. 20):
+  b := seq(x^2, x = 1 .. 20):
+  plot(&lt;&lt;a>|&lt;b>>, style = point, symbol = circle, gridlines=true); </font>
 </pre>
 
 <div class="center">

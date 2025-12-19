@@ -340,12 +340,12 @@ yp := (xx, bb) \mapsto subs({\beta = bb, \omega = 1, x = xx}, rhs(sol))
 \]
 
 <pre class="matlab">
-> <font class="matlab">plot1:=plot(yp(x,0),x=0..6*Pi,color=red):</font>
-> <font class="matlab">plot2:=plot(yp(x,0.75),x=0..6*Pi,color=blue):</font>
-> <font class="matlab">plot3:=plot(yp(x,1.5),x=0..6*Pi,color=green):</font>
-> <font class="matlab">plot4:=plot(yp(x,2.25),x=0..6*Pi,color=yellow):</font>
-> <font class="matlab">plot5:=plot(yp(x,3),x=0..6*Pi,color=brown):</font>
-> <font class="matlab">plots[display](plot1,plot2,plot3,plot4,plot5);</font>
+> <font class="matlab">plot1:=plot(yp(x,0),x=0..6*Pi,color=red):
+  plot2:=plot(yp(x,0.75),x=0..6*Pi,color=blue):
+  plot3:=plot(yp(x,1.5),x=0..6*Pi,color=green):
+  plot4:=plot(yp(x,2.25),x=0..6*Pi,color=yellow):
+  plot5:=plot(yp(x,3),x=0..6*Pi,color=brown):
+  plots[display](plot1,plot2,plot3,plot4,plot5);</font>
 </pre>
 
 <div class="center">
@@ -452,12 +452,12 @@ yp := (xx, tt) \mapsto subs({theta = tt, x = xx}, rhs(sol))
 \]
 
 <pre class="matlab">
-> <font class="matlab">plot1:=plot(yp(x,0),x=0..6*Pi,color=red):</font>
-> <font class="matlab">plot2:=plot(yp(x,0.75),x=0..6*Pi,color=blue):</font>
-> <font class="matlab">plot3:=plot(yp(x,1.5),x=0..6*Pi,color=green):</font>
-> <font class="matlab">plot4:=plot(yp(x,2.25),x=0..6*Pi,color=yellow):</font>
-> <font class="matlab">plot5:=plot(yp(x,3),x=0..6*Pi,color=brown):</font>
-> <font class="matlab">plots[display](plot1,plot2,plot3,plot4,plot5);</font>
+> <font class="matlab">plot1:=plot(yp(x,0),x=0..6*Pi,color=red):
+  plot2:=plot(yp(x,0.75),x=0..6*Pi,color=blue):
+  plot3:=plot(yp(x,1.5),x=0..6*Pi,color=green):
+  plot4:=plot(yp(x,2.25),x=0..6*Pi,color=yellow):
+  plot5:=plot(yp(x,3),x=0..6*Pi,color=brown):
+  plots[display](plot1,plot2,plot3,plot4,plot5);</font>
 </pre>
 
 <div class="center">
@@ -487,8 +487,8 @@ expression sous la forme \(A \cos(\theta x + P)\) où \(A\) est
 l'amplitude et \(P\) est la phase.</p>
 
 <pre class="matlab">
-> <font class="matlab">a1 := coeff(dom,cos(theta*x)): a2 := coeff(dom,sin(theta*x)):</font>
-> <font class="matlab">A := simplify(sqrt(a1^2+a2^2), assume = positive);</font>
+> <font class="matlab">a1 := coeff(dom,cos(theta*x)): a2 := coeff(dom,sin(theta*x)):
+  A := simplify(sqrt(a1^2+a2^2), assume = positive);</font>
 </pre>
 
 \[
@@ -507,9 +507,9 @@ P := \arctan\left(\frac{2 \theta}{\theta^2 - 1}\right)
 de \(\theta\).</p>
 
 <pre class="matlab">
-> <font class="matlab">plot1:=plot(A,theta=0..2*Pi,color=red):</font>
-> <font class="matlab">plot2:=plot(P,theta=0..2*Pi,color=blue,discont=true):</font>
-> <font class="matlab">plots[display](plot1,plot2);</font>
+> <font class="matlab">plot1:=plot(A,theta=0..2*Pi,color=red):
+  plot2:=plot(P,theta=0..2*Pi,color=blue,discont=true):
+  plots[display](plot1,plot2);</font>
 </pre>
 
 <div class="center">

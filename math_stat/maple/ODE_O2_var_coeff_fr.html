@@ -470,10 +470,10 @@ espèce d'ordre \(0\) à l'origine.</p>
   et \(1\) sont tracés ci-dessous.</p>
 
 <pre class="matlab">
-> <font class="matlab"> with(plots):</font>
-> <font class="matlab"> J0 := plot(BesselJ(0,x),x=0..10, color="red"):</font>
-> <font class="matlab"> J1 := plot(BesselJ(1,x),x=0..10, color="blue"):</font>
-> <font class="matlab"> display({J0,J1});</font>
+> <font class="matlab"> with(plots):
+   J0 := plot(BesselJ(0,x),x=0..10, color="red"):
+   J1 := plot(BesselJ(1,x),x=0..10, color="blue"):
+   display({J0,J1});</font>
 </pre>
 
 <div class="center">
@@ -489,9 +489,9 @@ Bessel de première espèce sont nuls à l'origine. </p>
 et \(1\) sont tracés ci-dessous.</p>
 
 <pre class="matlab">
-> <font class="matlab"> Y0 := plot(BesselY(0,x),x=0.1..10, color="red"):</font>
-> <font class="matlab"> Y1 := plot(BesselY(1,x),x=0.1..10, color="blue"):</font>
-> <font class="matlab"> display({Y0,Y1});</font>
+> <font class="matlab"> Y0 := plot(BesselY(0,x),x=0.1..10, color="red"):
+   Y1 := plot(BesselY(1,x),x=0.1..10, color="blue"):
+   display({Y0,Y1});</font>
 </pre>
 
 <div class="center">

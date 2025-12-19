@@ -188,10 +188,10 @@ aussi chercher les racines du polynôme de degré quatre
 <font class="matlab"> f2(x) / f1(x)  - 1 = 0</font>.</p>
 
 <pre class="matlab">
-> <font class="matlab">plot1:=plot(f1(x),x=-4..4,-4..25,discont=true,color=red):</font>
-> <font class="matlab">plot2:=plot(f2(x),x=-4..4,-4..25,color=blue):</font>
-> <font class="matlab">with(plots):</font>
-> <font class="matlab">display({plot1,plot2});</font>
+> <font class="matlab">plot1:=plot(f1(x),x=-4..4,-4..25,discont=true,color=red):
+  plot2:=plot(f2(x),x=-4..4,-4..25,color=blue):
+  with(plots):
+  display({plot1,plot2});</font>
 </pre>
 
 <div class="center">
@@ -212,8 +212,8 @@ pu aussi bien choisir <font class="matlab">f1</font>) à chacune des
 valeurs de la liste <font class="matlab">xs</font>.</p>
 
 <pre class="matlab">
-> <font class="matlab">f2f := x -> x^2+4*x+2:</font>
-> <font class="matlab">ys := seq(f2f(xs[i]), i=1..4);</font>
+> <font class="matlab">f2f := x -> x^2+4*x+2:
+  ys := seq(f2f(xs[i]), i=1..4);</font>
 </pre>
 
 \[ ys := 21.39345611, -.131593139, -1.498851433, .23698846 \]
@@ -259,10 +259,10 @@ position de leurs points d'intersection.  Nous assumons que
 \(-3 \leq x , y \leq 3\).</p>
 
 <pre class="matlab">
-> <font class="matlab">with(plots):</font>
-> <font class="matlab">imp1 := implicitplot(eq1,x=-3..3,y=-3..3,grid=[40,40],color=red):</font>
-> <font class="matlab">imp2 := implicitplot(eq2,x=-3..3,y=-3..3,grid=[40,40],color=blue):</font>
-> <font class="matlab">display({imp1,imp2});</font>
+> <font class="matlab">with(plots):
+  imp1 := implicitplot(eq1,x=-3..3,y=-3..3,grid=[40,40],color=red):
+  imp2 := implicitplot(eq2,x=-3..3,y=-3..3,grid=[40,40],color=blue):
+  display({imp1,imp2});</font>
 </pre>
 
 <div class="center">

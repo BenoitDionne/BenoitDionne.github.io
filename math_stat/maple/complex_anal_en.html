@@ -188,18 +188,18 @@ However, the result is not really nice.  The reader may want to execute
 the following commands in <em>Maple</em>. </p> 
 
 <pre class="matlab">
-> <font class="matlab"> with(plots): with(plottools):
-line1 := arrow([-1, 0], [4, 0], 0.05, 0.2, 0.05, color = black):
-line2 := arrow([0, -1], [0, 4], 0.05, 0.2, 0.05, color = black):
-line3 := line([0, 0], [2, 3.6], color = red):
-text1 := textplot([2, 3, "z=(a,b)"], align = {ABOVE, RIGHT}, font = [COURIER, 16]):
-text2 := textplot([0, 4, "y"], align = RIGHT, font = [COURIER, 16]):
-text3 := textplot([4, 0, "x"], align = RIGHT, font = [COURIER, 16]):
-text4 := textplot([2, 1, "q"], align = RIGHT, font = [SYMBOL, 16]):
-arc1 := arc([0, 0], 2, 0 .. Pi/3, color = blue):
-arrow1:=arrow([1.2,1.6],[1,1.7],0.1,0.2,1,color=blue):
-text5 := textplot([1, 2, "r"], align = LEFT, font = [COURIER, 16]):
-display({arc1, arrow1, line1, line2, line3, text1, text2, text3, text4, text5},
+> <font class="matlab">with(plots): with(plottools):
+  line1 := arrow([-1, 0], [4, 0], 0.05, 0.2, 0.05, color = black):
+  line2 := arrow([0, -1], [0, 4], 0.05, 0.2, 0.05, color = black):
+  line3 := line([0, 0], [2, 3.6], color = red):
+  text1 := textplot([2, 3, "z=(a,b)"], align = {ABOVE, RIGHT}, font = [COURIER, 16]):
+  text2 := textplot([0, 4, "y"], align = RIGHT, font = [COURIER, 16]):
+  text3 := textplot([4, 0, "x"], align = RIGHT, font = [COURIER, 16]):
+  text4 := textplot([2, 1, "q"], align = RIGHT, font = [SYMBOL, 16]):
+  arc1 := arc([0, 0], 2, 0 .. Pi/3, color = blue):
+  arrow1:=arrow([1.2,1.6],[1,1.7],0.1,0.2,1,color=blue):
+  text5 := textplot([1, 2, "r"], align = LEFT, font = [COURIER, 16]):
+  display({arc1, arrow1, line1, line2, line3, text1, text2, text3, text4, text5},
    axes = none, view = [-1 .. 5, -1 .. 5], scaling = constrained);
 </font>
 </pre>
@@ -823,20 +823,20 @@ the resulting figure is not really nice.  The reader may want to execute
 the following commands in <em>Maple</em>. </p>
 
 <pre class="matlab">
-> <font class="matlab"> with(plots): with(plottools):
-line1 := arrow([-10, 0], [10, 0], 0.05, 0.5, 0.05, color = blue):
-line2 := line([0, 0], [0, 13], color = black):
-line3 := line([10, 0], [14, 0], color = black):
-text1 := textplot([14, 0, "x"], align = RIGHT, font = [COURIER, 16]):
-text2 := textplot([0, 13, "y"], align = RIGHT, font = [COURIER, 16]):
-arc1 := arc([0, 0], 10, 0 .. Pi, color = blue):
-text3 := textplot([10, 0, "r"], align = {BELOW, RIGHT}, font = [COURIER, 16]):
-text4 := textplot([-10, 0, "-r"], align = {BELOW, LEFT}, font = [COURIER, 16]):
-text5 := textplot([2, 3, "2+2*I"], align = RIGHT, font = [COURIER, 16]):
-pt := point([2, 2], color = black, symbol = 'SolidCircle'):
-text6 := textplot([0, 0, "0"], align = {BELOW}, font = [COURIER, 16]):
-text7 := textplot([8.7, 8, "C_r"], align = LEFT, font = [COURIER, 16]):
-display({arc1, line1, line2, line3, pt, text1, text2, text3, text4, text5, text6, text7},
+> <font class="matlab">with(plots): with(plottools):
+  line1 := arrow([-10, 0], [10, 0], 0.05, 0.5, 0.05, color = blue):
+  line2 := line([0, 0], [0, 13], color = black):
+  line3 := line([10, 0], [14, 0], color = black):
+  text1 := textplot([14, 0, "x"], align = RIGHT, font = [COURIER, 16]):
+  text2 := textplot([0, 13, "y"], align = RIGHT, font = [COURIER, 16]):
+  arc1 := arc([0, 0], 10, 0 .. Pi, color = blue):
+  text3 := textplot([10, 0, "r"], align = {BELOW, RIGHT}, font = [COURIER, 16]):
+  text4 := textplot([-10, 0, "-r"], align = {BELOW, LEFT}, font = [COURIER, 16]):
+  text5 := textplot([2, 3, "2+2*I"], align = RIGHT, font = [COURIER, 16]):
+  pt := point([2, 2], color = black, symbol = 'SolidCircle'):
+  text6 := textplot([0, 0, "0"], align = {BELOW}, font = [COURIER, 16]):
+  text7 := textplot([8.7, 8, "C_r"], align = LEFT, font = [COURIER, 16]):
+  display({arc1, line1, line2, line3, pt, text1, text2, text3, text4, text5, text6, text7},
    axes = none, view = [-11 .. 15, -1 .. 14], scaling = constrained);
 </font>
 </pre>
@@ -1044,30 +1044,32 @@ w= f(z) = \ln\left(\frac{z-1}{z+1}\right) =
 <p>with \(0 < \theta_1-\theta_2 < \pi\) where \(\ln()\) is well defined
 because \(r_1,r_2 > 0\) for \(z \neq -1,1\).</p>
 
-<p><em>Remark</em>: The previous figure could have been drawn
+<div class="Note">
+<p><em>Note</em>: The previous figure could have been drawn
 with <em>Maple</em> using the commands below for instance. </p> 
 
 <pre class="matlab">
-> <font class="matlab"> with(plots): with(plottools):
-arc1 := arc([1, 0], 1.5, 0 .. Pi/3.1, color = blue):
-arc2 := arc([-1, 0], 1.5, 0 .. Pi/4.6, color = blue):
-line1 := line([-4, 0], [4, 0], color = blue):
-line2 := line([0, -0.5], [0, 4], color = blue):
-line3 := line([1, 0], [3, 3], color = black):
-line4 := line([-1, 0], [3, 3], color = black):
-text1 := textplot([4, 0, "x"], align = RIGHT, font = [COURIER, 16]):
-text2 := textplot([-0.2, 4, "y"], align = {ABOVE, RIGHT}, font = [COURIER, 16]):
-text3 := textplot([2.9, 0.5, "q"], align = LEFT, font = [SYMBOL, 16]):
-text8 := textplot([2.75, 0.5, "_1"], align = RIGHT, font = [COURIER, 16]):
-text4 := textplot([0.8, 0.8, "q"], align = LEFT, font = [SYMBOL, 16]):
-text9 := textplot([0.71, 0.8, "_2"], align = RIGHT, font = [COURIER, 16]):
-text5 := textplot([3.5, 2, "r_1"], align = LEFT, font = [COURIER, 16]):
-text6 := textplot([0.4, 2, "r_2"], align = RIGHT, font = [COURIER, 16]):
-text7 := textplot([3, 3, "z"], align = RIGHT, font = [COURIER, 16]):
-display({arc1, arc2, line1, line2, line3, line4, text1, text2, text3, text4, text5, text6,
+> <font class="matlab">with(plots): with(plottools):
+  arc1 := arc([1, 0], 1.5, 0 .. Pi/3.1, color = blue):
+  arc2 := arc([-1, 0], 1.5, 0 .. Pi/4.6, color = blue):
+  line1 := line([-4, 0], [4, 0], color = blue):
+  line2 := line([0, -0.5], [0, 4], color = blue):
+  line3 := line([1, 0], [3, 3], color = black):
+  line4 := line([-1, 0], [3, 3], color = black):
+  text1 := textplot([4, 0, "x"], align = RIGHT, font = [COURIER, 16]):
+  text2 := textplot([-0.2, 4, "y"], align = {ABOVE, RIGHT}, font = [COURIER, 16]):
+  text3 := textplot([2.9, 0.5, "q"], align = LEFT, font = [SYMBOL, 16]):
+  text8 := textplot([2.75, 0.5, "_1"], align = RIGHT, font = [COURIER, 16]):
+  text4 := textplot([0.8, 0.8, "q"], align = LEFT, font = [SYMBOL, 16]):
+  text9 := textplot([0.71, 0.8, "_2"], align = RIGHT, font = [COURIER, 16]):
+  text5 := textplot([3.5, 2, "r_1"], align = LEFT, font = [COURIER, 16]):
+  text6 := textplot([0.4, 2, "r_2"], align = RIGHT, font = [COURIER, 16]):
+  text7 := textplot([3, 3, "z"], align = RIGHT, font = [COURIER, 16]):
+  display({arc1, arc2, line1, line2, line3, line4, text1, text2, text3, text4, text5, text6,
    text7, text8, text9}, axes = none, view = [-6 .. 6, -2 .. 6], scaling = constrained);
 </font>
 </pre>
+</div>
 
 <p>If \(z = x \in \mathbb{R}\) (i.e. \(z\) is on the \(x\) axis), we
 find that the segment of the line \(z=x\) with \(|x|\leq 1\) is mapped

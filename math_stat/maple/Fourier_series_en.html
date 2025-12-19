@@ -323,9 +323,9 @@ FCS := (x, n) \mapsto \sum_{j=0}^{n} AN_{j+1} \cos(j\pi x)
 truncated to six terms; namely \(n = 5\).</p>
 
 <pre class="matlab">
-> <font class="matlab">plot1:=plot(fe(x),x=-4..4,color=blue):</font>
-> <font class="matlab">plot2:=plot(FCS(x,5),x=-4..4,color=red):</font>
-> <font class="matlab">plots[display]({plot1,plot2},labels=[`x`,`y`]);</font>
+> <font class="matlab">plot1:=plot(fe(x),x=-4..4,color=blue):
+  plot2:=plot(FCS(x,5),x=-4..4,color=red):
+  plots[display]({plot1,plot2},labels=[`x`,`y`]);</font>
 </pre>
 
 <div class="center">
@@ -334,8 +334,8 @@ truncated to six terms; namely \(n = 5\).</p>
 </div>
 
 <pre class="matlab">
-> <font class="matlab">plot3:=plot(FCS(x,10),x=-4..4,color=red):</font>
-> <font class="matlab">plots[display]({plot1,plot3},labels=[`x`,`y`]);</font>
+> <font class="matlab">plot3:=plot(FCS(x,10),x=-4..4,color=red):
+  plots[display]({plot1,plot3},labels=[`x`,`y`]);</font>
 </pre>
 
 <div class="center">
@@ -456,8 +456,8 @@ variables <font class="matlab">AN</font>
 and <font class="matlab">BN</font> to use them later.</p> 
 
 <pre class="matlab">
-> <font class="matlab">AN:=seq(evalf(an(i)),i=0..10):</font>
-> <font class="matlab">BN:=seq(evalf(bn(i)),i=1..10):</font>
+> <font class="matlab">AN:=seq(evalf(an(i)),i=0..10):
+  BN:=seq(evalf(bn(i)),i=1..10):</font>
 </pre>
 
 <p>The Fourier series of the function
@@ -478,9 +478,9 @@ x}{3}\right) )+ \sum_{j=1}^n BN_j \sin\left(\frac{2j\pi x}{3}\right)
 truncated to 21 terms; namely \(n = 10\).</p>
 
 <pre class="matlab">
-> <font class="matlab">plot1:=plot(ff(x),x=-4..4,color=blue):</font>
-> <font class="matlab">plot2:=plot(FS(x,10),x=-4..4,color=red):</font>
-> <font class="matlab">plots[display]({plot1,plot2},labels=[`x`,`y`]);</font>
+> <font class="matlab">plot1:=plot(ff(x),x=-4..4,color=blue):
+  plot2:=plot(FS(x,10),x=-4..4,color=red):
+  plots[display]({plot1,plot2},labels=[`x`,`y`]);</font>
 </pre>
 
 <div class="center">
