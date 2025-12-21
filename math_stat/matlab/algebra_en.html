@@ -390,6 +390,11 @@ first matrix equal the number of rows of the second matrix </td></tr>
 exponentiation of square matrices </td></tr> 
 <tr><td class="center"> <font class="matlab">(&nbsp;)</font></td><td>
 parentheses </td></tr>
+<tr><td class="center"> <font class="matlab">'</font></td><td>
+transpose of a matrix</td></tr>
+<tr><td class="center"> <font class="matlab">inv(&nbsp;)</font>
+or <font class="matlab">^(-1)</font></td><td>inverse of an invertible
+matrix </td></tr>
 </table>
 </div>
 
@@ -411,6 +416,17 @@ least squares solution of \(AX = B\) when \(A\) is a \(m \times n\) matrix
 with \(m \neq n\) and \(B\) has \(m\) rows.  Use the help menu for
 more information. </td></tr>
 </table>
+</div>
+
+<div class="Note">
+<p><em>Warning</em>: We have learned that the theoretical solution of the
+system of linear equations \(A \vec{x} = \vec{b}\), where \(A\) is an
+invertible matrix, is given by \(\vec{x} = A^{-1}\vec{b}\).  However,
+this is not an efficient method to numerically solve this system of linear
+equations because of the large number of operations needed to compute
+\(A^{-1}\).  It is not event the most accurate method in many numerical
+cases.  It is by far preferable to use the formula
+\(\vec{x} = A\backslash \vec{b}\).</p>
 </div>
 
 <div class="Example">

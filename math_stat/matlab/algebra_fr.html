@@ -399,6 +399,11 @@ première matrice égale le nombre de rangées de la deuxième matrice </td></tr
 exponentiel d'un matrice carrée </td></tr> 
 <tr><td class="center"> <font class="matlab">(&nbsp;)</font></td><td>
 parenthèses </td></tr>
+<tr><td class="center"> <font class="matlab">'</font></td><td>
+transposée d'une matrice</td></tr>
+<tr><td class="center"> <font class="matlab">inv(&nbsp;)</font>
+or <font class="matlab">^(-1)</font></td><td>inverse d'une matrice
+inversible</td></tr>
 </table>
 </div>
 
@@ -421,6 +426,18 @@ carré de \(AX = B\) quand \(A\) est une matrice de dimension
 \(m \times n\) avec \(m \neq n\) et \(B\) a \(m\) rangées.  Utilisez
 le menu d'aide pour obtenir plus d'information. </td></tr>
 </table>
+</div>
+
+<div class="Note">
+<p><em>Avertissement</em>: Nous avons appris que la solution théorique
+du système d'équations linéaires \(A \vec{x} = \vec{b}\), où \(A\) est
+une matrice inversible, est donnée par \(\vec{x} = A^{-1}\vec{b}\).
+Cependant, ce n'est pas une méthode efficace pour résoudre numériquement
+ce système d'équations linéaires en raison du grand nombre
+d'opérations requises pour calculer \(A^{-1}\).
+Ce n'est même pas la méthode la plus précise dans bien des cas
+numériques.  Il est de beaucoup préférable d'utiliser la formule
+\(\vec{x} = A\backslash \vec{b}\).</p>
 </div>
 
 <div class="Example">
