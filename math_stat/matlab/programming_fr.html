@@ -151,18 +151,23 @@ alors il calcule \(20\) itérations de la fonction
 x = <br>
     0.3905
 </pre>
+</div>
 
 <p>Cependant, le script ci-dessus n'est pas pratique car nous
 devons modifier le fichier <em>fxpt1.m</em> à chaque fois que l'on
 change la fonction à itérer, la valeur initiale ou le nombre
 d'itérations.</p>
 
-<p>La fonction <font class="matlab">fxpt2</font> définie dans le
-<em>fichier m</em> <script language="javascript">
+<p> Étant donnés le <em>nom</em> (entre apostrophes) ou l'<em>anse</em> 
+<font class="matlab">funct</font> d'un fonction, une valeur
+initiale <font class="matlab">x0</font> et un nombred'itérations
+<font class="matlab">n</font>, la fonction
+<font class="matlab">fxpt2</font> définie dans le
+<em>fichier m</em>  <script language="javascript">
 buildLinK("fxpt2.m", "fxpt2.m","MMathSStat", "id4", "_blank");
-</script> accepte comme argument le <em>nom</em> ou l'<em>anse</em>
-de la fonction qui doit être itérée, la valeur initiale et le nombre
-d'itérations.</p> 
+</script> calcule les <font class="matlab">n</font> premières itérations
+de la fonction associée à <font class="matlab">funct</font>
+en débutant avec la valeur initiale <font class="matlab">x0</font>.</p>
 
 <div class="Code">
 <pre class="matlab">
@@ -179,9 +184,10 @@ end  </font>
 </pre>
 </div>
 
-<p>Pour exécuter \(20\) itérations de la fonction \(g\) à partir de
-\(x = 0.5\), nous définissons en premier la fonction \(g\)
-dans <em>Matlab</em> et puis utilisons la fonction
+<div class="Example">
+<p><em>Exemple (suite)</em>: Pour exécuter \(20\) itérations de la
+fonction \(g\) à partir de \(x = 0.5\), nous définissons en premier la
+fonction \(g\) dans <em>Matlab</em> et puis utilisons la fonction
 <font class="matlab">fxpt2</font> avec les arguments
 <font class="matlab">g</font>, <font class="matlab">0</font>
 et <font class="matlab">20</font>.</p> 
@@ -201,9 +207,9 @@ ans = <br>
 pour la fonction <font class="matlab">fxpt2</font>, alors la
 fonction <font class="matlab">fxpt2</font> n'accepterait que les
 <em>anses</em> de fonctions comme premier argument.  En utilisant la
-fonction <font class="matlab">feval()</font>, les <em>noms</em>
-de fonctions peuvent aussi être fournis comme premier argument de la
-fonction <font class="matlab">fxpt2</font>.</p>
+fonction <font class="matlab">feval()</font>, les <em>noms</em> de
+fonctions (entre apostrophes) peuvent aussi être fournis comme premier
+argument de la fonction <font class="matlab">fxpt2</font>.</p>
 </div>
 
 <hr class="MMathSStat">
