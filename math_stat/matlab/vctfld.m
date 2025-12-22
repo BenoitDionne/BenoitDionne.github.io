@@ -9,23 +9,23 @@
 %         f:(X1,X2,p) -> [ f1(X1,X2,p) ; f2(X1,X2,p) ]
 %       where the functions f1 and f2 are array smart.
 %       funct can be the name of a function (between apostrophes),
-%       the handle of a function or and expression of the form
+%       the handle of a function or an expression of the form
 %       '[... ; ...]'.  In this last case, the variable names
 %       X1, X2 and p must be used.
 % B = [a b c d] are the limits of the region [a,b] x [c,d] of the plan
 %     where the vector field is drawn.  We must have that a < b and c < b.
 % p is a vector of parameters for the function f.  If f does
 %   not depend on any parameter, then p must be defined as [].
-% flag is 0 if the lengths of the vectors represent the strength of
-%      the velocity (default) and 1 if the vectors have all the
-%      same length.
+% flag is 0 if the vector drawn from a point X is proportional to
+%      f(X1,X2,p) and flag is 1 if the vector drawn from a point X is
+%      proportional to the normalized version of the vector f(X1,X2,p).
 % density is a number.  There are density x density equally spaced mesh
 %         points per unit square.  If density is not given, then the
 %         density is set to 3.
 % init_conds is a matrix where each column of init_conds is an initial
-%            for  dX/dt = f(X1, X2, p) at time t=0.  An orbit is
-%            drawn for each initial conditions.  If init_conds is
-%            not given, then no solution are drawn.
+%            condition for  dX/dt = f(X1, X2, p) at time t=0.  An orbit is
+%            drawn for each initial condition.  If init_conds is
+%            not given, then no orbit is drawn.
 % tf is a number used to determine the length of the interval of
 %    integration.  The interval of integration is ]-tf , tf[.
 %    The value should be modify according to the velocity of the
@@ -72,7 +72,7 @@ else
   else
     disp('The vector field cannot be drawn. Either the argument is not ');
     disp('the name or handle of an existing function, or it is not the ');
-    disp('the description of a function.');
+    disp('description of a function.');
     return;
   end
 end
@@ -113,9 +113,7 @@ xlabel('X1');
 ylabel('X2');
 axis([B(1) B(2) B(3), B(4)],'equal');
 
-% We compute the norm of the vector field at each of the mesh point
-% The maximum of these norms will be used to scale the direction vector
-% that we will draw at each mesh point.
+% We compute the vector f(X1,X2,p) at each mesh points.
 
 [XX1,XX2] = meshgrid(mesh_X1,mesh_X2);
 M = f(XX1,XX2,p);
@@ -125,6 +123,9 @@ M2 = M(size_X2+1:2*size_X2,:);
 % We draw the vector field.
 
 if ( flag == 1 )
+  % The vector f(X1,X2,p) is normalized.  It is also scaled by
+  % spacing  before being drawn at (X1,X2) to avoid overlapping
+  % vectors.
   for (i=1:size_X1)
     for (j=1:size_X2)
       N = norm([M1(j,i),M2(j,i)]);
@@ -139,6 +140,11 @@ if ( flag == 1 )
     end
   end    
 else
+  % We compute the norm of the vector at all the mesh points.
+  % The maximum of these norms is used to scale the vector
+  % f(X1,X2,p).  The resulting vector is also scaled by
+  % spacing  before being drawn at (X1,X2) to avoid overlapping
+  % vectors.
   MaxN = max(max(sqrt(M1.^2 + M2.^2)));
   if ( MaxN == 0 )
     disp 'The vector field is null!';

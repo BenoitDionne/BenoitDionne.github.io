@@ -74,6 +74,10 @@ main_title( MStexte, "MMathSStat");
       buildLinK("#Sect16", "Fonctions itératives",
       "MMathSStat", "sect16ID", "_top");
   </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect23", "Champs de vecteurs",
+      "MMathSStat", "sect123D", "_top");
+  </script> </li>
 </ul>
 </div>
 
@@ -83,8 +87,9 @@ main_title( MStexte, "MMathSStat");
   matlabFunct.id, matlabFunct.target);
 </script>.  Définir des fonctions est fondamental pour la
 programmation dans <em>Matlab</em>.  Nous devons admettre que ce
-document est en développement et que nous espérons ajouter
-plus d'information dans un avenir proche.</p>
+document illustre seulement une petite fraction de ce
+que <em>Matlab</em> peut faire.  Nous espérons ajouter
+plus d'exemples dans le future.</p>
 
 <hr class="MMathSStat" style="clear: both;">
 
@@ -210,6 +215,367 @@ fonction <font class="matlab">fxpt2</font> n'accepterait que les
 fonction <font class="matlab">feval()</font>, les <em>noms</em> de
 fonctions (entre apostrophes) peuvent aussi être fournis comme premier
 argument de la fonction <font class="matlab">fxpt2</font>.</p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect23"> Champs de vecteurs </h3>
+
+<p>Comme nous l'avons promis dans l'exemple portant sur l'équation
+de van der Pol dans le document <script language="javascript"> 
+buildLinK(matlabComp.url_fr, matlabComp.text_fr,
+"MMathSStat", matlabComp.id, matlabComp.target);
+</script>, nous fournissons maintenant une fonction pour dessiner les
+champs de vecteurs qui offre une alternative à la fonction 
+<font class="matlab">quiver</font>.  
+Nous l'avons appelée <font class="matlab">vctfld</font>.
+Cette fonction offre l'option de tracer chaque vecteur du champ de
+vecteurs proportionnel à sa norme.  Nous allons illustrer l'utilité de
+cette option avec l'exemple de l'équation de van der Pol ci-dessous.
+Il est aussi possible d'utiliser la fonction
+<font class="matlab">vctfld</font> pour tracer des orbites par dessus
+le champ de vecteurs.</p>
+
+<p><em>Matlab</em> n'a pas de fonctions simples pour dessiner une flèche.
+Nous avons créé notre propre petite fonction pour dessiner des flèches.
+Nous l'appelons <font class="matlab">plotArrow</font>.  Le code de
+cette fonction se trouve dans le <em>fichier m</em>
+<script language="javascript"> 
+buildLinK("plotArrow.m", "plotArrow.m",  "MMathSStat", "paID", "_blank");
+</script>.  Ce fichier peut être téléchargé en cliquant avec le bouton
+droit de la souris sur le lien précédent et en choisissant
+<em>Save link as ... &rarr; Save file</em>.
+Cette fonction ne dessine pas des flèches très élégantes mais les
+flèches qu'elle dessine sont parfaitement suffisantes pour dessiner un
+champ de vecteurs.  Le code de cette fonction n'est pas très
+sophistiqué et n'exige pas d'explications supplémentaires.</p>  
+
+<p>Le code de la fonction <font class="matlab">vctfld</font> 
+affiché ci-dessous se trouve dans le <em>fichier m</em>
+<script language="javascript"> 
+  buildLinK("vctfld.m", "vctfld.m",  "MMathSStat", "vfID", "_blank");
+</script>
+qui peut être téléchargé en cliquant sur le lien précédent comme nous
+l'avons déjà expliqué ci-dessus.</p>
+
+<p> Nous considérons un système d'EDO autonome de la forme</p>
+\[
+\vec{x}'(t) = f(\vec{x}(t),p)
+\]
+où \(\vec{x} \in \mathbb{R}^2\) et \(p \in \mathbf{R}^m\) est un
+vecteur de paramètres (possiblement vide) pour la fonction \(f\).</p>
+
+<p>Les points suivants doivent être pris en considération lorsque
+<font class="matlab">vctfld</font> est utilisée.</p>
+<ul>
+<li> Pour tirer avantage de l'optimisation de <em>Matlab</em> pour
+les fonctions qui sont <em>array smart</em>, la représentation dans
+<em>Matlab</em> de la fonction \(f\) doit être dans le format
+<font class="matlab">[ f1(X1,X2,p) ; f2(X1,X2,p) ]</font>.
+<font class="matlab">funct</font> peut être le <em>nom</em> de cette
+fonction (entre apostrophes), l'<em>anse</en> de cette fonction, ou
+même une expression littéral dans le format ci-dessus (entre
+apostrophes).</li>
+<li> Le champ de vecteurs est dessiné seulement dans la région du plan
+délimitée par <font class="matlab">B(1) < X1 < B(2)</font>
+et <font class="matlab">B(3) < X2 < B(4)</font>. </li>
+<li> La valeur de <font class="matlab">flag</font> détermine si le
+vecteur dessiné à partir du point \(\vec{x}\) est proportionnel à
+\(f(\vec{x},p)\) ou à \(\displaystyle \|f(\vec{x},p)\|^{-1}f(\vec{x},p)\)
+<font class="matlab">flag = 0<font> (défaut) dans le premier cas et
+<font class="matlab">flag = 1<font> dans le deuxième cas. </li>
+<li> L'argument facultatif <font class="matlab">init_conds</font>
+est une matrice de dimensions \( 2 \times k\) où chaque colonne est un
+vecteur \(\vec{x}_0\).  L'orbite
+\( \{ \vec{x}(t) : -t_f < t < t_f \text{ avec } \vec{x}(0) = \vec{x}_0 \} \)
+est tracée pour chaque \(\vec{x}_0\) donné par
+<font class="matlab">init_conds</font>.  Les parties de l'orbite qui
+sont à l'extérieur de la région définie par
+<font class="matlab">B</font> ne sont pas dessinées.
+De plus, les parties de l'orbite associées à \( t > t_f \) ou \( t < -t_f \)
+ne sont pas dessinées même si elles pourraient faire parties de la région
+définie par <font class="matlab">B</font>.
+Cela démontre que les résultats d'une visualisation numérique
+doivent toujours être interprétés avec extrême prudence.</li>
+</ul>
+
+<div class="Code">
+<pre class="matlab">
+% vctfld(funct,B,p,flag,density,init_conds,tf,options)
+%
+% Function to draw the vector field of a system of ODE of the form
+%         dX/dt = f(X1,X2,p)
+% with X = (X1,X2) in R^2.
+%
+% funct is the function that defines the right hand side of the system
+%       of ODE.  This function must be in the format
+%         f:(X1,X2,p) -> [ f1(X1,X2,p) ; f2(X1,X2,p) ]
+%       where the functions f1 and f2 are array smart.
+%       funct can be the name of a function (between apostrophes),
+%       the handle of a function or an expression of the form
+%       '[... ; ...]'.  In this last case, the variable names
+%       X1, X2 and p must be used.
+% B = [a b c d] are the limits of the region [a,b] x [c,d] of the plan
+%     where the vector field is drawn.  We must have that a < b and c < b.
+% p is a vector of parameters for the function f.  If f does
+%   not depend on any parameter, then p must be defined as [].
+% flag is 0 if the vector drawn from a point X is proportional to
+%      f(X1,X2,p) and flag is 1 if the vector drawn from a point X is
+%      proportional to the normalized version of the vector f(X1,X2,p).
+% density is a number.  There are density x density equally spaced mesh
+%         points per unit square.  If density is not given, then the
+%         density is set to 3.
+% init_conds is a matrix where each column of init_conds is an initial
+%            condition for  dX/dt = f(X1, X2, p) at time t=0.  An orbit is
+%            drawn for each initial condition.  If init_conds is
+%            not given, then no orbit is drawn.
+% tf is a number used to determine the length of the interval of
+%    integration.  The interval of integration is ]-tf , tf[.
+%    The value should be modify according to the velocity of the
+%    vector field.  If tf is not given, then the default value is tf = 20.
+% options is the list of options defined with odeset that will be used
+%         with the Matlab solver.  If options is not given, then
+%         options is defined as
+%         options = odeset('RelTol',1e-6,'AbsTol',[1e-5 1e-5]) .
+%         The Matlab solver used is ODE45 .
+%
+<font class="matlab">
+function vctfld(funct,B,p,flag,density,init_conds,tf,options)
+
+ttlvar = 0;
+
+if ( nargin < 3 )
+  disp('Not enough arguments, use help vctfld to get the instructions.');
+  return;
+end
+
+if ( nargin < 4 )
+  flag = 0;
+  density = 3;
+elseif ( nargin < 5 )
+  density = 3;
+end
+
+if ( nargin < 7 )
+  tf = 20;
+end
+
+if ( isa(funct,'function_handle') )
+  f = funct;
+else
+  if ( exist(funct, 'file') == 2 || exist(funct, 'builtin') == 5 )
+    f = str2func(funct);
+  elseif ( ischar(funct) == 1 )
+    f = str2func(['@(t,X1,X2,p)',funct]);
+    ttlvar = 1;
+  else
+    disp('The vector field cannot be drawn. Either the argument is not ');
+    disp('the name or handle of an existing function, or it is not the ');
+    disp('description of a function.');
+    return;
+  end
+end
+</font>
+% We select the mesh points.
+<font class="matlab">
+spacing = 1/density;
+X1min = B(1) + spacing;
+X1max = B(2) - spacing;
+if ( X1max < X1min )
+  disp('The X1 interval is too small for the selected density.')
+  return;
+end
+mesh_X1 = X1min:spacing:X1max;
+
+X2min = B(3) + spacing;
+X2max = B(4) - spacing;
+if ( X2max < X2min )
+  disp('The X2 interval is too small for the selected density.')
+  return;
+end
+mesh_X2 = X2min:spacing:X2max;
+
+size_X1 = length(mesh_X1);
+size_X2 = length(mesh_X2);
+</font>
+% We create the figure.
+<font class="matlab">
+cla;
+hold on;
+grid on;
+if ( ttlvar == 1 )
+  title(['X'' = ',func2str(f)]);
+else
+  title(['X'' = ',func2str(f),'(t,X)']);
+end
+xlabel('X1');
+ylabel('X2');
+axis([B(1) B(2) B(3), B(4)],'equal');
+</font>
+% We compute the vector f(X1,X2,p) at each mesh points.
+<font class="matlab">
+[XX1,XX2] = meshgrid(mesh_X1,mesh_X2);
+M = f(XX1,XX2,p);
+M1 = M(1:size_X2,:);
+M2 = M(size_X2+1:2*size_X2,:);
+</font>
+% We draw the vector field.
+<font class="matlab">
+if ( flag == 1 ) </font>
+  % The vector f(X1,X2,p) is normalized.  It is also scaled by
+  % spacing  before being drawn at (X1,X2) to avoid overlapping
+  % vectors.
+<font class="matlab">  for (i=1:size_X1)
+    for (j=1:size_X2)
+      N = norm([M1(j,i),M2(j,i)]);
+      if ( N > 0 )
+        Dir = spacing*[M1(j,i),M2(j,i)]/N;
+      else
+        Dir = [0,0];
+      end
+      Xs = [XX1(j,i),XX2(j,i)];
+      Xe = [XX1(j,i),XX2(j,i)] + Dir;
+      plotArrow(Xs,Xe,'scale',1/2,'theta',20,'Color','blue');
+    end
+  end    
+else </font>
+  % We compute the norm of the vector at all the mesh points.
+  % The maximum of these norms is used to scale the vector
+  % f(X1,X2,p).  The resulting vector is also scaled by
+  % spacing  before being drawn at (X1,X2) to avoid overlapping
+  % vectors.
+<font class="matlab">  MaxN = max(max(sqrt(M1.^2 + M2.^2)));
+  if ( MaxN == 0 )
+    disp 'The vector field is null!';
+    return
+  end
+  for (i=1:size_X1)
+    for (j=1:size_X2)
+      Dir = spacing*[M1(j,i),M2(j,i)]/MaxN;
+      Xs = [XX1(j,i),XX2(j,i)];
+      Xe = [XX1(j,i),XX2(j,i)] + Dir;
+      plotArrow(Xs,Xe,'scale',1/2,'theta',20, 'Color','blue');
+    end
+  end
+end
+</font>
+% We draw some solutions if requested.
+<font class="matlab">
+F = @(t,X) f(X(1),X(2),p);
+
+if ( exist('init_conds') == 1 && size(init_conds,1) == 2 )
+  if ( exist('options') ~= 1 || size(options,1) == 0 )
+    options = odeset('RelTol',1e-6,'AbsTol',[1e-6 1e-6]);
+  end
+  for i = 1:size(init_conds,2)
+    X0 = [init_conds(1,i);init_conds(2,i)];
+    t0 = 0;
+    for n = 0:1
+      [T,X] = ode45(F,[t0 tf], X0, options);
+      plot(X(:,1),X(:,2),'k')
+      tf = - tf;
+    end
+  end
+end
+
+end
+</font>	     
+</pre>
+</div>
+
+<div class="Example">
+<p><em>Exemple (suite)</em>: Nous avons vu que l'équation de van der
+Pol peut être réduite au système d'EDO autonome suivant. </p>
+\[
+\begin{split}
+x_1'(t) &= x_2(t) \\
+x_2'(t) &= \mu (1-x_1(t)^2) x_2(t) - x_1(t)
+\end{split}
+\]
+<p>Pour être en mesure d'utiliser notre nouvelle fonction 
+<font class="matlab">vctfld</font> pour dessiner le champ de vecteurs,
+nous exprimons premièrement la fonction du côté droit de ce système d'EDO 
+dans le format requis et nous l'associons à
+l'<em>anse</em> <font class="matlab">funct</font>.</p>
+
+<pre class="matlab">
+>> <font class="matlab"> funct = @(X1,X2,p) [ X2 ; p(1)*(1-X1.^2).*X2 - X1 ];
+</font></pre>
+
+<p> En ce qui concerne les autres arguments de la fonction
+<font class="matlab">vctfld</font>, nous posons
+<font class="matlab"> B = [-3 4 -3 3]</font> et
+<font class="matlab">p = [1/2]</font> comme nous l'avons fait dans
+l'exemple précédent au sujet de l'équation de van der Pol.  Nous
+posons aussi <font class="matlab">flag = 1</font> pour dessiner un
+vecteur proportionnel à la version normalisé du vecteur
+<font class="matlab">funct(X1,X2,p)</font> à chaque point
+<font class="matlab">(X1,X2)</font> du maillage,
+<font class="matlab">init_conds = [ 1 3 ; 1 1]</font> pour tracer les
+orbites qui passent par \( (1,1) \) et \( (3,1) \) respectivement, et
+<font class="matlab">density = 4</font> pour obtenir
+\(4 \times 4\) points également distancés par carré unitaire.
+Nous assumons les valeurs données par défaut pour les autres
+arguments.</p>
+
+<pre class="matlab">
+>> <font class="matlab"> vctfld(funct, [-3 4 -3 3], [1/2], 1, 4, [ 1 3 ; 1 1]);
+</font></pre>
+
+<div class="center">
+  <img src="Matlab_ODE7.png" style="width: 400px"
+       alt="Dessin du champ de vecteurs avec deux orbites">
+</div>
+
+<p> En plus de la figure, nous obtenons aussi un message de précaution
+après la commande précédente.  Nous obtenons ce message parce que les
+calculs pour obtenir l'orbite qui passe par \( (3,1) \) génèrent des
+valeurs à au delà des limites de calculs pour \( t < -1.xx \).  Nous
+devons aussi noter que les système d'EDO est <em>raide</em>.  Pour
+des systèmes d'EDO qui sont raides, il est généralement préférable
+d'utiliser le solveur <font class="matlab">ODE15s</font> ou
+<font class="matlab">ODE23s</font> de <em>Matlab</em>.
+Cependant, dans le cas présent, le message de précaution apparaît
+toujours en raison du grand intervalle d'intégration que nous
+utilisons pour tracer la partie de l'orbite qui passe par \( (3,1) \).</p>
+
+<p> Nous répétons la commande précédente mais cette fois ci avec
+<font class="matlab">flag = 0</font> au lieu de
+<font class="matlab">flag = 1</font> pour dessiner un vecteur
+proportionnel à <font class="matlab">funct(X1,X2,p)</font> à chacun
+des points <font class="matlab">(X1,X2)</font> du maillage.
+Nous obtenons des vecteurs dont la longueur représente la vélocité du
+<q lang="en">flot</q> à leur point de base.</p>
+
+<pre class="matlab">
+>> <font class="matlab"> vctfld(funct, [-3 4 -3 3], [1/2], 1, 4, [ 1 3 ; 1 1]);
+</font></pre>
+
+<div class="center">
+  <img src="Matlab_ODE8.png" style="width: 400px"
+       alt="Dessin du champ de vecteurs avec deux orbites">
+</div>
+
+<p>Cette fois ci, nous avons l'information sur la vélocité du
+<q lang="fr">flot</q> mais nous avons perdu l'information sur la
+direction du <q lang="fr">flot</q> au voisinage de l'origine.
+En somme, les deux représentations du champ de vecteurs sont
+nécessaires pour obtenir une image complète du comportement des
+orbites.</p> 
+</div>
+
+<div class="Note">
+<p><em>Remarque</em>: La fonction <font class="matlab">vctfld</font>
+pourrait évidemment être améliorée.  Par exemple, il serait bien si la
+fonction acceptait des arguments pour formater les flèches utilisées
+pour dessiner le champ de vecteurs et les orbites.  Avec l'augmentation
+du nombre d'arguments, il serait aussi bénéfique d'utiliser le
+<em>tableau de cellules</em>
+<font class="matlab">varargin</font> pour simplifier et pour adopter
+la présentation de <em>Matlab</em> pour les arguments de
+<font class="matlab">vctfld</font> comme
+nous l'avons fait pour la fonction <font class="matlab">plotArrow</font>.
+Nous laissons ces projets aux lecteurs qui seraient intéressés.</p>
 </div>
 
 <hr class="MMathSStat">

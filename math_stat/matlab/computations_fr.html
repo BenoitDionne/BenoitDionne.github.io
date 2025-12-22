@@ -543,11 +543,18 @@ par le champ de vecteurs associé au système d'EDO autonome
 est généré de la façon suivante.  Nous choisissons plusieurs
 points (également distancés) \(\vec{x}\) du plan et traçons à partir
 de chacun de ces points \(\vec{x}\) un vecteur dans la direction
-\(f(\vec{x})\).  Les vecteurs dessinés sont souvent de la même
-longueur mais à l'occasion la longueur du vecteur tracé à partir de
-\(\vec{x}\) est proportionnel à la norme du vecteur \(f(\vec{x})\).  La
-fonction <font class="matlab">quiver</font> de <em>Matlab</em> fait
-exactement cela.</p> 
+\(f(\vec{x})\).  Le vecteur dessiné à partir de \(\vec{x}\) est
+souvent proportionnel à \(f(\vec{x})\) lui-même et représente la
+vélocité et direction du <q lang="en">flot</q> au point
+\(\vec{x}\).  La fonction
+<font class="matlab">quiver</font> de <em>Matlab</em> fait
+exactement cela.  Le vecteur dessiné à partir de
+\(\vec{x}\) peut aussi être seulement proportionnel
+au vecteur normalisé \(\displaystyle \|f(\vec{x}\|^{-1} f(\vec{x})\)
+et représente alors seulement la direction du <q lang="en">flot</q>
+au point \(\vec{x}\).
+Nous allons illustrer le besoin de cette deuxième option dans un
+prochain exemple.</p>
 
 <p>Il est de tradition de dessiner le champ de vecteurs associé à un
 système d'EDO autonome de la forme \( \vec{x}' = f(\vec{x}) \) pour
@@ -565,7 +572,7 @@ système.</p>
        alt="Dessin du champ de vecteurs associé à (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1)">
 </div>
 
-<p>Nous pouvons ajouter au champ de vecteurs précédant l'orbite
+<p>Nous pouvons ajouter au champ de vecteurs précédent l'orbite
 associée à la condition initiale
 \(\displaystyle \vec{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}\).</p>
 
@@ -608,9 +615,9 @@ Nous allons fournir un programme dans le document
   buildLinK(matlabProgr.url_fr, matlabProgr.text_fr,
   "MMathSStat", matlabProgr.id, matlabProgr.target);
 </script>
-pour dessiner les champs de vecteurs où tous les vecteurs qui sont dessinés
-sont de même longueur.  Nous allons aussi reprendre notre étude de
-l'équation de van der Pol à l'aide de ce programme.</p>
+pour dessiner les champs de vecteurs où tous les vecteurs dessinés
+sont proportionnels à leur norme.  Nous allons aussi reprendre notre
+étude de l'équation de van der Pol à l'aide de ce programme.</p>
 </div>
 
 <hr class="MMathSStat">

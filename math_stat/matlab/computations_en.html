@@ -523,15 +523,20 @@ points on the sections where the solution varies more slowly.  The
 speed on the orbits and the direction of the orbits are determined by the
 length and direction of the vectors given by the vector field
 associated to the system of autonomous ODE \( \vec{x}' = f(\vec{x}) \).
-We remind the reader that 
+We remind the reader that
 a <em>vector field</em> associated to a system of autonomous ODE is
 generated as it follows.  We select many (equally spaced) points
 \(\vec{x}\) in the plane and draw from each of these points
-\(\vec{x}\) a vector in the direction \(f(\vec{x})\).  The vectors
-drawn are often of the same length but sometimes the length of the
-vector drawn from \(\vec{x}\) is proportional to the norm of the vector
-\(f(\vec{x})\).  The function <font class="matlab">quiver</font>
-of <em>Matlab</em> does exactly that.</p> 
+\(\vec{x}\) a vector in the direction \(f(\vec{x})\).  The vector
+drawn from \(\vec{x}\) is often proportional to \(f(\vec{x})\) itself 
+and represents the velocity and direction of the <q lang="en">flow</q>
+at \(\vec{x}\).
+The function <font class="matlab">quiver</font> of <em>Matlab</em>
+does exactly that.  The vector drawn from \(\vec{x}\) may also be only
+proportional to the normalized vector
+\(\displaystyle \|f(\vec{x}\|^{-1} f(\vec{x})\) and thus represent
+only the direction of the <q lang="en">flow</q> at \(\vec{x}\).
+We will illustrate the need for this second option with an example later.</p> 
 
 <p>It is traditional to draw the vector field associated to an
 autonomous system of ODE of the form \( \vec{x}' = f(\vec{x}) \) to
@@ -591,8 +596,8 @@ vectors vary widely.  We will supply a program in the document
   buildLinK(matlabProgr.url_en, matlabProgr.text_en,
   "MMathSStat", matlabProgr.id, matlabProgr.target);
 </script>
-to draw vector field where all the vectors that are drawn are of the
-same length.  We will also resume our analysis of the van der
+to draw vector field where all the vectors drawn are proportional to
+their norm.  We will also resume our analysis of the van der
 Pol equation using this program.</p>
 </div>
 
