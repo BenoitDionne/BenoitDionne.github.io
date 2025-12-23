@@ -581,13 +581,13 @@ We leave this projects to the interested readers.</p>
 <h3 id="Sect24"> Slope Fields</h3>
 
 <p>In an introduction to ODE, it would have been normal to
-introduce <q lang="en">slope fields<q> before vector fields since the
+introduce <q lang="en">slope fields</q> before vector fields since the
 former is about ODE of the form \(x'(t) = f(t,x(t))\) with
 \(x \in \mathbb{R}\) which are studied before the systems of ODE.
 However, this document does not pretend to be 
 an introduction to ODE.  Since it is easy to modify the code for the
 function <font class="matlab">vctfld</font> to get a function to
-draw <q lang="en">slope fields<q>, we did that.</p>
+draw <q lang="en">slope fields</q>, we did that.</p>
 
 <p> We remind the reader that a <em>slope field</em> associated to an
 ODE \(x'(t) = f(t,x(t))\)
@@ -600,7 +600,7 @@ smallest distance between the values of \(t\) used to define the mesh
 points.  This last condition is to ensure that the vectors do not
 overlap.</p> 
 
-<p>The function to draw slope fields that we have created is called
+<p>The function that we have created to draw slope fields  is called
 <font class="matlab">slpfld</font>.  The code of this function
 is found in the <em>m-file</em>
 <script language="javascript"> 
@@ -612,11 +612,11 @@ above.</p>
 <pre class="matlab">
 >> <font class="matlab">help slpfld</font><br>
 slpfld(funct,B,p,density,init_conds,options)
-%
+
 Function to draw the slope field of an ODE of the form
         dx/dt = f(t,x,p)
 with x in R.
-%
+
 funct is the function that defines the right hand side of the ODE.
       This function must be an array smart function.
       funct can be the name of a function (between apostrophes),
