@@ -113,7 +113,7 @@ xlabel('X1');
 ylabel('X2');
 axis([B(1) B(2) B(3), B(4)],'equal');
 
-% We compute the vector f(X1,X2,p) at each mesh points.
+% We compute the vector f(X1,X2,p) at each mesh point.
 
 [XX1,XX2] = meshgrid(mesh_X1,mesh_X2);
 M = f(XX1,XX2,p);
@@ -160,7 +160,7 @@ else
   end
 end
 
-% We draw some solutions if requested.
+% We draw some orbits if requested.
 
 F = @(t,X) f(X(1),X(2),p);
 
