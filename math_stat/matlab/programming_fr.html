@@ -221,6 +221,13 @@ argument de la fonction <font class="matlab">fxpt2</font>.</p>
 
 <h3 id="Sect23"> Champs de vecteurs </h3>
 
+<p> Nous considérons un système d'EDO autonome de la forme</p>
+\[
+\vec{x}'(t) = f(\vec{x}(t),p)
+\]
+où \(\vec{x} \in \mathbb{R}^2\) et \(p \in \mathbf{R}^m\) est un
+vecteur de paramètres (possiblement vide) pour la fonction \(f\).</p>
+
 <p>Comme nous l'avons promis dans l'exemple portant sur l'équation
 de van der Pol dans le document <script language="javascript"> 
 buildLinK(matlabComp.url_fr, matlabComp.text_fr,
@@ -229,8 +236,10 @@ buildLinK(matlabComp.url_fr, matlabComp.text_fr,
 champs de vecteurs qui offre une alternative à la fonction 
 <font class="matlab">quiver</font>.  
 Nous l'avons appelée <font class="matlab">vctfld</font>.
-Cette fonction offre l'option de tracer chaque vecteur du champ de
-vecteurs proportionnel à sa norme.  Nous allons illustrer l'utilité de
+Cette fonction offre l'option de dessiner le champ de vecteurs tel que
+le vecteur dessiné à partir d'un point \(\vec{x}\) est proportionnel
+au vecteur normalisé \(\displaystyle \|f(\vec{x}\|^{-1} f(\vec{x})\).
+Nous allons illustrer l'utilité de
 cette option avec l'exemple de l'équation de van der Pol ci-dessous.
 Il est aussi possible d'utiliser la fonction
 <font class="matlab">vctfld</font> pour tracer des orbites par dessus
@@ -258,13 +267,6 @@ affiché ci-dessous se trouve dans le <em>fichier m</em>
 qui peut être téléchargé en cliquant sur le lien précédent comme nous
 l'avons déjà expliqué ci-dessus.</p>
 
-<p> Nous considérons un système d'EDO autonome de la forme</p>
-\[
-\vec{x}'(t) = f(\vec{x}(t),p)
-\]
-où \(\vec{x} \in \mathbb{R}^2\) et \(p \in \mathbf{R}^m\) est un
-vecteur de paramètres (possiblement vide) pour la fonction \(f\).</p>
-
 <p>Les points suivants doivent être pris en considération lorsque
 <font class="matlab">vctfld</font> est utilisée.</p>
 <ul>
@@ -272,8 +274,8 @@ vecteur de paramètres (possiblement vide) pour la fonction \(f\).</p>
 les fonctions qui sont <em>array smart</em>, la représentation dans
 <em>Matlab</em> de la fonction \(f\) doit être dans le format
 <font class="matlab">[ f1(X1,X2,p) ; f2(X1,X2,p) ]</font>.
-<font class="matlab">funct</font> peut être le <em>nom</em> de cette
-fonction (entre apostrophes), l'<em>anse</en> de cette fonction, ou
+L'expression <font class="matlab">funct</font> peut être le <em>nom</em>
+de cette fonction (entre apostrophes), l'<em>anse</em> de cette fonction, ou
 même une expression littéral dans le format ci-dessus (entre
 apostrophes).</li>
 <li> Le champ de vecteurs est dessiné seulement dans la région du plan
@@ -281,7 +283,8 @@ délimitée par <font class="matlab">B(1) < X1 < B(2)</font>
 et <font class="matlab">B(3) < X2 < B(4)</font>. </li>
 <li> La valeur de <font class="matlab">flag</font> détermine si le
 vecteur dessiné à partir du point \(\vec{x}\) est proportionnel à
-\(f(\vec{x},p)\) ou à \(\displaystyle \|f(\vec{x},p)\|^{-1}f(\vec{x},p)\)
+\(f(\vec{x},p)\) ou à \(\displaystyle \|f(\vec{x},p)\|^{-1}f(\vec{x},p)\).
+Nous avons que
 <font class="matlab">flag = 0<font> (défaut) dans le premier cas et
 <font class="matlab">flag = 1<font> dans le deuxième cas. </li>
 <li> L'argument facultatif <font class="matlab">init_conds</font>
@@ -530,8 +533,8 @@ arguments.</p>
 <p> En plus de la figure, nous obtenons aussi un message de précaution
 après la commande précédente.  Nous obtenons ce message parce que les
 calculs pour obtenir l'orbite qui passe par \( (3,1) \) génèrent des
-valeurs à au delà des limites de calculs pour \( t < -1.xx \).  Nous
-devons aussi noter que les système d'EDO est <em>raide</em>.  Pour
+valeurs au delà des limites de calculs pour \( t < -1.xx \).  Nous
+devons aussi noter que le système d'EDO est <em>raide</em>.  Pour
 des systèmes d'EDO qui sont raides, il est généralement préférable
 d'utiliser le solveur <font class="matlab">ODE15s</font> ou
 <font class="matlab">ODE23s</font> de <em>Matlab</em>.
@@ -566,9 +569,10 @@ orbites.</p>
 
 <div class="Note">
 <p><em>Remarque</em>: La fonction <font class="matlab">vctfld</font>
-pourrait évidemment être améliorée.  Par exemple, il serait bien si la
+pourrait évidemment être améliorée.  Par exemple, il serait bien si cette
 fonction acceptait des arguments pour formater les flèches utilisées
-pour dessiner le champ de vecteurs et les orbites.  Avec l'augmentation
+pour dessiner le champ de vecteurs et pour formater les orbites.
+Avec l'augmentation
 du nombre d'arguments, il serait aussi bénéfique d'utiliser le
 <em>tableau de cellules</em>
 <font class="matlab">varargin</font> pour simplifier et pour adopter

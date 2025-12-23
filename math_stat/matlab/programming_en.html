@@ -218,6 +218,13 @@ argument of the function <font class="matlab">fxpt2</font>.</p>
 
 <h3 id="Sect23"> Vector Fields </h3>
 
+<p> We consider a system of autonomous ODE of the form</p>
+\[
+\vec{x}'(t) = f(\vec{x}(t),p)
+\]
+where \(\vec{x} \in \mathbb{R}^2\) and \(p \in \mathbf{R}^m\) is a
+vector of parameters (possibly empty) for the function \(f\).</p>
+
 <p>As we have promised in the example about the van der Pol equation
 in the document <script language="javascript"> 
   buildLinK(matlabComp.url_en, matlabComp.text_en,
@@ -226,8 +233,11 @@ in the document <script language="javascript">
 fields that offers an alternative to the function
 <font class="matlab">quiver</font>.
 We have called it <font class="matlab">vctfld</font>.
-This function offers the option to draw each vector of the vector
-field proportional to its norm.  We will illustrate the usefulness of
+This function offers the option to draw the vector
+field such that the vector drawn from a point \(\vec{x}\) is
+proportional to the normalized vector
+\(\displaystyle \|f(\vec{x}\|^{-1} f(\vec{x})\).
+We will illustrate the usefulness of
 this option with the example for the van der Pol equation below.  It is also
 possible to use the function <font class="matlab">vctfld</font> to
 draw orbits over the vector fields.</p>
@@ -253,13 +263,6 @@ displayed below can be found in the <em>m-file</em>
 which can be downloaded by clicking on the previous link as explained
 above.</p>
 
-<p> We consider a system of autonomous ODE of the form</p>
-\[
-\vec{x}'(t) = f(\vec{x}(t),p)
-\]
-where \(\vec{x} \in \mathbb{R}^2\) and \(p \in \mathbf{R}^m\) is a
-vector of parameters (possibly empty) for the function \(f\).</p>
-
 <p>The following points should be taken into consideration when using
 <font class="matlab">vctfld</font>.</p>
 <ul>
@@ -267,6 +270,7 @@ vector of parameters (possibly empty) for the function \(f\).</p>
 <em>array smart</em> functions, the <em>Matlab</em> representation
 of the function \(f\) must be in the format
 <font class="matlab">[ f1(X1,X2,p) ; f2(X1,X2,p) ]</font>.
+The expression
 <font class="matlab">funct</font> can be the <em>name</em> of this
 function (between apostrophes), the <em>handle</em> of this function
 or a literal expression of the form above (between apostrophes).</li>
@@ -275,7 +279,8 @@ delimited by <font class="matlab">B(1) < X1 < B(2)</font>
 and <font class="matlab">B(3) < X2 < B(4)</font>. </li>
 <li> The value of <font class="matlab">flag</font> determines if the
 vector drawn from a point \(\vec{x}\) is proportional to
-\(f(\vec{x},p)\) or \(\displaystyle \|f(\vec{x},p)\|^{-1}f(\vec{x},p)\)
+\(f(\vec{x},p)\) or \(\displaystyle \|f(\vec{x},p)\|^{-1}f(\vec{x},p)\).
+We have that
 <font class="matlab">flag = 0<font> (default) in the first case and
 <font class="matlab">flag = 1<font> in the second case. </li>
 <li> The optional argument <font class="matlab">init_conds</font>
@@ -556,9 +561,9 @@ to get a more complete picture of the behaviour of the orbits.</p>
 
 <div class="Note">
 <p><em>Remark</em>: The function <font class="matlab">vctfld</font> could
-obviously be improved.  For instance, it would be nice if the function
+obviously be improved.  For instance, it would be nice if this function
 was accepting arguments to format the arrows used to draw the vector
-field and the orbits.  With the increase in the number of arguments,
+field and to format the orbits.  With the increase in the number of arguments,
 it would also be beneficial to use the <em>cell array</em>
 <font class="matlab">varargin</font> to simplify and addopt
 the <em>Matlab</em> presentation for the arguments of
