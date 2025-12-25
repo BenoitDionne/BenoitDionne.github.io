@@ -411,7 +411,7 @@ inversible</td></tr>
 
 <div class="Example">
 <p><em>Exemple</em>: En plus des matrices et vecteurs définis
-précédemment, nous considérons les matrices suivantes:</p> 
+précédemment, nous considérons les matrices suivantes:</p>
 
 <pre class="matlab">
 >> <font class="matlab">C = [-1 -2 0 ; 0 1 2 ; 1 0 3]</font><br>
@@ -427,7 +427,11 @@ B =
      -2     0     5
       2     3    -1
       0     1     2
+</pre>
 
+<p> Nous exécutons quelques opérations élémentaires sur les matrices.</p>
+
+<pre class="matlab">
 >> <font class="matlab">D = B + C</font><br>
 D =
      -3    -2     5
@@ -462,13 +466,13 @@ ans =
 
 <div class="Note">
 <p><em>Avertissement</em>: L'addition dans <em>matlab</em> a un
-<em>comportement anormal</em> qui peut ėtre très util si il est
-utilisé avec soin mais peut aussi être la source de mauvais calculs.
+<em>comportement anormal</em> qui peut être très utile si elle est
+utilisée avec soin mais peut aussi être la source de mauvais calculs.
 Si <font class="matlab">A</font> est une matrice de dimensions
 \(n\times m\) et <font class="matlab">b</font> est un nombre, alors
 <font class="matlab">C = A + b</font> est une matrice de dimensions
 \(n\times m\) où <font class="matlab">C(i,j) = A(i,j) + b</font> pour
-tous i et j.  Plus générallement, si
+tous i et j.  Plus généralement, si
 <font class="matlab">A</font> es une matrice de dimensions \(n\times m\)
 et <font class="matlab">B</font> est une matrice de dimensions
 \(n\times 1\), alors
@@ -569,7 +573,7 @@ dimensions \(n \times q\), alors
 Si <font class="matlab">A</font> est une matrice de dimensions
 \(p \times n\) et <font class="matlab">B</font> est une matrice de
 dimensions \(q \times n\), alors
-<font class="matlab">C = [A,B]</font> est un matrice de dimensions
+<font class="matlab">C = [A;B]</font> est un matrice de dimensions
 \((p +q) \times n\) où les \(p\) premières rangées de
 <font class="matlab">C</font> sont les rangées de
 <font class="matlab">A</font> et les \(q\) dernières rangées de
