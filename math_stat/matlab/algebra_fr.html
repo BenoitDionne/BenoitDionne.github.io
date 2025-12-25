@@ -163,7 +163,7 @@ tapez</p>
 être exécuté) pour obtenir le résultat suivant.</p>
 
 <pre class="matlab">
-ans = <br>
+ans =
   957.2413
 </pre>
 
@@ -177,7 +177,7 @@ résultat du calcul précédent à la variable <font class="matlab"> x </font>.<
 
 <pre class="matlab">
 >> <font class="matlab">x = 16.07*(42.5+387/23.8) + 3.6^2</font><br>
-x = <br>
+x =
    957.2413
 </pre>
 </div>
@@ -188,7 +188,7 @@ x = <br>
 <pre class="matlab">
 >> <font class="matlab">x = 10 + pi;</font>
 >> <font class="matlab">x</font><br>
-x = <br>
+x =
    13.1416
 </pre>
 
@@ -208,7 +208,7 @@ cependant fait en utilisant le nombre maximum de chiffres décimaux que
 
 <pre class="matlab">
 >> <font class="matlab">cos(3)</font> <br>
-ans = <br>
+ans =
    -0.9900
 </pre>
 
@@ -216,7 +216,7 @@ ans = <br>
 
 <pre class="matlab">
 >> <font class="matlab">cos(1.57)</font> <br>
-ans = <br>
+ans =
    7.9633e-04
 </pre>
 </div>
@@ -233,7 +233,7 @@ long est donné par</p>
 <pre class="matlab">
 >> <font class="matlab">format long</font>
 >> <font class="matlab">cos(1.57)</font> <br>
-ans = <br>
+ans =
       7.963267107332633e-04
 </pre>
 </div>
@@ -254,7 +254,7 @@ la notation traditionnelle comme il suit.</p>
 
 <pre class="matlab">
 >> <font class="matlab">z = 5 - 7i</font><br>
-z = <br>
+z =
    5.0000 - 7.0000i
 </pre>
 
@@ -269,7 +269,7 @@ par</p>
 >> <font class="matlab">z = 5 - 3i;</font>
 >> <font class="matlab">zbar = 5 + 3i;</font>
 >> <font class="matlab">w1 = z * zbar</font><br>
-w1 = <br>
+w1 =
     34
 </pre>
 
@@ -277,7 +277,7 @@ w1 = <br>
 
 <pre class="matlab">
 >> <font class="matlab">w2 = z / zbar</font><br>
-w2 = <br>
+w2 =
    0.4706 - 0.8824i
 </pre>
 </div>
@@ -308,7 +308,7 @@ suivantes:</p>
 
 <pre class="matlab">
 >> <font class="matlab">A = [ 1 pi 0; 0 4 5 ] </font><br>
-A = <br>
+A =
      1.0000    3.1416         0
           0    4.0000    5.0000
 </pre>
@@ -318,7 +318,7 @@ A = <br>
 <pre class="matlab">
 >> <font class="matlab">A = [ 1 pi 0
 0 4 5 ]</font><br>
-A = <br>
+A =
      1.0000    3.1416         0
           0    4.0000    5.0000
 </pre>
@@ -333,7 +333,7 @@ précédent, on obtient</p>
 
 <pre class="matlab">
 >> <font class="matlab">size(A)</font><br>
-ans = <br>
+ans =
       2     3
 </pre>
 </div>
@@ -350,7 +350,7 @@ Nous les appelons des vecteurs rangées et vecteurs colonnes respectivement.</p>
 
 <pre class="matlab">
 >> <font class="matlab">V = [1 ; 2 ; -5 ; 3]</font><br>
-V = <br>
+V =
       1
       2
      -5
@@ -361,7 +361,7 @@ V = <br>
 
 <pre class="matlab">
 >> <font class="matlab">length(V)</font> <br>
-ans = <br>
+ans =
       4
 </pre>
 </div>
@@ -372,7 +372,7 @@ ans = <br>
 
 <pre class="matlab">
 >> <font class="matlab">U = [sin(2) , -5 , 0 , 1]</font> <br>
-U = <br>
+U =
      0.9093   -5.0000         0    1.0000
 </pre>
 </div>
@@ -388,23 +388,123 @@ U = <br>
 <table style="width: 70%;">
 <col style="width: 20%"> <col style="width: 80%">
 <tr> <th> Opération </th> <th> Description </th> </tr>
-<tr><td class="center"> <font class="matlab">+</font></td><td> addition de
+<tr><td class="center"> <font class="matlab">+</font></td><td> Addition de
 matrices de même dimensions </td></tr>
 <tr><td class="center"> <font class="matlab">&minus;</font></td><td>
-soustraction de matrices de même dimensions </td></tr>
+Soustraction de matrices de même dimensions </td></tr>
 <tr><td class="center"> <font class="matlab">*</font></td><td>
-multiplication de deux matrices où le nombre de colonnes de la
+Multiplication de deux matrices où le nombre de colonnes de la
 première matrice égale le nombre de rangées de la deuxième matrice </td></tr>
 <tr><td class="center"> <font class="matlab">^</font></td><td>
-exponentiel d'un matrice carrée </td></tr> 
+Exponentiel d'un matrice carrée </td></tr> 
 <tr><td class="center"> <font class="matlab">(&nbsp;)</font></td><td>
-parenthèses </td></tr>
+Parenthèses </td></tr>
 <tr><td class="center"> <font class="matlab">'</font></td><td>
-transposée d'une matrice</td></tr>
+Transposée d'une matrice</td></tr>
 <tr><td class="center"> <font class="matlab">inv(&nbsp;)</font>
-or <font class="matlab">^(-1)</font></td><td>inverse d'une matrice
+or <font class="matlab">^(-1)</font></td><td>Inverse d'une matrice
 inversible</td></tr>
+<tr><td class="center"> <font class="matlab">det(&nbsp;)</font></td>
+<td>Déterminant d'une matrice carrée </td></tr>
 </table>
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>: En plus des matrices et vecteurs définis
+précédemment, nous considérons les matrices suivantes:</p> 
+
+<pre class="matlab">
+>> <font class="matlab">C = [-1 -2 0 ; 0 1 2 ; 1 0 3]</font><br>
+C =
+     -1    -2     0
+      0     1     2
+      1     0     3
+
+>> <font class="matlab">B = [ -2 0 5
+  2 3 -1
+  0 1 2 ]</font><br>
+B =
+     -2     0     5
+      2     3    -1
+      0     1     2
+
+>> <font class="matlab">D = B + C</font><br>
+D =
+     -3    -2     5
+      2     4     1
+      1     1     5
+
+>> <font class="matlab">M = A * B</font> <br>
+M =
+     4.2832    9.4248    1.8584
+     8.0000   17.0000    6.0000
+
+>> <font class="matlab">W = U * V</font><br>
+W =
+    -6.0907
+</pre>
+
+<p>L'inverse et le déterminant de la matrice \(B\)
+qui a été définie ci-dessus sont calculés par les commandes suivantes.</p>
+
+<pre class="matlab">
+>> <font class="matlab">inv(B)</font><br>
+ans =
+   -1.7500   -1.2500    3.7500
+    1.0000    1.0000   -2.0000
+   -0.5000   -0.5000    1.5000
+
+>> <font class="matlab">det(B)</font></br>
+ans =
+    -4
+</pre>
+</div>
+
+<div class="Note">
+<p><em>Avertissement</em>: L'addition dans <em>matlab</em> a un
+<em>comportement anormal</em> qui peut ėtre très util si il est
+utilisé avec soin mais peut aussi être la source de mauvais calculs.
+Si <font class="matlab">A</font> est une matrice de dimensions
+\(n\times m\) et <font class="matlab">b</font> est un nombre, alors
+<font class="matlab">C = A + b</font> est une matrice de dimensions
+\(n\times m\) où <font class="matlab">C(i,j) = A(i,j) + b</font> pour
+tous i et j.  Plus générallement, si
+<font class="matlab">A</font> es une matrice de dimensions \(n\times m\)
+et <font class="matlab">B</font> est une matrice de dimensions
+\(n\times 1\), alors
+<font class="matlab">C = A + B</font> est une matrice de dimensions
+\(n\times m\) où
+<font class="matlab">C(:,j) = A(:,j) + B(:,1)</font> pour tous
+j.  Chaque colonne de <font class="matlab">C</font> est la somme de la
+colonne correspondante de <font class="matlab">A</font> avec le
+vecteur colonne <font class="matlab">B</font>.  Nous avons a résultat
+semblable si <font class="matlab">B</font> est une matrice de
+dimensions \(1 \times m\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">A = [ 1 2 3 ; 4 5 6] , B = [ 1 ; 2], C = A + B </font><br>
+A =
+   1   2   3
+   4   5   6
+
+B =
+   1
+   2
+
+C =
+   2   3   4
+   6   7   8
+</pre>
+
+<pre class="matlab">
+>> <font class="matlab">B = [ 1 , 2 , 3], C = A + B </font><br>
+B =
+   1   2   3
+
+C =
+   2   4   6
+   5   7   9
+</pre>
 </div>
 
 <p>Il y a deux autres opérations sur les matrices.</p>
@@ -413,18 +513,24 @@ inversible</td></tr>
 <table style="width: 70%;">
 <col style="width: 20%"> <col style="width: 80%">
 <tr> <th> Opération </th> <th> Description </th> </tr>
-<tr><td class="center"> <font class="matlab">/</font></td><td> \(A/B\) est
-\(A\) multiplié par l'inverse de \(B\) si cette dernière matrice est
-inversible et si le nombre de colonnes de \(A\) égale le nombre de
-rangées de \(B\). </td></tr>
+<tr><td class="center"> <font class="matlab">/</font></td><td>
+<font class="matlab">A/B</font> est
+<font class="matlab">A</font> multiplié par l'inverse de
+<font class="matlab">B</font> si cette dernière matrice est
+inversible et si le nombre de colonnes de <font class="matlab">A</font>
+égale le nombre de rangées de <font class="matlab">B</font>. </td></tr>
 <tr><td class="center"> <font class="matlab">\</font></td><td>
-\(A\backslash B\) est la matrice \(X\) qui est la solution (à l'aide
-de la méthode d'élimination de Gauss) de \(AX = B\) quand \(A\) est
-une matrice inversible de dimensions \(n \times n\) et \(B\) a \(n\)
-rangées.  \(A\backslash B\) est la solution par la méthode du moindre
-carré de \(AX = B\) quand \(A\) est une matrice de dimension
-\(m \times n\) avec \(m \neq n\) et \(B\) a \(m\) rangées.  Utilisez
-le menu d'aide pour obtenir plus d'information. </td></tr>
+<font class="matlab">A \ B</font> est la matrice <font class="matlab">X</font>
+qui est la solution (à l'aide de la méthode d'élimination de Gauss) de
+<font class="matlab">AX = B\</font> quand <font class="matlab">A</font> est
+une matrice inversible de dimensions \(n \times n\) et
+<font class="matlab">B</font> a \(n\) rangées.
+<font class="matlab">A\B</font> est la solution par la méthode du moindre
+carré de <font class="matlab">AX = B</font> quand
+<font class="matlab">A</font> est une matrice de dimension
+\(m \times n\) avec \(m \neq n\) et <font class="matlab">B</font>
+a \(m\) rangées.  Utilisez le menu d'aide pour obtenir plus
+d'information. </td></tr>
 </table>
 </div>
 
@@ -440,61 +546,87 @@ numériques.  Il est de beaucoup préférable d'utiliser la formule
 \(\vec{x} = A\backslash \vec{b}\).</p>
 </div>
 
+<p>Il y a plusieurs opérations sur les matrices qui ne sont pas de
+nature calculatoire mais qui sont très utiles pour manipuler les
+matrices.</p>
+
+<div class="center" style="width: 100%">
+<table style="width: 70%;">
+<col style="width: 20%"> <col style="width: 80%">
+<tr> <th> Opération </th> <th> Description </th> </tr>
+<tr><td class="center"> <font class="matlab">[A,B]</font></td><td>
+Si <font class="matlab">A</font> est une matrice de dimensions
+\(n \times p\) et <font class="matlab">B</font> est une matrice de
+dimensions \(n \times q\), alors
+<font class="matlab">C = [A,B]</font> est un matrice de dimensions
+\(n \times (p +q)\) où les \(p\) premières colonnes de
+<font class="matlab">C</font> sont les colonnes de
+<font class="matlab">A</font> et les \(q\) dernières colonnes de
+<font class="matlab">C</font> sont les colonnes de
+<font class="matlab">B</font>.  l'ordre des colonnes est préservé.
+</td></tr>
+<tr><td class="center"> <font class="matlab">[A;B]</font></td><td>
+Si <font class="matlab">A</font> est une matrice de dimensions
+\(p \times n\) et <font class="matlab">B</font> est une matrice de
+dimensions \(q \times n\), alors
+<font class="matlab">C = [A,B]</font> est un matrice de dimensions
+\((p +q) \times n\) où les \(p\) premières rangées de
+<font class="matlab">C</font> sont les rangées de
+<font class="matlab">A</font> et les \(q\) dernières rangées de
+<font class="matlab">C</font> sont les rangées de
+<font class="matlab">B</font>.  l'ordre des rangées est préservé.
+</td></tr>
+<tr><td class="center"> <font class="matlab">A(p:q,r:s)</font></td><td>
+Si <font class="matlab">A</font> est une matrice de dimensions
+\(n \times m\) avec \( 1 \leq p \leq q \leq n\) et
+\(1 \leq r \leq s \leq m\), alors
+<font class="matlab">B = A(p:q,r:t)</font> est une matrice de
+dimensions \((q-p+1)\times (s-r+1\) où
+<font class="matlab">B(i,j) = A(p+i-1,r+j-1)</font>
+pour \(1 \leq i \leq q-p +1\) et \(1 \leq j \leq s-r+1\).
+</td></tr>
+</table>
+</div>
+
 <div class="Example">
-<p><em>Exemple</em>: En plus des matrices et vecteurs définis
-précédemment, nous considérons les matrices suivantes:</p> 
+<p><em>Exemple</em>: Nous utilisons les opérations définies dans la
+tableau précédent. </p> 
 
 <pre class="matlab">
->> <font class="matlab">C = [-1 -2 0 ; 0 1 2 ; 1 0 3]</font><br>
-C = <br>
-     -1    -2     0
-      0     1     2
-      1     0     3<br>
->> <font class="matlab">B = [ -2 0 5
-  2 3 -1
-  0 1 2 ]</font><br>
-B = <br>
-     -2     0     5
-      2     3    -1
-      0     1     2
-</pre>
+>> <font class="matlab">A = [ 1 2 3 ; 4 5 6] , B = [7 8 ; 9 10], [A,B]</font><br>
+A =
+   1   2   3
+   4   5   6
 
-<p>Voici quelques opérations sur les matrices.</p>
+B =
+    7    8
+    9   10
 
-<pre class="matlab">
->> <font class="matlab">D = B + C</font><br>
-D = <br>
-     -3    -2     5
-      2     4     1
-      1     1     5 <br>
->> <font class="matlab">M = A * B</font> <br>
-M = <br>
-     4.2832    9.4248    1.8584
-     8.0000   17.0000    6.0000<br>
->> <font class="matlab">W = U * V</font><br>
-W = <br>
-    -6.0907
+ans =
+    1    2    3    7    8
+    4    5    6    9   10
+
+>> <font class="matlab">B = [ 7 8 9 ; 10 11 12], C = [A;B]</font></br>
+B =
+    7    8    9
+   10   11   12
+
+C =
+    1    2    3
+    4    5    6
+    7    8    9
+   10   11   12
+
+>> <font class="matlab">>> C(2:3,2:3)</font></br>
+ans =
+   5   6
+   8   9
 </pre>
 </div>
 
 <p>D'autres opérations sur les matrices peuvent être exécutées avec
-<em>Matlab</em>.</p>
-
-<div class="Example">
-<p><em>Exemple</em>: L'inverse et le déterminant de la matrice \(B\)
-qui a été définie ci-dessus sont calculés par les commandes suivantes.</p>
-
-<pre class="matlab">
->> <font class="matlab">inv(B)</font><br>
-ans = <br>
-   -1.7500   -1.2500    3.7500
-    1.0000    1.0000   -2.0000
-   -0.5000   -0.5000    1.5000 <br>
->> <font class="matlab">det(B)</font></br>
-ans = <br>
-    -4
-</pre>
-</div>
+<em>Matlab</em>.  Le lecteur devrait consulter la documentation au
+sujet de l'algèbre linéaire sur le site Internet de <em>Matlab</em>.</p>
 
 <hr class="MMathSStat">
 
@@ -521,17 +653,20 @@ par la composante de la deuxième matrice ayant les mêmes indices.</li>
 >> <font class="matlab">v1=[1 2 3];</font>
 >> <font class="matlab">v2=[2 2 2];</font>
 >> <font class="matlab">v1 .* v2</font><br>
-ans = <br>
-     2     4     6<br>
+ans =
+     2     4     6
+
 >> <font class="matlab">v1 ./ v2</font><br>
-ans = <br>
-     0.5000    1.0000    1.5000 <br>
+ans =
+     0.5000    1.0000    1.5000
+
 >> <font class="matlab">A = [1 2 3 ; 3 2 1]</font> <br>
-A = <br>
+A =
      1     2     3
-     3     2     1 <br>
+     3     2     1
+
 >> <font class="matlab">A.^2</font><br>
-ans = <br>
+ans =
      1     4     9
      9     4     1
 </pre>
@@ -548,7 +683,7 @@ ci-dessus et calculons \(sin(A)\), nous obtenons le résultat suivant. </p>
 
 <pre class="matlab">
 >> <font class="matlab">sin(A)</font><br>
-ans = <br>
+ans =
     0.8415    0.9093    0.1411
     0.1411    0.9093    0.8415
 </pre>

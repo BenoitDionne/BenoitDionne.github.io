@@ -115,10 +115,10 @@ avec \(10\) sous-intervalles.  Nous utilisons les \(11\) points
 
 <pre class="matlab">
 >> <font class="matlab">x = linspace(0,pi,11)</font><br>
-x = <br>
-  Columns 1 through 7 <br>
+x =
+  Columns 1 through 7
           0    0.3142    0.6283    0.9425    1.2566    1.5708    1.8850 <br>
-  Columns 8 through 11 <br>
+  Columns 8 through 11
     2.1991    2.5133    2.8274    3.1416
 </pre>
 
@@ -136,7 +136,7 @@ suivante. </p>
 
 <pre class="matlab">
 >> <font class="matlab">trapz(x,y)</font> <br>
-ans = <br>
+ans =
     3.1157
 </pre>
 </div>
@@ -158,8 +158,8 @@ sur l'intervalle \(0 \leq x \leq \pi\), nous utilisons la commande
 suivante.</p>
 
 <pre class="matlab">
->> <font class="matlab">integral(@funct1,0,pi)</font>
-ans = <br>
+>> <font class="matlab">integral(@funct1,0,pi)</font> <br>
+ans =
     3.1416
 </pre>
 </div>
@@ -193,7 +193,7 @@ il est fait ci-dessous.</p>
 
 <pre class="matlab">
 >> <font class="matlab"> f = @(x) sqrt(x) + sin(1./x.^2) + 1</font><br>
-f = <br>
+f =
     @(x) sqrt(x) + sin(1 ./ x .^ 2) + 1
 </pre>
 
@@ -204,7 +204,7 @@ comment cela est fait.  Nous exigeons une erreur relative d'au plus
 
 <pre class="matlab">
 >> <font class="matlab">integral(f,1,5,'RelTol',10^(-6))</font> <br>
-ans =  <br>
+ans =
      11.55448141551789
 </pre>
 </div>
@@ -227,9 +227,8 @@ exécutons les commandes suivantes.</p>
    f = @(x,y) x.^2 .* y.^2; ...
    ymax = @(x) sqrt(4-x.^2); ...
    ymin = @(x) -sqrt(4-x.^2); ...
-   integral2(f, -2,2, ymin, ymax,'Method','iterated')
-</font>
-ans = <br>
+   integral2(f, -2,2, ymin, ymax,'Method','iterated')</font> <br>
+ans =
    8.377580360000902
 </pre>
 
@@ -250,9 +249,8 @@ exécutons les commandes suivantes.</p>
    Y = @(r,theta) r.*sin(theta); ...
    frt = @(r,theta) f(X(r,theta),Y(r,theta)); ...
    frtD = @(r,theta) frt(r,theta).*r; ...
-   integral2(frtD, 0,2, 0, 2*pi,'Method','tiled')
-</font>
-ans = <br>
+   integral2(frtD, 0,2, 0, 2*pi,'Method','tiled')</font> <br>
+ans =
    8.377580409572781
 </pre>
 </div>
@@ -397,12 +395,10 @@ avec la condition initiale \(x(0) = 1\).</p>
 <pre class="matlab">
 >> <font class="matlab">[t,x] = ode45('funct2',[0,pi],1,options); ...
    size(t), size(x)</font><br>
-ans =<br>
-
+ans =
    17    1
 
-ans =<br>
-
+ans =
    17    1
 </pre>
 
@@ -434,7 +430,7 @@ l'EDO précédente à \(t=2\) est donnée par la commande</p>
 
 <pre class="matlab">
 >> <font class="matlab">w = interp1(t,x,2,'linear')</font> <br>
-w = <br>
+w =
    3.1025
 </pre>
 </div>

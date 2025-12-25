@@ -147,7 +147,7 @@ following command.</p>
 
 <pre class="matlab">
 >> <font class="matlab">funct1(5)</font> <br>
-ans = <br>
+ans =
     -4.7946
 </pre>
 </div>
@@ -255,17 +255,20 @@ can be manipulated and used.</p>
 <pre class="matlab">
 >> <font class="matlab">hand = @funct1;</font>
 >> <font class="matlab">hand(10)</font><br>
-ans = <br>
-   -5.44021110889370 <br>
+ans =
+   -5.44021110889370
+
 >> <font class="matlab">funct1(10)</font> <br>
-ans = <br>
-   -5.44021110889370 <br>
+ans =
+   -5.44021110889370
+
 >> <font class="matlab">hands = {hand, @sin};</font>
 >> <font class="matlab">hands{1}(10)</font> <br>
-ans = <br>
-   -5.44021110889370 <br>
->> <font class="matlab">hands{2}(10)</font>
-ans = <br>
+ans =
+   -5.44021110889370
+
+>> <font class="matlab">hands{2}(10)</font> <br>
+ans =
    -0.54402111088937
 </pre>
 
@@ -299,8 +302,8 @@ define an <em>anonymous function</em> which is only represented by its
 
 <pre class="matlab">
 >> <font class="matlab"> f = @(x) x.^3 + 2* x.^2 + 1</font><br>
-f = <br>
-    @(x) x .^ 3 + 2 * x .^ 2 + 1 <br>
+f =
+    @(x) x .^ 3 + 2 * x .^ 2 + 1
 </pre>
 
 <p>We can then execute the following operations.</p>
@@ -308,7 +311,9 @@ f = <br>
 <pre class="matlab">
 >> <font class="matlab">f(5) , sqrt(f(4)), f(4) + f(5)</font> <br>
 ans = 176
+
 ans = 9.8489
+
 ans = 273
 </pre>
 </div>
@@ -357,8 +362,8 @@ results.</p>
 
 <pre class="matlab">
 >> <font class="matlab"> X = [ 1 -2 0 3];</font>
->> <font class="matlab">heaviside(X)</font>
-ans = <br>
+>> <font class="matlab">heaviside(X)</font><br>
+ans =
      [ 1 0 NaN 1 ]
 </pre>
 

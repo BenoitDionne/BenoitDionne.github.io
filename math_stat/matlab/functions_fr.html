@@ -147,7 +147,7 @@ par la commande suivante.</p>
 
 <pre class="matlab">
 >> <font class="matlab">funct1(5)</font> <br>
-ans = <br>
+ans =
     -4.7946
 </pre>
 </div>
@@ -255,17 +255,20 @@ l'<em>anse</em> d'une fonction peut être manipulée et utilisée.</p>
 <pre class="matlab">
 >> <font class="matlab">hand = @funct1;</font>
 >> <font class="matlab">hand(10)</font><br>
-ans = <br>
-   -5.44021110889370 <br>
+ans =
+   -5.44021110889370
+
 >> <font class="matlab">funct1(10)</font> <br>
-ans = <br>
-   -5.44021110889370 <br>
+ans =
+   -5.44021110889370
+
 >> <font class="matlab">hands = {hand, @sin};</font>
 >> <font class="matlab">hands{1}(10)</font> <br>
-ans = <br>
-   -5.44021110889370 <br>
->> <font class="matlab">hands{2}(10)</font>
-ans = <br>
+ans =
+   -5.44021110889370
+
+>> <font class="matlab">hands{2}(10)</font> <br>
+ans =
    -0.54402111088937
 </pre>
 
@@ -301,8 +304,8 @@ il est fait ci-dessous.</p>
 
 <pre class="matlab">
 >> <font class="matlab"> f = @(x) x.^3 + 2* x.^2 + 1</font><br>
-f = <br>
-    @(x) x .^ 3 + 2 * x .^ 2 + 1 <br>
+f =
+    @(x) x .^ 3 + 2 * x .^ 2 + 1
 </pre>
 
 <p>Nous pouvons exécuter les opérations suivantes.</p>
@@ -310,7 +313,9 @@ f = <br>
 <pre class="matlab">
 >> <font class="matlab">f(5) , sqrt(f(4)), f(4) + f(5)</font> <br>
 ans = 176
+
 ans = 9.8489
+
 ans = 273
 </pre>
 </div>
@@ -360,7 +365,7 @@ se doit, nous avons les résultats suivants.</p>
 <pre class="matlab">
 >> <font class="matlab"> X = [ 1 -2 0 3];</font>
 >> <font class="matlab">heaviside(X)</font>
-ans = <br>
+ans =
      [ 1 0 NaN 1 ]
 </pre>
 
