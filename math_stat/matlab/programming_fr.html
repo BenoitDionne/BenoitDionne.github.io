@@ -44,6 +44,13 @@ MathJax = {
 html and csv instead of scalable vector graphis. -->  
 <script defer type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      tags: 'ams'
+   }
+};
+</script>
     
 </head>
 <body>
@@ -81,6 +88,10 @@ main_title( MStexte, "MMathSStat");
   <li> <script language="javascript"> 
       buildLinK("#Sect24", "Champs de pentes",
       "MMathSStat", "sect124D", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect25", "Systèmes itératifs de fonctions",
+      "MMathSStat", "sect125D", "_top");
   </script> </li>
 </ul>
 </div>
@@ -669,6 +680,11 @@ arbitraire.  En particulier, nous sommes intéressé au cas
        alt="Champ de pentes de x'(t) = 2\sin(x(t)+t + 3)\) avec les graphes de trois solutions">
 </div>
 </div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect25"> Systèmes itératifs de fonctions </h3>
+
 
 <hr class="MMathSStat">
 

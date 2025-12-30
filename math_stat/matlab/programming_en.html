@@ -44,6 +44,13 @@ MathJax = {
 html and csv instead of scalable vector graphis. -->  
 <script defer type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"> </script>
+<script type="text/javascript">
+MathJax = {
+   tex: {
+      tags: 'ams'
+   }
+};
+</script>
 
 </head>
 <body>
@@ -81,6 +88,10 @@ main_title( MStext, "MMathSStat");
   <li> <script language="javascript"> 
       buildLinK("#Sect24", "Slope Fields",
       "MMathSStat", "sect124D", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect25", "Iterative Function Systems",
+      "MMathSStat", "sect125D", "_top");
   </script> </li>
 </ul>
 </div>
@@ -656,6 +667,419 @@ arbitrary parameter.  In particular, we are interested in the case
 <div class="center">
   <img src="Matlab_ODE9.png" style="width: 400px"
        alt="Slope field of x'(t) = 2\sin(x(t)+t + 3)\) with the graphs of three solutions">
+</div>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect25"> Iterative Function Systems </h3>
+
+<p>For an introduction to Iterative Function Systems (IFS), the
+reader may consult the websites <script language="javascript"> 
+  buildLinK(fractal1.url_en, fractal1.text_en, "MMathSStat",
+  fractal1.id, fractal1.target);
+</script> and <script language="javascript"> 
+  buildLinK(fractal2.url_en, fractal2.text_en, "MMathSStat",
+  fractal2.id, fractal2.target);
+</script>. </p>
+
+<p>We consider the following three IFS:</p>
+<ol>
+<li><p><em>Sierpinski triangle</em>:  This set is
+the <q lang="en">fixed point</q> of 
+the IFS defined by the following three functions.</p>
+\[
+\begin{split}
+\vec{y} &= \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x} +
+\begin{pmatrix} 0 \\ 1/2 \end{pmatrix} \\
+\vec{y} &= \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x} +
+\begin{pmatrix} 1/2 \\ 0 \end{pmatrix} \\
+\vec{y} &= \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x}
+\end{split}
+\]
+</li>
+<li><p><em>Fern</em>:  This set is the <q lang="en">fixed point</q> of
+the IFS defined by the following four functions.</p>
+\[
+\begin{split}
+\vec{y} &= \begin{pmatrix} 0 & 0 \\ 0 & 0.16 \end{pmatrix} \vec{x} \\
+\vec{y} &= \begin{pmatrix} 0.85 & 0.04 \\ -0.04 & 0.85 \end{pmatrix} \vec{x} +
+\begin{pmatrix} 0 \\ 1.6 \end{pmatrix} \\
+\vec{y} &= \begin{pmatrix} 0.20 & -0.26 \\ 0.23 & 0.22 \end{pmatrix} \vec{x} +
+\begin{pmatrix} 0 \\ 1.6 \end{pmatrix} \\
+\vec{y} &= \begin{pmatrix} -0.15 & 0.28 \\ 0.26 & 0.24 \end{pmatrix} \vec{x} +
+\begin{pmatrix} 0 \\ 0.44 \end{pmatrix}
+\end{split}
+\]
+</li>
+<li><p><em>Leaf</em>:  This set is the <q lang="en">fixed point</q> of
+the IFS defined by the following four functions.</p>
+\[
+\begin{split}
+\vec{y} &= \begin{pmatrix} 0.6 & 0 \\ 0 & 0.6 \end{pmatrix} \vec{x} +
+\begin{pmatrix} 0.18 \\ 0.36 \end{pmatrix} \\
+\vec{y} &= \begin{pmatrix} 0.6 & 0 \\ 0 & 0.6 \end{pmatrix} \vec{x} +
+\begin{pmatrix} 0.18 \\ 0.12 \end{pmatrix} \\
+\vec{y} &= \begin{pmatrix} 0.4 & 0.3 \\ -0.3 & 0.4 \end{pmatrix} \vec{x} +
+\begin{pmatrix} 0.27 \\ 0.32 \end{pmatrix} \\
+\vec{y} &= \begin{pmatrix} 0.4 & -0.3 \\ 0.3 & 0.4 \end{pmatrix} \vec{x} +
+\begin{pmatrix} 0.27 \\ 0.09 \end{pmatrix}
+\end{split}
+\]
+</li>
+</ol>
+
+<p>We provide two functions to iterate these IFS and thus
+generate the associated set.  The first function described below is
+strictly following the procedure to iterate the IFS.  The only
+inaccuracies are due to numerical computations.  However, this
+function cannot compute many iterations before exhausting the computer
+memory.  Assuming that we start the iterations with a simple set
+(e.g. a polygonal curve).  After 1 iteration, we have 3 transformed
+copies of the initial set.  After 2 iterations, we have
+3<sup>2</sup> transformed copies of the initial set. and so on.
+After 10 iterations, we have already 3<sup>10</sup> = 59,049
+transformed copies of the initial set.  We rapidly reach the limit
+of the computer memory.</p>
+
+<div class="Code">
+<pre class="matlab">
+% function ifs(X, N, syst, colour)
+%
+% X      : Initial set, a (2 x n) matrix storing the corners of the
+%          closed polygonal curve.
+% N      : The number of iterations.
+% syst   : It is one of Sierpinski (default), Fern or Leaf
+% colour : One of the colours accepted in Matlab plot/fill.
+%          The default colour is blue.
+%
+
+function ifs(X, N, syst, colour)
+    if ( nargin < 3 )
+        syst = "Sierpinski";
+        colour = 'blue';
+    elseif ( nargin < 4 )
+        colour = 'blue';
+    end
+
+    if ( strcmpi(syst,"Sierpinski") )
+        for i=1:N
+            fprintf('%d ',i)
+            X = sierpinski(X);
+        end
+    elseif ( strcmpi(syst,"Fern") )
+        for i=1:N
+            fprintf('%d ',i)
+            X = fern(X);
+        end
+    elseif ( strcmpi(syst,"Leaf") )
+        for i=1:N
+            fprintf('%d ',i)
+            X = leaf(X);
+        end
+    else
+        disp('No knows IFS has been given. Use help IFS for the instructions.');
+        return;
+    end
+
+    cla;
+    hold on;
+    axis off;
+
+    %    If the function fill() was behaving like the function
+    %    plot() when a point with coordinates NaN is inserted,
+    %    then the following three lines could be used instead of all the
+    %    lines of code below them.
+    %
+    %    p = fill(X(1,:), X(2,:),'b');
+    %    p.FaceColor = colour;
+    %    p.EdgeColor = colour;
+
+    I = find(isnan(X(1,:)));
+    if ( length(I) == 0 )
+        p = fill(X(1,:), X(2,:),'b');
+        set(p,'FaceColor',colour);
+        set(p,'EdgeColor',colour);
+    else
+        i1 = 1;
+        i2 = I(1)-1;
+        p = fill(X(1,i1:i2), X(2,i1:i2),'b');
+        set(p,'FaceColor',colour);
+        set(p,'EdgeColor',colour);
+        i1 = I(1)+1;
+        for i = 2:length(I)
+            i2 = I(i)-1;
+            p = fill(X(1,i1:i2), X(2,i1:i2),'b');
+            set(p,'FaceColor',colour);
+            set(p,'EdgeColor',colour);
+            i1 = I(i)+1;
+        end
+        p = fill(X(1,i1:size(X,2)), X(2,i1:size(X,2)),'b');
+        set(p,'FaceColor',colour);
+        set(p,'EdgeColor',colour);
+    end
+
+    fprintf('\nThe figure has been drawn\n');
+end
+
+% Sierpinski Triangle
+
+function XX = sierpinski(X)
+    XX = [0.5 * X + [0 ; 0.5], [NaN ; NaN]];
+    XX = [XX, 0.5 * X + [0.5 ; 0 ], [NaN ; NaN]];
+    XX = [XX, 0.5 * X];
+end
+
+% fern
+
+function XX = fern(X)
+    XX = [[0 , 0 ; 0, 0.16]*X, [NaN; NaN]];
+    XX = [XX, [0.85 , 0.04 ; -0.04 , 0.85]*X + [0 ; 1.6], [NaN ; NaN]];
+    XX = [XX, [0.20 ,-0.26 ; 0.23 , 0.22]*X + [0 ; 1.6],[NaN ; NaN]];
+    XX = [XX, [-0.15 , 0.28 ; 0.26 , 0.24]*X + [0 ; 0.44]];
+end
+
+% leaf
+
+function XX = leaf(X)
+    XX = [ [0.6 , 0 ; 0 , 0.6]*X + [0.18; 0.36],[NaN;NaN]];
+    XX = [XX, [0.6 , 0 ; 0 , 0.6]*X + [0.18; 0.12], [NaN;NaN]];
+    XX = [XX, [0.4, 0.3 ; -0.3 , 0.4]*X + [0.27; 0.32], [NaN;NaN]];
+    XX = [XX, [0.4, -0.3 ; 0.3 , 0.4]*X + [0.27; 0.09]];
+end
+</pre>
+</div>
+
+<p>The first argument of the previous function must be a closed
+polygonal curve.  The initial set is the set of all points enclosed by
+the polygonal curve.  It is possible to modify the previous function
+to accept more general initial sets.  This function can be found in
+the <em>m-file</em> <script language="javascript"> 
+  buildLinK("ifs.m", "ifs.m", "MMathSStat", "ifsmId", "_blank");
+</script>. </p>
+
+<div class="Example">
+<p><em>Example</em>: We choose the triangle with vertices at
+\( (0,0), (1,0) \) and \( (0,1) \) as our initial polygonal curve,
+and compute 5 iterations of the IFS for the Sierpinski triangle.
+Because of the simplicity of the Sierpinski triangle and the
+limited number of pixels on the computer screen, we get after 5
+iterations almost the best representation of the Sierpinski triangle
+that we can expect.</p>
+
+<pre class="matlab">
+>> <font class="matlab"> X= [ 0 1 0 0 ; 0 0 1 0];</font>
+>> <font class="matlab"> ifs(X,5,'Sierpinski','red')</font>
+1 2 3 4 5
+The figure has been drawn
+</pre>
+
+<div class="center">
+  <img src="Matlab_fractal1.png" style="width: 400px"
+       alt="Sierpinski triangle">
+</div>
+
+<p>The result is not as nice for the fern and the leaf because of
+the more complex IFS used to generate them.  The reader should try
+the previous function with the fern and the leaf to observe the
+limitations.</p>
+</div>
+
+<p>To avoid the issue with exponential growth in the number of
+transformed objects, we proceed differently.  We first rescale the
+problem.  Each function in our IFS are of the form 
+\(\vec{y} = A \vec{x} + \vec{b}\) for some \(2\times 2\) matrix \(A\)
+and vector \(\vec{b}\).
+Let \( \vec{X} = M \vec{x} \) and \( \vec{Y} = M \vec{y} \) for some
+large positive integer \(M\).  In the new coordinate system,
+the function \(\vec{y} = A \vec{x} + \vec{b}\) becomes
+\[
+\begin{equation} \label{Equ1}
+\vec{Y} = M \left( A \left( M^{-1} \vec{X} \right) + \vec{b}\right)
+ = A \vec{X} + M \vec{b} \ .
+\end{equation}
+\]
+In theory, we should map the initial set \(S\) to a set \(T\) in the
+new coordinate system; namely, \( T = \{ M\vec{x} : \vec{x} \in S\} \).
+After that, we can iterate the IFS \eqref{Equ1} staring with \(T\).
+In practice, we map the initial set \(S\) to a set
+\(T \subset \mathbb{Z} \times \mathbb{Z}\) ; more
+precisely, \( T = \{ ( \lfloor M x_1 \rfloor ,\lfloor M x_2 \rfloor)
+: \vec{x} \in S \} \).
+After that, we iterate the IFS \eqref{Equ1} 
+in \(\mathbb{Z} \times \mathbb{Z}\) starting with \(T\).
+This is equivalent to representing \(S\) with pixels on the screen and
+computing iterations of the IFS on the pixels.
+Since we only get vectors with integer coordinates, the numbers of
+vectors in the transformed sets do not increase exponentially.  In
+fact, they <q lang="en">converge</q> to the number of points 
+with integer coordinates inside the <q lang="en">fixed point</q> of
+the IFS in the new coordinate system.  By truncating the exact
+coordinates to integers, we are obviously loosing accuracy.  However,
+if M is large, then the lost of accuracy does not really affect the
+final image displayed because the quality of the final image is still 
+limited by number of pixels on the computer screen.</p>
+
+<p>The approach describe in the previous paragraph is implemented in
+the function defined below.</p>
+
+<div class="Code">
+<pre class="matlab">
+% function ifs2(X, N, syst, colour)
+%
+% X      : Initial set, a (2 x n) matrix storing the corners of the
+%          polygonal curve.
+% N      : The number of iterations.
+% syst   : It is one of Sierpinski (default), Fern or Leaf
+% colour : One of the colours accepted in Matlab plot/fill.
+%          The default colour is blue.
+%
+   
+function ifs2(X, N, syst, colour)
+    if ( nargin < 3 )
+        syst = "Sierpinski";
+        colour = 'blue';
+    elseif ( nargin < 4 )
+        colour = 'blue';
+    end
+
+    M = 400;
+
+    % We rescale the initial polygonal curve to get the set T.
+    ro = [];
+    co = [];
+    X1 = floor(M*X(:,1));
+    for i = 2:size(X,2)
+        X2 = floor(M*X(:,i));
+        R = max(abs(X1(1,1)-X2(1,1)),abs(X1(2,1)-X2(2,1)))+1;
+        ro = [ro,floor(linspace(X1(1,1),X2(1,1),R))];
+        co = [co,floor(linspace(X1(2,1),X2(2,1),R))];
+        X1 = X2;
+    end
+    rc = unique([ro;co]','rows');
+
+    % We compute the iterations of the selected IFS starting with T.
+    if ( strcmpi(syst,"Sierpinski") )
+        for i = 1:N
+            fprintf('%d ',i)
+            rc = sierpinski(rc,M);
+        end
+    elseif ( strcmpi(syst,"Fern") )
+        for i=1:N
+            fprintf('%d ',i)
+            rc = fern(rc,M);
+        end
+    elseif ( strcmpi(syst,"Leaf") )
+        for i=1:N
+            fprintf('%d ',i)
+            rc = leaf(rc,M);
+        end
+    else
+        disp('No knows IFS has been given. Use help IFS for the instructions.');
+        return;
+    end
+
+    cla;
+    hold on;
+    axis off;
+
+    % We rescale the resulting set to the initial coordinate system.
+    ro = rc(:,1)/M;
+    co = rc(:,2)/M;
+
+    % We draw the resulting set.
+    p = plot(ro,co,'.');
+    set(p,'Color',colour);
+
+    fprintf('\nThe figure has been drawn\n');
+end
+
+% Sierpinski Triangle
+
+function RC = sierpinski(rc,M)
+    ro = rc(:,1);
+    co = rc(:,2);
+    r1 = 0.5*ro;
+    c1 = 0.5*co + M*0.5;
+    r2 = 0.5*ro + M*0.5;
+    c2 = 0.5*co;
+    r3 = 0.5*ro;
+    c3 = 0.5*co;
+    r = floor([r1;r2;r3]);
+    c = floor([c1;c2;c3]);
+    RC = unique([r,c],'rows');
+end
+
+% fern
+
+function RC = fern(rc,M)
+    ro = rc(:,1);
+    co = rc(:,2);
+    r1 = 0*ro;
+    c1 = 0.16*co;
+    r2 = 0.85*ro + 0.04*co;
+    c2 = -0.04*ro + 0.85*co + M*1.6;
+    r3 = 0.20*ro - 0.26*co;
+    c3 = 0.23*ro + 0.22*co + M*1.6;
+    r4 = -0.15*ro + 0.28*co;
+    c4 = 0.26*ro + 0.24*co + M*0.44;
+    r = floor([r1;r2;r3;r4]);
+    c = floor([c1;c2;c3;c4]);
+    RC = unique([r,c],'rows');
+end
+
+% leaf
+
+function RC = leaf(rc,M)
+    ro = rc(:,1);
+    co = rc(:,2);
+    r1 = 0.6*ro + M*0.18;
+    c1 = 0.6*co + M*0.36;
+    r2 = 0.6*ro + M*0.18;
+    c2 = 0.6*co + M*0.12;
+    r3 = 0.4*ro + 0.3*co + M*0.27;
+    c3 = -0.3*ro + 0.4*co + M*0.32;
+    r4 = 0.4*ro - 0.3*co + M*0.27;
+    c4 = 0.3*ro + 0.4*co + M*0.09;
+    r = floor([r1;r2;r3;r4]);
+    c = floor([c1;c2;c3;c4]);
+    RC = unique([r,c],'rows');
+end
+</pre>
+</div>
+
+<p>This function can be found in the <em>m-file</em>
+<script language="javascript"> 
+  buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
+</script>. </p>
+
+<div class="Example">
+<p><em>Example</em>: We choose the triangle with vertices at
+\( (0,0), (1,0) \) and \( (0,1) \) as our initial polygonal curve,
+and compute 18 iterations of the IFS for the fern.  We repeat this
+operation with the IFS for the leaf.</p>
+
+<pre class="matlab">
+>> <font class="matlab"> X= [ 0 1 0 0 ; 0 0 1 0];</font>
+>> <font class="matlab"> ifs(X,18,'Fern','green')</font>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+The figure has been drawn
+</pre>
+
+<div class="center">
+  <img src="Matlab_fractal2.png" style="width: 400px"
+       alt="A fern">
+</div>
+
+<pre class="matlab">
+>> <font class="matlab"> ifs(X,18,'leaf','red')</font>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+The figure has been drawn
+</pre>
+
+<div class="center">
+  <img src="Matlab_fractal3.png" style="width: 400px"
+       alt="A leaf">
 </div>
 </div>
 

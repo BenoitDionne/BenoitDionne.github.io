@@ -266,7 +266,7 @@ function nextStepFERN(curves) {
     var newCurvesX = new Array(4*lh);
     var newCurvesY = new Array(4*lh);
 
-    var Fa = 0.95; /* 0.84925440558500; */
+    var Fa = 0.85; /* 0.84925440558500; */
     var Fb = 0.04; /* 0.03559430566200; */
     var Fc = 0.20; /* 0.19681770870000; */
     var Fd = 0.26; /* 0.25660125726800; */
