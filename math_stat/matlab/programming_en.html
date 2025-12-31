@@ -674,7 +674,7 @@ arbitrary parameter.  In particular, we are interested in the case
 
 <h3 id="Sect25"> Iterative Function Systems </h3>
 
-<p>For an introduction to Iterative Function Systems (IFS), the
+<p>For an introduction to <em>iterative function systems</em> (IFS), the
 reader may consult the websites <script language="javascript"> 
   buildLinK(fractal1.url_en, fractal1.text_en, "MMathSStat",
   fractal1.id, fractal1.target);
@@ -687,53 +687,51 @@ reader may consult the websites <script language="javascript">
 <ol>
 <li><p><em>Sierpinski triangle</em>:  This set is
 the <q lang="en">fixed point</q> of 
-the IFS \(\vec{x}_{i+1} = \mathcal{S}(\vec{x}_i)\)
-defined as it follows.</p>
+the IFS
+\(\displaystyle X_{i+1} = \mathcal{S}(X_i) = \bigcup_{j=1}^3 f_j(X_i)\)
+where</p>
 \[
 \begin{split}
-&\vec{u}_1 = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x}_i +
+&f_1(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x} +
 \begin{pmatrix} 0 \\ 1/2 \end{pmatrix} \ , \quad
-\vec{u}_2 = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x}_i +
-\begin{pmatrix} 1/2 \\ 0 \end{pmatrix} \ , \quad
-\vec{u}_3 = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix}\vec{x}_i \\
-&\text{and} \quad \vec{x}_{i+1} = \begin{pmatrix} \vec{u}_1 \\ \vec{u}_2 \\
-\vec{u}_3 \end{pmatrix}
+f_2(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x} +
+\begin{pmatrix} 1/2 \\ 0 \end{pmatrix} \ \\
+&\text{and} \quad
+f_3(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix}\vec{x} \ .
 \end{split}
 \]
 </li>
 <li><p><em>Fern</em>:  This set is the <q lang="en">fixed point</q> of
-the IFS \(\vec{x}_{i+1} = \mathcal{F}(\vec{x}_i)\) defined as it
-follows.</p> 
+the IFS
+\(\displaystyle X_{i+1} = \mathcal{F}(X_i) = \bigcup_{j=1}^4 f_j(X_i)\)
+where</p> 
 \[
 \begin{split}
-&\vec{u}_1 = \begin{pmatrix} 0 & 0 \\ 0 & 0.16 \end{pmatrix} \vec{x}_i
+&f_1(\vec{x}) = \begin{pmatrix} 0 & 0 \\ 0 & 0.16 \end{pmatrix} \vec{x}
 \ , \quad
-\vec{u}_2 = \begin{pmatrix} 0.85 & 0.04 \\ -0.04 & 0.85 \end{pmatrix}
-\vec{x}_i + \begin{pmatrix} 0 \\ 1.6 \end{pmatrix} \ , \quad
-\vec{u}_3 = \begin{pmatrix} 0.20 & -0.26 \\ 0.23 & 0.22 \end{pmatrix}
-\vec{x}_i + \begin{pmatrix} 0 \\ 1.6 \end{pmatrix} \ , \\
-&\vec{u}_4 = \begin{pmatrix} -0.15 & 0.28 \\ 0.26 & 0.24 \end{pmatrix}
-\vec{x}_i + \begin{pmatrix} 0 \\ 0.44 \end{pmatrix} \
-\text{and} \quad \vec{x}_{i+1} = \begin{pmatrix} \vec{u}_1 \\ \vec{u}_2 \\
-\vec{u}_3 \\ \vec{u}_4 \end{pmatrix}
+f_2(\vec{x}) = \begin{pmatrix} 0.85 & 0.04 \\ -0.04 & 0.85 \end{pmatrix}
+\vec{x} + \begin{pmatrix} 0 \\ 1.6 \end{pmatrix} \ , \\
+&f_3(\vec{x}) = \begin{pmatrix} 0.20 & -0.26 \\ 0.23 & 0.22 \end{pmatrix}
+\vec{x} + \begin{pmatrix} 0 \\ 1.6 \end{pmatrix} \ \text{and} \quad
+f_4(\vec{x}) = \begin{pmatrix} -0.15 & 0.28 \\ 0.26 & 0.24 \end{pmatrix}
+\vec{x} + \begin{pmatrix} 0 \\ 0.44 \end{pmatrix} \ .
 \end{split}
 \]
 </li>
 <li><p><em>Leaf</em>:  This set is the <q lang="en">fixed point</q> of
-the IFS \(\vec{x}_{i+1} = \mathcal{L}(\vec{x}_i)\) defined by as it
-follows.</p>
+the IFS
+\(\displaystyle X_{i+1} = \mathcal{F}(X_i) = \bigcup_{j=1}^4 f_j(X_i)\)
+where</p>
 \[
 \begin{split}
-&\vec{u}_1 = \begin{pmatrix} 0.6 & 0 \\ 0 & 0.6 \end{pmatrix}
-\vec{x}_i + \begin{pmatrix} 0.18 \\ 0.36 \end{pmatrix} \ , \quad
-\vec{u}_2 = \begin{pmatrix} 0.6 & 0 \\ 0 & 0.6 \end{pmatrix}
-\vec{x}_i + \begin{pmatrix} 0.18 \\ 0.12 \end{pmatrix} \ , \quad
-\vec{u}_3 = \begin{pmatrix} 0.4 & 0.3 \\ -0.3 & 0.4 \end{pmatrix}
-\vec{x}_i + \begin{pmatrix} 0.27 \\ 0.32 \end{pmatrix} \ , \\
-&\vec{u}_4 = \begin{pmatrix} 0.4 & -0.3 \\ 0.3 & 0.4 \end{pmatrix}
-\vec{x}_i + \begin{pmatrix} 0.27 \\ 0.09 \end{pmatrix} \
-\text{and} \quad \vec{x}_{i+1} = \begin{pmatrix} \vec{u}_1 \\ \vec{u}_2 \\
-\vec{u}_3 \\ \vec{u}_4 \end{pmatrix}
+&f_1(\vec{x}) = \begin{pmatrix} 0.6 & 0 \\ 0 & 0.6 \end{pmatrix}
+\vec{x}_ + \begin{pmatrix} 0.18 \\ 0.36 \end{pmatrix} \ , \quad
+f_2(\vec{x}) = \begin{pmatrix} 0.6 & 0 \\ 0 & 0.6 \end{pmatrix}
+\vec{x} + \begin{pmatrix} 0.18 \\ 0.12 \end{pmatrix} \ , \\
+&f_3(\vec{x}) = \begin{pmatrix} 0.4 & 0.3 \\ -0.3 & 0.4 \end{pmatrix}
+\vec{x} + \begin{pmatrix} 0.27 \\ 0.32 \end{pmatrix} \ \text{and} \quad
+f_4(\vec{x}) = \begin{pmatrix} 0.4 & -0.3 \\ 0.3 & 0.4 \end{pmatrix}
+\vec{x} + \begin{pmatrix} 0.27 \\ 0.09 \end{pmatrix} \ .
 \end{split}
 \]
 </li>
@@ -741,7 +739,7 @@ follows.</p>
 
 <p>We provide two functions in <em>Matlab</em> to approximate the
 <q lang="en">fixed point</q> for each of these IFS.
-The first function described below strictly applies
+The first function described below applies strictly
 the iterative procedure for each of the IFS.  The only
 inaccuracies are due to numerical computations.  However, this
 function cannot compute many iterations before exhausting the computer
@@ -874,9 +872,9 @@ the <em>m-file</em> <script language="javascript">
 defined by the triangle with vertices at \( (0,0), (1,0) \) and
  \( (0,1) \).  We compute 5 iterations for the Sierpinski triangle.
 Because of the simplicity of the Sierpinski triangle and the
-limited number of pixels of the computer screen, we almost get 
+limited number of pixels on the computer screens, we almost get 
 after 5 iterations the best representation of the Sierpinski triangle
-that we may expect.</p>
+that may be displayed.</p>
 
 <pre class="matlab">
 >> <font class="matlab"> X= [ 0 1 0 0 ; 0 0 1 0];</font>
@@ -890,52 +888,52 @@ The figure has been drawn
        alt="Sierpinski triangle">
 </div>
 
-<p>The result is not as nice for the fern and the leaf because of
-the more complex IFS used to generate them.  The reader should repeat
-this example with the fern and the leaf to observe the
-limits of this function.</p>
+<p>The result is not as nice for the fern and the leaf because they
+are <q lang="en">fixed points</q> of more complex IFS.  The reader
+should repeat this example with the fern and the leaf instead of the
+Sierpinski triangle to observe the limits of this function.</p>
 </div>
 
 <p>To avoid the problem associated to exponential growth in the number of
 copies of the transformed initial set, we modify our method to compute
 the iterations.  We first rescale the domain.  Each IFS is composed
-of <em>discrete dynamical systems</em> (DDS) of the form 
-\(\vec{u}_j = A \vec{x}_i + \vec{b}\) for a given \(2\times 2\) matrix \(A\)
-and vector \(\vec{b}\).  Let \( \vec{y}_i = M \vec{x}_i \) and
-\( \vec{v}_i = M \vec{u}_i \) for some
-large positive integer \(M\).  In the new coordinate system,
-the DDS \(\vec{u}_j = A \vec{x}_i + \vec{b}\) becomes</p>
+of functions of the form 
+\(f_j(\vec{x}) = A_j \vec{x} + \vec{b}_j\) for a given
+\(2\times 2\) matrix \(A_j\) and vector \(\vec{b}_j\).
+Let \( \vec{y} = M \vec{x} \)
+for some large positive integer \(M\).  In the new coordinate system,
+the function \(f_j\) becomes</p>
 \[
 \begin{equation} \label{Equ1}
-\vec{v}_j = M \left( A \left( M^{-1} \vec{y}_i \right) + \vec{b}\right)
- = A \vec{y}_i + M \vec{b} \ .
+g_j(\vec{y}) = M f_j\left(M^{-1} \vec{y}\right)
+= M \left( A_j \left( M^{-1} \vec{y} \right) + \vec{b}_j\right)
+ = A_j \vec{y} + M \vec{b}_j \ .
 \end{equation}
 \]
-<p>Hence, in the new coordinate system, the IFS is defined by the map 
-from \(\vec{y}_i\) to
-\(\displaystyle \vec{y}_{i+1} = \begin{pmatrix} \vec{v}_1 \\ \vec{v}_2
-\\ \vdots \end{pmatrix} \).</p>
+<p>Hence, in the new coordinate system, the IFS is defined by
+\(\displaystyle Y_{i+1} = \bigcup_{j=1}^J g_j(Y_i)\).
+</p>
 
 <p> In theory, in the new coordinate system, the initial set that we
 should use is the image \(T\) of the initial set \(S\);
 namely, \( T = \{ M\vec{x} : \vec{x} \in S\} \).
-After that, we may use the IFS composed of the DDS of the form
-\eqref{Equ1} with the initial set \(T\).
+After that, we may use the IFS composed of the functions given
+in \eqref{Equ1} with the initial set \(T\).
 In practice, we use the initial set \(T\) defined by</p>
 \[
- T = \{ \lfloor M\vec{x} \rfloor] \equiv
+ T = \{ \lfloor M\vec{x} \rfloor \equiv
 ( \lfloor M x_1 \rfloor ,\lfloor M x_2 \rfloor)
 : \vec{x} \in S \} \subset \mathbb{Z} \times \mathbb{Z} \ .
 \]
-<p>After that, we use the IFS composed of the DDS of the form \eqref{Equ1} in
-\(\mathbb{Z} \times \mathbb{Z}\); namely,
-\(\displaystyle \vec{y}_{i+1} = \begin{pmatrix} \lfloor \vec{v}_1 \rfloor
-\\ \lfloor \vec{v}_2 \rfloor \\ \vdots \end{pmatrix} \).
-This is equivalent to representing \(S\) with pixels of the computer
+<p>After that, we use the IFS composed of the functions given in
+\eqref{Equ1} on the space \(\mathbb{Z} \times \mathbb{Z}\); namely,
+we use \(\displaystyle \lfloor g_j(\vec{y}) \rfloor\)
+instead of \(\displaystyle g_j(\vec{y})\).
+This is equivalent to representing \(S\) with pixels on the computer
 screen and implementing the IFS on the pixels.</p>
 
 <p>Since we only get vectors with integer coordinates, the number of
-vectors in the unions of all the copies of transformed initial set
+vectors in the unions of all the copies of the transformed initial set
 does not increase exponentially.  In fact, it
 <q lang="en">converges</q> to the number of points with integer
 coordinates in (or <q lang="en">almost in</q>) the set representing
@@ -944,7 +942,7 @@ system.  By truncating the exact coordinates to get integer
 coordinates, we are obviously loosing accuracy.  However,
 if M is large, then the lost of accuracy does not really affect the
 final image displayed because the quality of the final image is still 
-limited by the number of pixels of the computer screen.</p>
+limited by the number of pixels on the computer screen.</p>
 
 <p>The approach described in the previous paragraphs is implemented in
 the function defined below.  To simplify the computer code, the
@@ -1080,7 +1078,10 @@ end
 <p>This function is found in the <em>m-file</em>
 <script language="javascript"> 
   buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
-</script>. </p>
+</script>.  It may be useful to modify the previous function by
+adding the factor \(M\) as argument.  Hence, this value could then be
+chosen to take full advantage of the quality of the computer screen.
+</p>
 
 <div class="Example">
 <p><em>Example</em>: The initial set that we choose is the polygonal curve 
