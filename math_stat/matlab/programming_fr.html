@@ -685,6 +685,452 @@ arbitraire.  En particulier, nous sommes intéressé au cas
 
 <h3 id="Sect25"> Systèmes itératifs de fonctions </h3>
 
+<p>Pour une introduction aux systèmes itératifs de fonctions (SIF), le
+lecteur peut consulter les sites Internet
+<script language="javascript"> 
+  buildLinK(fractal1.url_fr, fractal1.text_fr, "MMathSStat",
+  fractal1.id, fractal1.target);
+</script> et <script language="javascript"> 
+  buildLinK(fractal2.url_fr, fractal2.text_fr, "MMathSStat",
+  fractal2.id, fractal2.target);
+</script>.</p>
+
+<p>Nous considérons les trois SIF suivants:</p>
+<ol>
+<li><p><em>Triangle de Sierpinski</em>:  Cet ensemble est le
+<q lang="fr">point d'équilibre</q> du SIF
+\(\vec{x}_{i+1} = \mathcal{S}(\vec{x}_i)\)
+défini comme suit.</p>
+\[
+\begin{split}
+&\vec{u}_1 = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x}_i +
+\begin{pmatrix} 0 \\ 1/2 \end{pmatrix} \ , \quad
+\vec{u}_2 = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x}_i +
+\begin{pmatrix} 1/2 \\ 0 \end{pmatrix} \ , \quad
+\vec{u}_3 = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix}\vec{x}_i \\
+&\text{et} \quad \vec{x}_{i+1} = \begin{pmatrix} \vec{u}_1 \\ \vec{u}_2 \\
+\vec{u}_3 \end{pmatrix}
+\end{split}
+\]
+</li>
+<li><p><em>Fougère</em>:  Cet ensemble est le
+<q lang="fr">point d'équilibre</q> du SIF
+\(\vec{x}_{i+1} = \mathcal{F}(\vec{x}_i)\) défini comme suit.</p> 
+\[
+\begin{split}
+&\vec{u}_1 = \begin{pmatrix} 0 & 0 \\ 0 & 0.16 \end{pmatrix} \vec{x}_i
+\ , \quad
+\vec{u}_2 = \begin{pmatrix} 0.85 & 0.04 \\ -0.04 & 0.85 \end{pmatrix}
+\vec{x}_i + \begin{pmatrix} 0 \\ 1.6 \end{pmatrix} \ , \quad
+\vec{u}_3 = \begin{pmatrix} 0.20 & -0.26 \\ 0.23 & 0.22 \end{pmatrix}
+\vec{x}_i + \begin{pmatrix} 0 \\ 1.6 \end{pmatrix} \ , \\
+&\vec{u}_4 = \begin{pmatrix} -0.15 & 0.28 \\ 0.26 & 0.24 \end{pmatrix}
+\vec{x}_i + \begin{pmatrix} 0 \\ 0.44 \end{pmatrix} \
+\text{et} \quad \vec{x}_{i+1} = \begin{pmatrix} \vec{u}_1 \\ \vec{u}_2 \\
+\vec{u}_3 \\ \vec{u}_4 \end{pmatrix}
+\end{split}
+\]
+</li>
+<li><p><em>Feuille</em>:  Cet ensemble est le
+<q lang="fr">point d'équilibre</q> du SIF
+\(\vec{x}_{i+1} = \mathcal{L}(\vec{x}_i)\) défini comme suit.</p>
+\[
+\begin{split}
+&\vec{u}_1 = \begin{pmatrix} 0.6 & 0 \\ 0 & 0.6 \end{pmatrix}
+\vec{x}_i + \begin{pmatrix} 0.18 \\ 0.36 \end{pmatrix} \ , \quad
+\vec{u}_2 = \begin{pmatrix} 0.6 & 0 \\ 0 & 0.6 \end{pmatrix}
+\vec{x}_i + \begin{pmatrix} 0.18 \\ 0.12 \end{pmatrix} \ , \quad
+\vec{u}_3 = \begin{pmatrix} 0.4 & 0.3 \\ -0.3 & 0.4 \end{pmatrix}
+\vec{x}_i + \begin{pmatrix} 0.27 \\ 0.32 \end{pmatrix} \ , \\
+&\vec{u}_4 = \begin{pmatrix} 0.4 & -0.3 \\ 0.3 & 0.4 \end{pmatrix}
+\vec{x}_i + \begin{pmatrix} 0.27 \\ 0.09 \end{pmatrix} \
+\text{et} \quad \vec{x}_{i+1} = \begin{pmatrix} \vec{u}_1 \\ \vec{u}_2 \\
+\vec{u}_3 \\ \vec{u}_4 \end{pmatrix}
+\end{split}
+\]
+</li>
+</ol>
+
+<p>Nous fournissons deux fonctions dans <em>Matlab</em> pour
+approximer le <q lang="en">point d'équilibre</q> de chacun de ces
+SIF.  La première fonction décrite ci-dessous applique strictement la
+procédure itérative de chacun des SIF.  Les seules inexactitudes
+sont dues aux calculs numériques.  Cependant, cette fonction
+ne peut pas effectuer beaucoup d'itérations avant d'épuiser
+la mémoire de l'ordinateur.  Nous supposons que l'ensemble initial
+est un ensemble simple (e.g. une courbe polygonale).  Après une
+itération, nous avons 3 copies de l'ensemble initial transformé.
+Après 2 itérations, nous avons 3<sup>2</sup> copies de l'ensemble
+initial transformé.  Et ainsi de suite.  Après 10 itérations, nous
+avons déjà 3<sup>10</sup> = 59,049 copies de l'ensemble initial
+transformé.  Nous atteignons rapidement la capacité limite de la
+mémoire de l'ordinateur.</p>
+
+<div class="Code">
+<pre class="matlab">
+% function ifs(X, N, syst, colour)
+%
+% X      : Initial set, a (2 x n) matrix storing the corners of the
+%          closed polygonal curve.
+% N      : The number of iterations.
+% syst   : It is one of Sierpinski (default), Fern or Leaf
+% colour : One of the colours accepted in Matlab plot/fill.
+%          The default colour is blue.
+%
+
+function ifs(X, N, syst, colour)
+    if ( nargin < 3 )
+        syst = "Sierpinski";
+        colour = 'blue';
+    elseif ( nargin < 4 )
+        colour = 'blue';
+    end
+
+    if ( strcmpi(syst,"Sierpinski") )
+        for i=1:N
+            fprintf('%d ',i)
+            X = sierpinski(X);
+        end
+    elseif ( strcmpi(syst,"Fern") )
+        for i=1:N
+            fprintf('%d ',i)
+            X = fern(X);
+        end
+    elseif ( strcmpi(syst,"Leaf") )
+        for i=1:N
+            fprintf('%d ',i)
+            X = leaf(X);
+        end
+    else
+        disp('No knows IFS has been given. Use help IFS for the instructions.');
+        return;
+    end
+
+    cla;
+    hold on;
+    axis off;
+
+    %    If the function fill() was behaving like the function
+    %    plot() when a point with coordinates NaN is inserted,
+    %    then the following three lines could be used instead of all the
+    %    lines of code below them.
+    %
+    %    p = fill(X(1,:), X(2,:),'b');
+    %    p.FaceColor = colour;
+    %    p.EdgeColor = colour;
+
+    I = find(isnan(X(1,:)));
+    if ( length(I) == 0 )
+        p = fill(X(1,:), X(2,:),'b');
+        set(p,'FaceColor',colour);
+        set(p,'EdgeColor',colour);
+    else
+        i1 = 1;
+        i2 = I(1)-1;
+        p = fill(X(1,i1:i2), X(2,i1:i2),'b');
+        set(p,'FaceColor',colour);
+        set(p,'EdgeColor',colour);
+        i1 = I(1)+1;
+        for i = 2:length(I)
+            i2 = I(i)-1;
+            p = fill(X(1,i1:i2), X(2,i1:i2),'b');
+            set(p,'FaceColor',colour);
+            set(p,'EdgeColor',colour);
+            i1 = I(i)+1;
+        end
+        p = fill(X(1,i1:size(X,2)), X(2,i1:size(X,2)),'b');
+        set(p,'FaceColor',colour);
+        set(p,'EdgeColor',colour);
+    end
+
+    fprintf('\nThe figure has been drawn\n');
+end
+
+% Sierpinski Triangle
+
+function XX = sierpinski(X)
+    XX = [0.5 * X + [0 ; 0.5], [NaN ; NaN]];
+    XX = [XX, 0.5 * X + [0.5 ; 0 ], [NaN ; NaN]];
+    XX = [XX, 0.5 * X];
+end
+
+% fern
+
+function XX = fern(X)
+    XX = [[0 , 0 ; 0, 0.16]*X, [NaN; NaN]];
+    XX = [XX, [0.85 , 0.04 ; -0.04 , 0.85]*X + [0 ; 1.6], [NaN ; NaN]];
+    XX = [XX, [0.20 ,-0.26 ; 0.23 , 0.22]*X + [0 ; 1.6],[NaN ; NaN]];
+    XX = [XX, [-0.15 , 0.28 ; 0.26 , 0.24]*X + [0 ; 0.44]];
+end
+
+% leaf
+
+function XX = leaf(X)
+    XX = [ [0.6 , 0 ; 0 , 0.6]*X + [0.18; 0.36],[NaN;NaN]];
+    XX = [XX, [0.6 , 0 ; 0 , 0.6]*X + [0.18; 0.12], [NaN;NaN]];
+    XX = [XX, [0.4, 0.3 ; -0.3 , 0.4]*X + [0.27; 0.32], [NaN;NaN]];
+    XX = [XX, [0.4, -0.3 ; 0.3 , 0.4]*X + [0.27; 0.09]];
+end
+</pre>
+</div>
+
+<p>Le premier argument de la fonction précédente doit être une courbe
+polygonale fermée.  L'ensemble initiale est l'ensemble des points
+inclus dans la région bornée délimitée par la courbe polygonale.
+Il est possible de modifier la fonction précédente pour accepter des
+ensembles initiaux plus généraux.  La fonction ci-dessus se trouve
+dans le <em>fichier m</em> <script language="javascript"> 
+  buildLinK("ifs.m", "ifs.m", "MMathSStat", "ifsmId", "_blank");
+</script>. </p>
+
+<div class="Example">
+<p><em>Exemple</em>: La courbe polynomiale initiale que nous
+choisissons est définie par le triangle avec les sommets aux 
+points \( (0,0), (1,0) \) et \( (0,1) \).  Nous calculons 5 itérations
+pour le triangle de Sierpinski.  En raison de la simplicité du
+triangle de Sierpinski et du nombre limité de pixels de l'écran
+d'ordinateur, nous obtenons après 5 itérations presque la meilleure
+représentation du triangle de Sierpinski.</p>
+
+<pre class="matlab">
+>> <font class="matlab"> X= [ 0 1 0 0 ; 0 0 1 0];</font>
+>> <font class="matlab"> ifs(X,5,'Sierpinski','red')</font>
+1 2 3 4 5
+The figure has been drawn
+</pre>
+
+<div class="center">
+  <img src="Matlab_fractal1.png" style="width: 400px"
+       alt="Triangle de Sierpinski">
+</div>
+
+<p>Le résultat n'est pas aussi bien pour la fougère et la feuille en
+raison de la complexité des SIF qui sont utilisés pour les produire.
+Le lecteur devrait répéter cet exemple avec la fougère et la feuille
+pour observer les limites de cette fonction.</p>
+</div>
+
+<p>Pour éviter le problème associé à la croissance exponentielle du
+nombre de copies de l'ensemble initial transformé, nous modifions
+notre méthode de calcul des itérations.  Nous redimensionnons
+le domaine.  Chaque SIF est composé de
+<em>systèmes dynamiques discrets</em> (SDD) de la forme
+\(\vec{u}_j = A \vec{x}_i + \vec{b}\) pour une matrice \(A\) de
+dimensions \( 2\times 2\) et un vecteur \(\vec{b}\) donnés.  
+Nous possons \( \vec{y}_i = M \vec{x}_i \) et
+\( \vec{v}_i = M \vec{u}_i \) pour un grand nombre entier positif
+\(M\).  Dans le nouveau système de coordonnées, le SDD
+\(\vec{u}_j = A \vec{x}_i + \vec{b}\) devient</p>
+\[
+\begin{equation} \label{Equ1}
+\vec{v}_j = M \left( A \left( M^{-1} \vec{y}_i \right) + \vec{b}\right)
+ = A \vec{y}_i + M \vec{b} \ .
+\end{equation}
+\]
+<p>Ainsi, dans le nouveau système de coordonnées, le SIF est défini
+par l'application de \(\vec{y}_i\) à
+\(\displaystyle \vec{y}_{i+1} = \begin{pmatrix} \vec{v}_1 \\ \vec{v}_2
+\\ \vdots \end{pmatrix} \).</p>
+
+<p> En théorie, dans le nouveau système de coordonnées, l'ensemble
+initial que nous devrions utiliser est l'image \(T\) de l'ensemble
+initial \(S\); c'est-à-dire, \( T = \{ M\vec{x} : \vec{x} \in S\} \).
+Après cela, nous pouvons utiliser le SIF composé des SDD de la forme
+\eqref{Equ1} avec l'ensemble initial \(T\).
+En pratique, nous utilisons l'ensemble initiale \(T\) défini par</p>
+\[
+ T = \{ \lfloor M\vec{x} \rfloor] \equiv
+( \lfloor M x_1 \rfloor ,\lfloor M x_2 \rfloor)
+: \vec{x} \in S \} \subset \mathbb{Z} \times \mathbb{Z} \ .
+\]
+<p>Après cela, nous utilisons le SIF composé de SDD de la forme
+\eqref{Equ1} dans \(\mathbb{Z} \times \mathbb{Z}\); c'est-à-dire,
+\(\displaystyle \vec{y}_{i+1} = \begin{pmatrix} \lfloor \vec{v}_1 \rfloor
+\\ \lfloor \vec{v}_2 \rfloor \\ \vdots \end{pmatrix} \).
+Ceci est équivalent à représenter \(S\) avec les pixels de l'écran et
+et mettre en oeuvre le SIF sur les pixels.</p>
+
+<p>Puisque nous obtenons seulement des vecteurs avec des coordonnées
+entières, le nombre de vecteurs dans l'union des copies de l'ensemble
+initial transformé ne croit pas de façon exponentielle.  En fait,
+il <q lang="en">converge</q> vers le nombre de points avec des
+coordonnées entières qui sont inclus
+(ou <q lang="fr">presqu'inclus</q>) dans l'ensemble qui
+représente le <q lang="en">point d'équilibre</q> du SIF dans le
+nouveau système de coordonnées.  En raison de la troncature des
+coordonnées exactes pour obtenir des coordonnées entières, nous
+naturellement perdons en précision.  Cependant, si M est grand,
+alors la perte de précision n'affecte pas réellement l'image finale
+qui est affichée car la qualité de l'image est toujours limitée
+par le nombre de pixels de l'écran d'ordinateur.</p>
+
+<p>L'approche décrite dans les paragraphes précédents est mise à
+l'oeuvre dans la fonction définie ci-dessous.</p>
+Pour simplifier le programme informatique, les ensembles
+initiaux doivent être des courbes polygonales.  Comme pour la
+fonction <font class="matlab">ifs</font>, cette fonction peut être
+modifiée pour accepter des ensembles initiaux plus généraux.</p>
+
+<div class="Code">
+<pre class="matlab">
+% function ifs2(X, N, syst, colour)
+%
+% X      : Initial set, a (2 x n) matrix storing the corners of the
+%          polygonal curve.
+% N      : The number of iterations.
+% syst   : It is one of Sierpinski (default), Fern or Leaf
+% colour : One of the colours accepted in Matlab plot/fill.
+%          The default colour is blue.
+%
+   
+function ifs2(X, N, syst, colour)
+    if ( nargin < 3 )
+        syst = "Sierpinski";
+        colour = 'blue';
+    elseif ( nargin < 4 )
+        colour = 'blue';
+    end
+
+    M = 400;
+
+    % We rescale the initial polygonal curve to get the set T.
+    ro = [];
+    co = [];
+    X1 = floor(M*X(:,1));
+    for i = 2:size(X,2)
+        X2 = floor(M*X(:,i));
+        R = max(abs(X1(1,1)-X2(1,1)),abs(X1(2,1)-X2(2,1)))+1;
+        ro = [ro,floor(linspace(X1(1,1),X2(1,1),R))];
+        co = [co,floor(linspace(X1(2,1),X2(2,1),R))];
+        X1 = X2;
+    end
+    rc = unique([ro;co]','rows');
+
+    % We compute the iterations of the selected IFS starting with T.
+    if ( strcmpi(syst,"Sierpinski") )
+        for i = 1:N
+            fprintf('%d ',i)
+            rc = sierpinski(rc,M);
+        end
+    elseif ( strcmpi(syst,"Fern") )
+        for i=1:N
+            fprintf('%d ',i)
+            rc = fern(rc,M);
+        end
+    elseif ( strcmpi(syst,"Leaf") )
+        for i=1:N
+            fprintf('%d ',i)
+            rc = leaf(rc,M);
+        end
+    else
+        disp('No knows IFS has been given. Use help IFS for the instructions.');
+        return;
+    end
+
+    cla;
+    hold on;
+    axis off;
+
+    % We rescale the resulting set to the initial coordinate system.
+    ro = rc(:,1)/M;
+    co = rc(:,2)/M;
+
+    % We draw the resulting set.
+    p = plot(ro,co,'.');
+    set(p,'Color',colour);
+
+    fprintf('\nThe figure has been drawn\n');
+end
+
+% Sierpinski Triangle
+
+function RC = sierpinski(rc,M)
+    ro = rc(:,1);
+    co = rc(:,2);
+    r1 = 0.5*ro;
+    c1 = 0.5*co + M*0.5;
+    r2 = 0.5*ro + M*0.5;
+    c2 = 0.5*co;
+    r3 = 0.5*ro;
+    c3 = 0.5*co;
+    r = floor([r1;r2;r3]);
+    c = floor([c1;c2;c3]);
+    RC = unique([r,c],'rows');
+end
+
+% fern
+
+function RC = fern(rc,M)
+    ro = rc(:,1);
+    co = rc(:,2);
+    r1 = 0*ro;
+    c1 = 0.16*co;
+    r2 = 0.85*ro + 0.04*co;
+    c2 = -0.04*ro + 0.85*co + M*1.6;
+    r3 = 0.20*ro - 0.26*co;
+    c3 = 0.23*ro + 0.22*co + M*1.6;
+    r4 = -0.15*ro + 0.28*co;
+    c4 = 0.26*ro + 0.24*co + M*0.44;
+    r = floor([r1;r2;r3;r4]);
+    c = floor([c1;c2;c3;c4]);
+    RC = unique([r,c],'rows');
+end
+
+% leaf
+
+function RC = leaf(rc,M)
+    ro = rc(:,1);
+    co = rc(:,2);
+    r1 = 0.6*ro + M*0.18;
+    c1 = 0.6*co + M*0.36;
+    r2 = 0.6*ro + M*0.18;
+    c2 = 0.6*co + M*0.12;
+    r3 = 0.4*ro + 0.3*co + M*0.27;
+    c3 = -0.3*ro + 0.4*co + M*0.32;
+    r4 = 0.4*ro - 0.3*co + M*0.27;
+    c4 = 0.3*ro + 0.4*co + M*0.09;
+    r = floor([r1;r2;r3;r4]);
+    c = floor([c1;c2;c3;c4]);
+    RC = unique([r,c],'rows');
+end
+</pre>
+</div>
+
+<p>Cette fonction se trouve dans le <em>fichier m</em>
+<script language="javascript"> 
+  buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
+</script>. </p>
+
+<div class="Example">
+<p><em>Exemple</em>: L'ensemble initial que nous choisissons est la
+courbe polygonale définie par le triangle avec les sommets aux
+points \( (0,0), (1,0) \) et \( (0,1) \).  Nous calculons 
+18 itérations pour la fougère.  Nous répétons cet exemple avec la
+feuille au lieu de la fougère.</p>
+
+<pre class="matlab">
+>> <font class="matlab"> X= [ 0 1 0 0 ; 0 0 1 0];</font>
+>> <font class="matlab"> ifs(X,18,'Fern','green')</font>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+The figure has been drawn
+</pre>
+
+<div class="center">
+  <img src="Matlab_fractal2.png" style="width: 400px"
+       alt="A fern">
+</div>
+
+<pre class="matlab">
+>> <font class="matlab"> ifs(X,18,'leaf','red')</font>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+The figure has been drawn
+</pre>
+
+<div class="center">
+  <img src="Matlab_fractal3.png" style="width: 400px"
+       alt="A leaf">
+</div>
+</div>
 
 <hr class="MMathSStat">
 
