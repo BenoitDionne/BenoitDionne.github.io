@@ -1,6 +1,28 @@
 window.onload = apps_init;
 
 function apps_init() {
+    if ( document.getElementById("SRPK") != null ) {
+	var initSRPK = document.getElementById("initSRPK");
+	var filledSRPK = document.getElementById("filledSRPK");
+	var colourSRPK = document.getElementById("colourSRPK");
+	var fillSrpk = false;
+	var colSrpk = "black";
+    
+	if ( filledSRPK != null )
+	    fillSrpk = ( filledSRPK.value === 'true' );
+
+	if ( colourSRPK != null )
+	    colSrpk = colourSRPK.value;
+
+	if ( initSRPK != null )
+	    initSRPK.onchange = function() {
+		initObject("SRPK", fillSrpk, colSrpk, initSRPK.value);
+	    }
+
+	initObject("SRPK", fillSrpk, colSrpk, 0);
+	initSRPK.value = 0;
+    }
+
     if ( document.getElementById("FERN") != null ) {
 	var initFERN = document.getElementById("initFERN");
 	var filledFERN = document.getElementById("filledFERN");
@@ -189,7 +211,7 @@ function plotCurve2(cnvs, curves, fillCurve) {
     var height = cnvs.height;
     var cntxt = cnvs.getContext("2d");
 
-    var J = curves.initNbrVtx;
+    var J = curves.initNbrVtx + 1;
     var N = curves.curvesX.length;
     var X = curves.curvesX;
     var Y = curves.curvesY;
@@ -199,29 +221,31 @@ function plotCurve2(cnvs, curves, fillCurve) {
     var my = curves.my;
     var My = curves.My;
 
-    var delta;
-    if ( (My-my)*(Mx-mx) != 0 )
-	delta = Math.min(width/(Mx-mx),height/(My-my));
-    else if ( My - my != 0 )
-	delta = height/(My-my);
-    else if ( Mx - mx != 0 )
-	delta = height/(Mx-mx);
+    var deltax, deltay;
+    if ( My - my != 0 )
+	deltay = height/(My-my);
     else
-	delta = 1;
+	deltay = 1;
 
-    /* to center horizontally the figure */
+    if ( Mx - mx != 0 )
+	deltax = height/(Mx-mx);
+    else
+	deltax = 1;
+
+    /* To centre horizontally the figure 
     var w0 = Math.max(0, Math.floor((width - (Mx - mx)*delta)/2));
 
-    /* to center vertically the figure */
+    /* To centre vertically the figure
     var h0 = height - Math.max(0, Math.floor((height - (My - my)*delta)/2));
+    */
 
     for ( var j = 0 ; j < N ; j=j+J ) {
 	cntxt.beginPath();
-	cntxt.moveTo(w0 + Math.floor((X[j+0]-mx)*delta),
-		     h0 - Math.floor((Y[j+0]-my)*delta));
+	cntxt.moveTo(Math.floor((X[j]-mx)*deltax),
+		     height - Math.floor((Y[j]-my)*deltay));
 	for ( var i = 1 ; i<J ; ++i ) {
-	    cntxt.lineTo(w0 + Math.floor((X[j+i]-mx)*delta),
-			 h0 - Math.floor((Y[j+i]-my)*delta));
+	    cntxt.lineTo(Math.floor((X[j+i]-mx)*deltax),
+			 height - Math.floor((Y[j+i]-my)*deltay));
 	}
 	cntxt.stroke();
 	cntxt.closePath();
@@ -230,6 +254,50 @@ function plotCurve2(cnvs, curves, fillCurve) {
 	}
 	cntxt.save();
     }
+}
+
+/* *********************************************************************** */
+
+/* Iterations on the real coordinates */
+function iterateSRPK() {
+    var cnvs = document.getElementById("SRPK");
+    var width = cnvs.width;
+    var height = cnvs.height;
+    var cntxt = cnvs.getContext("2d");
+
+    var nbr = Number( document.getElementById("nbrSRPK").value );
+    var choice = Number( document.getElementById("initSRPK").value );
+    var fillSrpk = ( document.getElementById("filledSRPK").value === 'true' );
+    var colSrpk = document.getElementById("colourSRPK").value;
+
+    var curves = initObject4(cnvs, fillSrpk, colSrpk, choice);
+
+    for ( var i = 0 ; i < nbr ; ++i )
+	curves = nextStepSRPK(curves);
+
+    cntxt.clearRect(0,0, width, height);
+    plotCurve2(cnvs, curves, fillSrpk);
+}
+
+function nextStepSRPK(curves) {
+    var curvesX = curves.curvesX;
+    var curvesY = curves.curvesY;
+    var initNbrVtx = curves.initNbrVtx;
+
+    var lh = curvesX.length;
+    var lh2 = 2*lh;
+    var newCurvesX = new Array(3*lh);
+    var newCurvesY = new Array(3*lh);
+
+    for (var i=0 ; i < lh ; ++i ){
+	newCurvesX[i] = 0.5*curvesX[i];
+	newCurvesY[i] = 0.5*curvesY[i];
+	newCurvesX[i+lh] = 0.5*curvesX[i];
+	newCurvesY[i+lh] = 0.5 + 0.5*curvesY[i];
+	newCurvesX[i+lh2] = 0.5 + 0.5*curvesX[i];
+	newCurvesY[i+lh2] = 0.5*curvesY[i];
+    }
+    return new Curves2(newCurvesX, newCurvesY, initNbrVtx);
 }
 
 /* *********************************************************************** */

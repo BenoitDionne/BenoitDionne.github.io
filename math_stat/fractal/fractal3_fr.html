@@ -10,7 +10,7 @@ Math. et Stat. -- Benoit Dionne
 
 <meta name="Title" content="Mathematiques et Statistique">
 <meta name="Author" content="Benoit Dionne">
-<meta scheme="Year-Month-Day" name="Date of Publication" content="2025-11-10">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2025-11-09">
 <meta name="Keywords" content="mathematiques,statistique,universite,ottawa">
 <meta name="Copyright" content= "&copy; 2014 Benoit Dionne, uOttawa">
 <meta http-equiv="Expires" content="">
@@ -26,7 +26,7 @@ document.write("Include javascript file has failed")
 document.write("Include javascript file has failed")
 </script>
 
-<script language="javascript" src="DDS.js">
+<script language="javascript" src="IFS2.js">
   document.write("Include javascript file has failed")
 </script>
 
@@ -53,361 +53,109 @@ main_title( MStexte, "MMathSStat");
 </tr>
 </table>
 
-<h3> Systèmes dynamiques discrets </h3>
+<h2> Dimensions fractales </h2>
 
-<p> Les plus simples SIF sont définis par une seule fonction à valeurs
-réelles définie sur un segment de la droite réelle.  De plus, au lieu
-de partir avec un ensemble (triangle, ...), nous partons avec un seul
-point sur le segment.</p>
+<p> Il n'y a pas de définition précise d'un ensemble fractal.  Benoit
+B. Mandelbrot (le père de la géométrie fractale) défini une
+fractale comme un ensemble pour lequel la dimension
+de <q lang="fr">Hausdorff</q> est
+strictement plus grande que la dimension topologique.  Quelques
+mathématiciens vont aussi exiger qu'il y ait autosimilarité (c'est le
+cas du triangle de Sierpinski). </p> 
 
-<p> Soit <em class="Equations"> f </em> une fonction à valeurs
-réelles qui est définie sur la droite réelle.  La formule </p>
-
-<center>
-  <em class="Equations_Display">
-    x<sub>n+1</sub> = f(x<sub>n</sub>)&nbsp; , &nbsp n = 0,1,2,...
-  </em>
-</center>
-
-<p>définie un <em> système dynamique discret (SDD)</em>.  Pour
-tous <em class="Equations">x<sub>0</sub></em> donné, nous pouvons
-générer une suite</p>
-
-<center>
-<em class="Equations_Display">
-x<sub>1</sub> = f(x<sub>0</sub>), &nbsp;
-x<sub>2</sub> = f(x<sub>1</sub>), &nbsp;
-x<sub>3</sub> = f(x<sub>2</sub>), &nbsp; ...
-</em>
-</center>
+<p> Nous considérons seulement les notions de
+<em>dimension d'homothétie</em> et de <em>dimension de Minkowski</em>.
+Nous ajouterons possiblement plus d'information sur ces sujets plus
+tard. </p>
 
 <hr class="MMathSStat">
 
-<h4>Fonctions affines</h4>
+<h3> Dimension d'homothétie </h3>
 
-<p> Nous débutons avec l'étude des systèmes dynamiques
-discrets dont les <em> fonction génératrices</em>
-<em class="Equations">f</em> sont des fonctions affines.
-C'est-à-dire, les fonctions de la forme </p>
-
-<center>
-  <em class="Equations_Display">  f(x) = m x + b </em>
-</center>
-
-<p> Le paramètre <em class="Equations">m</em> est la pente de la
-droite qui représente l'image de la fonction <em class="Equations">f</em> et
-<em class="Equations">b</em> est l'abscisse à l'origine de cette
-droite.</p>
-
-<p> Qu'arrive-t-il aux <em>orbites</em> <em class="Equations">x<sub>0</sub>,
-x<sub>1</sub>, x<sub>2</sub>, ... </em> si nous varions les paramètres
-<em class="Equations">m</em> et <em class="Equations">b</em>? </p>
-
-<p> Le lecteur est invité à explorer à l'aide de l'application graphique
-ci-dessous le comportement des orbites <em class="Equations">x<sub>0</sub>,
-x<sub>1</sub>, x<sub>2</sub>, ... </em> pour différentes valeurs des
-paramètres <em class="Equations">m</em>
-et <em class="Equations">b</em>, et de la 
-condition initiale <em class="Equations">x<sub>0</sub></em>. </p>  
-
-<p>L'application graphique ci-dessus trace le
-<em>graphe en forme de toile d'araignée</em> 
-associé à la fonction <em class="Equations">f</em>
-et la condition initiale <em class="Equations">x<sub>0</sub></em>
-choisie.  Le graphe débute au point
-<em class="Equations">(x<sub>0</sub>,0)</em>.</p>
-<ol>
-<li> À partir de <em class="Equations">(x<sub>0</sub>,0)</em>, nous
-traçons une droite verticale qui coupe le graphe de <em class="Equations">f</em>
-au point <em class="Equations">(x<sub>0</sub>,x<sub>1</sub>)</em> </li>
-<li> À partir de <em class="Equations">(x<sub>0</sub>,x<sub>1</sub>)</em>,
-nous traçons une droite horizontale qui coupe la droite
-<em class="Equations"> y = x</em> au point
-<em class="Equations">(x<sub>1</sub>,x<sub>1</sub>)</em>. </li>
-<li> À partir de <em class="Equations">(x<sub>1</sub>,x<sub>1</sub>)</em>,
-nous traçons une droite verticale qui coupe le graphe de
-<em class="Equations">f</em> au point
-<em class="Equations">(x<sub>1</sub>,x<sub>2</sub>)</em>. </li>
-<li> À partir de <em class="Equations">(x<sub>1</sub>,x<sub>2</sub>)</em>,
-nous traçons une droite horizontale qui coupe la droite
-<em class="Equations">y = x</em> au point
-<em class="Equations">(x<sub>2</sub>,x<sub>2</sub>)</em>.</li>
-<li> À partir de
-<em class="Equations">(x<sub>2</sub>,x<sub>2</sub>)</em>,
-nous traçons une droite verticale qui coupe le graphe de
-<em class="Equations">f</em> au point
-<em class="Equations">(x<sub>2</sub>,x<sub>3</sub>)</em>, </li>
-<li> Et ainsi de suite.</li>
-</ol>
-
-<p>Les points <em class="Equations">(x<sub>n</sub>,x<sub>n</sub>)</em>
-sur la droite <em class="Equations">y = x</em> peuvent être jumelés
-aux points <em class="Equations">(x<sub>n</sub>,0)</em>
-et décrivent donc les orbites du SDD.</p>
-
-<div class="center">
-  <canvas id="linearDDS" width="400" height="400">
-  </canvas>
-</div>
-
-<ul>
-  <li> <em class="Equations"> m = </em>
-    <input type="text" value="0.5" id="linear_m"> </li>
-  <li> <em class="Equations"> b = </em>
-    <input type="text" value="2" id="linear_b"> </li>
-  <li> <em class="Equations"> x<sub>0</sub> = </em>
-    <input type="text" value="0.5" id="linear_x"> </li>
-  <li> Nombre d'itérations <input type="text" value="10" id="linear_nbr">
-  </li>
-  <li> <input type="button" value="Débuter" onclick="linearDDS()">
-  </li>
-  <li> <input type="button" value="Effacer" onclick="clearDDS('linearDDS')">
-  </li>
-</ul>
-
-<p> La courbe en bleu dans la figure ci-dessus (après avoir cliqué sur
-le bouton <em>Débuter</em>) est le graphe de la fonction
-<em class="Equations">f</em> et la ligne diagonale en rouge est la
-droite <em class="Equations">y = x</em>. </p>
-
-<p> Le point <em class="Equations">p</em> dans la figure ci-dessus
-satisfait <em class="Equations">f(p) = p</em>.  Pour cette raison, le point
-<em class="Equations">p</em> est appelé un <em>point fixe</em> de
-<em class="Equations">f</em>.  Pour quelles conditions a-t-on que les
-orbites <em class="Equations">x<sub>0</sub>, x<sub>1</sub>,
-x<sub>2</sub>, ... </em> convergent vers
-<em class="Equations">p</em>?   S'éloignent de
-<em class="Equations">p</em>? </p>
-
-<p>
-<hr>
-<p>
-
-<h4 id="logistic"> La fonction Logistique </h4>
-
-<p> Le plus simple SDD non-affine est donné par
-<em>la fonction logistique</em>.  Par contre, nous allons voir que le
-comportement des orbites générées par itérations de cette fonction
-sont loin d'être simples.  La fonction logistique est la
-fonction <em class="Equations">f<sub>&micro;</sub></em> définie par</p>
+<p> La <em>dimension d'homothétie</em> d'un ensemble
+<em class="Equations"> A</em> est définie par l'équation </p>
 
 <center>
 <em class="Equations_Display">
-f<sub>&micro;</sub>(x) = &micro; x(1- x) &nbsp; ,
+    Dimension = log(a) / log(1/s)
 </em>
 </center>
 
-<p> où <em class="Equations">&micro</em> est un paramètre fixe mais
-arbitraire.  Nous avons une famille de fonctions, une fonction pour chaque
-valeur de <em class="Equations">&micro;</em>. </p>  
+<p> où <em class="Equations">a</em> est le nombre
+de <q lang="fr">petits</q> ensembles semblables à l'ensemble de départ
+et <em class="Equations">s</em> est la grandeur de la mise à l'échelle
+utilisée pour produire les <q lang="fr">petits</q> ensemble.  Par
+exemple: </p> 
 
-<p> Le SDD associé à la fonction logistique est donné par la formule
-suivante. </p>
+<ul>
+<li><p>La dimension d'homothétie du segment <em class="Equations">[0,1]</em>
+est 1.  Pour
+<em class="Equations">s = 1/4</em> et <em class="Equations">a = 4</em>,
+nous obtenons</p>
+<div class="center">
+  <em class="Equations">log(a)/log(1/s) = log(4)/log(4) = 1</em>.
+</div>
+<p> Nous laissons au lecteur le soin de décrire les quatre (évidentes)
+fonctions de <em class="Equations">[0,1]</em> dans lui-même
+qui composent le SIF
+<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
+tel que l'intervalle <em class="Equations">[0,1]</em> est le point
+fixe de la fonction <em class="Equations">f<sup>c</sup></em> associée
+au SIF.</p>
+</li>
+<li>
+<p><p>La dimension d'homothétie d'un cube est 3.  Pour
+<em class="Equations">s = 1/2</em> et <em class="Equations">a = 8</em>,
+nous obtenons</p>
+<div class="center">
+<em class="Equations">log(a)/log(1/s) = log(8)/log(3) =
+  log<sub>2</sub>(8) = 3</em>.
+</div>
+<p>De nouveau, Nous laissons au lecteur le soin de décrire les huit
+(évidentes) fonctions de
+<em class="Equations">[0,1]<sup>3</sup></em> dans lui-même
+qui composent le SIF
+<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;8</sub></em>
+tel que le cube <em class="Equations">[0,1]<sup>3</sup></em> est le point
+fixe de la fonction <em class="Equations">f<sup>c</sup></em> associée
+au SIF.</p> </li>
+<li>
+<p>La dimension d'homothétie du triangle de Sierpinski est 1.5850.  Pour
+<em class="Equations">s = 1/2</em> et
+<em class="Equations">a = 3</em>, nous obtenons</p>
+<div class="center">
+<em class="Equations">log(a)/log(1/s) = log(3)/log(2) &sim;
+  1.5850</em>.
+</div>
+<p>Pour <em class="Equations">s = 1/4</em> et <em class="Equations">a = 9</em>,
+nous obtenons</p>
+<div class="center">
+<em class="Equations">log(a)/log(1/s) = log(9)/log(4) &sim; 1.5850</em>.
+</div>
+</li>
+</ul>
+
+<hr class="MMathSStat">
+
+<h3> Dimension de Minkowski </h3>
+
+<p> La <em>dimension de Minkowski</em> d'un ensemble
+<em class="Equations">A</em> est définie par la formule suivante.</p>
 
 <center>
 <em class="Equations_Display">
-x<sub>n+1</sub> = f<sub>&micro;</sub>(x<sub>n</sub>) &nbsp; , &nbsp;
-n = 0, 1, 2, 3, ... </em>
-</center>
-
-<p> Le lecteur est invité à explorer à l'aide de l'application graphique
-suivante le comportement des orbites du SDD logistique pour
-différentes valeurs du paramètre <em class="Equations">&micro;</em>
-(entre 1 et 4) et de la condition initiale
-<em class="Equations">x<sub>0</sub></em> (entre 0 et 1). </p>
-
-<div class="center">
-<canvas id="DDS" width="400" height="400">
-</canvas>
-</div>
-
-<ul>
-  <li> <em class="Equations">&micro; =</em>
-    <input type="text" value="3.5" id="logistic_mu">
-    (valeurs entre 1 et 4) </li>
-  <li> <em class="Equations">x<sub>o</sub> = </em>
-    <input type="text" value="0.2" id="logistic_x">
-    (valeurs entre 0 et 1) </li>
-  <li> Nombre d'itérations <input type="text" value="10" id="logistic_nbr">
-  </li>
-  <li> <input type="button" value="Débuter" onclick="logisticDDS('French')">
-  </li>
-  <li> <input type="button" value="Effacer" onclick="clearDDS('DDS')"> </li>
-</ul>
-
-<p> La courbe en bleu dans la figure ci-dessus (après avoir cliqué sur
-le bouton <em>Débuter</em>) est le graphe de
-<em class="Equations">f<sub>&micro;</sub></em> et la ligne diagonale
-en rouge est la droite <em class="Equations">y = x</em>. </p>
-
-<p> Pour chaque valeur fixe de <em class="Equations">&micro;</em>
-entre 1 et 3, les orbites <em class="Equations">x<sub>0</sub>, x<sub>1</sub>,
-x<sub>2</sub>, ... </em> convergent vers un point unique
-<em class="Equations">p<sub>&micro;</sub></em> entre 0 et 1.  Le 
-point <em class="Equations">p<sub>&micro;</sub></em> satisfait
-<em class="Equations">f<sub>&micro;</sub>(p<sub>&micro;</sub>)
-= p<sub>&micro;</sub></em>.  Donc, c'est un
-<em>point fixe</em> de <em class="Equations">f<sub>&micro;</sub></em>. </p>
-
-<p> Le <em>Théorème du Point Fixe</em> affirme que si
-<em class="Equations">f: [a,b] &rarr; [a,b]</em>
-est une fonction continûment différentiable et s'il existe une
-constante positive <em class="Equations">K <1</em> telle que
-<em class="Equations">|f'(x)| &leq; K</em> pour tout
-<em class="Equations">x &in; [a,b]</em>, alors toutes les orbites
-avec <em class="Equations">x<sub>0</sub> &in; [a,b]</em> convergent
-vers un point fixe unique <em class="Equations"> p &in; [a,b]</em>. </p>
-
-<p> La fonction
-<em class="Equations">f<sub>&micro;</sub>:[0,1] &rarr; [0,1]</em>
-possède toujours un point fixe à l'origine.  Pour
-<em class="Equations">&micro; > 1</em>, elle possède un autre
-point fixe <em class="Equations">p<sub>&micro;</sub>>0</em>.  En fait, si nous
-résolvons <em class="Equations">f<sub>&micro;</sub>(p) = p</em> pour
-<em class="Equations">p</em>, nous trouvons que ce point fixe est
-<em class="Equations">p<sub>&micro;</sub> = (&micro; - 1)/&micro;</em>.
-Pour chaque valeur de <em class="Equations">&micro;</em> avec
-<em class="Equations">1 < &micro; < 3</em>, il est possible
-de trouver un petit intervalle <em class="Equations">[a,b]</em> contenant le
-point fixe <em class="Equations">p<sub>&micro;</sub>>0</em> où le
-Théorème du Point Fixe peut être utilisée pour conclure que toute orbite avec
-<em class="Equations">x<sub>0</sub> &in; [a,b]</em>
-convergent vers <em class="Equations"> p<sub>&micro;</sub></em> lorsque
-<em class="Equations">n &rarr; &infin;</em>.
-Par exemple, si <em class="Equations">&micro; = 2</em>, l'application
-graphique ci-dessus montre que le graphe de
-<em class="Equations">f<sub>2</sub></em>
-coupe la droite <em class="Equations">y = x</em> au point positif 
-<em class="Equations">p<sub>2</sub> = 1/2</em> seulement.  C'est un
-point fixe de <em class="Equations">f<sub>2</sub></em> et toutes les orbites
-avec <em class="Equations">x<sub>0</sub></em> suffisamment près de
-<em class="Equations"> p<sub>2</sub></em> convergent vers
-<em class="Equations"> p<sub>2</sub></em>. </p>
-
-<p> Pour certaines valeurs de <em class="Equations">&micro;</em> (les
-valeurs entre 3 et 4 sont vraiment intéressantes), les orbites
-<em class="Equations">x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ... </em>
-ne convergent pas vers un seul point mais ils <q lang="fr"> convergent </q>
-vers un ensemble plus complexe.</p>
-
-<p>Pour <em class="Equations">&micro; = 3.4</em>, le point
-<em class="Equations">x<sub>0</sub> = 0.45195878844045...</em> est un
-<em>point périodique</em> de
-<em class="Equations">f<sub>3.4</sub></em> de période 2;
-c'est-à-dire,
-<em class="Equations">x<sub>1</sub> = f<sub>3.4</sub>(x<sub>0</sub>)</em>
-et
-<em class="Equations">x<sub>2</sub> = f<sub>3.4</sub>(x<sub>1</sub>)
-= x<sub>0</sub></em>.  On écrit
-<em class="Equations">x<sub>2</sub>
-= f<sub>3.4</sub><sup>2</sup>(x<sub>0</sub>)
-= x<sub>0</sub></em>.  L'orbite <em class="Equations">x<sub>0</sub>,
-x<sub>1</sub>, x<sub>2</sub>, ... </em> est</p>
-
-<center>
-<em class="Equations">
-{0.45195878844045, 0.84215476876273, 0.45195878844045, 0.84215476876273, ...}
+Dimension = lim<sub>&micro;->0</sub> log(N(A,&micro;)) /
+log(1/&micro;)
 </em>
 </center>
 
-<p> où les valeurs ont été tronquées à 14 chiffres décimaux.  Le
-lecteur devrait tracer le graphe en forme de toile d'araignée de
-l'orbite de <em class="Equations">f<sub>3.4</sub></em> qui débute avec
-<em class="Equations">x<sub>0</sub> = 0.45195878844045</em> à l'aide
-de l'application graphique ci-dessus.</p>
-
-<p>Pour <em class="Equations">&micro; = 3.5</em>, le point
-<em class="Equations">x<sub>0</sub> = 0.87499726360246...</em> est un
-<em>point périodique</em> de
-<em class="Equations">f<sub>3.5</sub></em> de période 4;
-c'est-à-dire, <em class="Equations">x<sub>4</sub>
-= f<sub>3.4</sub><sup>4</sup>(x<sub>0</sub>)
-= x<sub>0</sub></em>.  L'orbite <em class="Equations">x<sub>0</sub>,
-x<sub>1</sub>, x<sub>2</sub>, ... </em> est</p>
-
-<center>
-<em class="Equations">
-{0.87499726360246, 0.38281968301732, 0.82694070659144,
-0.50088421030722, 0.87499726360246, ...} 
-</em>
-</center>
-
-<p> où les valeurs ont été tronquées à 14 chiffres décimaux.  Le
-lecteur devrait tracer le graphe en forme de toile d'araignée de 
-l'orbite de <em class="Equations">f<sub>3.5</sub></em> qui débute avec
-<em class="Equations">x<sub>0</sub> = 0.87499726360246</em>
-à l'aide de l'application graphique ci-dessus.</p>
-
-<p>Quand <em class="Equations">&micro;</em> passe au-dessus de
-<em class="Equations">3</em>, le point fixe
-<em class="Equations">p<sub>&micro;</sub></em> n'est plus
-un <em>attracteur</em> et nous obtenons une orbite périodique 
-de période 2 qui est un attracteur comme nous avons vu
-ci-dessus.  Quand <em class="Equations">&micro;</em> passe au-dessus de
-<em class="Equations">3.236...</em>, l'orbite périodique de période 2
-n'est plus un attracteur et nous obtenons une orbite périodique 
-de période 4 qui est un attracteur.
-Pour <em class="Equations">&micro;</em> encore un petit peu plus
-grand, l'orbite périodique de période 4
-n'est plus un attracteur et nous obtenons une orbite périodique 
-de période 8 qui est un attracteur.
-Et ainsi de suite. C'est l'exemple la plus connue d'une
-<em>cascade de doublement de période</em>.</p>
-
-<p> La cascade de doublement de période converge vers
-<em class="Equations">&micro; = 3.5699456...</em>&nbsp;
-Ce nombre est connu sous le nom de <em>point de Feigenbaum</em>.
-De plus, soit
-<em class="Equations">&micro;<sub>0</sub> = 3</em>,
-<em class="Equations">&micro;<sub>1</sub> = 3.236...</em>,
-<em class="Equations">&micro;<sub>2</sub> = ...</em> et ainsi de suite,
-les valeurs de <em class="Equations">&micro;</em> pour lesquelles la
-fonction logistique subit un doublement de période, et soit
-<em class="Equations">d<sub>j</sub> = &micro;<sub>j+1</sub>
-− &micro;<sub>j</sub></em> pour <em class="Equations"> j &geq; 0</em>.
-Il a été démontré que
-<em class="Equations">lim<sub>j &rarr; &infin;</sub>
-d<sub>j</sub>/d<sub>j+1</sub> = 4.6692016091029...</em>
-&nbsp; Ce nombre est appelé la <em>constante de Feigenbaum</em>.
-Feigenbaum a découvert ce nombre en 1975.  Cette constante est
-universelle dans le sens qu'elle est la même pour une grande famille
-de SDD de la forme
-<em class="Equations">x<sub>n+1</sub> = g<sub>&micro;</sub>(x<sub>n</sub>)</em>
-où le graphe de <em class="Equations">g<sub>&micro;</sub></em> 
-<q lang="fr">ressemble</q> au graphe de la fonction logistique
-<em class="Equations">f<sub>&micro;</sub></em>.</p>
-
-<p> Pour <em class="Equations">&micro; = 3.839...</em>, nous avons que</p>
-
-<div class="center">
-<em class="Equations">
-{0.14988539433432, 0.48917380192271, 0.95930024021836,
-0.14988539433432, ...}
-</em>
-</div>
-<p>est une orbite périodique de période 3 de
-<em class="Equations">f<sub>3.839...</sub></em> qui est un attracteur.
-Les valeurs ci-dessus ont été tronquées à 14 chiffres décimaux.
-Il découle du fameux théorème de <em>Sarkovskii</em> que
-<em class="Equations">f<sub>3.839...</sub></em> possède des orbites
-périodiques de toutes les périodes.  Toutes les orbites périodiques,
-sauf l'orbite de période 3 ci-dessus, ne sont pas des attracteurs.
-Donc, sauf si une orbite débute avec un point exactement sur une des
-orbites qui n'est pas un attracteur, elle va <q lang="fr">converger</q>
-vers l'orbite périodique de période 3.  Notons que, en raison des
-erreurs de troncature, il est pratiquement impossible de tracer le
-graphe en forme de toile d'araignée d'une des orbites périodiques qui
-n'est pas un attracteur.</p>
-
-<p>Qu'arrive-t-il quand <em class="Equations">&micro;</em> est plus
-grand ou égale à 4?  Par exemple, les orbites de
-<em class="Equations">f<sub>4</sub></em> 
-sont <em>Chaotiques</em>.  À suivre (?).<p>
-
-<br><br>
+<p> où <em class="Equations">N(A,&micro;)</em> est le plus
+petit nombre de carrés de côtés de longueur
+<em class="Equations">&micro; > 0</em>
+nécessaires pour couvrir <em class="Equations">A</em>.</p>
 
 <table class="noB">
-<tr><td rowspan="1" colspan="1" class="left">
+<tr> <td rowspan="1" colspan="1" class="left">
 <a href="fractal2_fr.html"> Document précédent </a> </td>
 <td rowspan="1" colspan="1" class="right">
 <a href="fractal4_fr.html"> Document suivant </a> </td>

@@ -36,10 +36,14 @@ document.write("Include javascript file has failed")
 <body>
 
 <script language="javascript">
-top_function(fractal2,"en")
+top_function(fractal2,"en");
 </script>
 
-<div class="page_contents"> <!-- The contents starts here -->
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
+<div class="page_contents"> <!--  The contents starts here -->
 
 <script language="javascript">
 main_title( MStext, "MMathSStat");
@@ -47,15 +51,319 @@ main_title( MStext, "MMathSStat");
 
 <table class="noB">
 <tr> <td rowspan="1" colspan="1" class="left">
-<a href="fractal1_en.html"> Previous document </a> </td>
+<a href="fractal1_en.html"> Previous document </a></td>
 <td rowspan="1" colspan="1" class="right">
 <a href="fractal3_en.html"> Next document </a> </td>
 </tr>
 </table>
 
-<h3> Iterative Function Systems </h3>
+<h2 id="TOP">Iterative Function Systems</h2>
+
+<p>We are not going to define what is a fractal in this
+document.  We postpone this task to the next document; namely,
+<script language="javascript">
+buildLinK(fractal3.url_en, fractal3.text_en, "MMathSStat",
+fractal3.id, fractal3.target);
+</script>.  In the present document, we introduce a method to generate
+fractals.</p>
 
 <hr class="MMathSStat">
+
+<h3> Definition of Iterative Function Systems</h3>
+
+<p>In our study of DDS in the previous document, we have considered
+simple functions and computed iterations starting with a single initial
+point.  We now consider more complex functions than the simple
+functions of the previous document.  Moreover, we replace the initial
+point by an initial set.</p> 
+
+<p>This section is theoretical.  Readers who do not have the
+mathematical background may skip this section and resume reading
+with the next section that provides examples of a procedure to draw
+fractals.</p>
+
+<p> A <em>metric space</em> is a set <em class="Equations">E</em>
+with a <em>metric</em>
+<em class="Equations">d:E&times;E  &rarr; [0,&infin;[</em>.  We
+denote this metric space by <em class="Equations">(E,d)</em>.</p>
+
+<div class="Note">
+<p><em>Proposition</em><br>
+Suppose that the metric space <em class="Equations">(E,d)</em> is
+complete; namely, every Cauchy sequence converges.
+Let <em class="Equations">E<sup>c</sup></em> be the space of non-empty
+compact subsets of <em class="Equations">E</em>.  Then, the function
+<em class="Equations">d<sup>c</sup>:E<sup>c</sup> &times;
+E<sup>c</sup> &rarr; [0,&infin;[</em>
+defined by</p>
+<center>
+  <em class="Equations_Display">
+   d<sup>c</sup>(A,B) = max{max{d(a,B):a &in; A},max{d(b,A):b &in; B}}
+  </em>
+</center>
+<p> for all <em class="Equations">A,B &sub; E<sup>c</sup></em>
+is a metric on <em class="Equations">E<sup>c</sup></em>.
+Moreover, the metric space
+<em class="Equations">(E<sup>c</sup>,d<sup>c</sup>)</em>
+is complete.  The metric
+<em class="Equations">d<sup>c</sup></em> is called the
+<em>Hausdorff distance</em>.</p>
+</div>
+
+<p>If <em class="Equations">f: E &rarr; E</em> is a continuous
+function, then it maps compact sets to compact sets.
+Hence, the function <em class="Equations">f</em> also defines
+a function
+<em class="Equations">f: E<sup>c</sup> &rarr; E<sup>c</sup></em> in a
+natural way.</p>
+
+<p>A function <em class="Equations">f: E &rarr; E</em> is a
+<em>contraction</em> if there exists a
+number <em class="Equations">C</em> such that
+<em class="Equations">0 &leq; C < 1</em> and
+<em class="Equations">d(f(x),f(y)) &leq; C d(x,y)</em> for all
+<em class="Equations">x,y &in; E</em>.  A contraction is obviously a
+continuous function.  The value <em class="Equations">C</em>
+is called a <em>contraction factor</em>.</p>
+
+<p>Suppose that
+<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is a
+collection of continuous
+functions <em class="Equations">f<sub>j</sub>: E &rarr; E</em>, we
+define a function <em class="Equations">f<sup>c</sup>: 
+E<sup>c</sup> &rarr; E<sup>c</sup></em> by </p>
+<center>
+  <em class="Equations_Display">
+    f<sup>c</sup>(A) = &cup;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(A)
+  </em>
+</center>
+<p>for all <em class="Equations">A &in; E<sup>c</sup></em>.  This
+function is well defined because the finite union of compact sets is a
+compact set</p> 
+
+<div class="Note">
+<p><em>Proposition</em><br>
+If each function
+<em class="Equations">f<sub>j</sub></em> is contraction with
+a contraction factor <em class="Equations">C<sub>j</sub></em>,
+then the function <em class="Equations">f<sup>c</sup>:
+E<sup>c</sup> &rarr; E<sup>c</sup></em>
+is a contraction with a contraction factor
+<em class="Equations">C = max<sub>1&leq;j&leq;J</sub> C<sub>j</sub></em>.</p>
+</div>
+
+<div class="Note">
+<p><em>Theorem</em><br>
+If <em class="Equations">(E,d)</em> is a complete metric space
+and <em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is a
+collection of contractions from <em class="Equations">E</em> to itself, then
+<em class="Equations">f<sup>c</sup>:
+E<sup>c</sup> &rarr; E<sup>c</sup></em> has a unique
+<em>fixed point</em>; namely, there exists a unique
+<em class="Equations">A &sub; E<sup>c</sup></em> such that
+<em class="Equations">f<sup>c</sup>(A) = A</em>.  Moreover, for all
+set <em class="Equations">X<sub>0</sub> &in; E<sup>c</sup></em>, the
+sequence of sets <em class="Equations">{X<sub>i</sub>}<sub>i&geq;0</sub></em>
+defined by
+<em class="Equations">X<sub>i+1</sub> = f<sup>c</sup>(X<sub>i</sub>)</em>
+converges to <em class="Equations">A</em> according to the metric
+<em class="Equations">d<sup>c</sup></em> as 
+<em class="Equations">i &rarr; &infin;</em>.</p>
+</div>
+
+<p>The previous theorem is a direct consequence of the
+<em>Contraction Mapping Theorem</em> because
+<em class="Equations">(E<sup>c</sup>,d<sup>c</sup>)</em>
+is a complete metric space and <em class="Equations">f<sup>c</sup>:
+E<sup>c</sup> &rarr; E<sup>c</sup></em> is a contraction.</p>
+
+<p>An <em>iterative function system</em> (IFS) on a complete metric space
+<em class="Equations">(E<sup>c</sup>,d<sup>c</sup>)</em> is a
+collection
+<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> of
+contractions from <em class="Equations">E</em> to itself.</p>
+
+<p> In the examples that we consider below,
+<em class="Equations">E</em> is the plane and
+<em class="Equations">d</em> is the Euclidean metric.
+The fractals that we draw are the fixed points
+of functions <em class="Equations">f<sup>c</sup>:
+E<sup>c</sup> &rarr; E<sup>c</sup></em> associated to IFS
+<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.
+The challenge is to choose the IFS that produces the fractal that we
+want.</p>
+
+<div class="Note">
+<p> Good references (for advanced undergraduate students in
+mathematics) are <em>Fractals Everywhere</em> by Micheal Barnsley
+(Academic press, 1988) and <em>Chaos and Fractals</em> by
+H.-O. Peitgen, H. J&uuml;rgens and D. Saupe (Springer-Verlag, 1992). </p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3>Examples </h3>
+
+<h4> Sierpinski Triangle </h4>
+
+<p> The following figure shows the famous <em>Sierpinski gasket</em> or
+<em>Sierpinski triangle</em>. </p>
+
+<div class="center">
+  <img src="sierpinski.png" style="width: 400px"
+       alt="Image of Sierpinski Gasket" class="framed">
+</div>
+
+<p> It is a typical example of a fractal.  We give a definition
+of a fractal in the document <script language="javascript">
+buildLinK(fractal3.url_en, fractal3.text_en, "MMathSStat",
+fractal3.id, fractal3.target);
+</script>.  We do not need this definition right now. </p>
+
+<p> To store this figure on a computer, we need about 10857 bytes (in
+png format).  Using IFS, this figure (and the next two figures at any
+level of accuracy) can be stored using less than 2876 bytes (a simple
+Matlab code).</p>
+
+<p> The Sierpinski triangle is the fixed point of the
+function <em class="Equations">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
+&rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
+associated to the IFS
+<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em>
+where</p>
+<center>
+<em class="Equations">
+f<sub>1</sub>(x) = ( x<sub>1</sub>/2 , x<sub>2</sub>/2 + 1/2 ) <br>
+f<sub>2</sub>(x) = ( x<sub>1</sub>/2 + 1/2 , x<sub>2</sub>/2 ) <br>
+f<sub>3</sub>(x) = ( x<sub>1</sub>/2 , x<sub>2</sub>/2 )
+</em>
+</center>
+
+<p> We now explain in a graphical way how the Sierpinski triangle is
+drawn using the IFS composed of the three simple functions described
+above.</p>
+
+<ul>
+<li>
+First, we choose any initial set.  In the present case, we choose the
+solid triangle defined by
+<em class="Equations"> T = {x : x<sub>1</sub>,x<sub>2</sub> &geq; 0 and
+x<sub>1</sub> + x<sub>2</sub> &leq; 1 }</em>. </li> 
+<li> Second, we shrink the solid triangle <em class="Equations">T</em>
+to a quarter of its original size and translate it vertically by 0.5.
+This is the work of the function
+<em class="Equations">f<sub>1</sub></em>. </li>
+<li> Third, we shrink the solid triangle <em class="Equations">T</em>
+to a quarter of its original size and translate it horizontally by 0.5.
+This is the work of the function
+<em class="Equations">f<sub>2</sub></em>.</li>
+<li> Fourth, we shrink the solid triangle <em class="Equations">T</em>
+to a quarter of its original size only.  This is the work of the function
+<em class="Equations">f<sub>3</sub></em>.</li>
+</li>
+</ul>
+
+<p>This four steps are illustrated in the figure below.</p>
+
+<div class="center">
+  <img src="step_one.png" class="framed" style="width: 500px"
+       alt="First iteration to produce a Sierpinski triangle">
+</div>
+
+<p> We repeat the second, third and fourth steps above with the new set
+formed of three solid triangles.  The next figure
+illustrates the second iteration of the second, third and fourth
+steps described above. </p>
+
+<div class="center">
+  <img src="step_two.png" class="framed" style="width: 500px"
+       alt="Second iteration to produce a Sierpinski triangle">
+</div>
+
+<p>We repeat this procedure until we are happy with the figure that we
+get.  Usually, we stop when we can no longer observe any variation in the
+figure. </p>
+
+<p> As we mentioned in the previous theoretical section above,
+independently of the set of points that we choose initially, we always
+get the Sierpinski triangle after an <q lang="en">infinite</q> number
+of iterations. </p> 
+
+<p> In the following application, we may select one of the three
+initial figures proposed, and the number of iterations to be
+performed.  The reader should only use a small number of iterations,
+no more than 7 or 8, to avoid exceeding the maximal capacity of the
+memory space assigned to the web browser.  Moreover, because of the
+limited number of pixels on the computer screen, there is an inferior
+limit on the size of the rectangles that can be drawn in the second
+step above.</p>
+
+<div class="center">
+<canvas id="SRPK" width="400" height="400">
+</canvas>
+</div>
+
+<input type="hidden" value="true" id="filledSRPK">
+<input type="hidden" value="blue" id="colourSRPK">
+
+<ul>
+  <li> Number of iterations: <input type="text" value="5" id="nbrSRPK"> </li>
+  <li> Initial figure: <select id="initSRPK">
+      <option value="0" selected> triangle </option>
+      <option value="1"> square </option>
+      <option value="2"> lozenge </option>
+  </select> </li>
+  <li> <input type="button" value="Start" onclick="iterateSRPK()"> </li>
+  <li> <input type="button" value="Clear" onclick="clearIFS('SRPK')"> </li>
+</ul>
+
+<p> Instead of storing on the computer all the pixels of the figure of
+the Sierpinski triangle, we only have to store on the computer
+(using mathematical formulae) the functions that compose the IFS and
+the procedure to iterate the function
+<em class="Equations">f<sup>c</sup></em> associated to this IFS.</p>
+
+<p> <em> Question </em>: What happen if the second function of the IFS
+above also rotates the square by 45 degrees? </p>
+
+<div class="Note">
+<p> <em>Probabilistic System</em><br>
+This is a simple technique to illustrate the Sierpinski
+triangle.  Let <em class="Equations">A</em> be the point with
+coordinate (0,1), <em class="Equations">B</em> be the point with  
+coordinate (1,0) and <em class="Equations">C</em> be the origin (see
+the figure below).  Suppose that we have an unbiased dice and that 1,6
+are associated to <em class="Equations">A</em>, 2,5 are associated
+to <em class="Equations">B</em> and 3,4 are associated to
+<em class="Equations">C</em>. </p> 
+
+<div class="center">
+  <img src="probability.png" class="framed" style="width: 300px"
+       alt="A few iterations of the probabislitic IFS to produce the Sierpinski triangle">
+</div>
+
+<ul>
+<li> We choose a point <em class="Equations">x<sub>0</sub></em> in the
+plane.</li> 
+<li> We throw the dice.  Suppose that we get a 3. </li>
+<li> The point <em class="Equations">x<sub>1</sub></em> is the middle
+of the segment between <em class="Equations">x<sub>0<</sub></em> and C. </li>
+<li> We throw the dice a second time.  Suppose that we get a 1. </li>
+<li> The point <em class="Equations">x<sub>2</sub></em> is the middle
+of the segment between <em class="Equations">x<sub>1</sub></em> and A. </li>
+<li> And so on. </li>
+</ul>
+
+<p> The isolated points are invisible.  We only see the cluster of
+points.  This cluster of points shadows the Sierpinski triangle. To
+get a good approximation of the Sierpinski triangle, the number of
+iterations must be very large and the random number generator of
+our computer must be really ... really good. </p>
+
+<p><em> Question </em>: Which are the points that constitute (make up)
+the Sierpinski gasket? <br> <em> Question </em>: What happen if the
+dice is biased (loaded)? </p>
+</div>
 
 <h4> Ferns </h4>
 
@@ -66,12 +374,32 @@ main_title( MStext, "MMathSStat");
        alt="Image of a fern produced with an IFS">
 </div>
 
-<p> The IFS is composed of four functions instead of three as
-for the Sierpinski Gasket.  To visualize the action of the four
-functions, it suffices to select a simple set like a square and to do
-only one iteration of the IFS using the application below.  We get four
-images that correspond to the action of the four functions on the
-simple set chosen. </p>
+<p> The fern above is the fixed point of the
+function <em class="Equations">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
+&rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
+associated to the IFS
+<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
+where</p>
+<center>
+<em class="Equations">
+f<sub>1</sub>(x) = ( 0 , 0.16 x<sub>2</sub> ) <br>
+f<sub>2</sub>(x) = ( 0.85 x<sub>1</sub> + 0.04 x<sub>2</sub> ,
+-0.04 x<sub>1</sub> + 0.85 x<sub>2</sub> + 1.6 ) <br>
+f<sub>3</sub>(x) = ( 0.20 x<sub>1</sub> - 0.26 x<sub>2</sub> ,
+0.23 x<sub>1</sub> + 0.22 x<sub>2</sub> + 1.6 ) <br>
+f<sub>4</sub>(x) = ( -0.15 x<sub>1</sub> + 0.28 x<sub>2</sub> ,
+0.26 x<sub>1</sub> + 0.24 x<sub>2</sub> + 0.44 )
+</em>
+</center>
+
+<p>To visualize the action of the four functions above, it suffices to
+select a simple set like a square and to compute only one iteration
+using the application below.  We get the four images resulting
+from the action of the four functions on the simple set chosen. </p>
+
+<p> As for the application for the Sierpinski triangle above, the reader
+should not choose more than 7 or 8 iterations to avoid exceeding the
+maximal capacity of the memory space assigned to the browser.</p>
 
 <div class="center">
 <canvas id="FERN" width="400" height="400">
@@ -92,42 +420,6 @@ simple set chosen. </p>
   <li> <input type="button" value="Clear" onclick="clearIFS('FERN')"> </li>
 </ul>
 
-<p> The reader should not choose more than 7 or 8 iterations.  More
-iterations than that will likely fill the stack reserved for the
-browser on the computer. </p>
-
-<p> The fern above is generated by the IFS composed of the following four
-functions.</p>
-
-<ul>
-<li> First function:<br>
-  <em class="Equations">
-    &nbsp; X = 0 <br>
-    &nbsp; Y = 0.16 y
-  </em>
-</li>
-<li> Second function: <br>
-  <em class="Equations">
-    &nbsp; X = 0.85 x + 0.04 y <br>
-    &nbsp; Y = -0.04 x + 0.85 y + 1.6
-  </em>
-</li>
-<li> Third function: <br>
-  <em class="Equations">
-    &nbsp; X = 0.20 x - 0.26 y <br>
-    &nbsp; Y = 0.23 x + 0.22 y + 1.6
-  </em>
-</li>
-<li> Fourth function: <br>
-  <em class="Equations">
-    &nbsp; X = -0.15 x + 0.28 y <br>
-    &nbsp; Y = 0.26 x + 0.24 y + 0.44
-  </em>
-</li>
-</ul>
-
-<hr class="MMathSStat">
-
 <h4> Leafs </h4>
 
 <p> The following image of a leaf has been produced with an IFS.</p>
@@ -137,11 +429,33 @@ functions.</p>
        alt="Image of a leaf produced with an IFS">
 </div>
 
-<p>The IFS is composed of four functions.  To visualize the action of
-the four functions, it suffices to select a simple set like a triangle 
-and to do only one iteration of the IFS using the application below.
-We get four images that correspond to the action of the four functions
-on the simple set chosen.</p>
+<p> The leaf above is the fixed point of the
+function <em class="Equations">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
+&rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
+associated to the IFS
+<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
+where</p>
+<center>
+<em class="Equations">
+f<sub>1</sub>(x) = ( 0.6 x<sub>1</sub> + 0.18 , 0.6 x<sub>2</sub>
++ 0.36 ) <br>
+f<sub>2</sub>(x) = ( 0.6 x<sub>1</sub> + 0.18 ,
+0.6 x<sub>2</sub> + 0.12 ) <br>
+f<sub>3</sub>(x) = ( 0.4 x<sub>1</sub> + 0.3 x<sub>2</sub> + 0.27 ,
+-0.3 x<sub>1</sub> + 0.4 x<sub>2</sub> + 0.32 ) <br>
+f<sub>4</sub>(x) = ( 0.4 x<sub>1</sub> - 0.3 x<sub>2</sub> + 0.27 ,
+0.3 x<sub>1</sub> + 0.4 x<sub>2</sub> + 0.09 )
+</em>
+</center>
+
+<p>To visualize the action of the four functions above, it suffices to
+select a simple set like a triangle and to compute only one iteration
+using the application below.  We get four images resulting from
+the action of the four functions on the simple set chosen.</p>
+
+<p> As usual, the reader should not choose more than 7 or 8 iterations
+to avoid exceeding the maximal capacity of the memory space assigned
+to the web browser.</p> 
 
 <div class="center">
 <canvas id="LEAF" width="400" height="400">
@@ -162,134 +476,9 @@ on the simple set chosen.</p>
   <li> <input type="button" value="Clear" onclick="clearIFS('LEAF')"> </li>
 </ul>
 
-<p> As before, the reader should not choose more than 7 or 8
-iterations.  More iterations than that will likely fill the stack
-reserved for the browser on the computer.</p>
-
-<p> The leaf above is generated by the IFS composed of the following
-four functions.</p> 
-
-<ul>
-<li> First function:<br>
-  <em class="Equations">
-    &nbsp; x' = 0.6 x + 0.18 <br>
-    &nbsp; y' = 0.6 y + 0.36
-  </em>
-</li>
-<li> Second function: <br>
-  <em class="Equations">
-    &nbsp; x' = 0.6 x + 0.18 <br>
-    &nbsp; y' = 0.6 y + 0.12
-  </em>
-</li>
-<li> Third function: <br>
-  <em class="Equations">
-    &nbsp; x' = 0.4 x + 0.3 y + 0.27 <br>
-    &nbsp; y' = -0.3 x + 0.4 y + 0.32
-  </em>
-</li>
-<li> Fourth function: <br>
-  <em class="Equations">
-    &nbsp; x' = 0.4 x - 0.3 y + 0.27 <br>
-    &nbsp; y' = 0.3 x + 0.4 y + 0.09
-  </em>
-</li>
-</ul>
-
-<hr class="MMathSStat">
-
-<h3 id="fractal_dim"> Fractal Dimensions </h3>
-
-<p> There is no clear definition of a fractal set.  Benoit
-B. Mandelbrot (the father of Fractal Geometry) defines a fractal set
-as a set for which the <q lang="en">Hausdorff</q> dimension is strictly
-greater than the topological dimension.  Some mathematicians will also
-request that the set had some self-similarity (this is the case for
-the Sierpinski gasket). </p>
-
-<p> We only consider the notion of <em>similarity dimension</em> and
-<em>Minkowski dimension</em>.
-</p>
-
-<h4> Similarity Dimension </h4>
-
-<p> The <em>similarity dimension</em> of a set
-<em class="Equations">A</em> is defined by the equation </p>
-
-<center>
-<em class="Equations_Display">
-Dimension = log(a) / log(1/s)
-</em>
-</center>
-
-<p> where <em class="Equations">a</em> is the number of
-<q lang="en">small</q> sets similar to the original set and
-<em class="Equations">s</em> is the scaling of the dimensions used to
-produce the <q lang="en">small</q> sets. For instance:
-</p>
-
-<ul>
-<li>
-The similarity dimension of a straight line is 1.  For
-<em class="Equations">s = 1/4</em> and <em class="Equations">a = 4</em>, we get
-<div class="center">
-  <em class="Equations">log(a)/log(1/s) = log(4)/log(4) = 1</em>.
-</div>
-We leave it to the reader to describe the (obvious) four functions
-of the IFS on the interval <em class="Equations">[0,1]</em> whose limit
-after an infinite number of iterations is <em class="Equations">[0,1]</em>.
-</li>
-<li>
-The similarity dimension of a cube is 3.  for
-<em class="Equations">s = 1/2</em> and <em class="Equations">a = 8</em>,
-we get
-<div class="center">
-<em class="Equations">log(a)/log(1/s) = log(8)/log(3) =
-  log<sub>2</sub>(8) = 3</em>.
-</div>
-Again, we leave it to the reader to describe the (obvious) eight
-functions of the IFS on the cube
-<em class="Equations">[0,1]<sup>3</sup></em> whose limit
-after an infinite number of iterations is
-<em class="Equations">[0,1]<sup>3</sup></em>.
-</li>
-<li>
-The similarity dimension of the Sierpinski gasket is about 1.5850.  For
-<em class="Equations">s = 1/2</em> and <em class="Equations">a = 3</em>,
-we get
-<div class="center">
-<em class="Equations">log(a)/log(1/s) = log(3)/log(2) &sim;
-  1.5850</em>.
-</div>
-For <em class="Equations">s = 1/4</em> and <em class="Equations">a = 9</em>,
-we get
-<div class="center">
-<em class="Equations">log(a)/log(1/s) = log(9)/log(4) &sim; 1.5850</em>.
-</div>
-</li>
-</ul>
-
-<h4>Minkowski Dimension </h4>
-
-<p> The <em>Minkowski dimension </em> of a set
-<em class="Equations">A</em> is defined by the following formula.</p>
-
-<center>
-<em class="Equations_Display">
-Dimension = lim<sub>&micro;->0</sub> log(N(A,&micro;)) /
-log(1/&micro;) ,
-</em>
-</center>
-
-<p> where <em class="Equations">N(A,&micro;)</em> is the smallest
-number of squares of side length <em class="Equations">&micro; > 0</em>
-needed to cover <em class="Equations">A</em>.</p>
-
-<br><br>
-
 <table class="noB">
 <tr> <td rowspan="1" colspan="1" class="left">
-<a href="fractal1_en.html"> Previous document </a> </td>
+<a href="fractal1_en.html"> Previous document </a></td>
 <td rowspan="1" colspan="1" class="right">
 <a href="fractal3_en.html"> Next document </a> </td>
 </tr>
@@ -297,7 +486,7 @@ needed to cover <em class="Equations">A</em>.</p>
 
 <hr class="MMathSStat">
 
-</div>  <!-- The content ends here -->
+</div> <!-- The content ends here -->
 
 <script language="javascript">
 bottom_function(fractal2,"en");

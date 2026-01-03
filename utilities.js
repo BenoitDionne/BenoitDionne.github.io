@@ -311,17 +311,17 @@ function buildLinK( Url, Text, Class, ID, Target, Name) {
 
 /* To go back to the top of the page associated to the tag (usually
    <h2>) with the given ID.  To be formatted with the tag
-   <div class="topPAGE">. */
+   <img ... class="topPAGE">. */
 function topPage(ID, lang) {
     if ( lang == "fr" ) {
 	document.write("<a class=\"MMathSStat\" href=\"#"+ID+"\" id=\"ID"
 		       +ID+"\" target=\"_top\"> <img src=\""+location_bd
-		       +"/images/top_fr.png\" class=\"topPAGE\"> </div>")
+		       +"/images/top_fr.png\" class=\"topPAGE\"> </a>")
     }
     else {
 	document.write("<a class=\"MMathSStat\" href=\"#"+ID+"\" id=\"ID"
 		       +ID+"\" target=\"_top\"> <img src=\""+location_bd
-		       +"/images/top_en.png\" class=\"topPAGE\"> </div>")
+		       +"/images/top_en.png\" class=\"topPAGE\"> </a>")
     }
     /*
     document.write("<div class=\"topPAGE\">");

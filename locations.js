@@ -367,9 +367,11 @@ websites[websites_nbr++] = Mbs_math_app;
 /******************************************************************
  *  under math_disc
  ******************************************************************/
+
 /* Fractal Geometry */
+
 var fractal1 = new item
-    ("Triangle de Sierpinski", "Sierpinski Gasket",
+    ("Syst&egrave;mes dynamiques discrets", "Discrete Dynamical Ssystems",
      location_bd+"math_stat/fractal/fractal1_fr.html",
      location_bd+"math_stat/fractal/fractal1_en.html",
      null, null, null, "fractal1", "_top", "fractal1");
@@ -377,14 +379,14 @@ websites[websites_nbr++] = fractal1;
 
 var fractal2 = new item
     ("Syst&egrave;mes it&eacute;ratifs de fonctions",
-     "Iterative Function systems",
+     "Iterative Function Systems",
      location_bd+"math_stat/fractal/fractal2_fr.html",
      location_bd+"math_stat/fractal/fractal2_en.html",
      null, null, null, "fractal2", "_top", "fractal2");
 websites[websites_nbr++] = fractal2;
 
 var fractal3 = new item
-    ("Syst&egrave;mes dynamiques discrets", "Discrete Dynamical Ssystems",
+    ("Dimensions fractal", "Fractal Dimensions",
      location_bd+"math_stat/fractal/fractal3_fr.html",
      location_bd+"math_stat/fractal/fractal3_en.html",
      null, null, null, "fractal3", "_top", "fractal3");

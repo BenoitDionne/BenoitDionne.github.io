@@ -175,12 +175,13 @@ div.LOOK { background-color: white;
 
 div.LOOK2 { border: 1px solid #8F001A; margin: 5px; padding: 5px; 
   text-align: left; background-color: white; color: black; font-weight:
-bold; vertical-align: top; display: block;  overflow: hidden; }
+  bold; vertical-align: top; display: block;  overflow: hidden; }
 
-/* div.topPAGE is not used with the new top of the page sign */
+/* div.topPAGE is not used with the new top of the page sign
 div.topPAGE { position: fixed; right: 10px; bottom: 10px;
   background-color: white; margin: 10px; border: #8F001A 2px solid;
   padding: 5px; z-index: 1000; }
+*/
 img.topPAGE { position: fixed; right: 10px; bottom: 10px;
   background-color: inherit; margin: 0px; border: 0px; padding: 0px;
   z-index: 1000; }
@@ -207,16 +208,11 @@ span.small { font-size: 80%; }
 /********************************************************************/
 /*      For the equations and definition in mathematics             */
 /********************************************************************/
-
-div.Equations_L { background-color: white; border: 2px solid black;
-  padding: 3px; text-align: left; }
-div.Equations_C { background-color: white; border: 2px solid black;
-  padding: 3px; text-align: center; display: block; }
 em.Equations { color: #8F001A; font-family: "Courier", monospace;
   font-size: 110%; }
 em.Equations_Display { color: #8F001A; font-family: "Courier", monospace;
-  font-size: 110%; background-color: white; border: 2px solid black;
-  padding: 3px; }
+  font-size: 110%; padding: 5px; }
+/* background-color: white; border: 1px solid black; */
 canvas { border: 1px solid #8F001A; background-color: white; }
 
 em.matlab { color: blue; font-weight: bold; font-size: 100%; }
