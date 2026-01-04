@@ -52,7 +52,6 @@ main_title( MStexte, "MMathSStat");
 </tr>
 </table>
 
-<a name="mandelbrot"> </a>
 <h2> Les ensembles de Mandelbrot et de Julia </h2>
 
 <p> On ne peut pas se permettre de terminer notre bref introduction
@@ -64,7 +63,7 @@ générées par ordinateur; c'est-à-dire, <em> l'ensemble de Mandelbrot</em>. <
 fonction logistique.  Plus spécifiquement, on a étudié les
 itérations de la fonction à valeurs réelles
 <em class="Equations"> f<sub>&micro;</sub></em>
-définie par <em class="Equations"> f<sub>&micro;</sub>(x) = &micro; x ( 1- x)
+définie par <em class="Equations"> f<sub>&micro;</sub>(x) = &micro; x(1-x)
 </em> pour <em class="Equations">x &in; [0,1]</em> lorsque 
 <em class="Equations">&micro;</em> varie.</p>
 
@@ -81,7 +80,7 @@ définie par</p>
 
 <center>
 <em class="Equations_Display">
-f<sub>c</sub>(z) = z<sup>2</sup> + c
+f<sub>c</sub>(z) = z<sup>2</sup> + c ,
 </em>
 </center>
 
@@ -89,46 +88,54 @@ f<sub>c</sub>(z) = z<sup>2</sup> + c
 sont des nombres complexes.  Plus précisément, étant donné une
 valeur de <em class="Equations">c</em>, soit
 <em class="Equations">M</em> l'ensemble des points
-<em class="Equations">z</em> du plan complexe tels que la suite</p> 
+<em class="Equations"><sub>0</sub></em> du plan complexe tels que la suite</p> 
     
 <center>
-<em class="Equations_Display">
-z<sub>0</sub> = z, &nbsp;
-z<sub>1</sub> = f<sub>c</sub>(z<sub>0</sub>), &nbsp;
-z<sub>2</sub> = f<sub>c</sub>(z<sub>1</sub>), &nbsp;
+<em class="Equations_Display"> z<sub>0</sub> = z,
+z<sub>1</sub> = f<sub>c</sub>(z<sub>0</sub>),
+z<sub>2</sub> = f<sub>c</sub>(z<sub>1</sub>),
 z<sub>3</sub> = f<sub>c</sub>(z<sub>2</sub>), ...
 </em>
 </center>
 
-<p> est non-bornée.  L'<em>ensemble de Julia </em> associé à
+<p> est non-bornée.</p>
+
+<div class="Note">
+<p><em>Définition</em><br>
+L'<em>ensemble de Julia </em> associé à
 <em class="Equations">c</em> est la frontière de
 <em class="Equations">M</em>. </p>
+</div>
 
-<p> Si un point de la suite avec <em class="Equations">z<sub>o</sub> = z</em>
+<p> Si un point de la suite qui débute à
+<em class="Equations">z<sub>o</sub></em>
 est à l'extérieur du cercle de rayon
 <em class="Equations">r = max{|c|,2}</em> centré à l'origine, alors
-la suite <em class="Equations"> { z<sub>n</sub> : n &geq; 0 } </em>
-est non-bornée (le lecteur devrait démontrer cet énoncé)x.
-Le point <em class="Equations">z</em> est donc dans l'ensemble
-<em class="Equations">M</em>.  On dira qu'un point
-<em class="Equations">z</em> n'appartient pas à
+la suite
+<em class="Equations">z<sub>0</sub>, z<sub>1</sub>, z<sub>2</sub>, ...</em>
+est non-bornée (le lecteur devrait démontrer cet énoncé).
+Le point <em class="Equations">z<sub>0</sub></em> est donc dans l'ensemble
+<em class="Equations">M</em>.  Pour cette raison, nous dirons qu'un point
+<em class="Equations">z<sub>0</sub></em> n'appartient pas à
 l'ensemble <em class="Equations">M</em> si après un nombre choisi
-d'itérations, la suite est toujours à l'intérieur du
-cercle de rayon <em class="Equations">r</em> centré à l'origine.  Si
-on choisie un grand nombre d'itérations, on obtient théoriquement
-une image plus précise de l'ensemble de Julia.  Naturellement, la
+d'itérations, la suite qui débute avec <em class="Equations">z<sub>0</sub></em>
+est toujours à l'intérieur du cercle de rayon
+<em class="Equations">r</em> centré à l'origine.  Si
+on choisie un grand nombre de points initiaux
+<em class="Equations">z<sub>0</sub></em>, nous devrions obtenir
+une image précise de l'ensemble de Julia.  Naturellement, la
 qualité de l'image est limitée par le nombre de pixels sur l'écran
-de notre ordinateur.  En particulier, si <em class="Equations">M</em>
-n'est <q lang="fr">vraiment</q> pas connexe (formé de beaucoup de
-petites pièces), choisir un grand nombre d'itérations peut ne
-pas produire d'image si la majorité des points de
+d'ordinateur.  En particulier, si <em class="Equations">M</em>
+n'est <q lang="fr">vraiment</q> pas connexe (i.e. est formé de beaucoup de
+petites pièces), il est possible que nous obtenions une image presque
+vide si la majorité des points de
 <em class="Equations">M</em> ne sont pas associés à des pixels sur
-l'écran.</p>
+l'écran d'ordinateur.</p>
 
 <p> Nous pouvons utiliser l'application graphique suivante pour tracer
 les ensembles de Julia.  Pour une valeur <em class="Equations">c</em>
 donnée, les points du plan complexe dessinés en noir sont les points
-<em class="Equations">z</em> pour lesquelles la suite ci-dessus est
+<em class="Equations">z<sub>0</sub></em> pour lesquels la suite ci-dessus est
 bornée.  La frontière de la région en noir est donc
 l'<em>ensemble de Julia</em> associé à <em class="Equations">c</em>. </p>
 
@@ -154,13 +161,15 @@ l'<em>ensemble de Julia</em> associé à <em class="Equations">c</em>. </p>
 <h3> L'ensemble de Mandelbrot </h3>
 
 <p> L'<em>ensemble de Mandelbrot</em> est l'ensemble de tous les
-points <em class="Equations">c</em> du plan complexe telles que
+points <em class="Equations">c</em> du plan complexe tels que
 la suite suivante est bornée.</p>
 
 <center>
 <em class="Equations_Display">
-c, &nbsp; c^2 + c, &nbsp; (c^2 + c)^2 + c,
-&nbsp; ((c^2 + c)^2 + c)^2 + c, ...
+c, f<sub>0</sub>(c) = c^2 + c, f<sub>0</sub><sup>2</sup>(c)
+= f<sub>0</sub>(f<sub>0</sub>(c)) = (c^2 + c)^2 + c,<br>
+f<sub>0</sub><sup>3</sup>(c) = f<sub>0</sub>(f<sub>0</sub>(f<sub>0</sub>(c))) =
+((c^2 + c)^2 + c)^2 + c, ...
 </em>
 </center>
 
@@ -182,13 +191,15 @@ l'ensemble de Mandelbrot. </p>
   </li>
 </ul>
 
-<p> Si un point de la suite <em class="Equations"> c, c^2 + c, c^2 + c)^2 + c,
-((c^2 + c)^2 + c)^2 + c, ... </em> est à l'extérieur du cercle de rayon
-<em class="Equations">r</em> défini dans la section sur les ensembles
+<p> Si un point de la suite
+<em class="Equations"> c, f<sub>0</sub>(c), f<sub>0</sub><sup>2</sup>(c),
+f<sub>0</sub><sup>3</sup>(c), ... </em>
+est à l'extérieur du cercle de rayon
+<em class="Equations">r</em> défini à la section sur les ensembles
 de Julia ci-dessus, alors la suite est non-bornée.   Donc,
 cet valeur de <em class="Equations">c</em> n'est pas dans l'ensemble
 de Mandelbrot.   Comme pour l'ensemble de Julia, c'est la règle que
-l'on a implémenté dans l'application graphique ci-dessus.</p>
+l'on a mis en oeuvre dans l'application graphique ci-dessus.</p>
 
 <div class="LOOK">
 <p> Nous pouvons agrandir une région de l'ensemble de Mandelbrot
@@ -203,19 +214,25 @@ Julia est dessiné dans la fenêtre de l'application graphique pour les
 ensembles de Julia ci-dessus.</p> 
 </div>
 
-<p> L'ensemble de Mandelbrot est aussi appelé le <em> bonhomme en pain
-d'épice </em>.  N'est-ce pas que l'ensemble de Mandelbrot
+<p> L'ensemble de Mandelbrot est aussi appelé le <em>bonhomme en pain
+d'épice</em>.  N'est-ce pas que l'ensemble de Mandelbrot
 ressemble à un bonhomme en pain d'épice?  Si nous agrandissons des
 régions de façon judicieuse, nous allons voir des bonshommes en pain
 d'épice de plus en plus petits.  Cela se compare à la notion
-d'autosimilarité que l'on a remarquée pour les SIF. </p>
+d'autosimilarité que l'on a remarquée dans les images générées avec
+des SIF.</p>
 
 <p> Il y a une très belle relation entre l'ensemble de Mandelbrot et
-les ensembles de Julia.  L'ensemble de Mandelbrot est l'ensemble de
+les ensembles de Julia.</p>
+
+<div class="Note">
+<p><em>Proposition</em><br>
+L'ensemble de Mandelbrot est l'ensemble de
 tous les points <em class="Equations">c</em> qui produisent un
 ensemble de Julia connexe; c'est-à-dire, l'ensemble peut être tracé
 sans lever le crayon quoi qu'il pourrait prendre un temps infini pour
 en faire le dessin. </p>
+</div>
 
 <p> Il y a beaucoup de questions fascinantes qui proviennent de
 l'étude de l'ensemble de Mandelbrot et des ensembles de Julia.

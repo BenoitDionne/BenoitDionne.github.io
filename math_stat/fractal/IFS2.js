@@ -232,13 +232,6 @@ function plotCurve2(cnvs, curves, fillCurve) {
     else
 	deltax = 1;
 
-    /* To centre horizontally the figure 
-    var w0 = Math.max(0, Math.floor((width - (Mx - mx)*delta)/2));
-
-    /* To centre vertically the figure
-    var h0 = height - Math.max(0, Math.floor((height - (My - my)*delta)/2));
-    */
-
     for ( var j = 0 ; j < N ; j=j+J ) {
 	cntxt.beginPath();
 	cntxt.moveTo(Math.floor((X[j]-mx)*deltax),
