@@ -51,12 +51,12 @@ main_title( MStext, "MMathSStat");
 
 <h2> Fractal Dimensions </h2>
 
-<p> There is no clear definition of a fractal set.  Benoit
+<p> There is no clear definition of a fractal.  Benoit
 B. Mandelbrot (the father of Fractal Geometry) defines a fractal
 as a set for which the <q lang="en">Hausdorff</q> dimension is strictly
 greater than the topological dimension.  Some mathematicians will also
-request that the set had some self-similarity (this is the case for
-the Sierpinski triangle). </p>
+request that the set had some self-similarity.  This is the case for
+the Sierpinski triangle. </p>
 
 <p> We only consider the notion of <em>similarity dimension</em> and
 <em>Minkowski dimension</em>.  We may add more information on these
@@ -76,29 +76,30 @@ Dimension = log(a) / log(1/s)
 </center>
 
 <p> where <em class="Equations">a</em> is the number of
-<q lang="en">small</q> sets similar to the original set and
+<q lang="en">small</q> sets similar to the original set
+<em class="Equations">A</em> and
 <em class="Equations">s</em> is the size of the rescaling used to
 produce the <q lang="en">small</q> sets. For instance:
 </p>
 
 <ul>
 <li>
-<p>The similarity dimension of the line <em class="Equations">[0,1]</em>
+<p>The similarity dimension of the interval <em class="Equations">[0,1]</em>
 is 1.  For
-<em class="Equations">s = 1/4</em> and <em class="Equations">a = 4</em>,
+<em class="Equations">s = 1/2</em> and <em class="Equations">a = 2</em>,
 we get</p> 
 <div class="center">
-  <em class="Equations">log(a)/log(1/s) = log(4)/log(4) = 1</em>.
+  <em class="Equations">log(a)/log(1/s) = log(2)/log(2) = 1</em>.
 </div>
-<p>We leave it to the reader to describe the (obvious) four functions
+<p>We leave it to the reader to describe the (obvious) two functions
 from <em class="Equations">[0,1]</em> into itself that compose the IFS
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em> such
+<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;2</sub></em> such
 that the interval <em class="Equations">[0,1]</em> is the fixed points
 of the function <em class="Equations">f<sup>c</sup></em> associaited
 to the IFS.</p>
 </li>
 <li>
-<p>The similarity dimension of a cube is 3.  for
+<p>The similarity dimension of a cube is 3.  For
 <em class="Equations">s = 1/2</em> and <em class="Equations">a = 8</em>,
 we get</p>
 <div class="center">

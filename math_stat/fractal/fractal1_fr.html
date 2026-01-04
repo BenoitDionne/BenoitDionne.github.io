@@ -54,12 +54,12 @@ main_title( MStexte, "MMathSStat");
 
 <h2> Systèmes dynamiques discrets </h2>
 
-<p> Avant de donner une définition des objets fractales, nous devons
+<p> Avant de définir ce qu'est une fractale, nous devons
 étudier les <em>systèmes dynamiques discrets</em> (SDD).  En fait, il
 est suffisant de considérer les SDD sur la droite réelle.
-Ils illustrent toute la complexité que peut être exhibée par les SDD.</p>
+Ils illustrent toute la complexité qui peut être exhibée par les SDD.</p>
 
-<p> Soit <em class="Equations"> f </em>une fonction à valeurs
+<p> Soit <em class="Equations">f</em> une fonction à valeurs
 réelles qui est définie sur la droite réelle.  La formule </p>
 
 <center>
@@ -70,7 +70,7 @@ réelles qui est définie sur la droite réelle.  La formule </p>
 
 <p>définie un SDD.  Pour tous
 <em class="Equations">x<sub>0</sub></em> donné, nous pouvons
-générer une suite</p>
+générer la suite</p>
 
 <center>
 <em class="Equations_Display">
@@ -78,6 +78,8 @@ x<sub>1</sub> = f(x<sub>0</sub>), x<sub>2</sub> = f(x<sub>1</sub>),
 x<sub>3</sub> = f(x<sub>2</sub>), ...
 </em>
 </center>
+
+<p>Elle est appelée une <em>orbite</em> du SDD.</p>
 
 <hr class="MMathSStat">
 
@@ -97,7 +99,7 @@ droite qui représente l'image de la fonction <em class="Equations">f</em> et
 <em class="Equations">b</em> est l'abscisse à l'origine de cette
 droite.</p>
 
-<p> Qu'arrive-t-il aux <em>orbites</em> <em class="Equations">x<sub>0</sub>,
+<p> Qu'arrive-t-il aux orbites <em class="Equations">x<sub>0</sub>,
 x<sub>1</sub>, x<sub>2</sub>, ... </em> si nous varions les paramètres
 <em class="Equations">m</em> et <em class="Equations">b</em>? </p>
 
@@ -117,7 +119,7 @@ choisie.  Le graphe débute au point
 <ol>
 <li> À partir de <em class="Equations">(x<sub>0</sub>,0)</em>, nous
 traçons une droite verticale qui coupe le graphe de <em class="Equations">f</em>
-au point <em class="Equations">(x<sub>0</sub>,x<sub>1</sub>)</em> </li>
+au point <em class="Equations">(x<sub>0</sub>,x<sub>1</sub>)</em>. </li>
 <li> À partir de <em class="Equations">(x<sub>0</sub>,x<sub>1</sub>)</em>,
 nous traçons une droite horizontale qui coupe la droite
 <em class="Equations"> y = x</em> au point
@@ -134,7 +136,7 @@ nous traçons une droite horizontale qui coupe la droite
 <em class="Equations">(x<sub>2</sub>,x<sub>2</sub>)</em>,
 nous traçons une droite verticale qui coupe le graphe de
 <em class="Equations">f</em> au point
-<em class="Equations">(x<sub>2</sub>,x<sub>3</sub>)</em>, </li>
+<em class="Equations">(x<sub>2</sub>,x<sub>3</sub>)</em>. </li>
 <li> Et ainsi de suite.</li>
 </ol>
 
@@ -182,9 +184,9 @@ x<sub>2</sub>, ... </em> convergent vers
 <h3 id="logistic"> La fonction Logistique </h3>
 
 <p> Le plus simple SDD non-affine est donné par
-<em>la fonction logistique</em>.  Par contre, nous allons voir que le
-comportement des orbites générées par itérations de cette fonction
-sont loin d'être simples.  La fonction logistique est la
+<em>la fonction logistique</em>.  Par contre, nous montrons ci-dessous
+que le comportement des orbites générées par les itérations de cette fonction
+est loin d'être simple.  La fonction logistique est la
 fonction <em class="Equations">f<sub>&micro;</sub></em> définie par</p>
 
 <center>
@@ -195,7 +197,7 @@ f<sub>&micro;</sub>(x) = &micro; x(1-x)
 
 <p> où <em class="Equations">&micro</em> est un paramètre fixe mais
 arbitraire.  Nous avons une famille de fonctions, une fonction pour chaque
-valeur de <em class="Equations">&micro;</em>. </p>  
+valeur de <em class="Equations">&micro;</em>. </p>
 
 <p> Le SDD associé à la fonction logistique est donné par la formule
 suivante. </p>
@@ -242,10 +244,10 @@ x<sub>2</sub>, ... </em> convergent vers un point unique
 point <em class="Equations">p<sub>&micro;</sub></em> satisfait
 <em class="Equations">f<sub>&micro;</sub>(p<sub>&micro;</sub>)
 = p<sub>&micro;</sub></em>.  Donc, c'est un
-<em>point fixe</em> de <em class="Equations">f<sub>&micro;</sub></em>. </p>
+point fixe de <em class="Equations">f<sub>&micro;</sub></em>. </p>
 
 <div class="Note">
-<p> Le <em>Théorème du Point Fixe</em> affirme que si
+<p> Le <em>Théorème du point fixe</em> affirme que si
 <em class="Equations">f: [a,b] &rarr; [a,b]</em>
 est une fonction continûment différentiable et s'il existe une
 constante positive <em class="Equations">K <1</em> telle que
@@ -284,7 +286,7 @@ avec <em class="Equations">x<sub>0</sub></em> suffisamment près de
 <p> Pour certaines valeurs de <em class="Equations">&micro;</em> (les
 valeurs entre 3 et 4 sont vraiment intéressantes), les orbites
 <em class="Equations">x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ... </em>
-ne convergent pas vers un seul point mais ils <q lang="fr"> convergent </q>
+ne convergent pas vers un seul point mais elles <q lang="fr"> convergent </q>
 vers un ensemble plus complexe.</p>
 
 <p>Pour <em class="Equations">&micro; = 3.4</em>, le point
@@ -392,15 +394,17 @@ périodiques de toutes les périodes.  Aucune des orbites périodiques,
 sauf pour l'orbite de période 3 ci-dessus, est un attracteur.
 Donc, sauf si une orbite débute avec un point exactement sur une des
 orbites qui n'est pas un attracteur, elle va <q lang="fr">converger</q>
-vers l'orbite périodique de période 3.  Notons que, en raison des
+vers l'orbite périodique de période 3.  Notons que'en raison des
 erreurs de troncature, il est pratiquement impossible de tracer le
 graphe en forme de toile d'araignée d'une des orbites périodiques qui
 n'est pas un attracteur.</p>
 
 <p>Qu'arrive-t-il quand <em class="Equations">&micro;</em> est plus
-grand ou égale à 4?  Par exemple, les orbites de
+grand ou égale à 4?  Nous avons que les orbites de
 <em class="Equations">f<sub>4</sub></em> 
-sont <em>Chaotiques</em>.  À suivre (?).<p>
+sont <em>Chaotiques</em>.</p>
+
+<p>À suivre ...<p>
 
 <p>Une bonne référence pour continuer l'étude des systèmes dynamiques
 discrets est <em>An Introduction to Chaotic Dynamical Ssystems</em> par

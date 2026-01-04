@@ -386,7 +386,7 @@ var fractal2 = new item
 websites[websites_nbr++] = fractal2;
 
 var fractal3 = new item
-    ("Dimensions fractal", "Fractal Dimensions",
+    ("Dimensions fractales", "Fractal Dimensions",
      location_bd+"math_stat/fractal/fractal3_fr.html",
      location_bd+"math_stat/fractal/fractal3_en.html",
      null, null, null, "fractal3", "_top", "fractal3");
