@@ -167,7 +167,7 @@ alors il calcule \(20\) itérations de la fonction
  \(\displaystyle 20^{e}\) itération.</p>
 
 <pre class="matlab">
->> <font class="matlab">fxpt1</font><br>
+>> <font class="matlab">format short, fxpt1</font><br>
 x =
     0.3905
 </pre>
@@ -517,7 +517,7 @@ dans le format requis et nous l'associons à
 l'<em>anse</em> <font class="matlab">funct</font>.</p>
 
 <pre class="matlab">
->> <font class="matlab"> funct = @(X1,X2,p) [ X2 ; p(1)*(1-X1.^2).*X2 - X1 ];
+>> <font class="matlab">funct = @(X1,X2,p) [ X2 ; p(1)*(1-X1.^2).*X2 - X1 ];
 </font></pre>
 
 <p> En ce qui concerne les autres arguments de la fonction
@@ -537,7 +537,7 @@ Nous assumons les valeurs données par défaut pour les autres
 arguments.</p>
 
 <pre class="matlab">
->> <font class="matlab"> vctfld(funct, [-3 4 -3 3], [1/2], 1, 4, [ 1 3 ; 1 1]);
+>> <font class="matlab">vctfld(funct, [-3 4 -3 3], [1/2], 1, 4, [ 1 3 ; 1 1]);
 </font></pre>
 
 <div class="center">
@@ -548,7 +548,7 @@ arguments.</p>
 <p> En plus de la figure, nous obtenons aussi un message de précaution
 après la commande précédente.  Nous obtenons ce message parce que les
 calculs pour obtenir l'orbite qui passe par \( (3,1) \) génèrent des
-valeurs au delà des limites de calculs pour \( t < -1.xx \).  Nous
+valeurs au delà des limites de calculs pour \( t < -1.58\ldots \).  Nous
 devons aussi noter que le système d'EDO est <em>raide</em>.  Pour
 des systèmes d'EDO qui sont raides, il est généralement préférable
 d'utiliser le solveur <font class="matlab">ODE15s</font> ou
@@ -566,7 +566,7 @@ Nous obtenons des vecteurs dont la longueur représente la vélocité du
 <q lang="en">flot</q> à leur point de base.</p>
 
 <pre class="matlab">
->> <font class="matlab"> vctfld(funct, [-3 4 -3 3], [1/2], 1, 4, [ 1 3 ; 1 1]);
+>> <font class="matlab">vctfld(funct, [-3 4 -3 3], [1/2], 0, 4, [ 1 3 ; 1 1]);
 </font></pre>
 
 <div class="center">
@@ -890,8 +890,9 @@ d'ordinateur, nous obtenons après 5 itérations presque la meilleure
 représentation du triangle de Sierpinski qui peut être affichée.</p>
 
 <pre class="matlab">
->> <font class="matlab"> X= [ 0 1 0 0 ; 0 0 1 0];</font>
->> <font class="matlab"> ifs(X,5,'Sierpinski','red')</font>
+>> <font class="matlab">close all;</font>
+>> <font class="matlab">X= [ 0 1 0 0 ; 0 0 1 0];</font>
+>> <font class="matlab">ifs(X,5,'Sierpinski','red')</font>
 1 2 3 4 5
 The figure has been drawn
 </pre>
@@ -1111,8 +1112,8 @@ points \( (0,0), (1,0) \) et \( (0,1) \).  Nous calculons
 feuille au lieu de la fougère.</p>
 
 <pre class="matlab">
->> <font class="matlab"> X= [ 0 1 0 0 ; 0 0 1 0];</font>
->> <font class="matlab"> ifs(X,18,'Fern','green')</font>
+>> <font class="matlab">X= [ 0 1 0 0 ; 0 0 1 0];</font>
+>> <font class="matlab">ifs2(X,18,'Fern','green')</font>
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
 The figure has been drawn
 </pre>
@@ -1123,7 +1124,7 @@ The figure has been drawn
 </div>
 
 <pre class="matlab">
->> <font class="matlab"> ifs(X,18,'leaf','red')</font>
+>> <font class="matlab">ifs2(X,18,'leaf','red')</font>
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
 The figure has been drawn
 </pre>

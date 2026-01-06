@@ -208,26 +208,26 @@ default mode which is to replace the present figure by a new one.</p>
 <p><em>Example</em>: Using the definition of the variable
 <font class="matlab">x</font> above and assuming that the previous
 figure exists (i.e. it has not been closed), the following 
-commands add the straight line \(y = x + 2\) to
+commands add the straight line \(y = x + 1\) to
 the previous figure containing the graph of \(f\).</p>
 
 <pre class="matlab">
 >> <font class="matlab">hold on</font>
->> <font class="matlab">z = x + 2;</font>
+>> <font class="matlab">z = x + 1;</font>
 >> <font class="matlab">plot(x,z,'r')</font>
->> <font class="matlab">text(0.5,2.4,'y = x + 2','Color','red','FontSize',16)</font>
+>> <font class="matlab">text(0.5,1.4,'y = x + 1','Color','red','FontSize',16)</font>
 </pre>
 
 <p> The figure is now</p>
 
 <div class="center">
   <img src="Matlab_figure2.png" style="width: 300px"
-       alt="Graphs of x^3 and of x + 2">
+       alt="Graphs of x^3 and of x + 1">
 </div>
 
 <p>The option <font class="matlab">'r'</font> of the previous
 <font class="matlab">plot</font> command tells <em>Matlab</em> to draw
-the line \(y = x + 2\) in red.</p>
+the line \(y = x + 1\) in red.</p>
 </div>
 
 <p>A title and axis labels can be added to the figure using
@@ -501,13 +501,30 @@ defined by \(f(x,y) = \sin(x+y) x^2 y \) for \(-5 \leq x \leq 5\) and
 </div>
 </div>
 
-<p>If we select the option
+<p>There are a lot of options in the menu at the top of the windown
+that displays the figure.  This options can be used to add and modify
+the labels, the grid, the legend, the colour bar, etc.
+There are also some less obvious options.  The following options
+appear when the mouse is over the figure.</p>
+
+<div class="center">
+  <img src="Matlab_fig_opt.png" style="width: 300px"
+       alt="Display of the icons to activate some options">
+</div>
+
+<p> It suffices to move the mouse over an icon to get a popup with a
+brief description of the option associated to the icon.  There is
+one icon so save the image, one to zoom in, one to zoom out, etc.  One
+of them is very useful to visualize three dimensional objects.  After
+having clicked on the 
+fourth icons on the list, the one with a curved arrow, we can then use
+the left button of our mouse to rotate the object in space.  
+This is quite useful when we need to change the viewpoint to get a better
+view of the object.  For those using <em>Octave</em>, they can access
+this option by selecting the option
 <em>Tools &Longrightarrow; GUI mode (on all axes) &Longrightarrow;
-Rotate on</em> in the menu on
-the top of the window displaying the graph, we can then use the left
-button of our mouse to rotate the figure in the space.  This is quite
-useful when we need to change our viewpoint to get a better
-view of the graph.</p>
+Rotate on</em> in the menu on the top of the window displaying the
+figure.</p>
 
 <h4>Drawing of a Curve</h4>
 
@@ -757,11 +774,11 @@ expected.  Each column of <font class="matlab">Z</font> lists the
 commponents of <font class="matlab">z = linspace(0,1,length(x))</font>.
 For i fixed, the set of points
 <font class="matlab">(X(i,j),Y(i,j))</font> for all
-j represents the cross section of the surface of revolution
-with \(x\) equals to <font class="matlab">x(i)</font>, and
+j represents the cross section of the surface of revolution (i.e. a
+cricle) with \(x\) equals to <font class="matlab">x(i)</font>, and
 <font class="matlab">Z)i,j) = z(i)</font> for all j.
 If <font class="matlab">x = a:h:b</font>, then
-<font class="matlab">z(i) = (i-1)/(length(x)-1)\)</font>
+<font class="matlab">z(i) = (i-1)/(length(x)-1)</font>
 and <font class="matlab">x(i) = a + (i-1)*h = a + z(i)*(b-a)</font>
 for <font class="matlab"> 1 <= i <= length(x)</font>.
 Therefore, we have to change the order of <font class="matlab">X</font>,

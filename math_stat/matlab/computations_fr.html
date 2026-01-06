@@ -116,10 +116,7 @@ avec \(10\) sous-intervalles.  Nous utilisons les \(11\) points
 <pre class="matlab">
 >> <font class="matlab">x = linspace(0,pi,11)</font><br>
 x =
-  Columns 1 through 7
-          0    0.3142    0.6283    0.9425    1.2566    1.5708    1.8850 <br>
-  Columns 8 through 11
-    2.1991    2.5133    2.8274    3.1416
+          0    0.3142    0.6283    0.9425    1.2566    1.5708    1.8850    2.1991    2.5133    2.8274    3.1416
 </pre>
 
 <p> L'étape suivante consiste à évaluer \(x \sin(x)\) à chacune des
@@ -192,8 +189,9 @@ par son <em>anse</em> que nous sauvegardons dans une variable comme
 il est fait ci-dessous.</p>
 
 <pre class="matlab">
->> <font class="matlab"> f = @(x) sqrt(x) + sin(1./x.^2) + 1</font><br>
+>> <font class="matlab">f = @(x) sqrt(x) + sin(1./x.^2) + 1</font><br>
 f =
+  function_handle with value:
     @(x) sqrt(x) + sin(1 ./ x .^ 2) + 1
 </pre>
 
@@ -203,9 +201,10 @@ comment cela est fait.  Nous exigeons une erreur relative d'au plus
 \(10^{-6}\).</p>
 
 <pre class="matlab">
->> <font class="matlab">integral(f,1,5,'RelTol',10^(-6))</font> <br>
+>> <font class="matlab">format long; ...
+   integral(f,1,5,'RelTol',10^(-6))</font> <br>
 ans =
-     11.55448141551789
+     11.554481415517884
 </pre>
 </div>
 
@@ -229,7 +228,7 @@ exécutons les commandes suivantes.</p>
    ymin = @(x) -sqrt(4-x.^2); ...
    integral2(f, -2,2, ymin, ymax,'Method','iterated')</font> <br>
 ans =
-   8.377580360000902
+   8.377580409572783
 </pre>
 
 <p><em>Deuxième méthode</em>: Nous calculons l'intégrale précédente à
@@ -251,7 +250,7 @@ exécutons les commandes suivantes.</p>
    frtD = @(r,theta) frt(r,theta).*r; ...
    integral2(frtD, 0,2, 0, 2*pi,'Method','tiled')</font> <br>
 ans =
-   8.377580409572781
+   8.377580424188654
 </pre>
 </div>
 
@@ -431,7 +430,7 @@ l'EDO précédente à \(t=2\) est donnée par la commande</p>
 <pre class="matlab">
 >> <font class="matlab">w = interp1(t,x,2,'linear')</font> <br>
 w =
-   3.1025
+   3.103039307155722
 </pre>
 </div>
 
@@ -480,7 +479,7 @@ et traçons les graphes de \(x_1\) et \(x_2\) en fonction du temps \(t\).</p>
 <pre class="matlab">
 >> <font class="matlab">mu = 0.5; ...
    x0 = [ 3 ; 1]; ...
-   F = @(t,x) [x(2), mu*(1-x(1).^2).*x(2) - x(1)]; ...
+   F = @(t,x) [x(2); mu*(1-x(1).^2).*x(2) - x(1)]; ...
    options = odeset('reltol',10^(-5)); ...
    [t,x] = ode45(F,[0,40],x0,options); ...
    plot(t,x(:,1),'r',t,x(:,2),'b'), ...
@@ -594,7 +593,8 @@ vecteurs prêt de la solution périodique comme le gros plan suivant du
 champ de vecteurs le démontre.</p>
 
 <pre class="matlab">
->> <font class="matlab">[X,Y]=meshgrid(1:0.2:3,-1:0.2:1); ...
+>> <font class="matlab">cla, ...
+   [X,Y]=meshgrid(1:0.2:3,-1:0.2:1); ...
    U = Y; V = mu*(1-X.^2).*Y - X; ...
    quiver(X,Y,U,V,'r'), grid on
 </pre>

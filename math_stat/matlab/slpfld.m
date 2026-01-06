@@ -123,7 +123,7 @@ F = @(t,x) f(t,x,p);
 
 if ( exist('init_conds') == 1 && length(init_conds) > 0 )
   if ( exist('options') ~= 1 || size(options,1) == 0 )
-    options = odeset('RelTol',1e-6,'AbsTol',[1e-6 1e-6]);
+    options = odeset('RelTol',1e-6,'AbsTol',1e-6);
   end
   for i = 1:length(init_conds)
     x0 = init_conds(i);

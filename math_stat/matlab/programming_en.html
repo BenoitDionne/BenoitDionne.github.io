@@ -165,7 +165,7 @@ then it computes \(20\) iterations of the function \(g\) starting with
 \(x = 0.5\) and return the \(\displaystyle 20^{th}\) iteration.</p>
 
 <pre class="matlab">
->> <font class="matlab">fxpt1</font><br>
+>> <font class="matlab">format short, fxpt1</font><br>
 x =
     0.3905
 </pre>
@@ -512,7 +512,7 @@ hand side of this system of ODE in the required format and
 associate it to the <em>handle</em> <font class="matlab">funct</font>.</p>
 
 <pre class="matlab">
->> <font class="matlab"> funct = @(X1,X2,p) [ X2 ; p(1)*(1-X1.^2).*X2 - X1 ];
+>> <font class="matlab">funct = @(X1,X2,p) [ X2 ; p(1)*(1-X1.^2).*X2 - X1 ];
 </font></pre>
 
 <p> As for the other arguments of the function
@@ -531,7 +531,7 @@ orbits through \( (1,1) \) and \( (3,1) \) respectively, and
 We assume the default values for all the other arguments. </p>
 
 <pre class="matlab">
->> <font class="matlab"> vctfld(funct, [-3 4 -3 3], [1/2], 1, 4, [ 1 3 ; 1 1]);
+>> <font class="matlab">vctfld(funct, [-3 4 -3 3], [1/2], 1, 4, [ 1 3 ; 1 1]);
 </font></pre>
 
 <div class="center">
@@ -542,7 +542,7 @@ We assume the default values for all the other arguments. </p>
 <p> In addition to the figure, we also get a warning message after the
 previous command.  We get this message because the computations to
 obtain the orbit through \( (3,1) \) generates values outside the
-computational limits for \( t < -1.xx \).  We should also
+computational limits for \( t < -1.58\ldots \).  We should also
 note that the system of ODE is <em>stiff</em>.  For stiff systems of
 ODE, it is generally preferable to use the <em>Matlab</em> solvers
 <font class="matlab">ODE15s</font> or <font class="matlab">ODE23s</font>.
@@ -559,7 +559,7 @@ represent the velocity of the <q lang="en">flow</q> at their base
 points.</p>
 
 <pre class="matlab">
->> <font class="matlab"> vctfld(funct, [-3 4 -3 3], [1/2], 1, 4, [ 1 3 ; 1 1]);
+>> <font class="matlab">vctfld(funct, [-3 4 -3 3], [1/2], 0, 4, [ 1 3 ; 1 1]);
 </font></pre>
 
 <div class="center">
@@ -876,8 +876,9 @@ after 5 iterations the best representation of the Sierpinski triangle
 that may be displayed.</p>
 
 <pre class="matlab">
->> <font class="matlab"> X= [ 0 1 0 0 ; 0 0 1 0];</font>
->> <font class="matlab"> ifs(X,5,'Sierpinski','red')</font>
+>> <font class="matlab">close all;</font>
+>> <font class="matlab">X= [ 0 1 0 0 ; 0 0 1 0];</font>
+>> <font class="matlab">ifs(X,5,'Sierpinski','red')</font>
 1 2 3 4 5
 The figure has been drawn
 </pre>
@@ -1091,8 +1092,8 @@ defined by the triangle with vertices at \( (0,0), (1,0) \) and
 example with the leaf instead of the fern.</p>
 
 <pre class="matlab">
->> <font class="matlab"> X= [ 0 1 0 0 ; 0 0 1 0];</font>
->> <font class="matlab"> ifs(X,18,'Fern','green')</font>
+>> <font class="matlab">X= [ 0 1 0 0 ; 0 0 1 0];</font>
+>> <font class="matlab">ifs2(X,18,'Fern','green')</font>
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
 The figure has been drawn
 </pre>
@@ -1103,7 +1104,7 @@ The figure has been drawn
 </div>
 
 <pre class="matlab">
->> <font class="matlab"> ifs(X,18,'leaf','red')</font>
+>> <font class="matlab">ifs2(X,18,'leaf','red')</font>
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
 The figure has been drawn
 </pre>

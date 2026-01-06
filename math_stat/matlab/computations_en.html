@@ -115,10 +115,7 @@ following list. </p>
 <pre class="matlab">
 >> <font class="matlab">x = linspace(0,pi,11)</font><br>
 x =
-  Columns 1 through 7
-          0    0.3142    0.6283    0.9425    1.2566    1.5708    1.8850 <br>
-  Columns 8 through 11
-    2.1991    2.5133    2.8274    3.1416
+          0    0.3142    0.6283    0.9425    1.2566    1.5708    1.8850    2.1991    2.5133    2.8274    3.1416
 </pre>
 
 <p> The next step is to evaluate \(x \sin(x)\) at each of the components
@@ -187,9 +184,10 @@ define an <em>anonymous function</em> which is only represented by its
 <em>handle</em> that we store in a variable as it follows.</p>
 
 <pre class="matlab">
->> <font class="matlab"> f = @(x) sqrt(x) + sin(1./x.^2) + 1</font><br>
+>> <font class="matlab">f = @(x) sqrt(x) + sin(1./x.^2) + 1</font><br>
 f =
-   @(x) sqrt(x) + sin(1 ./ x .^ 2) + 1
+  function_handle with value:
+    @(x) sqrt(x) + sin(1 ./ x .^ 2) + 1
 </pre>
 
 <p> This function <em>handle</em> can then be used with the
@@ -198,9 +196,10 @@ illustrates how to do it.  We require a relative error of no more
 than \(10^{-6}\). </p>
 
 <pre class="matlab">
->> <font class="matlab">integral(f,1,5,'RelTol',10^(-6))</font> <br>
+>> <font class="matlab">format long; ...
+   integral(f,1,5,'RelTol',10^(-6))</font> <br>
 ans =
-     11.55448141551789
+     11.554481415517884
 </pre>
 </div>
 
@@ -224,7 +223,7 @@ following commands.</p>
    ymin = @(x) -sqrt(4-x.^2); ...
    integral2(f, -2,2, ymin, ymax,'Method','iterated')</font> <br>
 ans =
-   8.377580360000902
+   8.377580409572783
 </pre>
 
 <p><em>Second method</em>: We compute the previous integral using polar
@@ -245,7 +244,7 @@ following commands.</p>
    frtD = @(r,theta) frt(r,theta).*r; ...
    integral2(frtD, 0,2, 0, 2*pi,'Method','tiled')</font> <br>
 ans =
-   8.377580409572781
+   8.377580424188654
 </pre>
 </div>
 
@@ -419,7 +418,7 @@ previous ODE at \(t = 2\) is given by the command</p>
 <pre class="matlab">
 >> <font class="matlab">w = interp1(t,x,2,'linear')</font> <br>
 w =
-   3.1025
+   3.103039307155722
 </pre>
 </div>
 
@@ -467,7 +466,7 @@ and plot the graphs of \(x_1\) and \(x_2\) in function of the time \(t\).</p>
 <pre class="matlab">
 >> <font class="matlab">mu = 0.5; ...
    x0 = [ 3 ; 1]; ...
-   F = @(t,x) [x(2), mu*(1-x(1).^2).*x(2) - x(1)]; ...
+   F = @(t,x) [x(2); mu*(1-x(1).^2).*x(2) - x(1)]; ...
    options = odeset('reltol',10^(-5)); ...
    [t,x] = ode45(F,[0,40],x0,options); ...
    plot(t,x(:,1),'r',t,x(:,2),'b'), ...
@@ -577,7 +576,8 @@ lengths of the vectors near the periodic orbit as the following close
 up of the vector field shows.</p>
 
 <pre class="matlab">
->> <font class="matlab">[X,Y]=meshgrid(1:0.2:3,-1:0.2:1); ...
+>> <font class="matlab">cla, ...
+   [X,Y]=meshgrid(1:0.2:3,-1:0.2:1); ...
    U = Y; V = mu*(1-X.^2).*Y - X; ...
    quiver(X,Y,U,V,'r'), grid on
 </pre>
