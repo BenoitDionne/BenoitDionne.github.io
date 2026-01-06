@@ -219,8 +219,8 @@ description of its arguments.</p>
 <div class="Example">
 <p><em>Example</em>: </p>
 <pre>
->> <font class="matlab">help funct1</font><br>
-  y = funct1(x) <br>
+>> <font class="matlab">help funct1</font>
+  y = <em>funct1</em>(x) <br>
   This function takes one argument x and returns the result of the
   computation  x sin(x)
 </pre>
@@ -253,23 +253,24 @@ function that it represents.</p>
 can be manipulated and used.</p>
 
 <pre class="matlab">
+>> <font class="matlab">format long</font>
 >> <font class="matlab">hand = @funct1;</font>
 >> <font class="matlab">hand(10)</font><br>
 ans =
-   -5.44021110889370
+   -5.440211108893697
 
 >> <font class="matlab">funct1(10)</font> <br>
 ans =
-   -5.44021110889370
+   -5.440211108893697
 
 >> <font class="matlab">hands = {hand, @sin};</font>
 >> <font class="matlab">hands{1}(10)</font> <br>
 ans =
-   -5.44021110889370
+   -5.440211108893697
 
 >> <font class="matlab">hands{2}(10)</font> <br>
 ans =
-   -0.54402111088937
+   -0.544021110889370
 </pre>
 
 <p><font class="matlab">hand</font> contains the function <em>handle</em> of the
@@ -303,6 +304,7 @@ define an <em>anonymous function</em> which is only represented by its
 <pre class="matlab">
 >> <font class="matlab"> f = @(x) x.^3 + 2* x.^2 + 1</font><br>
 f =
+  function_handle with value:
     @(x) x .^ 3 + 2 * x .^ 2 + 1
 </pre>
 
@@ -312,7 +314,7 @@ f =
 >> <font class="matlab">f(5) , sqrt(f(4)), f(4) + f(5)</font> <br>
 ans = 176
 
-ans = 9.8489
+ans = 9.848857801796104
 
 ans = 273
 </pre>
@@ -361,7 +363,7 @@ may seem to be over complicated but our goal was to create an
 results.</p> 
 
 <pre class="matlab">
->> <font class="matlab"> X = [ 1 -2 0 3];</font>
+>> <font class="matlab">X = [ 1 -2 0 3];</font>
 >> <font class="matlab">heaviside(X)</font><br>
 ans =
      [ 1 0 NaN 1 ]
@@ -416,12 +418,13 @@ We have that \(F(x) = 0 \) for \(x < 0\), \(F(x) = 1\) for
 >> <font class="matlab">f = @(x) (x.^2+1).*((sign(x-1)+1)/2) - 2*cos(pi*x).*((sign(x-2)+1)/2); ...
    x = 0:0.01:4; ...
    y = f(x); ...
-   plot(x,y,'b');</font>
+   plot(x,y,'b'); ...
+   grid on; </font>
 </pre>
 
 <p>then we do not get the graph of a function (try it).  There are
 some vertical lines where there should be only one point.  To plot the graph of
-\(f\), we have to use the following commands.</p>
+\(f\), we have to use commands like the following ones.</p>
 
 <pre class="matlab">
 >> <font class="matlab">f = @(x) (x.^2+1).*((sign(x-1)+1)/2) - 2*cos(pi*x).*((sign(x-2)+1)/2); ...
@@ -436,7 +439,8 @@ some vertical lines where there should be only one point.  To plot the graph of
    y = f(x); ...
    plot(x,y,'b'); ...
    plot(1,f(1),'.b'); ...
-   plot(2,f(2),'.b');</font>
+   plot(2,f(2),'.b');
+   grid on; </font>
 </pre>
 </div>
 
@@ -492,8 +496,10 @@ We provide examples of these new graphics functions below.</p>
 previous example.</p>
 
 <pre class="matlab">
+>> <font class="matlab">close</font>
 >> <font class="matlab">f = @(x) x.^3 + 2*x.^2 + 1; ...
-   fplot(f,[-4,4],'b', MeshDensity=100);</font>
+   fplot(f,[-4,4],'b', MeshDensity=100); ...
+   grid on </font>
 </pre>
 
 <div class="center">
@@ -520,7 +526,8 @@ commands.</p>
 
 <pre class="matlab">
 >> <font class="matlab">f = @(x) (x.^2+1).*heaviside(x-1) - 2*cos(pi*x).*heaviside(x-2); ...
-   fplot(f,[0,4],'b', MeshDensity=100);</font>
+   fplot(f,[0,4],'b', MeshDensity=100); ...
+   grid on;</font>
 </pre>
 
 <p>On our computer, there is a vertical line at \(x=1\) because the
@@ -583,8 +590,8 @@ instance, we can draw the curve defined by the equation
 
 <pre class="matlab">
 >> <font class="matlab">h = @(x,y) 9*x.^2 -4*y.^2 - 18*x +16*y - 43; ...
-   fimplicit(h,'r'); ...
-   xlabel('x') , ylabel('y');</font>
+   fimplicit(h,[-5 7 -5 8],'r'); ...
+   xlabel('x') , ylabel('y'), grid on</font>
 </pre>
 
 <div class="center">
@@ -601,36 +608,36 @@ is <font class="matlab">ezplot</font>.</p>
 <p><em>Example</em>: We use <em>Matlab</em> to
 draw the graph of the function \(f\) defined by
 \( f(x,y) = x y \sin(y) \cos(x) \) for
-\(0 \leq x,y \leq 2 \pi \).</p>
+\(-2\pi \leq x,y \leq 2 \pi \).</p>
 
 <pre class="matlab">
 >> <font class="matlab">f = @(x,y) x.*y.*sin(y).*cos(x); ...
-   fsurf(f,[0 2*pi 0 2*pi]); ...
+   fsurf(f,[-2*pi 2*pi -2*pi 2*pi],'MeshDensity', 70); ...
    grid on, xlabel('x'), ylabel('y'), zlabel('z')</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure24.png" style="width: 350px"
-       alt="Graph of the function f defined by f(x,y) = x y sin(y) cos(x) for 0 &le; x,y &le; 2 &pi;">
+       alt="Graph of the function f defined by f(x,y) = x y sin(y) cos(x) for -2 &pi; &le; x,y &le; 2 &pi;">
 </div>
 
 <p>We may also plot some level curves of \(f\).</p>
 
 <pre class="matlab">
->> <font class="matlab">fcontour(f,[ 0 2*pi 0 2*pi]); ...
+>> <font class="matlab">fcontour(f,[ -2*pi 2*pi -2*pi 2*pi],'MeshDensity', 70); ...
    grid on, xlabel('x'), ylabel('y'), ...
-   colourbar</font>
+   colorbar</font>
 </pre>
 
 <div class="center">
   <img src="Matlab_figure25.png" style="width: 350px"
-       alt="Some level curve of the function f defined by f(x,y) = x y sin(y) cos(x)) for 0 &le; x,y &le; 2 &pi;">
+       alt="Some level curve of the function f defined by f(x,y) = x y sin(y) cos(x)) for -2 &pi; &le; x,y &le; 2 &pi;">
 </div>
 
 <p>We may even select the level curves of \(f\) that we want to plot.</p>
 
 <pre class="matlab">
->> <font class="matlab">fcontour(f,[ 0 2*pi 0 2*pi], 'LevelList', [-1 0 1]); ...
+>> <font class="matlab">fcontour(f,[ -2*pi 2*pi -2*pi 2*pi], 'LevelList', [-1 0 1]); ...
    grid on, xlabel('x'), ylabel('y')</font>
 </pre>
 

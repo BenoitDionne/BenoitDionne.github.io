@@ -147,8 +147,6 @@ pour la fonction <font class="matlab">plot</font> pour obtenir une
 liste complète de ces options.</li>
 </ol>
 
-<p></p>
-
 <div class="Example">
 <p><em>Exemple</em>: On considère la fonction \(f\) définie par
 \(\displaystyle y = f(x) = x^3\) sur l'intervalle \([0,1]\).  Les deux
@@ -159,10 +157,7 @@ l'intervalle.</p>
 <pre class="matlab">
 >> <font class="matlab">x = 0:0.1:1</font> <br>
 x =
-   Columns 1 through 7
-          0    0.1000    0.2000    0.3000    0.4000    0.5000    0.6000 <br>
-   Columns 8 through 11
-     0.7000    0.8000    0.9000    1.0000
+          0    0.1000    0.2000    0.3000    0.4000    0.5000    0.6000    0.7000    0.8000    0.9000    1.0000
 </pre>
 
 <p>ou</p>
@@ -170,10 +165,7 @@ x =
 <pre class="matlab">
 >> <font class="matlab">x = linspace(0,1,11)</font><br>
 x =
-   Columns 1 through 7
-          0    0.1000    0.2000    0.3000    0.4000    0.5000    0.6000 <br>
-   Columns 8 through 11
-     0.7000    0.8000    0.9000    1.0000
+          0    0.1000    0.2000    0.3000    0.4000    0.5000    0.6000    0.7000    0.8000    0.9000    1.0000
 </pre>
 
 <p>Pour évaluer la fonction \(f\) définie par \(\displaystyle f(x) = x^3\) aux
@@ -183,10 +175,7 @@ tableaux suffit.</p>
 <pre class="matlab">
 >> <font class="matlab">y = x.^3</font> <br>
 y =
-   Columns 1 through 7
-          0    0.0010    0.0080    0.0270    0.0640    0.1250    0.2160 <br>
-   Columns 8 through 11
-     0.3430    0.5120    0.7290    1.0000
+          0    0.0010    0.0080    0.0270    0.0640    0.1250    0.2160    0.3430    0.5120    0.7290    1.0000
 </pre>
 
 <p>Chacune des composantes de <font class="matlab">y</font> est le
@@ -199,8 +188,7 @@ entre les \(11\) points également distancés pour approcher le graphe de la
 fonction \(f\).</p>
 
 <pre class="matlab">
->> <font class="matlab">plot(x,y)</font>
->> <font class="matlab">grid on</font>
+>> <font class="matlab">plot(x,y), grid on</font>
 </pre>
 
 <p>Après avoir pressé la touche <em>Enter</em>, une nouvelle fenêtre s'ouvre
@@ -418,10 +406,7 @@ suivante.</p>
 <pre class="matlab">
 >> <font class="matlab">z = linspace(0,pi,11)</font><br>
 z =
-   Columns 1 through 9
-       0    0.3142    0.6283    0.9425    1.2566    1.5708    1.8850   2.1991    2.5133 <br>
-   Columns 10 through 11
-       2.8274    3.1416
+       0    0.3142    0.6283    0.9425    1.2566    1.5708    1.8850   2.1991    2.5133    2.8274    3.1416
 </pre>
 
 <p>La commande suivante dans <em>Matlab</em> calcule la valeur de
@@ -431,10 +416,7 @@ distancés donnés par <font class="matlab">z</font>.</p>
 <pre class="matlab">
 >> <font class="matlab">w = interp1(x,y,z,'linear')</font> <br>
 w = <br>
-   Columns 1 through 9
-       0    0.2222    0.4443    0.7585    1.1646    1.5708    1.6089    1.6470    1.3329 <br>
-   Columns 10 through 11
-       0.6665    0.0000
+       0    0.2222    0.4443    0.7585    1.1646    1.5708    1.6089    1.6470    1.3329    0.6665    0.0000
 </pre>
 
 <p>Nous avons que <font class="matlab">w(k)</font> est la
@@ -446,8 +428,8 @@ Les commandes suivantes tracent les points de coordonnées \((x,y)\) où
 \(k = 1, 2, \ldots, 11\).</p>
 
 <pre class="matlab">
->> <font class="matlab">hold on</font>
->> <font class="matlab">plot(z,w,'or');</font>
+>> <font class="matlab">hold on; ...
+   plot(z,w,'or');</font>
 </pre>
 
 <div class="center">
@@ -602,6 +584,7 @@ pour dessiner le cadre d'une boite avec tous ses bords de longueur 1 et
 centrée à l'origine.</p>
 
 <pre class="matlab">
+>> <font class="matlab">close</font>
 >> <font class="matlab">x=[ 0 1 1 0 0 0 1 1 0 0 ]; ...
    y=[ 0 0 1 1 0 0 0 1 1 0 ]; ...
    z=[ 0 0 0 0 0 1 1 1 1 1 ]; ...
@@ -704,10 +687,11 @@ genres de dessins.</p>
 et \(-3 \leq y \leq 3\), nous utilisons les commandes suivantes.</p>
 
 <pre class="matlab">
+>> <font class="matlab">close</font>
 >> <font class="matlab">[X,Y] = meshgrid(-5:0.1:5,-3:0.1:3); ...
    Z = sin(X+Y).*X.^2.*Y; ...
    contour(X,Y,Z,10,'ShowText','on'); ...
-   xlabel('x') , ylabel('y');</font>
+   grid on , xlabel('x') , ylabel('y');</font>
 </pre>
 
 <div class="center">
@@ -721,8 +705,9 @@ données par \(f(x,y) = -2\) et \(f(x,y) = -6\).  Nous pouvons tracer
 ces courbes de niveau avec la commande suivante. </p>  
 
 <pre class="matlab">
+>> <font class="matlab">close</font>
 >> <font class="matlab">contour(X,Y,Z,[-2,-6],'ShowText','on'); ...
-   xlabel('x') , ylabel('y');</font>
+   grid on , xlabel('x') , ylabel('y');</font>
 </pre>
 
 <div class="center">
@@ -737,9 +722,10 @@ ces courbes de niveau avec la commande suivante. </p>
 commandes suivantes .</p>
 
 <pre class="matlab">
+>> <font class="matlab">close</font>
 >> <font class="matlab">theta = 0:0.01:2*pi; ...
    r = 1 +cos(theta); ...
-   polarplot(theta,rho);</font>
+   polarplot(theta,r);</font>
 </pre>
 
 <div class="center">
@@ -761,6 +747,7 @@ révolution générée par la rotation de la courbe
 \(x\).  Nous dessinons cette courbe en premier.</p>
 
 <pre class="matlab">
+>> <font class="matlab">close</font>
 >> <font class="matlab">x = 0:0.02:4; ...
    y = 2+cos(pi*x); ...
    plot(x,y,'b'); ...
@@ -842,9 +829,10 @@ et \( \mu = 0, \pi/4, \pi/2, 3\pi/4 \), et les afficher sur deux
 rangées dans une même figure.</p>
 
 <pre class="matlab">
+>> <font class="matlab">close</font>
 >> <font class="matlab">[X,Y] = meshgrid(-2:0.05:2,-2:0.05:2);</font>
 >> <font class="matlab">for i = 1:4
-      mu = (i-1)*pi/4;     
+      mu = (i-1)*pi/4;
       Z = (X.*cos(mu) - Y.*sin(mu)).*(X.*sin(mu) + Y.*cos(mu));
       subplot(2,2,i);
       surf(X,Y,Z);
@@ -906,14 +894,12 @@ quelques objets <em>Texte</em> (le texte ajouté à un dessin) qui sont
   des enfants de l'objet <em>Axes</em>.</li>
 <li> Un objet <em>Légende</em>, si une légende est requise, qui est un
   enfant de l'objet <em>Figure</em>.</li>
-<li> Quelques objets <em>Lignes</em> (lignes) et quelques objets <em>Texte</em>
-(étiquettes) qui sont des enfants de l'objet <em>Légende</em> si une
-légende est créée.</li> 
 </ol>
 
 <p> Supposons que nous exécutons les commandes suivantes. </p>
 
 <pre class="matlab">
+>> <font class="matlab">close</font>
 >> <font class="matlab">x = 0:0.02:4; ...
    y = x.^2.*exp(-x); ...
    p1 = plot(x,y,'b'); ...
@@ -931,8 +917,8 @@ légende est créée.</li>
 </div>
 
 <p> La commande suivante donne l'anse de l'objet <em>Figure</em>
-couramment actif qui a été créé par la fonction
-<font class="matlab">plot</font>. </p> 
+couramment actif qui a été créé par le premier appel à la
+fonction <font class="matlab">plot</font>. </p> 
 
 <pre class="matlab">
 >> <font class="matlab">h1 = gcf;</font>
@@ -951,7 +937,7 @@ avec la commande suivante.</p>
        alt="Graphes de x &rarr; x^2 e^(-x) et x &rarr; x^2 e^(-2x) avec un fond gris pour l'objet Figure">
 </div>
 
-<p>La commande précédente ne fonctionne pas avec les vieilles versions
+<p>La commande précédente ne fonctionne pas avec les anciennes versions
 de <em>Matlab</em>.  À sa place, la commande
 <font class="matlab">set(h1,'Color', [ 0.5 0.5 0.5])</font>
 doit être utilisée.  La commande <font class="matlab">get(h1)</font>
@@ -972,8 +958,8 @@ des axes avec les commandes suivantes. </p>
   
 <pre class="matlab">
 >> <font class="matlab">h2.Color = [ 0.7 0.8 0.9]; ...
-   h2.Xcolor = [ 1 0 0]; ...
-   h2.Ycolor = [ 1 0 0];</font>
+   h2.XColor = [ 1 0 0]; ...
+   h2.YColor = [ 1 0 0];</font>
 </pre>
 
 <div class="center">
@@ -982,10 +968,10 @@ des axes avec les commandes suivantes. </p>
 </div>
 
 <p>Comme précédemment, les commandes précédentes ne fonctionnent pas
-avec les vieilles versions de <em>Matlab</em>.  À leurs places, Les
+avec les ansiennes versions de <em>Matlab</em>.  À leurs places, Les
 commandes <font class="matlab">set(h2,'Color',[ 0.7 0.8 0.9])</font>,
-<font class="matlab">set(h2,'Xcolor',[ 1 0 0])</font> et
-<font class="matlab">set(h2,'Ycolor',[ 1 0 0])</font> doivent être
+<font class="matlab">set(h2,'XColor',[ 1 0 0])</font> et
+<font class="matlab">set(h2,'YColor',[ 1 0 0])</font> doivent être
 utilisées.  La commande <font class="matlab">get(h2)</font> énumère
 toutes les propriétés possibles de l'objet <em>Axes</em> avec leurs
 valeurs.</p>
@@ -995,50 +981,54 @@ valeurs.</p>
 
 <pre class="matlab">
 >> <font class="matlab">h1c = h1.Children</font> <br>
-h1c =
-  -41.770
-  -34.638
+h1c = 
+
+  2×1 graphics array:
+
+  Legend    (x^2 exp(-x), x^2 exp(-2x))
+  Axes
 </pre>
 
-<p>Pour les vieilles versions de <em>Matlab</em>, nous devons utiliser
-la commande <font class="matlab">h1c = get(h1,'children')</font>.
+<p>Pour les anciennes versions de <em>Matlab</em>, nous devons utiliser
+la commande <font class="matlab">h1c = get(h1,'Children')</font>.
 Comme nous nous y attendions, il y a deux enfants.  Une des deux anses est
 l'anse associée à l'objet <em>Axes</em> et l'autre est l'anse associée
 à l'objet <em>Légende</em>. </p>
 
 <pre class="matlab">
->> <font class="matlab">h1c(1).Children, h1c(2).Children, h2.Children, l1.Children </font> <br>
-ans =
-  -10.170
-  -12.526
-  -13.619
-  -15.234
+>> <font class="matlab">h1c(1).Children, l1.Children, h1c(2).Children, h2.Children </font> <br>
+ans = 
 
-ans =
-  -21.225
-  -22.827
+  0×0 empty GraphicsPlaceholder array.
 
-ans =
-  -21.225
-  -22.827
+ans = 
 
-ans =
-  -10.170
-  -12.526
-  -13.619
-  -15.234
+  0×0 empty GraphicsPlaceholder array.
+
+ans = 
+
+  2×1 Line array:
+
+  Line    (x^2 exp(-2x))
+  Line    (x^2 exp(-x))
+
+ans = 
+
+  2×1 Line array:
+
+  Line    (x^2 exp(-2x))
+  Line    (x^2 exp(-x))
 </pre>
 
-<p>Pour les vieilles versions de <em>Matlab</em>, nous devons utiliser
-les commandes <font class="matlab">get(h1c(1),'children')</font>,
-<font class="matlab">get(h1c(2),'children')</font>,
-<font class="matlab">get(h2,'children')</font> et
-<font class="matlab">get(l1,'children')</font>.
+<p>Pour les anciennes versions de <em>Matlab</em>, nous devons utiliser
+les commandes <font class="matlab">get(h1c(1),'Children')</font>,
+<font class="matlab">get(h1c(2),'Children')</font>,
+<font class="matlab">get(h2,'Children')</font> et
+<font class="matlab">get(l1,'Children')</font>.
 L'objet <em>Axes</em> a deux enfants: un objet <em>Lignes</em> pour
 chacune des deux courbes produites par la
 fonction <font class="matlab">plot</font>.  L'objet
-<em>Légende</em> a quatre enfants: deux objets <em>Lignes</em> et deux
-objets <em>Texte</em>, un de chaque pour \(x^2 e^{-x}\) et \( x^2 e^{-2x}\).</p>
+<em>Légende</em> n'a pas d'enfants.</p>
 
 <p> La commandes suivante énumère les anses des enfants de l'objet
 <em>Axe</em>, les anses des objets <em>Lignes</em> associés aux deux
@@ -1046,36 +1036,73 @@ courbes produites par la fonction <font class="matlab">plot</font>, et
 les descriptions de ces objets <em>Lignes</em>.</p>
 
 <pre class="matlab">
->> <font class="matlab">h2c = h2.Children, p1, p1.Displayname, p1.Type, ...
-   p2, p2.Displayname, p2.type </font> <br>
-h2c =
-  -21.225
-  -22.827
+>> <font class="matlab">h2c = h2.Children, p1, p1.DisplayName, p1.Type, ...
+   p2, p2.DisplayName, p2.Type </font> <br>
+h2c = 
 
-p1 = -22.827
+  2×1 Line array:
 
-ans = x^2 exp(-x)
+  Line    (x^2 exp(-2x))
+  Line    (x^2 exp(-x))
 
-ans = line
+p1 = 
 
-p2 = -21.225
+  Line (x^2 exp(-x)) with properties:
 
-ans = x^2 exp(-2x)
+              Color: [0 0 1]
+          LineStyle: '-'
+          LineWidth: 0.5000
+             Marker: 'none'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+              XData: [0 0.0200 0.0400 0.0600 0.0800 0.1000 0.1200 0.1400 0.1600 0.1800 0.2000 … ] (1×201 double)
+              YData: [0 3.9208e-04 0.0015 0.0034 0.0059 0.0090 0.0128 0.0170 0.0218 0.0271 … ] (1×201 double)
 
-ans = line
+  Show all properties
+
+ans =
+
+    'x^2 exp(-x)'
+
+ans =
+
+    'line'
+
+p2 = 
+
+  Line (x^2 exp(-2x)) with properties:
+
+              Color: [1 0 0]
+          LineStyle: '-'
+          LineWidth: 0.5000
+             Marker: 'none'
+         MarkerSize: 6
+    MarkerFaceColor: 'none'
+              XData: [0 0.0200 0.0400 0.0600 0.0800 0.1000 0.1200 0.1400 0.1600 0.1800 0.2000 … ] (1×201 double)
+              YData: [0 3.8432e-04 0.0015 0.0032 0.0055 0.0082 0.0113 0.0148 0.0186 0.0226 … ] (1×201 double)
+
+  Show all properties
+
+ans =
+
+    'x^2 exp(-2x)'
+
+ans =
+
+    'line'
 </pre>
 
-<p>Pour les vieilles versions de <em>Matlab</em>, nous devons utiliser
-les commandes <font class="matlab">h2c = get(h2,'children')</font>,
-<font class="matlab">get(p1,'displayname')</font>,
-<font class="matlab">get(p1,'type')</font>,
-<font class="matlab">get(p2,'displayname')</font> et
-<font class="matlab">get(p2,'type')</font>.
+<p>Pour les anciennes versions de <em>Matlab</em>, nous devons utiliser
+les commandes <font class="matlab">h2c = get(h2,'Children')</font>,
+<font class="matlab">get(p1,'DisplayName')</font>,
+<font class="matlab">get(p1,'Type')</font>,
+<font class="matlab">get(p2,'DisplayName')</font> et
+<font class="matlab">get(p2,'Type')</font>.
 Nous pouvons changer le style et la couleur de la première courbe avec
 les commandes suivantes.</p>
 
 <pre class="matlab">
->> <font class="matlab">p1.Linestyle = '.-'; p1.color = 'g';</font>
+>> <font class="matlab">p1.LineStyle = '-.'; p1.Color = 'g';</font>
 </pre>
 
 <div class="center">
@@ -1083,9 +1110,9 @@ les commandes suivantes.</p>
        alt="Graphes de x &rarr; x^2 e^(-x) et x &rarr; x^2 e^(-2x) avec un fond gris pour l'objet Figure, un fond bleu et des axes rouges pour l'objet Axes, et une courbe point-tiret noir pour une des graphes.">
 </div>
 
-<p>Pour les vieilles versions de <em>Matlab</em>, nous devons utiliser
-les commandes <font class="matlab">set(p1,'linestyle','.-')</font>
-et <font class="matlab">set(p1,'color','g')</font>. </p>
+<p>Pour les anciennes versions de <em>Matlab</em>, nous devons utiliser
+les commandes <font class="matlab">set(p1,'LineStyle','-.')</font>
+et <font class="matlab">set(p1,'Color','g')</font>. </p>
 
 <div class="Note">
 <p><em>Conseil</em>: L'utilisation de la propriété Children pour
@@ -1120,7 +1147,8 @@ pour définir les propriétés d'un objet lors de sa création est</p>
 en même temps   Les commandes suivantes démontrent comment cela peut
 être fait.</p>
 
-<pre class="matlab">  
+<pre class="matlab">
+>> <font class="matlab">close</font>
 >> <font class="matlab">x = 0:0.02:2; y = x.^2; z = sqrt(x); w = x.^(3/2); ...
    f1 = figure; plot(x,y); title('y = x^2 and y = x^{3/2}'); ...
    f2 = figure; plot(x,z); title('$y = \sqrt{x}$','Interpreter','latex'); ...
@@ -1128,10 +1156,10 @@ en même temps   Les commandes suivantes démontrent comment cela peut
 </pre>
 
 <div class="center">
-  <img src="Matlab_graphics5a.png" style="width: 300px"
-       alt="Graphes de y = x^2 et y = x^(3/2)"> &nbsp;
   <img src="Matlab_graphics5b.png" style="width: 300px"
        alt="Graphe de y = x^(1/2)">
+  <img src="Matlab_graphics5a.png" style="width: 300px"
+       alt="Graphes de y = x^2 et y = x^(3/2)"> &nbsp;
 </div>
 
 <p> La commande <font class="matlab">f1 = figure</font> génère un
@@ -1154,7 +1182,8 @@ fait.  La fonction <font class="matlab">peaks</font> de <em>Matlab</em>
 est une fonction de deux variables à valeurs réelles qui est
 prédéfinie.</p>
 
-<pre class="matlab">  
+<pre class="matlab">
+>> <font class="matlab">close all</font>
 >> <font class="matlab">x = -2.5:0.02:2.5; ...
    y = -4:0.02:4; ...
    [X,Y] = meshgrid(x,y); ...
@@ -1163,7 +1192,9 @@ prédéfinie.</p>
    ax1 = axes('Position',[0.1 0.1 0.7 0.7]); ...
    ax2 = axes('Position',[0.65 0.65 0.28 0.28]); ...
    contour(ax1,X,Y,Z); ...
-   surf(ax2,X,Y,Z); </font>
+   grid(ax1,'on'), ...
+   surf(ax2,X,Y,Z); ...
+   colormap(ax2,summer); </font>
 </pre>
 
 <div class="center">
