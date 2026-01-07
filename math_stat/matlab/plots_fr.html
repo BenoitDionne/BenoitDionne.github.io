@@ -622,12 +622,12 @@ centrée à l'origine.</p>
    y=[ 1 1 ]; ...
    z=[ 1 0 ]; ...
    plot3(x-0.5,y-0.5,z-0.5,'b'); ...
-   axis('square'); ...
+   axis([-1 1 -1 1 -1 1],'square'); ...
    grid on</font>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure15.png" style="width: 350px"
+  <img src="Matlab_figure15.png" style="width: 300px"
        alt="Première méthode pour dessiner le cadre de la boite">
 </div>
 
@@ -654,12 +654,12 @@ même longueur.</p>
    y=[ 0 0 1 1 0 0 0 1 1 0 NaN 0 0 NaN 1 1 NaN 1 1]; ...
    z=[ 0 0 0 0 0 1 1 1 1 1 NaN 1 0 NaN 0 1 NaN 1 0]; ...
    cube = plot3(x-0.5,y-0.5,z-0.5,'b'); ...
-   axis('square'); ...
+   axis([-1 1 -1 1 -1 1],'square'); ...
    grid on</font>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure16.png" style="width: 350px"
+  <img src="Matlab_figure16.png" style="width: 300px"
        alt="Deuxième méthode pour dessiner le cadre de la boite">
 </div>
 
@@ -680,7 +680,7 @@ vecteur \( (1,1,1)\).</p>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure17.png" style="width: 350px"
+  <img src="Matlab_figure17.png" style="width: 300px"
        alt="Dessin du cadre de notre boite après la rotation">
 </div>
 
@@ -785,7 +785,7 @@ révolution.</p>
 
 <pre class="matlab">
 >> <font class="matlab">cla, ...
-   [X,Y,Z] = cylinder(y); ...
+   [X,Y,Z] = cylinder(y,40); ...
    surf(4*Z,X,Y); ...
    xlabel('x'), ylabel('y'), zlabel('z'); ...
    grid on</font>
@@ -799,7 +799,10 @@ révolution.</p>
 <p> Le lecteur a probablement remarqué que nous avons utilisé la
 commande <font class="matlab">surf(4*Z,X,Y)</font> plutôt que la
 commande <font class="matlab">surf(X,Y,Z)</font> comme nous nous y
-serions attendu.  Chaque colonne de <font class="matlab">Z</font>
+serions attendu.  Pour comprendre les commentaires qui suivent, le
+lecteur devrait exécuter la commande <font class="matlab">surf(X,Y,Z)</font>
+pour voir la figure qui est produite.
+Chaque colonne de <font class="matlab">Z</font>
 énumère les composantes de
 <font class="matlab">z = linspace(0,1,length(x))</font>.
 Pour i fixe, l'ensemble des points

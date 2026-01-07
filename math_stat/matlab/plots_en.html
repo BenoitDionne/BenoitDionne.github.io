@@ -495,7 +495,7 @@ defined by \(f(x,y) = \sin(x+y) x^2 y \) for \(-5 \leq x \leq 5\) and
    xlabel('x') , ylabel('y') , zlabel('z');</font>
 </pre>
 
-<div class="center">
+<div class="center">   <!-- new Matlab -->
   <img src="Matlab_figure9.png" style="width: 300px"
        alt="Graph of sin(x+y) x^2 y for -5 &le; x &le; 5 and -3 &le; y &le; 3">
 </div>
@@ -565,7 +565,7 @@ the parametric representation \( (x,y) = (\sin(t), t\cos(t), t^2)  \) for
    grid on</font>
 </pre>
 
-<div class="center">
+<div class="center">   <!-- new Matlab -->
   <img src="Matlab_figure11.png" style="width: 300px"
        alt="Drawing of the curve t &rarr; (sin(t), t cos(t), t^2) for 0 &le; t &le; 20.">
 </div>
@@ -598,12 +598,12 @@ origin.</p>
    y=[ 1 1 ]; ...
    z=[ 1 0 ]; ...
    plot3(x-0.5,y-0.5,z-0.5,'b'); ...
-   axis('square'); ...
+   axis([-1 1 -1 1 -1 1],'square'); ...
    grid on</font>
 </pre>
 
-<div class="center">
-  <img src="Matlab_figure15.png" style="width: 350px"
+<div class="center">  <!-- new Matlab -->
+  <img src="Matlab_figure15.png" style="width: 300px"
        alt="First method to draw the frame of the box">
 </div>
 
@@ -629,12 +629,12 @@ like a box with edges of equal length.</p>
    y=[ 0 0 1 1 0 0 0 1 1 0 NaN 0 0 NaN 1 1 NaN 1 1]; ...
    z=[ 0 0 0 0 0 1 1 1 1 1 NaN 1 0 NaN 0 1 NaN 1 0]; ...
    cube = plot3(x-0.5,y-0.5,z-0.5,'b'); ...
-   axis('square'); ...
+   axis([-1 1 -1 1 -1 1],'square'); ...
    grid on</font>
 </pre>
 
-<div class="center">
-  <img src="Matlab_figure16.png" style="width: 350px"
+<div class="center">  <!-- new Matlab -->
+  <img src="Matlab_figure16.png" style="width: 300px"
        alt="Second method to draw the frame of the box">
 </div>
 
@@ -653,8 +653,8 @@ degrees around the axis that contains the vector \( (1,1,1)\), .</p>
 >> <font class="matlab"> rotate(cube, [ 1 1 1 ], 45 ); </font>
 </pre>
 
-<div class="center">
-  <img src="Matlab_figure17.png" style="width: 350px"
+<div class="center">   <!-- new Matlab -->
+  <img src="Matlab_figure17.png" style="width: 300px"
        alt="Drawing of the frame of our box after the rotation">
 </div>
 
@@ -756,13 +756,13 @@ axis.  We first plot this curve.</p>
 
 <pre class="matlab">
 >> <font class="matlab">cla, ...
-   [X,Y,Z] = cylinder(y); ...
+   [X,Y,Z] = cylinder(y,40); ...
    surf(4*Z,X,Y); ...
    xlabel('x'), ylabel('y'), zlabel('z'); ...
    grid on</font>
 </pre>
 
-<div class="center">
+<div class="center">   <!-- new Matlab -->
   <img src="Matlab_figure19.png" style="width: 300px"
        alt="Surface of revolution of y = 2+cos(pi*x) for 0 &le; x &le; 4">
 </div>
@@ -770,7 +770,10 @@ axis.  We first plot this curve.</p>
 <p> The reader has probably noted that we have used the command
 <font class="matlab">surf(4*Z,X,Y)</font> instead of the command
 <font class="matlab">surf(X,Y,Z)</font> as it may have been
-expected.  Each column of <font class="matlab">Z</font> lists the
+expected.  To understand the following comments, the reader should
+execute the command <font class="matlab">surf(X,Y,Z)</font> to see
+the figure that is produced.  Each column of
+<font class="matlab">Z</font> lists the 
 commponents of <font class="matlab">z = linspace(0,1,length(x))</font>.
 For i fixed, the set of points
 <font class="matlab">(X(i,j),Y(i,j))</font> for all
@@ -839,7 +842,7 @@ in the same figure.</p>
 </font>
 </pre>
 
-<div class="center">
+<div class="center">   <!-- new Matlab -->
   <img src="Matlab_figure28.png" style="width: 350px"
        alt="Figure with a 2 x 2 array where each component contains the graph of f_mu for one of the four values of mu">
 </div>
