@@ -195,7 +195,7 @@ fonction \(f\).</p>
 avec une figure contenant le graphe de la fonction.</p> 
 
 <div class="center">
-  <img src="Matlab_figure1.png" style="width: 300px" alt="Graphe de x^3">
+  <img src="Matlab_figure1.png" style="width: 350px" alt="Graphe de x^3">
 </div>
 
 <p>Nous obtenons un graphe plus précis de la fonction en utilisant plus de
@@ -227,7 +227,7 @@ graphe de \(f\).</p>
 <p> La figure est maintenant </p>
 
 <div class="center">
-  <img src="Matlab_figure2.png" style="width: 300px"
+  <img src="Matlab_figure2.png" style="width: 350px"
        alt="Graphes x^3 et de x + 1">
 </div>
 
@@ -260,7 +260,7 @@ titre <q lang="fr">Exemple de dessin avec MATLAB</q> et des étiquettes
 pour obtenir la figure suivante.</p>
 
 <div class="center">
-  <img src="Matlab_figure5_fr.png" style="width: 300px"
+  <img src="Matlab_figure5_fr.png" style="width: 350px"
        alt="Graphe de x^3 et x+2 avec un titre et des étiquettes">
 </div>
 </div>
@@ -297,15 +297,16 @@ donnée par la représentation paramétrique \( (x,y) = (\sin(t), t\cos(t)) \) p
 <p>Les commandes suivantes de <em>Matlab<em> tracent cette courbe.</p>
 
 <pre class="matlab">
->> <font class="matlab">t = 0:0.05:20; ...
+>> <font class="matlab">close, ...
+   t = 0:0.05:20; ...
    x = sin(t); ...
    y = t.*cos(t); ...
    plot(x,y,'b'); ...
-   xlabel('x') , ylabel('y');</font>
+   xlabel('x') , ylabel('y'), grid on;</font>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure6.png" style="width: 300px"
+  <img src="Matlab_figure6.png" style="width: 350px"
        alt="Dessin de la courbe t &rarr; (sin(t), t cos(t) ) pour 0 &le;t&le;20.">
 </div>
 
@@ -321,7 +322,7 @@ valeurs entières de \(t\), nous utilisons les commandes suivantes.</p>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure10.png" style="width: 300px"
+  <img src="Matlab_figure10.png" style="width: 350px"
        alt="Dessin de la courbe t &rarr; (sin(t), t cos(t) ) pour 0&le;t&le;20 avec un astérisque à chaque point sur la courbe qui est donné par une valeur entière de t">
 </div>
 
@@ -384,11 +385,13 @@ figure précédente n'est plus présente (ou que la commande
 suivante trace l'interpolation linéaire de \(f\).</p> 
 
 <pre class="matlab">
->> <font class="matlab">plot(x,y);</font>
+>> <font class="matlab">close, ...
+   plot(x,y); ...
+   grid on</font>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure7.png" style="width: 300px"
+  <img src="Matlab_figure7.png" style="width: 350px"
        alt="Graphe de l'interpolation linéaire de f">
 </div>
 </div>
@@ -434,7 +437,7 @@ Les commandes suivantes tracent les points de coordonnées \((x,y)\) où
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure8.png" style="width: 300px"
+  <img src="Matlab_figure8.png" style="width: 350px"
        alt="Graphe de l'interpolation linéaire de f est des points ci-dessus">
 </div>
 
@@ -506,14 +509,15 @@ définie par \(f(x,y) = \sin(x+y) x^2 y \) pour \(-5 \leq x \leq 5\) et
 \(-3 \leq y \leq 3\), nous utilisons les commandes suivantes. </p>
 
 <pre class="matlab">
->> <font class="matlab">[X,Y] = meshgrid(-5:0.1:5,-3:0.1:3); ...
+>> <font class="matlab">close, ...
+   [X,Y] = meshgrid(-5:0.1:5,-3:0.1:3); ...
    Z = sin(X+Y).*X.^2.*Y; ...
    surf(X,Y,Z); ...
    xlabel('x') , ylabel('y') , zlabel('z');</font>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure9.png" style="width: 300px"
+  <img src="Matlab_figure9.png" style="width: 350px"
        alt="Graphe de sin(x+y) x^2 y pour -5 &le; x &le; 5 and -3 &le; y &le; 3">
 </div>
 </div>
@@ -525,7 +529,7 @@ Il y a aussi des options moins évidentes.  Les options suivantes
 apparaissent lorsque la souris est au dessus de la figure.</p> 
 
 <div class="center">
-  <img src="Matlab_fig_opt.png" style="width: 300px"
+  <img src="Matlab_fig_opt.png" style="width: 350px"
        alt="Display of the icons to activate some options">
 </div>
 
@@ -536,7 +540,8 @@ l'image, un pour réduire l'image, etc.  Un des icônes est très utile
 pour visualiser un objet en trois dimensions.  Après avoir cliqué sur
 le quatrième icône de la liste, celui avec une flèche courbée, nous
 pouvons alors utiliser le bouton gauche de la souris pour faire pivoter
-l'objet dans l'espace.    Ceci est très utile quand nous devons
+l'objet dans l'espace &mdash; ceci semble fonctionner même si nous ne
+cliquons pas sur l'icône.  Ceci est très utile quand nous devons
 changer notre point d'observation pour obtenir une meilleure vue de
 l'objet.
 Pour ceux qui utilise <em>Octave</em>, ils peuvent accéder à cette
@@ -589,7 +594,7 @@ donnée par la représentation paramétrique
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure11.png" style="width: 300px"
+  <img src="Matlab_figure11.png" style="width: 350px"
        alt="Dessin de la courbe t &rarr; (sin(t), t cos(t), t^2) pour 0 &le;t&le;20.">
 </div>
 </div>
@@ -627,7 +632,7 @@ centrée à l'origine.</p>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure15.png" style="width: 300px"
+  <img src="Matlab_figure15.png" style="width: 350px"
        alt="Première méthode pour dessiner le cadre de la boite">
 </div>
 
@@ -659,7 +664,7 @@ même longueur.</p>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure16.png" style="width: 300px"
+  <img src="Matlab_figure16.png" style="width: 350px"
        alt="Deuxième méthode pour dessiner le cadre de la boite">
 </div>
 
@@ -676,11 +681,11 @@ du cadre de notre boite de 45 degrés autour de l'axe qui contient le
 vecteur \( (1,1,1)\).</p>
 
 <pre class="matlab">
->> <font class="matlab"> rotate(cube, [ 1 1 1 ], 45 ); </font>
+>> <font class="matlab">rotate(cube, [ 1 1 1 ], 45 ); </font>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure17.png" style="width: 300px"
+  <img src="Matlab_figure17.png" style="width: 350px"
        alt="Dessin du cadre de notre boite après la rotation">
 </div>
 
@@ -776,7 +781,7 @@ révolution générée par la rotation de la courbe
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure18.png" style="width: 300px"
+  <img src="Matlab_figure18.png" style="width: 350px"
        alt="Graphe de 2+cos(pi*x) pour 0 &le; x &le; 4">
 </div>
 
@@ -792,7 +797,7 @@ révolution.</p>
 </pre>
 
 <div class="center">
-  <img src="Matlab_figure19.png" style="width: 300px"
+  <img src="Matlab_figure19.png" style="width: 350px"
        alt="Surface de révolution de y = 2+cos(pi*x) pour 0 &le; x &le; 4">
 </div>
 
@@ -931,11 +936,12 @@ quelques objets <em>Texte</em> (le texte ajouté à un dessin) qui sont
    p2 = plot(x,y,'r'); ...
    xl = xlabel('x'); ...
    yl = ylabel('y'); ...
+   grid on, ...
    l1 = legend('x^2 exp(-x)','x^2 exp(-2x)');</font>
 </pre>
 
 <div class="center">
-  <img src="Matlab_graphics1.png" style="width: 300px"
+  <img src="Matlab_graphics1.png" style="width: 350px"
        alt="Graphes de x &rarr; x^2 e^(-x) et x &rarr; x^2 e^(-2x)">
 </div>
 
@@ -956,12 +962,12 @@ avec la commande suivante.</p>
 </pre>
 
 <div class="center">
-  <img src="Matlab_graphics2.png" style="width: 300px"
+  <img src="Matlab_graphics2.png" style="width: 350px"
        alt="Graphes de x &rarr; x^2 e^(-x) et x &rarr; x^2 e^(-2x) avec un fond gris pour l'objet Figure">
 </div>
 
-<p>La commande précédente ne fonctionne pas avec les anciennes versions
-de <em>Matlab</em>.  À sa place, la commande
+<p>La commande précédente ne fonctionne pas dans les anciennes versions
+de <em>Matlab</em> ou dans <em>Octave</em>.  À sa place, la commande
 <font class="matlab">set(h1,'Color', [ 0.5 0.5 0.5])</font>
 doit être utilisée.  La commande <font class="matlab">get(h1)</font>
 énumère toutes les propriétés possibles de l'objet <em>Figure</em>
@@ -986,12 +992,13 @@ des axes avec les commandes suivantes. </p>
 </pre>
 
 <div class="center">
-  <img src="Matlab_graphics3.png" style="width: 300px"
+  <img src="Matlab_graphics3.png" style="width: 350px"
        alt="Graphes de x &rarr; x^2 e^(-x) et x &rarr; x^2 e^(-2x) avec un fond gris pour l'objet Figure, un fond bleu et des axes rouges pour l'objet Axes.">
 </div>
 
 <p>Comme précédemment, les commandes précédentes ne fonctionnent pas
-avec les ansiennes versions de <em>Matlab</em>.  À leurs places, Les
+dans les ansiennes versions de <em>Matlab</em> ou
+dans <em>Octave</em>.  À leurs places, Les
 commandes <font class="matlab">set(h2,'Color',[ 0.7 0.8 0.9])</font>,
 <font class="matlab">set(h2,'XColor',[ 1 0 0])</font> et
 <font class="matlab">set(h2,'YColor',[ 1 0 0])</font> doivent être
@@ -1012,7 +1019,8 @@ h1c =
   Axes
 </pre>
 
-<p>Pour les anciennes versions de <em>Matlab</em>, nous devons utiliser
+<p>Pour les anciennes versions de <em>Matlab</em> ou
+dans <em>Octave</em>, nous devons utiliser 
 la commande <font class="matlab">h1c = get(h1,'Children')</font>.
 Comme nous nous y attendions, il y a deux enfants.  Une des deux anses est
 l'anse associée à l'objet <em>Axes</em> et l'autre est l'anse associée
@@ -1043,7 +1051,8 @@ ans =
   Line    (x^2 exp(-x))
 </pre>
 
-<p>Pour les anciennes versions de <em>Matlab</em>, nous devons utiliser
+<p>Pour les anciennes versions de <em>Matlab</em> ou
+dans <em>Octave</em>, nous devons utiliser
 les commandes <font class="matlab">get(h1c(1),'Children')</font>,
 <font class="matlab">get(h1c(2),'Children')</font>,
 <font class="matlab">get(h2,'Children')</font> et
@@ -1115,7 +1124,8 @@ ans =
     'line'
 </pre>
 
-<p>Pour les anciennes versions de <em>Matlab</em>, nous devons utiliser
+<p>Pour les anciennes versions de <em>Matlab</em> ou
+dans <em>Octave</em>,  nous devons utiliser
 les commandes <font class="matlab">h2c = get(h2,'Children')</font>,
 <font class="matlab">get(p1,'DisplayName')</font>,
 <font class="matlab">get(p1,'Type')</font>,
@@ -1129,11 +1139,12 @@ les commandes suivantes.</p>
 </pre>
 
 <div class="center">
-  <img src="Matlab_graphics4.png" style="width: 300px"
+  <img src="Matlab_graphics4.png" style="width: 350px"
        alt="Graphes de x &rarr; x^2 e^(-x) et x &rarr; x^2 e^(-2x) avec un fond gris pour l'objet Figure, un fond bleu et des axes rouges pour l'objet Axes, et une courbe point-tiret noir pour une des graphes.">
 </div>
 
-<p>Pour les anciennes versions de <em>Matlab</em>, nous devons utiliser
+<p>Pour les anciennes versions de <em>Matlab</em> ou
+dans <em>Octave</em>, nous devons utiliser 
 les commandes <font class="matlab">set(p1,'LineStyle','-.')</font>
 et <font class="matlab">set(p1,'Color','g')</font>. </p>
 
@@ -1173,16 +1184,16 @@ en même temps   Les commandes suivantes démontrent comment cela peut
 <pre class="matlab">
 >> <font class="matlab">close</font>
 >> <font class="matlab">x = 0:0.02:2; y = x.^2; z = sqrt(x); w = x.^(3/2); ...
-   f1 = figure; plot(x,y); title('y = x^2 and y = x^{3/2}'); ...
-   f2 = figure; plot(x,z); title('$y = \sqrt{x}$','Interpreter','latex'); ...
+   f1 = figure; plot(x,y); title('y = x^2 and y = x^{3/2}'); grid on, ...
+   f2 = figure; plot(x,z); title('$y = \sqrt{x}$','Interpreter','latex'); grid on, ...
    figure(f1); hold on; plot(x,w,'r'); text(1,0.9,'(1,1)'); </font>
 </pre>
 
 <div class="center">
-  <img src="Matlab_graphics5b.png" style="width: 300px"
-       alt="Graphe de y = x^(1/2)">
-  <img src="Matlab_graphics5a.png" style="width: 300px"
+  <img src="Matlab_graphics5a.png" style="width: 350px"
        alt="Graphes de y = x^2 et y = x^(3/2)"> &nbsp;
+  <img src="Matlab_graphics5b.png" style="width: 350px"
+       alt="Graphe de y = x^(1/2)">
 </div>
 
 <p> La commande <font class="matlab">f1 = figure</font> génère un

@@ -384,10 +384,10 @@ with the initial condition \(x(0) = 1\).</p>
 >> <font class="matlab">[t,x] = ode45('funct2',[0,pi],1,options); ...
    size(t), size(x)</font><br>
 ans =
-   17    1
+   57    1
 
 ans =
-   17    1
+   57    1
 </pre>
 
 <p> It is not wise to list all the values of
@@ -508,7 +508,7 @@ converges very rapidly to the periodic solution.</p>
 </font>
 </pre>
 
-<div class="center">
+<div class="center"> 
   <img src="Matlab_ODE3.png" style="width: 300px"
        alt="Drawing of the orbit { (x_1(t),x_2(t)) : 0 &le; t &le; 40 } in the new format">
 </div>
@@ -546,7 +546,7 @@ this system.</p>
    quiver(X,Y,U,V,'r'), grid on
 </pre>
 
-<div class="center">
+<div class="center"> 
   <img src="Matlab_ODE4.png" style="width: 300px"
        alt="Drawing of the vector field associated to (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1)">
 </div>
@@ -562,7 +562,7 @@ initial condition
 </font>
 </pre>
 
-<div class="center">
+<div class="center"> 
   <img src="Matlab_ODE6.png" style="width: 300px"
        alt="Drawing of the vector field associated to (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1) with the orbit associated to the initial condition (x_1(0),x_2(0)) = (3,1)">
 </div>
@@ -582,7 +582,7 @@ up of the vector field shows.</p>
    quiver(X,Y,U,V,'r'), grid on
 </pre>
 
-<div class="center">
+<div class="center"> 
   <img src="Matlab_ODE5.png" style="width: 300px"
        alt="Drawing of the vector field associated to (x_1,x_2) &rarr; (x_2, mu(1-x_1^2) x_2 - x_1) on a smaller region of the plane">
 </div>
