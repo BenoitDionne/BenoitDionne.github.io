@@ -26,7 +26,7 @@ document.write("Include javascript file has failed")
 document.write("Include javascript file has failed")
 </script>
 
-<script language="javascript" src="IFS2.js">
+<script language="javascript" src="IFS3.js">
   document.write("Include javascript file has failed")
 </script>
 
@@ -290,21 +290,24 @@ get the Sierpinski triangle after an <q lang="en">infinite</q> number
 of iterations. </p> 
 
 <p> In the following application, we may select one of the three
-initial figures proposed, and the number of iterations to be
+initial polygonal curves proposed, and the number of iterations to be
 performed.  The reader should only use a small number of iterations,
-no more than 7 or 8, to avoid exceeding the maximal capacity of the
-memory space assigned to the web browser.  Moreover, because of the
-limited number of pixels on the computer screen, there is an inferior
-limit on the size of the copies of the initial set that can be drawn
-in the second, third and fourth steps above.</p>
+no more than 10 or 11, to avoid slowing down too much the browser response
+time.  Browsers normally display a warning in such situation.  The
+script used to produce the figures is written in JavaScript which is
+not at all a computer language for number crunching.  Moreover,
+because of the limited number of pixels on the computer screen, there
+is an inferior limit on the size of the copies of the initial set that
+can be drawn in the second, third and fourth steps above.</p>
 
 <div class="center">
 <canvas id="SRPK" width="400" height="400">
 </canvas>
 </div>
 
-<input type="hidden" value="true" id="filledSRPK">
+<input type="hidden" value="false" id="filledSRPK">
 <input type="hidden" value="blue" id="colourSRPK">
+<input type="hidden" value="400" id="scaleSRPK">
 
 <ul>
   <li> Number of iterations: <input type="text" value="5" id="nbrSRPK"> </li>
@@ -398,16 +401,17 @@ using the application below.  We get the four images resulting
 from the action of the four functions on the simple set chosen. </p>
 
 <p> As for the application for the Sierpinski triangle above, the reader
-should not choose more than 7 or 8 iterations to avoid exceeding the
-maximal capacity of the memory space assigned to the browser.</p>
+should not choose more than 10 or 11 iterations to avoid slowing down
+too much the browser response time.</p>
 
 <div class="center">
 <canvas id="FERN" width="400" height="400">
 </canvas>
 </div>
 
-<input type="hidden" value="true" id="filledFERN">
+<input type="hidden" value="false" id="filledFERN">
 <input type="hidden" value="#00ff00" id="colourFERN">
+<input type="hidden" value="400" id="scaleFERN">
 
 <ul>
   <li> Number of iterations: <input type="text" value="5" id="nbrFERN"> </li>
@@ -453,17 +457,17 @@ select a simple set like a triangle and to compute only one iteration
 using the application below.  We get four images resulting from
 the action of the four functions on the simple set chosen.</p>
 
-<p> As usual, the reader should not choose more than 7 or 8 iterations
-to avoid exceeding the maximal capacity of the memory space assigned
-to the web browser.</p> 
+<p> As usual, the reader should not choose more than 10 or 11 iterations
+to avoid slowing down too much the browser response time.</p> 
 
 <div class="center">
 <canvas id="LEAF" width="400" height="400">
 </canvas>
 </div>
 
-<input type="hidden" value="true" id="filledLEAF">
+<input type="hidden" value="false" id="filledLEAF">
 <input type="hidden" value="#ff0000" id="colourLEAF">
+<input type="hidden" value="400" id="scaleLEAF">
 
 <ul>
   <li> Number of iterations: <input type="text" value="5" id="nbrLEAF"> </li>
@@ -475,6 +479,16 @@ to the web browser.</p>
   <li> <input type="button" value="Start" onclick="iterateLEAF()"> </li>
   <li> <input type="button" value="Clear" onclick="clearIFS('LEAF')"> </li>
 </ul>
+
+<div class="Note">
+<p>We have used a script written for <em>Matlab</em> to produce the
+images of the Sierpinski triangle, the fern and the leaf above.
+This script can be found on the website
+<script language="javascript">
+buildLinK(matlabProgr.url_en, matlabProgr.text_en, "MMathSStat",
+matlabProgr.id, matlabProgr.target);
+</script>.</p>
+</div>
 
 <table class="noB">
 <tr> <td rowspan="1" colspan="1" class="left">

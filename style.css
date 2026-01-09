@@ -170,12 +170,12 @@ div.history_ID { position: absolute; visibility: hidden; padding: 5px;}
 /********************************************************************/
 
 /* Warning Message */
-div.LOOK { background-color: white;
-  margin: 10px; border: #8F001A 2px solid; padding: 5px; }
+div.LOOK { background-color: white; padding: 1em;
+  margin: 5px; border: #8F001A 1px solid; }
 
-div.LOOK2 { border: 1px solid #8F001A; margin: 5px; padding: 5px; 
-  text-align: left; background-color: white; color: black; font-weight:
-  bold; vertical-align: top; display: block;  overflow: hidden; }
+div.LOOK2 { border: 1px solid #8F001A; margin: 5px; padding: 1em; 
+  text-align: left; background-color: white; color: black;
+  vertical-align: top; display: block;  overflow: hidden; }
 
 /* div.topPAGE is not used with the new top of the page sign
 div.topPAGE { position: fixed; right: 10px; bottom: 10px;

@@ -26,7 +26,7 @@ document.write("Include javascript file has failed")
 document.write("Include javascript file has failed")
 </script>
 
-<script language="javascript" src="IFS2.js">
+<script language="javascript" src="IFS3.js">
   document.write("Include javascript file has failed")
 </script>
 
@@ -297,10 +297,13 @@ initialement, nous obtenons toujours le triangle de Sierpinski après
 un nombre <q lang="en">infini</q> d'itérations. </p>
 
 <p> Pour l'application suivante, Nous pouvons choisir une des trois 
-figures initiales qui sont proposées, et le nombre d'itérations qui
+courbes polygonales initiales qui sont proposées, et le nombre d'itérations qui
 doivent être exécutées.  Le lecteur devrait choisir un petit nombre
-d'itérations, pas plus que 7 ou 8, afin de ne pas dépasser la capacité
-maximale de l'espace mémoire attribuée au fureteur. De plus, en raison
+d'itérations, pas plus que 10 ou 11, afin de ne pas trop ralentir le
+temps de réponse du fureteur.  Les fureteurs affichent normalement un
+avertissement dans une telle situation.  Le programme utilisé pour
+produire les images est écrit en JavacSript qui n'est vraiment pas un
+langage pour les calculs numériques.  De plus, en raison
 du nombre limité de pixels sur l'écran d'ordinateur, il y a 
 une limite inférieure sur la taille des copies de l'ensemble initial 
 qui peuvent être dessinées à la seconde, troisième et quatrième étapes
@@ -311,8 +314,9 @@ ci-dessus.</p>
 </canvas>
 </div>
 
-<input type="hidden" value="true" id="filledSRPK">
+<input type="hidden" value="false" id="filledSRPK">
 <input type="hidden" value="blue" id="colourSRPK">
+<input type="hidden" value="400" id="scaleSRPK">
 
 <ul>
   <li> Nombre d'itérations: <input type="text" value="5" id="nbrSRPK"> </li>
@@ -410,17 +414,17 @@ obtenons quatre images qui sont le résultat de l'action des quatre
 fonctions sur l'ensemble simple choisi. </p>
 
 <p> Comme c'est le cas pour l'application pour le triangle de
-Sierpinski ci-dessus, le lecteur ne devrait pas choisir plus de 7 ou 8
-itérations afin de ne pas dépasser la capacité maximale de l'espace
-mémoire attribué au fureteur.</p>
+Sierpinski ci-dessus, le lecteur ne devrait pas choisir plus de 10 ou 11
+itérations afin de ne pas trop ralentir le temps de réponse du fureteur.</p>
 
 <div class="center">
 <canvas id="FERN" width="400" height="400">
 </canvas>
 </div>
 
-<input type="hidden" value="true" id="filledFERN">
+<input type="hidden" value="false" id="filledFERN">
 <input type="hidden" value="#00ff00" id="colourFERN">
+<input type="hidden" value="400" id="scaleFERN">
 
 <ul>
   <li> Nombre d'itérations: <input type="text" value="5" id="nbrFERN"> </li>
@@ -467,17 +471,18 @@ itération à l'aide de l'application suivante.  Nous
 obtenons quatre images qui sont le résultat de l'action des quatre
 fonctions sur l'ensemble simple choisi. </p>
 
-<p> Comme toujours, le lecteur ne devrait pas choisir plus de 7 ou 8
-itérations afin de ne pas dépasser la capacité maximale de l'espace
-mémoire attribué au fureteur.</p>
+<p> Comme toujours, le lecteur ne devrait pas choisir plus de 10 ou 11
+itérations afin de ne pas trop ralentir le temps de réponse du
+fureteur.</p>
 
 <div class="center">
 <canvas id="LEAF" width="400" height="400">
 </canvas>
 </div>
 
-<input type="hidden" value="true" id="filledLEAF">
+<input type="hidden" value="false" id="filledLEAF">
 <input type="hidden" value="#ff0000" id="colourLEAF">
+<input type="hidden" value="400" id="scaleLEAF">
 
 <ul>
   <li> Nombre d'itérations: <input type="text" value="5" id="nbrLEAF"> </li>
@@ -490,6 +495,15 @@ mémoire attribué au fureteur.</p>
   <li> <input type="button" value="Effacer" onclick="clearIFS('LEAF')"> </li>
 </ul>
 
+<div class="Note">
+<p>Nous avons utilisé un programme écrit pour <em>Matlab</em> pour
+produire les images du triangle de Sierpinski, de la fougère et de la
+feuille ci-dessus.  Ce programme se trouve sur le site
+<script language="javascript">
+buildLinK(matlabProgr.url_fr, matlabProgr.text_fr, "MMathSStat",
+matlabProgr.id, matlabProgr.target);
+</script>.</p>
+</div>
 
 <table class="noB">
 <tr> <td rowspan="1" colspan="1" class="left">

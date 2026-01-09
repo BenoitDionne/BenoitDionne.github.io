@@ -114,6 +114,25 @@ fonctions mathématiques que nous définissons dans le document
 </script>.  Ce document inclus des exemples qui illustrent
 comment utiliser ces nouvelles fonctions graphiques.</p>
 
+<div class="LOOK2">
+<p>Ceux qui utilisent <em>Matlab</em> sur <em>Ubuntu</em> pourrait ne
+pas être capables d'exporter correctement et complètement au format png
+leurs figures.  Dans cette situation, la valeur donnée à l'option
+<font class="matlab">LineWidth</font> d'une commande graphique doit
+être <font class="matlab">0.1</font> comme dans l'exemple suivant.</p>
+<pre class="matlab">
+>> <font class="matlab">plot(x,y,'LineWidth',0.1);</font>
+</pre>
+<p>Il y a une alternative à l'usage de l'option <em>dsiplay</em> dans
+le menu, la commande suivante peut être utilisée pour exporter une
+figure au format png.</p> 
+<pre class="matlab">
+>> <font class="matlab">print('figure_name.png', '-dpng', '-r0');</font>
+</pre>
+<p>L'option <font class="matlab">-r0</font> définit la résolution
+comme étant la résolution de l'écran d'ordinateur.</p>
+</div>
+
 <hr class="MMathSStat" style="clear: both;">
 
 <h3 id="Sect10"> Dessins dans &#8477;<sup>2</sup></h3>
