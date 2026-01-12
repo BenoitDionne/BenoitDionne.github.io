@@ -93,6 +93,10 @@ main_title( MStext, "MMathSStat");
       buildLinK("#Sect25", "Iterative Function Systems",
       "MMathSStat", "sect125D", "_top");
   </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Sect26", "Exporting Arrays to LaTeX",
+      "MMathSStat", "sect126D", "_top");
+  </script> </li>
 </ul>
 </div>
 
@@ -621,36 +625,36 @@ which can be downloaded by clicking on the previous link as explained
 above.</p>
 
 <pre class="matlab">
->> <font class="matlab">help slpfld</font><br>
-slpfld(funct,B,p,density,init_conds,options)
+>> <font class="matlab">help slpfld</font>
+  slpfld(funct,B,p,density,init_conds,options)
 
-Function to draw the slope field of an ODE of the form
-        dx/dt = f(t,x,p)
-with x in R.
+  Function to draw the slope field of an ODE of the form
+          dx/dt = f(t,x,p)
+  with x in R.
 
-funct is the function that defines the right hand side of the ODE.
-      This function must be an array smart function.
-      funct can be the name of a function (between apostrophes),
-      the handle of a function or an expression of the form
-      '...'.  In this last case, the variable names t, x and p must
-      be used.
-B = [a b c d] are the limits of the region [a,b] x [c,d] of the
-    t,x plan where the slope field is drawn.  We must have that
-    a < b and c < b.
-p is a vector of parameters for the function f.  If f does
-  not depend on any parameter, then p must be defined as [].
-density is a number.  There are density x density equally spaced mesh
-        points per unit square.  If density is not given, then the
-        density is set to 3.
-init_conds is a vector where each component of init_conds is an initial
-           condition for  dx/dt = f(t,x,p) at time t=0.  The graph
-           of the solution with this initial condition is drawn.
-           If init_conds is not given, then no graph is drawn.
-options is the list of options defined with odeset that will be used
-        with the Matlab solver.  If options is not given, then
-        options is defined as
-        options = odeset('RelTol',1e-6,'AbsTol',1e-5) .
-        The Matlab solver used is ODE45 .
+  funct is the function that defines the right hand side of the ODE.
+        This function must be an array smart function.
+        funct can be the name of a function (between apostrophes),
+        the handle of a function or an expression of the form
+        '...'.  In this last case, the variable names t, x and p must
+        be used.
+  B = [a b c d] are the limits of the region [a,b] x [c,d] of the
+      t,x plan where the slope field is drawn.  We must have that
+      a < b and c < b.
+  p is a vector of parameters for the function f.  If f does
+    not depend on any parameter, then p must be defined as [].
+  density is a number.  There are density x density equally spaced mesh
+          points per unit square.  If density is not given, then the
+          density is set to 3.
+  init_conds is a vector where each component of init_conds is an initial
+             condition for  dx/dt = f(t,x,p) at time t=0.  The graph
+             of the solution with this initial condition is drawn.
+             If init_conds is not given, then no graph is drawn.
+  options is the list of options defined with odeset that will be used
+          with the Matlab solver.  If options is not given, then
+          options is defined as
+          options = odeset('RelTol',1e-6,'AbsTol',1e-5) .
+          The Matlab solver used is ODE45 .
 </pre>
 
 <div class="Example">
@@ -1113,6 +1117,133 @@ The figure has been drawn
   <img src="Matlab_fractal3.png" style="width: 400px"
        alt="A leaf">
 </div>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect26"> Exporting Arrays to LaTeX </h3>
+
+<p>We often have to export large arrays of data in <em>Matlab</em> 
+to tables in <em>LaTeX</em> in order to include them in documents.
+This also often requires adding a caption and a header to each column.  We
+have created the function
+<font class="matlab">array2LTX</font> to do that.  The code for this
+function can be found in the <em>m-file</em>
+<script language="javascript"> 
+  buildLinK("array2LTX.m", "array2LTX.m", "MMathSStat",
+  "a2LTXId", "_blank");
+</script>.  This function uses the <em>cell array</em>
+<font class="matlab">varargin</font> to handle a variable number of
+arguments as built-in <em>Matlab</em> functions do. </p>
+
+<pre class="matlab">
+>> <font class="matlab">help array2LTX</font>
+  <em>array2LTX</em>(filename, matrix, options)
+ 
+  Produce LaTeX tables or longtables from an m x n matrix, where
+  the columns used from the matrix are given in the vector cols.
+  
+  filename is the name of the file where the output will be written.
+  matrix is the matlab array.
+ 
+  List of options.
+  'cols' is the list of columns of the given matrix that will
+         be used to generate the LaTeX table.  The columns numbers given
+         in cols must be between 1 and n inclusively.  The default is
+         all columns in the regular order.
+  'nbr' is the number of tables that will appear side by side with at must
+        m/nbr lines and at least floor(m/nbr) lines per table.
+        The default is one.
+  'lgTable' is an integer.  If lgTable = 0, the table environment is used.
+            If lgTable <> 0, the longtable environment is used.  The default
+            is lgTable = 0.  Do not forget that LaTeX may have to be run
+            several times to produce the correct longtable.
+  'caption' is the caption of the table.
+  'label' is the label that should be given to the table or longtable.
+          There should be a caption to have a label.
+  'format' is the format of the numbers to be printed.  The default is
+           $%.8f$.  Do not forget the symbol $ for the math mode in LaTeX.
+           The format is the normal format used for fprintf in C.
+  firsthead is the list of headers for each column of the table.
+            It should be of the form ["head1","head2",...,"headk"]
+            where k = length(cols).  The quotation marks cannot be
+            replaced by apostropies.  If k <> length(cols), the columns
+            do not get any headers
+  secondhead is the list of headers for each column of the 
+            second table in a longtable environment.
+            If secondhead is empty or length(secondhead) <> length(cols),
+            the content of firsthead is used for the second table.
+</pre>
+
+<p>If the table is too long for one page, it is also possible to use
+the <em>LaTeX</em> package <em>longtable</em> to generate the table.
+We assume that the reader knows how to write documents in
+<em>LaTeX</em>.</p>  
+
+<div class="Example">
+<p><em>Example</em>: We generate a large matrix of random numbers
+between 0 and 100, and export its first, third and fifth column to a
+table in <em>LaTeX</em>.  We use the package <em>longtable</em> because the
+table is too long for a single page.</p>
+
+<pre class="matlab">
+>> <font class="matlab">X = randi(100,200,5);</font>
+>> <font class="matlab">size(X)</font><br>
+ans =
+    200     5
+
+>> <font class="matlab">array2LTX('table.tex',X,'firsthead',["C1","C2","C5"],'cols',[1 2 5],'secondhead', ["C1","C2","C5"],...
+   'lgTable',1,'nbr',3,'caption','Random Numbers','label','randNbr','format','$%d$')
+</font>
+</pre>
+
+<p>The first lines of the file <em>table.tex</em> generated by
+<font class="matlab">array2LTX</font> are listed below.</p>
+
+<pre>
+\begin{center}
+\setlongtables
+\begin{longtable}{|c|c|c|c|c|c|c|c|c|c|c|}
+\caption{Random Numbers}\label{randNbr}\\ 
+\cline{1-3}\cline{5-7}\cline{9-11}
+C1 & C2 & C5 &  & C1 & C2 & C5 &  & C1 & C2 & C5 \\ 
+\cline{1-3}\cline{5-7}\cline{9-11}
+\endfirsthead
+\multicolumn{11}{l}{\small Continued from previous page.} \\ 
+\cline{1-3} \cline{5-7} \cline{9-11} 
+C1 & C2 & C5 &  & C1 & C2 & C5 &  & C1 & C2 & C5 \\ 
+\cline{1-3} \cline{5-7} \cline{9-11} 
+\endhead
+\cline{1-3}\cline{5-7}\cline{9-11}
+\multicolumn{11}{r}{\small Continued on next page.} \\ 
+\endfoot
+\cline{1-3}\cline{5-7}\cline{9-11}
+\endlastfoot
+$2$ & $15$ & $40$ & & $89$ & $60$ & $49$ & & $51$ & $51$ & $94$ \\ 
+$66$ & $87$ & $25$ & & $50$ & $55$ & $12$ & & $68$ & $30$ & $3$ \\ 
+$40$ & $33$ & $14$ & & $32$ & $68$ & $17$ & & $2$ & $30$ & $19$ \\ 
+$43$ & $77$ & $83$ & & $35$ & $34$ & $17$ & & $74$ & $93$ & $43$ \\ 
+...
+</pre>
+
+<p>The pdf file obtained from a <em>LaTeX</em> document that contains
+this table is displayed below.</p>
+
+<div class="center"> 
+  <img src="table-1.png" style="width: 400px"
+       alt="First page of the pdf file that contains the table">
+  <img src="table-2.png" style="width: 400px"
+       alt="Second page of the pdf file that contains the table">
+</div>
+</div>
+
+<div class="Note">
+<p><em>Remark</em>: The reader is welcome to modify the
+function <font class="matlab">array2LTX</font> to change the look of
+the tables generated by this function.  In fact, it would be
+interesting to add some options to the function
+<font class="matlab">array2LTX</font> to format the look of the tables
+that it generates.</p>
 </div>
 
 <hr class="MMathSStat">
