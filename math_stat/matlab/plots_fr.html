@@ -94,6 +94,10 @@ main_title( MStexte, "MMathSStat");
       buildLinK("#Sect22", "Objets graphiques", "MMathSStat", "sect22ID",
       "_top");
   </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect27", "Plus qu'un", "MMathSStat", "sect27ID",
+      "_top");
+  </script> </li>
 </ul>
 </div>
 
@@ -1196,9 +1200,62 @@ pour définir les propriétés d'un objet lors de sa création est</p>
 </div>
 
 <div class="Example">
-<p><em>Exemple</em>: Nous pouvons avoir plus d'une figure présentent
-en même temps   Les commandes suivantes démontrent comment cela peut
-être fait.</p>
+<p><em>Exemple</em>: Malgré notre conseil précédent, il y a des
+situations où l'utilisation des anses est inévitable.
+<em>Matlab</em> affiche les axes de coordonnés de façon à éviter
+d'embrouiller la figure.  C'est normalement la bonne façon de
+procéder.  Cependant, nous pourrions vouloir dessiner le graphe d'une
+fonction avec les axes de coordonnés qui croissent l'origine
+comme nous l'avons appris à l'école secondaire ou dans nos cours de
+calcul différentiel et intégral.</p>
+
+<p>Pour tracer le graphe de la fonction \(\sin\) sur l'intervalle
+\([1,4]\) avec les axes de coordonnés qui croissent l'origine,
+nous procédons de la façon suivante.</p>
+
+<pre class="matlab">
+>> <font class="matlab">close, ...
+   x = 1:0.1:4; y = sin(x); ...
+   plot(x,y); ...
+   xlabel('x'), ylabel('y'), ...
+   title('y = sin(x)'), grid on, ...
+   xlim([-0.5,5]); ... 
+   h = gca; ... 
+   h.XAxisLocation = 'origin'; ...
+   h.YAxisLocation = 'origin';</font>
+</pre>
+
+<div class="center"> 
+  <img src="Matlab_graphics7.png" style="width: 350px"
+       alt="Graphe de sin(x) pour -4 &leq; x &leq; 4 avec les axes de coordonnés qui croissent l'origine.">
+</div>
+
+<p>Pour afficher l'axe des y, nous avons du modifier le domaine pour x
+pour inclure l'origine.  De la même manière, si le graphe de la
+fonction ne croisse pas l'axe des x, nous devons utiliser la fonction
+<font class="matlab">ylim</font> pour inclure l'origine dans le
+domaine pour y.<p>
+
+<p><em>Note</em>: Il semble y avoir un problème pour exporter la
+figure au format png.  Les étiquettes pour x et y n'apparaissent pas
+au côté des axes de coordonnés dans le format png comme c'est le cas
+sur l'écran d'ordinateur.   Nous avons plutôt qu'elles apparaissent à
+leurs positions standards au côte et sous la figure.
+Une solution à ce problème jusqu'à ce qu'il soit résolu est d'utiliser
+les commandes
+<font class="matlab">text(4.8,0.05,'x'), text(0.1,0.95,'y'), ...</font>  
+au lieu de <font class="matlab">xlabel('x'), ylabel('y'), ...</font>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect27"> Plus qu'un </h3>
+
+<p>Nous pouvons travailler sur plus d'une figure en même temps.
+L'exemple suivant démontre comment cela peut être fait.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: </p>
 
 <pre class="matlab">
 >> <font class="matlab">close</font>
@@ -1227,11 +1284,13 @@ désigne l'objet <em>Figure</em> avec l'anse
 pour les futures commandes graphiques.</p>
 </div>
 
-<div class="Example">
-<p><em>Exemple</em>: Un objet <em>Figure</em> peut avoir plus d'un
-objet <em>Axes</em> comme enfants.   l'exemple suivant provenant du
+<p>Un objet <em>Figure</em> peut avoir plus d'un objet <em>Axes</em>
+comme enfants.  l'exemple suivant adapté d'un exemple sur le 
 site Internet de <em>Matlab</em> démontre comment cela peut être
-fait.  La fonction <font class="matlab">peaks</font> de <em>Matlab</em> 
+fait.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: La fonction <font class="matlab">peaks</font> de <em>Matlab</em> 
 est une fonction de deux variables à valeurs réelles qui est
 prédéfinie.</p>
 

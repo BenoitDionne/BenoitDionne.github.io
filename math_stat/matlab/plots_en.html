@@ -94,6 +94,10 @@ main_title( MStext, "MMathSStat");
       buildLinK("#Sect22", "Graphics Objects", "MMathSStat", "sect22ID",
       "_top");
   </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect27", "More than One", "MMathSStat", "sect27ID",
+      "_top");
+  </script> </li>
 </ul>
 </div>
 
@@ -208,7 +212,7 @@ function \(f\).</p>
 <p>After having pressed the <em>Enter</em> key, a new window pops up
 with a figure containing the graph of the function.</p>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center">
   <img src="Matlab_figure1.png" style="width: 350px" alt="Graph of x^3">
 </div>
 
@@ -239,7 +243,7 @@ the previous figure containing the graph of \(f\).</p>
 
 <p> The figure is now</p>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure2.png" style="width: 350px"
        alt="Graphs of x^3 and of x + 1">
 </div>
@@ -271,7 +275,7 @@ title <q lang="en">Sample plotting with MATLAB</q> and the labels
 <q lang="en">x-axis</q> and <q lang="en">y-axis</q>
 to obtain the following figure.</p>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure5.png" style="width: 350px"
        alt="Graph of x^3 and x+2 with a title and labels">
 </div>
@@ -305,7 +309,7 @@ the parametric representation \( (x,y) = (\sin(t), t\cos(t)) \) for
 
 <p>The following <em>Matlab<em> commands draw this curve.</p>
 
-<pre class="matlab">  <!-- new Matlab -->
+<pre class="matlab">
 >> <font class="matlab">close, ...
    t = 0:0.05:20; ...
    x = sin(t); ...
@@ -314,7 +318,7 @@ the parametric representation \( (x,y) = (\sin(t), t\cos(t)) \) for
    xlabel('x') , ylabel('y'), grid on;</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure6.png" style="width: 350px"
        alt="Drawing of the curve t &rarr; (sin(t), t cos(t) ) for 0 &le; t &le; 20.">
 </div>
@@ -330,7 +334,7 @@ values of \(t\), we use the following commands.</p>
    plot(x,y,'*b');</font>
 </pre>
 
-<div class="center">  <!-- new Matlab -->
+<div class="center">
   <img src="Matlab_figure10.png" style="width: 350px"
        alt="Drawing of the curve t &rarr; (sin(t), t cos(t) ) for 0 &le; t &le; 20 with an asterisk at each point of the curve given by an integer value of t.">
 </div>
@@ -392,13 +396,13 @@ closed (or that the command <font class="matlab">hold off</font> has
 been used), the following command draws the linear interpolation of
 \(f\).</p>
 
-<pre class="matlab">   <!-- new Matlab -->
+<pre class="matlab"> 
 >> <font class="matlab">close, ...
    plot(x,y); ...
    grid on</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure7.png" style="width: 350px"
        alt="Graph of the linear interpolation of f">
 </div>
@@ -441,7 +445,7 @@ for \(k = 1, 2, \ldots, 11\).</p>
    plot(z,w,'or');</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure8.png" style="width: 350px"
        alt="Graph of the linear interpolation of f and the points above">
 </div>
@@ -518,7 +522,7 @@ defined by \(f(x,y) = \sin(x+y) x^2 y \) for \(-5 \leq x \leq 5\) and
    xlabel('x') , ylabel('y') , zlabel('z');</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure9.png" style="width: 350px"
        alt="Graph of sin(x+y) x^2 y for -5 &le; x &le; 5 and -3 &le; y &le; 3">
 </div>
@@ -588,7 +592,7 @@ the parametric representation \( (x,y) = (\sin(t), t\cos(t), t^2)  \) for
    grid on</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure11.png" style="width: 350px"
        alt="Drawing of the curve t &rarr; (sin(t), t cos(t), t^2) for 0 &le; t &le; 20.">
 </div>
@@ -625,7 +629,7 @@ origin.</p>
    grid on</font>
 </pre>
 
-<div class="center">  <!-- new Matlab -->
+<div class="center">
   <img src="Matlab_figure15.png" style="width: 350px"
        alt="First method to draw the frame of the box">
 </div>
@@ -656,7 +660,7 @@ like a box with edges of equal length.</p>
    grid on</font>
 </pre>
 
-<div class="center">  <!-- new Matlab -->
+<div class="center">
   <img src="Matlab_figure16.png" style="width: 350px"
        alt="Second method to draw the frame of the box">
 </div>
@@ -676,7 +680,7 @@ degrees around the axis that contains the vector \( (1,1,1)\), .</p>
 >> <font class="matlab">rotate(cube, [ 1 1 1 ], 45 ); </font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure17.png" style="width: 350px"
        alt="Drawing of the frame of our box after the rotation">
 </div>
@@ -710,7 +714,7 @@ defined by \(f(x,y) = \sin(x+y) x^2 y \) for \(-5 \leq x \leq 5\) and
    grid on , xlabel('x') , ylabel('y');</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure12.png" style="width: 400px"
        alt="10 level curves of the function f(x,y) = sin(x+y) x^2 y">
 </div>
@@ -726,7 +730,7 @@ following command. </p>
    grid on , xlabel('x') , ylabel('y');</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure13.png" style="width: 400px"
        alt="Plot of the level curves f(x,y) = -2 and f(x,y) = -6">
 </div>
@@ -744,7 +748,7 @@ commands.</p>
    polarplot(theta,r);</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure14.png" style="width: 400px"
        alt="Drawing of the curve r = 1 + cos(theta) for 0 &le; theta &le; 2 pi">
 </div>
@@ -770,7 +774,7 @@ axis.  We first plot this curve.</p>
    grid on</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure18.png" style="width: 350px"
        alt="Graph of 2+cos(pi*x) for 0 &le; x &le; 4">
 </div>
@@ -785,7 +789,7 @@ axis.  We first plot this curve.</p>
    grid on</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure19.png" style="width: 350px"
        alt="Surface of revolution of y = 2+cos(pi*x) for 0 &le; x &le; 4">
 </div>
@@ -865,7 +869,7 @@ in the same figure.</p>
 </font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_figure28.png" style="width: 350px"
        alt="Figure with a 2 x 2 array where each component contains the graph of f_mu for one of the four values of mu">
 </div>
@@ -926,7 +930,7 @@ the <em>Figure</em> object.</li>
    l1 = legend('x^2 exp(-x)','x^2 exp(-2x)');</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_graphics1.png" style="width: 350px"
        alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x)">
 </div>
@@ -947,7 +951,7 @@ command. </p>
 >> <font class="matlab">h1.Color = [ 0.5 0.5 0.5];</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center">
   <img src="Matlab_graphics2.png" style="width: 350px"
        alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x) with the grey background of the Figure object">
 </div>
@@ -978,7 +982,7 @@ with the following command. </p>
    h2.YColor = [ 1 0 0];</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_graphics3.png" style="width: 350px"
        alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x) with the grey background of the Figure object, the blue background and red axes for the Axes object.">
 </div>
@@ -1123,7 +1127,7 @@ commands.</p>
 >> <font class="matlab">p1.LineStyle = '-.'; p1.Color = 'g';</font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_graphics4.png" style="width: 350px"
        alt="Graphs of x &rarr; x^2 e^(-x) and x &rarr; x^2 e^(-2x) with the grey background of the Figure object, the blue background and red axes for the Axes object, and the dot-dashed black curve for one of the graphs.">
 </div>
@@ -1160,9 +1164,58 @@ set the properties of an object when it is created is</p>
 </div>
 
 <div class="Example">
-<p><em>Example</em>: We can have more then one active figure at the
-same time.  The following commands demonstrate how this can be
-done. </p>
+<p><em>Example</em>: Despite our previous advice, there are situations
+where using handles is unavoidable.  <em>Matlab</em> displays the axes
+of coordinates to avoid clouding the figure.  This is usually the
+right way to proceed.  However, we may want to plot the graph of a
+function with the axes of coordinates going through the origin
+as we learned in high school or first year calculus.</p>
+
+<p>To plot the graph of the function \(\sin\) on the interval
+\([1,4]\) with the axes of coordinates going through the origin, we may
+proceed as it follows.</p>
+
+<pre class="matlab">
+>> <font class="matlab">close, ...
+   x = 1:0.1:4; y = sin(x); ...
+   plot(x,y); ...
+   xlabel('x'), ylabel('y'), ...
+   title('y = sin(x)'), grid on, ...
+   xlim([-0.5,5]); ... 
+   h = gca; ... 
+   h.XAxisLocation = 'origin'; ...
+   h.YAxisLocation = 'origin';</font>
+</pre>
+
+<div class="center"> 
+  <img src="Matlab_graphics7.png" style="width: 350px"
+       alt="Graph of sin(x) for -4 &leq; x &leq; 4 with the axes of coordinates going through the origin.">
+</div>
+
+<p>To display the y-axis, we had to modify the domain for x to include the
+origin.  Similarly, if the graph of the function does not cross the
+x-axis, we have to use the function <font class="matlab">ylim</font>
+to include the origin in the domain for y.<p>
+
+<p><em>Note</em>: There seems to be a problem with exporting the
+figure to png format.  The x and y labels do not appear beside the
+axes of coordinates in the png format as they do on the computer
+screen.  Instead, they appear at their standard locations below
+and beside the figure.  A remedy until this problem is fixed is to use
+the commands 
+<font class="matlab">text(4.8,0.05,'x'), text(0.1,0.95,'y'), ...</font>  
+instead of <font class="matlab">xlabel('x'), ylabel('y'), ...</font>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect27">More than One</h3>
+
+<p>We can work on more then one figure at the same time.  The
+following example demonstrates how this can be done. </p>
+
+<div class="Example">
+<p><em>Example</em>:</p>
 
 <pre class="matlab">
 >> <font class="matlab">close</font>
@@ -1172,7 +1225,7 @@ done. </p>
    figure(f1); hold on; plot(x,w,'r'); text(1,0.9,'(1,1)'); </font>
 </pre>
 
-<div class="center">   <!-- new Matlab -->
+<div class="center"> 
   <img src="Matlab_graphics5a.png" style="width: 350px"
        alt="Graphs of y = x^2 and y = x^(3/2)"> &nbsp;
   <img src="Matlab_graphics5b.png" style="width: 350px"
@@ -1191,11 +1244,14 @@ handle <font class="matlab">f1</font> as the current figure for
 the future graphics commands.</p>
 </div>
 
+<p>A <em>Figure</em> object can have more than one <em>Axes</em>
+object as children.   The following example adapted from an example
+on the <em>Matlab</em> website demonstrates how this can be
+done.</p>
+
 <div class="Example">
-<p><em>Example</em>: A <em>Figure</em> object can have more than one
-<em>Axes</em> object as children.   The following example taken from the
-<em>Matlab</em> website demonstrates how this can be
-done.  The <em>Matlab</em> function <font class="matlab">peaks</font>
+<p><em>Example</em>: The <em>Matlab</em> function
+<font class="matlab">peaks</font>
 is a built-in real valued function of two variables.</p>
 
 <pre class="matlab">
@@ -1213,7 +1269,7 @@ is a built-in real valued function of two variables.</p>
    colormap(ax2,summer); </font>
 </pre>
 
-<div class="center">  <!-- new Matlab -->
+<div class="center">
   <img src="Matlab_graphics6.png" style="width: 400px"
        alt="Level curves of the peaks function in the Axes object located in the centre and the graph of the peaks function in the Axes object located in the upper right corner.">
 </div>
@@ -1229,3 +1285,4 @@ bottom_function(matlabPlot,"en");
 
 </body>
 </html>
+
