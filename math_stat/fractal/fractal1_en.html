@@ -45,6 +45,10 @@ top_function(fractal1,"en");
 main_title( MStext, "MMathSStat");
 </script>
 
+<script language="javascript">
+document.write("<img src=\""+construction.src+"\" class=\"MMathSStat\">");
+</script>
+
 <table class="noB">
 <tr><td rowspan="1" colspan="1" class="left"> </a> </td>
 <td rowspan="1" colspan="1" class="right">
@@ -59,24 +63,24 @@ main_title( MStext, "MMathSStat");
 to consider DDS on the real line.  They illustrate all the complexity
 that can be displayed by DDS.</p>
 
-<p> Let <em class="Equations">f</em> be a real valued function
+<p> Let <em class="EQ">f</em> be a real valued function
 defined on the real line.  The formula</p>
 
-<center>
-  <em class="Equations_Display">
+<div class="center">
+  <em class="EQ_Display">
     x<sub>n+1</sub> = f(x<sub>n</sub>), n = 0, 1, 2, ...
   </em>
-</center>
+</div>
 
 <p>defines a DDS.  Given any
-<em class="Equations">x<sub>0</sub></em>, we may produce the sequence </p>
+<em class="EQ">x<sub>0</sub></em>, we may produce the sequence </p>
 
-<center>
-<em class="Equations_Display">
+<div class="center">
+<em class="EQ_Display">
 x<sub>1</sub> = f(x<sub>0</sub>), x<sub>2</sub> = f(x<sub>1</sub>),
 x<sub>3</sub> = f(x<sub>2</sub>), ...
 </em>
-</center>
+</div>
 
 <p>It is called an <em>orbit</em> of the DDS.</em>
 
@@ -85,62 +89,62 @@ x<sub>3</sub> = f(x<sub>2</sub>), ...
 <h3>Affine Functions</h3>
 
 <p> We begin with the study of the discrete dynamical systems whose
-<em>updating functions</em> <em class="Equations">f</em> are
+<em>updating functions</em> <em class="EQ">f</em> are
 affine functions.  Namely, functions of the form </p>
 
-<center>
-  <em class="Equations_Display">f(x) = m x + b</em>
-</center>
+<div class="center">
+  <em class="EQ_Display">f(x) = m x + b</em>
+</div>
 
-<p> The parameter <em class="Equations">m</em> is the slope of the
-line representing the image of the function <em class="Equations">f</em> and
-<em class="Equations">b</em> is the <em class="Equations">y</em>
+<p> The parameter <em class="EQ">m</em> is the slope of the
+line representing the image of the function <em class="EQ">f</em> and
+<em class="EQ">b</em> is the <em class="EQ">y</em>
 intercept of this line.</p>
 
-<p> What happen to the orbits <em class="Equations">x<sub>0</sub>,
+<p> What happen to the orbits <em class="EQ">x<sub>0</sub>,
 x<sub>1</sub>, x<sub>2</sub>, ... </em> if we change the values of
-the parameters <em class="Equations">m</em> and
-<em class="Equations">b</em>? </p>
+the parameters <em class="EQ">m</em> and
+<em class="EQ">b</em>? </p>
 
 <p> We invite the reader to explore with the help of the
 graphical application below the behaviour of the orbits
-<em class="Equations">x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ... </em>
+<em class="EQ">x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ... </em>
 for various values of the parameters
-<em class="Equations">m</em> and <em class="Equations">b</em>, and
-the initial condition <em class="Equations">x<sub>0</sub></em>. </p>  
+<em class="EQ">m</em> and <em class="EQ">b</em>, and
+the initial condition <em class="EQ">x<sub>0</sub></em>. </p>  
 
 <p>The graphical application below draws the <em>cobweb graph</em>
-associated to the function <em class="Equations">f</em>
-and initial condition <em class="Equations">x<sub>0</sub></em>
+associated to the function <em class="EQ">f</em>
+and initial condition <em class="EQ">x<sub>0</sub></em>
 selected.  The graph starts at
-<em class="Equations">(x<sub>0</sub>,0)</em>.</p>
+<em class="EQ">(x<sub>0</sub>,0)</em>.</p>
 <ol>
-<li> From <em class="Equations">(x<sub>0</sub>,0)</em>,
+<li> From <em class="EQ">(x<sub>0</sub>,0)</em>,
 we draw a vertical straight line that intersects 
-the graph of <em class="Equations">f</em> at the point
-<em class="Equations">(x<sub>0</sub>,x<sub>1</sub>)</em>. </li>
-<li> From <em class="Equations">(x<sub>0</sub>,x<sub>1</sub>)</em>,
+the graph of <em class="EQ">f</em> at the point
+<em class="EQ">(x<sub>0</sub>,x<sub>1</sub>)</em>. </li>
+<li> From <em class="EQ">(x<sub>0</sub>,x<sub>1</sub>)</em>,
 we draw a horizontal straight line that intersects the line
-<em class="Equations">y = x</em> at the point
-<em class="Equations">(x<sub>1</sub>,x<sub>1</sub>)</em>. </li>
-<li> From <em class="Equations">(x<sub>1</sub>,x<sub>1</sub>)</em>,
+<em class="EQ">y = x</em> at the point
+<em class="EQ">(x<sub>1</sub>,x<sub>1</sub>)</em>. </li>
+<li> From <em class="EQ">(x<sub>1</sub>,x<sub>1</sub>)</em>,
 we draw a vertical straight line that intersects the graph of
-<em class="Equations">f</em> at the point
-<em class="Equations">(x<sub>1</sub>,x<sub>2</sub>)</em>. </li>
-<li> From <em class="Equations">(x<sub>1</sub>,x<sub>2</sub>)</em>,
+<em class="EQ">f</em> at the point
+<em class="EQ">(x<sub>1</sub>,x<sub>2</sub>)</em>. </li>
+<li> From <em class="EQ">(x<sub>1</sub>,x<sub>2</sub>)</em>,
 we draw a horizontal straight line that intersects the line
-<em class="Equations">y = x</em> at the point
-<em class="Equations">(x<sub>2</sub>,x<sub>2</sub>)</em>.</li>
-<li> From <em class="Equations">(x<sub>2</sub>,x<sub>2</sub>)</em>,
+<em class="EQ">y = x</em> at the point
+<em class="EQ">(x<sub>2</sub>,x<sub>2</sub>)</em>.</li>
+<li> From <em class="EQ">(x<sub>2</sub>,x<sub>2</sub>)</em>,
 we draw a vertical straight line that intersects the graph of
-<em class="Equations">f</em> at the point
-<em class="Equations">(x<sub>2</sub>,x<sub>3</sub>)</em>. </li>
+<em class="EQ">f</em> at the point
+<em class="EQ">(x<sub>2</sub>,x<sub>3</sub>)</em>. </li>
 <li> And so on.</li>
 </ol>
 
-<p>The points <em class="Equations">(x<sub>n</sub>,x<sub>n</sub>)</em>
-on the line <em class="Equations">y = x</em> can be associated to the
-points <em class="Equations">(x<sub>n</sub>,0)</em> and therefore
+<p>The points <em class="EQ">(x<sub>n</sub>,x<sub>n</sub>)</em>
+on the line <em class="EQ">y = x</em> can be associated to the
+points <em class="EQ">(x<sub>n</sub>,0)</em> and therefore
 describe the orbits of the DDS.</p>
 
 <div class="center">
@@ -149,11 +153,11 @@ describe the orbits of the DDS.</p>
 </div>
 
 <ul>
-  <li> <em class="Equations">m = </em>
+  <li> <em class="EQ">m = </em>
     <input type="text" value="0.5" id="linear_m"> </li>
-  <li> <em class="Equations">b = </em>
+  <li> <em class="EQ">b = </em>
     <input type="text" value="2" id="linear_b"> </li>
-  <li> <em class="Equations">x<sub>0</sub> = </em>
+  <li> <em class="EQ">x<sub>0</sub> = </em>
     <input type="text" value="0.5" id="linear_x"> </li>
   <li> Number of iterations <input type="text" value="10" id="linear_nbr">
   </li>
@@ -165,16 +169,16 @@ describe the orbits of the DDS.</p>
 
 <p> The blue curve in the figure above (after having clicked on the
 button <em>Start</em>) is the graph of the function
-<em class="Equations">f</em> and the diagonal line in red is the
-line <em class="Equations">y = x</em>. </p>
+<em class="EQ">f</em> and the diagonal line in red is the
+line <em class="EQ">y = x</em>. </p>
 
-<p> The point <em class="Equations">p</em> given in the figure above
-satisfies <em class="Equations">f(p) = p</em>.  For this reason, the point
-<em class="Equations">p</em> is called a <em>fixed point</em> of
-<em class="Equations">f</em>.  What are the conditions for the
-orbits <em class="Equations">x<sub>0</sub>, x<sub>1</sub>,
+<p> The point <em class="EQ">p</em> given in the figure above
+satisfies <em class="EQ">f(p) = p</em>.  For this reason, the point
+<em class="EQ">p</em> is called a <em>fixed point</em> of
+<em class="EQ">f</em>.  What are the conditions for the
+orbits <em class="EQ">x<sub>0</sub>, x<sub>1</sub>,
 x<sub>2</sub>, ... </em> to converge toward
-<em class="Equations">p</em>? To go away of <em class="Equations">p</em>? </p>
+<em class="EQ">p</em>? To go away of <em class="EQ">p</em>? </p>
 
 <hr class="MMathSStat">
 
@@ -183,31 +187,31 @@ x<sub>2</sub>, ... </em> to converge toward
 <p> The simplest non-affine DDS is given by the <em>logistic map</em>.
 However, we show below that the behaviour of the orbits generated by
 iterating this function is far from simple.  The logistic map is
-the function <em class="Equations">f<sub>&micro;</sub></em> defined by</p>  
+the function <em class="EQ">f<sub>&#120583;;</sub></em> defined by</p>  
 
-<center>
-<em class="Equations_Display">
-f<sub>&micro;</sub>(x) = &micro; x(1-x)
+<div class="center">
+<em class="EQ_Display">
+f<sub>&#120583;</sub>(x) = &#120583; x(1-x)
 </em>
-</center>
+</div>
 
-<p> where <em class="Equations">&micro;</em> is a fixed but arbitrary
+<p> where <em class="EQ">&#120583;</em> is a fixed but arbitrary
 parameter.   We have a family of functions; one for each value
-of <em class="Equations">&micro;</em>. </p>
+of <em class="EQ">&#120583;</em>. </p>
 
 <p> The DDS associated to the logistic map is given by the following
 formula. </p>
 
-<center>
-<em class="Equations_Display">
-x<sub>n+1</sub> = f<sub>&micro;</sub>(x<sub>n</sub>), n = 0, 1, 2, 3, ... </em>
-</center>
+<div class="center">
+<em class="EQ_Display">
+x<sub>n+1</sub> = f<sub>&#120583;</sub>(x<sub>n</sub>), n = 0, 1, 2, 3, ... </em>
+</div>
 
 <p> The reader is invited to investigate with the following graphical
 application the behaviour of the orbits of the logistic DDS
-for different values of the parameter <em class="Equations">&micro;</em>
+for different values of the parameter <em class="EQ">&#120583;</em>
 (between 1 and 4) and initial conditions
-<em class="Equations">x<sub>0</sub></em> (between 0 and 1). </p>
+<em class="EQ">x<sub>0</sub></em> (between 0 and 1). </p>
 
 <div class="center">
 <canvas id="DDS" width="400" height="400">
@@ -215,10 +219,10 @@ for different values of the parameter <em class="Equations">&micro;</em>
 </div>
 
 <ul>
-  <li> <em class="Equations">&micro; =</em>
+  <li> <em class="EQ">&#120583; =</em>
     <input type="text" value="3.5" id="logistic_mu">
     (values between 1 and 4) </li>
-  <li> <em class="Equations">x<sub>o</sub> = </em>
+  <li> <em class="EQ">x<sub>o</sub> = </em>
     <input type="text" value="0.2" id="logistic_x">
     (values between 0 and 1) </li>
   <li> Number of iterations <input type="text" value="10" id="logistic_nbr">
@@ -230,159 +234,159 @@ for different values of the parameter <em class="Equations">&micro;</em>
 
 <p> The blue curve in the figure above (after having clicked on the
 button <em>Start</em>) is the graph of
-<em class="Equations">f<sub>&micro;</sub></em> and the diagonal red
-line is the line <em class="Equations">y = x</em>. </p>
+<em class="EQ">f<sub>&#120583;</sub></em> and the diagonal red
+line is the line <em class="EQ">y = x</em>. </p>
 
-<p> For each fixed value of <em class="Equations">&micro;</em> between 1
-and 3, the orbits <em class="Equations">x<sub>0</sub>, x<sub>1</sub>,
+<p> For each fixed value of <em class="EQ">&#120583;</em> between 1
+and 3, the orbits <em class="EQ">x<sub>0</sub>, x<sub>1</sub>,
 x<sub>2</sub>, ... </em> converge toward a single point
-<em class="Equations">p<sub>&micro;</sub></em> between 0 and 1.  The point
-<em class="Equations">p<sub>&micro;</sub></em> satisfies
-<em class="Equations">f<sub>&micro;</sub>(p<sub>&micro;</sub>)
-= p<sub>&micro;</sub></em>.  Therefore, it is a fixed point of
-<em class="Equations">f<sub>&micro;</sub></em>. </p>
+<em class="EQ">p<sub>&#120583;</sub></em> between 0 and 1.  The point
+<em class="EQ">p<sub>&#120583;</sub></em> satisfies
+<em class="EQ">f<sub>&#120583;</sub>(p<sub>&#120583;</sub>)
+= p<sub>&#120583;</sub></em>.  Therefore, it is a fixed point of
+<em class="EQ">f<sub>&#120583;</sub></em>. </p>
 
 <div class="Note">
 <p> The <em>Fixed Point Theorem</em>
-states that if <em class="Equations">f:[a,b] &rarr; [a,b]</em> is a
+states that if <em class="EQ">f:[a,b] &rarr; [a,b]</em> is a
 continuously differentiable function and there exists a positive
-constant <em class="Equations">K < 1</em> such that
-<em class="Equations">|f'(x)| &leq; K</em> for all
-<em class="Equations">x &in; [a,b]</em>, then all the orbits
-with <em class="Equations">x<sub>0</sub> &in; [a,b]</em> converge to a
-unique fixed point <em class="Equations">p &in; [a,b]</em>. </p> 
+constant <em class="EQ">K < 1</em> such that
+<em class="EQ">|f'(x)| &leq; K</em> for all
+<em class="EQ">x &in; [a,b]</em>, then all the orbits
+with <em class="EQ">x<sub>0</sub> &in; [a,b]</em> converge to a
+unique fixed point <em class="EQ">p &in; [a,b]</em>. </p> 
 </div>
 
 <p> The function
-<em class="Equations">f<sub>&micro;</sub>:[0,1] &rarr; [0,1]</em>
+<em class="EQ">f<sub>&#120583;</sub>:[0,1] &rarr; [0,1]</em>
 has always a fixed point at the origin.  For
-<em class="Equations">&micro; > 1</em>, there is another fixed point
-<em class="Equations">p<sub>&micro;</sub>>0</em>.  In fact, if we solve
-<em class="Equations">f<sub>&micro;</sub>(p) = p</em> for
-<em class="Equations">p</em>, we find that this fixed point is
-<em class="Equations">p<sub>&micro;</sub> = (&micro;-1)/&micro;</em>.
-For each value of <em class="Equations">&micro;</em> with
-<em class="Equations">1 < &micro; < 3</em>, it is possible to
-find a small interval <em class="Equations">[a,b]</em> containing the fixed
-point <em class="Equations">p<sub>&micro;</sub></em> where the Fixed
+<em class="EQ">&#120583; > 1</em>, there is another fixed point
+<em class="EQ">p<sub>&#120583;</sub>>0</em>.  In fact, if we solve
+<em class="EQ">f<sub>&#120583;</sub>(p) = p</em> for
+<em class="EQ">p</em>, we find that this fixed point is
+<em class="EQ">p<sub>&#120583;</sub> = (&#120583;-1)/&#120583;</em>.
+For each value of <em class="EQ">&#120583;</em> with
+<em class="EQ">1 < &#120583; < 3</em>, it is possible to
+find a small interval <em class="EQ">[a,b]</em> containing the fixed
+point <em class="EQ">p<sub>&#120583;</sub></em> where the Fixed
 Point Theorem can be used to conclude that any orbit with an initial
-condition <em class="Equations">x<sub>0</sub> &in; [a,b]</em> converges
-toward <em class="Equations">p<sub>&micro;</sub></em> as
-<em class="Equations">n &rarr; &infin;</em>.
-For instance, if <em class="Equations">&micro; = 2</em>, the
+condition <em class="EQ">x<sub>0</sub> &in; [a,b]</em> converges
+toward <em class="EQ">p<sub>&#120583;</sub></em> as
+<em class="EQ">n &rarr; &infin;</em>.
+For instance, if <em class="EQ">&#120583; = 2</em>, the
 graphical application above shows that the graph of
-<em class="Equations">f<sub>2</sub></em>
-intersects the line <em class="Equations">y = x</em> at the
-positive point <em class="Equations"> p<sub>2</sub> = 1/2</em>
+<em class="EQ">f<sub>2</sub></em>
+intersects the line <em class="EQ">y = x</em> at the
+positive point <em class="EQ"> p<sub>2</sub> = 1/2</em>
 only.  It is a fixed point
-of <em class="Equations">f<sub>2</sub></em> and all orbits with
-<em class="Equations">x<sub>0</sub></em> closed enough
-to <em class="Equations">p<sub>2</sub></em>
-converge to <em class="Equations">p<sub>2</sub></em>. </p>
+of <em class="EQ">f<sub>2</sub></em> and all orbits with
+<em class="EQ">x<sub>0</sub></em> closed enough
+to <em class="EQ">p<sub>2</sub></em>
+converge to <em class="EQ">p<sub>2</sub></em>. </p>
 
-<p> For some values of <em class="Equations">&micro;</em> (values
+<p> For some values of <em class="EQ">&#120583;</em> (values
 between 3 and 4 are really interesting), the orbits
-<em class="Equations">x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ... </em>
+<em class="EQ">x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ... </em>
 do not converge toward a single point but they
 <q lang="en">converge</q> toward a more complex set.</p>
 
-<p>For <em class="Equations">&micro; = 3.4</em>, the point
-<em class="Equations">x<sub>0</sub> = 0.45195878844045...</em> is a
+<p>For <em class="EQ">&#120583; = 3.4</em>, the point
+<em class="EQ">x<sub>0</sub> = 0.45195878844045...</em> is a
 <em>periodic point</em> of
-<em class="Equations">f<sub>3.4</sub></em> of period 2;
+<em class="EQ">f<sub>3.4</sub></em> of period 2;
 namely,
-<em class="Equations">x<sub>1</sub> = f<sub>3.4</sub>(x<sub>0</sub>)</em>
+<em class="EQ">x<sub>1</sub> = f<sub>3.4</sub>(x<sub>0</sub>)</em>
 and
-<em class="Equations">x<sub>2</sub> = f<sub>3.4</sub>(x<sub>1</sub>)
+<em class="EQ">x<sub>2</sub> = f<sub>3.4</sub>(x<sub>1</sub>)
 = x<sub>0</sub></em>.  We write
-<em class="Equations">x<sub>2</sub>
+<em class="EQ">x<sub>2</sub>
 = f<sub>3.4</sub><sup>2</sup>(x<sub>0</sub>)
-= x<sub>0</sub></em>.  The orbit <em class="Equations">x<sub>0</sub>,
+= x<sub>0</sub></em>.  The orbit <em class="EQ">x<sub>0</sub>,
 x<sub>1</sub>, x<sub>2</sub>, ... </em> is</p>
 
-<center>
-<em class="Equations">
+<div class="center">
+<em class="EQ">
 0.45195878844045, 0.84215476876273, 0.45195878844045, 0.84215476876273, ...
 </em>
-</center>
+</div>
 
 <p> where the values have been truncated to 14 digits after the
 decimal point.  The reader should draw the cobweb graph of the
-orbit of <em class="Equations">f<sub>3.4</sub></em> starting with
-<em class="Equations">x<sub>0</sub> = 0.45195878844045</em>
+orbit of <em class="EQ">f<sub>3.4</sub></em> starting with
+<em class="EQ">x<sub>0</sub> = 0.45195878844045</em>
 using the graphical application above.</p>
 
-<p>For <em class="Equations">&micro; = 3.5</em>, the point
-<em class="Equations">x<sub>0</sub> = 0.87499726360246...</em> is a
+<p>For <em class="EQ">&#120583; = 3.5</em>, the point
+<em class="EQ">x<sub>0</sub> = 0.87499726360246...</em> is a
 <em>periodic point</em> of
-<em class="Equations">f<sub>3.5</sub></em> of period 4;
-namely, <em class="Equations">x<sub>4</sub>
+<em class="EQ">f<sub>3.5</sub></em> of period 4;
+namely, <em class="EQ">x<sub>4</sub>
 = f<sub>3.4</sub><sup>4</sup>(x<sub>0</sub>)
-= x<sub>0</sub></em>.  The orbit <em class="Equations">x<sub>0</sub>,
+= x<sub>0</sub></em>.  The orbit <em class="EQ">x<sub>0</sub>,
 x<sub>1</sub>, x<sub>2</sub>, ... </em> is</p>
 
-<center>
-<em class="Equations">
+<div class="center">
+<em class="EQ">
 0.87499726360246, 0.38281968301732, 0.82694070659144,
 0.50088421030722, 0.87499726360246, ...
 </em>
-</center>
+</div>
 
 <p> where the values have been truncated to 14 digits after the
 decimal point.  The reader should draw the cobweb graph of the
-orbit of <em class="Equations">f<sub>3.5</sub></em> starting with
-<em class="Equations">x<sub>0</sub> = 0.87499726360246</em>
+orbit of <em class="EQ">f<sub>3.5</sub></em> starting with
+<em class="EQ">x<sub>0</sub> = 0.87499726360246</em>
 using the graphical application above.</p>
 
-<p>When <em class="Equations">&micro;</em> crosses
-above <em class="Equations">3</em>, the fixed
-point <em class="Equations">p<sub>&micro;</sub></em> is no longer
+<p>When <em class="EQ">&#120583;</em> crosses
+above <em class="EQ">3</em>, the fixed
+point <em class="EQ">p<sub>&#120583;</sub></em> is no longer
 <em>attracting</em> and we get an attracting periodic orbit of period 2 as we
-have seen above.  When <em class="Equations">&micro;</em> crosses
-above <em class="Equations">3.236...</em>, the periodic orbit of
+have seen above.  When <em class="EQ">&#120583;</em> crosses
+above <em class="EQ">3.236...</em>, the periodic orbit of
 period 2 is no longer attracting and we get
 an attracting periodic orbit of period 4.
-For <em class="Equations">&micro;</em> slightly larger, the periodic
+For <em class="EQ">&#120583;</em> slightly larger, the periodic
 orbit of period 4 is no longer attracting and we get 
 an attracting periodic orbit of period 8, And so on. This is the best known
 example of a <em>period doubling cascade</em>.</p>
 
 <p> Period doubling accumulates to 
-<em class="Equations">&micro; = 3.5699456...</em>&nbsp;
+<em class="EQ">&#120583; = 3.5699456...</em>&nbsp;
 This number is known as the
 <em>Feigenbaum point</em>. Moreover, let
-<em class="Equations">&micro;<sub>0</sub> = 3</em>,
-<em class="Equations">&micro;<sub>1</sub> = 3.236...</em>,
-<em class="Equations">&micro;<sub>2</sub> = ...</em> and so on
-be the values of <em class="Equations">&micro;</em> for which
+<em class="EQ">&#120583;<sub>0</sub> = 3</em>,
+<em class="EQ">&#120583;<sub>1</sub> = 3.236...</em>,
+<em class="EQ">&#120583;<sub>2</sub> = ...</em> and so on
+be the values of <em class="EQ">&#120583;</em> for which
 the logistic map undergoes period doubling and let
-<em class="Equations">d<sub>j</sub> =
-&micro;<sub>j+1</sub>−&micro;<sub>j</sub></em> for
-<em class="Equations"> j &geq; 0</em>.
+<em class="EQ">d<sub>j</sub> =
+&#120583;<sub>j+1</sub>−&#120583;<sub>j</sub></em> for
+<em class="EQ"> j &geq; 0</em>.
 It has been shown that
-<em class="Equations">lim<sub>j &rarr; &infin;</sub>
+<em class="EQ">lim<sub>j &rarr; &infin;</sub>
 d<sub>j</sub>/d<sub>j+1</sub> = 4.6692016091029...</em>
 &nbsp; This number is called the <em>Feigenbaum constant</em>.
 Feigenbaum discovered this number in 1975. This constant is universal
 in the sense that it is the same for a whole class of DDS of the form
-<em class="Equations">x<sub>n+1</sub> = g<sub>&micro;</sub>(x<sub>n</sub>)</em>
-where the graph of <em class="Equations">g<sub>&micro;</sub></em> 
+<em class="EQ">x<sub>n+1</sub> = g<sub>&#120583;</sub>(x<sub>n</sub>)</em>
+where the graph of <em class="EQ">g<sub>&#120583;</sub></em> 
 <q lang="en">looks like</q> the graph of the logistic map
-<em class="Equations">f<sub>&micro;</sub></em>.</p>
+<em class="EQ">f<sub>&#120583;</sub></em>.</p>
 
-<p> For <em class="Equations">&micro; = 3.839...</em>, we have that</p>
+<p> For <em class="EQ">&#120583; = 3.839...</em>, we have that</p>
 
 <div class="center">
-<em class="Equations">
+<em class="EQ">
 0.14988539433432, 0.48917380192271, 0.95930024021836,
 0.14988539433432, ...
 </em>
 </div>
 <p>is an attracting periodic orbit of period 3 for
-<em class="Equations">f<sub>3.839...</sub></em>, where all value have been
+<em class="EQ">f<sub>3.839...</sub></em>, where all value have been
 truncated to 14 digits after the decimal point.
 It follows from the famous theorem of <em>Sarkovskii</em> that
-<em class="Equations">f<sub>3.839...</sub></em> has periodic
+<em class="EQ">f<sub>3.839...</sub></em> has periodic
 orbits of all possible periods.  None of the periodic orbits, except 
 for the periodic orbit of period 3 above, is attracting.  So, unless
 an orbit starts with a point exactly on one of these non-attracting
@@ -391,9 +395,9 @@ orbit of period 3.
 Note that, due to truncation errors, it is practically impossible to 
 draw the cobweb graph of one of these non-attracting periodic orbits.</p>
 
-<p> What happen when <em class="Equations">&micro;</em> is greater
+<p> What happen when <em class="EQ">&#120583;</em> is greater
 than or equal to 4?  We have that the orbits of
-<em class="Equations">f<sub>4</sub></em> are <em> Chaotic </em>.</p>
+<em class="EQ">f<sub>4</sub></em> are <em> Chaotic </em>.</p>
 
 <p>To be continued ... </p>
 

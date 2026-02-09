@@ -94,6 +94,10 @@ main_title( MStext, "MMathSStat");
       "MMathSStat", "sect125D", "_top");
   </script> </li>
   <li> <script language="javascript">
+      buildLinK("#Sect28", "Julia and Mendelbrot Sets",
+      "MMathSStat", "sect128D", "_top");
+  </script> </li>
+  <li> <script language="javascript">
       buildLinK("#Sect26", "Exporting Arrays to LaTeX",
       "MMathSStat", "sect126D", "_top");
   </script> </li>
@@ -155,16 +159,16 @@ buildLinK("fxpt1.m", "fxpt1.m","MMathSStat", "id3", "_blank");
 
 <div class="Code">
 <pre class="matlab">
-%  Starting value of x for the iteration:
+%  Starting value of x for the iteration.
 <font class="matlab">x = 0.5;</font> <br>
-%  Number of iterations:
+%  Number of iterations.
 <font class="matlab">n = 20;</font> <br>
-% loop:
+% loop.
 <font class="matlab">
 for i = 1:n
    x = -x.^(5/2)/8 - x/4 + 1/2;
 end </font> <br>
-% Return the final value of the iteration
+% Return the final value of the iteration.
 <font class="matlab">x</font>
 </pre>
 </div>
@@ -208,8 +212,8 @@ starting with the initial value <font class="matlab">x0</font>.</p>
     for i=1:n
       x = feval(funct,x);
     end
-end  </font>
-</pre>
+end
+</font></pre>
 </div>
 
 <div class="Example">
@@ -367,7 +371,7 @@ extreme caution.</li>
 %
 % The Matlab solver used is ODE45.
 %
-function vctfld(funct,B,p,varargin)
+<font class="matlab">function vctfld(funct,B,p,varargin)
     if ( nargin < 3 )
         disp('Not enough arguments, use help vctfld to get the instructions.');
         return;
@@ -518,8 +522,7 @@ function vctfld(funct,B,p,varargin)
         end
     end
 end
-</font>	     
-</pre>
+</font></pre>
 </div>
 
 <div class="Example">
@@ -784,12 +787,12 @@ memory.</p>
 %          The default colour is blue.
 %
 
-function ifs(X, N, syst, colour)
-    if ( nargin < 3 )
-        syst = "Sierpinski";
+<font class="matlab">function ifs(X, N, syst, colour)
+    if ( nargin < 4 )
         colour = 'blue';
-    elseif ( nargin < 4 )
-        colour = 'blue';
+        if ( nargin < 3 )
+            syst = "Sierpinski";
+        end
     end
 
     if ( strcmpi(syst,"Sierpinski") )
@@ -849,7 +852,7 @@ function ifs(X, N, syst, colour)
         set(p,'EdgeColor',colour);
     end
 
-    fprintf('\nThe figure has been drawn\n');
+    fprintf('\nThe figure has been drawn.\n');
 end
 
 % Sierpinski Triangle
@@ -877,7 +880,7 @@ function XX = leaf(X)
     XX = [XX, [0.4, 0.3 ; -0.3 , 0.4]*X + [0.27; 0.32], [NaN;NaN]];
     XX = [XX, [0.4, -0.3 ; 0.3 , 0.4]*X + [0.27; 0.09]];
 end
-</pre>
+</font></pre>
 </div>
 
 <p>The first argument of the previous function must be a closed
@@ -985,13 +988,13 @@ modified to accept more general initial sets. </p>
 % colour : One of the colours accepted in Matlab plot/fill.
 %          The default colour is blue.
 %
-   
-function ifs2(X, N, syst, colour)
-    if ( nargin < 3 )
-        syst = "Sierpinski";
+
+<font class="matlab">function ifs2(X, N, syst, colour)
+    if ( nargin < 4 )
         colour = 'blue';
-    elseif ( nargin < 4 )
-        colour = 'blue';
+        if ( nargin < 3 )
+            syst = "Sierpinski";
+        end
     end
 
     M = 400;
@@ -1042,7 +1045,7 @@ function ifs2(X, N, syst, colour)
     p = plot(ro,co,'.');
     set(p,'Color',colour);
 
-    fprintf('\nThe figure has been drawn\n');
+    fprintf('\nThe figure has been drawn.\n');
 end
 
 % Sierpinski Triangle
@@ -1096,7 +1099,7 @@ function RC = leaf(rc,M)
     c = floor([c1;c2;c3;c4]);
     RC = unique([r,c],'rows');
 end
-</pre>
+</font></pre>
 </div>
 
 <p>This function is found in the <em>m-file</em>
@@ -1134,6 +1137,459 @@ The figure has been drawn
 <div class="center"> 
   <img src="Matlab_fractal3.png" style="width: 400px"
        alt="A leaf">
+</div>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect28"> Julia and Mandelbrot Sets </h3>
+
+<p>It is shown in the document
+<script language="javascript">
+  buildLinK(fractal4.url_en+"#JuliaFig",fractal4.text_en,
+  "MMathSStat", fractal4.id, fractal4.target);
+</script> that the Julia set \(J_R\) of a rational function 
+\(R: \overline{\mathbb{C}} \to \overline{\mathbb{C}} \)
+is the closure of the set \( \displaystyle \bigcup_{n>0} R^{-n}(\{w\})\) where
+\(w \in J_R\).  It is easy to find the finite fixed points of \(R\)
+when \(R\) is the polynomial function \(P_c\) defined by
+\(P_c(z) = z^2 + c\) for \(c\) a constant.
+They are given by \(z_\pm = (1 \pm \sqrt{1 - 4c})/2\).
+For \(c\neq 1/4\), if we use the square root of \(1 -4 c\)
+with a positive real part, then \(|z_+| > 1/2\).  Since
+\(P_c'(z) = 2z\), we get that \(|P_c'(z_+)|>1\).  Thus \(z_+\) is a
+repelling fixed point.  Hence, \(z_+ \in J_{P_c}\).
+For \(c = 1/4\), we have that \(z_+ = z_- = 1/2\) is a neutral fixed point.
+Nevertheless, the method to draw the Julia set \(J_{P_c}\) works fine
+for \(c = 1/4\).</p>
+
+<p>We do not have to draw the set
+\(\displaystyle \overline{\bigcup_{n>0} P_c^{-n}(\{z_+\})}\)
+to get a graphical representation of the Julia set of
+\(P_c\) because \(\displaystyle \bigcup_{n>0} R^{-n}(\{w\})\)
+and \(\overline{\displaystyle \bigcup_{n>0} R^{-n}(\{w\})}\)
+produce basically the same figure due to the limited resolution of the
+computer screens.  Moreover, we 
+have to avoid drawing <q lang="en">sharp</q> conclusions about a Julia
+set based on the figure displayed on the computer screen.  We must not forget
+that a pixel on the computer screen represents a disk of small radius in the
+complex plan, not a single point.  Thus, what may look like a continuous curve
+may in fact be an infinite collection of disjoint closed curves or
+points.  Only the theory can tell us if it is a continuous curve.</p>
+
+<p>The code of the following <em>Matlab</em> function is found in the
+<em>m-file</em> <script language="javascript">
+buildLinK("julia1.m", "julia1.m","MMathSStat", "id5", "_blank");
+</script>.  This function implements the method described above.
+The number of backward iterations for this function is limited by the size
+of the computer memory allocated to <em>Matlab</em> because the
+function creates large vectors.  The typical upper
+limit on the number of backward iterations is about 20.  </p>
+
+<div class="Code">
+<pre class="matlab">
+% function julia1(c, N, colour)
+%
+% Draw the Julia set of p_c(z) = z^2 + c.
+%
+% c : Any complex number.  The default value is i.
+% N : The number of iterations.  The default value is 17.
+% colour : One of the colours accepted in Matlab plot/fill.
+%          The default colour is blue.
+%
+
+<font class="matlab">function julia1(c, N, colour)
+    if ( nargin < 3 )
+        colour = 'blue';
+        if ( nargin < 2 )
+            N = 17;
+            if ( nargin < 1 )
+                c = i;
+            end
+        end
+    end
+
+    % Compute the repelling fixed point  (1 + sqrt(1 - 4c))/2 , where
+    % sqrt(1 - 4c) is the square root of 1 - 4c with a non negative
+    % real part.
+    x = real(1-4*c);
+    y = imag(1-4*c);
+    q = sqrt(x^2+y^2);
+    if ( x == 0 && y == 0 )
+        u = 0;
+        v = 0;
+    elseif ( x > 0 )
+        u = sqrt(2*(x+q))/2;
+        v = y/(2*u);
+    else
+        v = sqrt(2*(-x+q))/2;
+        u = y/(2*v);
+    end;
+    w = (1 + (u+i*v))/2;
+    fprintf('%f + %f i is a repelling fixed point if c ~= 1/4.\n',real(w),imag(w));
+    fprintf('We use %f + %f i as starting point.\n',real(w),imag(w));
+
+    % Compute the bachward iterations and draw the Julia set.
+    x = real(w-c);
+    y = imag(w-c);
+
+    figure;
+    for n = 1:N
+        q = sqrt(x.^2+y.^2);
+        for j = 1:length(x)
+            if ( x(j) == 0 && y(j) == 0 )
+                u(j) = 0;
+                v(j) = 0;
+            elseif ( x(j) > 0 )
+                u(j) = sqrt(2*(x(j)+q(j)))/2;
+                v(j) = y(j)/(2*u(j));
+            else
+                v(j) = sqrt(2*(-x(j)+q(j)))/2;
+                u(j) = y(j)/(2*v(j));
+            end;
+        end
+        x = [ u , -u ];
+        y = [ v , -v ];
+
+        % We draw the points.
+        plot(x,y,'.','LineWidth',0.1);
+
+        % Go on with the next iteration (if there is one).
+        x = [ u , -u ] - real(c);
+        y = [ v , -v ] - imag(c);        
+        hold on
+    end
+    h = gca;
+    set(h.Children,'Color',colour);
+    axis equal;
+    grid on
+    title(['p(z) = z^2 + ',num2str(real(c)),' + ',num2str(imag(c)),'i']);
+    hold off
+    display('The drawing is completed.');
+end
+</font></pre>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: The Julia set \(J_{P_{-1}}\) of the polynomial
+function \(P_{-1}\) defined by \( P_{-1}(z) = z^2 -1\) is represented in the
+figure below.</p>
+
+<pre class="matlab">
+>> <font class="matlab">julia1(-1,20,'k');</font><br>
+1.618034 + 0.000000 i is a repelling fixed point if c ~= 1/4.
+We use 1.618034 + 0.000000 i as starting point.
+The drawing is completed.
+</font></pre>
+
+<div class="center"> 
+  <img src="Matlab_Julia1.png" style="width: 400px"
+       alt="Julia set for P_{-1} = z^2 - 1.">
+</div>
+</div>
+
+<p>There is another method to draw the Julia set of a rational
+function.  This method has been used since personal computers have been 
+utilized to draw Julia sets.  The first personal computers did not have the
+memory capacity that present personal computers have.  Thus, computing
+the entire preimages was not realistic.  A stochastic element was
+added to the previous method.  Instead of computing all the elements
+of the preimage, only one randomly selected point of the preimage is
+selected and plotted on the computer screen.  This point is then used
+for the next backward iteration.  There is no need to store in memory
+the coordinates of this point after it has been plotted and used for
+the next backward iteration.  To compensate for the points of the
+preimages that are ignored, the number of backward iterations has to
+be very large to get a good representation of a Julia set.  Very
+little memory space is used but the computer time can be large.</p> 
+
+<p>The code of the following <em>Matlab</em> function is found in the
+<em>m-file</em> <script language="javascript">
+buildLinK("julia2.m", "julia2.m","MMathSStat", "id6", "_blank");
+</script>.  This function implements the new method described above.
+The number of iterations for this function is not limited by the size
+of the computer memory allocated to <em>Matlab</em> but the computer
+time can be large.  The typical number of iterations is at least 40,000.
+The quality of the figure is limited by the computer accuracy, the
+quality of the random number generator and the resolution of the
+computer screen.</p>
+
+<div class="Code">
+<pre class="matlab">
+% function julia2(c, N, colour)
+%
+% Draw the Julia set of p_c(z) = z^2 + c.
+%
+% c : Any complex number.  The default value is 0.3.
+% N : The number of iterations.  The default value is 4000.
+% colour : One of the colours accepted in Matlab plot/fill.
+%          The default colour is blue.
+%
+
+<font class="matlab">function julia2(c, N, colour)
+    if ( nargin < 3 )
+        colour = 'blue';
+        if ( nargin < 2 )
+            N = 4000;
+            if ( nargin < 1 )
+                c = 0.3;
+            end
+        end
+    end
+
+    % Compute the repelling fixed point  (1 + sqrt(1 - 4c))/2 , where
+    % sqrt(1 - 4c) is the square root of 1 - 4c with a non negative
+    % real part.
+    x = real(1-4*c);
+    y = imag(1-4*c);
+    q = sqrt(x^2+y^2);
+    if ( x == 0 && y == 0 )
+        u = 0;
+        v = 0;
+    elseif ( x > 0 )
+        u = sqrt(2*(x+q))/2;
+        v = y/(2*u);
+    else
+        v = sqrt(2*(-x+q))/2;
+        u = y/(2*v);
+    end;
+    w = (1 + (u+i*v))/2;
+    fprintf('%f + %f i is a repelling fixed point if c ~= 1/4.\n',real(w),imag(w));
+    fprintf('We use %f + %f i as starting point.\n',real(w),imag(w));
+
+    % Compute the bachward iterations and draw the Julia set.
+    x = real(w-c);
+    y = imag(w-c);
+    f = figure;
+    for n = 1:N
+        q = sqrt(x^2+y^2);
+        if ( x == 0 && y == 0 )
+            u = 0;
+            v = 0;
+        elseif ( x > 0 )
+            u = sqrt(2*(x+q))/2;
+            v = y/(2*u);
+        else
+            v = sqrt(2*(-x+q))/2;
+            u = y/(2*v);
+        end;
+        % We randomly select one of the two preimages.
+        if ( rand(1) < 0.5 )
+            x = u;
+            y = v;
+        else
+            x = -u;
+            y = -v;
+        end
+
+        % We draw the point.
+        plot(x,y,'.','LineWidth',0.1);
+        
+        % Go on with the next iteration (if there is one).
+        x = x - real(c);
+        y = y - imag(c);        
+        hold on
+    end
+    h = gca;
+    set(h.Children,'Color',colour);
+    axis equal;
+    grid on
+    title(['p(z) = z^2 + ',num2str(real(c)),' + ',num2str(imag(c)),'i']);
+    hold off
+    display('The drawing is completed.');
+end
+</font></pre>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: We use our new function to draw the Julia set
+ \(J_{P_{-1}}\) of the polynomial function
+\(P_{-1}\) defined by \(P_{-1}(z) = z^2 -1\).</p> 
+
+<pre class="matlab">
+>> <font class="matlab">julia2(-1,40000,'k');</font><br>
+1.618034 + 0.000000 i is a repelling fixed point if c ~= 1/4.
+We use 1.618034 + 0.000000 i as starting point.
+The drawing is completed.
+</font></pre>
+
+<div class="center"> 
+  <img src="Matlab_Julia2.png" style="width: 400px"
+       alt="Julia set for P_{-1} = z^2 - 1 drawn using our new function.">
+</div>
+<p>Even after 40,000 iterations, the image of the Julia set
+is still not as <q lang="en">good</q> as the image produced with the previous
+method.</p> 
+</div>
+
+<p><p>It is shown in the document
+<script language="javascript">
+  buildLinK(fractal4.url_en,fractal4.text_en,
+  "MMathSStat", fractal4.id, fractal4.target);
+</script> that, if \(z\) is an attracting fixed point
+of a rational function \(R: \overline{\mathbb{C}} \to \overline{\mathbb{C}} \),
+then \(J_R = \partial W^s(z,R)\); namely, the Julia set of \(R\) is the
+boundary of the basin of attraction of \(z\).  This
+property is used in the document <script language="javascript">
+  buildLinK(fractal4.url_en,fractal4.text_en,
+  "MMathSStat", fractal4.id, fractal4.target);
+</script> to draw the filled Julia sets for the polynomial functions
+\(P_c\).  The fixed point of the polynomial functions
+\(P_c\) that is used is \(\infty\).  We provide below
+a <em>Matlab</em> function that can be used to draw the filled Julia
+set of a rational function
+\(R: \overline{\mathbb{C}} \to \overline{\mathbb{C}} \)
+if a attracting fixed point is known.  The code for this
+<em>Matlab</em> function is
+found in the <em>m-file</em> <script language="javascript">
+buildLinK("julia3.m", "julia3.m","MMathSStat", "id7", "_blank");
+</script>. </p>
+
+<p>Great care must be given to the choice of the sufficient condition
+to determine if a point belongs to the basin of attraction of an
+attracting fixed point.  For the polynomial functions \(P_c\), 
+it was shown in the document <script language="javascript">
+  buildLinK(fractal4.url_en,fractal4.text_en,
+  "MMathSStat", fractal4.id, fractal4.target);
+</script> that \(z \in W^s(\infty,R)\) if
+\(R^n(z) > \max\{|c|,2\}\) for some \(n \in \mathbb{N}\).
+It is often much harder to find a sufficient condition for other
+rational functions.</p>
+
+<div class="Code">
+<pre class="matlab">
+% function julia3(R, D, Q, N, M, rev, colour)
+%
+% Draw the Julia set of the rational function R.
+%
+% R : The name of a function between apostrophes or the handle of
+%     a function.
+% D = [a b c d] : Only the portion of the Julia set inside the 
+%                 region [a,b] x [c,d] is displayed.
+% Q : The name of a function between apostrophes or the handle of
+%     a function.  This function is the condition to determine if a
+%     point belongs to the basin of attraction of a fixed point.
+%     Let z_0 = z and z_{n+1} = r(z_n).  If  Q(z_n) > 0 for some n < N,
+%     we assume that z is in the basin of attraction.  Otherwise, we
+%     assume that z is not in the basin of attraction.
+% N : The number of iterations to determine if a point belongs to the
+%     basin of attraction of a fixed point.  The default value is 50.
+% M : The number of points per unit length.  The default value is 50.
+% rev : If set to a negative value, the complement of the basin of
+%       attraction is drawn to get the filled Julia set.  The default value
+%       is 1.
+% colour : One of the colours accepted in Matlab plot/fill.
+%          It is used for the points that are parts of bounded orbits.
+%          The default colour is blue.
+%
+%     Example: To produce the fille Julia sets for P_c defined by
+%     P_c(z) = z^2 + c.
+%     >> c = -0.12256 + 0.74486i.
+%     >> P = @(z) z.^2 + c;
+%     >> K = max(abs(c),2);
+%     >> Q = @(z) abs(z) - K;
+%     >> julia3(P,[-K K -K K],Q,50,100,-1,'k');
+%
+
+function julia3(R, D, Q, N, M, rev, colour)
+    if ( nargin < 7 )
+        colour = 'blue';
+        if ( nargin < 6 )
+            rev = 1;
+            if ( nargin < 5 )
+                M = 50;
+                if ( nargin < 4 )
+                    N = 50;
+                    if ( nargin < 3 )
+                        disp('Not enough arguments.');
+                        disp('Use the help command for more information.');
+                        return
+                    end
+                end
+            end
+        end
+    end
+    
+    if ( rev < 0 )
+        rev = -1;
+    end
+    
+    M1 = round((D(2)-D(1))*M);
+    M2 = round((D(4)-D(3))*M);
+    x = linspace(D(1),D(2),M1);
+    y = linspace(D(3),D(4),M2);
+
+    figure;
+    for k1 = 1:length(x)
+        for k2 = 1:length(y)
+            flag = -1;
+            w = x(k1) + i*y(k2);
+            for k3 = 1:N
+                w = feval(R,w);
+                if ( feval(Q,w) > 0 )
+                    flag = 1;
+                    break;
+                end
+            end
+            if ( flag == rev )
+                plot(x(k1),y(k2),'.','LineWidth',0.1);
+                hold on
+            end
+        end
+    end
+    h = gca;
+    set(h.Children,'Color',colour);
+    axis(D);
+    axis equal;
+    if ( isa(R,'function_handle') )
+        if ( exist(func2str(R), 'file') ~= 2 && ...
+             exist(func2str(R), 'builtin') ~= 5 )
+            title(['R(z) = ',func2str(R)]);
+        else
+            title(['R(z) = ',func2str(R),'(z)']);
+        end
+    else
+        title(['R(z) = ',R,'(z)']);
+    end
+    grid on
+    hold off
+    display('The drawing is completed.');
+end
+</font></pre>
+</div>
+
+<p>The following example is a classical example that is found in
+almost all the textbooks on Julia and Mandelbrot sets.</p>
+
+<div class="Example">
+<p><em>Example</em>: If we use Newton's method to approximate the roots of
+the function \(f\) defined by \(f(z) = z^3 -1\), we have to iterate the function
+\(R\) defined by
+\(\displaystyle R(z) = z - \frac{f(z)}{f'(z)} = \frac{2 z^3 + 1}{3 z^2}\). 
+The polynomial \(z^3-1\) has three roots in the complex plane.  They
+are the fixed points of \(R\).  The initial value \(z_0\) has to be
+chosen with care if we want that the sequence
+\(\displaystyle \{z_j\}_{j=0}^\infty\) with \(z_{j+1} = R(z_j)\)
+converges to the desired root of \(z^3-1\).  The black region inside
+the rectangle \( K = \{ z = a + bi : \max\{|a|,|b|\} \leq 2 \} \)
+in the figure below is the basin of attraction of the attracting fixed
+point \(1\) of \(R\) in the rectangle \(K\).  The boundary of this 
+region represents the Julia set of \(R\) inside the rectangle \(K\).
+To produce the figure below, we have used the condition that a point \(z\)
+belongs to the basin of attraction of \(1\) if
+\(|R^n(z) -1| < 10^{-3}\) for some \(n \in \mathbb{N}\).</p> 
+
+<pre class="matlab">
+>> <font class="matlab">R = @(z) (2*z^3 + 1)/(3*z^2);</font>
+>> <font class="matlab">Q = @(z) 0.001 - abs(z-1);</font>
+>> <font class="matlab">D = [-2 2 -2 2];</font>
+>> <font class="matlab">julia3(R,D,Q,50,100,1,'k')</font><br>
+The drawing is completed.
+</font></pre>
+
+<div class="center"> 
+  <img src="Matlab_Julia3.png" style="width: 400px"
+       alt="Filled Julia set for R(z) = (2 z^3 +1)/(3 z^2).">
 </div>
 </div>
 
@@ -1180,15 +1636,15 @@ function can be found in the <em>m-file</em>
   'format' is the format of the numbers to be printed.  The default is
            $%.8f$.  Do not forget the symbol $ for the math mode in LaTeX.
            The format is the normal format used for fprintf in C.
-  firsthead is the list of headers for each column of the table.
-            It should be of the form ["head1","head2",...,"headk"]
-            where k = length(cols).  The quotation marks cannot be
-            replaced by apostropies.  If k <> length(cols), the columns
-            do not get any headers
-  secondhead is the list of headers for each column of the 
-            second table in a longtable environment.
-            If secondhead is empty or length(secondhead) <> length(cols),
-            the content of firsthead is used for the second table.
+  'firsthead' is the list of headers for each column of the table.
+              It should be of the form ["head1","head2",...,"headk"]
+              where k = length(cols).  The quotation marks cannot be
+              replaced by apostropies.  If k <> length(cols), the columns
+              do not get any headers
+  'secondhead' is the list of headers for each column of the 
+               second table in a longtable environment.
+               If secondhead is empty or length(secondhead) <> length(cols),
+               the content of firsthead is used for the second table.
 </pre>
 
 <p>If the table is too long for one page, it is also possible to use

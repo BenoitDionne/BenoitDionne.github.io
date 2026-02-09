@@ -67,64 +67,64 @@ topics later (?).</p>
 <h3> Similarity Dimension </h3>
 
 <p> The <em>similarity dimension</em> of a set
-<em class="Equations">A</em> is defined by the equation </p>
+<em class="EQ">A</em> is defined by the equation </p>
 
-<center>
-<em class="Equations_Display">
+<div class="center">
+<em class="EQ_Display">
 Dimension = log(a) / log(1/s)
 </em>
-</center>
+</div>
 
-<p> where <em class="Equations">a</em> is the number of
+<p> where <em class="EQ">a</em> is the number of
 <q lang="en">small</q> sets similar to the original set
-<em class="Equations">A</em> and
-<em class="Equations">s</em> is the size of the rescaling used to
+<em class="EQ">A</em> and
+<em class="EQ">s</em> is the size of the rescaling used to
 produce the <q lang="en">small</q> sets. For instance:
 </p>
 
 <ul>
 <li>
-<p>The similarity dimension of the interval <em class="Equations">[0,1]</em>
+<p>The similarity dimension of the interval <em class="EQ">[0,1]</em>
 is 1.  For
-<em class="Equations">s = 1/2</em> and <em class="Equations">a = 2</em>,
+<em class="EQ">s = 1/2</em> and <em class="EQ">a = 2</em>,
 we get</p> 
 <div class="center">
-  <em class="Equations">log(a)/log(1/s) = log(2)/log(2) = 1</em>.
+  <em class="EQ">log(a)/log(1/s) = log(2)/log(2) = 1</em>.
 </div>
 <p>We leave it to the reader to describe the (obvious) two functions
-from <em class="Equations">[0,1]</em> into itself that compose the IFS
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;2</sub></em> such
-that the interval <em class="Equations">[0,1]</em> is the fixed points
-of the function <em class="Equations">f<sup>c</sup></em> associaited
+from <em class="EQ">[0,1]</em> into itself that compose the IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;2</sub></em> such
+that the interval <em class="EQ">[0,1]</em> is the fixed points
+of the function <em class="EQ">f<sup>c</sup></em> associaited
 to the IFS.</p>
 </li>
 <li>
 <p>The similarity dimension of a cube is 3.  For
-<em class="Equations">s = 1/2</em> and <em class="Equations">a = 8</em>,
+<em class="EQ">s = 1/2</em> and <em class="EQ">a = 8</em>,
 we get</p>
 <div class="center">
-<em class="Equations">log(a)/log(1/s) = log(8)/log(3) =
+<em class="EQ">log(a)/log(1/s) = log(8)/log(3) =
   log<sub>2</sub>(8) = 3</em>.
 </div>
 <p>Again, we leave it to the reader to describe the (obvious) eight functions
-from <em class="Equations">[0,1]<sup>3</sup></em> into itself that
+from <em class="EQ">[0,1]<sup>3</sup></em> into itself that
 compose the IFS 
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;8</sub></em> such
-that the cube <em class="Equations">[0,1]<sup>3</sup></em> is the fixed points
-of the function <em class="Equations">f<sup>c</sup></em> associaited
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;8</sub></em> such
+that the cube <em class="EQ">[0,1]<sup>3</sup></em> is the fixed points
+of the function <em class="EQ">f<sup>c</sup></em> associaited
 to the IFS.</p> </li>
 <li>
 <p>The similarity dimension of the Sierpinski triamgle is about 1.5850.  For
-<em class="Equations">s = 1/2</em> and <em class="Equations">a = 3</em>,
+<em class="EQ">s = 1/2</em> and <em class="EQ">a = 3</em>,
 we get</p>
 <div class="center">
-<em class="Equations">log(a)/log(1/s) = log(3)/log(2) &sim;
+<em class="EQ">log(a)/log(1/s) = log(3)/log(2) &sim;
   1.5850</em>.
 </div>
-<p>For <em class="Equations">s = 1/4</em> and <em class="Equations">a = 9</em>,
+<p>For <em class="EQ">s = 1/4</em> and <em class="EQ">a = 9</em>,
 we get</p>
 <div class="center">
-<em class="Equations">log(a)/log(1/s) = log(9)/log(4) &sim; 1.5850</em>.
+<em class="EQ">log(a)/log(1/s) = log(9)/log(4) &sim; 1.5850</em>.
 </div>
 </li>
 </ul>
@@ -134,18 +134,18 @@ we get</p>
 <h3>Minkowski Dimension </h3>
 
 <p> The <em>Minkowski dimension </em> of a set
-<em class="Equations">A</em> is defined by the following formula.</p>
+<em class="EQ">A</em> is defined by the following formula.</p>
 
-<center>
-<em class="Equations_Display">
-Dimension = lim<sub>&micro;->0</sub> log(N(A,&micro;)) /
-log(1/&micro;) ,
+<div class="center">
+<em class="EQ_Display">
+Dimension = lim<sub>&#120583;->0</sub> log(N(A,&#120583;)) /
+log(1/&#120583;) ,
 </em>
-</center>
+</div>
 
-<p> where <em class="Equations">N(A,&micro;)</em> is the smallest
-number of squares of side length <em class="Equations">&micro; > 0</em>
-needed to cover <em class="Equations">A</em>.</p>
+<p> where <em class="EQ">N(A,&#120583;)</em> is the smallest
+number of squares of side length <em class="EQ">&#120583; &gt; 0</em>
+needed to cover <em class="EQ">A</em>.</p>
 
 <table class="noB">
 <tr> <td rowspan="1" colspan="1" class="left">

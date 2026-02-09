@@ -9,11 +9,11 @@
 %
    
 function ifs2(X, N, syst, colour)
-    if ( nargin < 3 )
-        syst = "Sierpinski";
+    if ( nargin < 4 )
         colour = 'blue';
-    elseif ( nargin < 4 )
-        colour = 'blue';
+        if ( nargin < 3 )
+            syst = "Sierpinski";
+        end
     end
 
     M = 400;
@@ -64,7 +64,7 @@ function ifs2(X, N, syst, colour)
     p = plot(ro,co,'.');
     set(p,'Color',colour);
 
-    fprintf('\nThe figure has been drawn\n');
+    fprintf('\nThe figure has been drawn.\n');
 end
 
 % Sierpinski Triangle

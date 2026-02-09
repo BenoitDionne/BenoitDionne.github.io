@@ -128,13 +128,12 @@ var math_impact = new item
 websites[websites_nbr++] = math_impact;
 
 /* Math. Contents */
-var math_disc = new item
-    ("Les math&eacute;matiques, un monde &agrave; d&eacute;couvrir",
-     "Mathematics, a World to Discover",
-     location_bd+"math_stat/discovery_fr.html",
-     location_bd+"math_stat/discovery_en.html",
-     null, null, null, "math_disc", "_self", "math_disc");
-websites[websites_nbr++] = math_disc;
+var math_chaos = new item
+    ("Chaos et fractales", "Chaos and Fractals",
+     location_bd+"math_stat/fractal/fractal_fr.html",
+     location_bd+"math_stat/fractal/fractal_en.html",
+     null, null, null, "math_chaos", "_self", "math_chaos");
+websites[websites_nbr++] = math_chaos;
 
 /* Intro to Matlab */
 var matlab = new item
@@ -365,7 +364,7 @@ var Mbs_math_app = new item
 websites[websites_nbr++] = Mbs_math_app;
 
 /******************************************************************
- *  under math_disc
+ *  under math_chaos
  ******************************************************************/
 
 /* Fractal Geometry */
@@ -393,14 +392,21 @@ var fractal3 = new item
 websites[websites_nbr++] = fractal3;
 
 var fractal4 = new item
-    ("Ensembles de Mandelbrot et Julia", "Mandelbrot and Julia Sets",
+    ("Les ensembles de Julia", "Julia Sets",
      location_bd+"math_stat/fractal/fractal4_fr.html",
      location_bd+"math_stat/fractal/fractal4_en.html",
      null, null, null, "fractal4", "_top", "fractal4");
 websites[websites_nbr++] = fractal4;
 
+var fractal5 = new item
+    ("L'ensemble de Mandelbrot", "Mandelbrot Set",
+     location_bd+"math_stat/fractal/fractal5_fr.html",
+     location_bd+"math_stat/fractal/fractal5_en.html",
+     null, null, null, "fractal5", "_top", "fractal5");
+websites[websites_nbr++] = fractal5;
+
 /******************************************************************
- *  under matlab
+ *  under Matlab
  ******************************************************************/
 
 var matlabAlg = new item
@@ -781,7 +787,7 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 
 	var applyLinks = new Array();
 	mathLinks[math_nbr] = initItem
-	    (math_disc, welcomeLinks[welcome_nbr], mathLinks, applyLinks);
+	    (math_chaos, welcomeLinks[welcome_nbr], mathLinks, applyLinks);
 	{
 	    var apply_nbr = 0;
 	    applyLinks[apply_nbr++]
@@ -792,6 +798,8 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 		= initItem(fractal3, mathLinks[math_nbr], applyLinks, null); 
 	    applyLinks[apply_nbr++]
 		= initItem(fractal4, mathLinks[math_nbr], applyLinks, null); 
+	    applyLinks[apply_nbr++]
+		= initItem(fractal5, mathLinks[math_nbr], applyLinks, null); 
 	}
 	math_nbr++;
 

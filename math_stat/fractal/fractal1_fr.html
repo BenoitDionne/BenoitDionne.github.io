@@ -45,6 +45,10 @@ top_function(fractal1,"fr");
 main_title( MStexte, "MMathSStat");
 </script>
 
+<script language="javascript">
+document.write("<img src=\""+construction.src+"\" class=\"MMathSStat\">");
+</script>
+
 <table class="noB">
 <tr> <td rowspan="1" colspan="1" class="left"> </td>
 <td rowspan="1" colspan="1" class="right">
@@ -59,25 +63,25 @@ main_title( MStexte, "MMathSStat");
 est suffisant de considérer les SDD sur la droite réelle.
 Ils illustrent toute la complexité qui peut être exhibée par les SDD.</p>
 
-<p> Soit <em class="Equations">f</em> une fonction à valeurs
+<p> Soit <em class="EQ">f</em> une fonction à valeurs
 réelles qui est définie sur la droite réelle.  La formule </p>
 
-<center>
-  <em class="Equations_Display">
+<div class="center">
+  <em class="EQ_Display">
     x<sub>n+1</sub> = f(x<sub>n</sub>), n = 0, 1, 2, ...
   </em>
-</center>
+</div>
 
 <p>définie un SDD.  Pour tous
-<em class="Equations">x<sub>0</sub></em> donné, nous pouvons
+<em class="EQ">x<sub>0</sub></em> donné, nous pouvons
 générer la suite</p>
 
-<center>
-<em class="Equations_Display">
+<div class="center">
+<em class="EQ_Display">
 x<sub>1</sub> = f(x<sub>0</sub>), x<sub>2</sub> = f(x<sub>1</sub>),
 x<sub>3</sub> = f(x<sub>2</sub>), ...
 </em>
-</center>
+</div>
 
 <p>Elle est appelée une <em>orbite</em> du SDD.</p>
 
@@ -87,62 +91,62 @@ x<sub>3</sub> = f(x<sub>2</sub>), ...
 
 <p> Nous débutons avec l'étude des systèmes dynamiques
 discrets dont les <em>fonction génératrices</em>
-<em class="Equations">f</em> sont des fonctions affines.
+<em class="EQ">f</em> sont des fonctions affines.
 C'est-à-dire, des fonctions de la forme </p>
 
-<center>
-  <em class="Equations_Display">f(x) = m x + b</em>
-</center>
+<div class="center">
+  <em class="EQ_Display">f(x) = m x + b</em>
+</div>
 
-<p> Le paramètre <em class="Equations">m</em> est la pente de la
-droite qui représente l'image de la fonction <em class="Equations">f</em> et
-<em class="Equations">b</em> est l'abscisse à l'origine de cette
+<p> Le paramètre <em class="EQ">m</em> est la pente de la
+droite qui représente l'image de la fonction <em class="EQ">f</em> et
+<em class="EQ">b</em> est l'abscisse à l'origine de cette
 droite.</p>
 
-<p> Qu'arrive-t-il aux orbites <em class="Equations">x<sub>0</sub>,
+<p> Qu'arrive-t-il aux orbites <em class="EQ">x<sub>0</sub>,
 x<sub>1</sub>, x<sub>2</sub>, ... </em> si nous varions les paramètres
-<em class="Equations">m</em> et <em class="Equations">b</em>? </p>
+<em class="EQ">m</em> et <em class="EQ">b</em>? </p>
 
 <p> Le lecteur est invité à explorer à l'aide de l'application graphique
-ci-dessous le comportement des orbites <em class="Equations">x<sub>0</sub>,
+ci-dessous le comportement des orbites <em class="EQ">x<sub>0</sub>,
 x<sub>1</sub>, x<sub>2</sub>, ... </em> pour différentes valeurs des
-paramètres <em class="Equations">m</em>
-et <em class="Equations">b</em>, et de la 
-condition initiale <em class="Equations">x<sub>0</sub></em>. </p>  
+paramètres <em class="EQ">m</em>
+et <em class="EQ">b</em>, et de la 
+condition initiale <em class="EQ">x<sub>0</sub></em>. </p>  
 
 <p>L'application graphique ci-dessus trace le
 <em>graphe en forme de toile d'araignée</em> 
-associé à la fonction <em class="Equations">f</em>
-et la condition initiale <em class="Equations">x<sub>0</sub></em>
+associé à la fonction <em class="EQ">f</em>
+et la condition initiale <em class="EQ">x<sub>0</sub></em>
 choisie.  Le graphe débute au point
-<em class="Equations">(x<sub>0</sub>,0)</em>.</p>
+<em class="EQ">(x<sub>0</sub>,0)</em>.</p>
 <ol>
-<li> À partir de <em class="Equations">(x<sub>0</sub>,0)</em>, nous
-traçons une droite verticale qui coupe le graphe de <em class="Equations">f</em>
-au point <em class="Equations">(x<sub>0</sub>,x<sub>1</sub>)</em>. </li>
-<li> À partir de <em class="Equations">(x<sub>0</sub>,x<sub>1</sub>)</em>,
+<li> À partir de <em class="EQ">(x<sub>0</sub>,0)</em>, nous
+traçons une droite verticale qui coupe le graphe de <em class="EQ">f</em>
+au point <em class="EQ">(x<sub>0</sub>,x<sub>1</sub>)</em>. </li>
+<li> À partir de <em class="EQ">(x<sub>0</sub>,x<sub>1</sub>)</em>,
 nous traçons une droite horizontale qui coupe la droite
-<em class="Equations"> y = x</em> au point
-<em class="Equations">(x<sub>1</sub>,x<sub>1</sub>)</em>. </li>
-<li> À partir de <em class="Equations">(x<sub>1</sub>,x<sub>1</sub>)</em>,
+<em class="EQ"> y = x</em> au point
+<em class="EQ">(x<sub>1</sub>,x<sub>1</sub>)</em>. </li>
+<li> À partir de <em class="EQ">(x<sub>1</sub>,x<sub>1</sub>)</em>,
 nous traçons une droite verticale qui coupe le graphe de
-<em class="Equations">f</em> au point
-<em class="Equations">(x<sub>1</sub>,x<sub>2</sub>)</em>. </li>
-<li> À partir de <em class="Equations">(x<sub>1</sub>,x<sub>2</sub>)</em>,
+<em class="EQ">f</em> au point
+<em class="EQ">(x<sub>1</sub>,x<sub>2</sub>)</em>. </li>
+<li> À partir de <em class="EQ">(x<sub>1</sub>,x<sub>2</sub>)</em>,
 nous traçons une droite horizontale qui coupe la droite
-<em class="Equations">y = x</em> au point
-<em class="Equations">(x<sub>2</sub>,x<sub>2</sub>)</em>.</li>
+<em class="EQ">y = x</em> au point
+<em class="EQ">(x<sub>2</sub>,x<sub>2</sub>)</em>.</li>
 <li> À partir de
-<em class="Equations">(x<sub>2</sub>,x<sub>2</sub>)</em>,
+<em class="EQ">(x<sub>2</sub>,x<sub>2</sub>)</em>,
 nous traçons une droite verticale qui coupe le graphe de
-<em class="Equations">f</em> au point
-<em class="Equations">(x<sub>2</sub>,x<sub>3</sub>)</em>. </li>
+<em class="EQ">f</em> au point
+<em class="EQ">(x<sub>2</sub>,x<sub>3</sub>)</em>. </li>
 <li> Et ainsi de suite.</li>
 </ol>
 
-<p>Les points <em class="Equations">(x<sub>n</sub>,x<sub>n</sub>)</em>
-sur la droite <em class="Equations">y = x</em> peuvent être jumelés
-aux points <em class="Equations">(x<sub>n</sub>,0)</em>
+<p>Les points <em class="EQ">(x<sub>n</sub>,x<sub>n</sub>)</em>
+sur la droite <em class="EQ">y = x</em> peuvent être jumelés
+aux points <em class="EQ">(x<sub>n</sub>,0)</em>
 et décrivent donc les orbites du SDD.</p>
 
 <div class="center">
@@ -151,11 +155,11 @@ et décrivent donc les orbites du SDD.</p>
 </div>
 
 <ul>
-  <li> <em class="Equations">m = </em>
+  <li> <em class="EQ">m = </em>
     <input type="text" value="0.5" id="linear_m"> </li>
-  <li> <em class="Equations">b = </em>
+  <li> <em class="EQ">b = </em>
     <input type="text" value="2" id="linear_b"> </li>
-  <li> <em class="Equations">x<sub>0</sub> = </em>
+  <li> <em class="EQ">x<sub>0</sub> = </em>
     <input type="text" value="0.5" id="linear_x"> </li>
   <li> Nombre d'itérations <input type="text" value="10" id="linear_nbr">
   </li>
@@ -167,17 +171,17 @@ et décrivent donc les orbites du SDD.</p>
 
 <p> La courbe en bleu dans la figure ci-dessus (après avoir cliqué sur
 le bouton <em>Débuter</em>) est le graphe de la fonction
-<em class="Equations">f</em> et la ligne diagonale en rouge est la
-droite <em class="Equations">y = x</em>. </p>
+<em class="EQ">f</em> et la ligne diagonale en rouge est la
+droite <em class="EQ">y = x</em>. </p>
 
-<p> Le point <em class="Equations">p</em> dans la figure ci-dessus
-satisfait <em class="Equations">f(p) = p</em>.  Pour cette raison, le point
-<em class="Equations">p</em> est appelé un <em>point fixe</em> de
-<em class="Equations">f</em>.  Pour quelles conditions a-t-on que les
-orbites <em class="Equations">x<sub>0</sub>, x<sub>1</sub>,
+<p> Le point <em class="EQ">p</em> dans la figure ci-dessus
+satisfait <em class="EQ">f(p) = p</em>.  Pour cette raison, le point
+<em class="EQ">p</em> est appelé un <em>point fixe</em> de
+<em class="EQ">f</em>.  Pour quelles conditions a-t-on que les
+orbites <em class="EQ">x<sub>0</sub>, x<sub>1</sub>,
 x<sub>2</sub>, ... </em> convergent vers
-<em class="Equations">p</em>?   S'éloignent de
-<em class="Equations">p</em>? </p>
+<em class="EQ">p</em>?   S'éloignent de
+<em class="EQ">p</em>? </p>
 
 <hr class="MMathSStat">
 
@@ -187,31 +191,31 @@ x<sub>2</sub>, ... </em> convergent vers
 <em>la fonction logistique</em>.  Par contre, nous montrons ci-dessous
 que le comportement des orbites générées par les itérations de cette fonction
 est loin d'être simple.  La fonction logistique est la
-fonction <em class="Equations">f<sub>&micro;</sub></em> définie par</p>
+fonction <em class="EQ">f<sub>&#120583;</sub></em> définie par</p>
 
-<center>
-<em class="Equations_Display">
-f<sub>&micro;</sub>(x) = &micro; x(1-x)
+<div class="center">
+<em class="EQ_Display">
+f<sub>&#120583;</sub>(x) = &#120583; x(1-x)
 </em>
-</center>
+</div>
 
-<p> où <em class="Equations">&micro</em> est un paramètre fixe mais
+<p> où <em class="EQ">&#120583;</em> est un paramètre fixe mais
 arbitraire.  Nous avons une famille de fonctions, une fonction pour chaque
-valeur de <em class="Equations">&micro;</em>. </p>
+valeur de <em class="EQ">&#120583;</em>. </p>
 
 <p> Le SDD associé à la fonction logistique est donné par la formule
 suivante. </p>
 
-<center>
-<em class="Equations_Display">
-x<sub>n+1</sub> = f<sub>&micro;</sub>(x<sub>n</sub>), n = 0, 1, 2, 3, ... </em>
-</center>
+<div class="center">
+<em class="EQ_Display">
+x<sub>n+1</sub> = f<sub>&#120583;</sub>(x<sub>n</sub>), n = 0, 1, 2, 3, ... </em>
+</div>
 
 <p> Le lecteur est invité à explorer à l'aide de l'application graphique
 suivante le comportement des orbites du SDD logistique pour
-différentes valeurs du paramètre <em class="Equations">&micro;</em>
+différentes valeurs du paramètre <em class="EQ">&#120583;</em>
 (entre 1 et 4) et de la condition initiale
-<em class="Equations">x<sub>0</sub></em> (entre 0 et 1). </p>
+<em class="EQ">x<sub>0</sub></em> (entre 0 et 1). </p>
 
 <div class="center">
 <canvas id="DDS" width="400" height="400">
@@ -219,10 +223,10 @@ différentes valeurs du paramètre <em class="Equations">&micro;</em>
 </div>
 
 <ul>
-  <li> <em class="Equations">&micro; =</em>
+  <li> <em class="EQ">&#120583; =</em>
     <input type="text" value="3.5" id="logistic_mu">
     (valeurs entre 1 et 4) </li>
-  <li> <em class="Equations">x<sub>o</sub> = </em>
+  <li> <em class="EQ">x<sub>o</sub> = </em>
     <input type="text" value="0.2" id="logistic_x">
     (valeurs entre 0 et 1) </li>
   <li> Nombre d'itérations <input type="text" value="10" id="logistic_nbr">
@@ -234,119 +238,119 @@ différentes valeurs du paramètre <em class="Equations">&micro;</em>
 
 <p> La courbe en bleu dans la figure ci-dessus (après avoir cliqué sur
 le bouton <em>Débuter</em>) est le graphe de
-<em class="Equations">f<sub>&micro;</sub></em> et la ligne diagonale
-en rouge est la droite <em class="Equations">y = x</em>. </p>
+<em class="EQ">f<sub>&#120583;</sub></em> et la ligne diagonale
+en rouge est la droite <em class="EQ">y = x</em>. </p>
 
-<p> Pour chaque valeur fixe de <em class="Equations">&micro;</em>
-entre 1 et 3, les orbites <em class="Equations">x<sub>0</sub>, x<sub>1</sub>,
+<p> Pour chaque valeur fixe de <em class="EQ">&#120583;</em>
+entre 1 et 3, les orbites <em class="EQ">x<sub>0</sub>, x<sub>1</sub>,
 x<sub>2</sub>, ... </em> convergent vers un point unique
-<em class="Equations">p<sub>&micro;</sub></em> entre 0 et 1.  Le 
-point <em class="Equations">p<sub>&micro;</sub></em> satisfait
-<em class="Equations">f<sub>&micro;</sub>(p<sub>&micro;</sub>)
-= p<sub>&micro;</sub></em>.  Donc, c'est un
-point fixe de <em class="Equations">f<sub>&micro;</sub></em>. </p>
+<em class="EQ">p<sub>&#120583;</sub></em> entre 0 et 1.  Le 
+point <em class="EQ">p<sub>&#120583;</sub></em> satisfait
+<em class="EQ">f<sub>&#120583;</sub>(p<sub>&#120583;</sub>)
+= p<sub>&#120583;</sub></em>.  Donc, c'est un
+point fixe de <em class="EQ">f<sub>&#120583;</sub></em>. </p>
 
 <div class="Note">
 <p> Le <em>Théorème du point fixe</em> affirme que si
-<em class="Equations">f: [a,b] &rarr; [a,b]</em>
+<em class="EQ">f: [a,b] &rarr; [a,b]</em>
 est une fonction continûment différentiable et s'il existe une
-constante positive <em class="Equations">K <1</em> telle que
-<em class="Equations">|f'(x)| &leq; K</em> pour tout
-<em class="Equations">x &in; [a,b]</em>, alors toutes les orbites
-avec <em class="Equations">x<sub>0</sub> &in; [a,b]</em> convergent
-vers un point fixe unique <em class="Equations"> p &in; [a,b]</em>. </p>
+constante positive <em class="EQ">K <1</em> telle que
+<em class="EQ">|f'(x)| &leq; K</em> pour tout
+<em class="EQ">x &in; [a,b]</em>, alors toutes les orbites
+avec <em class="EQ">x<sub>0</sub> &in; [a,b]</em> convergent
+vers un point fixe unique <em class="EQ"> p &in; [a,b]</em>. </p>
 </div>
 
 <p> La fonction
-<em class="Equations">f<sub>&micro;</sub>:[0,1] &rarr; [0,1]</em>
+<em class="EQ">f<sub>&#120583;</sub>:[0,1] &rarr; [0,1]</em>
 possède toujours un point fixe à l'origine.  Pour
-<em class="Equations">&micro; > 1</em>, elle possède un autre
-point fixe <em class="Equations">p<sub>&micro;</sub>>0</em>.  En fait, si nous
-résolvons <em class="Equations">f<sub>&micro;</sub>(p) = p</em> pour
-<em class="Equations">p</em>, nous trouvons que ce point fixe est
-<em class="Equations">p<sub>&micro;</sub> = (&micro;-1)/&micro;</em>.
-Pour chaque valeur de <em class="Equations">&micro;</em> avec
-<em class="Equations">1 < &micro; < 3</em>, il est possible
-de trouver un petit intervalle <em class="Equations">[a,b]</em> contenant le
-point fixe <em class="Equations">p<sub>&micro;</sub>>0</em> où le
+<em class="EQ">&#120583; > 1</em>, elle possède un autre
+point fixe <em class="EQ">p<sub>&#120583;</sub>>0</em>.  En fait, si nous
+résolvons <em class="EQ">f<sub>&#120583;</sub>(p) = p</em> pour
+<em class="EQ">p</em>, nous trouvons que ce point fixe est
+<em class="EQ">p<sub>&#120583;</sub> = (&#120583;-1)/&#120583;</em>.
+Pour chaque valeur de <em class="EQ">&#120583;</em> avec
+<em class="EQ">1 < &#120583; < 3</em>, il est possible
+de trouver un petit intervalle <em class="EQ">[a,b]</em> contenant le
+point fixe <em class="EQ">p<sub>&#120583;</sub>>0</em> où le
 Théorème du Point Fixe peut être utilisé pour conclure que toute orbite avec
-<em class="Equations">x<sub>0</sub> &in; [a,b]</em>
-convergent vers <em class="Equations"> p<sub>&micro;</sub></em> lorsque
-<em class="Equations">n &rarr; &infin;</em>.
-Par exemple, si <em class="Equations">&micro; = 2</em>, l'application
+<em class="EQ">x<sub>0</sub> &in; [a,b]</em>
+convergent vers <em class="EQ"> p<sub>&#120583;</sub></em> lorsque
+<em class="EQ">n &rarr; &infin;</em>.
+Par exemple, si <em class="EQ">&#120583; = 2</em>, l'application
 graphique ci-dessus montre que le graphe de
-<em class="Equations">f<sub>2</sub></em>
-coupe la droite <em class="Equations">y = x</em> au point positif 
-<em class="Equations">p<sub>2</sub> = 1/2</em> seulement.  C'est un
-point fixe de <em class="Equations">f<sub>2</sub></em> et toutes les orbites
-avec <em class="Equations">x<sub>0</sub></em> suffisamment près de
-<em class="Equations"> p<sub>2</sub></em> convergent vers
-<em class="Equations"> p<sub>2</sub></em>. </p>
+<em class="EQ">f<sub>2</sub></em>
+coupe la droite <em class="EQ">y = x</em> au point positif 
+<em class="EQ">p<sub>2</sub> = 1/2</em> seulement.  C'est un
+point fixe de <em class="EQ">f<sub>2</sub></em> et toutes les orbites
+avec <em class="EQ">x<sub>0</sub></em> suffisamment près de
+<em class="EQ"> p<sub>2</sub></em> convergent vers
+<em class="EQ"> p<sub>2</sub></em>. </p>
 
-<p> Pour certaines valeurs de <em class="Equations">&micro;</em> (les
+<p> Pour certaines valeurs de <em class="EQ">&#120583;</em> (les
 valeurs entre 3 et 4 sont vraiment intéressantes), les orbites
-<em class="Equations">x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ... </em>
+<em class="EQ">x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ... </em>
 ne convergent pas vers un seul point mais elles <q lang="fr"> convergent </q>
 vers un ensemble plus complexe.</p>
 
-<p>Pour <em class="Equations">&micro; = 3.4</em>, le point
-<em class="Equations">x<sub>0</sub> = 0.45195878844045...</em> est un
+<p>Pour <em class="EQ">&#120583; = 3.4</em>, le point
+<em class="EQ">x<sub>0</sub> = 0.45195878844045...</em> est un
 <em>point périodique</em> de
-<em class="Equations">f<sub>3.4</sub></em> de période 2;
+<em class="EQ">f<sub>3.4</sub></em> de période 2;
 c'est-à-dire,
-<em class="Equations">x<sub>1</sub> = f<sub>3.4</sub>(x<sub>0</sub>)</em>
+<em class="EQ">x<sub>1</sub> = f<sub>3.4</sub>(x<sub>0</sub>)</em>
 et
-<em class="Equations">x<sub>2</sub> = f<sub>3.4</sub>(x<sub>1</sub>)
+<em class="EQ">x<sub>2</sub> = f<sub>3.4</sub>(x<sub>1</sub>)
 = x<sub>0</sub></em>.  On écrit
-<em class="Equations">x<sub>2</sub>
+<em class="EQ">x<sub>2</sub>
 = f<sub>3.4</sub><sup>2</sup>(x<sub>0</sub>)
-= x<sub>0</sub></em>.  L'orbite <em class="Equations">x<sub>0</sub>,
+= x<sub>0</sub></em>.  L'orbite <em class="EQ">x<sub>0</sub>,
 x<sub>1</sub>, x<sub>2</sub>, ... </em> est</p>
 
-<center>
-<em class="Equations">
+<div class="center">
+<em class="EQ">
 0.45195878844045, 0.84215476876273, 0.45195878844045, 0.84215476876273, ...
 </em>
-</center>
+</div>
 
 <p> où les valeurs ont été tronquées à 14 chiffres décimaux.  Le
 lecteur devrait tracer le graphe en forme de toile d'araignée de
-l'orbite de <em class="Equations">f<sub>3.4</sub></em> qui débute avec
-<em class="Equations">x<sub>0</sub> = 0.45195878844045</em> à l'aide
+l'orbite de <em class="EQ">f<sub>3.4</sub></em> qui débute avec
+<em class="EQ">x<sub>0</sub> = 0.45195878844045</em> à l'aide
 de l'application graphique ci-dessus.</p>
 
-<p>Pour <em class="Equations">&micro; = 3.5</em>, le point
-<em class="Equations">x<sub>0</sub> = 0.87499726360246...</em> est un
+<p>Pour <em class="EQ">&#120583; = 3.5</em>, le point
+<em class="EQ">x<sub>0</sub> = 0.87499726360246...</em> est un
 <em>point périodique</em> de
-<em class="Equations">f<sub>3.5</sub></em> de période 4;
-c'est-à-dire, <em class="Equations">x<sub>4</sub>
+<em class="EQ">f<sub>3.5</sub></em> de période 4;
+c'est-à-dire, <em class="EQ">x<sub>4</sub>
 = f<sub>3.4</sub><sup>4</sup>(x<sub>0</sub>)
-= x<sub>0</sub></em>.  L'orbite <em class="Equations">x<sub>0</sub>,
+= x<sub>0</sub></em>.  L'orbite <em class="EQ">x<sub>0</sub>,
 x<sub>1</sub>, x<sub>2</sub>, ... </em> est</p>
 
-<center>
-<em class="Equations">
+<div class="center">
+<em class="EQ">
 0.87499726360246, 0.38281968301732, 0.82694070659144,
 0.50088421030722, 0.87499726360246, ...
 </em>
-</center>
+</div>
 
 <p> où les valeurs ont été tronquées à 14 chiffres décimaux.  Le
 lecteur devrait tracer le graphe en forme de toile d'araignée de 
-l'orbite de <em class="Equations">f<sub>3.5</sub></em> qui débute avec
-<em class="Equations">x<sub>0</sub> = 0.87499726360246</em>
+l'orbite de <em class="EQ">f<sub>3.5</sub></em> qui débute avec
+<em class="EQ">x<sub>0</sub> = 0.87499726360246</em>
 à l'aide de l'application graphique ci-dessus.</p>
 
-<p>Quand <em class="Equations">&micro;</em> passe au-dessus de
-<em class="Equations">3</em>, le point fixe
-<em class="Equations">p<sub>&micro;</sub></em> n'est plus
+<p>Quand <em class="EQ">&#120583;</em> passe au-dessus de
+<em class="EQ">3</em>, le point fixe
+<em class="EQ">p<sub>&#120583;</sub></em> n'est plus
 un <em>attracteur</em> et nous obtenons une orbite périodique 
 de période 2 qui est un attracteur comme nous avons vu
-ci-dessus.  Quand <em class="Equations">&micro;</em> passe au-dessus de
-<em class="Equations">3.236...</em>, l'orbite périodique de période 2
+ci-dessus.  Quand <em class="EQ">&#120583;</em> passe au-dessus de
+<em class="EQ">3.236...</em>, l'orbite périodique de période 2
 n'est plus un attracteur et nous obtenons une orbite périodique 
 de période 4 qui est un attracteur.
-Pour <em class="Equations">&micro;</em> encore un petit peu plus
+Pour <em class="EQ">&#120583;</em> encore un petit peu plus
 grand, l'orbite périodique de période 4
 n'est plus un attracteur et nous obtenons une orbite périodique 
 de période 8 qui est un attracteur.
@@ -354,42 +358,42 @@ Et ainsi de suite. C'est l'exemple la plus connue d'une
 <em>cascade de doublement de période</em>.</p>
 
 <p> La cascade de doublement de période converge vers
-<em class="Equations">&micro; = 3.5699456...</em>&nbsp;
+<em class="EQ">&#120583; = 3.5699456...</em>&nbsp;
 Ce nombre est connu sous le nom de <em>point de Feigenbaum</em>.
 De plus, soit
-<em class="Equations">&micro;<sub>0</sub> = 3</em>,
-<em class="Equations">&micro;<sub>1</sub> = 3.236...</em>,
-<em class="Equations">&micro;<sub>2</sub> = ...</em> et ainsi de suite,
-les valeurs de <em class="Equations">&micro;</em> pour lesquelles la
+<em class="EQ">&#120583;<sub>0</sub> = 3</em>,
+<em class="EQ">&#120583;<sub>1</sub> = 3.236...</em>,
+<em class="EQ">&#120583;<sub>2</sub> = ...</em> et ainsi de suite,
+les valeurs de <em class="EQ">&#120583;</em> pour lesquelles la
 fonction logistique subit un doublement de période, et soit
-<em class="Equations">d<sub>j</sub> =
-&micro;<sub>j+1</sub>−&micro;<sub>j</sub></em> pour
-<em class="Equations"> j &geq; 0</em>.
+<em class="EQ">d<sub>j</sub> =
+&#120583;<sub>j+1</sub>−&#120583;<sub>j</sub></em> pour
+<em class="EQ"> j &geq; 0</em>.
 Il a été démontré que
-<em class="Equations">lim<sub>j &rarr; &infin;</sub>
+<em class="EQ">lim<sub>j &rarr; &infin;</sub>
 d<sub>j</sub>/d<sub>j+1</sub> = 4.6692016091029...</em>
 &nbsp; Ce nombre est appelé la <em>constante de Feigenbaum</em>.
 Feigenbaum a découvert ce nombre en 1975.  Cette constante est
 universelle dans le sens qu'elle est la même pour une grande famille
 de SDD de la forme
-<em class="Equations">x<sub>n+1</sub> = g<sub>&micro;</sub>(x<sub>n</sub>)</em>
-où le graphe de <em class="Equations">g<sub>&micro;</sub></em> 
+<em class="EQ">x<sub>n+1</sub> = g<sub>&#120583;</sub>(x<sub>n</sub>)</em>
+où le graphe de <em class="EQ">g<sub>&#120583;</sub></em> 
 <q lang="fr">ressemble</q> au graphe de la fonction logistique
-<em class="Equations">f<sub>&micro;</sub></em>.</p>
+<em class="EQ">f<sub>&#120583;</sub></em>.</p>
 
-<p> Pour <em class="Equations">&micro; = 3.839...</em>, nous avons que</p>
+<p> Pour <em class="EQ">&#120583; = 3.839...</em>, nous avons que</p>
 
 <div class="center">
-<em class="Equations">
+<em class="EQ">
 0.14988539433432, 0.48917380192271, 0.95930024021836,
 0.14988539433432, ...
 </em>
 </div>
 <p>est une orbite périodique de période 3 de
-<em class="Equations">f<sub>3.839...</sub></em> qui est un attracteur.
+<em class="EQ">f<sub>3.839...</sub></em> qui est un attracteur.
 Les valeurs ci-dessus ont été tronquées à 14 chiffres décimaux.
 Il découle du fameux théorème de <em>Sarkovskii</em> que
-<em class="Equations">f<sub>3.839...</sub></em> possède des orbites
+<em class="EQ">f<sub>3.839...</sub></em> possède des orbites
 périodiques de toutes les périodes.  Aucune des orbites périodiques,
 sauf pour l'orbite de période 3 ci-dessus, est un attracteur.
 Donc, sauf si une orbite débute avec un point exactement sur une des
@@ -399,9 +403,9 @@ erreurs de troncature, il est pratiquement impossible de tracer le
 graphe en forme de toile d'araignée d'une des orbites périodiques qui
 n'est pas un attracteur.</p>
 
-<p>Qu'arrive-t-il quand <em class="Equations">&micro;</em> est plus
+<p>Qu'arrive-t-il quand <em class="EQ">&#120583;</em> est plus
 grand ou égale à 4?  Nous avons que les orbites de
-<em class="Equations">f<sub>4</sub></em> 
+<em class="EQ">f<sub>4</sub></em> 
 sont <em>Chaotiques</em>.</p>
 
 <p>À suivre ...<p>

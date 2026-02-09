@@ -24,15 +24,15 @@
 % 'format' is the format of the numbers to be printed.  The default is
 %          $%.8f$.  Do not forget the symbol $ for the math mode in LaTeX.
 %          The format is the normal format used for fprintf in C.
-% firsthead is the list of headers for each column of the table.
-%           It should be of the form ["head1","head2",...,"headk"]
-%           where k = length(cols).  The quotation marks cannot be
-%           replaced by apostropies.  If k <> length(cols), the columns
-%           do not get any headers
-% secondhead is the list of headers for each column of the 
-%           second table in a longtable environment.
-%           If secondhead is empty or length(secondhead) <> length(cols),
-%           the content of firsthead is used for the second table.
+% 'firsthead' is the list of headers for each column of the table.
+%             It should be of the form ["head1","head2",...,"headk"]
+%             where k = length(cols).  The quotation marks cannot be
+%             replaced by apostropies.  If k <> length(cols), the columns
+%             do not get any headers
+% 'secondhead' is the list of headers for each column of the 
+%              second table in a longtable environment.
+%              If secondhead is empty or length(secondhead) <> length(cols),
+%              the content of firsthead is used for the second table.
 %
 function array2LTX(filename, matrix, varargin)
     if ( nargin < 2 )

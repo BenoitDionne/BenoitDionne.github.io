@@ -82,114 +82,111 @@ mathematical background may skip this section and resume reading
 with the next section that provides examples of a procedure to draw
 fractals.</p>
 
-<p> A <em>metric space</em> is a set <em class="Equations">E</em>
+<p> A <em>metric space</em> is a set <em class="EQ">E</em>
 with a <em>metric</em>
-<em class="Equations">d:E&times;E  &rarr; [0,&infin;[</em>.  We
-denote this metric space by <em class="Equations">(E,d)</em>.</p>
+<em class="EQ">d:E&times;E  &rarr; [0,&infin;[</em>.  We
+denote this metric space by <em class="EQ">(E,d)</em>.</p>
 
-<div class="Note">
-<p><em>Proposition</em><br>
-Suppose that the metric space <em class="Equations">(E,d)</em> is
-complete; namely, every Cauchy sequence converges.
-Let <em class="Equations">E<sup>c</sup></em> be the space of non-empty
-compact subsets of <em class="Equations">E</em>.  Then, the function
-<em class="Equations">d<sup>c</sup>:E<sup>c</sup> &times;
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that the metric space
+<em class="EQ">(E,d)</em> is complete; namely, every Cauchy sequence converges.
+Let <em class="EQ">E<sup>c</sup></em> be the space of non-empty
+compact subsets of <em class="EQ">E</em>.  Then, the function
+<em class="EQ">d<sup>c</sup>:E<sup>c</sup> &times;
 E<sup>c</sup> &rarr; [0,&infin;[</em>
 defined by</p>
-<center>
-  <em class="Equations_Display">
+<div class="center">
+  <em class="EQ_Display">
    d<sup>c</sup>(A,B) = max{max{d(a,B):a &in; A},max{d(b,A):b &in; B}}
   </em>
-</center>
-<p> for all <em class="Equations">A,B &sub; E<sup>c</sup></em>
-is a metric on <em class="Equations">E<sup>c</sup></em>.
+</div>
+<p> for all <em class="EQ">A,B &sub; E<sup>c</sup></em>
+is a metric on <em class="EQ">E<sup>c</sup></em>.
 Moreover, the metric space
-<em class="Equations">(E<sup>c</sup>,d<sup>c</sup>)</em>
+<em class="EQ">(E<sup>c</sup>,d<sup>c</sup>)</em>
 is complete.  The metric
-<em class="Equations">d<sup>c</sup></em> is called the
+<em class="EQ">d<sup>c</sup></em> is called the
 <em>Hausdorff distance</em>.</p>
 </div>
 
-<p>If <em class="Equations">f: E &rarr; E</em> is a continuous
+<p>If <em class="EQ">f: E &rarr; E</em> is a continuous
 function, then it maps compact sets to compact sets.
-Hence, the function <em class="Equations">f</em> also defines
+Hence, the function <em class="EQ">f</em> also defines
 a function
-<em class="Equations">f: E<sup>c</sup> &rarr; E<sup>c</sup></em> in a
+<em class="EQ">f: E<sup>c</sup> &rarr; E<sup>c</sup></em> in a
 natural way.</p>
 
-<p>A function <em class="Equations">f: E &rarr; E</em> is a
+<p>A function <em class="EQ">f: E &rarr; E</em> is a
 <em>contraction</em> if there exists a
-number <em class="Equations">C</em> such that
-<em class="Equations">0 &leq; C < 1</em> and
-<em class="Equations">d(f(x),f(y)) &leq; C d(x,y)</em> for all
-<em class="Equations">x,y &in; E</em>.  A contraction is obviously a
-continuous function.  The value <em class="Equations">C</em>
+number <em class="EQ">C</em> such that
+<em class="EQ">0 &leq; C &lt; 1</em> and
+<em class="EQ">d(f(x),f(y)) &leq; C d(x,y)</em> for all
+<em class="EQ">x,y &in; E</em>.  A contraction is obviously a
+continuous function.  The value <em class="EQ">C</em>
 is called a <em>contraction factor</em>.</p>
 
 <p>Suppose that
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is a
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is a
 collection of continuous
-functions <em class="Equations">f<sub>j</sub>: E &rarr; E</em>, we
-define a function <em class="Equations">f<sup>c</sup>: 
+functions <em class="EQ">f<sub>j</sub>: E &rarr; E</em>, we
+define a function <em class="EQ">f<sup>c</sup>: 
 E<sup>c</sup> &rarr; E<sup>c</sup></em> by </p>
-<center>
-  <em class="Equations_Display">
-    f<sup>c</sup>(A) = &cup;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(A)
+<div class="center">
+  <em class="EQ_Display">
+    f<sup>c</sup>(A) = &#8899;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(A)
   </em>
-</center>
-<p>for all <em class="Equations">A &in; E<sup>c</sup></em>.  This
+</div>
+<p>for all <em class="EQ">A &in; E<sup>c</sup></em>.  This
 function is well defined because the finite union of compact sets is a
 compact set.</p> 
 
-<div class="Note">
-<p><em>Proposition</em><br>
-If each function
-<em class="Equations">f<sub>j</sub></em> is a contraction with
-a contraction factor <em class="Equations">C<sub>j</sub></em>,
-then the function <em class="Equations">f<sup>c</sup>:
+<div class="Theo">
+<p><em>Proposition</em>: If each function
+<em class="EQ">f<sub>j</sub></em> is a contraction with
+a contraction factor <em class="EQ">C<sub>j</sub></em>,
+then the function <em class="EQ">f<sup>c</sup>:
 E<sup>c</sup> &rarr; E<sup>c</sup></em>
 is a contraction with a contraction factor
-<em class="Equations">C = max<sub>1&leq;j&leq;J</sub> C<sub>j</sub></em>.</p>
+<em class="EQ">C = max<sub>1&leq;j&leq;J</sub> C<sub>j</sub></em>.</p>
 </div>
 
-<div class="Note">
-<p><em>Theorem</em><br>
-If <em class="Equations">(E,d)</em> is a complete metric space
-and <em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is a
-collection of contractions from <em class="Equations">E</em> to itself, then
-<em class="Equations">f<sup>c</sup>:
+<div class="Theo">
+<p><em>Theorem</em>: If <em class="EQ">(E,d)</em> is a complete metric space
+and <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is a
+collection of contractions from <em class="EQ">E</em> to itself, then
+<em class="EQ">f<sup>c</sup>:
 E<sup>c</sup> &rarr; E<sup>c</sup></em> has a unique
 <em>fixed point</em>; namely, there exists a unique
-<em class="Equations">A &sub; E<sup>c</sup></em> such that
-<em class="Equations">f<sup>c</sup>(A) = A</em>.  Moreover, for all
-set <em class="Equations">X<sub>0</sub> &in; E<sup>c</sup></em>, the
-sequence of sets <em class="Equations">{X<sub>i</sub>}<sub>i&geq;0</sub></em>
+<em class="EQ">A &sub; E<sup>c</sup></em> such that
+<em class="EQ">f<sup>c</sup>(A) = A</em>.  Moreover, for all
+set <em class="EQ">X<sub>0</sub> &in; E<sup>c</sup></em>, the
+sequence of sets <em class="EQ">{X<sub>i</sub>}<sub>i&geq;0</sub></em>
 defined by
-<em class="Equations">X<sub>i+1</sub> = f<sup>c</sup>(X<sub>i</sub>)</em>
-converges to <em class="Equations">A</em> according to the metric
-<em class="Equations">d<sup>c</sup></em> as 
-<em class="Equations">i &rarr; &infin;</em>.</p>
+<em class="EQ">X<sub>i+1</sub> = f<sup>c</sup>(X<sub>i</sub>)</em>
+converges to <em class="EQ">A</em> according to the metric
+<em class="EQ">d<sup>c</sup></em> as 
+<em class="EQ">i &rarr; &infin;</em>.</p>
 </div>
 
 <p>The previous theorem is a direct consequence of the
 <em>Contraction Mapping Theorem</em> because
-<em class="Equations">(E<sup>c</sup>,d<sup>c</sup>)</em>
-is a complete metric space and <em class="Equations">f<sup>c</sup>:
+<em class="EQ">(E<sup>c</sup>,d<sup>c</sup>)</em>
+is a complete metric space and <em class="EQ">f<sup>c</sup>:
 E<sup>c</sup> &rarr; E<sup>c</sup></em> is a contraction.</p>
 
 <p>An <em>iterative function system</em> (IFS) on a complete metric space
-<em class="Equations">(E<sup>c</sup>,d<sup>c</sup>)</em> is a
+<em class="EQ">(E<sup>c</sup>,d<sup>c</sup>)</em> is a
 collection
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> of
-contractions from <em class="Equations">E</em> to itself.</p>
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> of
+contractions from <em class="EQ">E</em> to itself.</p>
 
 <p> In the examples that we consider below,
-<em class="Equations">E</em> is the plane and
-<em class="Equations">d</em> is the Euclidean metric.
+<em class="EQ">E</em> is the plane and
+<em class="EQ">d</em> is the Euclidean metric.
 The fractals that we draw are the fixed points
-of functions <em class="Equations">f<sup>c</sup>:
+of functions <em class="EQ">f<sup>c</sup>:
 E<sup>c</sup> &rarr; E<sup>c</sup></em> associated to IFS
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.
 The challenge is to choose the IFS that will produce the fractal that we
 want.</p>
 
@@ -226,18 +223,18 @@ level of accuracy) can be stored using less than 2876 bytes (a simple
 Matlab code).</p>
 
 <p> The Sierpinski triangle is the fixed point of the
-function <em class="Equations">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
+function <em class="EQ">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
 &rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
 associated to the IFS
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em>
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em>
 where</p>
-<center>
-<em class="Equations">
+<div class="center">
+<em class="EQ">
 f<sub>1</sub>(x) = ( x<sub>1</sub>/2 , x<sub>2</sub>/2 + 1/2 ) <br>
 f<sub>2</sub>(x) = ( x<sub>1</sub>/2 + 1/2 , x<sub>2</sub>/2 ) <br>
 f<sub>3</sub>(x) = ( x<sub>1</sub>/2 , x<sub>2</sub>/2 )
 </em>
-</center>
+</div>
 
 <p> We now explain in a graphical way how the Sierpinski triangle is
 drawn using the IFS composed of the three simple functions described
@@ -247,19 +244,19 @@ above.</p>
 <li>
 First, we choose any initial set.  In the present case, we choose the
 solid triangle defined by
-<em class="Equations"> T = {x : x<sub>1</sub>,x<sub>2</sub> &geq; 0 and
+<em class="EQ"> T = {x : x<sub>1</sub>,x<sub>2</sub> &geq; 0 and
 x<sub>1</sub> + x<sub>2</sub> &leq; 1 }</em>. </li> 
-<li> Second, we shrink the solid triangle <em class="Equations">T</em>
+<li> Second, we shrink the solid triangle <em class="EQ">T</em>
 to a quarter of its original size and translate it vertically by 0.5.
 This is the work of the function
-<em class="Equations">f<sub>1</sub></em>. </li>
-<li> Third, we shrink the solid triangle <em class="Equations">T</em>
+<em class="EQ">f<sub>1</sub></em>. </li>
+<li> Third, we shrink the solid triangle <em class="EQ">T</em>
 to a quarter of its original size and translate it horizontally by 0.5.
 This is the work of the function
-<em class="Equations">f<sub>2</sub></em>.</li>
-<li> Fourth, we shrink the solid triangle <em class="Equations">T</em>
+<em class="EQ">f<sub>2</sub></em>.</li>
+<li> Fourth, we shrink the solid triangle <em class="EQ">T</em>
 to a quarter of its original size only.  This is the work of the function
-<em class="Equations">f<sub>3</sub></em>.</li>
+<em class="EQ">f<sub>3</sub></em>.</li>
 </li>
 </ul>
 
@@ -324,21 +321,21 @@ can be drawn in the second, third and fourth steps above.</p>
 the Sierpinski triangle, we only have to store on the computer
 (using mathematical formulae) the functions that compose the IFS and
 the procedure to iterate the function
-<em class="Equations">f<sup>c</sup></em> associated to this IFS.</p>
+<em class="EQ">f<sup>c</sup></em> associated to this IFS.</p>
 
 <p> <em> Question </em>: What happen if the second function of the IFS
 above also rotates the square by 45 degrees? </p>
 
 <div class="Note">
-<p> <em>Probabilistic System</em><br>
+<p> <em>Probabilistic System</em>:
 This is a simple technique to illustrate the Sierpinski
-triangle.  Let <em class="Equations">A</em> be the point with
-coordinate (0,1), <em class="Equations">B</em> be the point with  
-coordinate (1,0) and <em class="Equations">C</em> be the origin (see
+triangle.  Let <em class="EQ">A</em> be the point with
+coordinate (0,1), <em class="EQ">B</em> be the point with  
+coordinate (1,0) and <em class="EQ">C</em> be the origin (see
 the figure below).  Suppose that we have an unbiased dice and that 1,6
-are associated to <em class="Equations">A</em>, 2,5 are associated
-to <em class="Equations">B</em> and 3,4 are associated to
-<em class="Equations">C</em>. </p> 
+are associated to <em class="EQ">A</em>, 2,5 are associated
+to <em class="EQ">B</em> and 3,4 are associated to
+<em class="EQ">C</em>. </p> 
 
 <div class="center">
   <img src="probability1.png" class="framed" style="width: 300px"
@@ -346,14 +343,14 @@ to <em class="Equations">B</em> and 3,4 are associated to
 </div>
 
 <ul>
-<li> We choose a point <em class="Equations">x<sub>0</sub></em> in the
+<li> We choose a point <em class="EQ">x<sub>0</sub></em> in the
 plane.</li> 
 <li> We throw the dice.  Suppose that we get a 3. </li>
-<li> The point <em class="Equations">x<sub>1</sub></em> is the middle
-of the segment between <em class="Equations">x<sub>0<</sub></em> and C. </li>
+<li> The point <em class="EQ">x<sub>1</sub></em> is the middle
+of the segment between <em class="EQ">x<sub>0<</sub></em> and C. </li>
 <li> We throw the dice a second time.  Suppose that we get a 1. </li>
-<li> The point <em class="Equations">x<sub>2</sub></em> is the middle
-of the segment between <em class="Equations">x<sub>1</sub></em> and A. </li>
+<li> The point <em class="EQ">x<sub>2</sub></em> is the middle
+of the segment between <em class="EQ">x<sub>1</sub></em> and A. </li>
 <li> And so on. </li>
 </ul>
 
@@ -378,13 +375,13 @@ dice is biased (loaded)? </p>
 </div>
 
 <p> The fern above is the fixed point of the
-function <em class="Equations">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
+function <em class="EQ">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
 &rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
 associated to the IFS
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
 where</p>
-<center>
-<em class="Equations">
+<div class="center">
+<em class="EQ">
 f<sub>1</sub>(x) = ( 0 , 0.16 x<sub>2</sub> ) <br>
 f<sub>2</sub>(x) = ( 0.85 x<sub>1</sub> + 0.04 x<sub>2</sub> ,
 -0.04 x<sub>1</sub> + 0.85 x<sub>2</sub> + 1.6 ) <br>
@@ -393,7 +390,7 @@ f<sub>3</sub>(x) = ( 0.20 x<sub>1</sub> - 0.26 x<sub>2</sub> ,
 f<sub>4</sub>(x) = ( -0.15 x<sub>1</sub> + 0.28 x<sub>2</sub> ,
 0.26 x<sub>1</sub> + 0.24 x<sub>2</sub> + 0.44 )
 </em>
-</center>
+</div>
 
 <p>To visualize the action of the four functions above, it suffices to
 select a simple set like a square and to compute only one iteration
@@ -434,13 +431,13 @@ too much the browser response time.</p>
 </div>
 
 <p> The leaf above is the fixed point of the
-function <em class="Equations">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
+function <em class="EQ">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
 &rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
 associated to the IFS
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
 where</p>
-<center>
-<em class="Equations">
+<div class="center">
+<em class="EQ">
 f<sub>1</sub>(x) = ( 0.6 x<sub>1</sub> + 0.18 , 0.6 x<sub>2</sub>
 + 0.36 ) <br>
 f<sub>2</sub>(x) = ( 0.6 x<sub>1</sub> + 0.18 ,
@@ -450,7 +447,7 @@ f<sub>3</sub>(x) = ( 0.4 x<sub>1</sub> + 0.3 x<sub>2</sub> + 0.27 ,
 f<sub>4</sub>(x) = ( 0.4 x<sub>1</sub> - 0.3 x<sub>2</sub> + 0.27 ,
 0.3 x<sub>1</sub> + 0.4 x<sub>2</sub> + 0.09 )
 </em>
-</center>
+</div>
 
 <p>To visualize the action of the four functions above, it suffices to
 select a simple set like a triangle and to compute only one iteration

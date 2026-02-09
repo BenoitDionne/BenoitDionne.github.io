@@ -83,118 +83,118 @@ connaissances de base des mathématiques peuvent ignorer cette section
 et poursuivre leur lecture avec la section suivante qui fourni des
 exemples d'une procédure pour dessiner des fractales.</p>
 
-<p> Un <em>espace métrique</em> est un ensemble <em class="Equations">E</em>
+<p> Un <em>espace métrique</em> est un ensemble <em class="EQ">E</em>
 avec une <em>métrique</em>
-<em class="Equations">d:E&times;E  &rarr; [0,&infin;[</em>.  Nous
-dénotons cet espace métrique par <em class="Equations">(E,d)</em>.</p>
+<em class="EQ">d:E&times;E  &rarr; [0,&infin;[</em>.  Nous
+dénotons cet espace métrique par <em class="EQ">(E,d)</em>.</p>
 
-<div class="Note">
-<p><em>Proposition</em><br>
-Supposons que l'espace métrique <em class="Equations">(E,d)</em> est
-complet; c'est-à-dire, toute suite de Cauchy converge.
-Soit <em class="Equations">E<sup>c</sup></em> l'ensemble des
-sous-ensembles compactes et non-vides de <em class="Equations">E</em>.
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que l'espace métrique
+<em class="EQ">(E,d)</em> est complet; c'est-à-dire, toute suite de
+Cauchy converge.
+Soit <em class="EQ">E<sup>c</sup></em> l'ensemble des
+sous-ensembles compactes et non-vides de <em class="EQ">E</em>.
 Alors, la fonction 
-<em class="Equations">d<sup>c</sup>:E<sup>c</sup> &times;
+<em class="EQ">d<sup>c</sup>:E<sup>c</sup> &times;
 E<sup>c</sup> &rarr; [0,&infin;[</em>
 définie par</p>
-<center>
-  <em class="Equations_Display">
+<div class="center">
+  <em class="EQ_Display">
    d<sup>c</sup>(A,B) = max{max{d(a,B):a &in; A},max{d(b,A):b &in; B}}
   </em>
-</center>
-<p> pour tout <em class="Equations">A,B &sub; E<sup>c</sup></em>
-est une métrique sur <em class="Equations">E<sup>c</sup></em>.
+</div>
+<p> pour tout <em class="EQ">A,B &sub; E<sup>c</sup></em>
+est une métrique sur <em class="EQ">E<sup>c</sup></em>.
 De plus, l'espace métrique
-<em class="Equations">(E<sup>c</sup>,d<sup>c</sup>)</em>
+<em class="EQ">(E<sup>c</sup>,d<sup>c</sup>)</em>
 est complet.  La métrique
-<em class="Equations">d<sup>c</sup></em> est appelée la
+<em class="EQ">d<sup>c</sup></em> est appelée la
 <em>distance de Hausdorff</em>.</p>
 </div>
 
-<p>Si <em class="Equations">f: E &rarr; E</em> est une fonction
+<p>Si <em class="EQ">f: E &rarr; E</em> est une fonction
 continue, alors l'image d'un ensemble compact par cette fonction est
 un ensemble compact.  Ainsi, la fonction
-<em class="Equations">f</em> défini aussi une fonction
-<em class="Equations">f: E<sup>c</sup> &rarr; E<sup>c</sup></em> de
+<em class="EQ">f</em> défini aussi une fonction
+<em class="EQ">f: E<sup>c</sup> &rarr; E<sup>c</sup></em> de
 façon naturelle.</p>
 
-<p>Une fonction <em class="Equations">f: E &rarr; E</em> est une
+<p>Une fonction <em class="EQ">f: E &rarr; E</em> est une
 <em>contraction</em> s'il existe un nombre
-<em class="Equations">C</em> tel que
-<em class="Equations">0 &leq; C < 1</em> et
-<em class="Equations">d(f(x),f(y)) &leq; C d(x,y)</em> pour tout
-<em class="Equations">x,y &in; E</em>.  Une contraction est
-évidemment une fonction continue.  La valeur <em class="Equations">C</em>
+<em class="EQ">C</em> tel que
+<em class="EQ">0 &leq; C &lt; 1</em> et
+<em class="EQ">d(f(x),f(y)) &leq; C d(x,y)</em> pour tout
+<em class="EQ">x,y &in; E</em>.  Une contraction est
+évidemment une fonction continue.  La valeur <em class="EQ">C</em>
 est appelée un <em>facteur de contraction</em>.</p>
 
 <p>Supposons que
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> est
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> est
 une collection de fonctions continues
-<em class="Equations">f<sub>j</sub>: E &rarr; E</em>, nous définissons
-une fonction <em class="Equations">f<sup>c</sup>: 
+<em class="EQ">f<sub>j</sub>: E &rarr; E</em>, nous définissons
+une fonction <em class="EQ">f<sup>c</sup>: 
 E<sup>c</sup> &rarr; E<sup>c</sup></em> par </p>
-<center>
-  <em class="Equations_Display">
-    f<sup>c</sup>(A) = &cup;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(A)
+<div class="center">
+  <em class="EQ_Display">
+    f<sup>c</sup>(A) = &#8899;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(A)
   </em>
-</center>
-<p>pour tout <em class="Equations">A &in; E<sup>c</sup></em>.  Cette
+</div>
+<p>pour tout <em class="EQ">A &in; E<sup>c</sup></em>.  Cette
 fonction est bien définie car l'union finie d'ensembles compacts est
 un ensemble compact.</p>
 
-<div class="Note">
-<p><em>Proposition</em><br>
-Si chaque fonction <em class="Equations">f<sub>j</sub></em> est une
+<div class="Theo">
+<p><em>Proposition</em>: Si chaque fonction
+<em class="EQ">f<sub>j</sub></em> est une
 contraction avec un facteur de contraction
-<em class="Equations">C<sub>j</sub></em>,
-alors la fonction <em class="Equations">f<sup>c</sup>:
+<em class="EQ">C<sub>j</sub></em>,
+alors la fonction <em class="EQ">f<sup>c</sup>:
 E<sup>c</sup> &rarr; E<sup>c</sup></em>
 est une contraction avec un facteur de contraction
-<em class="Equations">C = max<sub>1&leq;j&leq;J</sub> C<sub>j</sub></em>.</p>
+<em class="EQ">C = max<sub>1&leq;j&leq;J</sub> C<sub>j</sub></em>.</p>
 </div>
 
-<div class="Note">
-<p><em>Théorème</em><br>
-Si <em class="Equations">(E,d)</em> est un espace métrique complet
-et <em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>
-est une collection de contractions de <em class="Equations">E</em>
+<div class="Theo">
+<p><em>Théorème</em>: Si <em class="EQ">(E,d)</em> est un espace
+métrique complet et
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>
+est une collection de contractions de <em class="EQ">E</em>
 dans lui-même, alors
-<em class="Equations">f<sup>c</sup>:
+<em class="EQ">f<sup>c</sup>:
 E<sup>c</sup> &rarr; E<sup>c</sup></em> a un
 <em>point fixe</em> unique; c'est-à-dire, il existe un seul ensemble
-<em class="Equations">A &sub; E<sup>c</sup></em> tel que
-<em class="Equations">f<sup>c</sup>(A) = A</em>.  De plus, pour tout
-ensemble <em class="Equations">X<sub>0</sub> &sub; E<sup>c</sup></em>,
+<em class="EQ">A &sub; E<sup>c</sup></em> tel que
+<em class="EQ">f<sup>c</sup>(A) = A</em>.  De plus, pour tout
+ensemble <em class="EQ">X<sub>0</sub> &sub; E<sup>c</sup></em>,
 la suite d'ensembles
-<em class="Equations">{X<sub>i</sub>}<sub>i&geq;0</sub></em>
+<em class="EQ">{X<sub>i</sub>}<sub>i&geq;0</sub></em>
 définis par
-<em class="Equations">X<sub>i+1</sub> = f<sup>c</sup>(X<sub>i</sub>)</em>
-converge vers <em class="Equations">A</em> par rapport à la métrique
-<em class="Equations">d<sup>c</sup></em> lorsque
-<em class="Equations">i &rarr; &infin;</em>.</p>
+<em class="EQ">X<sub>i+1</sub> = f<sup>c</sup>(X<sub>i</sub>)</em>
+converge vers <em class="EQ">A</em> par rapport à la métrique
+<em class="EQ">d<sup>c</sup></em> lorsque
+<em class="EQ">i &rarr; &infin;</em>.</p>
 </div>
 
 <p>Le théorème précédent est une conséquence directe du
 <em>Théorème de contraction</em> car
-<em class="Equations">(E<sup>c</sup>,d<sup>c</sup>)</em>
-est un espace métrique complet et <em class="Equations">f<sup>c</sup>:
+<em class="EQ">(E<sup>c</sup>,d<sup>c</sup>)</em>
+est un espace métrique complet et <em class="EQ">f<sup>c</sup>:
 E<sup>c</sup> &rarr; E<sup>c</sup></em> est une contraction.</p>
 
 <p>Un <em>système itératif de fonctions</em> (SIF) sur un espace
 métrique complet
-<em class="Equations">(E<sup>c</sup>,d<sup>c</sup>)</em> est une
+<em class="EQ">(E<sup>c</sup>,d<sup>c</sup>)</em> est une
 collection
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> de
-contractions de <em class="Equations">E</em> dans lui-même.</p>
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> de
+contractions de <em class="EQ">E</em> dans lui-même.</p>
 
 <p>Dans les exemples que l'on considère ci-dessous,
-<em class="Equations">E</em> est le plan et
-<em class="Equations">d</em> est la métrique Euclidienne.
+<em class="EQ">E</em> est le plan et
+<em class="EQ">d</em> est la métrique Euclidienne.
 Les fractales que l'on dessine sont les points fixes de
-<em class="Equations">f<sup>c</sup>:
+<em class="EQ">f<sup>c</sup>:
 E<sup>c</sup> &rarr; E<sup>c</sup></em> associées à des SIF
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.
 Le défi est de choisir le SIF qui produira la fractale que l'on
 désire.</p>
 
@@ -232,18 +232,18 @@ précision) peut être sauvegardée en utilisant seulement 2876 bytes
 (un simple programme en Matlab). </p>
 
 <p> Le triangle de Sierpinski est le point fixe de la fonction 
-<em class="Equations">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
+<em class="EQ">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
 &rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
 associée au SIF
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em>
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em>
 où</p>
-<center>
-<em class="Equations">
+<div class="center">
+<em class="EQ">
 f<sub>1</sub>(x) = ( x<sub>1</sub>/2 , x<sub>2</sub>/2 + 1/2 ) <br>
 f<sub>2</sub>(x) = ( x<sub>1</sub>/2 + 1/2 , x<sub>2</sub>/2 ) <br>
 f<sub>3</sub>(x) = ( x<sub>1</sub>/2 , x<sub>2</sub>/2 )
 </em>
-</center>
+</div>
 
 <p> Nous expliquons de façon graphique comment le triangle de 
 Sierpinski est dessiné à l'aide de SIF composé des trois simple
@@ -252,22 +252,22 @@ fonctions décrites ci-dessus.</p>
 <ul>
 <li> Premièrement, nous choisissons un ensemble initial quelconque.
 Dans le cas présent, nous choisissons un triangle plein défini par
-<em class="Equations"> T = {x : x<sub>1</sub>,x<sub>2</sub> &geq; 0 et
+<em class="EQ"> T = {x : x<sub>1</sub>,x<sub>2</sub> &geq; 0 et
 x<sub>1</sub> + x<sub>2</sub> &leq; 1 }</em>. </li>
 <li> Deuxièmement, nous réduisons le triangle plein
-<em class="Equations">T</em> à un quart de sa taille
+<em class="EQ">T</em> à un quart de sa taille
 initiale et nous le déplaçons verticalement par 0.5.
 C'est le travail de la fonction
-<em class="Equations">f<sub>1</sub></em>. </li>
+<em class="EQ">f<sub>1</sub></em>. </li>
 <li> Troisièmement, nous réduisons le triangle plein
-<em class="Equations">T</em> à un quart de sa taille
+<em class="EQ">T</em> à un quart de sa taille
 initiale et nous le déplaçons horizontalement par 0.5.
 C'est le travail de la fonction
-<em class="Equations">f<sub>2</sub></em>.</li>
+<em class="EQ">f<sub>2</sub></em>.</li>
 <li> Quatrièmement, nous réduisons le triangle plein
-<em class="Equations">T</em> à un quart de sa taille
+<em class="EQ">T</em> à un quart de sa taille
 initiale seulement.  C'est le travail de la fonction
-<em class="Equations">f<sub>3</sub></em>.</li>
+<em class="EQ">f<sub>3</sub></em>.</li>
 </ul>
 
 <p>Ces quatre étapes sont illustrées dans la figure suivante.</p>
@@ -334,7 +334,7 @@ ci-dessus.</p>
 figure du triangle de Sierpinski, nous avons seulement à sauvegarder en
 mémoire (utilisant des formules mathématiques) les fonctions qui
 composes le SIF et la procédure pour itérer la fonction 
-<em class="Equations">f<sup>c</sup></em> associée à ce SIF.</p>
+<em class="EQ">f<sup>c</sup></em> associée à ce SIF.</p>
 
 <p> <em> Question </em>: Qu'arrive-t-il si la deuxième fonction du SIF
 ci-dessus fait aussi tourner le carré de 45 degrés? </p>
@@ -342,13 +342,13 @@ ci-dessus fait aussi tourner le carré de 45 degrés? </p>
 <div class="Note">
 <p> <em>Modèle probabiliste</em><br>
 Il y a une façon simple de présenter le triangle de Sierpinski.
-Soit <em class="Equations">A</em> le point de coordonnée (0,1),
-<em class="Equations">B</em> le point de coordonnée (1,0) 
-et <em class="Equations">C</em> l'origine (voir la figure ci-dessous).
+Soit <em class="EQ">A</em> le point de coordonnée (0,1),
+<em class="EQ">B</em> le point de coordonnée (1,0) 
+et <em class="EQ">C</em> l'origine (voir la figure ci-dessous).
 Supposons que nous avons un dé bien balancé et que 1,6 sont associés à
-<em class="Equations">A</em>, 2,5 sont
-associés à <em class="Equations">B</em> et 3,4 sont associés à
-<em class="Equations">C</em>. </p>
+<em class="EQ">A</em>, 2,5 sont
+associés à <em class="EQ">B</em> et 3,4 sont associés à
+<em class="EQ">C</em>. </p>
 
 <div class="center">
   <img src="probability1.png" class="framed" style="width: 300px"
@@ -357,16 +357,16 @@ associés à <em class="Equations">B</em> et 3,4 sont associés à
 
 <ul>
 <li> Nous choisissons un point quelconque
-<em class="Equations">x<sub>0</sub></em> du plan. </li>
+<em class="EQ">x<sub>0</sub></em> du plan. </li>
 <li> Nous lançons le dé.  Supposons que nous obtenons un 3. </li>
-<li> Le point <em class="Equations">x<sub>1</sub></em> est le milieu
-du segment qui joint <em class="Equations">x<sub>0</sub></em> et
-<em class="Equations">C</em>. </li>
+<li> Le point <em class="EQ">x<sub>1</sub></em> est le milieu
+du segment qui joint <em class="EQ">x<sub>0</sub></em> et
+<em class="EQ">C</em>. </li>
 <li> Nous lançons le dé une deuxième fois.  Supposons que nous
 obtenons un 1. </li> 
-<li> Le point <em class="Equations">x<sub>2</sub></em> est le milieu
-du segment qui joint <em class="Equations">x<sub>1</sub></em> et
-<em class="Equations">A</em>. </li>
+<li> Le point <em class="EQ">x<sub>2</sub></em> est le milieu
+du segment qui joint <em class="EQ">x<sub>1</sub></em> et
+<em class="EQ">A</em>. </li>
 <li> Ainsi de suite. </li>
 </ul>
 
@@ -390,13 +390,13 @@ pas bien balancé? </p>
 </div>
 
 <p> La fougère ci-dessus est le point fixe de la fonction
-<em class="Equations">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
+<em class="EQ">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
 &rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
 associée au SIF
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
 où</p>
-<center>
-<em class="Equations">
+<div class="center">
+<em class="EQ">
 f<sub>1</sub>(x) = ( 0 , 0.16 x<sub>2</sub> ) <br>
 f<sub>2</sub>(x) = ( 0.85 x<sub>1</sub> + 0.04 x<sub>2</sub> ,
 -0.04 x<sub>1</sub> + 0.85 x<sub>2</sub> + 1.6 ) <br>
@@ -405,7 +405,7 @@ f<sub>3</sub>(x) = ( 0.20 x<sub>1</sub> - 0.26 x<sub>2</sub> ,
 f<sub>4</sub>(x) = ( -0.15 x<sub>1</sub> + 0.28 x<sub>2</sub> ,
 0.26 x<sub>1</sub> + 0.24 x<sub>2</sub> + 0.44 )
 </em>
-</center>
+</div>
 
 <p> Pour visualiser l'action des quatre fonctions ci-dessus, il suffit
 de choisir un ensemble simple comme un carré et 
@@ -447,13 +447,13 @@ itérations afin de ne pas trop ralentir le temps de réponse du fureteur.</p>
 </div>
 
 <p> La feuille ci-dessus est le point fixe de la fonction
-<em class="Equations">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
+<em class="EQ">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
 &rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
 associée au SIF
-<em class="Equations">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
 où</p>
-<center>
-<em class="Equations">
+<div class="center">
+<em class="EQ">
 f<sub>1</sub>(x) = ( 0.6 x<sub>1</sub> + 0.18 , 0.6 x<sub>2</sub>
 + 0.36 ) <br>
 f<sub>2</sub>(x) = ( 0.6 x<sub>1</sub> + 0.18 ,
@@ -463,7 +463,7 @@ f<sub>3</sub>(x) = ( 0.4 x<sub>1</sub> + 0.3 x<sub>2</sub> + 0.27 ,
 f<sub>4</sub>(x) = ( 0.4 x<sub>1</sub> - 0.3 x<sub>2</sub> + 0.27 ,
 0.3 x<sub>1</sub> + 0.4 x<sub>2</sub> + 0.09 )
 </em>
-</center>
+</div>
 
 <p> Pour visualiser l'action des quatre fonctions ci-dessus, il suffit
 de choisir un ensemble simple comme un triangle et de calculer une seule

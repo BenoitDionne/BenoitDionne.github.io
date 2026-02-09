@@ -208,18 +208,29 @@ span.small { font-size: 80%; }
 /********************************************************************/
 /*      For the equations and definition in mathematics             */
 /********************************************************************/
-em.Equations { color: #8F001A; font-family: "Courier", monospace;
-  font-size: 110%; }
-em.Equations_Display { color: #8F001A; font-family: "Courier", monospace;
-  font-size: 110%; padding: 5px; }
-/* background-color: white; border: 1px solid black; */
+em.EQ { color: #8F001A; font-family: "Courier", monospace;
+  font-size: 110%; font-weight: normal; white-space: nowrap;}
+em.EQ_Display { color: #8F001A; font-family: "Courier", monospace;
+  font-size: 110%; padding: 5px; font-weight: normal;  white-space: nowrap;}
+   /* background-color: white; border: 1px solid black; */
+span.EQ_Over { color: inherit; font-family: inherit;
+  font-size: inherit; border-top: 1px #8F001A solid; padding-top: 2px }
+span.EQ_Larger { color: inherit; font-family: inherit;
+  font-size: 150%;}
+span.EQ_Right { float: right; }
+
 canvas { border: 1px solid #8F001A; background-color: white; }
 
 em.matlab { color: blue; font-weight: bold; font-size: 100%; }
 pre.matlab { font-family: "Courier", monospace; overflow-y: scroll; }
 font.matlab { color: blue; font-size: 100%; }
 
-img.MobiusFig { border: 1px  #004870 solid; margin: 0px; padding: 0px;}
+img.MobiusFig { border: 1px #004870 solid; margin: 0px; padding: 0px;}
+
+div.Theo { border-left: 4px solid #4655D8; border-top: 1px dashed #4655D8;
+border-bottom: 1px dashed #4655D8; border-right: 1px dashed #4655D8;
+padding-left: 1em; padding-right: 1em; margin-top: 1em;
+background-color: #F1F1F1;}
 
 div.Note { border-left: 4px solid black; border-top: 1px dashed black;
 border-bottom: 1px dashed black; border-right: 1px dashed black;

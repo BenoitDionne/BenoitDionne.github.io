@@ -9,4 +9,3 @@ function Y = heaviside(X)
   Y = (sign(X)+1)/2;
   Y(Y == 1/2) = NaN;
 end
-

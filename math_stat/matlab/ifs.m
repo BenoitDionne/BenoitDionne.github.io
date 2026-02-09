@@ -9,11 +9,11 @@
 %
    
 function ifs(X, N, syst, colour)
-    if ( nargin < 3 )
-        syst = "Sierpinski";
+    if ( nargin < 4 )
         colour = 'blue';
-    elseif ( nargin < 4 )
-        colour = 'blue';
+        if ( nargin < 3 )
+            syst = "Sierpinski";
+        end
     end
 
     if ( strcmpi(syst,"Sierpinski") )
@@ -73,7 +73,7 @@ function ifs(X, N, syst, colour)
         set(p,'EdgeColor',colour);
     end
 
-    fprintf('\nThe figure has been drawn\n');
+    fprintf('\nThe figure has been drawn.\n');
 end
 
 % Sierpinski Triangle
