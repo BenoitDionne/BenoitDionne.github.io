@@ -218,6 +218,7 @@ span.EQ_Over { color: inherit; font-family: inherit;
 span.EQ_Larger { color: inherit; font-family: inherit;
   font-size: 150%;}
 span.EQ_Right { float: right; }
+div.EQ_Scroll { overflow-y: scroll; }
 
 canvas { border: 1px solid #8F001A; background-color: white; }
 

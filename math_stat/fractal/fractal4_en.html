@@ -76,15 +76,17 @@ valued functions defined on the complex plane. </p>
 
 <p>This section requires some knowledge of topology and
 complex analysis.  Some reader may choose to skip this section and
-read only the
+to read only the
 <script language="javascript">
   buildLinK("#JuliaFig", "next section","MMathSStat", "nextID", "_top");
 </script>
 about the graphical representation of Julia sets for polynomial
 functions.  In this document, we prove or sketch the proof of only some of
 the results that we state.  For the full proofs of all the stated
-results, the reader should consult the references listed at the end of
-this document.</p>
+results, the reader should consult the
+<script language="javascript">
+buildLinK("#REF", "references","MMathSStat", "REDid1", "_top");
+</script> listed at the end of this document.</p>
 
 <p>In this document, a <em>connected component</em> of a set
 <em class="EQ">U</em> is a connected subset
@@ -139,8 +141,7 @@ of degree greater or equal to <em class="EQ">2</em>.</p>
 &rarr; <span class="EQ_Over">&complexes;</span></em> and
 <em class="EQ">R<sub>2</sub>:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-are <em>analytically conjugate</em>
-or <em>conformally conjugate</em> if there exists a
+are <em>conformally conjugate</em> if there exists a
 <em>M&ouml;bius transformation</em>
 <em class="EQ">H:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em> such that
@@ -184,8 +185,7 @@ will have a strange behaviour for <em class="EQ">c &leq; 0</em>.</p>
 Riemann Mapping theorem that any simply connected Riemann surface
 <em class="EQ">U &subset;
 <span class="EQ_Over">&complexes;</span></em>
-is conformally equivalent to one of
-<em class="EQ">B<sub>1</sub>(0)</em>,
+is conformally equivalent to one of <em class="EQ">B<sub>1</sub>(0)</em>,
 <em class="EQ">&complexes;</em>
 or <em class="EQ"><span class="EQ_Over">&complexes;<span></em>;
 namely, there exists an analytic bijection <em class="EQ">f</em>
@@ -214,16 +214,16 @@ complex plane after it has been cut along the positive section of the
 <p>If we glue the upper edge
 of <em class="EQ">S<sub>0</sub></em> to the lower edge
 of <em class="EQ">S<sub>1</sub></em> and the upper edge
-of <em class="EQ">S<sub>i</sub></em> to the lower edge of
+of <em class="EQ">S<sub>1</sub></em> to the lower edge of
 <em class="EQ">S<sub>0</sub></em>, we get the
 <em>Riemann surface</em> <em class="EQ">S</em> associated to
 the function <em class="EQ">f</em>.
 The function <em class="EQ">f:&complexes; &rarr; S</em>
 is now a continuous bijection.  We have that
 <em class="EQ">
-f: { r cos(&theta;) + r sin(&theta;) : r &ge; 0 and i&pi; &lt; &theta; &lt;
-(i+1)&pi;} &rarr; S<sub>i</sub></em> is a bijection
-for <em class="EQ">i = 0,1</em>.
+f: { r cos(&theta;) + r sin(&theta;) : r &ge; 0 and j&pi; &lt; &theta; &lt;
+(j+1)&pi;} &rarr; S<sub>j</sub></em> is a bijection
+for <em class="EQ">j = 0,1</em>.
 The origin is called a <em>branch point</em> because it belongs to
 <em class="EQ">S<sub>0</sub></em> and
 <em class="EQ">S<sub>1</sub></em>.  If we consider
@@ -270,9 +270,9 @@ for all <em class="EQ">f &in; &#120021;</em>.  This result is
 due to Montel as is the following theorem.</p>
 
 <div class="Theo" id="Montel">
-<p><em>Theorem (Montel)</em>: Suppose that
+<p><em>Theorem (Montel)</em>: Let
 <em class="EQ"> &#120021; = {f<sub>n</sub>}<sub>n&gt;0</sub></em>
-is family of holomorphic function defined on an open set
+be a family of holomorphic functions defined on an open set
 <em class="EQ"> V &subset;
 <span class="EQ_Over">&complexes;</span></em>.
 If there exists three distinct points
@@ -432,7 +432,7 @@ This is not possible.
 Thus <em class="EQ">J<sub>R</sub> = S<sup>1</sup></em>.</p>
 
 <p>Since <em class="EQ">P<sub>0</sub>|<sub>S<sup>1</sup></sub></em>
-is topological conjugated to the function
+is topological conjugate to the function
 <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> 
 defined by <em class="EQ">T(&theta;) = 2&theta;</em>, and since
 <em class="EQ">T</em> is chaotic on <em class="EQ">S<sup>1</sup></em>
@@ -477,11 +477,11 @@ The set <em class="EQ">E<sub>z</sub></em> has also at most two
 elements (the proof is left to the reader.)</p>
 
 <div class="Theo">
-<p><em>Proposition</em>: Suppose that
+<p><em>Proposition</em>: If
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-is a rational function and that <em class="EQ">z &in; J<sub>R</sub></em>.
-Then <em class="EQ">E<sub>z</sub></em> is completely invariant.</p>
+is a rational function and <em class="EQ">z &in; J<sub>R</sub></em>,
+then <em class="EQ">E<sub>z</sub></em> is completely invariant.</p>
 </div>
 
 <p><em>Proof</em>: We first prove that <em class="EQ">E<sub>z</sub></em>
@@ -523,7 +523,7 @@ E<sub>z</sub></em> and
 <em class="EQ">R</em> is a polynomial function.
 If <em class="EQ">E<sub>z</sub> = {w} &subset;
 &complexes;</em>, then <em class="EQ">R</em> is conformally
-conjugated to a polynomial function.  More precisely, if
+conjugate to a polynomial function.  More precisely, if
 <em class="EQ">H(z) = 1/(z-w)</em>, then
 <em class="EQ">T = H&#8728;R&#8728;H<sup>-1</sup></em> is a
 polynomial function because <em class="EQ">&infin;</em> is now an
@@ -544,9 +544,9 @@ function <em class="EQ">R</em> (and
 <em class="EQ">0</em> is <em class="EQ">0</em> of
 multiplicity <em class="EQ">d</em>.  In the second case,
 <em class="EQ">T(z) = z<sup>-d</sup></em> because the only preimage of
-<em class="EQ">0</em> is <em class="EQ">&infin;</em> of
+<em class="EQ">&infin;</em> is <em class="EQ">0</em> of
 multiplicity <em class="EQ">d</em>.
-In conclusion, <em class="EQ">R</em> is conformally conjugated to
+In conclusion, <em class="EQ">R</em> is conformally conjugate to
 <em class="EQ">T</em> defined by either
 <em class="EQ">T(z) = z<sup>d</sup></em> or
 <em class="EQ">T(z) = z<sup>-d</sup></em>.
@@ -617,7 +617,8 @@ In particular, if <em class="EQ">w &in; J<sub>R</sub></em>, then
 not a stable point, there exists a positive integer
 <em class="EQ">n</em> such that
 <em class="EQ">w &in; R<sup>n</sup>(V)</em> because
-<em class="EQ">&#120020;<sub>R</sub> &cap; J<sub>R</sub> = &emptyset;</em>.
+<em class="EQ">w &in;
+<span class="EQ_Over">&complexes;</span> &setminus; &#120020;<sub>R</sub></em>.
 Thus <em class="EQ">R<sup>-n</sup>({w}) &cap; V &ne; &emptyset;</em>.
 Since this is true for all open neighbourhoods
 <em class="EQ">V</em> of <em class="EQ">v</em>, we have
@@ -653,7 +654,9 @@ preimage, the <em>deficiency</em> of each <em class="EQ">z<sub>j</sub></em> is
 the <em>total deficiency</em>, of a rational function of degree
 <em class="EQ">d</em> is <em class="EQ">2d-2</em>, we have
 that <em class="EQ">k &leq; 2</em>.  The reader should consult
-P. Blanchard for the definition of deficiency and its properties.
+<script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid1", "_top");
+</script> for the definition of deficiency and its properties.
 <span class="EQ_Right">&#8718;</span></p>
 
 <p>The next result follows from the previous proposition.</p>
@@ -806,14 +809,15 @@ a periodic orbit of period <em class="EQ">k = n-m</em>.</p>
 
 <p>Suppose that
 <em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>.  The
-<em>(positive) orbit</em> associated to <em class="EQ">z</em> is the sequence
-<em class="EQ">O<sub>z</sub> = {z<sub>i</sub>}<sub>i&geq;0</sub></em>
+<em>(positive) orbit associated</em> to <em class="EQ">z</em> is the sequence
+<em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
 where <em class="EQ"> z<sub>0</sub> = z</em> and
 <em class="EQ">z<sub>j</sub> = R(z<sub>j-1</sub>)</em>
 for <em class="EQ">j &geq; 1</em>.  In particular, if
 <em class="EQ">z</em> is a periodic point of period
 <em class="EQ">n</em> of <em class="EQ">R</em>, then
-<em class="EQ">O<sub>z</sub></em> is a <em>periodic orbit</em> because 
+<em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
+is a <em>periodic orbit</em> because 
 <em class="EQ">z<sub>n</sub>=z<sub>0</sub></em>.</p>
 
 <div class="Theo">
@@ -858,8 +862,8 @@ We say that
 <em class="EQ">H:V &rarr; B<sub>1</sub>(0)</em>, and</li>
 <li> a linear function <em class="EQ">L</em> defined by 
 <em class="EQ">L(z) = &lambda;z</em> for all
-<em class="EQ">z &in; &complexes;</em> with
-<em class="EQ">&lambda; &in; &complexes;</em> a constant</li>
+<em class="EQ">z &in; &complexes;</em> where
+<em class="EQ">&lambda; &in; &complexes;</em> is a constant</li>
 </ul>
 <p>such that <em class="EQ">H(w) = 0</em> and
 <em class="EQ">H&#8728;R = L&#8728;H</em> on <em class="EQ">W</em>.</p>
@@ -938,21 +942,22 @@ Suppose that <em class="EQ">w</em>
 is a neutral fixed point of a rational function <em class="EQ">R</em>
 and that <em class="EQ">R'(w) = &lambda;</em>.
 To linearize <em class="EQ">R</em> at <em class="EQ">w</em>, we need
-to find a conformal function <em class="EQ">H</em>, and open neighbourhoods 
-<em class="EQ">W</em> and <em class="EQ">V</em>
+to find an analytic homeomorphism <em class="EQ">H</em>, and open
+neighbourhoods <em class="EQ">W</em> and <em class="EQ">V</em>
 of <em class="EQ">w</em> such that <em class="EQ">H(w) = 0</em> and
 <em class="EQ_Display">H&#8728;R = &lambda;H</em>
 on <em class="EQ">W</em>.  This last equation is called the
 <em>Schr&ouml;der functional equation</em>.  It has been proved that
-if there exists a conformal function satisfying the Schr&ouml;der
+if there exists a function <em class="EQ">H</em> satisfying the Schr&ouml;der
 functional equation, then <em class="EQ">w</em> is a stable
 point.  The converse is also true.  It has also been proved that there
-is no conformal function satisfying the Schr&ouml;der functional equation
-if <em class="EQ">&lambda;</em> is a root of unity.
-Even when <em class="EQ">&lambda;</em> is a not root of unity,
-there may not be a conformal function satisfying the
+is no function <em class="EQ">H</em> satisfying the Schr&ouml;der
+functional equation if <em class="EQ">&lambda;</em> is a root of unity.
+Even when <em class="EQ">&lambda;</em> is a not root of unity
+and <em class="EQ">|&lambda;|=1</em>,
+there may not be any function <em class="EQ">H</em> satisfying the
 Schr&ouml;der functional equation.  For instance, it has been proved
-by C. Seigel that there is no conformal function satisfying the
+by C. Seigel that there is no function <em class="EQ">H</em> satisfying the
 Schr&ouml;der functional equation if
 <em class="EQ">&lambda; = e<sup>2&pi;i&alpha;</em>
 with <em class="EQ">&alpha;</em> an irrational number for
@@ -984,8 +989,9 @@ is a rational function, then
 
 <p>The proof of this theorem can be divided into several steps.
 We list these steps below without proving them.  A proof of each step
-can be found in P. Blanchard.  We first need to introduce some
-definitions.</p>
+can be found in <script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid2", "_top");
+</script>.  We first need to introduce some definitions.</p>
 
 <div class="Theo">
 <p><em>Definition</em>: A <em>critical point</em> of a rational
@@ -1003,8 +1009,8 @@ analysis, we have that a point <em class="EQ">w &ne; &infin;</em> is a
 critical point if <em class="EQ">R'(w) = 0</em>.</p>
 
 <div class="Theo">
-<p><em>Definition</em>: The <em>basin of attraction</em> of an
-attracting fixed point <em class="EQ">z</em> of a rational function
+<p><em>Definition</em>: The <em>basin of attraction</em> of a
+(super-) attracting fixed point <em class="EQ">z</em> of a rational function
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 is the set <em class="EQ">W<sup>s</sup>(z,R) =
@@ -1023,14 +1029,14 @@ contains <em class="EQ">z</em>.</p>
 <em class="EQ">{R<sup>n</sup>}<sub>n&gt;0</sub></em>
 is normal on <em class="EQ">W<sup>s</sup>(z,R)</em>.  Moreover,
 <em class="EQ">W<sup>i</sup>(z,R)</em> is the largest set containing
-the attracting fixed point <em class="EQ">z</em> and on which
+the (super-) attracting fixed point <em class="EQ">z</em> and on which
 <em class="EQ">{R<sup>n</sup>}<sub>n&gt;0</sub></em> is normal.</p>
 
 <div class="Theo" id="theoV">
 <p><em>Proposition</em>: If
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-is rational function and <em class="EQ">z</em> is an attractive fixed
+is rational function and <em class="EQ">z</em> is an (super-) attractive fixed
 point of <em class="EQ">R</em>, then
 <em class="EQ">&part; W<sup>s</sup>(z,R) = J<sub>R</sub></em>,
 where <em class="EQ">&part;</em> is the symbol used to denote the
@@ -1053,7 +1059,7 @@ follows from <script language="javascript">
 roots of the function <em class="EQ">f</em> defined by
 <em class="EQ">f(z) = z<sup>3</sup>-1</em>, we have to iterate the function
 <em class="EQ">R</em> defined by
-<em class="EQ">R(z) = z-f(z)/f'(z) = (2z<sup>3</sup>+1)/)3z<sup>2</sup>)</em>.
+<em class="EQ">R(z) = z-f(z)/f'(z) = (2z<sup>3</sup>+1)/(3z<sup>2</sup>)</em>.
 The polynomial <em class="EQ">z<sup>3</sup>-1</em> has three roots in
 the complex plane.  <em class="EQ">z=1</em> is obviously one of them.
 Since <em class="EQ">R'(1) = 0</em>, we have that <em class="EQ">z=1</em>
@@ -1098,17 +1104,17 @@ R(&#120018;<sub>R</sub>) &cup; &#120032;<sub>R</sub></em> is finite set
 and <em class="EQ">J<sub>R</sub></em> is closed and perfect,
 we get that <em class="EQ">J<sub>R</sub> &subset;
 <span class="EQ_Over">&#120031;<sub>R</sub></span></em>.</li>
-<li>The number of attracting periodic orbits of <em class="EQ">R</em>
+<li>The number of (super-) attracting periodic orbits of <em class="EQ">R</em>
 is at most <em class="EQ">2d-2</em>.  This result is a corollary of
 the fact that <em class="EQ">W<sup>i</sup>(z,R<sup>n</sup>)</em>
-contains at least one critical point if <em class="EQ">z</em> is an
-attracting periodic point.</li>
+contains at least one critical point if <em class="EQ">z</em> is a
+(super-) attracting periodic point.</li>
 <li>If <em class="EQ">k<sub>1</sub></em> is the number of
-attracting periodic orbits and <em class="EQ">k<sub>2</sub></em>
+(super-) attracting periodic orbits and <em class="EQ">k<sub>2</sub></em>
 is the number of neutral periodic orbits, then
 <em class="EQ">k<sub>1</sub>+k<sub>2</sub>/2 &leq; 2d-2</em>.
 This result is a consequence of the fact that at least
-<em class="EQ">k<sub>2</sub>/2</em> of the periodic orbits are
+<em class="EQ">k<sub>2</sub>/2</em> of the attractive periodic orbits are
 <q lang="en">continuations</q> of neutral periodic orbits.</li>
 <li>Since the number of non-repelling periodic orbits is finite
 according to (4), it follows from (2) that
@@ -1131,9 +1137,9 @@ rational function, and <em class="EQ">K</em> be a closed subset of
 such that <em class="EQ">K &cap; &#120020;<sub>R</sub> = &emptyset;</em>.
 If <em class="EQ">V</em> is an open neighbourhood of a point
 <em class="EQ">z &in; J<sub>R</sub></em>, then there exists an
-integer <em class="EQ">k &ge; 0</em> such that
+integer <em class="EQ">k &gt; 0</em> such that
 <em class="EQ">K &subset; R<sup>k</sup>(V)</em>.
-On particular, there exists an integer <em class="EQ">k &ge; 0</em> such that
+On particular, there exists an integer <em class="EQ">k &gt; 0</em> such that
 <em class="EQ">J<sub>R</sub> = R<sup>k</sup>(V &cap; J<sub>R</sub>)</em>.
 </div>
 
@@ -1193,7 +1199,9 @@ of self-similarity for Julia sets.  There exists a notion
 of <q lang="en">quasi-self-similarity</q> for the Julia sets of
 rational functions that satisfy the next definition.  We will not say
 anything more on this subject in ths document.  The reader could
-consult the references below for more information.</p>
+consult the <script language="javascript">
+buildLinK("#REF", "references","MMathSStat", "REDid2", "_top");
+</script> at the end of this document for more information.</p>
 
 <div class="Theo">
 <p><em>Definition</em>: Let
@@ -1221,7 +1229,8 @@ fixed point of a rational function
 then <em class="EQ">W<sup>i</sup>(z,R)</em> is either a simply
 connected set or a connected sets with
 infinitely many <q lang="en">holds</q> (represented by closed
-connected components) in it.</p>
+connected components in <em class="EQ"><span class="EQ_Over">&complexes;</span>
+&setminus; W<sup>i</sup>(z,R)</em></em>).</p>
 </div>
 
 <p>In the last case of the previous proposition, 
@@ -1357,7 +1366,10 @@ categories of Sullivan domains listed above.</p>
 </div>
 
 <p>It does not seem to be easy to find rational functions whose set of
-stable points admit Herman rings.  P. Blanchard states that the
+  stable points admit Herman rings.
+<script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid3", "_top");
+</script> states that the
 rational function <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 defined by <em class="EQ">R(z) =
@@ -1367,7 +1379,12 @@ and <em class="EQ">a</em> have a set of stable points
 <em class="EQ">S<sub>R</sub></em> that contains an Herman ring
 containing the unit circle.  The existence of
 <em class="EQ">&alpha;</em> and <em class="EQ">a</em> is ensured by a
-theorem of V. Arnold (see reference below).</p>
+theorem of
+<script language="javascript">
+  buildLinK("#VA", "V. Arnold","MMathSStat", "VAid1", "_top");
+</script> (see the <script language="javascript">
+buildLinK("#REF", "references","MMathSStat", "REDid3", "_top");
+</script> at the end of this document.)</p>
 
 <p>The following result is a corollary of the previous theorem and the
 fact that all Sullivan domains but the super-attracting domains
@@ -1458,7 +1475,7 @@ M&ouml;bius transformation defined by
 <em class="EQ">T = H&#8728;R<sup>k</sup>&#8728;H<sup>-1</sup></em>
 is a rational function such that <em class="EQ">H(A)</em> and
 <em class="EQ">H(B)</em> are connected components of the set of
-stable points of <em class="EQ">T</em> and are
+stable points of <em class="EQ">T</em>, and are
 completely invariant under the action of <em class="EQ">T</em>.
 Moreover, <em class="EQ">&infin; &in; H(B)</em> and
 <em class="EQ">H(A)</em> is not simply connected.
@@ -1477,8 +1494,8 @@ because <em class="EQ">H(B) &cap; (H(A) &cup; W) = &emptyset;</em>,
 <em class="EQ"> &infin; &in; H(B)</em> and
 <em class="EQ">H(B)</em> is completely invariant under the action of
 <em class="EQ">T</em>.
-Thus, we can use the Cauchy integral formula to prove that
-<em class="EQ">{T<sup>n</sup>}<sub>n&gt;0</sub></em> is
+Thus, we can use the Cauchy integral formula to prove that the family
+of rational functions <em class="EQ">{T<sup>n</sup>}<sub>n&gt;0</sub></em> is
 normal on <em class="EQ">W</em>.  More precisely, we have
 that</p>
 <div class="center">
@@ -1551,7 +1568,7 @@ single connected component that is not simply connected.</p>
 
 <div class="Example" id="egC">
 <p><em>Example C</em>: Let <em class="EQ">c</em> be one of the non-zero
-roots of <em class="EQ">P<sub>c</sub><sup>2</sup>(c) = 0c</em>.  More
+roots of <em class="EQ">P<sub>c</sub><sup>2</sup>(c) = c</em>.  More
 precisely, let <em class="EQ">c &approx; -0.12256 + 0.74486i</em>.
 The Julia set <em class="EQ">J<sub>P<sub>c</sub></sub></em>
 of the function <em class="EQ">P<sub>c</sub></em> is represented in
@@ -1598,7 +1615,7 @@ that <em class="EQ">&infin;</em> is a critical point, an exceptional
 point and a super-attracting fixed point for a polynomial
 function <em class="EQ">P</em>.  In particular, there exists an open
 neighbourhood of <em class="EQ">&infin;</em> on which <em class="EQ">P</em> is
-analytically conjugate to the function <em class="EQ">T</em> defined
+conformally conjugate to the function <em class="EQ">T</em> defined
 by <em class="EQ">T(z) = z<sup>d</sup></em> where <em class="EQ">d</em>
 is the degree of <em class="EQ">P</em>.  Since
 <em class="EQ">&infin;</em> is always a stable
@@ -1700,7 +1717,7 @@ boundary <em class="EQ">&gamma;</em> and therefore
 be a polynomial function.  The following statements are equivalent.</p>
 <ul>
 <li> <em class="EQ">P|<sub>W<sup>i</sup>(&infin;,P)</sub></em> is
-analytically conjugated to the function
+conformally conjugate to the function
 <em class="EQ">T</em> defined by <em class="EQ">T(z) = z<sup>d</sup></em>
 on the exterior of a circle centred at the origin.</li>
 <li> <em class="EQ">W<sup>i</sup>(&infin;,P)</em> is simply connected.</li>
@@ -1711,7 +1728,9 @@ on the exterior of a circle centred at the origin.</li>
 </div>
 
 <p>The proof of this results is not too complicate but is long.  It can
-be found in P. Blanchard.  Recall that
+be found in <script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid4", "_top");
+</script>.  Recall that
 <em class="EQ">&#120018;<sub>P</sub></em> is the set of
 critical points of <em class="EQ">P</em>.  The last statement of the
 previous proposition says that the orbits of the critical points are
@@ -1753,7 +1772,9 @@ If <em class="EQ">&#120018;<sub>P</sub>
 shift map on <em class="EQ">d</em> symbols.</p>
 </div>
 
-<p>The full proof is given in P. Blanchard.</p>
+<p>The full proof is given in <script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid5", "_top");
+</script>.</p>
 
 <div class="Example">
 <p><em>Example</em>: In <script language="javascript">
@@ -1795,10 +1816,12 @@ critical point of <em class="EQ">P<sub>c</sub></em> where
 <em class="EQ">c &approx; -0.12256 + 0.74486i</em>,
 and the sequence <em class="EQ">P<sup>n</sup><sub>c</sub>(0)</em> is bounded
 because <em class="EQ">{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em>
-<q lang="en">approaches</q> the periodic orbit
+<q lang="en">approaches</q> the periodic orbit</p>
+<div class="EQ_Scroll">
 <em class="EQ">{-0.1226... + 0.7449... i, -0.6624... + 0.5623... i,
 -3.9415...&times;10<sup>-6</sup> + 1.6474...&times;10<sup>-6</sup> i}</em>.
-It follows from <script language="javascript">
+</div>
+<p>It follows from <script language="javascript">
   buildLinK("#propIX", "Proposition &#8552;",
   "MMathSStat", "propVIXID7", "_top");
 </script>
@@ -1852,8 +1875,8 @@ This method is implemented in the document
   "MMathSStat", matlabProgr.id, matlabProgr.target);
 </script>.  Thus, this method is reserved for situations where we have access
 to a good computer with a high resolution computer screen.
-For an application, as the one below, written in JavaScript to be used
-on a website, it is preferable to use the less demanding method
+For an application, as the one below, that is written in JavaScript
+and is used for a website, it is preferable to use the less demanding method
 describe below.</p>
 
 <p>In the reminder of this section, we consider the polynomial function 
@@ -1903,18 +1926,20 @@ Second, we can then use the inequality above to get</p>
 <em class="EQ_Display">|P<sub>c</sub><sup>2</sup>(w)|
 = |P<sub>c</sub>(P<sub>c</sub>(w))|
 &gt; |P<sub>c</sub>(w)|(1 + &delta;)
-&gt; = |w|(1 + &delta;)<sup>2</sup> .
+&gt; |w|(1 + &delta;)<sup>2</sup> ,
 </em>
 </div>
-<p>By induction, we get that</p>
+<p>where the first inequality is true because 
+<em class="EQ">|P<sub>c</sub>(w)| &gt; K</em>.
+By induction, we get that</p>
 <div class="center">
 <em class="EQ_Display">|P<sub>c</sub><sup>n</sup>(w)|
 &gt; |w|(1 + &delta;)<sup>n</sup> &rarr; &infin;
 </em>
 </div>
 <p>as <em class="EQ">n &rarr; &infin;</em>.  We therefore have that
-<em class="EQ">W<sup>s</sup>(&infin;,P<sub>c</sub>) = {z &in; &complexes; :
-  |P<sub>c</sub><sup>n</sup>(w)| > K for some n}</em>.</p>
+<em class="EQ">W<sup>s</sup>(&infin;,P<sub>c</sub>) = {w &in; &complexes; :
+|P<sub>c</sub><sup>n</sup>(w)| > K for some n}</em>.</p>
 
 <p>For the purpose of drawing filled Julia sets, we select a large
 number <em class="EQ">N</em>, say <em class="EQ">N = 50</em>, and declare
@@ -1937,7 +1962,7 @@ not associated to points in <em class="EQ">&#120570;<sub>c</sub></em>.</p>
 
 <p>We can use the graphical application below to draw some full Julia sets.
 Given a complex number <em class="EQ">c</em>, the points <em class="EQ">z</em>
-of the complex plane coloured in black are the points that belong to
+of the complex plane that are drawn in black are the points that belong to
 the set <em class="EQ">&#120570;<sub>c</sub></em>.  The boundary of the area
 in black is therefore the <em>Julia set</em> of
 <em class="EQ">P<sub>c</sub></em>.</p>
@@ -1975,18 +2000,20 @@ the content of these fields is not evaluated mathematically.</p>
 <p>The content of this document is mostly based on the following
 books and articles.</p>
 
-<ul>
-<li>P. Blanchard, <em>Complex Analytic Dynamics of the Riemann Sphere</em>,
-Bull. Amer. Math. Soc. (N.S.) <em>11</em> (1984), 85-141.</li>
-<li>R. L. Devenay, <em>An Introduction to Chaotic Dynamical Ssystems</em>, 
-The Benjamin/Cummings Publishing Co., Inc. (1986).</li>
-<li> L. Keen, <em>Julia Sets</em>, in
+<ul id="REF">
+<li id="VA">V. Arnold, <em>Small denominators: I: On the mappings of
+the circumference onto itself</em>, Amer. Math. Soc. Transl. (2)
+<em>46</em> (1965), 213-284.</li>
+<li id="PB">P. Blanchard, <em>Complex Analytic Dynamics of the Riemann
+Sphere</em>, Bull. Amer. Math. Soc. (N.S.) <em>11</em> (1984), 85-141.</li>
+<li id="RD">R. L. Devenay, <em>An Introduction to Chaotic Dynamical
+Ssystems</em>, The Benjamin/Cummings Publishing Co., Inc. (1986).</li>
+<li id="LK"> L. Keen, <em>Julia Sets</em>, in
 <em>Chaos and Fractals: The Mathematics Behind the Computer Graphics</em>,
 R. L. Devaney and L. Keen, Editors, Proceeding of symposia in applied
 mathematics, AMS short course lecture notes (1989), 57-74.</li>
-<li>V. Arnold, <em>Small denominators: I: On the mappings of the circumference
-onto itself</em>, Amer. Math. Soc. Transl. (2) <em>46</em> (1965),
-213-284.</li>
+<li id="PJS">H.-O. Peitgen, H. j&#252;rgens and D. Saupe, <em>Chaos
+and Fractals: New Frontiers of Science</em>, Springer-Verlag (1992).</li>
 </ul>
 
 <table class="noB">

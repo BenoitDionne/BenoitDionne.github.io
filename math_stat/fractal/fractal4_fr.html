@@ -75,8 +75,8 @@ définie par <em class="EQ"> f<sub>&#120583;</sub>(x) = &#120583; x(1-x)
 <h3>Un petit peu de théorie</h3>
 
 <p>Cette section demande une connaissance élémentaire de la topologie
-et de l'analyse complexe.  Certains lecteurs pourrait préférer ignorer
-cette section et lire seulement la
+et de l'analyse complexe.  Certains lecteurs pourraient choisir d'ignorer
+cette section et de lire seulement la
 <script language="javascript">
   buildLinK("#JuliaFig", "section suivante","MMathSStat", "nextID", "_top");
 </script>
@@ -84,8 +84,10 @@ qui porte sur la représentation graphique des ensembles de Julia pour
 les fonctions polynomiales.  Dans ce document, nous démontrons ou
 ébauchons la preuve de seulement certains des résultats que nous
 énonçons.  Pour les démonstrations complètes de tous les résultats
-énoncés, le lecteur doit consulter les références énumérées à la fin
-de ce document.</p>
+énoncés, le lecteur doit consulter les
+<script language="javascript">
+buildLinK("#REF", "références","MMathSStat", "REDid1", "_top");
+</script> énumérées à la fin de ce document.</p>
 
 <p>Dans ce document, une <em>composante connexe</em> d'un ensemble
 <em class="EQ">U</em> est un sous-ensemble connexe
@@ -142,8 +144,7 @@ considérer les fonctions rationnelles de degré plus grand ou égal à
 &rarr; <span class="EQ_Over">&complexes;</span></em> et
 <em class="EQ">R<sub>2</sub>:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-sont <em>analytiquement conjuguées</em>
-ou <em>conformément conjuguées</em> s'il existe une
+sont <em>conformément conjuguées</em> s'il existe une
 <em>transformation de M&ouml;bius</em>
 <em class="EQ">H:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em> telle que
@@ -178,10 +179,10 @@ est conformément conjuguée à la fonction
 Quand <em class="EQ">&#120583; &ge; 4</em>, nous avons vu que
 <em class="EQ">f<sub>&#120583;</sub> :
 &#120549;<sub>&#120583;</sub> &rarr; &#120549;<sub>&#120583;</sub></em>
-est chaotique.  Nous pouvons donc nous attendre à ce que
+est chaotique.  Nous pouvons donc supooser que
 <em class="EQ">P<sub>c</sub>:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-ait un comportement étrange pour <em class="EQ">c &leq; 0</em>.</p>
+aura un comportement étrange pour <em class="EQ">c &leq; 0</em>.</p>
 </div>
 
 <p>Soit <em class="EQ">B<sub>&epsilon;</sub>(w)
@@ -189,9 +190,8 @@ ait un comportement étrange pour <em class="EQ">c &leq; 0</em>.</p>
 théorème des représentations de Riemann que toute surface de Riemann
 simplement connexe <em class="EQ">U &subset;
 <span class="EQ_Over">&complexes;</span></em>
-est conformément conjuguée à l'un des ensembles suivants:
-<em class="EQ">B<sub>1</sub>(0)</em>,
-<em class="EQ">&complexes;</em>
+est conformément équivalent à l'un des ensembles suivants:
+<em class="EQ">B<sub>1</sub>(0)</em>, <em class="EQ">&complexes;</em>
 où <em class="EQ"><span class="EQ_Over">&complexes;<span></em>.
 C'est-à-dire, il existe un bijection analytique <em class="EQ">f</em>
 de <em class="EQ">U</em> à l'un des ensembles suivants:
@@ -219,16 +219,16 @@ des <em class="EQ">x</em>.</p>
 <p>Si on colle le bord supérieur de
 <em class="EQ">S<sub>0</sub></em> au bord inférieur de
 <em class="EQ">S<sub>1</sub></em> et le bord supérieur de
-<em class="EQ">S<sub>i</sub></em> au bord inférieur de
+<em class="EQ">S<sub>1</sub></em> au bord inférieur de
 <em class="EQ">S<sub>0</sub></em>, nous obtenons la
 <em>surface de Riemann</em> <em class="EQ">S</em> associée à la
 fonction <em class="EQ">f</em>.
 La fonction <em class="EQ">f:&complexes; &rarr; S</em>
 est maintenant une bijection continue.  Nous avons que
 <em class="EQ">
-f: { r cos(&theta;) + r sin(&theta;) : r &ge; 0 and i&pi; &lt; &theta; &lt;
-(i+1)&pi;} &rarr; S<sub>i</sub></em> est une bijection pour
-<em class="EQ">i = 0,1</em>.
+f: { r cos(&theta;) + r sin(&theta;) : r &ge; 0 et j&pi; &lt; &theta; &lt;
+(j+1)&pi;} &rarr; S<sub>j</sub></em> est une bijection pour
+<em class="EQ">j = 0,1</em>.
 L'origine est appelée un <em>point de branchement</em> car il
 appartient à <em class="EQ">S<sub>0</sub></em> et
 <em class="EQ">S<sub>1</sub></em>.  Si on considère
@@ -266,7 +266,7 @@ holomorphes définies sur un ensemble ouvert
 normale si et seulement si elle est équicontinue sur tout sous-ensemble
 compact de <em class="EQ">V</em>.  De plus, il est
 démontré qu'une famille <em class="EQ"> &#120021;</em>
-de fonctions holomorphes définie sur un ensemble ouvert
+de fonctions holomorphes définies sur un ensemble ouvert
 <em class="EQ">V &subset; <span class="EQ_Over">&complexes;</span></em> est
 normale si elle est <em>localement uniformément bornée</em>;
 c'est-à-dire, pour tout ensemble compact
@@ -277,9 +277,9 @@ pour tous <em class="EQ">f &in; &#120021;</em>.  Ce résultat est dû à
 Montel comme c'est le cas pour le théorème suivant.</p>
 
 <div class="Theo" id="Montel">
-<p><em>Théorème (Montel)</em>: Supposons que
+<p><em>Théorème (Montel)</em>: Soit
 <em class="EQ"> &#120021; = {f<sub>n</sub>}<sub>n&gt;0</sub></em>
-est une famille de fonctions holomorphes définies sur un ensemble
+une famille de fonctions holomorphes définies sur un ensemble
 ouvert <em class="EQ"> V &subset; <span class="EQ_Over">&complexes;</span></em>.
 S'il existe trois points distincts
 <em class="EQ">z<sub>1</sub>,z<sub>2</sub>,z<sub>3</sub> &in;
@@ -290,7 +290,7 @@ z<sub>1</sub>,z<sub>2</sub>,z<sub>2</sub></em> pour tous
 <em class="EQ"> &#120021;</em> est normale sur <em class="EQ">V</em>.</p>
 </div>
 
-<p>Le théorème suivant est très utile pour étudier le fonctions
+<p>Le théorème suivant est très utile pour étudier les fonctions
 rationnelles
 <em class="EQ"> R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>.</p>  
@@ -324,7 +324,7 @@ rationnelle.</p>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 une fonction rationnelle.  Un point
 <em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>
-est un <em>point stable</em> de <em class="EQ">R</em> s;il existe
+est un <em>point stable</em> de <em class="EQ">R</em> s'il existe
 un voisinage ouvert <em class="EQ">V</em> de
 <em class="EQ">z</em> tel que la famille
 <em class="EQ"> {R<sup>n</sup>}<sub>n&gt;0</sub></em> est normale
@@ -459,7 +459,8 @@ De plus, l'intérieur des ensembles de Julia peut ne pas être vide
 comme dans l'exemple précédent.  Rappelons que l'intérieur d'une
 ensemble <em class="EQ">K</em> est le plus grand ensemble ouvert
 contenu dans <em class="EQ">K</em>.
-Par exemple, nous allons prouver prochainement que la fonction rationnelle
+Par exemple, nous allons prouver prochainement que
+l'ensemble de Julia de la fonction rationnelle
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 définie par
@@ -482,14 +483,14 @@ ouverts de <em class="EQ">z</em> et
 <em class="EQ">E<sub>z</sub> =
 &#8899;<sub>V&in;&#119985;</sub> E<sub>V</sub></em>.
 L'ensemble <em class="EQ">E<sub>z</sub></em> contient aussi au plus
-deux éléments (le démonstration est laissé au lecteur).</p>
+deux éléments (la démonstration est laissée au lecteur).</p>
 
 <div class="Theo">
-<p><em>Proposition</em>: Supposons que
+<p><em>Proposition</em>: Si
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-est une fonction rationnelle et que <em class="EQ">z &in; J<sub>R</sub></em>.
-Alors <em class="EQ">E<sub>z</sub></em> est complètement invariant.</p>
+est une fonction rationnelle et <em class="EQ">z &in; J<sub>R</sub></em>,
+alors <em class="EQ">E<sub>z</sub></em> est complètement invariant.</p>
 </div>
 
 <p><em>Démonstration</em>: Nous démontrons en premier que
@@ -505,8 +506,8 @@ Nous avons que</p>
 <div class="center">
 <em class="EQ_Display">
 w &in; W<sub>V</sub> &#8658; w = R<sup>m</sup>(v) pour un m &gt;
-0 and v &in; V<br>
-&#8658; R(w) = R<sup>m+1</sup>(v) pour un m &gt; 0 and v &in; V<br>
+0 et v &in; V<br>
+&#8658; R(w) = R<sup>m+1</sup>(v) pour un m &gt; 0 et v &in; V<br>
 &#8658; R(w) &in; W<sub>V</sub> .</em>
 </div>
 <p>Donc <em class="EQ">R(w) &notin; W<sub>V</sub> &#8658; w &notin;
@@ -553,7 +554,7 @@ où <em class="EQ">d</em> est le degré de la fonction rationnelle
 préimage de <em class="EQ">0</em> est <em class="EQ">0</em> de
 multiplicité <em class="EQ">d</em>.  Dans le deuxième cas,
 <em class="EQ">T(z) = z<sup>-d</sup></em> car le seul préimage de
-<em class="EQ">0</em> est <em class="EQ">&infin;</em> de
+<em class="EQ">&infin;</em> est <em class="EQ">0</em> de
 multiplicité <em class="EQ">d</em>.
 En conclusion, <em class="EQ">R</em> est conformément conjuguée à
 <em class="EQ">T</em> définie par
@@ -623,7 +624,8 @@ Supposons que <em class="EQ">v &in; J<sub>R</sub></em> et que
 <em class="EQ">v</em>.  Puisque <em class="EQ">v</em> n'est pas un
 point stable, il existe un entier positif <em class="EQ">n</em> tel que
 <em class="EQ">w &in; R<sup>n</sup>(V)</em> car
-<em class="EQ">&#120020;<sub>R</sub> &cap; J<sub>R</sub> = &emptyset;</em>.
+<em class="EQ">w &in;
+<span class="EQ_Over">&complexes;</span> &setminus; &#120020;<sub>R</sub></em>.
 Donc <em class="EQ">R<sup>-n</sup>({w}) &cap; V &ne; &emptyset;</em>.
 Puisque cela est vrai pour tous les voisinages ouvert de
 <em class="EQ">V</em> de <em class="EQ">v</em>, nous avons que
@@ -661,7 +663,9 @@ Puisque la somme de toutes les déficiences, appelée la
 <em>déficience totale</em>, d'une fonction rationnelle de degré
 <em class="EQ">d</em> est <em class="EQ">2d-2</em>, nous avons que
 <em class="EQ">k &leq; 2</em>.  Le lecteur peut consulter
-P. Blanchard pour la définition de déficience et ses propriétés.
+<script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid1", "_top");
+</script> pour la définition de déficience et ses propriétés.
 <span class="EQ_Right">&#8718;</span></p>
 
 <p>Le prochain résultat est une conséquence de la proposition
@@ -732,7 +736,7 @@ est une fonction rationnelle, alors
 
 <p>Les ensembles de Julia possèdent plus de propriétés intéressantes.
 Nous en énumérons deux ci-dessous.  Plus de propriétés fascinantes
-seront données prochainement.</p>
+seront énoncées prochainement.</p>
 
 <div class="Theo" id="propIV">
 <p><em>Proposition &#8547;</em>: Si
@@ -803,7 +807,7 @@ obtenons que <em class="EQ">J<sub>R</sub>
 est une fonction rationnelle.  Rappelons qu'un point
 <em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>
 est un <em>point périodique</em> de <em>période</em> <em class="EQ">n</em> de
-<em class="EQ">R</em> se <em class="EQ">n</em> est le plut petit
+<em class="EQ">R</em> si <em class="EQ">n</em> est le plut petit
 nombre entier tel que <em class="EQ">R<sup>n</sup>(z) = z</em>.
 Si <em class="EQ">n=1</em>, nous disons que
 <em class="EQ">z</em> est un <em>point fixe</em> de
@@ -819,14 +823,15 @@ orbite périodique de période <em class="EQ">k = n-m</em>.</p>
 
 <p>Supposons que
 <em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>.
-L'<em>orbite (positive)</em> associée à <em class="EQ">z</em> est la
-suite <em class="EQ">O<sub>z</sub> = {z<sub>i</sub>}<sub>i&geq;0</sub></em>
+L'<em>orbite (positive) associée</em> à <em class="EQ">z</em> est la
+suite <em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
 où <em class="EQ"> z<sub>0</sub> = z</em> et
 <em class="EQ">z<sub>i</sub> = R(z<sub>j-1</sub>)</em>
 pour <em class="EQ">j &geq; 1</em>.  En particulier, si
 <em class="EQ">z</em> est un point périodique de période
 <em class="EQ">n</em> de <em class="EQ">R</em>, alors
-<em class="EQ">O<sub>z</sub></em> est une orbite périodique car 
+<em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
+est une orbite périodique car 
 <em class="EQ">z<sub>n</sub>=z<sub>0</sub></em>.</p>
 
 <div class="Theo">
@@ -872,8 +877,8 @@ Nous disons que
 <em class="EQ">H:V &rarr; B<sub>1</sub>(0)</em>, et</li>
 <li> un fonction linéaire <em class="EQ">L</em> définie par
 <em class="EQ">L(z) = &lambda;z</em> pour tous
-<em class="EQ">z &in; &complexes;</em> avec
-<em class="EQ">&lambda; &in; &complexes;</em> un constante</li>
+<em class="EQ">z &in; &complexes;</em> où
+<em class="EQ">&lambda; &in; &complexes;</em> est un constante</li>
 </ul>
 <p>tels que <em class="EQ">H(w) = 0</em> et
 <em class="EQ">H&#8728;R = L&#8728;H</em> sur <em class="EQ">W</em>.</p>
@@ -951,27 +956,28 @@ Supposons que <em class="EQ">w</em>
 est un point fixe neutre d'une fonction rationnelle 
 <em class="EQ">R</em> et que <em class="EQ">R'(w) = &lambda;</em>.
 Pour linéariser <em class="EQ">R</em> au point
-<em class="EQ">w</em>, nous devons trouver une fonction conforme
+<em class="EQ">w</em>, nous devons trouver un homéomorphisme analytique
 <em class="EQ">H</em>, et deux voisinages ouverts
 <em class="EQ">W</em> et <em class="EQ">V</em>
 de <em class="EQ">w</em> tels que <em class="EQ">H(w) = 0</em> et
 <em class="EQ_Display">H&#8728;R = &lambda;H</em>
 sur <em class="EQ">W</em>.  Cette dernière équation est appelée
 <em>l'équation fonctionnelle de Schr&ouml;der</em>.  Il a été
-démontré que s'il existe une fonction conforme qui satisfait
+démontré que s'il existe une fonction <em class="EQ">H</em> qui satisfait
 l'équation fonctionnelle de Schr&ouml;der, alors
 <em class="EQ">w</em> est un point stable.  L'inverse est aussi vrai.
-Il a été aussi démontré qu'aucune fonction conforme satisfait
+Il a été aussi démontré qu'aucune fonction <em class="EQ">H</em> satisfait
 l'équation fonctionnelle de Schr&ouml;der si
 <em class="EQ">&lambda;</em> est une racine de l'unité.
 Même quand <em class="EQ">&lambda;</em> n'est pas une racine de
-l'unité, il peut ne pas y avoir de fonction conforme qui satisfait
+l'unité et <em class="EQ">|&lambda;| = 1</em>, il peut ne pas y avoir
+de fonction <em class="EQ">H</em> qui satisfait 
 l'équation fonctionnelle de Schr&ouml;der.  Par exemple, il a été
-démontré par C. Seigel qu'il n'existe pas de fonction conforme
+démontré par C. Seigel qu'il n'existe pas de fonction <em class="EQ">H</em>
 qui satisfait l'équation fonctionnelle de Schr&ouml;der si
 <em class="EQ">&lambda; = e<sup>2&pi;i&alpha;</em>
-avec <em class="EQ">&alpha;</em> un nombre irrationnel pour lequel il
-existe <em class="EQ">a,b &gt; 0</em> tels que
+avec <em class="EQ">&alpha;</em> un nombre irrationnel pour lequel ils
+existent <em class="EQ">a,b &gt; 0</em> tels que
 <em class="EQ">|&alpha;-p/q|&gt;1/q<sup>b</sup></em>
 pour tous nombres entiers <em class="EQ">p</em> et
 <em class="EQ">q</em>.  La mesure de l'ensemble des
@@ -1001,7 +1007,9 @@ est une fonction rationnelle, alors
 <p>La démonstration de ce théorème peut être divisée en plusieurs
 étapes.  Nous énumérons ces étapes ci-dessus sans donner de
 démonstrations.  La démonstration de chaque étape se trouve dans
-P. Blanchard.  Nous devons premièrement introduire quelques
+<script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid2", "_top");
+</script>.  Nous devons premièrement introduire quelques
 définitions.</p>
 
 <div class="Theo">
@@ -1021,11 +1029,11 @@ si <em class="EQ">R'(w) = 0</em>.</p>
 
 <div class="Theo">
 <p><em>Définition</em>: Le <em>basin d'attraction</em> d'un point fixe
-attractif <em class="EQ">z</em> d'une fonction rationnelle
+(super-) attractif <em class="EQ">z</em> d'une fonction rationnelle
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 est l'ensemble <em class="EQ">W<sup>s</sup>(z,R) =
-{v : R<sup>n</sup>(v) &rarr; z as n &rarr; &infin;}</em>.
+{v : R<sup>n</sup>(v) &rarr; z lorsque n &rarr; &infin;}</em>.
 Le  <em>basin d'attraction immédiat</em> de <em class="EQ">z</em>,
 dénoté <em class="EQ">W<sup>i</sup>(z,R)</em>, est la composante
 connexe de <em class="EQ">W<sup>s</sup>(z,R)</em> qui contient
@@ -1040,7 +1048,7 @@ connexe de <em class="EQ">W<sup>s</sup>(z,R)</em> qui contient
 <em class="EQ">{R<sup>n</sup>}<sub>n&gt;0</sub></em>
 est normal sur <em class="EQ">W<sup>s</sup>(z,R)</em>.  De plus,
 <em class="EQ">W<sup>i</sup>(z,R)</em> est l'ensemble le plus grande 
-qui contient le point fixe attractif <em class="EQ">z</em> et sur
+qui contient le point fixe (super-) attractif <em class="EQ">z</em> et sur
 lequel <em class="EQ">{R<sup>n</sup>}<sub>n&gt;0</sub></em> est normal.</p>
 
 <div class="Theo" id="theoV">
@@ -1048,7 +1056,7 @@ lequel <em class="EQ">{R<sup>n</sup>}<sub>n&gt;0</sub></em> est normal.</p>
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 est une fonction rationnelle et <em class="EQ">z</em> est un point
-fixe attractif de <em class="EQ">R</em>, alors
+fixe (super-) attractif de <em class="EQ">R</em>, alors
 <em class="EQ">&part; W<sup>s</sup>(z,R) = J<sub>R</sub></em>,
 où <em class="EQ">&part;</em> est le symbole utilisé pour dénoter
 la frontière d'un ensemble.</p>
@@ -1071,7 +1079,7 @@ découle de la <script language="javascript">
 estimer les racines de la fonction <em class="EQ">f</em> définie par
 <em class="EQ">f(z) = z<sup>3</sup>-1</em>, nous devons itérer la
 fonction <em class="EQ">R</em> définie par
-<em class="EQ">R(z) = z-f(z)/f'(z) = (2z<sup>3</sup>+1)/)3z<sup>2</sup>)</em>.
+<em class="EQ">R(z) = z-f(z)/f'(z) = (2z<sup>3</sup>+1)/(3z<sup>2</sup>)</em>.
 Le polynôme <em class="EQ">z<sup>3</sup>-1</em> a trois racines dans
 le plan complexe.  <em class="EQ">z=1</em> est évidemment l'une des
 racines.  Puisque <em class="EQ">R'(1) = 0</em>, nous avons que
@@ -1116,18 +1124,20 @@ R(&#120018;<sub>R</sub>) &cup; &#120032;<sub>R</sub></em> est un
 ensemble fini et <em class="EQ">J<sub>R</sub></em> est fermé et
 parfait, nous avons que <em class="EQ">J<sub>R</sub> &subset;
 <span class="EQ_Over">&#120031;<sub>R</sub></span></em>.</li>
-<li>Le nombre d'orbites périodiques attractives de <em class="EQ">R</em>
-est au plus <em class="EQ">2d-2</em>.  C'est un corollaire du fait que
+<li>Le nombre d'orbites périodiques (super-) attractives de
+<em class="EQ">R</em> est au plus <em class="EQ">2d-2</em>.
+C'est un corollaire du fait que
 <em class="EQ">W<sup>i</sup>(z,R<sup>n</sup>)</em> contient au moins
 un point critique si <em class="EQ">z</em> est un point périodique
-attractif.</li>
+(super-) attractif.</li>
 <li>Si <em class="EQ">k<sub>1</sub></em> est le nombre d'orbites
-périodiques attractives et <em class="EQ">k<sub>2</sub></em>
+périodiques (super-) attractives et <em class="EQ">k<sub>2</sub></em>
 est le nombre d'orbites périodiques neutres, alors
 <em class="EQ">k<sub>1</sub>+k<sub>2</sub>/2 &leq; 2d-2</em>.
-Ce résultat est une conséquence du fait qu'au moins 
-<em class="EQ">k<sub>2</sub>/2</em> des orbites périodiques 
-sont des <q lang="en">continuations</q> d'orbite périodiques neutres.</li>
+Ce résultat est une conséquence du fait qu'au moins
+<em class="EQ">k<sub>2</sub>/2</em> des orbites périodiques
+attractives sont des <q lang="en">continuations</q>
+d'orbite périodiques neutres.</li>
 <li>Puisque le nombre d'orbites non-répulsives est fini selon (4), il
 découle de (2) que <em class="EQ">J<sub>R</sub> &subset;
 <span class="EQ_Over">&#120031;<sub>R</sub></span> =
@@ -1148,9 +1158,9 @@ rationnelle, et <em class="EQ">K</em> un sous-ensemble fermé de
 tel que <em class="EQ">K &cap; &#120020;<sub>R</sub> = &emptyset;</em>.
 Si <em class="EQ">V</em> est un voisinage ouvert d'un point
 <em class="EQ">z &in; J<sub>R</sub></em>, alors il existe un nombre
-entier <em class="EQ">k &ge; 0</em> tel que
+entier <em class="EQ">k &gt; 0</em> tel que
 <em class="EQ">K &subset; R<sup>k</sup>(V)</em>.
-En particulier, il existe un nombre entier <em class="EQ">k &ge; 0</em>
+En particulier, il existe un nombre entier <em class="EQ">k &gt; 0</em>
 tel que
 <em class="EQ">J<sub>R</sub> = R<sup>k</sup>(V &cap; J<sub>R</sub>)</em>.
 </div>
@@ -1211,8 +1221,9 @@ une forme d'autosimilarité pour les ensembles de Julia.  Il existe
 une notion de <q lang="en">quasi-autosimilarité</q> pour les ensembles
 de Julia de fonctions rationnelles qui satisfont la définition
 ci-dessous.  Nous n'en dirons pas plus à ce sujet dans ce document.
-Le lecteur peut consulter les références ci-dessous pour plus
-d'information.</p>
+Le lecteur peut consulter les <script language="javascript">
+buildLinK("#REF", "références","MMathSStat", "REDid2", "_top");
+</script> à la fin de ce document pour plus d'information.</p>
 
 <div class="Theo">
 <p><em>Définition</em>: Soit
@@ -1240,7 +1251,8 @@ fixe attractif d'une fonction rationnelle
 <em class="EQ">W<sup>i</sup>(z,R)</em> est soit un ensemble simplement
 connexe ou un ensemble connexe avec un nombre infini de
 <q lang="en">trous</q> (représentés par des composantes connexes
-fermées).</p>
+fermées dans <em class="EQ"><span class="EQ_Over">&complexes;</span>
+&setminus; W<sup>i</sup>(z,R)</em></em>).</p>
 </div>
 
 <p>Dans le dernier cas de la proposition précédente,
@@ -1269,13 +1281,13 @@ l'orbite <em class="EQ"> {R<sup>i</sup>(D)}<sub>i&ge;0</sub></em> dans
 <em class="EQ">S<sub>R</sub></em>.  Un Composante de
 <em class="EQ">S<sub>R</sub></em> est
 <em>éventuellement périodique</em> s'il existe deux nombres entiers
-positifs <em class="EQ">n &gt; m &geq; 0</em> tel que
+positifs <em class="EQ">n &gt; m &geq; 0</em> tels que
 <em class="EQ">R<sup>n</sup>(D) = R<sup>m</sup>(D)</em>.
 Nous avons alors que
 <em class="EQ"> {R<sup>i</sup>(D)}<sub>i&ge;m</sub></em> est une
-orbite périodique dans <em class="EQ">S<sub>R</sub></em> dont sa
+orbite périodique dans <em class="EQ">S<sub>R</sub></em> dont la
 période est un diviseur de <em class="EQ">n-m</em>.
-Le théorème suivant décrits les orbites dans
+Le théorème suivant décrit les orbites dans
 <em class="EQ">S<sub>R</sub></em>.</p>
 
 <div class="Theo">
@@ -1291,7 +1303,7 @@ une fonction rationnelle.  Chaque composante connexe
 <p>Étant donné deux composantes connexes <em class="EQ">D<sub>1</sub></em>
 et <em class="EQ">D<sub>2</sub></em>
 de <em class="EQ">S<sub>R</sub></em>, nous écrivons que
-<em class="EQ">D<sub>1</sub> &sim; D<sub>2</sub></em> si ils
+<em class="EQ">D<sub>1</sub> &sim; D<sub>2</sub></em> s'ils
 appartiennent éventuellement à la même orbite périodique
 dans <em class="EQ">S<sub>R</sub></em>.  C'est un relation
 d'équivalence sur <em class="EQ">S<sub>R</sub></em>.</p>
@@ -1375,8 +1387,10 @@ orbite périodique dans <em class="EQ">S<sub>R</sub></em> appartiennent
 </div>
 
 <p>Il ne semble pas facile de trouver des fonctions rationnelles dont
-l'ensemble des points stables possède des anneaux de Herman rings.
-P. Blanchard affirme que les fonctions rationnelles 
+l'ensemble des points stables possède des anneaux de Herman.
+<script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid3", "_top");
+</script> affirme que les fonctions rationnelles 
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 définies par <em class="EQ">R(z) =
@@ -1385,8 +1399,12 @@ pour certaines valeurs de <em class="EQ">&alpha;</em>
 et <em class="EQ">a</em> ont un ensemble de points stables 
 <em class="EQ">S<sub>R</sub></em> qui contient un anneau de Herman qui
 contient le cercle unité.  L'existence de <em class="EQ">&alpha;</em>
-et <em class="EQ">a</em> est confirmée par un théorème de V. Arnold
-(Voir la référence ci-dessous).</p>
+et <em class="EQ">a</em> est confirmée par un théorème de
+<script language="javascript">
+  buildLinK("#VA", "V. Arnold","MMathSStat", "VAid1", "_top");
+</script> (Voir les <script language="javascript">
+buildLinK("#REF", "références","MMathSStat", "REDid3", "_top");
+</script> à la fin de ce document).</p>
 
 <p>Le résultat suivant est un corollaire du théorème précédent et du
 fait tous les domaines de Sullivan sauf les domaines super-attractifs
@@ -1410,7 +1428,7 @@ précédent que l'ensemble de Julia de
 <em class="EQ"><span class="EQ_Over">&complexes;</span></em>.
 Les points critiques de <em class="EQ">R</em> sont
 <em class="EQ">2</em> et <em class="EQ">&infin;</em>,
-et ils sont tous éventuellement périodique et non périodique car,
+et ils sont tous éventuellement périodiques et non périodiques car,
 pour <em class="EQ">z<sub>0</sub> = 2</em>, nous obtenons l'orbite
 <em class="EQ"> {R<sup>n</sup>(z)}<sub>n&ge;0</sub> =
 {2, 0, &infin;, 1, 1, 1, ...}</em>.</p>
@@ -1477,7 +1495,7 @@ transformation de M&ouml;bius définie par
 <em class="EQ">T = H&#8728;R<sup>k</sup>&#8728;H<sup>-1</sup></em>
 est une fonction rationnelle telle que <em class="EQ">H(A)</em> et
 <em class="EQ">H(B)</em> sont des composantes connexes de l'ensemble
-des points stables de <em class="EQ">T</em> et sont
+des points stables de <em class="EQ">T</em>, et sont
 complètement invariantes sous l'action de <em class="EQ">T</em>.
 De plus, <em class="EQ">&infin; &in; H(B)</em> et
 <em class="EQ">H(A)</em> n'est pas simplement connexe.
@@ -1490,7 +1508,7 @@ a l'allure d'un cercle).  Soit <em class="EQ">W</em> la région
 bornée par <em class="EQ">&gamma;</em> qui ne contient pas 
 <em class="EQ">&infin;</em>.  Nous avons que les
 <em class="EQ">T<sup>n</sup></em> sont des fonctions analytiques
-sur l'ensemble ouvert <em class="EQ">H(A) &cup; W</em>.  Nous notons
+sur l'ensemble ouvert <em class="EQ">H(A) &cup; W</em>.  Notons
 que <em class="EQ">T</em> n'a pas de pôles dans
 <em class="EQ">H(A) &cup; W</em> car
 <em class="EQ">H(B) &cap; (H(A) &cup; W) = &emptyset;</em>,
@@ -1498,7 +1516,7 @@ que <em class="EQ">T</em> n'a pas de pôles dans
 <em class="EQ">H(B)</em> est complètement invariant sous l'action de 
 <em class="EQ">T</em>.
 Ainsi, nous pouvons utiliser la formule d'intégration de 
-Cauchy pour démontrer que
+Cauchy pour démontrer que la famille de fonctions rationnelles
 <em class="EQ">{T<sup>n</sup>}<sub>n&gt;0</sub></em> est
 normale sur <em class="EQ">W</em>.  Plus précisément, nous avons que
 </p>
@@ -1520,7 +1538,7 @@ pour tous <em class="EQ">n &gt; 0</em>.  Il en découle que
 <em class="EQ">z &in; H(A)</em> et tous <em class="EQ">n</em>.  Ainsi
 <em class="EQ">|T<sup>n</sup>(z)| &leq; C</em> pour tous
 <em class="EQ">z &in; &gamma;</em> et tous <em class="EQ">n</em>.
-Ainsi, nous obtenons que</p>
+Nous obtenons que</p>
 <div class="center">
 <em class="EQ_Display">
 |T<sup>n</sup>(w)| = 1/(2&pi;} 
@@ -1573,15 +1591,15 @@ seule composante connexe qui n'est pas simplement connexe.</p>
 
 <div class="Example" id="egC">
 <p><em>Exemple C</em>: Soit <em class="EQ">c</em> une des racines
-non-nulles de <em class="EQ">P<sub>c</sub><sup>2</sup>(c) = 0c</em>.
+non-nulles de <em class="EQ">P<sub>c</sub><sup>2</sup>(c) = c</em>.
 Plus spécifiquement, soit <em class="EQ">c &approx; -0.12256 + 0.74486i</em>.
 L'ensemble de Julia <em class="EQ">J<sub>P<sub>c</sub></sub></em>
 de la fonction <em class="EQ">P<sub>c</sub></em> est dessiné dans la
 figure ci-dessous. Nous avons que
 <em class="EQ">J<sub>P<sub>c</sub></sub></em> est un ensemble connexe.
 L'ensemble <em class="EQ">S<sub>P<sub>c</sub></sub></em> est composé
-d'un nombre infini de de composantes simplement connexe.  Cependant,
-au plus deux de ces composantes sont complètement invariant.
+d'un nombre infini de composantes simplement connexes.  Cependant,
+au plus deux de ces composantes sont complètement invariantes.
 Cet ensemble de Julia est appelé le <em>lapin de Douady</em>.
 Cet ensemble de Julia occupe une
 <q lang="en">position centrale</q> dans l'analyse de l'ensemble de
@@ -1598,8 +1616,8 @@ Mendelbrot dans le <script language="javascript">
 
 <h4>Fonctions polynomiales</h4>
 
-<p>Les prochaines propositions seront utiles pour dessiner les ensemble
-de Julia de fonctions polynomiales.  Un démonstration semblable à la
+<p>Les prochaines propositions seront utiles pour dessiner les ensembles
+de Julia de fonctions polynomiales.  Une démonstration semblable à la
 démonstration de la <script language="javascript">
   buildLinK("#propVIII", "Proposition &#8551;",
   "MMathSStat", "propVIIIID1", "_top");
@@ -1622,7 +1640,7 @@ exceptionnel et un point fixe super-attractif pour une fonction
 polynomiale <em class="EQ">P</em>.
 En particulier, il existe un voisinage ouvert de
 <em class="EQ">&infin;</em> sur lequel <em class="EQ">P</em> est
-analytiquement conjugué à la fonction <em class="EQ">T</em> définie
+conformément conjugué à la fonction <em class="EQ">T</em> définie
 par <em class="EQ">T(z) = z<sup>d</sup></em>
 où <em class="EQ">d</em> est le degré de <em class="EQ">P</em>.
 Puisque <em class="EQ">&infin;</em> est toujours un point stable
@@ -1724,7 +1742,7 @@ une fonction polynomiale.  Les énoncés suivants
 sont équivalents.</p>
 <ul>
 <li> <em class="EQ">P|<sub>W<sup>i</sup>(&infin;,P)</sub></em> est
-analytiquement conjugué à la fonction
+conformément conjuguée à la fonction
 <em class="EQ">T</em> définie par <em class="EQ">T(z) = z<sup>d</sup></em>
 sur l'extérieure d'un cercle centré à l'origine.</li>
 <li> <em class="EQ">W<sup>i</sup>(&infin;,P)</em> est simplement connexe.</li>
@@ -1735,7 +1753,9 @@ sur l'extérieure d'un cercle centré à l'origine.</li>
 </div>
 
 <p>La démonstration de ce résultat n'est pas trop compliquée mais elle
-est longue.  Elle se trouve dans P. Blanchard.  Rappelons que
+est longue.  Elle se trouve dans <script language="javascript">
+buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid4", "_top");
+</script>.  Rappelons que
 <em class="EQ">&#120018;<sub>P</sub></em> est l'ensemble des points
 critiques de <em class="EQ">P</em>.  Le dernier énoncé de la
 proposition précédente dit que les orbites des points critiques sont
@@ -1778,7 +1798,9 @@ et <em class="EQ">P|<sub>J<sub>P</sub></sub></em> est conjugué
 à une application de décalage sur <em class="EQ">d</em> symboles.</p>
 </div>
 
-<p>La démonstration se trouve dans P. Blanchard.</p>
+<p>La démonstration se trouve dans <script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid5", "_top");
+</script>.</p>
 
 <div class="Example">
 <p><em>Exemple</em>: À l'<script language="javascript">
@@ -1821,10 +1843,12 @@ critique de <em class="EQ">P<sub>c</sub></em> où
 <em class="EQ">c &approx; -0.12256 + 0.74486i</em>, et la suite
 <em class="EQ">P<sup>n</sup><sub>c</sub>(0)</em> est borné car
 <em class="EQ">{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em>
-<q lang="en">approche</q> l'orbite périodique
+<q lang="en">approche</q> l'orbite périodique</p>
+<div class="EQ_Scroll">
 <em class="EQ">{-0.1226... + 0.7449... i, -0.6624... + 0.5623... i,
 -3.9415...&times;10<sup>-6</sup> + 1.6474...&times;10<sup>-6</sup> i}</em>.
-Il découle de la <script language="javascript">
+</div>
+<p>Il découle de la <script language="javascript">
   buildLinK("#propIX", "Proposition &#8552;",
   "MMathSStat", "propVIXID7", "_top");
 </script>
@@ -1846,7 +1870,7 @@ degré <em class="EQ">2</em>, alors nous avons de la
   "MMathSStat", "theoXID1", "_top");
 </script>
 que <em class="EQ">J<sub>P</sub></em> est un ensemble connexe si
-l'orbite de son point critique fini est borné, et
+l'orbite de son point critique fini est bornée, et
 <em class="EQ">J<sub>P</sub></em> est totalement discontinu autrement.</p>
 
 <p> Il y a beaucoup plus de résultats sur les ensembles de Julia et
@@ -1861,11 +1885,11 @@ qui sont toujours sans solutions.</p>
 fonction rationnelle
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-est basé sur la
+repose sur la
 <script language="javascript">
   buildLinK("#propI", "Proposition &#8544;",
   "MMathSStat", "propIID5", "_top");
-</script>.  En particulier, si on peut trouver un point
+</script>.  En particulier, si nous pouvons trouver un point
 <em class="EQ">w &in; J<sub>R</sub></em>, alors
 <em class="EQ">J<sub>R</sub></em> est la fermeture de
 <em class="EQ">&#8899;<sub>n&gt;0</sub> R<sup>-n</sup>({w})</em>.
@@ -1877,10 +1901,10 @@ document
 <script language="javascript">
   buildLinK(matlabProgr.url_fr+"#Sect28", matlabProgr.text_fr+" in Matlab",
   "MMathSStat", matlabProgr.id, matlabProgr.target);
-</script>.  Donc, cette méthode est réservé pour les situations où
+</script>.  Donc, cette méthode est réservée pour les situations où
 nous avons accès à un bon ordinateur avec un écran d'ordinateur de
-haute résolution.  Pour une application, comme celle ci-dessous,
-écrite en JavaScript pour être utilisée sur un site Internet, il est
+haute résolution.  Pour une application, comme celle ci-dessous, qui est
+écrite en JavaScript et qui est utilisée pour un site Internet, il est
 préférable d'utiliser la méthode moins exigeante décrite ci-dessous.</p>
 
 <p>Dans la suite de cette section, nous considérons la fonction
@@ -1932,18 +1956,20 @@ pour obtenir </p>
 <em class="EQ_Display">|P<sub>c</sub><sup>2</sup>(w)|
 = |P<sub>c</sub>(P<sub>c</sub>(w))|
 &gt; |P<sub>c</sub>(w)|(1 + &delta;)
-&gt; = |w|(1 + &delta;)<sup>2</sup> .
+&gt; |w|(1 + &delta;)<sup>2</sup> ,
 </em>
 </div>
-<p>Par induction, nous avons que</p>
+<p>où la première inégalité est valide car 
+<em class="EQ">|P<sub>c</sub>(w)| &gt; K</em>.
+Par induction, nous avons que</p>
 <div class="center">
 <em class="EQ_Display">|P<sub>c</sub><sup>n</sup>(w)|
 &gt; |w|(1 + &delta;)<sup>n</sup> &rarr; &infin;
 </em>
 </div>
 <p>lorsque <em class="EQ">n &rarr; &infin;</em>. Nous avons donc que
-<em class="EQ">W<sup>s</sup>(&infin;,P<sub>c</sub>) = {z &in; &complexes; :
-  |P<sub>c</sub><sup>n</sup>(w)| > K pour une valeur de n}</em>.</p>
+<em class="EQ">W<sup>s</sup>(&infin;,P<sub>c</sub>) = {w &in; &complexes; :
+|P<sub>c</sub><sup>n</sup>(w)| > K pour une valeur de n}</em>.</p>
 
 <p>Dans le but de dessiner des ensembles de Julia pleins, nous
 choisissons un grand nombre
@@ -1969,7 +1995,7 @@ vide si la majorité des pixels de l'écran d'ordinateur ne sont pas associés
 <p>Nous pouvons utiliser l'application graphique ci-dessous
 pour dessiner des ensembles de Julia pleins.  Étant donné un nombre
 complexe <em class="EQ">c</em>, les points <em class="EQ">z</em>
-du plan complexe coloré en noire sont des points qui appartiennes
+du plan complexe qui sont colorés en noire sont des points qui appartiennent
 à l'ensemble <em class="EQ">&#120570;<sub>c</sub></em>.  La frontière 
 de la région en noire est donc <em>l'ensemble de Julia</em> de
 <em class="EQ">P<sub>c</sub></em>.</p>
@@ -2008,18 +2034,20 @@ car le contenu de ces champs n'est pas évalué mathématiquement.</p>
 <p>Le contenu de ce document est principalement basé sur les livres et
 articles suivants.</p>
 
-<ul>
-<li>P. Blanchard, <em>Complex Analytic Dynamics of the Riemann Sphere</em>,
-Bull. Amer. Math. Soc. (N.S.) <em>11</em> (1984), 85-141.</li>
-<li>R. L. Devenay, <em>An Introduction to Chaotic Dynamical Ssystems</em>, 
-The Benjamin/Cummings Publishing Co., Inc. (1986).</li>
-<li> L. Keen, <em>Julia Sets</em>, in
+<ul id="REF">
+<li id="VA">V. Arnold, <em>Small denominators: I: On the mappings of
+the circumference onto itself</em>, Amer. Math. Soc. Transl. (2)
+<em>46</em> (1965), 213-284.</li>
+<li id="PB">P. Blanchard, <em>Complex Analytic Dynamics of the Riemann
+Sphere</em>, Bull. Amer. Math. Soc. (N.S.) <em>11</em> (1984), 85-141.</li>
+<li id="RD">R. L. Devenay, <em>An Introduction to Chaotic Dynamical
+Ssystems</em>, The Benjamin/Cummings Publishing Co., Inc. (1986).</li>
+<li id="LK"> L. Keen, <em>Julia Sets</em>, in
 <em>Chaos and Fractals: The Mathematics Behind the Computer Graphics</em>,
 R. L. Devaney and L. Keen, Editors, Proceeding of symposia in applied
 mathematics, AMS short course lecture notes (1989), 57-74.</li>
-<li>V. Arnold, <em>Small denominators: I: On the mappings of the circumference
-onto itself</em>, Amer. Math. Soc. Transl. (2) <em>46</em> (1965),
-213-284.</li>
+<li id="PJS">H.-O. Peitgen, H. j&#252;rgens and D. Saupe, <em>Chaos
+and Fractals: New Frontiers of Science</em>, Springer-Verlag (1992).</li>
 </ul>
 
 <table class="noB">
