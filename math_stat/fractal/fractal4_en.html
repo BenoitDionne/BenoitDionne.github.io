@@ -367,7 +367,7 @@ is a rational function, then
 </div>
 
 <p><em>Proof</em>: The proof is by contradiction.  If
-<em class="EQ">J<sub>R</sub> = &emptyset;</em>, then
+<em class="EQ">J<sub>R</sub> = &emptyset; &#8709; &empty; &varnothing;</em>, then
 <em class="EQ"> &#120021; = {R<sup>n</sup>}<sub>n&gt;0</sub></em>
 is normal on
 <em class="EQ"><span class="EQ_Over">&complexes;</span></em>.
@@ -630,6 +630,49 @@ note that <em class="EQ">&#8899;<sub>n&gt;0</sub> R<sup>-n</sup>({w})
 <em class="EQ">R</em> is completely invariant.
 <span class="EQ_Right">&#8718;</span></p>
 
+<div class="Theo">
+<p><em>Definition</em>: A <em>critical point</em> of a rational
+function <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
+&rarr; <span class="EQ_Over">&complexes;</span></em> is a point
+<em class="EQ">w &in; <span class="EQ_Over">&complexes;</span> </em>
+where <em class="EQ">R</em> fails to be a local homeomorphism.
+A <em>critical value</em> of <em class="EQ">R</em>
+is the image by <em class="EQ">R</em> of a critical point of
+<em class="EQ">R</em>.</p>
+</div>
+
+<p>From the definition of the derivative of a function in complex
+analysis, we have that a point <em class="EQ">w &ne; &infin;</em> is a
+critical point if <em class="EQ">R'(w) = 0</em>.</p>
+
+<div class="Theo">
+<p><em>Definition</em>: Let
+<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
+&rarr; <span class="EQ_Over">&complexes;</span></em> be a rational
+function of degree <em class="EQ">d</em>.  The <em>deficiency</em> of
+<em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>
+is the value <em class="EQ">d - |R<sup>-1</sup>({z})|</em>, where
+<em class="EQ">|R<sup>-1</sup>({z})|</em> is the number of elements in
+the set <em class="EQ">R<sup>-1</sup>({z})</em>.
+The <em>total deficiency</em> of <em class="EQ">R</em> is the sum
+of the deficiency of <em class="EQ">z</em> for all
+<em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>.</p>
+</div>
+
+<p>The deficiency of
+<em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>
+is non-null if and only if <em class="EQ">z</em> is a critical point
+of the rational function
+<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
+&rarr; <span class="EQ_Over">&complexes;</span></em>.  Moreover, the
+total deficiency of a rational function <em class="EQ">R</em>
+of degree <em class="EQ">d</em> is <em class="EQ">2d-2</em>.
+This implies in particular that the number of critical points of
+<em class="EQ">R</em> is at most <em class="EQ">2d-2</em>.
+The reader should consult <script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid1", "_top");
+</script> for the proofs of the properties of the deficiency.</p>
+
 <div class="Theo" id="propII">
 <p><em>Proposition &#8545;</em>: If <em class="EQ">J</em> is a
 completely invariant set under the action of a rational function
@@ -650,13 +693,9 @@ for <em class="EQ">1&leq;j&leq;k</em>.  Suppose that the degree
 of <em class="EQ">R<sup>n</sup></em> is <em class="EQ">d</em>.
 Since each <em class="EQ">z<sub>j</sub></em> has only itself as 
 preimage, the <em>deficiency</em> of each <em class="EQ">z<sub>j</sub></em> is
-<em class="EQ">d-1</em>.  Since the sum of all deficiencies, called
-the <em>total deficiency</em>, of a rational function of degree
-<em class="EQ">d</em> is <em class="EQ">2d-2</em>, we have
-that <em class="EQ">k &leq; 2</em>.  The reader should consult
-<script language="javascript">
-  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid1", "_top");
-</script> for the definition of deficiency and its properties.
+<em class="EQ">d-1</em>.  Since total deficiency (i.e. the sum of all
+deficiencies) is <em class="EQ">2d-2</em>, we have that
+<em class="EQ">k &leq; 2</em>.
 <span class="EQ_Right">&#8718;</span></p>
 
 <p>The next result follows from the previous proposition.</p>
@@ -991,22 +1030,7 @@ is a rational function, then
 We list these steps below without proving them.  A proof of each step
 can be found in <script language="javascript">
   buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid2", "_top");
-</script>.  We first need to introduce some definitions.</p>
-
-<div class="Theo">
-<p><em>Definition</em>: A <em>critical point</em> of a rational
-function <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> is a point
-<em class="EQ">w &in; <span class="EQ_Over">&complexes;</span> </em>
-where <em class="EQ">R</em> fails to be a local homeomorphism.
-A <em>critical value</em> of <em class="EQ">R</em>
-is the image by <em class="EQ">R</em> of a critical point of
-<em class="EQ">R</em>.</p>
-</div>
-
-<p>From the definition of the derivative of a function in complex
-analysis, we have that a point <em class="EQ">w &ne; &infin;</em> is a
-critical point if <em class="EQ">R'(w) = 0</em>.</p>
+</script>.  We first need to introduce a definition.</p>
 
 <div class="Theo">
 <p><em>Definition</em>: The <em>basin of attraction</em> of a
@@ -1036,7 +1060,7 @@ the (super-) attracting fixed point <em class="EQ">z</em> and on which
 <p><em>Proposition</em>: If
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-is rational function and <em class="EQ">z</em> is an (super-) attractive fixed
+is rational function and <em class="EQ">z</em> is a (super-) attractive fixed
 point of <em class="EQ">R</em>, then
 <em class="EQ">&part; W<sup>s</sup>(z,R) = J<sub>R</sub></em>,
 where <em class="EQ">&part;</em> is the symbol used to denote the
@@ -1063,7 +1087,7 @@ roots of the function <em class="EQ">f</em> defined by
 The polynomial <em class="EQ">z<sup>3</sup>-1</em> has three roots in
 the complex plane.  <em class="EQ">z=1</em> is obviously one of them.
 Since <em class="EQ">R'(1) = 0</em>, we have that <em class="EQ">z=1</em>
-is an (super-) attracting fixed point.  The region in black in the
+is a (super-) attracting fixed point.  The region in black in the
 following figure
 is <em class="EQ">W<sup>s</sup>(1,R)</em>.  Its boundary is the Julia
 set <em class="EQ">J<sub>R</sub></em> of <em class="EQ">R</em>.</p>
@@ -1637,7 +1661,7 @@ with a similar proof for polynomial functions.</p>
 <em class="EQ">P:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 be a polynomial function.  If all the critical points of
-<em class="EQ">R</em> except for <em class="EQ">&infin;</em>
+<em class="EQ">P</em> except for <em class="EQ">&infin;</em>
 are eventually periodic, and none of the finite periodic points
 is a critical point, then <em class="EQ">
 <span class="EQ_Over">&complexes;</span>
@@ -1652,8 +1676,8 @@ proposition have a special name.</p>
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 be a rational function.  If the stable set
-<em class="EQ">S<sub>R</sub></em> is composed of only one
-simply connected component and the Julia set
+<em class="EQ">S<sub>R</sub></em> is composed of only one connected and
+simply connected component, and the Julia set
 <em class="EQ">J<sub>R</sub></em> is locally connected, then 
 <em class="EQ">J<sub>R</sub></em> is called
 a <em>dendrite</em>.</p>
