@@ -82,13 +82,16 @@ function draw_julia(cnvs, ctxt, Dim, Mid, RM, C, R, K, nbr) {
 	for ( var j=1 ; j<Dim[1] ; ++j ) {
 	    var x = R[0]*(i - Mid[0])/(Mid[0]) + RM[0];
 	    var y = R[1]*(Mid[1] - j)/(Mid[1]) + RM[1];
+            var xs = x**2;
+            var ys = y**2;
 	    var x1, y1;
 
 	    for ( var k = 1 ; k < nbr ; ++k ) {
-		x1 = x**2 - y**2 + C[0];
+		x1 = xs - ys + C[0];
 		y1 = 2*x*y + C[1];
-
-		if ( x1**2 + y1**2 > K2 ) {
+		xs = x1**2;
+		ys = y1**2;
+		if ( xs + ys > K2 ) {
 		    flag = 1;
 		    break;
 		}
@@ -113,10 +116,16 @@ function drawPixel(x, y, r, g, b, a, dim, cnvs_data) {
     cnvs_data.data[index + 3] = a;
 }
 
-function clearCanvas(name) {
+function clearCanvasText(name, text1, text2, defaultText1, defaultText2) {
     var cnvs = document.getElementById(name);
     if ( cnvs != null ) {
 	var ctx = cnvs.getContext("2d");
 	ctx.clearRect(0,0,cnvs.width,cnvs.height);
     }
+    val1 = getValueElement(defaultText1);
+    if ( val1 != null )
+	setValueElement(text1,val1);
+    val2 = getValueElement(defaultText2);
+    if ( val2 != null )
+	setValueElement(text2,val2);
 }

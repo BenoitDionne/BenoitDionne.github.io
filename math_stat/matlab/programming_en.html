@@ -94,8 +94,12 @@ main_title( MStext, "MMathSStat");
       "MMathSStat", "sect125D", "_top");
   </script> </li>
   <li> <script language="javascript">
-      buildLinK("#Sect28", "Julia and Mendelbrot Sets",
+      buildLinK("#Sect28", "Julia Sets",
       "MMathSStat", "sect128D", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect29", "Mendelbrot Set",
+      "MMathSStat", "sect129D", "_top");
   </script> </li>
   <li> <script language="javascript">
       buildLinK("#Sect26", "Exporting Arrays to LaTeX",
@@ -1142,7 +1146,7 @@ The figure has been drawn
 
 <hr class="MMathSStat">
 
-<h3 id="Sect28"> Julia and Mandelbrot Sets </h3>
+<h3 id="Sect28"> Julia Sets </h3>
 
 <p>It is shown in the document
 <script language="javascript">
@@ -1194,7 +1198,7 @@ limit on the number of backward iterations is about 20.  </p>
 % Draw the Julia set of p_c(z) = z^2 + c.
 %
 % c : Any complex number.  The default value is i.
-% N : The number of iterations.  The default value is 17.
+% N : The number of backward iterations.  The default value is 17.
 % colour : One of the colours accepted in Matlab plot/fill.
 %          The default colour is blue.
 %
@@ -1253,15 +1257,13 @@ limit on the number of backward iterations is about 20.  </p>
         y = [ v , -v ];
 
         % We draw the points.
-        plot(x,y,'.','LineWidth',0.1);
+        plot(x,y,'.','LineWidth',0.1,'Color',colour);
 
         % Go on with the next iteration (if there is one).
         x = [ u , -u ] - real(c);
         y = [ v , -v ] - imag(c);        
         hold on
     end
-    h = gca;
-    set(h.Children,'Color',colour);
     axis equal;
     grid on
     title(['p(z) = z^2 + ',num2str(real(c)),' + ',num2str(imag(c)),'i']);
@@ -1281,7 +1283,7 @@ figure below.</p>
 1.618034 + 0.000000 i is a repelling fixed point if c ~= 1/4.
 We use 1.618034 + 0.000000 i as starting point.
 The drawing is completed.
-</font></pre>
+</pre>
 
 <div class="center"> 
   <img src="Matlab_Julia1.png" style="width: 400px"
@@ -1384,15 +1386,13 @@ computer screen.</p>
         end
 
         % We draw the point.
-        plot(x,y,'.','LineWidth',0.1);
+        plot(x,y,'.','LineWidth',0.1,'Color',colour);
         
         % Go on with the next iteration (if there is one).
         x = x - real(c);
         y = y - imag(c);        
         hold on
     end
-    h = gca;
-    set(h.Children,'Color',colour);
     axis equal;
     grid on
     title(['p(z) = z^2 + ',num2str(real(c)),' + ',num2str(imag(c)),'i']);
@@ -1412,7 +1412,7 @@ end
 1.618034 + 0.000000 i is a repelling fixed point if c ~= 1/4.
 We use 1.618034 + 0.000000 i as starting point.
 The drawing is completed.
-</font></pre>
+</pre>
 
 <div class="center"> 
   <img src="Matlab_Julia2.png" style="width: 400px"
@@ -1430,118 +1430,232 @@ method.</p>
 </script> that, if \(z\) is an attracting fixed point
 of a rational function \(R: \overline{\mathbb{C}} \to \overline{\mathbb{C}} \),
 then \(J_R = \partial W^s(z,R)\); namely, the Julia set of \(R\) is the
-boundary of the basin of attraction of \(z\).  This
-property is used in the document <script language="javascript">
-  buildLinK(fractal4.url_en,fractal4.text_en,
-  "MMathSStat", fractal4.id, fractal4.target);
-</script> to draw the filled Julia sets for the polynomial functions
-\(P_c\).  The fixed point of the polynomial functions
-\(P_c\) that is used is \(\infty\).  We provide below
-a <em>Matlab</em> function that can be used to draw the filled Julia
-set of a rational function
+boundary of the basin of attraction of \(z\).  We provide below
+a <em>Matlab</em> function that can be used to draw the basin of
+attraction of an attracting fixed point of a rational function
 \(R: \overline{\mathbb{C}} \to \overline{\mathbb{C}} \)
-if a attracting fixed point is known.  The code for this
+if an attracting fixed point is known.  The code for this
 <em>Matlab</em> function is
 found in the <em>m-file</em> <script language="javascript">
 buildLinK("julia3.m", "julia3.m","MMathSStat", "id7", "_blank");
-</script>. </p>
+</script>.  Great care must be given to the choice of the necessary
+and sufficient condition to determine if a point belongs to the basin
+of attraction of an attracting fixed point.</p>
 
-<p>Great care must be given to the choice of the sufficient condition
-to determine if a point belongs to the basin of attraction of an
-attracting fixed point.  For the polynomial functions \(P_c\), 
-it was shown in the document <script language="javascript">
+<p>The property mentioned in the previous paragraph is used in the
+document <script language="javascript"> 
+buildLinK(fractal4.url_en,fractal4.text_en,
+  "MMathSStat", fractal4.id, fractal4.target);
+</script> to draw the filled Julia sets for the polynomial functions
+\(P_c\).  The filled Julia set of \(P_c\) is the complement of the
+basin of attraction of the fixed point \(\infty\) of \(P_c\).  For the
+polynomial functions \(P_c\), it was shown in the
+document <script language="javascript"> 
   buildLinK(fractal4.url_en,fractal4.text_en,
   "MMathSStat", fractal4.id, fractal4.target);
-</script> that \(z \in W^s(\infty,R)\) if
-\(R^n(z) > \max\{|c|,2\}\) for some \(n \in \mathbb{N}\).
-It is often much harder to find a sufficient condition for other
-rational functions.</p>
+</script> that \(z \in W^s(\infty,P_c)\) if
+\(P_c^n(z) > \max\{|c|,2\}\) for some \(n \in \mathbb{N}\).
+It is often much harder for other rational functions to find a
+necessary and sufficient condition to determine if a point belongs to
+the basin the attraction of an attracting fixed point.</p>
 
 <div class="Code">
 <pre class="matlab">
-% function julia3(R, D, Q, N, M, rev, colour)
+% function julia3(R, FxPts, options)
 %
-% Draw the Julia set of the rational function R.
+% Draw the basin of attraction of the given attracting fixed points of
+% the rational function R.  The boundary of these basins of attraction
+% is the Julia set of the rational function R.
 %
-% R : The name of a function between apostrophes or the handle of
-%     a function.
-% D = [a b c d] : Only the portion of the Julia set inside the 
-%                 region [a,b] x [c,d] is displayed.
-% Q : The name of a function between apostrophes or the handle of
-%     a function.  This function is the condition to determine if a
-%     point belongs to the basin of attraction of a fixed point.
-%     Let z_0 = z and z_{n+1} = r(z_n).  If  Q(z_n) > 0 for some n < N,
-%     we assume that z is in the basin of attraction.  Otherwise, we
-%     assume that z is not in the basin of attraction.
-% N : The number of iterations to determine if a point belongs to the
-%     basin of attraction of a fixed point.  The default value is 50.
-% M : The number of points per unit length.  The default value is 50.
-% rev : If set to a negative value, the complement of the basin of
-%       attraction is drawn to get the filled Julia set.  The default value
-%       is 1.
-% colour : One of the colours accepted in Matlab plot/fill.
-%          It is used for the points that are parts of bounded orbits.
-%          The default colour is blue.
+% R is the name of a function between apostrophes or the handle of
+% a function.
+% FxPts is an array of the form [p(1) p(2) ... p(n)] where the p(i)
+% are fixed points.  One of the p(i) can be the infinity denoted Inf.
+% If the only fixed point given is Inf, the program follows the
+% tradition when drawing filled Julia sets.  It colours only the
+% points associated to bounded orbits with the given colour or the
+% default colour if no colour is given.
 %
-%     Example: To produce the fille Julia sets for P_c defined by
-%     P_c(z) = z^2 + c.
-%     >> c = -0.12256 + 0.74486i.
-%     >> P = @(z) z.^2 + c;
-%     >> K = max(abs(c),2);
-%     >> Q = @(z) abs(z) - K;
-%     >> julia3(P,[-K K -K K],Q,50,100,-1,'k');
+% List of options:
+% 'Region' is an array of the form [a b c d].  The portion of the
+%          Julia set inside the region [a,b] x [c,d] is displayed.
+%          The default region is [-2,2]x[-2,2].
+% 'NbrItr' is the number of iterations to determine if a point
+%          belongs to the basin of attraction of a fixed point.
+%          The default value is 50.
+% 'Density' is a positive integer.  This the number of points per
+%           unit used to plot the basins of attraction.  The default
+%           value is 200.
+% 'Tols' is an array that may have 1 element or the same number of
+%        elements as FxPts.  A point z belongs to the basin of
+%        attraction of the fixed point p(i) if
+%        |R^n(z) - FxPts(i)| < Tols(i) for
+%        two consecutive values of n <= NbrItr.  If there is only
+%        one element in Tols, then this tolerance is used for all the
+%        fixed points.   The default value is  10^(-5).
+%        If FxPts(i) = Inf for some i, then Tols must be of the same
+%        size as FxPts.  A point is declared to belong to the basin
+%        of attraction of Inf if |R^n(z)| > Tols(i) for some n <= NbrItr.
+% 'Colours' is a cell array of the form  {'col1' ,'col2', ... } where
+%           col1, col2, ... are colours allowed by Matlab.  This cell
+%           array may have 1 element or the same number of elements 
+%           as FxPts.  If only one colour is given, then different
+%           intensity of this colour are used to colour the
+%           basins of attraction.  The default colour is black.
+% 'BckCol' is the background colour of the figure.  Only colours allowed
+%          by Matlab are accepted.  The default colour is white.
 %
+<font class="matlab">function julia3(R, FxPts, varargin)
+    if ( ~isa(R, 'function_handle') && ~exist(R,'file') == 2 )
+        disp('A function must be given.')
+        disp('Use the help command for more information.');
+        return;
+    end
+    if ( length(FxPts) == 0 )
+        disp('At least one fixed point must be given.')
+        disp('Use the help command for more information.');
+        return;
+    end
 
-function julia3(R, D, Q, N, M, rev, colour)
-    if ( nargin < 7 )
-        colour = 'blue';
-        if ( nargin < 6 )
-            rev = 1;
-            if ( nargin < 5 )
-                M = 50;
-                if ( nargin < 4 )
-                    N = 50;
-                    if ( nargin < 3 )
-                        disp('Not enough arguments.');
-                        disp('Use the help command for more information.');
-                        return
-                    end
-                end
+    % Default values:
+    region = [-2 2 -2 2];
+    nbrItr = 50;
+    density = 200;
+    tols = [10^(-5)];
+    colours = {'black'};
+    bckCol = 'white';
+
+    while ( ~isempty(varargin) )
+        switch lower(varargin{1})
+          case 'region'
+             region = varargin{2};
+          case 'nbritr'
+             nbrItr = varargin{2};
+          case 'density' 
+            density = varargin{2};
+          case 'tols'
+            tols = varargin{2};
+          case 'colours'
+            colours = varargin{2};
+          case 'bckcol'
+            bckCol = varargin{2};
+          otherwise
+            disp("Unknown option: "+varargin{1});
+        end
+        varargin = varargin(3:length(varargin));
+    end
+
+    nFxPts = length(FxPts);
+    pTols = [];
+    nTols = length(tols);
+    % Reset tols to its default if necessary.
+    if ( nTols == 0 )
+        tols = [10^(-5)];
+        nTols = 1;
+        disp('The default tolerance is used.')
+    end
+    if ( nTols == nFxPts )
+        pTols = tols;
+    else
+        if ( nTols > 1 && nTols < nFxPts )
+            disp('Not enough tolerances have been given, we use')
+            disp('only the first given tolerance.')
+            disp('Use the help command for more information.');
+        end
+        pTols = ones(1,nFxPts)*tols(1);
+    end
+
+    pColours = {};
+    nColours = size(colours,2);
+    % Reset Colours to its default if necessary.
+    if ( nColours == 0 )
+        colours = { 'black' };
+        nColours = 1;
+        disp('The default colour is used.')
+    end
+    if ( nColours == nFxPts )
+        pColours = colours;
+    else
+        if ( nColours > 1 && nColours < nFxPts )
+            disp('Not enough colours have been given, we use')
+            disp('only the first given colour.')
+            disp('Use the help command for more information.');
+        end
+        rgbColor = validatecolor(colours{1});
+        if ( sum(rgbColor) == 0 )
+            % The black colour needs to be treated as the white colour
+            % in "reverse order".
+            for j = 1:nFxPts
+                pColours{j} = ...
+                    ['[',num2str((nFxPts-j+2)/(nFxPts+3)*ones(1,3)),']'];
+            end
+        else
+            for j = 1:nFxPts
+                pColours{j} = ...
+                    ['[',num2str((nFxPts-j+2)/(nFxPts+3)*rgbColor),']'];
             end
         end
     end
-    
-    if ( rev < 0 )
-        rev = -1;
-    end
-    
-    M1 = round((D(2)-D(1))*M);
-    M2 = round((D(4)-D(3))*M);
-    x = linspace(D(1),D(2),M1);
-    y = linspace(D(3),D(4),M2);
+
+    mx = round((region(2)-region(1))*density);
+    my = round((region(4)-region(3))*density);
+    x = linspace(region(1),region(2),mx);
+    y = linspace(region(3),region(4),my);
 
     figure;
     for k1 = 1:length(x)
         for k2 = 1:length(y)
-            flag = -1;
-            w = x(k1) + i*y(k2);
-            for k3 = 1:N
-                w = feval(R,w);
-                if ( feval(Q,w) > 0 )
-                    flag = 1;
-                    break;
+            flag = 0;
+            w1 = x(k1) + i*y(k2);
+            if ( nFxPts == 1 && FxPts(1) == Inf )
+                for k = 1:nbrItr
+                    w2 = feval(R,w1);
+                    if ( abs(w2) > pTols(1) )
+                        flag = 1;
+                        break;
+                    end
+                    w1 = w2;
                 end
-            end
-            if ( flag == rev )
-                plot(x(k1),y(k2),'.','LineWidth',0.1);
-                hold on
+                if ( flag == 0 )
+                    plot(x(k1),y(k2),'.','color',pColours{1},'LineWidth',0.1);
+                    hold on;
+                end
+            else
+                for k3 = 1:nbrItr
+                    w2 = feval(R,w1);
+                    for k4 = 1:nFxPts
+                        if ( FxPts(k4) == Inf )
+                            if ( abs(w1) > pTols(k4) && abs(w2) > pTols(k4) )
+                                plot(x(k1),y(k2),'.','LineWidth',0.1, ...
+                                     'Color',pColours{k4});
+                                hold on
+                                flag = 1;
+                                break;
+                            end
+                        else
+                            if ( abs(w1-FxPts(k4)) < pTols(k4) && ...
+                                 abs(w2-FxPts(k4)) < pTols(k4) )
+                                plot(x(k1),y(k2),'.','LineWidth',0.1, ...
+                                     'Color',pColours{k4});
+                                hold on
+                                flag = 1;
+                                break;
+                            end
+                        end
+                    end
+                    if ( flag == 1 )
+                        break;
+                    end
+                    w1 = w2;
+                end
             end
         end
     end
-    h = gca;
-    set(h.Children,'Color',colour);
-    axis(D);
+    axis(region);
     axis equal;
+    grid on
+    set(gca,'Color',bckCol);
+
     if ( isa(R,'function_handle') )
         if ( exist(func2str(R), 'file') ~= 2 && ...
              exist(func2str(R), 'builtin') ~= 5 )
@@ -1552,7 +1666,7 @@ function julia3(R, D, Q, N, M, rev, colour)
     else
         title(['R(z) = ',R,'(z)']);
     end
-    grid on
+
     hold off
     display('The drawing is completed.');
 end
@@ -1560,14 +1674,15 @@ end
 </div>
 
 <p>The following example is a classical example that is found in
-almost all the textbooks on Julia and Mandelbrot sets.</p>
+almost all the textbooks on Julia sets and the Mandelbrot set.</p>
 
 <div class="Example">
 <p><em>Example</em>: If we use Newton's method to approximate the roots of
 the function \(f\) defined by \(f(z) = z^3 -1\), we have to iterate the function
 \(R\) defined by
 \(\displaystyle R(z) = z - \frac{f(z)}{f'(z)} = \frac{2 z^3 + 1}{3 z^2}\). 
-The polynomial \(z^3-1\) has three roots in the complex plane.  They
+The polynomial \(z^3-1\) has three roots in the complex plane;
+\(1\), \((1+\sqrt{3}i)/2\) and \((1-\sqrt{3}i)/2\).  They
 are the fixed points of \(R\).  The initial value \(z_0\) has to be
 chosen with care if we want that the sequence
 \(\displaystyle \{z_j\}_{j=0}^\infty\) with \(z_{j+1} = R(z_j)\)
@@ -1577,21 +1692,1150 @@ in the figure below is the basin of attraction of the attracting fixed
 point \(1\) of \(R\) in the rectangle \(K\).  The boundary of this 
 region represents the Julia set of \(R\) inside the rectangle \(K\).
 To produce the figure below, we have used the condition that a point \(z\)
-belongs to the basin of attraction of \(1\) if
-\(|R^n(z) -1| < 10^{-3}\) for some \(n \in \mathbb{N}\).</p> 
+belongs to the basin of attraction of a fixed point \(p\) if
+\(|R^n(z) - p| < 10^{-3}\) for some \(n \in \mathbb{N}\).  This is
+a necessary condition but not a sufficient one.  It is not even
+necessary if we restrict \(n\) to a finite subset of
+\(\mathbb{N}\) as it is done in the
+function <em class="matlab">julia3</em>.  We nevertheless get
+an acceptable figure.</p> 
 
 <pre class="matlab">
 >> <font class="matlab">R = @(z) (2*z^3 + 1)/(3*z^2);</font>
->> <font class="matlab">Q = @(z) 0.001 - abs(z-1);</font>
->> <font class="matlab">D = [-2 2 -2 2];</font>
->> <font class="matlab">julia3(R,D,Q,50,100,1,'k')</font><br>
+>> <font class="matlab">r1 = 1;</font>
+>> <font class="matlab">r2 = 1/2+sqrt(3)*i/2;</font>
+>> <font class="matlab">r3 = 1/2-sqrt(3)*i/2;</font>
+>> <font class="matlab">julia3(R,[r1 r2 r3],'Tols',[0.001 0.001 0.001], ...
+   'Colours',{'black','white','white'},'Density',200,'Region',[-2 2 -2 2],'...
+   NbrItr',30);</font><br>
 The drawing is completed.
-</font></pre>
+</pre>
 
 <div class="center"> 
   <img src="Matlab_Julia3.png" style="width: 400px"
-       alt="Filled Julia set for R(z) = (2 z^3 +1)/(3 z^2).">
+       alt="Filled Julia set of R(z) = (2 z^3 +1)/(3 z^2).">
 </div>
+
+<p>The reader is probably wondering why we did not simply use the
+command <font class="matlab">julia3(R,[r1],'Tols',[0.001],'Colours',{'black'},
+...);</font> to draw the basin of attraction of \(1\).
+If the density of points and the number of iteration at each point are
+large, the <em>Matlab</em> function <font class="matlab">julia3</font>
+will use a lot of computing time and memory space.
+In particular, at every point \(z\) where the orbit
+\(\displaystyle \{P_c^n(z)\}_{n=0}^\infty\) does not converge toward
+\(1\), the computer has to compute all the iterations to conclude
+that \(z\) is not in the basin of attraction of \(1\).  Since the
+convergence toward a fixed point is usually very fast, when there is
+convergence, the computing time is greatly reduced by drawing the
+basins of attraction of the other fixed points, even if it is in white
+as in this example.  The reader may like to repeat this example with
+different colours for the basins of attraction of \(r_1\) and
+\(r_1\).  We did not do that to clearly display the Julia set of \(R\)
+represented by the boundary of the basin of attraction of \(1\).</p>
+</div>
+
+<p>We assume that the reader has read the section about filled Julia
+sets in the document 
+<script language="javascript"> 
+  buildLinK(fractal5.url_en+"#SS3", fractal5.text_en,
+  "MMathSStat", fractal5.id, fractal5.target);
+</script>.  The following figure illustrates the algorithm used by the
+function <em class="matlab">julia4</em>, given below, to sketch the
+equipotential lines \(\Gamma_c(e^{2^{3-j}})\) for
+\(j \geq 0\) associated to the filled Julia set of the polynomial
+function \(P_c\).  The curve drawn
+by the function <em class="matlab">julia4</em> is a piecewise linear
+curve that is almost the true curve \(\Gamma_c(e^{2^{3-j}})\).</p>
+
+<div class="center">
+  <img src="julia4_en.png" style="width: 500px"
+       alt="Illustration of several steps of the algorithm used for the function julia4.">
+</div>
+
+<ol style="list-style-type:decimal;">
+<li>Starting from the origin, the first step is to find the first
+point on the positive section of the \(x\) axis that is outside the
+set \(Q_c(e^{2^{3-j}})\).  This point is coloured in red.  The
+previous point is inside the set \(Q_c(e^{2^{3-j}})\) and is coloured
+in green.  We select the point below the red point and colour it in yellow.</li>
+<li>We determine if the yellow point is inside or outside the set
+\(Q_c(e^{2^{3-j}})\).  We suppose for the purpose of this discussion
+that this point is outside the set \(Q_c(e^{2^{3-j}})\).  Thus, we
+colour this point in red.</li> 
+<li>We reflect the first red point through the segment whose end points
+are the new red point and the green point to get a new point that we
+colour in yellow.</li> 
+<li>We determine if the point in yellow is inside or outside the set
+\(Q_c(e^{2^{3-j}})\).  We suppose for the purpose of this discussion
+that it is inside the set \(Q_c(e^{2^{3-j}})\).  Thus, we colour this
+point in green.</li>
+<li>The two consecutive points in green provide the first segment that
+forms the curve \(\Gamma_c(e^{2^{3-j}})\).
+We reflect first green point through the segment whose end points are
+the new green point and the red point to get a new point that we
+colour in yellow.</li> 
+<li>We determine if the point in yellow is inside or outside the set
+\(Q_c(e^{2^{3-j}})\).  We suppose for the purpose of this discussion
+that it is inside the set \(Q_c(e^{2^{3-j}})\).  Thus, we colour this
+point in green.</li>
+<li>The two consecutive points in green provide the second segment that
+forms the curve \(\Gamma_c(e^{2^{3-j}})\).
+We reflect second point in green through the segment whose end points 
+are the new green point and the red point to get a new point that we
+colour in yellow.</li>
+<li>We determine if the point in yellow is inside or outside the set
+\(Q_c(e^{2^{3-j}})\).  We suppose for the purpose of this discussion
+that it is outside the set \(Q_c(e^{2^{3-j}})\).  Thus, we colour this
+point in red.</li>
+<li>We reflect previous red point through the segment whose end points
+are the new red point and the third green point to get a new point that we
+colour in yellow.</li>
+<li>And so on.</li>
+</ol>
+
+<p>At each step, we consider only the points that are the vertices of
+the triangle drawn with a dashed blue line.  The point that is
+reflected is never the point that was coloured in yellow two step
+before.  The reflection is always through a segment with a red point
+as one of the end points and a green point as the other end point.
+The curve that is drawn is in fact inside the set \(Q_c(e^{2^{3-j}})\) but
+very closed to \(\partial Q_c(e^{2^{3-j}})\).
+The code of the following  <em>Matlab</em> function is found in the
+<em>m-file</em> <script language="javascript">
+buildLinK("julia4.m", "julia4.m","MMathSStat", "juliaID1", "_blank");
+</script>.</p>
+
+<div class="Code">
+<pre class="matlab">
+% function julia4(c,options)
+%
+% This function draw the (filled) Julia set of P_c(z) = z^2 + c with some
+% level curves Gamma_c(exp(2^(3-j))) if requested.  The value of c
+% must be a value such that P_C has a connected Julia set.
+%
+% c is a complex number.
+%
+% List of options:
+% 'Region' is an array of the form [a b c d].  The portion of the
+%          Julia set in the region [a,b] x [c,d] is displayed.
+%          The default region is [-2,2]x[-2,2].
+% 'Density' is a positive integer.  This the number of points per
+%           unit used to plot the filled Julia set.  Double this
+%           value is used to draw the level curves.  The default
+%           value is 200.
+% 'NbrItr' is a positive integer number.  When plotting the filled Julia
+%          set, this is the number of iterations used to determine
+%          if the orbit { P_c^n(z)}_{n>0} is unbounded.
+%          Namely, it is unbounded if |P_c^n(z)| > max{2,|c|} for some
+%          n < N + 1.  The default value is 100.
+% 'Levels' is a array of integer numbers (preferably greater than 3).
+%          The level curves Gamma_c(exp(2^(3-levels(j)))) for
+%          j=1,2,...,length(levels) are drawn in addition of the
+%          Julia set.  The function looks for level curves
+%          that go through the segment [0, max([2,abs(c),region(2)])].
+%          The default is Levels = [4].
+% 'Colour' is the colour to draw the Julia set.  Only colours
+%          allowed by Matlab can be used. The default colour is black.
+% 'ColLev' is a cell array of the form  {'col1' ,'col2', ... } where
+%          col1, col2, ... are colours allowed by Matlab.  These
+%          colours are used to draw the level curves
+%          Gamma_c(exp(2^(3-levels(j)))).  If there are more level
+%          curves than colours, the colours are reused.  If only one
+%          colour is given, then all the level curves are coloured
+%          using this colour.  The default is to use different
+%          intensities of the colour for the Julia set.
+% 'MaxPts' is the maximum number of points that a level curve may
+%          have.  The default value is 40,000.  It should be
+%          more than sufficient for all reasonable choices of
+%          Density.
+% 'Filled' is true or false.  If set to true, the filled julia set
+%          drawn.  If set to false, only the julia set is drawn.
+%          The default value is true.
+% 'BackItr' is the number of backward iterations used to draw the Julia
+%           set if it is required.  The default value is 17.
+%
+<font class="matlab">function julia4(c,varargin)
+    if ( ~isnumeric(c) )
+        disp('The value of c must be given.')
+        disp('Use the help command for more information.');
+        return;
+    end
+
+    % Default values:
+    region = [-2 2 -2 2];
+    density = 200;
+    nbrItr = 100;
+    levels = [4];
+    colour = 'black';
+    colLev = {};
+    maxPts = 40000;
+    filled = true;
+    backItr = 17;
+    
+    while ( ~isempty(varargin) )
+        switch lower(varargin{1})
+          case 'region'
+             region = varargin{2};
+          case 'density' 
+            density = varargin{2};
+          case 'nbritr'
+             nbrItr = varargin{2};
+          case 'levels'
+            levels = varargin{2};
+          case 'colour'
+            colour = varargin{2};
+          case 'collev'
+            colLev = varargin{2};
+          case 'maxpts'
+            maxPts = varargin{2};
+          case 'filled'
+            filled = varargin{2};
+          case 'backitr'
+            backItr = varargin{2};
+          otherwise
+            disp("Unknown option: "+varargin{1});
+        end
+        varargin = varargin(3:length(varargin));
+    end
+
+    lLevels = length(levels);
+    pColours = {};
+    rgbColour = validatecolor(colour);
+    nColLev = size(colLev,2);
+    if ( nColLev > 0 )
+        for j = 1:lLevels;
+            pColours{j} = colLev{rem((j-1),nColLev)+1};
+        end
+    else
+        if ( sum(rgbColour) == 0 )
+            % The black colour needs to be treated as the white colour
+            % in "reverse order".
+            for j = 1:lLevels
+                pColours{j} = ...
+                    ['[',num2str((lLevels-j+2)/(lLevels+3)*[1 1 1]),']'];
+            end
+        else
+            for j = 1:lLevels
+                pColours{j} = ...
+                    ['[',num2str((lLevels-j+2)/(lLevels+3)*rgbColour),']'];
+            end
+        end
+    end
+
+    % We use the set B_{exp(8)}(0) suggested in the document
+    % about the Mandelbrot set.
+    M = exp(8);
+    
+    % This is the escape condition for the Julia set.
+    Mjulia = max(2,abs(c));
+
+    % The step size for the real coordinates.
+    step = 1/density;
+    
+    % We use a grid of integer coordinates to keep track of
+    % the points on a level curve.  Since the grid use integer
+    % coordinates, the tests for equality are also possible.
+    xmax = floor(max(Mjulia,region(2))*density);
+
+    figure;
+    for k1 = 1:lLevels
+        % We search the intersection of the level curve with the
+        % positive section of the x axis.
+        xz = 0;
+        for k2 = 1:xmax
+            z = k2*step;
+            if ( outside(c,z,levels(k1),M) )
+                xz = k2;
+                break
+            end
+        end
+
+        % If the level curve does not intersect the interval
+        % [0,region(2)] on the x-axis, we ignore this level curve.
+        if ( xz == 0 )
+            disp(['The level curve with j = ',num2str(levels(k1)),...
+                  ' cannot be drawn because it does not go through the',
+                  ' segment [0,',num2str(xmax),'].']);
+            disp('Please, choose larger values of j.');
+            continue;
+        end
+
+        cin = 1;
+        cout = 2;
+        cnew = 3;
+        x(cin) = xz-1;
+        y(cin) = 0;
+        x(cout) = xz;
+        y(cout) = 0;
+        x(cnew) = xz;
+        y(cnew) = -1;
+
+        % Save these information to determine when the
+        % level curve is closed.  Namely, when it reaches
+        % again the positive section of the x-axis.
+        xin = x(cin);
+        yin = y(cin);
+        xout = x(cout);
+        yout = y(cout);
+
+        % This is the first point on the curve 
+        % Gamma_c(exp(2^(3-levels(k))))
+        xpts = [xin];
+        ypts = [yin];
+
+        % We set a limit of 10,000 points per level curve.
+        % A while ( 1 == 1 ) loop should also work but to avoid
+        % any risk of infinite loop, we have set a upper bound.
+        n = 0;
+        for n = 1:maxPts
+            % Look for the next point on the level curve.
+            if ( outside(c,step*x(cnew)+i*step*y(cnew),levels(k1),M) )
+                % We do not interchange the values put the indices.
+                % This is more economic in terms of computer time.
+                tmp = cout;
+                cout = cnew;
+            else
+                % This is another point on the curve 
+                % Gamma_c(exp(2^(3-levels(k))))
+                xpts = [xpts x(cnew)];
+                ypts = [ypts y(cnew)];
+
+                % We do not interchange the values put the indices.
+                % This is more economic in terms of computer time.
+                tmp = cin;
+                cin = cnew;
+            end
+            % test if we are back to the positive section of the
+            % x-axis.
+            if ( (x(cin) == xin && y(cin) == yin) && ...
+                 (x(cout) == xout && y(cout) == yout) )
+                break;
+            end
+            cnew = tmp;
+            x(cnew) = x(cout) + x(cin) - x(tmp);
+            y(cnew) = y(cout) + y(cin) - y(tmp);
+        end
+        if ( n == maxPts )
+            disp('Cannot draw the entire level curve because of the limit');
+            disp('on the number of admissible points per level curve.');
+        end
+
+        % Only draw the segments of the level curve inside the given region.
+        Rxpts = step*xpts;
+        Rypts = step*ypts;
+        G = real( (Rxpts >= region(1)) & (Rxpts <= region(2)) & ...
+                  (Rypts >= region(3)) & (Rypts <= region(4)) );
+        G(G==0) = NaN;
+        Rxpts = G.*Rxpts;
+        Rypts = G.*Rypts;
+        disp(['Level curve with j = ',num2str(levels(k1)),' (',num2str(n),...
+              ' points)']);
+        plot(Rxpts,Rypts,'.','color',pColours{k1},'LineWidth',0.1);
+        hold on;
+    end
+
+    % We now plot the filled Julia set.
+    if ( filled )
+        juliaF(c,region,density,nbrItr,colour,Mjulia);
+    else
+        juliaJ(c,backItr,colour);
+    end
+
+    % The Legend.
+    if ( nColLev ~= 1 )
+        skip = 0;
+        for j = 1:lLevels
+            txt = text(region(1),region(4)-(j-1)*skip, ...
+                       ['k = ',num2str(levels(j))],'Color',pColours{j}, ...
+                       'VerticalAlignment','top','BackgroundColor', 'white');
+            if ( j == 1 )
+                skip = min(txt.Extent(4),(region(4)-region(3))/lLevels);
+            end
+        end
+    end
+
+    axis equal;
+    grid on;
+    hold off;
+    display('The drawing is completed.');
+end
+
+% To determine if there exits 1 <= n <= N such that |P_c^n(z)| >= M .
+function v = outside(c,z,N,M)
+    v = false;
+    z1 = z;
+    for n = 1:N
+        z2 = z1^2 + c;
+        if ( abs(z2) > M )
+            v = true;
+            break;
+        end
+        z1 = z2;
+    end
+end
+
+% To draw the filled Julia set.
+function juliaF(c,region,density,nbrItr,colour,Mjulia)
+    Dx = floor((region(2)-region(1))*density);
+    Dy = floor((region(4)-region(3))*density);
+    x = linspace(region(1),region(2),Dx);
+    y = linspace(region(3),region(4),Dy);
+
+    for n = 1:length(x)
+        for m = 1:length(y)
+            z1 = x(n) + i*y(m);
+            flag = 0;
+	    for k = 1:nbrItr
+                z2 = z1^2 + c;
+		if ( abs(z2) > Mjulia )
+                    flag = 1;
+		    break;
+                end
+                z1 = z2;
+            end
+            if ( flag == 0 )
+                plot(x(n),y(m),'.','color',colour,'LineWidth',0.1);
+                hold on;
+            end
+        end
+    end
+end
+
+function juliaJ(c, N, colour)
+    % Compute the repelling fixed point  (1 + sqrt(1 - 4c))/2 , where
+    % sqrt(1 - 4c) is the square root of 1 - 4c with a non negative
+    % real part.
+    x = real(1-4*c);
+    y = imag(1-4*c);
+    q = sqrt(x^2+y^2);
+    if ( x == 0 && y == 0 )
+        u = 0;
+        v = 0;
+    elseif ( x > 0 )
+        u = sqrt(2*(x+q))/2;
+        v = y/(2*u);
+    else
+        v = sqrt(2*(-x+q))/2;
+        u = y/(2*v);
+    end;
+    w = (1 + (u+i*v))/2;
+    fprintf('%f + %f i is a repelling fixed point if c~= 1/4.\n',real(w),imag(w));
+    fprintf('We use %f + %f i as starting point.\n',real(w),imag(w));
+
+    % Compute the bachward iterations and draw the Julia set.
+    x = real(w-c);
+    y = imag(w-c);
+
+    for n = 1:N
+        q = sqrt(x.^2+y.^2);
+        for j = 1:length(x)
+            if ( x(j) == 0 && y(j) == 0 )
+                u(j) = 0;
+                v(j) = 0;
+            elseif ( x(j) > 0 )
+                u(j) = sqrt(2*(x(j)+q(j)))/2;
+                v(j) = y(j)/(2*u(j));
+            else
+                v(j) = sqrt(2*(-x(j)+q(j)))/2;
+                u(j) = y(j)/(2*v(j));
+            end;
+        end
+        x = [ u , -u ];
+        y = [ v , -v ];
+
+        % We draw the points.
+        plot(x,y,'.','LineWidth',0.1,'Color',colour);
+
+        % Go on with the next iteration (if there is one).
+        x = [ u , -u ] - real(c);
+        y = [ v , -v ] - imag(c);        
+        hold on
+    end
+end
+</font></pre>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: We draw the equipotential lines
+\(\Gamma_c(e^{2^{3-j}})\) for \(j=4,6,8,10\) associated to the filled
+Julia set of \(P_c\) with \(c = 0.27 - 0.48i\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">julia4(0.27-0.48*i,'Levels',[4,6,8,10],'ColLev',{'blue'});</font>
+Level curve with j = 4 (4678 points)
+Level curve with j = 6 (3422 points)
+Level curve with j = 8 (3414 points)
+Level curve with j = 10 (3862 points)
+The drawing is completed.
+</pre>
+
+<div class="center"> 
+  <img src="Matlab_Julia4.png" style="width: 400px"
+       alt="Filled Julia set of P_c with c = 0.27-0.48i, and the level curves for j = 4, 6, 8, 10.">
+</div>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="Sect29"> Mandelbrot Set </h3>
+
+<p>The Mandelbrot set, denoted \(M\), is the set defined by
+\(\displaystyle
+\{c \in \mathbb{C} : \{P_c^n(0)\}_{n=0}^\infty \text{ is bounded}\}\)
+where \(P_c\) is the polynomial function defined by
+\(P_c(z) = z^2 + c\) for \(z \in \mathbb{C}\).  This set is closely
+associated to the study of the the Julia sets of \(P_c\).  To learn
+more about the Mandelbrot set, the reader may consult the document
+<script language="javascript">
+  buildLinK(fractal5.url_en,fractal5.text_en,"MMathSStat",
+  fractal4.id, fractal4.target);
+</script>.  In this section, we only present some <em>Matlab</em>
+functions to draw the Mandelbrot set and its equipotential lines. </p>
+
+<p>The first <em>Matlab</em> function is
+<font class="matlab">mandelbrot1</font>.
+This function draws the Mandelbrot set.  It can also be used to colour
+hyperbolic subsets of the Mandelbrot set associated to the values of
+\(c\) for which \(P_c\) has an attracting periodic orbit.
+The accuracy of the hyperbolic subsets drawn is limited by the number of
+iterations and tolerance used to determine the existence of an
+oattracting periodic orbit, and the density of the points in the image.  The
+accuracy of the hyperbolic subsets drawn is also limited by round-off
+errors in the computations.  So, increasing the number of iterations
+does not always improve the quality of the image.
+The code of the <em>Matlab</em> function
+<font class="matlab">mandelbrot1</font>
+is found in the <em>m-file</em> <script language="javascript">
+buildLinK("mandelbrot1.m", "mandelbrot1.m","MMathSStat", "Manbrid1", "_blank");
+</script>.</p>
+
+<div class="Code">
+<pre class="matlab">
+% function mandelbrot1(options)
+%
+% List of options:
+% 'Region' is an array of the form [a b c d].  The Mandelbrot set
+%          in the region [a,b] x [c,d] is displayed.  The default
+%          region is [-2,2]x[-2,2].
+% 'Density' is a positive integer.  This the number of points per unit.
+%           The default value is 100.
+% 'NbrItr' is a positive integer number.  This is the number of
+%          iterations used to determine if the orbit
+%          { P_c^n(0)}_{n>0} is unbounded.  Namely, it is unbounded
+%          if |P_c^n(0)| > 2 for some n < N + 1.  The default value
+%          is 200.  This is also the number of iterations used to
+%          determine if the orbit converges to a period orbit.
+% 'Periods' is a array of periods.  The hyperbolic sets associated to
+%           attractive periodic orbits with these periods are highlighted.
+%           WARNING: The method used to identify the periodic orbits may
+%           produce wrong results.  Use at your own risk.  By default, no
+%           period is given.  Moreover, if you ask for hyperbolic
+%           sets associated to periodic orbits of period p without
+%           asking for hyperbolic sets associated to periodic orbits
+%           of period q where q is a divisor of p, then the hyperbolic
+%           sets associated to periodic orbits of period q will be
+%           highlighted as hyperbolic sets associated to periodic
+%           orbits of period p as it may be expected.
+% 'Tol" is a real number.  This is the accuracy used to determine 
+%       is an orbit has converged to an attracting periodic orbit.
+%       The default value is 10^(-7).   
+% 'Colour' is the colour to draw the Mandelbrot set.  Only colours
+%          allowed by Matlab can be used. The default colour is black.
+% 'ColPer' is a cell array of the form  {'col1' ,'col2', ... } where
+%          col1, col2, ... are colours allowed by Matlab.  These
+%          colours are used to draw the hyperbolic sets.  If there
+%          are more periods than colours, the colours are reused.
+%          The default is to use different intensities of the colour
+%          for the Mandelbrot set.
+%
+<font class="matlab">function mandelbrot1(varargin)
+    % Default values:
+    region = [-2 2 -2 2];
+    density = 100;
+    nbrItr = 200;
+    periods = [];
+    tol = 10^(-7);
+    colour = 'black';
+    colPer = {};
+
+    while ( ~isempty(varargin) )
+        switch lower(varargin{1})
+          case 'region'
+             region = varargin{2};
+          case 'density' 
+            density = varargin{2};
+          case 'nbritr'
+             nbrItr = varargin{2};
+          case 'periods'
+            periods = varargin{2};
+          case 'tol'
+            tol = varargin{2};
+          case 'colour'
+            colour = varargin{2};
+          case 'colper'
+            colPer = varargin{2};
+          otherwise
+            disp("Unknown option: "+varargin{1});
+        end
+        varargin = varargin(3:length(varargin));
+    end
+
+    figure;
+
+    % We assume that an orbit converges to a periodic orbit of
+    % period  p  when 3 consecutive values of
+    % {P_c^{pn}(0)}_{n>=0} are equal up to the toleranece given by tol.
+    lAB = 0;
+    if ( length(periods) > 0 )
+        AB = sort(periods);
+        lAB = length(AB);
+        nAB = 2*AB(lAB)+1;
+
+        pColours = {};
+        rgbColour = validatecolor(colour);
+        nColPer = size(colPer,2);
+        if ( nColPer > 0 )
+            for j = 1:lAB
+                pColours{j} = colPer{rem((j-1),nColPer)+1};
+            end
+        else
+            if ( sum(rgbColour) == 0 )
+                % The black color needs to be treated as the white color
+                % in "reverse order".
+                for j = 1:lAB
+                    pColours{j} = ['[',num2str((lAB-j+2)/(lAB+3)*[1 1 1]),']'];
+                end
+            else
+                for j = 1:lAB
+                    pColours{j} = ['[',num2str((lAB-j+2)/(lAB+3)*rgbColour),']'];
+                end
+            end
+        end
+    end
+    
+    Dx = floor((region(2)-region(1))*density);
+    Dy = floor((region(4)-region(3))*density);
+    x = linspace(region(1),region(2),Dx);
+    y = linspace(region(3),region(4),Dy);
+
+    for n = 1:length(x)
+        for m = 1:length(y)
+            c = x(n) + i*y(m);
+            z1 = 0;
+            flag = 0;
+            if ( lAB > 0 )
+                Pz = [z1];
+            end
+	    for k = 1:nbrItr
+                z2 = z1^2 + c;
+		if ( abs(z2) > 2 )
+                    flag = -1;
+		    break;
+                end
+                if ( lAB > 0 )
+                    if ( length(Pz) < nAB )
+                        Pz = [Pz z2];
+                    else
+                        for j=1:lAB
+                            for s=1:3;
+                                vPz(s) = Pz(nAB - (s-1)*AB(j));
+                            end
+                            if ( abs(vPz(1)-vPz(2)) < tol && ...
+                                 abs(vPz(2)-vPz(3)) < tol && ...
+                                 abs(vPz(1)-vPz(3)) < tol )
+                                flag = AB(j);
+                                break;
+                            end
+                        end
+                        Pz = [Pz(2:nAB) z2];
+                    end
+                end
+                z1 = z2;
+            end
+            if ( flag == 0 )
+                plot(x(n),y(m),'.','color',colour,'LineWidth',0.1);
+                hold on;
+            end
+            for j = 1:lAB
+                if ( flag == AB(j) )
+                    plot(x(n),y(m),'.','Color',pColours{j},'LineWidth',0.1);
+                    hold on;
+                end
+            end
+        end
+    end
+
+    % The Legend.
+    skip = 0;
+    for j = 1:lAB
+        txt = text(region(1),region(4)-(j-1)*skip, ...
+                   ['Period ',num2str(AB(j))],'Color',pColours{j}, ...
+                   'VerticalAlignment','top','BackgroundColor','white');
+        if ( j == 1 )
+            skip = min(txt.Extent(4),(region(4)-region(3))/lAB);
+        end
+    end
+
+    axis(region);
+    axis equal;
+    grid on;
+    hold off;
+    display('The drawing is completed.');
+end
+</font></pre>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: We draw the Mandelbrot set with the
+<q class="en">hyperbolic subsets</q> associated to the values of
+\(c\) for which \(P_c\) has an attracting fixed point or an attracting
+periodic orbit of period \(2\), \(3\) or \(4\).</p>
+
+<pre class="matlab">
+>> <font class="matlab">mandelbrot1('Region',[-2 1.5 -1.3 1.3],'NbrItr',500, ...
+   'Periods',[1 2 3 4], 'ColPer',{'red','blue','green','magenta'}, ...
+   'Tol',10^(-8),'Density',150);</font>
+The drawing is completed.
+</pre>
+
+<div class="center"> 
+  <img src="Matlab_Mandelbrot1.png" style="width: 400px"
+       alt="The Mandelbrot set with hyperbolic subsets associated to values of c such that P_c has an attracting periodic orbit of period 1, 2, 3 or 4.">
+</div>
+</div>
+
+<p>We assume that the reader has read the section about the
+equipotential lines of the Mandelbrot set in the document
+<script language="javascript"> 
+  buildLinK(fractal5.url_en+"#SS4", fractal5.text_en,
+  "MMathSStat", fractal5.id, fractal5.target);
+</script>.  The next <em>Matlab</em> function is
+<font class="matlab">mandelbrot2</font>
+This function draws the Mandelbrot set.  It can also be used to draw
+the equipotential lines \(\Gamma_M(e^{2^{3-j}})\) for
+\(j \geq 0\).  The method used by this function to draw the
+equipotential lines of the Mandelbrot set is the same method than the
+method used by the <em>Matlab</em> function <font class="matlab">julia4</font>
+to drawn the equipotential lines of the (filled) Julia set of the
+polynomial functions of the form \(P_c\) presented in the previous
+section.  The code of the <em>Matlab</em> function
+<font class="matlab">mandelbrot2</font>
+is found in the <em>m-file</em> <script language="javascript">
+buildLinK("mandelbrot2.m", "mandelbrot2.m","MMathSStat", "Manbrid1", "_blank");
+</script>.</p>
+
+<div class="Code">
+<pre class="matlab">
+% function mandelbrot2(options)
+%
+% List of options:
+% 'Region' is an array of the form [a b c d].  The Mandelbrot set
+%          in the region [a,b] x [c,d] is displayed.  The default
+%          region is [-3,3]x[-2,2].
+% 'Density' is a positive integer.   This the number of points per
+%           unit used to plot the Mandelbrot set.  Double this
+%           value is used to draw the level curves.  The default
+%           value is 200.
+% 'NbrItr' is a positive integer number.  When plotting the
+%          Mandelbrot set, this is the number of iterations used
+%          to determine if the orbit { P_c^n(0)}_{n>0} is
+%          unbounded.  Namely, it is unbounded if |P_c^n(0)| > 2
+%          for some n < N + 1.  The default value is 100.
+% 'Levels' is an array of integer numbers (preferably greater than 3).
+%          The level curves Gamma_c(exp(2^(3-levels(j)))) for
+%          j=1,2,...,length(levels) are drawn in addition of the
+%          Mandelbrot set.  The function looks for level curves
+%          that go through the segment [0, max(2,region(2))].
+%          The default is Levels = [4].
+% 'Colour' is the colour to draw the Mandelbrot set.  Only colours
+%          allowed by Matlab can be used. The default colour is black.
+% 'ColLev' is a cell array of the form  {'col1' ,'col2', ... } where
+%          col1, col2, ... are colours allowed by Matlab.  These
+%          colours are used to draw the level curves
+%          Gamma_c(exp(2^(3-levels(j)))).  If there are more level
+%          curves than colours, the colours are reused.  If only one
+%          colour is given, then all the level curves are drawn using this
+%          colour.  The default is to use different intensities of the
+%          colour for the Julia set.
+% 'MaxPts' is the maximum number of points that a level curve may
+%          have.  The default value is 40,000.  It should be
+%          more than sufficient for all reasonable choices of
+%          Density.
+%
+<font class="matlab">function mandelbrot2(varargin)
+    % Default values:
+    region = [-3 3 -2 2];
+    density = 200;
+    nbrItr = 100;
+    levels = [4];
+    colour = 'black';
+    colLev = {};
+    maxPts = 40000;
+
+    while ( ~isempty(varargin) )
+        switch lower(varargin{1})
+          case 'region'
+             region = varargin{2};
+          case 'density' 
+            density = varargin{2};
+          case 'nbritr'
+             nbrItr = varargin{2};
+          case 'levels'
+            levels = varargin{2};
+          case 'colour'
+            colour = varargin{2};
+          case 'collev'
+            colLev = varargin{2};
+          case 'maxpts'
+            maxPts = varargin{2};
+          otherwise
+            disp("Unknown option: "+varargin{1});
+        end
+        varargin = varargin(3:length(varargin));
+    end
+
+    lLevels = length(levels);
+    pColours = {};
+    rgbColour = validatecolor(colour);
+    nColLev = size(colLev,2);
+    if ( nColLev > 0 )
+        for j = 1:lLevels;
+            pColours{j} = colLev{rem((j-1),nColLev)+1};
+        end
+    else
+        if ( sum(rgbColour) == 0 )
+            % The black colour needs to be treated as the white colour
+            % in "reverse order".
+            for j = 1:lLevels
+                pColours{j} = ...
+                    ['[',num2str((lLevels-j+2)/(lLevels+3)*[1 1 1]),']'];
+            end
+        else
+            for j = 1:lLevels
+                pColours{j} = ...
+                    ['[',num2str((lLevels-j+2)/(lLevels+3)*rgbColour),']'];
+            end
+        end
+    end
+
+    % We use the set B_{exp(8)}(0) suggested in the document
+    % about the Mandelbrot set.
+    M = exp(8);
+
+    % The step size for the real coordinates.
+    step = 1/density;
+
+    % We use a grid of integer coordinates to keep track of
+    % the points on a level curve.  Since the grid use integer
+    % coordinates, the tests for equality are also possible.
+    xmax = floor(max(2,region(2))*density);
+
+    figure;
+    for k1 = 1:lLevels
+        % We search the intersection of the h'th level curve with the
+        % positive section of the x axis.
+        xc = 0;
+        for k2 = 1:xmax
+            c = k2*step;
+            if ( outside(c,levels(k1),M) )
+                xc = k2;
+                break
+            end
+        end
+
+        % If the level curve does not intersect the interval
+        % [0,xmax] on the x-axis, we ignore this level curve.
+        if ( xc == 0 )
+            disp(['The level curve with j = ',num2str(levels(k1)),...
+                  ' cannot be drawn because it does not go through the',
+                  ' segment [0,',num2str(xmax),'].']);
+            disp('Please, choose larger values of j.');
+            continue;
+        end
+
+        cin = 1;
+        cout = 2;
+        cnew = 3;
+        x(cin) = xc-1;
+        y(cin) = 0;
+        x(cout) = xc;
+        y(cout) = 0;
+        x(cnew) = xc;
+        y(cnew) = -1;
+
+        % Save these information to determine when the
+        % level curve is closed.  Namely, when it reaches
+        % again the positive section of the x-axis.
+        xin = x(cin);
+        yin = y(cin);
+        xout = x(cout);
+        yout = y(cout);
+
+        % This is the first point on the curve 
+        % Gamma_c(exp(2^(3-levels(k))))
+        xpts = [xin];
+        ypts = [yin];
+
+        % We set a limit of 10,000 points per level curve.
+        % A while ( 1 == 1 ) loop should also work but to avoid
+        % any risk of infinite loop, we have set a upper bound.
+        n = 0;
+        for n = 1:maxPts
+            % Look for the next point on the level curve.
+            if ( outside(step*x(cnew)+i*step*y(cnew),levels(k1),M) )
+                % We do not interchange the values put the indices.
+                % This is more economic in terms of computer time.
+                tmp = cout;
+                cout = cnew;
+            else
+                % This is another point on the curve 
+                % Gamma_c(exp(2^(3-levels(k))))
+                xpts = [xpts x(cnew)];
+                ypts = [ypts y(cnew)];
+
+                % We do not interchange the values put the indices.
+                % This is more economic in terms of computer time.
+                tmp = cin;
+                cin = cnew;
+            end
+            % test if we are back to the positive section of the
+            % x-axis.
+            if ( (x(cin) == xin && y(cin) == yin) && ...
+                 (x(cout) == xout && y(cout) == yout) )
+                break;
+            end
+            cnew = tmp;
+            x(cnew) = x(cout) + x(cin) - x(tmp);
+            y(cnew) = y(cout) + y(cin) - y(tmp);
+        end
+        if ( n == maxPts )
+            disp('Cannot draw the entire level curve because of the limit');
+            disp('on the number of admissible points per level curve.');
+        end
+        
+        % Only draw the segments of the level curve inside given region.
+        Rxpts = step*xpts;
+        Rypts = step*ypts;
+        G = real( (Rxpts >= region(1)) & (Rxpts <= region(2)) & ...
+                  (Rypts >= region(3)) & (Rypts <= region(4)) );
+        G(G==0) = NaN;
+        Rxpts = G.*Rxpts;
+        Rypts = G.*Rypts;
+        disp(['Level curve with j = ',num2str(levels(k1)),' (',num2str(n),...
+              ' points)']);
+        plot(Rxpts,Rypts,'.','color',pColours{k1},'LineWidth',0.1);
+        hold on;
+    end
+
+    % We now plot the Mandelbrot set.
+    mandelbrotL(region,density,nbrItr,colour);
+
+    % The Legend.
+    if ( nColLev ~= 1 )
+        skip = 0;
+        for j = 1:lLevels
+            txt = text(region(1),region(4)-(j-1)*skip, ...
+                       ['j = ',num2str(levels(j))],'Color',pColours{j}, ...
+                       'VerticalAlignment','top','BackgroundColor','white');
+            if ( j == 1 )
+                skip = min(txt.Extent(4),(region(4)-region(3))/lLevels);
+            end
+        end
+    end
+
+    axis equal;
+    grid on;
+    hold off;
+    display('The drawing is completed.');
+end
+
+% To determine if there exits 1 <= n <= N such that |P_c^n(c)| >= M .
+function v = outside(c,N,M)
+    v = false;
+    z1 = 0;
+    for n = 1:N
+        z2 = z1^2 + c;
+        if ( abs(z2) > M )
+            v = true;
+            break;
+        end
+        z1 = z2;
+    end
+end
+
+% To draw the Mandebrot set.
+function mandelbrotL(region,density,nbrItr,colour)
+    Dx = floor((region(2)-region(1))*density);
+    Dy = floor((region(4)-region(3))*density);
+    x = linspace(region(1),region(2),Dx);
+    y = linspace(region(3),region(4),Dy);
+
+    for n = 1:length(x)
+        for m = 1:length(y)
+            c = x(n) + i*y(m);
+            z1 = 0;
+            flag = 0;
+	    for k = 1:nbrItr
+                z2 = z1^2 + c;
+		if ( abs(z2) > 2 )
+                    flag = 1;
+		    break;
+                end
+                z1 = z2;
+            end
+            if ( flag == 0 )
+                plot(x(n),y(m),'.','color',colour,'LineWidth',0.1);
+                hold on;
+            end
+        end
+    end
+end
+</font></pre>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: We draw the equipotential lines
+\(\Gamma_M(e^{2^{3-j}})\) for \(j=5,6,7,8\) of the Mandelbrot set.</p>
+
+<pre class="matlab">
+>> <font class="matlab">mandelbrot2('Region',[-2.4 1.5 -2 2],'NbrItr', 100, ...
+   'Levels',[5 6 8 10], 'ColLev',{'red'},'Density',150);</font>
+Level curve with j = 5 (3402 points)
+Level curve with j = 6 (2704 points)
+Level curve with j = 8 (2456 points)
+Level curve with j = 10 (2766 points)
+The drawing is completed.
+</pre>
+
+<div class="center"> 
+  <img src="Matlab_Mandelbrot2.png" style="width: 400px"
+       alt="The Mandelbrot set with the equipotential lines for j = 5, 6, 8, 10.">
+</div>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: We draw the equipotential lines
+\(\Gamma_M(e^{2^{3-j}})\) for \(j=10,14\) of the Mandelbrot set, and
+zoom in on a little region.</p>
+
+<pre class="matlab">
+>> <font class="matlab">mandelbrot2('Region',[-2 -1 -0.45 0.45],'NbrItr',100, ...
+   'Levels',[10 14], 'ColLev',{'red'},'Density',300);</font>
+Level curve with j = 10 (5518 points)
+Level curve with j = 14 (8564 points)
+The drawing is completed.
+>> <font class="matlab">hold on</font>
+>> <font class="matlab">axis([-2 -1 -0.43 0.43])</font>
+</pre>
+
+<div class="center"> 
+  <img src="Matlab_Mandelbrot3.png" style="width: 400px"
+       alt="The Mandelbrot set with the equipotential lines for j = 10, 14.">
+</div>
+</div>
+
+<p>The next <em>Matlab</em> function is limited to the study of the
+family of rational function \(N_c\) for \(c \in \mathbb{C}\) obtained from the
+Newton method applied to the polynomial function \(Q_c\) defined by
+\(Q_c(z) = (z-1)(z-c+1/2)(z+c+1/2)\); namely,
+\(N_c(z) = z - Q_c(z)/Q_c'(z)\) for \(z\in \mathbb{C}\).
+The <em>Matlab</em> function
+<font class="matlab">mandelbrot3</font> colours the points \(c\)
+such that \(\displaystyle \{N_c^n(0)\}_{n>0}\) converges toward a
+fixed point of \(N_c\); namely, a root of \(P_c\).
+This <em>Matlab</em> function is used to display little Mandelbrot
+sets inside the parameter space of \(N_c\) as explained in the section
+<script language="javascript"> 
+  buildLinK(fractal5.url_en+"#SS5","And more ... of the previous document",
+  "MMathSStat", fractal5.id, fractal5.target);
+</script>.  The code of the <em>Matlab</em> function
+<font class="matlab">mandelbrot3</font>
+is found in the <em>m-file</em> <script language="javascript">
+buildLinK("mandelbrot3.m", "mandelbrot3.m","MMathSStat", "Manbrid1", "_blank");
+</script>.  We give below only the instructions for this function.</p>
+
+<pre class="matlab">
+>> <font class="matlab">help mandelbrot3</font>
+  function mandelbrot3(options)
+ 
+  Let N_c(z) = z - Q_c(z)/Q_c'(z) where Q_c(z) = (z-1)(z-c+1/2)(z+c+1/2).
+  Namely,  N_c(z) = (-8 z^3 + 4 c^2 -1)/(-12 z^2 + 4 c^2 + 3)
+ 
+  To colour the points c such that { N_c^n(0) }_{n>0} converges
+  toward one of the fixed points of N_c; namely,
+  one of r_1 = 1, r_2 = -c-1/2 or r_3 = c-1/2.
+ 
+  List of options:
+  'Region' is an array of the form [a b c d].  The Mandelbrot set
+           in the region [a,b] x [c,d] is displayed.  The default
+           region is [-2,2]x[-2,2].
+  'Density' is a positive integer.  This the number of points per unit.
+            The default value is 100.
+  'NbrItr' is a positive integer number.  This is the number of
+           iterations used to determine if the orbit
+           {N_c^n(0)}_{n>0} converges to one of the fixed points
+           of N_c.  The default value is 100.
+  'Tol" is a real number.  This is the accuracy used to determine 
+        is an orbit has converged to a fixed point of M_c.
+        The default value is 10^(-3).
+  'Colour' is the colour to draw the points c such that
+           the orbit { N_c^n(0)}_{n>0} does not converge to one of
+           the fixed points of N_c. The default colour is black.
+  'ColPts' is a cell array of the form  {'col1' ,'col2', ... } where
+           col1, col2, ... are colours allowed by Matlab.  These
+           colours are used to colour the points c such that
+           the orbit { N_c^n(0)}_{n>0} converges to one of
+           the fixed points of N_c.  If there are 2 colours,
+           the colours are reused.  If there are more than 3
+           colours, only the first three colours are used.
+           If there is only one colour, different intensities of this
+           colour are used.  The default is to use the colour
+           for the Mandelbrot set.
+</pre>
+
+<div class="Example">
+<p><em>Example</em>: We draw a small section of the parameter space
+of \(N_c\) that contains a Mandelbrot set.</p>
+
+<pre class="matlab">
+>> <font class="matlab">mandelbrot3('Region',[-0.03 0.03 0.26 0.35],'NbrItr',30, ...
+   'ColPts',{'red','blue','green'},'Density',4000,'Colour','black');</font>
+The drawing is completed.
+</pre>
+
+<!-- ...
+hold on, ...
+x = [-0.01 0.01 0.01 -0.01 -0.01]; ...
+y = [ 0.32 0.32 0.34  0.34  0.32]; ...
+plot(x,y,'Color','yellow');
+-->
+
+<div class="center"> 
+  <img src="Matlab_Mandelbrot4.png" style="width: 400px"
+       alt="A little Mandelbrot set inside the parameter space of the rational functions N_c.">
+</div>
+
+<p>We zoom in on the region around the little Mandelbrot set.</p>
+								
+<pre class="matlab">
+>> <font class="matlab">mandelbrot3('Region',[-0.01 0.01 0.32 0.34],'NbrItr',70,...
+   'ColPts',{'red','blue','green'},'Density',1200,'Colour','black');</font>
+The drawing is completed.
+</pre>
+
+<div class="center"> 
+  <img src="Matlab_Mandelbrot5.png" style="width: 400px"
+       alt="A closer look at the little Mandelbrot set inside the parameter space of the family of rational functions N_c.">
+</div>
+
+<p>What figure will we get after executing the following <em>Matlab</em>
+command to zoom in on another region of the parameter space of \(N_c\)?</p>
+
+<pre class="matlab">
+>> <font class="matlab"> mandelbrot3('Region',[-0.007 0.007 0.501 0.514],'NbrItr',80, ...
+   'ColPts',{'red','blue','green'},'Density',16000,'Colour','black');</font>
+</pre>
 </div>
 
 <hr class="MMathSStat">

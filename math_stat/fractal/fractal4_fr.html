@@ -1,4 +1,4 @@
-<!doctype html>
+<!Doctype html>
 <html>
 
 <head>
@@ -10,7 +10,7 @@ Math. et Stat. -- Benoit Dionne
 
 <meta name="Title" content="Mathematiques et Statistique">
 <meta name="Author" content="Benoit Dionne">
-<meta scheme="Year-Month-Day" name="Date of Publication" content="2014-12-07">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2026-03-15">
 <meta name="Keywords" content="mathematiques,statistique,universite,ottawa">
 <meta name="Copyright" content= "&copy; 2014 Benoit Dionne, uOttawa">
 <meta http-equiv="Expires" content="">
@@ -59,7 +59,37 @@ main_title( MStexte, "MMathSStat");
 
 <h2 id="TOP"> Les ensembles de Julia </h2>
 
-<p> Dans un document précédent, on a présenté certaines des propriétés de la
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#SS1", "Concepts élémentaires d'analyse complexe",
+      "MMathSStat", "SS1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS2", "Définition des ensembles de Julia",
+      "MMathSStat", "SS2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#SS3", "Une définition équivalente des ensembles de Julia",
+      "MMathSStat", "SS3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS4", "Ensemble des points stables",
+      "MMathSStat", "SS4ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS5", "Fonctions polynomiales",
+      "MMathSStat", "SS5ID", "_top");
+  </script> </li>
+  <li><script language="javascript">
+      buildLinK("#JuliaFig", "Représentation graphique des ensembles de Julia",
+      "MMathSStat", "JuliaFigID", "_top");
+    </script> </li>
+</ul>
+</div>
+
+<p>Dans un document précédent, on a présenté certaines des propriétés de la
 fonction logistique.  Plus spécifiquement, on a étudié les
 itérations de la fonction à valeurs réelles
 <em class="EQ"> f<sub>&#120583;</sub></em>
@@ -70,18 +100,29 @@ définie par <em class="EQ"> f<sub>&#120583;</sub>(x) = &#120583; x(1-x)
 <p> L'étape logique suivante est d'étudier les itérations de fonctions
 à valeurs complexes définie sur le plan complexe.</p>
 
-<hr class="MMathSStat">
-
-<h3>Un petit peu de théorie</h3>
-
-<p>Cette section demande une connaissance élémentaire de la topologie
-et de l'analyse complexe.  Certains lecteurs pourraient choisir d'ignorer
-cette section et de lire seulement la
+<p>Certains lecteurs pourraient choisir d'ignorer les sections
+théoriques et de lire seulement la section sur la
 <script language="javascript">
-  buildLinK("#JuliaFig", "section suivante","MMathSStat", "nextID", "_top");
+  buildLinK("#JuliaFig", "Représentation graphique des ensembles de Julia",
+  "MMathSStat", "nextID", "_top");
 </script>
-qui porte sur la représentation graphique des ensembles de Julia pour
-les fonctions polynomiales.  Dans ce document, nous démontrons ou
+où ils pourront générer les ensembles de Julia pour les fonctions
+polynomiales de degré deux.</p>
+
+<p><em>Avertissement</em>: Si les lecteurs espèrent trouver sur ce
+site Internet des applications pour produire des beaux
+ensembles de Julia en couleur, ils vont être déçus.  Ce site Internet
+porte principalement sur la théorie qui se cache derrières les beaux
+ensembles de Julia.  Les lecteurs peuvent utiliser Google pour trouver
+sur l'Internet beaucoup d'applications pour produire des beaux
+ensembles de Julia en couleur.</p>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="SS1">Concepts élémentaires d'analyse complexe</h3>
+
+<p>Les sections théoriques demandent une connaissance élémentaire de
+la topologie et de l'analyse complexe.  Dans ce document, nous démontrons ou
 ébauchons la preuve de seulement certains des résultats que nous
 énonçons.  Pour les démonstrations complètes de tous les résultats
 énoncés, le lecteur doit consulter les
@@ -94,8 +135,6 @@ buildLinK("#REF", "références","MMathSStat", "REDid1", "_top");
 <em class="EQ">V</em> de <em class="EQ">U</em> tel qu'il n'existe pas
 de sous-ensemble connexe <em class="EQ">W</em>
 de <em class="EQ">U</em> avec <em class="EQ">V &#10955; W</em>.</p>
-
-<h4>Concepts élémentaires d'analyse complexe</h4>
 
 <p>Nous considérons les fonctions holomorphes <em class="EQ">
 R:<span class="EQ_Over">&complexes;</span>
@@ -153,22 +192,22 @@ sont <em>conformément conjuguées</em> s'il existe une
 
 <p>Il est enseigné dans un premier cours d'analyse complexe que
 les transformations de M&ouml;bius sont des bijections et préservent
-les angles.</p>
+les angles.  Il en découle que des fonctions conformément conjuguées
+ont la même <q lang="fr">dynamique</q>.</p>
 
-<div class="Example">
-<p><em>Exemple</em>: Toute fonction polynomiale <em class="EQ">R</em>
-de la forme <em class="EQ">R(z) = &alpha;z<sup>2</sup>+&beta;z+&gamma;</em>
+<div class="Example" id="egA">
+<p><em>Exemple A</em>: Toute fonction polynomiale <em class="EQ">P</em>
+de la forme <em class="EQ">P(z) = &alpha;z<sup>2</sup>+&beta;z+&gamma;</em>
 est conformément conjuguée à une fonction polynomiale
 <em class="EQ">P<sub>c</sub></em> de la forme
 <em class="EQ">P<sub>c</sub>(z) = z<sup>2</sup>+c</em>.
-Soit <em class="EQ">H(x) = &alpha;z+&beta;/2</em>.  On a que
-<em class="EQ">H&#8728;R = P<sub>c</sub>&#8728;H</em> donne</p>
-<div class="center">
+Soit <em class="EQ">H(z) = &alpha;z+&beta;/2</em>.  On a que
+<em class="EQ">H&#8728;P = P<sub>c</sub>&#8728;H</em> donne</p>
+<div class="EQ_center">
 <em class="EQ_Display">
 &alpha;<sup>2</sup>z<sup>2</sup>+&alpha;&beta;z+(&alpha;&gamma;+&beta;/2)
 = &alpha;<sup>2</sup>z<sup>2</sup>+&alpha;&beta;z+&beta;<sup>2</sup>/4+c
-&rArr; c = &alpha;&gamma;+&beta;/2-&beta;<sup>2</sup>/4 .
-</em>
+&rArr; c = &alpha;&gamma;+&beta;/2-&beta;<sup>2</sup>/4</em> .
 </div>
 <p>Dans le cas particulier où <em class="EQ">&alpha; = -&beta;
 = -&#120583;</em> et <em class="EQ">&gamma; = 0</em>, nous obtenons
@@ -176,13 +215,6 @@ que la fonction logistique <em class="EQ">f<sub>&#120583;</sub></em>
 est conformément conjuguée à la fonction
 <em class="EQ">P<sub>c</sub></em> où
 <em class="EQ">c = &#120583-&#120583<sup>2</sup>/4</em>.
-Quand <em class="EQ">&#120583; &ge; 4</em>, nous avons vu que
-<em class="EQ">f<sub>&#120583;</sub> :
-&#120549;<sub>&#120583;</sub> &rarr; &#120549;<sub>&#120583;</sub></em>
-est chaotique.  Nous pouvons donc supooser que
-<em class="EQ">P<sub>c</sub>:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
-aura un comportement étrange pour <em class="EQ">c &leq; 0</em>.</p>
 </div>
 
 <p>Soit <em class="EQ">B<sub>&epsilon;</sub>(w)
@@ -204,7 +236,7 @@ ou <em class="EQ"><span class="EQ_Over">
 <p><em>Remarque</em>: Pour le lecteur qui n'aurait pas appris ce
 qu'est une surface de Riemann, l'exemple le plus simple d'une surface
 de Riemann est fourni par la fonction
-<em class="EQ">f: &complexes; &rarr; &complexes;</em> définie
+<em class="EQ">f:&complexes; &rarr; &complexes;</em> définie
 par <em class="EQ">f(z) = z<sup>2</sup></em>.
 Soit <em class="EQ">S<sub>i</sub> = &complexes; &setminus;
 {x : r &gt; 0}</em> pour <em class="EQ">i = 0,1</em>.  Les ensembles
@@ -226,18 +258,18 @@ fonction <em class="EQ">f</em>.
 La fonction <em class="EQ">f:&complexes; &rarr; S</em>
 est maintenant une bijection continue.  Nous avons que
 <em class="EQ">
-f: { r cos(&theta;) + r sin(&theta;) : r &ge; 0 et j&pi; &lt; &theta; &lt;
+f:{ r cos(&theta;) + r sin(&theta;) : r &ge; 0 et j&pi; &lt; &theta; &lt;
 (j+1)&pi;} &rarr; S<sub>j</sub></em> est une bijection pour
 <em class="EQ">j = 0,1</em>.
 L'origine est appelée un <em>point de branchement</em> car il
 appartient à <em class="EQ">S<sub>0</sub></em> et
 <em class="EQ">S<sub>1</sub></em>.  Si on considère
-<em class="EQ">f: <span class="EQ_Over">&complexes;</span>
+<em class="EQ">f:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>, alors
 <em class="EQ">&infin;</em> est aussi un point de branchement.
 Le lecteur devrait essayer de visualiser la surface de Riemann associée
 à la fonction 
-<em class="EQ">f: &complexes; &rarr; &complexes;</em> définie
+<em class="EQ">f:&complexes; &rarr; &complexes;</em> définie
 par <em class="EQ">f(z) = z<sup>n</sup></em> avec
 <em class="EQ">n</em> un entier positif.</p>
 
@@ -309,7 +341,9 @@ Si <em class="EQ">|f(z)| = |z|</em> pour un point
 for une valeur de <em class="EQ">&theta; &in; &#8477;</em>.</p>
 </div>
 
-<h4>Définition des ensembles de Julia</h4>
+<hr class="MMathSStat">
+
+<h3 id="SS2">Définition des ensembles de Julia</h3>
 
 <p>Notre objectif principal est l'étude des familles de fonctions
 holomorphes définies par
@@ -394,9 +428,8 @@ le cas. <span class="EQ_Right">&#8718;</span></p>
 
 <div class="Example">
 <p><em>Exemple</em>:
-Soit <em class="EQ">P<sub>c</sub>:
-<span class="EQ_Over">&complexes;</span> &rarr;
-<span class="EQ_Over">&complexes;</span></em>
+Soit <em class="EQ">P<sub>c</sub>:<span class="EQ_Over">&complexes;</span>
+&rarr; <span class="EQ_Over">&complexes;</span></em>
 une fonction définie par
 <em class="EQ">P<sub>c</sub>(x) = z<sup>2</sup>+c</em>
 pour <em class="EQ">c &in; &complexes;</em> arbitraire mais fixe.</p>
@@ -503,12 +536,12 @@ Soit  <em class="EQ">V</em> un voisinage ouvert de
 <span class="EQ_Over">&complexes;</span> &setminus; W<sub>V</sub></em> où
 <em class="EQ"> W<sub>V</sub> = &#8899;<sub>n&gt;0</sub> R<sup>n</sup>(V)</em>.
 Nous avons que</p>
-<div class="center">
+<div class="EQ_center">
 <em class="EQ_Display">
 w &in; W<sub>V</sub> &#8658; w = R<sup>m</sup>(v) pour un m &gt;
 0 et v &in; V<br>
 &#8658; R(w) = R<sup>m+1</sup>(v) pour un m &gt; 0 et v &in; V<br>
-&#8658; R(w) &in; W<sub>V</sub> .</em>
+&#8658; R(w) &in; W<sub>V</sub></em> .
 </div>
 <p>Donc <em class="EQ">R(w) &notin; W<sub>V</sub> &#8658; w &notin;
 W<sub>V</sub></em>.
@@ -837,7 +870,9 @@ obtenons que <em class="EQ">J<sub>R</sub>
   = <span class="EQ_Over">&complexes;</span></em>.
 <span class="EQ_Right">&#8718;</span></p>
 
-<h4>Une définition équivalente des ensembles de Julia</h4>
+<hr class="MMathSStat">
+
+<h3 id="SS3">Une définition équivalente des ensembles de Julia</h3> 
 
 <p>Comme nous avons fait jusqu'à présent, nous assumons que
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
@@ -867,10 +902,10 @@ où <em class="EQ"> z<sub>0</sub> = z</em> et
 <em class="EQ">z<sub>i</sub> = R(z<sub>j-1</sub>)</em>
 pour <em class="EQ">j &geq; 1</em>.  En particulier, si
 <em class="EQ">z</em> est un point périodique de période
-<em class="EQ">n</em> de <em class="EQ">R</em>, alors
-<em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
-est une orbite périodique car 
-<em class="EQ">z<sub>n</sub>=z<sub>0</sub></em>.</p>
+<em class="EQ">k</em> de <em class="EQ">R</em>, alors
+<em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>
+est une orbite périodique car
+<em class="EQ">z<sub>k</sub>=z<sub>0</sub></em>.</p>
 
 <div class="Theo">
 <p><em>Définition</em>: Supposons que <em class="EQ">z</em> est un
@@ -975,8 +1010,8 @@ de <em class="EQ">w</em> avec
 <p>La proposition suivante est une conséquence des trois
 propositions précédentes. </p>
 
-<div class="Theo">
-<p><em>Proposition</em>: Un point fixe
+<div class="Theo" id="propV">
+<p><em>Proposition &#8548;</em>: Un point fixe
 <em class="EQ">w</em> d'une fonction rationnelle
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
@@ -1033,8 +1068,8 @@ est un sous-ensemble de <em class="EQ">J<sub>R</sub></em>.  Puisque
 &subset; J<sub>R</sub></em>.  En fait, nous avons un résultat plus
 fort.</p>
 
-<div class="Theo" id="theoV">
-<p><em>Théorème &#8548;</em>: Si
+<div class="Theo" id="theoVI">
+<p><em>Théorème &#8549;</em>: Si
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 est une fonction rationnelle, alors
@@ -1052,7 +1087,7 @@ définition.</p>
 
 <div class="Theo">
 <p><em>Définition</em>: Le <em>basin d'attraction</em> d'un point fixe
-(super-) attractif <em class="EQ">z</em> d'une fonction rationnelle
+super-attractif ou attractif <em class="EQ">z</em> d'une fonction rationnelle
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 est l'ensemble <em class="EQ">W<sup>s</sup>(z,R) =
@@ -1061,6 +1096,15 @@ Le  <em>basin d'attraction immédiat</em> de <em class="EQ">z</em>,
 dénoté <em class="EQ">W<sup>i</sup>(z,R)</em>, est la composante
 connexe de <em class="EQ">W<sup>s</sup>(z,R)</em> qui contient
 <em class="EQ">z</em>.</p>
+
+<p>Le <em>basin d'attraction</em> d'un point périodique attractif
+<em class="EQ">z</em> de période <em class="EQ">k</em> est l'ensemble
+<em class="EQ">W<sup>s</sup>(z,R,k) = &#8899;<sub>0&leq;j&lt;k</sub>
+W(R<sup>j</sup>(z),R<sup>k</sup>)</em>.
+Le <em>basin d'attraction immédiat</em> de ce point périodique
+est l'ensemble
+<em class="EQ">W<sup>i</sup>(z,R,n) = &#8899;<sub>0&leq;j&lt;k</sub>
+W(R<sup>j</sup>(z),R<sup>k</sup>)</em>.</p>
 </div>
 
 <p>Il découle du
@@ -1071,31 +1115,32 @@ connexe de <em class="EQ">W<sup>s</sup>(z,R)</em> qui contient
 <em class="EQ">{R<sup>n</sup>}<sub>n&gt;0</sub></em>
 est normal sur <em class="EQ">W<sup>s</sup>(z,R)</em>.  De plus,
 <em class="EQ">W<sup>i</sup>(z,R)</em> est l'ensemble le plus grande 
-qui contient le point fixe (super-) attractif <em class="EQ">z</em> et sur
-lequel <em class="EQ">{R<sup>n</sup>}<sub>n&gt;0</sub></em> est normal.</p>
+qui contient le point fixe super-attractif ou attractif
+<em class="EQ">z</em> et sur lequel
+<em class="EQ">{R<sup>n</sup>}<sub>n&gt;0</sub></em> est normal.</p>
 
 <div class="Theo" id="theoV">
 <p><em>Proposition</em>: Si
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 est une fonction rationnelle et <em class="EQ">z</em> est un point
-fixe (super-) attractif de <em class="EQ">R</em>, alors
-<em class="EQ">&part; W<sup>s</sup>(z,R) = J<sub>R</sub></em>,
+fixe super-attractif ou attractif de <em class="EQ">R</em>, alors
+<em class="EQ">&part;W<sup>s</sup>(z,R) = J<sub>R</sub></em>,
 où <em class="EQ">&part;</em> est le symbole utilisé pour dénoter
 la frontière d'un ensemble.</p>
 </div>
 
 <p><em>Démonstration</em>: Nous avons évidemment que
-<em class="EQ">&part; W<sup>s</sup>(z,R) &subset; J<sub>R</sub></em>.
+<em class="EQ">&part;W<sup>s</sup>(z,R) &subset; J<sub>R</sub></em>.
 Puisque <em class="EQ">W<sup>s</sup>(z,R)</em> est complètement
 invariant, nous avons que
-<em class="EQ">&part; W<sup>s</sup>(z,R)</em> est un sous-ensemble fermé
+<em class="EQ">&part;W<sup>s</sup>(z,R)</em> est un sous-ensemble fermé
 et complètement invariant de <em class="EQ">J<sub>R</sub></em>.  Il
 découle de la <script language="javascript">
   buildLinK("#propIV", "Proposition &#8547;",
   "MMathSStat", "propIVID5", "_top");
 </script> que
-<em class="EQ">&part; W<sup>s</sup>(z,R) = J<sub>R</sub></em>.</p>
+<em class="EQ">&part;W<sup>s</sup>(z,R) = J<sub>R</sub></em>.</p>
 
 <div class="Example">
 <p><em>Exemple</em>: Si nous utilisons la méthode de Newton pour
@@ -1106,20 +1151,93 @@ fonction <em class="EQ">R</em> définie par
 Le polynôme <em class="EQ">z<sup>3</sup>-1</em> a trois racines dans
 le plan complexe.  <em class="EQ">z=1</em> est évidemment l'une des
 racines.  Puisque <em class="EQ">R'(1) = 0</em>, nous avons que
-<em class="EQ">z=1</em> est un point fixe (super-) attractif.  La
+<em class="EQ">z=1</em> est un point fixe super-attractif.  La
 région en noir dans la figure ci-dessus est
-<em class="EQ">W<sup>s</sup>(1,R)</em>.  Sa frontière est l'ensemble
-de Julia <em class="EQ">J<sub>R</sub></em> de <em class="EQ">R</em>.</p>
+<em class="EQ">W<sup>s</sup>(1,R) &cap; B</em> où 
+<em class="EQ">B = {x+yi : -2 &le; x,y &le; 2}</em>.
+la frontière de la région en noir est l'ensemble
+de Julia <em class="EQ">J<sub>R</sub></em> de <em class="EQ">R</em>
+à l'intérieur de <em class="EQ">B</em>.</p>
 <div class="center"> 
   <img src="julia1.png" style="width: 300px"
        alt="Filled Julia set for R(z) = (2 z^3 +1)/(3 z^2)." class="framed">
 </div>
 </div>
 
+<div class="Theo" id="propVII">
+<p><em>Proposition &#8550;</em>: Si
+<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
+&rarr; <span class="EQ_Over">&complexes;</span></em>
+est une fonction rationnelle, et <em class="EQ">z</em> est un point
+fixe super-attractif ou attractif, alors
+<em class="EQ">W<sup>i</sup>(z,R)</em>
+contient au moins une valeur critique de <em class="EQ">R</em>.</p>
+</div>
+
+<p><em>Démonstration (ébauche)</em>:
+Nous supposons que <em class="EQ">W<sup>i</sup>(z,R)</em> ne contient
+pas de valeurs critiques de <em class="EQ">R</em>.  Soit
+<em class="EQ">V &subset; W<sup>i</sup>(z,R)</em> un voisinage ouvert
+et simplement connexe de <em class="EQ">z</em>.</p>
+<ul>
+<li> Puisque <em class="EQ">V</em> ne contient pas de valeurs
+critiques de <em class="EQ">R</em>, nous pouvons utiliser le
+théorème de monodromie pour obtenir un voisinage ouvert et simplement
+connexe <em class="EQ">V<sub>1</sub> &subset; W<sup>i</sup>(z,R)</em>
+de <em class="EQ">z</em> et une fonction analytique
+<em class="EQ">T:V &rarr; V<sub>1</sub></em> telle que
+<em class="EQ"> R&#8728;T = Id</em> sur <em class="EQ">V</em>
+et <em class="EQ"> T&#8728;R = Id</em> sur
+<em class="EQ">V<sub>1</sub></em>.  Donc,
+<em class="EQ">T</em> peut être interprétée comme une
+<q lang="en">branche</q> de <em class="EQ">R<sup>-1</sup></em>.</li>
+<li> Puisque <em class="EQ">V<sub>1</sub></em> ne contient pas de
+valeurs critiques de <em class="EQ">R</em>, nous pouvons utiliser le
+théorème de monodromie pour obtenir un voisinage ouvert et simplement
+connexe <em class="EQ">V<sub>2</sub> &subset; W<sup>i</sup>(z,R)</em>
+de <em class="EQ">z</em> et une fonction analytique
+<em class="EQ">Q:V<sub>1</sub> &rarr; V<sub>2</sub></em> telle que
+<em class="EQ"> R&#8728;Q = Id</em> sur
+<em class="EQ">V<sub>1</sub></em>.
+et <em class="EQ"> Q&#8728;R = Id</em> sur
+<em class="EQ">V<sub>2</sub></em>.
+Puisque <em class="EQ">Q = T</em> sur <em class="EQ">V &cap; V<sub>1</sub></em>.
+nous pouvons renommer <em class="EQ">Q</em> en lui donnant le nom de
+<em class="EQ">T</em> et ainsi considérer que <em class="EQ">T</em>
+est maintenant définie sur un ensemble possiblement plus grand que
+<em class="EQ">V</em>.
+Nous avons <em class="EQ">T<sup>2</sup>:V &rarr; V<sub>2</sub></em>.
+<li>Et ainsi de suite.</li>
+</ul>
+<p>Il découle du
+<script language="javascript">
+  buildLinK("#Montel", "théorème de Montel",
+  "MMathSStat", "MontelID1", "_top");
+</script>
+que la famille de fonctions analytiques
+<em class="EQ">{T<sup>j</sup>}<sub>j&gt;0</sub></em>
+sur <em class="EQ">V</em> est normale car
+<em class="EQ">T<sup>j</sup>(V) = V<sub>j</sub> &subset;
+W<sup>i</sup>(z,R)</em> pour tous <em class="EQ">j</em>.
+C'est une contradiction de la
+<script language="javascript">
+  buildLinK("#propV", "Proposition &#8548;",
+  "MMathSStat", "propVID1", "_top");
+</script>
+car <em class="EQ">p</em> est un point fixe répulsif pour
+<em class="EQ">T</em>. <span class="EQ_Right">&#8718;</span> </p>
+
+<p>La proposition précédente est aussi vrai si
+<q lang="fr">un point fixe</q> est
+remplacé par <q lang="fr">une orbite périodique</q> de période
+<em class"EQ">k</em>.  Il suffit d'utiliser la proposition précédente
+avec la fonction <em class="EQ">R</em> remplacée par la fonction
+<em class="EQ">R<sup>k</sup></em>.</p>
+
 <p><em>Démonstration du
 <script language="javascript">
-  buildLinK("#theoV", "Théorème &#8548;",
-  "MMathSStat", "theoVD1", "_top");
+  buildLinK("#theoVI", "Théorème &#8549;",
+  "MMathSStat", "theoVIID1", "_top");
 </script> (ébauche)</em>: Soit
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em> un fonction
@@ -1132,10 +1250,9 @@ périodiques de <em class="EQ">R</em> et
 <em class="EQ">R</em>.</p>
 
 <ol style="list-style-type: decimal;">
-<li>L'ensemble <em class="EQ">&#120018;<sub>R</sub></em>
-a au plus <em class="EQ">2d-2</em> éléments.  La démonstration de ce
-résultat est basée sur le concept de déficience que nous avons introduit
-précédemment.</li>
+<li>Comme nous l'avons mentionné précédemment, il découle du concept
+de déficience que l'ensemble <em class="EQ">&#120018;<sub>R</sub></em>
+a au plus <em class="EQ">2d-2</em> éléments.</li>
 <li> <em class="EQ">J<sub>R</sub> &subset;
 <span class="EQ_Over">&#120031;<sub>R</sub></span></em>.
 Pour démontrer ce résultat, nous démontrons que
@@ -1147,16 +1264,16 @@ R(&#120018;<sub>R</sub>) &cup; &#120032;<sub>R</sub></em> est un
 ensemble fini et <em class="EQ">J<sub>R</sub></em> est fermé et
 parfait, nous avons que <em class="EQ">J<sub>R</sub> &subset;
 <span class="EQ_Over">&#120031;<sub>R</sub></span></em>.</li>
-<li>Le nombre d'orbites périodiques (super-) attractives de
+<li>Le nombre d'orbites périodiques super-attractives ou attractives de
 <em class="EQ">R</em> est au plus <em class="EQ">2d-2</em>.
-C'est un corollaire du fait que
-<em class="EQ">W<sup>i</sup>(z,R<sup>n</sup>)</em> contient au moins
-un point critique si <em class="EQ">z</em> est un point périodique
-(super-) attractif.</li>
+C'est un corollaire de la <script language="javascript">
+  buildLinK("#propVII", "Proposition &#8550;",
+  "MMathSStat", "propVIIID9", "_top");
+</script> car il y a au plus <em class="EQ">2d-2</em> points critiques.</li>
 <li>Si <em class="EQ">k<sub>1</sub></em> est le nombre d'orbites
-périodiques (super-) attractives et <em class="EQ">k<sub>2</sub></em>
-est le nombre d'orbites périodiques neutres, alors
-<em class="EQ">k<sub>1</sub>+k<sub>2</sub>/2 &leq; 2d-2</em>.
+périodiques super-attractives ou attractives, et
+<em class="EQ">k<sub>2</sub></em> est le nombre d'orbites périodiques
+neutres, alors <em class="EQ">k<sub>1</sub>+k<sub>2</sub>/2 &leq; 2d-2</em>.
 Ce résultat est une conséquence du fait qu'au moins
 <em class="EQ">k<sub>2</sub>/2</em> des orbites périodiques
 attractives sont des <q lang="en">continuations</q>
@@ -1234,8 +1351,8 @@ implique que <em class="EQ">R</em> a une <em>dépendance sensible</em>
 sur les conditions initiales.  Puisque les points périodiques
 répulsifs sont dense dans <em class="EQ">J<sub>R</sub></em> selon le
 <script language="javascript">
-  buildLinK("#theoV", "Théorème &#8548;",
-  "MMathSStat", "theoIVD2", "_top");
+  buildLinK("#theoVI", "Théorème &#8549;",
+  "MMathSStat", "theoVIID2", "_top");
 </script>, nous pouvons conclure que <em class="EQ">R</em> est
 <em>chaotique</em> sur <em class="EQ">J<sub>R</sub></em>.</p>
 
@@ -1262,12 +1379,12 @@ La fonction rationnelle <em class="EQ">R</em> est en <em>expansion</em> si
 <em class="EQ">J<sub>R</sub> &cap; K = &emptyset;</em>.</p>
 </div>
 
-<p>Puisque <em class="EQ">&part; W<sup>i</sup>(z,R) &subset; J<sub>R</sub></em>.
+<p>Puisque <em class="EQ">&part;W<sup>i</sup>(z,R) &subset; J<sub>R</sub></em>.
 la proposition suivante supporte la possibilité que la structure de
 <em class="EQ">J<sub>R</sub></em> pourrait être très complexe.</em>
 
-<div class="Theo" id="propVI">
-<p><em>Proposition &#8549;</em>: Si <em class="EQ">z</em> est un point
+<div class="Theo" id="propVIII">
+<p><em>Proposition &#8551;</em>: Si <em class="EQ">z</em> est un point
 fixe attractif d'une fonction rationnelle
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>, alors
@@ -1279,10 +1396,12 @@ fermées dans <em class="EQ"><span class="EQ_Over">&complexes;</span>
 </div>
 
 <p>Dans le dernier cas de la proposition précédente,
-<em class="EQ">&part; W<sup>i</sup>(z,R)</em> est composé d'un nombre
+<em class="EQ">&part;W<sup>i</sup>(z,R)</em> est composé d'un nombre
 infini de composantes connexes fermées.</p>
 
-<h4>Ensemble des points stables</h4>
+<hr class="MMathSStat">
+
+<h3 id="SS4">Ensemble des points stables</h3>
 
 <p>Pour mieux comprendre la structure de l'ensemble de Julia
 <em class="EQ">J<sub>R</sub></em> d'un fonction rationnelle
@@ -1369,9 +1488,9 @@ la frontière <em class="EQ">&part;S</em> de
 <em class="EQ">S</em> contient un point fixe neutre
 <em class="EQ">z</em> de <em class="EQ">R<sup>m</sup></em>,
 où <em class="EQ">m</em> est un diviseur de <em class="EQ">k</em>, et
-<em class="EQ">S &subset; W<sup>i</sup>(z,R<sup>k</sup>)</em>.</li>
+<em class="EQ">S &subset; W<sup>s</sup>(z,R<sup>k</sup>)</em>.</li>
 <li><em class="EQ">S</em> est un <em>disque de Siegel</em> si
-<em class="EQ">S</em> est simplement connexe, contient un point fixe 
+<em class="EQ">S</em> est simplement connexe, contient un point fixe neutre
 <em class="EQ">z</em> de <em class="EQ">R<sup>k</sup></em>,
 et <em class="EQ">R<sup>k</sup>|<sub>S</sub></em>
 est analytiquement conjugué à une rotation par un angle irrationnel
@@ -1380,7 +1499,8 @@ analytique <em class="EQ">H:S &rarr; B<sub>1</sub>(0)</em> tel que
 <em class="EQ">H(z) = 0</em>, et
 <em class="EQ">H&#8728;(R<sup>k</sup>) = L&#8728;H</em>
 où la fonction <em class="EQ">L:B<sub>1</sub>(0) &rarr; B<sub>1</sub>(0)</em>
-est définie par <em class="EQ">L(w) = e<sup>i&theta;</sup>w</em>.</li>
+est définie par <em class="EQ">L(w) = e<sup>i&theta;</sup>w</em>
+avec <em class="EQ">&theta; &in; &reals; &setminus; &rationals;</em>.</li>
 <li><em class="EQ">S</em> est un <em>anneau de Herman</em> si
 <em class="EQ">S</em> est conformément équivalent à un anneau de la
 forme <em class="EQ">A = {w : r<sub>1</sub> &lt; |w| &lt;
@@ -1435,8 +1555,8 @@ requièrent la présence de l'orbite d'un point critique qui n'est pas
 éventuellement périodique.  De plus, le domaine supper-attractif
 contient un point critique périodique.</p> 
 
-<div class="Theo" id="corVII">
-<p><em>Corollaire &#8550;</em>: Soit
+<div class="Theo" id="corIX">
+<p><em>Corollaire &#8552;</em>: Soit
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 une fonction rationnelle.  Si tous les points critiques de
@@ -1481,8 +1601,8 @@ invariant de <em class="EQ">J<sub>R</sub></em>.  Il découle de la
 que <em class="EQ">&part;S = J<sub>R</sub></em>.
 <span class="EQ_Right">&#8718;</span></p>
 
-<div class="Theo" id="propVIII">
-<p><em>Proposition &#8551;</em>: Soit
+<div class="Theo" id="propX">
+<p><em>Proposition &#8553;</em>: Soit
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 une fonction rationnelle de degré <em class="EQ">d</em>.</p>
@@ -1543,7 +1663,7 @@ Cauchy pour démontrer que la famille de fonctions rationnelles
 <em class="EQ">{T<sup>n</sup>}<sub>n&gt;0</sub></em> est
 normale sur <em class="EQ">W</em>.  Plus précisément, nous avons que
 </p>
-<div class="center">
+<div class="EQ_center">
 <em class="EQ_Display">
 T<sup>n</sup>(w) = 1/(2&pi;i}
 <span class="EQ_Larger">&int;</span></font><sub>&gamma;</sub>
@@ -1562,7 +1682,7 @@ pour tous <em class="EQ">n &gt; 0</em>.  Il en découle que
 <em class="EQ">|T<sup>n</sup>(z)| &leq; C</em> pour tous
 <em class="EQ">z &in; &gamma;</em> et tous <em class="EQ">n</em>.
 Nous obtenons que</p>
-<div class="center">
+<div class="EQ_center">
 <em class="EQ_Display">
 |T<sup>n</sup>(w)| = 1/(2&pi;} 
 <span class="EQ_Larger">&int;</span><sub>&gamma;</sub>
@@ -1581,8 +1701,8 @@ car <em class="EQ">J<sub>T</sub> = H(J<sub>R<sup>k</sup></sub>)
 = H(J<sub>R</sub>)</em>.  Ceci est une contradiction.
 <span class="EQ_Right">&#8718;</span></p>
 
-<div class="Example" id="egA">
-<p><em>Exemple A</em>: L'ensemble de Julia
+<div class="Example" id="egB">
+<p><em>Exemple B</em>: L'ensemble de Julia
 <em class="EQ">J<sub>P<sub>i/2</sub></sub></em>
 de la fonction <em class="EQ">P<sub>i/2</sub></em> est dessiné dans la
 figure ci-dessous.  Nous avons que
@@ -1597,8 +1717,8 @@ composantes simplement connexes.  Une de celle-ci contient
 </div>
 </div>
 
-<div class="Example" id="egB">
-<p><em>Exemple B</em>: L'ensemble de Julia
+<div class="Example" id="egC">
+<p><em>Exemple C</em>: L'ensemble de Julia
 <em class="EQ">J<sub>P<sub>0.3</sub></sub></em>
 de la fonction <em class="EQ">P<sub>0.3</sub></em> est dessiné dans la
 figure ci-dessous.  Nous avons que
@@ -1612,8 +1732,8 @@ seule composante connexe qui n'est pas simplement connexe.</p>
 </div>
 </div>
 
-<div class="Example" id="egC">
-<p><em>Exemple C</em>: Soit <em class="EQ">c</em> une des racines
+<div class="Example" id="egD">
+<p><em>Exemple D</em>: Soit <em class="EQ">c</em> une des racines
 non-nulles de <em class="EQ">P<sub>c</sub><sup>2</sup>(c) = c</em>.
 Plus spécifiquement, soit <em class="EQ">c &approx; -0.12256 + 0.74486i</em>.
 L'ensemble de Julia <em class="EQ">J<sub>P<sub>c</sub></sub></em>
@@ -1637,18 +1757,20 @@ Mendelbrot dans le <script language="javascript">
 </div>
 </div>
 
-<h4>Fonctions polynomiales</h4>
+<hr class="MMathSStat">
+
+<h3 id="SS5">Fonctions polynomiales</h3>
 
 <p>Les prochaines propositions seront utiles pour dessiner les ensembles
 de Julia de fonctions polynomiales.  Une démonstration semblable à la
 démonstration de la <script language="javascript">
-  buildLinK("#propVIII", "Proposition &#8551;",
-  "MMathSStat", "propVIIIID1", "_top");
+  buildLinK("#propX", "Proposition &#8553;",
+  "MMathSStat", "propXID1", "_top");
 </script>
 donne le résultat suivant.</p>
 
-<div class="Theo">
-<p><em>Proposition</em>: Soit
+<div class="Theo" id="propXI">
+<p><em>Proposition &#8554;</em>: Soit
 <em class="EQ">P:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 une fonction polynomiale.  Toutes les composantes connexes bornées de
@@ -1671,18 +1793,52 @@ pour un fonction polynomiale, l'ensemble de Julia d'un fonction
 polynomiale est contenu dans <em class="EQ">&complexes;</em>;
 c'est-à-dire, <em class="EQ">J<sub>P</sub></em> est borné.
 Nous avons que
-<em class="EQ">W<sup>i</sup>(&infin;,P) = W<sup>s</sup>(&infin;,P)
-&subset; S<sub>P</sub></em>.
-Ainsi <em class="EQ">S<sub>P</sub> &ne; &emptyset;</em>.
-Il y a un résultat semblable au
+<em class="EQ">W<sup>i</sup>(&infin;,P) &subset; S<sub>P</sub></em>.
+Ainsi <em class="EQ">S<sub>P</sub> &ne; &emptyset;</em>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Si
+<em class="EQ">P:<span class="EQ_Over">&complexes;</span>
+&rarr; <span class="EQ_Over">&complexes;</span></em>
+est une fonction polynomiale, alors aucun des domaines de Sullivan de
+<em class="EQ">P</em> est un anneau de Herman.</p>
+</div>
+
+<p><em>Démonstration</em>: Supposons que <em class="EQ">S</em> est un
+anneau de Herman pour <em class="EQ">P</em>.  Si nous fessons
+référence à la définition d'anneau de Herman, nous avons que
+l'image par <em class="EQ">H<sup>-1</sup></em> d'un cercle dans
+<em class="EQ">A</em> est une courbe invariante
+<em class="EQ">&gamma;</em> sous l'action de <em class="EQ">P</em>.
+Supposons que <em class="EQ">U</em> est l'ensemble ouvert borné par 
+<em class="EQ">&gamma;</em> et qui ne contient pas
+<em class="EQ">&infin;</em>.  Puisque
+<em class="EQ">J<sub>P</sub> &cap; U &ne; &emptyset;</em>
+et l'ensemble des points exceptionnels est
+<em class="EQ">&#120020;<sub>R</sub> = {&infin;}</em>, nous avons que
+<em class="EQ">&#8899;<sub>n&gt;0</sub> P<sup>n</sup>(U)
+= &complexes;</em>.  Mais ceci est une contradiction du principe du
+maximum pour les fonction analytiques qui dit que le maximum 
+de <em class="EQ">|P<sup>n</sup>|</em> sur
+<em class="EQ"><span class="EQ_Over">U</span></em> est atteint sur la
+frontière <em class="EQ">&gamma;</em> et donc
+<em class="EQ">sup<sub>z&in;U</sub> |P<sup>n</sup>(z)|
+&le; sup<sub>z&in;&gamma;</sub> |P<sup>n</sup>(z)|
+&le; sup<sub>z&in;&gamma;</sub> |z| < &infin;</em>.
+<span class="EQ_Right">&#8718;</span></p>
+
+<p>Il découle de la proposition précédente que
+<em class="EQ">W<sup>i</sup>(&infin;,P) = W<sup>s</sup>(&infin;,P)</em>.
+
+<p>Il y a un résultat semblable au
 <script language="javascript">
-  buildLinK("#corVII", "Corollaire &#8550;",
-  "MMathSStat", "corVIIID1", "_top");
+  buildLinK("#corIX", "Corollaire &#8552;",
+  "MMathSStat", "corIXID1", "_top");
 </script>
 avec une démonstration semblable pour les fonctions polynomiales.</p>
 
-<div class="Theo">
-<p><em>Proposition</em>: Soit
+<div class="Theo" id="propXII">
+<p><em>Proposition &#8555;</em>: Soit
 <em class="EQ">P:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 une fonction polynomiale.  Si tous les points critiques
@@ -1726,39 +1882,8 @@ figure ci-dessous.  Nous avons que
 </div>
 </div>
 
-<div class="Theo">
-<p><em>Proposition</em>: Si
-<em class="EQ">P:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
-est une fonction polynomiale, alors aucun des domaines de Sullivan de
-<em class="EQ">P</em> est un anneau de Herman.</p>
-</div>
-
-<p><em>Démonstration</em>: Supposons que <em class="EQ">S</em> est un
-anneau de Herman pour <em class="EQ">P</em>.  Si nous fessons
-référence à la définition d'anneau de Herman, nous avons que
-l'image par <em class="EQ">H<sup>-1</sup></em> d'un cercle dans
-<em class="EQ">A</em> est une courbe invariante
-<em class="EQ">&gamma;</em> sous l'action de <em class="EQ">P</em>.
-Supposons que <em class="EQ">U</em> est l'ensemble ouvert borné par 
-<em class="EQ">&gamma;</em> et qui ne contient pas
-<em class="EQ">&infin;</em>.  Puisque
-<em class="EQ">J<sub>P</sub> &cap; U &ne; &emptyset;</em>
-et l'ensemble des points exceptionnels est
-<em class="EQ">&#120020;<sub>R</sub> = {&infin;}</em>, nous avons que
-<em class="EQ">&#8899;<sub>n&gt;0</sub> P<sup>n</sup>(U)
-= &complexes;</em>.  Mais ceci est une contradiction du principe du
-maximum pour les fonction analytiques qui dit que le maximum 
-de <em class="EQ">|P<sup>n</sup>|</em> sur
-<em class="EQ"><span class="EQ_Over">U</span></em> est atteint sur la
-frontière <em class="EQ">&gamma;</em> et donc
-<em class="EQ">sup<sub>z&in;U</sub> |P<sup>n</sup>(z)|
-&le; sup<sub>z&in;&gamma;</sub> |P<sup>n</sup>(z)|
-&le; sup<sub>z&in;&gamma;</sub> |z| < &infin;</em>.
-<span class="EQ_Right">&#8718;</span></p>
-
-<div class="Theo" id="propIX">
-<p><em>Proposition &#8552;</em>: Soit
+<div class="Theo" id="propXIII">
+<p><em>Proposition &#8553;&#8546;;</em>: Soit
 <em class="EQ">P:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 une fonction polynomiale.  Les énoncés suivants
@@ -1797,7 +1922,7 @@ Ce concept se généralise à plus de symboles.</p>
 {(s<sub>0</sub>s<sub>1</sub>s<sub>2</sub>...) : 0 &le; s<sub>k</sub>
 &lt; n pour tous k &ge; 0}</em>.  L'<em>application de décalage sur
 <em class="EQ">n</em> symboles</em> est l'application
-<em class="EQ">&sigma; : &Sigma;<sub>n</sub> &rarr; &Sigma;<sub>n</sub></em>
+<em class="EQ">&sigma;:&Sigma;<sub>n</sub> &rarr; &Sigma;<sub>n</sub></em>
 définie par
 <em class="EQ">&sigma;(s<sub>0</sub>s<sub>1</sub>s<sub>2</sub>...)
 = (s<sub>1</sub>s<sub>2</sub>...)</em>.
@@ -1809,8 +1934,8 @@ le comportement chaotique d'une fonction polynomial <em class="EQ">P</em>
 sur <em class="EQ">J<sub>P</sub></em> peut être décrit par une
 application de décalage.</p>
 
-<div class="Theo" id="theoX">
-<p><em>Théorème &#8553;</em>: Soit
+<div class="Theo" id="propXIV">
+<p><em>Proposition &#8553;&#8547;</em>: Soit
 <em class="EQ">P:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 un fonction polynomiale de degré <em class="EQ">d</em>.
@@ -1827,53 +1952,53 @@ et <em class="EQ">P|<sub>J<sub>P</sub></sub></em> est conjugué
 
 <div class="Example">
 <p><em>Exemple</em>: À l'<script language="javascript">
-buildLinK("#egA", "Example A", "MMathSStat", "egAID", "_top");
+buildLinK("#egB", "Example B", "MMathSStat", "egBID", "_top");
 </script>, nous avons que <em class="EQ">0</em> est le seul point
 critique fini de <em class="EQ">P<sub>i/2</sub></em>
 et <em class="EQ">P<sup>n</sup><sub>i/2</sub>(0) &rarr; -0.1360 + 0.3931i</em>.
 Il découle de la <script language="javascript">
-  buildLinK("#propIX", "Proposition &#8552;",
-  "MMathSStat", "propVIXID7", "_top");
+  buildLinK("#propXIII", "Proposition &#8553;&#8546;",
+  "MMathSStat", "propXIIIID7", "_top");
 </script>
 que <em class="EQ">J<sub>P<sub>i/2</sub></sub></em> est connexe.</p>
 
 <p>À l'<script language="javascript">
-buildLinK("#egB", "Example B", "MMathSStat", "egAID", "_top");
+buildLinK("#egC", "Example C", "MMathSStat", "egCID", "_top");
 </script>, nous avons toujours que <em class="EQ">0</em> est le seul
 point critique fini de <em class="EQ">P<sub>0.3</sub></em>.  Cependant,
 <em class="EQ">P<sup>n</sup><sub>0.3</sub>(0) &rarr; &infin;</em>.
 Il découle de la <script language="javascript">
-  buildLinK("#propVI", "Proposition &#8549;",
-  "MMathSStat", "propVIID2", "_top");
+  buildLinK("#propVIII", "Proposition &#8551;",
+  "MMathSStat", "propVIIIID2", "_top");
 </script>
 et de la
 <script language="javascript">
-  buildLinK("#propIX", "Proposition &#8552;",
-  "MMathSStat", "propIXID1", "_top");
+  buildLinK("#propXIV", "Proposition &#8553;&#8547",
+  "MMathSStat", "propXIVID1", "_top");
 </script>
 que <em class="EQ">J<sub>P<sub>i/2</sub></sub></em> est l'union d'un
 nombre infini de composantes connexes fermées.  De plus, nous avons
-du <script language="javascript">
-  buildLinK("#theoX", "Théorème &#8553;",
-  "MMathSStat", "theoXID1", "_top");
+de la <script language="javascript">
+  buildLinK("#propXIV", "Proposition &#8553;&#8547;",
+  "MMathSStat", "propXIVID1", "_top");
 </script> que <em class="EQ">J<sub>P</sub></em> est totalement
 discontinu.</p>
 
 <p>Finalement, À l'<script language="javascript">
-buildLinK("#egC", "Example C", "MMathSStat", "egAID", "_top");
+buildLinK("#egD", "Example D", "MMathSStat", "egDID", "_top");
 </script>, nous avons que <em class="EQ">0</em> est le seul point
 critique de <em class="EQ">P<sub>c</sub></em> où
 <em class="EQ">c &approx; -0.12256 + 0.74486i</em>, et la suite
 <em class="EQ">P<sup>n</sup><sub>c</sub>(0)</em> est borné car
 <em class="EQ">{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em>
 <q lang="en">approche</q> l'orbite périodique</p>
-<div class="EQ_Scroll">
+<div class="EQ_center">
 <em class="EQ">{-0.1226... + 0.7449... i, -0.6624... + 0.5623... i,
--3.9415...&times;10<sup>-6</sup> + 1.6474...&times;10<sup>-6</sup> i}</em>.
+-3.9415...&times;10<sup>-6</sup> + 1.6474...&times;10<sup>-6</sup> i}</em> .
 </div>
 <p>Il découle de la <script language="javascript">
-  buildLinK("#propIX", "Proposition &#8552;",
-  "MMathSStat", "propVIXID7", "_top");
+  buildLinK("#propXIII", "Proposition &#8553;&#8546;",
+  "MMathSStat", "propXIIIID7", "_top");
 </script>
 que <em class="EQ">J<sub>P<sub>c</sub></sub></em> est connexe.</p>
 </div>
@@ -1881,20 +2006,44 @@ que <em class="EQ">J<sub>P<sub>c</sub></sub></em> est connexe.</p>
 <p>Si <em class="EQ">P</em> est une fonction polynomiale de
 degré <em class="EQ">2</em>, alors nous avons de la
 <script language="javascript">
-  buildLinK("#propVI", "Proposition &#8549;",
-  "MMathSStat", "propVIID2", "_top");
+  buildLinK("#propVIII", "Proposition &#8551;",
+  "MMathSStat", "propVIIIID2", "_top");
 </script>, de la
 <script language="javascript">
-  buildLinK("#propIX", "Proposition &#8552;",
-  "MMathSStat", "propIXID1", "_top");
-</script> et du
+  buildLinK("#propXIII", "Proposition &#8553;&#8546;",
+  "MMathSStat", "propXIIIID1", "_top");
+</script> et de la
 <script language="javascript">
-  buildLinK("#theoX", "Théorème &#8553;",
-  "MMathSStat", "theoXID1", "_top");
+  buildLinK("#propXIV", "Proposition &#8553;&#8547;",
+  "MMathSStat", "propXIVID1", "_top");
 </script>
 que <em class="EQ">J<sub>P</sub></em> est un ensemble connexe si
 l'orbite de son point critique fini est bornée, et
 <em class="EQ">J<sub>P</sub></em> est totalement discontinu autrement.</p>
+
+<p>Pour conclure cette section, nous énonçons un résultat de
+Douady and Hubbard au sujet du nombre maximal d'orbites périodiques
+super-attractives, attractives et neutres d'une fonction polynomiale.
+Nous avons vu précédemment que si
+<em class="EQ">k<sub>1</sub></em> est le nombre d'orbites périodiques
+super-attractives ou attractives, et <em class="EQ">k<sub>2</sub></em>
+est le nombre d'orbites périodiques neutres d'une fonction rationnelle
+<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
+&rarr; <span class="EQ_Over">&complexes;</span></em>, alors
+<em class="EQ">k<sub>1</sub> + k<sub>2</sub>/2 &le; 2d-2</em>.  En
+fait,  <script language="javascript">
+  buildLinK("AD", "Douady and Hubbard", "MMathSStat", "ADid", "_top");
+</script>
+ont démontrés un résultat plus fort pour les fonctions polynomiales à
+l'aide du concept de fonctions de <em>type polynomiale</em>.</p>
+
+<div class="Theo" id="propXV">
+<p><em>Proposition &#8553;&#8548;</em>: Le nombre total d'orbites périodiques
+super-attractives, attractives ou neutres d'une fonction polynomiale
+<em class="EQ">P:<span class="EQ_Over">&complexes;</span>
+&rarr; <span class="EQ_Over">&complexes;</span></em> de degré
+<em class="EQ">d</em> est au plus <em class="EQ">d-1</em>.</p>
+</div>
 
 <p> Il y a beaucoup plus de résultats sur les ensembles de Julia et
 aussi plusieurs questions mathématiques fascinantes à leur sujet
@@ -1932,26 +2081,60 @@ préférable d'utiliser la méthode moins exigeante décrite ci-dessous.</p>
 
 <p>Dans la suite de cette section, nous considérons la fonction
 polynomiale <em class="EQ">P<sub>c</sub></em> définie par</p>
-<div class="center">
+<div class="EQ_center">
 <em class="EQ_Display">P<sub>c</sub>(z) = z<sup>2</sup>+c</em>
 </div>
 <p>pour <em class="EQ">c &in; &complexes;</em> fixe mais arbitraire.</p>
-Pour dessiner l'ensemble de Julia <em class="EQ">J<sub>P<sub>c</sub></sub></em>
+
+<div class="Note">
+<p><em>Remarque</em>: Rappelons que nous avons vu à
+l'<script language="javascript">
+  buildLinK("#egA", "Exemple A","MMathSStat", "egAID3", "_top");
+</script> que toute fonction polynomiale de degré deux est
+conformément conjuguée à une fonction polynomiale
+<em class="EQ">P<sub>c</sub></em> pour une certaine valeur de
+<em class="EQ">c</em>.  Ainsi, il n'y a aucune perte de généralité
+à considérer seulement les fonctions polynomiales
+<em class="EQ">P<sub>c</sub></em>.  De plus, nous avons vu
+que la fonction logistique <em class="EQ">f<sub>&#120583;</sub></em>
+est conformément conjuguée à la fonction
+<em class="EQ">P<sub>c</sub></em> où
+<em class="EQ">c = &#120583/2-&#120583<sup>2</sup>/4</em>.
+Quand <em class="EQ">&#120583; &ge; 4</em>, nous avons vu que
+<em class="EQ">f<sub>&#120583;</sub> :
+&#120549;<sub>&#120583;</sub> &rarr; &#120549;<sub>&#120583;</sub></em>
+est chaotique.  Nous pouvons donc supposer que
+<em class="EQ">P<sub>c</sub>:<span class="EQ_Over">&complexes;</span>
+&rarr; <span class="EQ_Over">&complexes;</span></em>
+aura un comportement étrange pour <em class="EQ">c &leq; -2</em>.
+De plus, quand <em class="EQ">c &in; &reals;</em> varie de
+<em class="EQ">0</em> à <em class="EQ">-2</em>, nous observons une
+cascade de dédoublement de périodes comme nous avons pour la fonction
+logistique.  Plus précisément, il découle de
+<em class="EQ">c = &#120583/2-&#120583<sup>2</sup>/4</em>
+que <em class="EQ">c</em> varie de <em class="EQ">0</em> à
+<em class="EQ">-2</em> lorsque <em class="EQ">&#120583</em> varie de
+<em class="EQ">2</em> à <em class="EQ">4</em>.  Donc, l'étude des
+ensemble de Julia promet d'être excitante..</p>
+</div>
+
+<p>Pour dessiner l'ensemble de Julia
+<em class="EQ">J<sub>P<sub>c</sub></sub></em>
 de <em class="EQ">P<sub>c</sub></em>, nous utilisons le fait que
-<em class="EQ">J<sub>P<sub>c</sub></sub> = &part;
-W<sup>s</sup>(&infin;,P<sub>c</sub>)</em>, la frontière du basin
+<em class="EQ">J<sub>P<sub>c</sub></sub> =
+&part;W<sup>s</sup>(&infin;,P<sub>c</sub>)</em>, la frontière du basin
 d'attraction du point fixe <em class="EQ">&infin;</em> de
 <em class="EQ">P<sub>c</sub></em>.  En fait, l'application ci-dessous
-dessine <em>l'ensemble de Julia plein</em> de <em class="EQ">P<sub>c</sub></em>;
-C'est-à-dire, l'ensemble
-<em class="EQ">&#120570;<sub>c</sub> = &complexes; &setminus;
+dessine <em>l'ensemble de Julia rempli</em> de
+<em class="EQ">P<sub>c</sub></em>; C'est-à-dire, l'ensemble
+<em class="EQ">K<sub>P<sub>c</sub></sub> = &complexes; &setminus;
 W<sup>s</sup>(&infin;,P<sub>c</sub>)</em>.  Donc, la frontière
-<em class="EQ">&part; &#120570;<sub>c</sub></em> de
-<em class="EQ">&#120570;<sub>c</sub></em> est l'ensemble de Julia
+<em class="EQ">&part;K<sub>P<sub>c</sub></sub></em> de
+<em class="EQ">K<sub>P<sub>c</sub></sub></em> est l'ensemble de Julia
 <em class="EQ">J<sub>P<sub>c</sub></sub></em> de
 <em class="EQ">P<sub>c</sub></em>.</p>
 
-<p> Si <em class="EQ">|z| &gt; K = max{|c|,2}</em>, nous avons que
+<p> Si <em class="EQ">|z| &gt; C = max{|c|,2}</em>, nous avons que
 <em class="EQ">|P<sub>c</sub><sup>n</sup>(z)| &rarr; &infin;</em>
 lorsque <em class="EQ">n &rarr; &infin;</em>.  Pour démontrer ce
 résultat, nous notons en premier que
@@ -1960,66 +2143,64 @@ résultat, nous notons en premier que
 <em class="EQ">|w<sup>2</sup>| - |c| &leq;
 |w<sup>2</sup>+c| = |P<sub>c</sub>(w)|</em> pour tous
 <em class="EQ">w &in; &complexes;</em>.
-Si <em class="EQ">|w| &gt; K</em>, alors
+Si <em class="EQ">|w| &gt; C</em>, alors
 <em class="EQ">|w| = 2+&delta;</em> pour un
 <em class="EQ">&delta; &gt; 0</em>.  Ainsi,</p>
-<div class="center">
+<div class="EQ_center">
 <em class="EQ_Display">|P<sub>c</sub>(w)|
 &ge; |w<sup>2</sup>| - |c| = |w|<sup>2</sup> - |c|
 &ge; |w|<sup>2</sup> - |w| <br>
-= |w|(|w|-1) = |w|(1 + &delta;) .
-</em>
+= |w|(|w|-1) = |w|(1 + &delta;)</em> .
 </div>
 <p>Nous pouvons tirer deux conclusions de cette inégalité.
-  Premièrement, si <em class="EQ">|w| &gt; K</em>, alors
-<em class="EQ">|P<sub>c</sub>(w)| &gt; |w| &gt; K</em>.
+Premièrement, si <em class="EQ">|w| &gt; C</em>, alors
+<em class="EQ">|P<sub>c</sub>(w)| &gt; |w| &gt; C</em>.
 Deuxièmement, nous pouvons utiliser l'inégalité ci-dessus 
 pour obtenir </p>
-<div class="center">
+<div class="EQ_center">
 <em class="EQ_Display">|P<sub>c</sub><sup>2</sup>(w)|
 = |P<sub>c</sub>(P<sub>c</sub>(w))|
 &gt; |P<sub>c</sub>(w)|(1 + &delta;)
-&gt; |w|(1 + &delta;)<sup>2</sup> ,
-</em>
+&gt; |w|(1 + &delta;)<sup>2</sup></em> ,
 </div>
 <p>où la première inégalité est valide car 
-<em class="EQ">|P<sub>c</sub>(w)| &gt; K</em>.
+<em class="EQ">|P<sub>c</sub>(w)| &gt; C</em>.
 Par induction, nous avons que</p>
-<div class="center">
+<div class="EQ_center">
 <em class="EQ_Display">|P<sub>c</sub><sup>n</sup>(w)|
 &gt; |w|(1 + &delta;)<sup>n</sup> &rarr; &infin;
 </em>
 </div>
 <p>lorsque <em class="EQ">n &rarr; &infin;</em>. Nous avons donc que
 <em class="EQ">W<sup>s</sup>(&infin;,P<sub>c</sub>) = {w &in; &complexes; :
-|P<sub>c</sub><sup>n</sup>(w)| > K pour une valeur de n}</em>.</p>
+|P<sub>c</sub><sup>n</sup>(w)| > C pour une valeur de n}</em>.</p>
 
-<p>Dans le but de dessiner des ensembles de Julia pleins, nous
+<p>Dans le but de dessiner des ensembles de Julia remplis, nous
 choisissons un grand nombre
 <em class="EQ">N</em>, disons <em class="EQ">N = 50</em>, et nous
-déclarons que <em class="EQ">z &in; &#120570;<sub>c</sub></em> si
-<em class="EQ">|P<sub>c</sub><sup>n</sup>(z)| &lt; K</em> pour tous
+déclarons que <em class="EQ">z &in; K<sub>P<sub>c</sub></sub></em> si
+<em class="EQ">|P<sub>c</sub><sup>n</sup>(z)| &lt; C</em> pour tous
 <em class="EQ">n &le; N</em>.  Naturellement, nous n'obtenons pas
-exactement <em class="EQ">&#120570;<sub>c</sub></em> mais,
+exactement <em class="EQ">K<sub>P<sub>c</sub></sub></em> mais,
 si <em class="EQ">N</em> est assez grand, c'est une approximation 
-assez précise de <em class="EQ">&#120570;<sub>c</sub></em>
+assez précise de <em class="EQ">K<sub>P<sub>c</sub></sub></em>
 pour les écrans d'ordinateurs dont la résolution est limitée par le
 nombre de pixels.  Quand nous dessinons des ensembles de Julia,
 nous devons tenir compte de l'augmentation du temps de calcul lorsque
 <em class="EQ">N</em> croît. </p>
 
 <p>Quand <em class="EQ">J<sub>P<sub>c</sub></sub></em> est une dendrite,
-alors <em class="EQ">&#120570;<sub>c</sub>
-= J<sub>P<sub>c</sub></sub></em> a un intérieur vide.
+alors <em class="EQ">K<sub>P<sub>c</sub></sub> = J<sub>P<sub>c</sub></sub></em>
+a un intérieur vide.
 Donc, dans cette situation, il est possible que la figure soit presque
 vide si la majorité des pixels de l'écran d'ordinateur ne sont pas associés
-à des points dans <em class="EQ">&#120570;<sub>c</sub></em>. </p>
+à des points dans <em class="EQ">K<sub>P<sub>c</sub></sub></em>. </p>
 
 <p>Nous pouvons utiliser l'application graphique ci-dessous
-pour dessiner des ensembles de Julia pleins.  Étant donné un nombre
+pour dessiner des ensembles de Julia remplis.  Étant donné un nombre
 complexe <em class="EQ">c</em>, les points <em class="EQ">z</em>
 du plan complexe qui sont colorés en noire sont des points qui appartiennent
-à l'ensemble <em class="EQ">&#120570;<sub>c</sub></em>.  La frontière 
+à l'ensemble <em class="EQ">K<sub>P<sub>c</sub></sub></em>.  La frontière 
 de la région en noire est donc <em>l'ensemble de Julia</em> de
 <em class="EQ">P<sub>c</sub></em>.</p>
 
@@ -2027,23 +2208,34 @@ de la région en noire est donc <em>l'ensemble de Julia</em> de
 <canvas id="julia" width="400" height="400"> </canvas>
 </div>
 
+<input type="hidden" value="0.27" id="default_c_real">
+<input type="hidden" value="-0.48" id="default_c_img">
+
 <table class="noB">
 <tr><td style="width: 50%;">
 <ul>
 <li> <em class="EQ">Real(c) = </em>
-  <input type="text" value="0.27" id="c_real"> &nbsp;</li>
+  <input type="text" value="0.27" id="c_real"></li>
 <li> <em class="EQ">Im(c) = </em>
   <input type="text" value="-0.48" id="c_img"> </li>
-<li> Nombre d'itérations <input type="text" value="50" id="julia_nbr"></li>
+<li> Nombre d'itérations <input type="text" value="100" id="julia_nbr"></li>
 <li> <input type="button" value="Départ" onclick="julia()">
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="button" value="Effacer" onclick="clearCanvas('julia')"> </li>
+  <input type="button" value="Effacer"
+	 onclick="clearCanvasText
+	  ('julia','c_real','c_img','default_c_real','default_c_img')"> </li>
 </ul>
 </td>
 <td style="width: 50%;">
-<p>Pour <em>agrandir</em> une région de l'ensemble de Julia, cliquez
-avec le bouton gauche de la sourie sur la région désirée dans la
-figure.</p>
+<p>Pour <em>agrandir</em> une région de l'ensemble de Julia, il suffit
+de cliquer avec le bouton gauche de la sourie sur la région désirée dans la
+figure ci-dessus.  Le nombre d'itérations doit être augmenté lorsque
+l'image est agrandie pour obtenir une image plus précise. </p>
+<p><em>Attention</em>: Augmenter le nombre d'itérations n'assure pas
+la production d'une image plus précise en raison des erreurs de
+troncature.  En fait, le contraire peut se produire.</p>
+<p>Pour voir l'<q lang="en">ombre</q> d'une dendrite, le nombre
+d'itérations doit être petit.</p>
 <p>Seulement des nombres décimaux peuvent être utilisés comme valeurs
 de <em class="EQ">Real(c)</em> et <em class="EQ">Im(c)</em>.
 Un expression de la forme <em class="EQ">1/2</em> n'est pas acceptable
@@ -2054,10 +2246,12 @@ car le contenu de ces champs n'est pas évalué mathématiquement.</p>
 
 <hr class="MMathSStat">
 
+<h3 id="REF">Références</h3>
+
 <p>Le contenu de ce document est principalement basé sur les livres et
 articles suivants.</p>
 
-<ul id="REF">
+<ul>
 <li id="VA">V. Arnold, <em>Small denominators: I: On the mappings of
 the circumference onto itself</em>, Amer. Math. Soc. Transl. (2)
 <em>46</em> (1965), 213-284.</li>
@@ -2065,6 +2259,9 @@ the circumference onto itself</em>, Amer. Math. Soc. Transl. (2)
 Sphere</em>, Bull. Amer. Math. Soc. (N.S.) <em>11</em> (1984), 85-141.</li>
 <li id="RD">R. L. Devenay, <em>An Introduction to Chaotic Dynamical
 Ssystems</em>, The Benjamin/Cummings Publishing Co., Inc. (1986).</li>
+<li id="AD">A. Douady, <em>Systèmes dynamiques holomorphes</em>,
+Séminaire Bourbaki, 35<sup>e</sup> année, <em>599</em>, Astérisque
+105-106 (1982), 39-63.</li>
 <li id="LK"> L. Keen, <em>Julia Sets</em>, in
 <em>Chaos and Fractals: The Mathematics Behind the Computer Graphics</em>,
 R. L. Devaney and L. Keen, Editors, Proceeding of symposia in applied
@@ -2072,6 +2269,12 @@ mathematics, AMS short course lecture notes (1989), 57-74.</li>
 <li id="PJS">H.-O. Peitgen, H. j&#252;rgens and D. Saupe, <em>Chaos
 and Fractals: New Frontiers of Science</em>, Springer-Verlag (1992).</li>
 </ul>
+
+<p>Le lecteur devrait consulter
+<script language="javascript">
+  buildLinK("PB", "P. Blanchard", "MMathSStat", "PBid3", "_top");
+</script>
+pour une liste plus exhaustive de références.</p>
 
 <table class="noB">
 <tr> <td rowspan="1" colspan="1" class="left">

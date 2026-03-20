@@ -254,7 +254,7 @@ function logisticDDS(lang) {
     ctx.stroke();
     ctx.closePath();
 
-    /* We draw and label the axes */
+    /* We draw the labels and the axes. */
     t = Math.floor((0-min)*delta);
     ctx.beginPath();
     ctx.moveTo(t, 0);
@@ -270,7 +270,7 @@ function logisticDDS(lang) {
     ctx.stroke();
     ctx.closePath();
 
-    /* We write the value of the last iteration */
+    /* We write the value of the last iteration. */
     ctx.beginPath();
     var u = "value of x_"+nbr+" = ";
     if ( lang == "French" ) {

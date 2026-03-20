@@ -36,6 +36,10 @@ h3 { text-decoration: none; text-align: center;
   color: black; font-weight: bold; font-size: 120%; font-style: normal; }
 h4 { text-decoration: none; text-align: left; color: black;
   font-weight: bold; font-size: 110%; font-style: normal; }
+span.subsect { text-decoration: none; text-align: left; color: black;
+  font-weight: bold; font-size: 110%; font-style: normal;
+  background-color: white; border: solid black 1px; padding-right: 1em;
+  padding-left: 1em;}
 
 /* Address */
 address { vertical-align: baseline; text-align: left; }
@@ -109,6 +113,17 @@ table.noB td.center { text-align: center; vertical-align: baseline;
   padding: 5px; margin: 0px; border: 0px; color: black; }
 table.noB td.right { text-align: right; vertical-align: baseline;
   padding: 5px; margin: 0px; border: 0px; color: black; }
+
+/* Table without border and spacing */
+table.noBS { padding: 0px; margin: 0px; border: 0px;
+  border-collapse: collapse; empty-cells: show; background-color: inherit; }
+table.noBS tr { border: 0px; padding: 0px; margin: 0px;
+  border-collapse: collapse; background-color: inherit; }
+table.noBS td { text-align: left; vertical-align: baseline;
+  padding: 0px; margin: 0px; border: 0px; color: black; }
+table.noBS th { text-align: left; vertical-align: baseline;
+  padding: 0px; margin: 0px; border: 0px; color: black; font-weight: bold;
+  background-color: inherit;}
 
 /********************************************************************/
 /* The top menu                                                     */
@@ -218,9 +233,9 @@ span.EQ_Over { color: inherit; font-family: inherit;
 span.EQ_Larger { color: inherit; font-family: inherit;
   font-size: 150%;}
 span.EQ_Right { float: right; }
-div.EQ_Scroll { overflow-y: scroll; }
+div.EQ_center { text-align: center; margin: 10px; overflow-y: scroll; }
 
-canvas { border: 1px solid #8F001A; background-color: white; }
+canvas { background-color: white; border: 1px solid #8F001A; */
 
 em.matlab { color: blue; font-weight: bold; font-size: 100%; }
 pre.matlab { font-family: "Courier", monospace; overflow-y: scroll; }

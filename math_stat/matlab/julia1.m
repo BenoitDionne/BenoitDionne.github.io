@@ -3,7 +3,7 @@
 % Draw the Julia set of p_c(z) = z^2 + c.
 %
 % c : Any complex number.  The default value is i.
-% N : The number of iterations.  The default value is 17.
+% N : The number of backward iterations.  The default value is 17.
 % colour : One of the colours accepted in Matlab plot/fill.
 %          The default colour is blue.
 %
@@ -62,15 +62,13 @@ function julia1(c, N, colour)
         y = [ v , -v ];
 
         % We draw the points.
-        plot(x,y,'.','LineWidth',0.1);
+        plot(x,y,'.','LineWidth',0.1,'Color',colour);
 
         % Go on with the next iteration (if there is one).
         x = [ u , -u ] - real(c);
         y = [ v , -v ] - imag(c);        
         hold on
     end
-    h = gca;
-    set(h.Children,'Color',colour);
     axis equal;
     grid on
     title(['p(z) = z^2 + ',num2str(real(c)),' + ',num2str(imag(c)),'i']);

@@ -10,7 +10,7 @@ Math. et Stat. -- Benoit Dionne
 
 <meta name="Title" content="Mathematiques et Statistique">
 <meta name="Author" content="Benoit Dionne">
-<meta scheme="Year-Month-Day" name="Date of Publication" content="2014-12-07">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2026-03-15">
 <meta name="Keywords" content="mathematiques,statistique,universite,ottawa">
 <meta name="Copyright" content= "&copy; 2014 Benoit Dionne, uOttawa">
 <meta http-equiv="Expires" content="">
@@ -26,7 +26,15 @@ document.write("Include javascript file has failed")
 document.write("Include javascript file has failed")
 </script>
 
+<script language="javascript" src="PcDDS.js">
+  document.write("Include javascript file has failed")
+</script>
+
 <script language="javascript" src="mandelbrot.js">
+  document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="julia.js">
   document.write("Include javascript file has failed")
 </script>
 
@@ -49,10 +57,6 @@ top_function(fractal5,"fr");
 main_title( MStexte, "MMathSStat");
 </script>
 
-<script language="javascript">
-document.write("<img src=\""+construction.src+"\" class=\"MMathSStat\">");
-</script>
-
 <table class="noB">
 <tr> <td rowspan="1" colspan="1" class="left">
 <a href="fractal4_fr.html"> Document précédent </a> </td>
@@ -62,110 +66,2321 @@ document.write("<img src=\""+construction.src+"\" class=\"MMathSStat\">");
 
 <h2 id="TOP"> L'ensemble de Mandelbrot </h2>
 
-<p> On ne peut pas se permettre de terminer notre bref introduction
-à la géométrie fractale sans mentionner la figure qui
-est responsable de toute l'excitation au sujet des images fractales
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#SS1", "Définition",
+      "MMathSStat", "SS1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS2", "Structure de l'ensemble de Mandelbrot",
+      "MMathSStat", "SS2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS3",
+      "Ensembles de Julia pleins pour <em class=\"EQ\">P<sub>c</sub></em>",
+      "MMathSStat", "SS3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS4",
+      "Courbes équipotentielles et rayons externes de l'ensemble de Mandelbrot",
+      "MMathSStat", "SS4ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS5","Et plus ...",
+      "MMathSStat", "SS4ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#MandelbrotFig",
+      "Exploration graphique de l'ensemble de Mandelbrot",
+      "MMathSStat", "MandelbrotFigID", "_top");
+    </script>
+  </li>
+</ul>
+</div>
+
+<p> On ne peut pas se permettre de terminer notre bref introduction au
+chaos et aux fractales sans mentionner la figure qui est responsable
+de toute l'excitation au sujet des images fractales 
 générées par ordinateur; c'est-à-dire, <em>l'ensemble de Mandelbrot</em>. </p>
+
+<p>Comme pour le document précédent sur les ensembles de Julia,
+certains lecteurs pourraient choisir d'ignorer les sections
+théoriques et de lire seulement la section sur l'<script language="javascript">
+buildLinK("#MandelbrotFig", "Exploration graphique de l'ensemble de Mandelbrot",
+"MMathSStat", "nextID", "_top");
+</script>
+où ils peuvent dessiner l'ensemble de Mandelbrot et générer les
+ensembles de Julia pour différentes valeurs de l'ensemble de.</p>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="SS1">Définition</h3>
+
+<p>Presqu'aucune démonstration n'est inclus dans les sections
+théoriques.  La raison principale pour ce choix est qu'elles ne sont
+pas faciles et donc inappropriées pour un site Internet.
+Le lecteur qui veut étudier les démonstrations peut consulter la liste
+de <script language="javascript">
+  buildLinK("#REF", "références",
+  "MMathSStat", "refID", "_top");
+</script>
+au bas de ce document.</p>
+
+<p>Nous avons vu à l'<script language="javascript">
+  buildLinK(fractal4.url_fr+"#egA",
+  "Exemple A du document "+fractal4.text_fr,
+  "MMathSStat", fractal4.id+"egAID", fractal4.target); 
+</script> que toute fonction polynomiale de degré
+<em class="EQ">2</em> est conformément conjuguée à une fonction
+polynomiale <em class="EQ">P<sub>c</sub></em> définie par</p>
+<div class="center">
+<em class="EQ_Display">P<sub>c</sub>(z) = z<sup>2</sup>+c</em>
+</div>
+<p>pour une certaine valeur de <em class="EQ">c &in; &complexes;</em>.
+Nous tentons de <q lang="en">classifier</q> les valeurs de
+<em class="EQ">c &in; &complexes;</em> pour lesquelles l'ensemble de
+Julia de <em class="EQ">P<sub>c</sub></em> est connexe.</p> 
+
+<div class="Theo">
+<p><em>Définition</em>: L'<em>ensemble de Mandelbrot</em> est
+l'ensemble <em class="EQ">M</em> définie par</p> 
+<div class="EQ_center">
+<em class="EQ_Display">M = {c &in; &complexes; :
+{P<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub> est bornée} <br>
+&nbsp;&nbsp;
+= {c &in; &complexes; :
+{0, c, c^2 + c, (c^2 + c)^2 + c, ((c^2 + c)^2 + c)^2 + c, ...}
+est bornée} .</em>
+</div>
+</div>
+<p>Il découle de la
+<script language="javascript">
+  buildLinK(fractal4.url_fr+"#propXIII",
+  "Proposition &#8553;&#8546; du document "+fractal4.text_fr,
+  "MMathSStat", fractal4.id+"propXIII", fractal4.target); 
+</script> que</p>
+<div class="EQ_center">
+<em class="EQ_Display">M = {c &in; &complexes; :
+J<sub>P<sub>c</sub></sub> est connexe}</em>
+</div>
+<p>car <em class="EQ">0</em> est le seul point critique fini de
+<em class="EQ">P<sub>c</sub></em> pour
+<em class="EQ">c &in; &complexes;</em>.</p>
+
+<p>L'ensemble de Mandelbrot est dessiné dans la figure suivante.</p>
+
+<div class="center">
+  <img src="mandelbrot0.png" style="width: 350px"
+       alt="L'ensemble de Mandelbrot" class="framed">
+</div>
+
+<p><script language="javascript">
+  buildLinK("#DH", "A. Douardy and J. Hubbard","MMathSStat", "DHid1", "_top");
+</script>
+ont démontré le résultat suivant qui semble contredire ce que l'on
+observe dans la figure précédente.  Nous ne devons jamais oublier que
+nos applications graphiques sont limitées par la précision des calculs
+et la résolution de l'écran d'ordinateur.  Il n'est donc pas
+surprenant que des détailles minuscules peuvent être manquant dans
+la figure.</p>
+
+<div class="Theo">
+<p><em>Théorème</em>: L'ensemble de Mandelbrot est connexe et
+simplement connexe.</p>
+</div>
+
+<p>L'ensemble de Mandelbrot est borné.  Plus précisément,
+nous avons que <em class="EQ">M &subset;
+<span class="EQ_Over">B<sub>2</sub>(0)</span></em>.  Pour démontrer
+cet énoncé, nous considérons <em class="EQ">|c|>2</em>.  Nous avons
+que <em class="EQ">|P<sub>c</sub><sup>2</sup>(0)| = |c^2 +c|
+= |c||c+1| > |c|</em>.  Il découle de notre discussion dans la section
+<script language="javascript">
+  buildLinK(fractal4.url_fr+"#JuliaFig",
+  "Représentation graphique des ensembles de Julia Sets dans le document "
+  +fractal4.text_fr,   "MMathSStat",fractal4.id+"GRJS", fractal4.target); 
+</script> que
+<em class="EQ"> |P<sub>c</sub><sup>j+2</sup>(0)|
+=|P<sub>c</sub><sup>j</sup>(P<sub>c</sub><sup>2</sup>(0))|
+&rarr; &infin;</em>
+lorsque <em class="EQ">j &rarr; &infin;</em>.  La boule
+<em class="EQ"><span class="EQ_Over">B<sub>2</sub>(0)</span></em>
+est la plus petite boule centrée à l'origine qui contient l'ensemble
+de Mandelbrot.  Nous laissons aux lecteurs le soin de démontrer
+rigoureusement que <em class="EQ">&#8477; &cap; M = [-2,1/4]</em>. 
+Ce résultat peut être visualisé avec l'application suivante.
+Cette application trace le graphe en forme de toile d'araignée associé
+à <em class="EQ">P<sub>c</sub></em> avec
+<em class="EQ">c &in; &reals;</em> et la condition initiale
+<em class="EQ">z<sub>0</sub> = 0</em>.  Nous notons que l'orbite
+<em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>, où
+<em class="EQ">z<sub>j+1</sub> = P<sub>c</sub>(z<sub>j</sub>)</em>
+pour <em class="EQ">j&geq;0</em>, converge vers un point fixe si
+<em class="EQ">-2 &le; c &le; 1/4</em> mais est non-bornée pour les
+autres valeurs de <em class="EQ">c &in; &reals;</em>.</p>
+
+<div class="center">
+  <canvas id="PcDDScanvas" width="400" height="400">
+  </canvas>
+</div>
+
+<table class="noB">
+<tr><td style="width: 50%;">
+<ul>
+<li> <em class="EQ">c = </em>
+  <input type="text" value="0" id="PcValue"></li>
+<li> Nombre d'itérations: <input type="text" value="4" id="PcNbr"></li>
+<li> <input type="button" value="Départ" onclick="PcDDS()">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="button" value="Effacer" onclick="clearPc('PcDDScanvas')"> </li>
+</ul>
+</td>
+<td style="width: 50%;">
+<p>Seules les valeurs de <em class="EQ">c</em> doivent être utilisées.</p>
+<p>Le nombre d'itérations devrait être très petit quand
+<em class="EQ">c &le; -2</em> ou <em class="EQ">c &gt; 0</em>.
+Quand l'orbite n'est pas bornée, le graphe en forme de toiles
+d'araignée croît très rapidement.</p>
+<p>Un expression de la forme <em class="EQ">1/2</em> n'est pas
+acceptée car le contenu de ce champ n'est pas évalué.  Donc
+<em class="EQ">1/2</em> n'est pas interprété comme étant un nombre.</p>
+</td>
+</tr>
+</table>
+
+<div class="Note">
+<p><em>Remarque</em>: Nous avons mentioné dans la Remarque de la
+section
+<script language="javascript">
+  buildLinK(fractal4.url_fr+"#JuliaFig",
+  "Représentation graphique des ensembles de Julia dans le document "
+  +fractal4.text_fr, "MMathSStat", "JuliaFigID1", "_top");
+</script> que lorsque
+<em class="EQ">c &in; &reals;</em> va de
+<em class="EQ">0</em> à <em class="EQ">-2</em>, nous observons une
+cascade de dédoublement de périodes comme c'est le cas pour la
+fonction logistique.  Le lecteur peut utiliser l'application graphique
+ci-dessus pour étudier ce phénomène.  Le champ ci-dessous peut être
+utilisé pour modifier la valeur de
+<em class="EQ">z<sub>0</sub></em>.</p>
+<p>
+<em class="EQ">z<sub>0</sub> = </em> <input type="text" value="0" id="PcZ0">
+</p>
+</div>
+
+<p> Soit</p>
+<div class="EQ_center">
+<em class="EQ_Display">H = {c &in; &complexes; : P<sub>c</sub> 
+a une orbite périodique attractive ou super-attractive}</em> .
+</div>
+<p>Il découle de la
+<script language="javascript">
+  buildLinK(fractal4.url_fr+"#propVII",
+  "Proposition &#8550; du document "+fractal4.text_fr, "MMathSStat",
+  fractal4.id+"PVII", fractal4.target); 
+</script> que
+<em class="EQ">H &subset; M</em> car <em class="EQ">0</em> est
+l'unique point critique fini de <em class="EQ">P<sub>c</sub></em>.
+Ainsi, si <em class="EQ">P<sub>c</sub></em> a une orbite périodique
+attractive ou super-attractive, alors <em class="EQ">0</em> est dans
+le basin d'attraction de cette orbite périodique.  Puisque
+<em class="EQ">H</em> est ouvert, nous avons que
+<em class="EQ">H</em> est un sous-ensemble de l'intérieur de
+<em class="EQ">M</em>.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Une composante connexe <em class="EQ">W</em> de
+l'intérieur de <em class="EQ">M</em> est dite <em>hyperbolique</em>
+si <em class="EQ">W &subset; H</em>
+</div>
+
+<div class="Theo">
+<p><em>Proposition</em>: Les composantes hyperboliques <em class="EQ">W</em>
+sont des ensembles ouverts.</p> 
+</div>
+
+<p><em>Démonstration</em>: Ce résultat est démontré à l'aide du théorème des
+fonctions implicites.  Supposons que <em class="EQ">a &in; W</em> et que
+<em class="EQ">p</em> est un point périodique attractif de période
+<em class="EQ">k</em> de <em class="EQ">P<sub>a</sub></em>.
+Puisque la fonction
+<em class="EQ">G:&complexes; &times; &complexes; &rarr; &complexes;</em>
+définie par <em class="EQ">G(z,c) = P<sub>c</sub><sup>k</sup>(z) - z</em>
+est différentiable par rapport aux deux variables,
+<em class="EQ">G(p,a) = 0</em> et <em class="EQ"> D<sub>z</sub>G(p,a)
+= (P<sub>a</sub><sup>k</sup>)'(p) - 1 &ne; 0</em> car
+<em class="EQ">|(P<sub>b</sub><sup>k</sup>)'(p)|&lt;1</em>,
+nous obtenons du théorème des fonctions implicites qu'il existe un
+voisinage ouvert <em class="EQ">U</em> de <em class="EQ">a</em>,
+un voisinage ouvert <em class="EQ">V</em> de <em class="EQ">p</em>,
+et une unique fonction différentiable <em class="EQ">f:U &rarr; V</em>
+telle que <em class="EQ">f(a) = p</em> et <em class="EQ">G(f(c),c) = 0</em>
+pour <em class="EQ">c &in; U</em>.  Puisque
+<em class="EQ">|(P<sub>a</sub><sup>k</sup>)'(p)|&lt;1</em>, nous
+obtenons par continuité que
+<em class="EQ">|(P<sub>c</sub><sup>k</sup>)'(f(c))|&lt;1</em>
+si <em class="EQ">c</em> est à l'intérieur d'un voisinage ouvert assez
+petit de <em class="EQ">a</em>. <span class="EQ_Right">&#8718;</span></p>
+
+<p>La démonstration précédente prouve aussi que la période d'une orbite
+périodique attractive de <em class="EQ">P<sub>c</sub></em> pour
+<em class="EQ">c &in; W</em>, une composante hyperbolique, est
+constante.</p>
+
+<p>A. Douardy, J. Hubbard and D. Sullivan ont démontré le résultat
+suivant.</p> 
+
+<div class="Theo">
+<p><em>Théorème</em>: Si <em class="EQ">W</em> est une composante
+hyperbolique de <em class="EQ">M</em>, alors
+<em class="EQ">W</em> est conformément équivalant à
+<em class="EQ">B<sub>1</sub>(0)</em>.  L'équivalence est donnée par
+l'homéomorphisme analytique
+<em class="EQ">&rho;<sub>W</sub>:W &rarr; B<sub>1</sub>(0)</em> défini
+par <em class="EQ">&rho;<sub>W</sub>(c) = (P<sub>c</sub><sup>k</sup>)'(z)</em>,
+où <em class="EQ">z</em> est un point sur l'unique orbite finie périodique
+attractive ou super-attractive de période <em class="EQ">k</em>
+de <em class="EQ">P<sub>c</sub></em>.  De plus, si
+<em class="EQ">&gamma;<sub>W</sub> = &rho;<sub>W</sub><sup>-1</sup></em>,
+alors <em class="EQ">&gamma;<sub>W</sub></em> peut être étendu à une
+fonction continue de
+<em class="EQ"><span class="EQ_Over">B<sub>1</sub>(0)</span></em>
+sur <em class="EQ"><span class="EQ_Over">W</span></em>.</p>
+</div>
+
+<p>Ce théorème demande certaines clarifications.  Premièrement, il
+découle de la <script language="javascript">
+  buildLinK(fractal4.url_fr+"#propXV",
+  "Proposition &#8553;&#8548; du document "+fractal4.text_fr,
+  "MMathSStat", fractal4.id+"propXV", fractal4.target);
+</script>
+que <em class="EQ">P<sub>c</sub></em> a au plus une orbite périodique
+attractive ou super-attractive.  Deuxièmement, supposons que
+<em class="EQ">z</em> a un point périodique attractif ou
+super-attractif de période <em class="EQ">k</em> de
+<em class="EQ">P<sub>c</sub></em>.
+Soit <em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em> l'orbite
+périodique contenant <em class="EQ">z</em>; c'est-à-dire,
+<em class="EQ">z<sub>0</sub> = z</em> et
+<em class="EQ">z<sub>j+1</sub> = P<sub>c</sub>(z<sub>j</sub>)</em>
+pour <em class="EQ">j&geq;0</em>.  Nous avons vu à la section
+<script language="javascript">
+  buildLinK(fractal4.url_fr+"#SS3",
+  "Une définition équivalente des ensembles de Julia of the document "
+  +fractal4.text_fr,"MMathSStat", fractal4.id+"propXV", fractal4.target);
+</script>
+que <em class="EQ">(P<sub>c</sub><sup>k</sup>)'(z<sub>j</sub>)
+= (P<sub>c</sub><sup>k</sup>)'(z)</em> pour tous
+<em class="EQ">j</em>.  Donc, la définition de
+<em class="EQ">&rho;<sub>W</sub>(c)</em> ne dépend pas du choix de
+<em class="EQ">z</em> sur l'orbite périodique attractive ou
+super-attractive.  Un démonstration de ce théorème se trouve dans
+<script language="javascript">
+  buildLinK("#AD", "A. Douardy","MMathSStat", "ADid1", "_top");
+</script>.</p>
+
+<p>Comme nous allons voir très prochainement, les deux définitions
+suivantes jouent un rôle majeur dans l'étude de l'ensemble de
+Mandelbrot.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Soit <em class="EQ">W</em> une composante
+hyperbolique de <em class="EQ">M</em>, et
+<em class="EQ">&gamma;<sub>W</sub>:
+<span class="EQ_Over">B<sub>1</sub>(0)</span>
+&rarr; <span class="EQ_Over">W</span></em> la fonction définie au
+théorème précédent.  Le <em>centre</em> de <em class="EQ">W</em> est
+le point <em class="EQ">&gamma;<sub>W</sub>(0)</em>.
+La <em>racine</em> de <em class="EQ">W</em> est le point
+<em class="EQ">&gamma;<sub>W</sub>(1)</em>.
+</div>
+
+<p>Par définition, <em class="EQ">P<sub>c</sub></em> avec
+<em class="EQ">c = &gamma;<sub>M</sub>(0)</em> a une orbite périodique
+super-attractive, et <em class="EQ">P<sub>c</sub></em> avec
+<em class="EQ">c = &gamma;<sub>W</sub>(1) &in; &part; W</em>
+a une orbite périodique neutre.  Dans ce dernier cas, la période de
+l'orbite périodique est <em class="EQ">k</em> ou un diviseur de
+<em class="EQ">k</em>.</p>
 
 <hr class="MMathSStat">
 
-<h3> L'ensemble de Mandelbrot </h3>
+<h3 id="SS2">Structure de l'ensemble de Mandelbrot</h3>
 
-<p> L'<em>ensemble de Mandelbrot</em> est l'ensemble de tous les
-points <em class="EQ">c</em> du plan complexe tels que
-la suite suivante est bornée.</p>
+<p>Soit <em class="EQ">W<sub>0</sub></em> la composante hyperbolique
+de l'ensemble de Mandelbrot <em class="EQ">M</em> telle que
+<em class="EQ">o &in; W<sub>0</sub></em>.  Nous avons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">W<sub>0</sub> &subset;
+{c &in; &complexes; : P<sub>c</sub> a un point fixe attractif ou
+super-attractif}</em> .
+</div>
+<p>Nous avons aussi le résultat suivant.</p>
+
+<div class="Theo" id="propI">
+<p><em>Proposition &#8544;</em>: Pour tous
+<em class="EQ">p/q &in; &rationals; &cap; ]0,1]</em> dans la forme
+réduite, il existe une composante hyperbolique
+<em class="EQ">W<sub>p/q</sub></em> de l'ensemble de Mandelbrot telle
+que</p>
+<div class="EQ_center">
+<em class="EQ_Display">W<sub>p/q</sub> &subset;
+{c &in; &complexes; : P<sub>c</sub> a une orbite périodique attractive
+ou super-attractive de période q}</em>
+</div>
+<p>et <em class="EQ"><span class="EQ_Over">W<sub>0</sub></span> &cap;
+<span class="EQ_Over">W<sub>p/q</sub></span>
+= &gamma;<sub>W<sub>0</sub></sub>(e<sup>2&pi;ip/q</sup>)</em>.</p>
+</div>
+
+<p>Pour définir <em class="EQ">&gamma;<sub>W<sub>0</sub></sub>:
+<span class="EQ_Over">B<sub>1</sub>(0)</span> &rarr; W<sub>0</sub></em>,
+nous considérons la fonction logistique <em class="EQ">f<sub>&#120583;</sub>:
+<span class="EQ_Over">&complexes;</span> &rarr;
+<span class="EQ_Over">&complexes;</span></em> définie par
+<em class="EQ">f<sub>&#120583;</sub>(z) = &#120583;z-z<sup>2</sup></em>.
+Nous avons de l'<script language="javascript">
+buildLinK(fractal4.url_fr+"#egA",
+"Exemple A du document "+fractal4.text_fr,
+"MMathSStat", fractal4.id+"egAID", fractal4.target);
+</script> que <em class="EQ">f<sub>c</sub></em> est conformément
+conjuguée à <em class="EQ">f<sub>&#120583;</sub></em>: c'est-à-dire,
+<em class="EQ">H&#8728;f<sub>&#120583;</sub></sub>
+= f<sub>c</sub>&#8728;H</em> avec
+<em class="EQ">H(z) = -&#120583;z+&#120583;/2</em> et
+<em class="EQ">c = &#120583;/2-&#120583;<sup>2</sup>/4</em>.
+Le point fixe <em class="EQ">z = 0</em> de
+<em class="EQ">f<sub>&#120583;</sub></em> est attractif ou
+super-attractif si et seulement si
+<em class="EQ">f<sub>&#120583;</sub>'(0) = &#120583; &in;
+B<sub>1</sub>(0)</em>.  Donc, le point fixe
+<em class="EQ">z = &#120583;/2</em> de
+<em class="EQ">P<sub>c</sub></em> est attractif ou
+super-attractif si et seulement si <em class="EQ">c</em>
+est à l'intérieur de la cardioïde définie par</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+W<sub>0</sub> = {(r e<sup>2&pi;it</sup>)/2 - (r e<sup>2&pi;it</sup>)^2/4
+: 0 &lt; t &le; 1 and 0 &le; r &lt; 1}</em>.
+</div>
+<p>Nous obtenons que
+<em class="EQ">&gamma;<sub>W<sub>0</sub></sub>(u) = u/2-u<sup>2</sup>/4</em> for
+<em class="EQ">u &in; <span class="EQ_Over">B<sub>1</sub>(0)</span></em>.
+</p>
+
+<p>La figure ci-dessous illustre le résultat de la proposition
+précédente et même plus.</p>
+
+<ul>
+<li>La cardioïde coloriée en rouge est <em class="EQ">W<sub>0</sub></em>.</li>
+<li>Le disque colorié en bleu est <em class="EQ">W<sub>1/2</sub></em>.
+Nous avons que <em class="EQ"> <span class="EQ_Over">W<sub>1/2</sub></span>
+&cap; <span class="EQ_Over">W<sub>0</sub></span>
+= &gamma;<sub>W<sub>0</sub></sub>(e<sup>&pi;i</sup>)
+= &gamma;<sub>W<sub>0</sub></sub>(-1) = -3/4</em>.</li>
+<li>Les deux disques coloriés en vert sont <em class="EQ">W<sub>1/3</sub></em>
+et <em class="EQ">W<sub>2/3</sub></em>
+(nous ignorons le rectangle A pour l'instant).
+Nous avons que <em class="EQ"><span class="EQ_Over">W<sub>k/3</sub></span>
+&cap; <span class="EQ_Over">W<sub>0</sub></span>
+= &gamma;<sub>W<sub>0</sub></sub>(e<sup>2k&pi;i/3</sup>)</em>
+pour <em class="EQ">k=1,2</em>.</li>
+<li>Les deux disques coloriés en magenta sont
+<em class="EQ">W<sub>1/4</sub></em> et <em class="EQ">W<sub>3/4</sub></em>
+(nous ignorons le rectangle B pour l'instant). &nbsp;
+Nous avons que <em class="EQ"><span class="EQ_Over">W<sub>k/4</sub></span>
+&cap; <span class="EQ_Over">W<sub>0</sub></span>
+= &gamma;<sub>W<sub>0</sub></sub>(e<sup>2k&pi;i/4</sup>)</em>
+pour <em class="EQ">k=1,3</em>.</li>
+</ul>
+<p> Les disques de couleurs mentionnés ci-dessus devraient être
+tangent au cardioïde <em class="EQ">W<sub>0</sub></em>.
+Malheureusement, en raison de la limite sur la précision des
+calculs et la résolution de l'écran d'ordinateur, cela n'est pas
+le cas dans la figure ci-dessous.  Le lecteur doit utiliser un petit
+peu d'imagination.</p>
+
+<p>Les points de la forme
+<em class="EQ">&gamma;<sub>W<sub>0</sub></sub>(e<sup>2&pi;ip/q</sup>)</em>
+mentionnés à la <script language="javascript">
+  buildLinK("#propI", "Proposition &#8544;",
+  "MMathSStat", "propIID1", "_top");
+</script>
+sont des <em>points de bifurcation</em> car, lorsque <em class="EQ">c</em>
+va de <em class="EQ">W<sub>0</sub></em> à
+<em class="EQ">W<sub>p/q</sub></em> en passant par
+<em class="EQ">&gamma;<sub>W<sub>0</sub></sub>(e<sup>2&pi;ip/q</sup>)</em>,
+nous passons d'un point fixe attractif à une orbite périodique
+attractive de période <em class="EQ">q</em>.  Il y a un nombre infini
+de points de bifurcation sur la frontière de
+<em class="EQ">W<sub>0</sub></em>.</p>
+
+<div class="Note">
+<p><em>Remarque</em>: Pour les points
+<em class="EQ">c &in; W<sub>0</sub></span></em>
+très près de la frontière de <em class="EQ">W<sub>0</sub></span></em>,
+Nous avons que la convergence de la suite
+<em class="EQ">{P<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
+vers le point fixe de <em class="EQ">P<sub>c</sub></em> est très lente
+Pour cette raison, ils sont souvent coloriés en noire car la fonction
+de <em>Matlab</em> <script language="javascript">
+  buildLinK(matlabProgr.url_fr+"#Sect29", "mandelbrot1",
+  "MMathSStat", matlabProgr.id, matlabProgr.target); 
+</script>
+utilisée pour produire la figure ci-dessous calcule seulement un
+nombre fini (bien que grand) d'itérations.  De plus, des points
+<em class="EQ">c &in; W<sub>0</sub></em> qui sont très près du point de
+bifurcation à <em class="EQ">-3/4</em> peuvent être colorés en bleu
+par erreur.  Cela est dû au fait que l'orbite
+<em class="EQ">{P<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
+qui converge vers un point fixe de <em class="EQ">P<sub>c</sub></em>
+peut se comporter comme une orbite périodique de période
+<em class="EQ">2</em> quand <em class="EQ">c</em> est très point du
+point de bifurcation.  Ainsi, en raison de la limite de précision dans
+les calculs numériques de la fonction de
+<em>Matlab</em><font class="matlab">mandelbrot1</font>, cette fonction
+peut détermine que <em class="EQ">P<sub>c<sub></em> a une orbite
+périodique attractive au lieu d'un point fixe attractif.
+Pour des raisons semblables, des points
+<em cllass="EQ">c &in; W<sub>1/2</sub></em> très près du point de
+bifurcation à <em class="EQ">-3/4</em> peuvent être colorés en rouge
+par erreur.  Cela est dû au fait que les deux points de l'orbite périodique
+<em class="EQ">{P<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
+de période <em class="EQ">2</em> sont très près l'un de l'autre.
+Donc, en raison de la limite de précision dans
+les calculs numériques de la fonction de
+<em>Matlab</em><font class="matlab">mandelbrot1</font>, cette fonction
+peut détermine que <em class="EQ">P<sub>c<sub></em> a un point fixe
+attractif au lieu d'une orbite périodique attractive de
+période <em class="EQ">2</em>.  Ce phénomène se produit à tous les
+points de bifurcation.  Avec un meilleur ordinateur (et plus de
+patience), les figures ci-dessous auraient pu être plus jolies.
+Pardon.</p>
+</div>
+
+<div class="center" id="man1">
+  <img src="mandelbrot1.png" style="width: 450px"
+       alt="L'ensemble de Mandelbrot avec des composantes hyperboliques associées à des orbites périodiques attractives ou super-attractives de périodes 1, 2, 3 and 4."
+       class="framed"> <br>
+  <p>Figure A</p>
+</div>
+
+<p>Il y a une composante hyperbolique coloriée en magenta à
+l'intérieur du rectangle B telle que les points <em class="EQ">c</em>
+appartenant à cette composante donnent que
+<em class="EQ">P<sub>c</sub></em> a une orbite périodique attractive
+de période <em class="EQ">4</em>.  Nous agrandissons ce rectangle.</p>
 
 <div class="center">
+  <img src="mandelbrot2.png" style="width: 450px"
+       alt="La portion de l'ensemble de Mandelbrot dans la région [-1.5,-1]x[-0.2,0.2] avec des composantes hyperboliques associées à des orbites périodiques attractives ou super-attractives de périodes 2, 4 and 8."
+       class="framed">
+</div>
+
+<ul>
+<li>La région en bleu est une portion de
+<em class="EQ">W<sub>1/2</sub></em>.  Donc
+<em class="EQ">P<sub>c</sub></em> a une orbite périodique attractive
+ou super-attractive de période <em class="EQ">2</em> si
+<em class="EQ">c &in; W<sub>1/2</sub></em>.</li>
+<li> Le disque colorié en magenta est une composante hyperbolique,
+dénotée <em class="EQ">W<sub>(1/2,1/4)</sub></em>, telle que
+<em class="EQ">P<sub>c</sub></em> a une orbite périodique
+attractive ou super-attractive de période
+<em class="EQ">4</em> pour <em class="EQ">c &in; W<sub>(1/2,1/4)</sub></em>.
+Nous avons que
+<em class="EQ"><span class="EQ_Over">W<sub>(1/2,1/4)</sub></span>
+&cap; <span class="EQ_Over">W<sub>1/2</sub></span> = {c<sub>1</sub>}</em>
+pour un <em class="EQ">c<sub>1</sub> &in; &reals;</em>.
+Le point <em class="EQ">c<sub>1</sub></em> est un point de bifurcation.
+La fonction polynomiale <em class="EQ">P<sub>c</sub></em> a une orbite
+périodique attractive ou super-attractive de période <em class="EQ">2</em> pour
+<em class="EQ">c &in; W<sub>(1/2)</sub></em> et une orbite périodique
+attractive ou super-attractive de période <em class="EQ">4</em> pour
+<em class="EQ">c &in; W<sub>(1/2,1/4)</sub></em>.</li>
+<li> Le petit disque coloré en vert est une composante hyperbolique,
+dénotée <em class="EQ">W<sub>(1/2,1/4,1/8)</sub></em>, telle que
+<em class="EQ">P<sub>c</sub></em> a une orbite périodique attractive
+ou super-attractive de période <em class="EQ">8</em> pour
+<em class="EQ">c &in; W<sub>(1/2,1/4,1/8)</sub></em>.  Cette fois ci,
+nous avons que
+<em class="EQ"><span class="EQ_Over">W<sub>(1/2,1/4,1/8)</sub></span>
+&cap; <span class="EQ_Over">W<sub>(1/2,1/4)</sub></span>
+= {c<sub>2</sub>}</em>
+pour un <em class="EQ">c<sub>2</sub> &in; &reals;</em>.
+Le point <em class="EQ">c<sub>2</sub></em> est un point de bifurcation.
+La fonction polynomiale <em class="EQ">P<sub>c</sub></em> a une orbite
+périodique attractive ou super-attractive de période
+<em class="EQ">4</em> pour
+<em class="EQ">c &in; W<sub>(1/2,1/4)</sub></em> et une orbite
+périodique attractive ou super-attractive de période
+<em class="EQ">8</em> for
+<em class="EQ">c &in; W<sub>(1/2,1/4,1/8)</sub></em>.</li>
+<li>Cette cascade de dédoublement de période se continue lorsque
+<em class="EQ">c</em> décroît jusqu'à <em class="EQ">-2</em>.</li>
+</ul>
+
+<p>La composante hyperbolique <em class="EQ">W<sub>1/2</sub></em> peut
+être décrite comme nous l'avons fait pour <em class="EQ">W<sub>0</sub></em>.
+En particulier, nous pouvons définir la fonction
+<em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>:
+<span class="EQ_Over">B<sub>1</sub>(0)</span> &rarr;
+<span class="EQ_Over">W<sub>1/2</sub></span></em> telle que
+<em class="EQ">c = &gamma;<sub>W<sub>1/2</sub></sub>(e<sup>2p&pi;p/q</sup>)</em>
+est un point de bifurcation de <em class="EQ">P<sub>c</sub></em>
+pour tous <em class="EQ">p/q &in; &rationals; &cap; ]0,1]</em> dans la
+forme réduite.  Pour définir <em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>:
+<span class="EQ_Over">B<sub>1</sub>(0)</span>
+&rarr; <span class="EQ_Over">W<sub>1/2</sub></span></em>, nous considérons
+<em class="EQ">P<sub>c</sub><sup>2</sup>(z) = z</em>.  Nous obtenons
+que</p>
+<div class="EQ_center">
 <em class="EQ_Display">
-c, f<sub>0</sub>(c) = c^2 + c, f<sub>0</sub><sup>2</sup>(c)
-= f<sub>0</sub>(f<sub>0</sub>(c)) = (c^2 + c)^2 + c,<br>
-f<sub>0</sub><sup>3</sup>(c) = f<sub>0</sub>(f<sub>0</sub>(f<sub>0</sub>(c))) =
-((c^2 + c)^2 + c)^2 + c, ...
+z<sup>4</sup>+2cz<sup>2</sup>+c<sup>2</sup> + c = z
+&rArr; z<sup>4</sup>+2cz<sup>2</sup>-z+c<sup>2</sup> + c = 0</em> .
+</div>
+<p>Deux racines de ce polynôme sont des points fixes de
+<em class="EQ">P<sub>c</sub></em>. Les solutions de
+<em class="EQ">P<sub>c</sub>(z) = z<sup>2</sup>+c = z</em> sont
+<em class="EQ">z = z<sub>&plusmn;</sub>
+= (1&plusmn;(1-4c)<sup>1/2</sup>)/2</em>.  Donc,
+<em class="EQ">z<sup>4</sup>+2cz<sup>2</sup>-z+c<sup>2</sup>+c</em>
+est divisible par
+<em class="EQ">(z-z<sub>-</sub>((z-z<sub>+</sub>)= z<sup>2</sup>-z+c</em>.
+Nous obtenons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+z<sup>4</sup>+2cz<sup>2</sup>-z+c<sup>2</sup>+c = 
+(z<sup>2</sup>-z+c)(z<sup>2</sup>+z+c+1)</em> .
+</div>
+<p>Les racines du polynôme <em class="EQ">z<sup>2</sup>+z+c+1</em> are
+<em class="EQ">z = w<sub>&plusmn;</sub>
+= (1&plusmn;(1-4(1+c))<sup>1/2</sup>)/2</em>.
+Ainsi, nous trouvons l'orbite périodique
+<em class="EQ">{w<sub>+</sub>, w<sub>-</sub>, w<sub>+</sub>,
+w<sub>-</sub>, ...}</em> de période <em class="EQ">2</em>.  Cette
+orbite est attractive si
+<em class="EQ">|(P<sub>c</sub><sup>2</sup>)'(w<sub>+</sub>)|
+= 4|c+1| &lt; 1</em>.  Donc
+<em class="EQ">W<sub>1/2</sub> = B<sub>1/2</sub>(-1)</em>.
+Ainsi
+<em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>(u) = -1 + u/4</em>
+pour <em class="EQ">u &in;
+<span class="EQ_Over">B<sub>1</sub>(0)</span></em>.</p>
+
+<p>Nous obtenons le point de bifurcation
+<em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>(1) = 
+&gamma;<sub>W<sub>0</sub></sub>(0) = -3/4</em>
+entre <em class="EQ">W<sub>1/2</sub></em> et
+<em class="EQ">W<sub>0</sub></em> comme il se doit.
+Nous obtenons aussi le point de bifurcation
+<em class="EQ">c<sub>1</sub> =
+&gamma;<sub>W<sub>1/2</sub></sub>(-1) = -5/4</em>
+entre <em class="EQ">W<sub>1/2</sub></em> et
+<em class="EQ">W<sub>(1/2,1/4)</sub></em>.</p>
+
+<p>Nous considérons maintenant la composante hyperbolique coloriée en
+vert à l'intérieur du rectangle C dans la <script language="javascript">
+  buildLinK("#man1", "Figure A","MMathSStat", "mn1ID1", "_top"); 
+</script>
+ci-dessus qui contient les points <em class="EQ">c</em> tels que
+<em class="EQ">P<sub>c</sub></em> a une orbite périodique attractive
+ou super-attractive de période <em class="EQ">3</em>.  Si nous
+agrandissons ce rectangle, nous obtenons la figure suivante.</p>
+
+<div class="center">
+  <img src="mandelbrot3.png" style="width: 400px"
+       alt="La portion de l'ensemble de Mandelbrot dans la région [-0.3,0.1]x[0.6,0.9] avec les composantes hyperboliques associées à des orbites périodiques attractives ou super-attractives de périodes 1, 3 and 6."
+       class="framed">
+</div>
+
+<p>Nous observons encore une cascade de dédoublement de périodes mais
+cette fois ci d'une composante hyperbolique contenant les points
+<em class="EQ">c</em> tels que <em class="EQ">P<sub>c</sub></em> a un
+point fixe attractif ou super-attractif (région en rouge) à une
+composante hyperbolique contenant les points <em class="EQ">c</em> tels que
+<em class="EQ">P<sub>c</sub></em> a une orbite périodique attractive
+ou super-attractive de période <em class="EQ">3</em> (région en vert),
+après cela à une composante hyperbolique contenant les points
+<em class="EQ">c</em> tels que <em class="EQ">P<sub>c</sub></em> a une
+orbite périodique attractive ou super-attractive de période
+<em class="EQ">6</em> (région en magenta), et
+ainsi de suite.  Nous n'allons pas tenter d'analyser cette cascade
+comme nous l'avons fait ci-dessus pour la cascade de dédoublement de période
+le long de l'intervalle <em class="EQ">[-2,0]</em>.</p>
+
+<p>Nous observons une cascade de dédoublement de périodes semblable aux
+cascades de dédoublement de périodes ci-dessus pour chacun des points
+de bifurcations donnés par
+<em class="EQ">&gamma;<sub>W<sub>0</sub></sub>(e<sup>2&pi;ip/q</sup>)</em>  
+avec
+<em class="EQ">p/q &in; &rationals; &cap; ]0,1]</em> dans sa forme réduite.
+Ce phénomène se répète pour toutes les composantes hyperboliques de
+l'ensemble de Mandelbrot, pas seulement pour
+<em class="EQ">W<sup>0</sub></em>.</p>
+
+<p>Nous considérons finalement la région à l'intérieure du rectangle
+A dans la <script language="javascript">
+  buildLinK("#man1", "Figure A","MMathSStat", "mn1ID1", "_top"); 
+</script>
+ci-dessus.  Il semble que nous avons trouvé une composante
+hyperbolique contenant des points <em class="EQ">c</em> tels que
+<em class="EQ">P<sub>c</sub></em> a une orbite périodique attractive
+ou super-attractive de période <em class="EQ">3</em> (régione en
+vert).  Si nous agrandissons cette région, nous obtenons la figure
+suivante.</p>
+
+<div class="center">
+  <img src="mandelbrot4.png" style="width: 400px"
+       alt="La portion de l'ensemble de Mandelbrot dans la région [-1.9,-1.6]x[-0.1,0.1] avec les composantes hyperboliques associées à des orbites périodiques attractives ou super-attractives de périodes 3 and 6."
+       class="framed">
+</div>
+
+<p>Cette fois ci, nous observons le début d'une cascade de
+dédoublement de période qui débute avec une composante
+hyperbolique contenant des points <em class="EQ">c</em> tels que
+<em class="EQ">P<sub>c</sub></em> a une orbite périodique attractive
+ou super-attractive de période <em class="EQ">3</em> (région en vert), suivi 
+d'une composante hyperbolique contenant des points
+<em class="EQ">c</em> tels que <em class="EQ">P<sub>c</sub></em> a une
+orbite périodique attractive ou super-attractive de
+période <em class="EQ">6</em> (région en bleu), suivi 
+d'une composante hyperbolique contenant des points
+<em class="EQ">c</em> tels que <em class="EQ">P<sub>c</sub></em> a une
+orbite périodique attractive ou super-attractive de
+période <em class="EQ">12</em> (région en rouge), et ainsi de suite.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="SS3">Ensembles de Julia pleins pour
+<em class="EQ">P<sub>c</sub></em></h3>
+
+<p>Cette section aurait pu être incluse dans le
+<script language="javascript">
+  buildLinK(fractal5.url_en, "document précédent","MMathSStat",
+  fractal5.id+"ID1",fractal5.tager);
+</script> portant sur les ensembles de Julia.  Cependant, puisque que
+cette section est spécifiquement pour la fonction polynomiale
+<em class="EQ">P<sub>c</sub></em> et est étroitement liée à notre
+étude de l'ensemble de Mandelbrot, il est plus approprié de l'inclure
+dans le présent document.  La majorité des démonstrations dans la
+cette section sont données dans
+<script language="javascript">
+  buildLinK("#DH1", "A. Douady and J. Hubbard (1984, 2007)","MMathSStat",
+  "DH1ID1","_top");
+</script>.</p>
+
+<p>La <script language="javascript">
+    buildLinK(fractal4.url_fr+"#propXIII",
+    "Proposition &#8553;&#8546; du document "+fractal4.text_fr,
+    "MMathSStat",fractal4.id+"propXIII2", fractal4.target);
+</script> et la <script language="javascript">
+buildLinK(fractal4.url_fr+"#propXIV",
+"Proposition &#8553;&#8547; du document "+fractal4.text_fr,"MMathSStat",
+fractal4.id+"propXIV", fractal4.target);
+</script> sont valide si l'ensemble de Julia <em class="EQ">J<sub>P</sub></em>
+est remplacé par l'ensemble de Julia plein <em class="EQ">K<sub>P</sub></em>.
+Dans le cas particulier de <em class="EQ">P<sub>c</sub></em>, nous
+avons alors que <em class="EQ">K<sub>P<sub>c</sub></sub></em> est
+connexe si et seulement si
+<em class="EQ">0 &in; K<sub>P<sub>c</sub></sub></em>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Si l'ensemble de Julia plein
+<em class="EQ">K<sub>P<sub>c</sub></sub></em> de
+<em class="EQ">P<sub>c</sub></em>
+est connexe, alors il existe un unique isomorphisme conforme et
+analytique <em class="EQ">&phi;<sub>c</sub>:
+&complexes; &setminus; K<sub>P<sub>c</sub></sub> &rarr;
+&complexes; &setminus; <span class="EQ_Over">B<sub>1</sub>(0)</span></em>
+tel que <em class="EQ">&phi;<sub>c</sub>(z)/z &rarr; 1</em>
+lorsque <em class="EQ">|z| &rarr; &infin;</em>, et
+<em class="EQ">
+&phi;<sub>c</sub>&#8728;P<sub>c</sub>&#8728;&phi;<sub>c</sub><sup>-1</sup> =
+z<sup>2</sup></em> pour <em class="EQ">|z| &gt; 1</em>.
+</div>
+
+<p>Nous avons cependant besoin d'un résultat un peu plus fort pour
+notre étude des ensembles de Julia.</p>
+
+<div class="Theo" id="propII">
+  <p><em>Proposition &#8545;</em>: Soit
+<em class="EQ">K<sub>P<sub>c</sub></sub></em> l'ensemble de Julia
+plein de <em class="EQ">P<sub>c</sub></em> (connexe ou non-connexe).
+Il existe <em class="EQ">a,b &gt 0</em> et un isomorphisme conforme et
+analytique <em class="EQ">&phi;<sub>c</sub>:
+&complexes; &setminus; <span class="EQ_Over">B<sub>a</sub>(0)</span>
+&rarr; &complexes; &setminus; <span class="EQ_Over">B<sub>b</sub>(0)</span>
+</em> tel que</p>
+<ul>
+<li><em class="EQ">B<sub>a</sub>(0) &supset; K<sub>P<sub>c</sub></sub></em>,
+</li>
+<li><em class="EQ">P<sub>c</sub>(&complexes; &setminus;
+<span class="EQ_Over">B<sub>a</sub>(0)</span>) &subset;
+&complexes; &setminus; <span class="EQ_Over">B<sub>a</sub>(0)</span></em>,
+</li>
+<li><em class="EQ">P<sub>0</sub>(&complexes; &setminus;
+<span class="EQ_Over">B<sub>b</sub>(0)</span>) &subset;
+&complexes; &setminus; <span class="EQ_Over">B<sub>b</sub>(0)</span></em>,</li>
+<li><em class="EQ">&phi;<sub>c</sub>(z)/z &rarr; 1</em>
+lorsque <em class="EQ">|z| &rarr; &infin;</em>, et</li>
+<li><em class="EQ">
+&phi;<sub>c</sub>&#8728;P<sub>c</sub>&#8728;&phi;<sub>c</sub><sup>-1</sup> =
+z<sup>2</sup></em> pour <em class="EQ">|z| &gt; b</em>.</li>
+</ul>
+</div>
+
+<p>Il est démontré que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&phi;<sub>c</sub>(z) = lim<sub>n&rarr;&infin;</sub>
+(P<sub>c</sub><sup>n</sup>(z))<sup>2<sup>-n</sup></sup>
+= z &prod;<sub>n&ge;0</sub>
+(1+c/(P<sub>c</sub><sup>n</sup>(z))<sup>2</sup>)<sup>2<sup>-n-1</sup</sup>
+</em>
+</div>
+<p>pour <em class="EQ">z &in; &complexes; &setminus;
+<span class="EQ_Over">B<sub>a</sub>(0)</span></em>,
+où la branche principale (la première branche) des racines de degré
+<em class="EQ">2<sup>k</sup></em> est utilisée.
+L'égalité entre les deux formules provient de la relation</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+(P<sub>c</sub><sup>n</sup>(z))<sup>2<sup>-n</sup></sup>
+= z 
+[(P<sub>c</sub><sup>1</sup>(z))<sup>2<sup>-1</sup></sup>/(P<sub>c</sub><sup>0</sup>(z))<sup>2<sup>0</sup></sup>]
+[(P<sub>c</sub><sup>2</sup>(z))<sup>2<sup>-2</sup></sup>/(P<sub>c</sub><sup>1</sup>(z))<sup>2<sup>-1</sup></sup>]
+... <br>
+[(P<sub>c</sub><sup>n</sup>(z))<sup>2<sup>-n</sup></sup>/(P<sub>c</sub><sup>n-1</sup>(z))<sup>2<sup>-n-1</sup></sup>] <br>
+= z 
+[1+c/(P<sub>c</sub><sup>0</sup>(z))<sup>2</sup>]<sup>2<sup>-1</sup></sup>
+[1+c/(P<sub>c</sub><sup>1</sup>(z))<sup>2</sup>]<sup>2<sup>-2</sup></sup>
+...
+[1+c/(P<sub>c</sub><sup>n-1</sup>(z))<sup>2</sup>]<sup>2<sup>-n</sup></sup>
 </em>
 </div>
 
-<p> L'application graphique suivante peut être utilisée pour dessiner
-l'ensemble de Mandelbrot.  Les points dessinés en noire forment
-l'ensemble de Mandelbrot. </p>
-
-<div class="center">
-<canvas id="mandelbrot" width="400" height="400">
-</canvas>
+<p>Nous pouvons définir
+<em class="EQ">G<sub>c</sub>: &complexes; &setminus;
+K<sub>P<sub>c</sub></sub> &rarr; &reals;</em> de la façon suivante.</p>
+<div class="EQ_center">
+<table class="noBS">
+<tr>
+<td style="width: 6em;"></td>
+<td style="width: 1.5em;"><em class="EQ">&#9127;</em></td>
+<td><em class="EQ"> ln(|&phi;<sub>c</sub>(z)|) si z &in;
+&complexes; &setminus; <span class="EQ_Over">B<sub>a</sub>(0)</span></em>
+</td>
+</tr>
+<tr>
+<td><em class="EQ">G<sub>c</sub>(z) = </em></td>
+<td><em class="EQ">&#9128;</em></td>
+<td><em class="EQ">G<sub>c</sub>(P<sup>n</sup>(z))/2<sup>n</sup> si
+z &in; <span class="EQ_Over">B<sub>a</sub>(0)</span> &setminus; K<sub>P</sub>
+</em> </td>
+</tr>
+<tr>
+<td></td>
+<td><em class="EQ">&#9129;</em></td>
+<td><em class="EQ"> &nbsp;&nbsp;&nbsp;&nbsp;
+où n est assez grand pour avoir P<sup>n</sup>(z) &in;
+&complexes; &setminus; <span class="EQ_Over">B<sub>a</sub>(0)</span></em></td>
+</tr>
+</table>
 </div>
 
-<ul>
-  <li> Nombre d'itérations <input type="text" value="200"
-				   id="mandelbrot_nbr"> </li>
-  <li> <input type="button" value="Débuter" onclick="mandelbrot()">
-  </li>
-  <li> <input type="button" value="Effacer" onclick="clearDDS('mandelbrot')">
-  </li>
-</ul>
-
-<p> Si un point de la suite
-<em class="EQ"> c, f<sub>0</sub>(c), f<sub>0</sub><sup>2</sup>(c),
-f<sub>0</sub><sup>3</sup>(c), ... </em>
-est à l'extérieur du cercle de rayon
-<em class="EQ">r</em> défini à la section sur les ensembles
-de Julia ci-dessus, alors la suite est non-bornée.   Donc,
-cet valeur de <em class="EQ">c</em> n'est pas dans l'ensemble
-de Mandelbrot.   Comme pour l'ensemble de Julia, c'est la règle que
-l'on a mis en oeuvre dans l'application graphique ci-dessus.</p>
-
-<div class="LOOK">
-<p> Nous pouvons agrandir une région de l'ensemble de Mandelbrot
-en cliquant avec le bouton gauche de notre sourie dans la région de la 
-figure qui nous intéresse. </p>
-
-<p> Nous pouvons aussi générer l'ensemble de Julia associé à une valeur
-de l'ensemble de Mandelbrot en cliquant avec le bouton gauche de
-notre sourie sur le point de l'ensemble de Mandelbrot qui nous
-intéresse tout en pressant la touche <em>Alt</em>.  L'ensemble de
-Julia est dessiné dans la fenêtre de l'application graphique pour les
-ensembles de Julia ci-dessus.</p> 
+<div class="Theo">
+<p><em>Proposition</em>:  Nous avons que
+<em class="EQ">G<sub>c</sub></em> est harmonique,  
+<em class="EQ">G<sub>c</sub>(z) - ln(|z|)</em> est bornée dans un
+voisinage de <em class="EQ">&infin;</em>, et
+<em class="EQ">G<sub>c</sub>(z) &rarr; 0</em>
+lorsque <em class="EQ">dist(z,K<sub>P<sub>c</sub></sub>) &rarr; 0</em>.
+De plus, <em class="EQ">G<sub>c</sub>(z) =
+G<sub>c</sub>(P<sub>c</sub>(z))/2</em> pour tous
+<em class="EQ">z &in; &complexes; &setminus; K<sub>P</sub></em>.</p>
 </div>
 
-<p> L'ensemble de Mandelbrot est aussi appelé le <em>bonhomme en pain
-d'épice</em>.  N'est-ce pas que l'ensemble de Mandelbrot
-ressemble à un bonhomme en pain d'épice?  Si nous agrandissons des
-régions de façon judicieuse, nous allons voir des bonshommes en pain
-d'épice de plus en plus petits.  Cela se compare à la notion
-d'autosimilarité que l'on a remarquée dans les images générées avec
-des SIF.</p>
+<p>Nous démontrons que la fonction <em class="EQ">G<sub>c</sub></em> est bien
+définie; c'est-à-dire, la définition de <em class="EQ">G<sub>c</sub>(z)</em>
+pour <em class="EQ">z &in; <span class="EQ_Over">B<sub>b</sub>(0)</span>
+&setminus; K<sub>P<sub>c</sub></sub></em> est indépendante du choix de
+<em class="EQ">n</em>.  Du même coup, nous démontrons la relation
+<em class="EQ">G<sub>c</sub>(z) = G<sub>c</sub>(P<sub>c</sub>(z))/2</em>.
+Il découle de</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&phi;<sub>c</sub>(P<sub>c</sub>(z)) = lim<sub>n&rarr;&infin;</sub>
+(P<sub>c</sub><sup>n+1</sup>(z))<sup>2<sup>-n</sup></sup>
+= (lim<sub>n&rarr;&infin;</sub>
+(P<sub>c</sub><sup>n+1</sup>(z))<sup>2<sup>-n-1</sup></sup>)<sup>2</sup>
+= (&phi;<sub>c</sub>(z))<sup>2</sup> </em>
+</div>
+<p>pour <em class="EQ">z &in; &complexes; &setminus;
+<span class="EQ_Over">B<sub>b</sub>(0)</span></em> que</p>
+<div class="EQ_center">
+<em class="EQ_Display">G<sub>c</sub>(z) =
+G<sub>c</sub>(P<sub>c</sub>(z))/2</em> .
+</div>
+<p>pour <em class="EQ">z &in; &complexes; &setminus;
+<span class="EQ_Over">B<sub>b</sub>(0)</span></em>.
+Plus généralement, nous avons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">G<sub>c</sub>(z) =
+G<sub>c</sub>(P<sub>c</sub><sup>n</sup>(z))/2<sup>n</sup></em>
+</div>
+<p>pour <em class="EQ">n &in; &naturals;</em> et
+<em class="EQ">z &in; &complexes; &setminus;
+<span class="EQ_Over">B<sub>b</sub>(0)</span></em>.
+Donc, la définition de <em class="EQ">G<sub>c</sub>(z)</em> pour
+<em class="EQ">z &in; <span class="EQ_Over">B<sub>b</sub>(0)</span>
+&setminus; K<sub>P<sub>c</sub></sub></em> est indépendante du choix de
+<em class="EQ">n</em>.  Si
+<em class="EQ">z &in; <span class="EQ_Over">B<sub>b</sub>(0)</span>
+&setminus; K<sub>P<sub>c</sub></sub></em> et
+<em class="EQ">n</em> est assez grand pour avoir
+<em class="EQ">P<sub>c</sub><sup>n</sup>(P<sub>c</sub>(z)) &in;
+&complexes; &setminus; <span class="EQ_Over">B<sub>b</sub>(0)</span></em>,
+alors <em class="EQ">G<sub>c</sub>(P<sub>c</sub>(z))
+= G<sub>c</sub>(P<sub>c</sub><sup>n+1</sup>(z))/2<sup>n</sup>
+= 2(G<sub>c</sub>(P<sub>c</sub><sup>n+1</sup>(z))/2<sup>n+1</sup>)
+= 2G<sub>c</sub>(z)</em>.</p>
 
-<p> Il y a une très belle relation entre l'ensemble de Mandelbrot et
-les ensembles de Julia.</p>
+<p>Puisque <em class="EQ">G<sub>c</sub>(z) - ln(|z|)</em> est bornée
+dans un voisinage de <em class="EQ">&infin;</em>, nous avons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">G<sub>c</sub>(z) = lim<sub>n&rarr;&infin;</sub>
+G<sub>c</sub>(P<sub>c</sub><sup>n</sup>(z))/2<sup>n</sup>
+= lim<sub>n&rarr;&infin;</sub> ln(|P<sub>c</sub><sup>n</sup>(z)|)/2<sup>n</sup>
+</em> .
+</div>
+<p>Puisque <em class="EQ">G<sub>c</sub>(z) &rarr; 0</em>
+lorsque <em class="EQ">dist(z,K<sub>P<sub>c</sub></sub>) &rarr; 0</em>,
+il est naturel de définir <em class="EQ">G<sub>c</sub>(z) = 0</em>
+pour <em class="EQ">z &in; K<sub>P<sub>c</sub></sub></em>.</p>
 
 <div class="Note">
-<p><em>Proposition</em><br>
-L'ensemble de Mandelbrot est l'ensemble de
-tous les points <em class="EQ">c</em> qui produisent un
-ensemble de Julia connexe; c'est-à-dire, l'ensemble peut être tracé
-sans lever le crayon quoi qu'il pourrait prendre un temps infini pour
-en faire le dessin. </p>
+<p><em>Remarque</em>: À l'aide de l'isomorphisme standard entre
+<em class="EQ">&complexes;</em> et <em class="EQ">&reals;<sup>2</sup></em>,
+nous pouvons toujours interprété une fonction
+<em class="EQ">f:&complexes; &rarr; &reals;</em> comme une fonction
+<em class="EQ">f:&reals;<sup>2</sup> &rarr; &reals;</em>.
+C'est ce qui est fait dans cette section.  Par exemple, quand nous
+disons que <em class="EQ">G<sub>c</sub></em> est harmonique.</p>
 </div>
 
-<p> Il y a beaucoup de questions fascinantes qui proviennent de
-l'étude de l'ensemble de Mandelbrot et des ensembles de Julia.
-Plusieurs de ces questions n'ont toujours pas été résolues. </p>
+<div class="Note">
+<p><em>Remarque</em>: Si l'ensemble de Julia plein
+<em class="EQ">K<sub>P<sub>c</sub></sub></em> de
+<em class="EQ">P<sub>c</sub></em> est connexe, alors
+<em class="EQ">G<sub>c</sub>(z) = ln(|&phi;<sub>c</sub>(z)|) </em>
+pour tous <em class="EQ">z &in; &complexes; &setminus; K<sub>c</sub></em>.
+</p>
+</div>
 
-<h4>Ensemble de Julia</h4>
+<p>Pour le reste de cette section, que l'ensemble de Julia plein 
+<em class="EQ">K<sub>P<sub>c</sub></sub></em> est connexe.</p>
+
+<p>Pour <em class="EQ">r &gt; 1</em>, soit
+<div class="EQ_center">
+<em class="EQ_Display">
+&Gamma;<sub>c</sub>(r) = G<sub>c</sub><sup>-1</sup>(ln(r))
+= &phi;<sub>c</sub><sup>-1</sup>({r e<sup>2&pi;it</sup> :
+0 &le; t &lt; 1})</em> .
+</div>
+<p>et <em class="EQ">Q<sub>c</sub>(r)</em> la composante fermée et
+simplement connexe qui est bornée par la courbe fermée
+<em class="EQ">&Gamma;<sub>c</sub>(r)</em>.  Nous avons que
+<em class="EQ">K<sub>P<sub>c</sub></sub> = &cap;<sub>r&gt;1</sub>
+Q<sub>c</sub>(r)</em>.  La famille de courbes orthogonales à la
+famille de courbes <em class="EQ">{&Gamma;<sub>c</sub>(r) : r &gt; 1}</em>
+est la famille de courbes
+<em class="EQ">{&Xi;<sub>c</sub>(t) : 0 &le; t &lt 1}</em> où</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&Xi;<sub>c</sub>(t)
+= &phi;<sub>c</sub><sup>-1</sup>({r e<sup>2&pi;it</sup> : r &gt; 1})</em>  .
+</div>
+
+<p>Les courbes <em class="EQ">&Gamma;<sub>c</sub></em> sont appelées des
+<em>courbes équipotentielles</em> et les courbes
+<em class="EQ">&Xi;<sub>c</sub></em> sont appelées des
+<em>lignes de champs</em> ou <em>rayons externes</em>.</p>
+
+<p>Puisque</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+ln(|P<sub>c</sub><sup>m-k</sup>(z)|) &le; 2<sup>m</sup> &#8660;
+ln(|P<sub>c</sub><sup>m-k</sup>(z)|)/2<sup>m-k</sup> &le; 2<sup>k</sup></em> ,
+</div>
+<p>nous obtenons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+{z : lim<sub>m&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>m-k</sup>(z)|)/2<sup>m</sup> &le; 1}
+= {z : lim<sub>m&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>m-k</sup>(z)|)/2<sup>m-k</sup> &le; 2<sup>k</sup>} <br>
+= {z : lim<sub>m&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>m</sup>(z)|)/2<sup>m</sup> &le; 2<sup>k</sup>}
+= {z : G<sub>c</sub>(z) &le; 2<sup>k</sup>}
+= Q<sub>c</sub>(e<sup>2<sup>k</sup></sup>)</em> .
+</div>
+<p>Ainsi</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+P<sub>c</sub><sup>-j</sup>(Q<sub>c</sub>(e<sup>2<sup>k</sup></sup>))
+= P<sub>c</sub><sup>-j</sup>({z : lim<sub>m&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>m-k</sup>(z)|)/2<sup>m</sup> &le; 1}) <br>
+= {z : lim<sub>m&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>m-k+j</sup>(z)|)/2<sup>m</sup> &le; 1}
+= Q<sub>c</sub>(e<sup>2<sup>k-j</sup></sup>) </em>
+</div>
+<p>pour <em class="EQ">j &ge; 0</em>.  
+Nous posons <em class="EQ">k = 3</em> et considérons les ensembles
+<div class="EQ_center">
+<em class="EQ_Display">
+Q<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)
+= P<sub>c</sub><sup>-j</sup>(Q<sub>c</sub>(e<sup>2<sup>3</sup></sup>))
+= {z : P<sub>c</sub><sup>j</sup>(z) &in;
+Q<sub>c</sub>(e<sup>8</sup>)}</em>
+</div>
+pour <em class="EQ">j &ge; 0</em>.
+Malheureusement, nous n'avons pas une description exacte de
+<em class="EQ">Q<sub>c</sub>(e<sup>8</sup>)</em>.
+Cependant, pour <em class="EQ">m</em> très grand,
+nous avons que <em class="EQ">P<sub>c</sub><sup>m</sup>(z) &approx;
+z<sup>2<sup>m</sup></sup></em>.  Donc,
+<div class="EQ_center">
+<em class="EQ_Display">
+Q<sub>c</sub>(e<sup>8</sup>)
+= {z : lim<sub>m&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>m</sup>(z)|)/2<sup>m</sup> &le; 8}
+&approx; {z : lim<sub>m&rarr;&infin;</sub>
+ln(|z|<sup>2<sup>m</sup></sup>)/2<sup>m</sup> = ln(|z|) &le; 8} <br>
+= {z : |z| &le; e<sup>8</sup>}
+= B<sub>e<sup>8</sup></sub>(0)</em> .
+</div>
+
+<p>Nous utilisons la relation</p>
+<div class="EQ_center">
+<em class="EQ_Display">&Gamma;<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)
+= &part; Q<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)
+= &part; P<sub>c</sub><sup>-j</sup>(Q<sub>c</sub>(e<sup>2<sup>3</sup></sup>))
+&approx; &part; P<sub>c</sub><sup>-j</sup>(B<sub>e<sup>8</sup></sub>(0))
+</em>
+</div>
+<p>dans la fonction de <em>Matlab</em>
+<script language="javascript">
+  buildLinK(matlabProgr.url_en+"#Sect29", "julia4",
+  "MMathSStat", matlabProgr.id, matlabProgr.target); 
+</script>
+pour tracer (approximativement) les courbes équipotentielles
+<em class="EQ">&Gamma;<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)</em>
+pour plusieurs valeurs de <em class="EQ">j &ge; 3</em>.  L'algorithme
+utilisé dans la fonction de <em>Matlab</em> <em class="matlab">julia4</em>
+est une adaptation de l'algorithme suggéré dans
+<script language="javascript">
+buildLinK("#PJS", "H.-O. Peitgen, H. j&#252;rgens and D. Saupe",
+  "MMathSStat", "PJSid1", "_top");
+</script>.  Nous remarquons qu'ils utilisent
+<em class="EQ">log<sub>2</sub></em>
+au lieu de <em class="EQ">ln</em> comme nous l'avons fait dans les
+définitions précédentes.  Donc, au lieu de
+<em class="EQ">B<sub>e<sup>8</sup></sub>(0)</em>, ils utilisent
+<em class="EQ">B<sub>2<sup>8</sup></sub>(0)</em> qui est une boule
+plus petite que la notre.  Néanmoins, les courbes équipotentielles
+<em class="EQ">&Gamma;<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)</em>
+sont les mêmes sauf pour un changement de dimension.</p>
+
+<p>Dans la figure ci-dessous, nous traçons les courbes équipotentielles
+<em class="EQ">&Gamma;<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)</em>
+pour <em class="EQ">j = 4, 6, 8, 10, 12</em> associées à l'ensemble de
+Julia plein <em class="EQ">K<sub>P<sub>c</sub></sub></em> pour
+<em class="EQ">c = -0.12256+0.74486i</em>, le <em>lapin de Daoudy</em>.</p>
 
 <div class="center">
-<canvas id="julia" width="400" height="400">
-</canvas>
+  <img src="julia6.png" style="width: 400px"
+      alt="Le lapin de Daoudy avec quelques courbes équipotentielles qui lui sont associées."
+       class="framed">
 </div>
 
+<p>Si l'ensemble de Julia plein
+<em class="EQ">K<sub>P<sub>c</sub></sub></em> est localement connexe,
+alors il est démontré à l'aide d'un théorème de Carathéodory que la
+fonction analytique et conforme
+<em class="EQ">&psi;<sub>c</sub> = &phi;<sub>c</sub><sup>-1</sup>:
+&complexes; &setminus; <span class="EQ_Over">B<sub>1</sub>(0)</span>
+&rarr; &complexes; &setminus; K<sub>P<sub>c</sub></sub></em> peut être
+étendue à une fonction continue
+<em class="EQ"> &complexes; &setminus; B<sub>1</sub>(0)</em>
+telle que <em class="EQ">&psi;<sub>c</sub>:S<sup>1</sup> &rarr;
+&part;K<sub>P<sub>c</sub></sub></em> est surjective.  Ainsi, la fonction
+<em class="EQ">&psi;<sub>c</sub>:S<sup>1</sup> &rarr;
+&part;K<sub>P<sub>c</sub></sub></em> peut être utilisée comme
+représentation paramétrique de
+<em class="EQ">&part;K<sub>P<sub>c</sub></sub></em>.
+La courbe fermée <em class="EQ">&psi;<sub>c</sub>:S<sup>1</sup> &rarr;
+&part;K<sub>P<sub>c</sub></sub></em> est appelée le
+<em>lasso de Carathéodory</em>.
+Il s'en suit que toutes les rayons externes
+<em class="EQ">&Xi;<sub>c</sub>(t)</em> pour
+<em class="EQ">0 &le; t &lt; 1</em> aboutissent sur
+<em class="EQ">&part;K<sub>P<sub>c</sub></sub></em>.  Puisque la fonction
+<em class="EQ">&psi;<sub>c</sub></em> peut ne pas être injective
+sur <em class="EQ">S<sup>1</sup></em>, il peut y avoir plus d'une
+rayon externe <em class="EQ">&Xi;<sub>c</sub>(t)</em> qui
+aboutissent au même point sur
+<em class="EQ">&part;K<sub>P<sub>c</sub></sub></em>.</p>
+
+<div class="Note">
+<p><em>Remarque</em>: Puisque la fonction
+<em class="EQ">&theta;: &reals;/&integers; &rarr;
+S<sup>1</sup> &subset; &complexes;</em> définie par
+<em class="EQ">&theta;(t) = e<sup>2&pi;it</sup></em>
+est un isomorphisme de groupes entre
+<em class="EQ">&reals;/&integers;</em> et <em class="EQ">S<sup>1</sup></em>,
+nous pouvons traiter <em class="EQ">S<sup>1</sup></em> comme étant
+<em class="EQ">&reals;/&integers;</em>.  Nous notons que
+<em class="EQ">&theta;(t<sub>1</sub>+t<sub>2</sub>)
+= e<sup>2&pi;i(t<sub>1</sub>+t<sub>2</sub>)</sup>
+= e<sup>2&pi;t<sub>1</sub></sup> e<sup>2&pi;t<sub>2</sub></sup>
+= &theta;(t<sub>1</sub>) &theta;(t<sub>2</sub>)</em>.  Donc, nous
+pouvons considérer
+<em class="EQ">&psi;<sub>c</sub>: &reals;/&integers; &rarr; 
+&part;K<sub>P<sub>c</sub></sub></em>
+définie par <em class="EQ">&psi;<sub>c</sub>(t) =
+&psi;<sub>c</sub>(e<sup>2&pi;it</sup>)</em> pour
+<em class="EQ">t &in; &reals;/&integers;</em> au lieu de
+<em class="EQ">&psi;<sub>c</sub>:S<sup>1</sup> &rarr;
+&part;K<sub>P<sub>c</sub></sub></em> quand cela est plus pratique.</p>
+</div>
+
+<div class="Note">
+<p><em>Remarque</em>: Avant de plonger plus profondément dans l'étude 
+des rayons externes, nous devons réviser quelques résultats au sujet
+de la fonction <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em>
+définie par <em class="EQ">T(z) = z<sup>2</sup></em>.</p>
+
+<p>À l'aide de l'isomorphisme <em class="EQ">&theta;: &reals;/&integers; &rarr;
+S<sup>1</sup> &subset; &complexes;</em> définie dans la remarque
+précédente, nous pouvons considérer
+<em class="EQ">T: &reals;/&integers; &rarr; &reals;/&integers;</em>
+définie par <em class="EQ">T(t) = 2t mod 1</em> au lieu de
+<em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> ci-dessus.</p>
+
+<p>Les points périodiques de <em class="EQ">T</em>
+de période <em class="EQ">k</em> ou un diviseur de
+<em class="EQ">k</em> sont de la forme
+<em class="EQ">t = n/(2<sup>k</sup>-1)</em> pour
+<em class="EQ">1 &le; n &lt; 2<sup>k</sup>-1</em>.  Nous énumérons 
+quelques orbites périodiques ci-dessous.
+<div class="EQ_center">
+<table class="noBS" style="width: 50%">
+<tr>
+<th style="border-bottom: 1px solid black; border-right: 1px solid black;">
+Période </th>
+<th style="border-bottom: 1px solid black;"> Orbites </th>
+</tr>
+<td style="border-right: 1px solid black;">
+<em class="EQ">1</em> (point fixe) </td>
+<td> <em class="EQ">{1,1,1,...}</em> </td>
+</tr>
+</tr>
+<td style="border-right: 1px solid black;"> <em class="EQ">2</td>
+<td> <em class="EQ">{1/3,2/3,1/3,...}</em> </td>
+</tr>
+</tr>
+<td style="border-right: 1px solid black;"> <em class="EQ">3</em></td>
+<td> <em class="EQ">{1/7,2/7,4/7,1/7,...}</em> <br>
+<em class="EQ">{3/7,6/7,5/7,3/7,...}</em>
+</td>
+</tr>
+</tr>
+<td style="border-right: 1px solid black;"> <em class="EQ">4</em></td>
+<td> <em class="EQ">{1/15,2/15,4/15,8/15,1/15,...}</em> <br>
+<em class="EQ">{1/5,2/5,4/5,3/5,1/5...}</em> <br>
+<em class="EQ">{7/15,14/15,13/15,11/15,7/15...}</em>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<p>Pour démontrer que <em class="EQ">P<sub>c</sub>(&Xi;<sub>c</sub>(t))
+= &Xi;<sub>c</sub>(2t)</em>, nous rappelons que
+<em class="EQ">&phi;<sub>c</sub>(P<sub>c</sub>(z))
+= (&phi;<sub>c</sub>(z))<sup>2</sup></em>.  Donc</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+w &in; &Xi;<sub>c</sub>(t) &iff; &phi;<sub>c</sub>(w) =
+re<sup>2&pi;it</sup> pour un r &ge; 1
+&iff; &phi;<sub>c</sub>(P<sub>c</sub>(w))
+= re<sup>2&pi;i(2t)</sup> pour un r &ge; 1
+&iff; P<sub>c</sub>(w) &in; &Xi;<sub>c</sub>(2t)</em> .
+</em>
+</div>
+<p>En particulier, nous avons que
+<em class="EQ">P<sub>c</sub>(&psi;<sub>c</sub>(t))
+= &psi;<sub>c</sub>(2t)</em>.  Donc,
+<em class="EQ">z = &psi;<sub>c</sub>(a)</em> pour un
+<em class="EQ">a &in; &reals;/&integers;</em> est un point périodique
+(resp. éventuellement périodique) de période <em class="EQ">k</em>
+pour <em class="EQ">P<sub>c</sub></em> si et seulement si
+<em class="EQ">a</em> est un point périodique
+(resp. éventuellement périodique) de période <em class="EQ">k</em> pour
+<em class="EQ">T:&reals;/&integers; &rarr; &reals;/&integers;</em>.
+Ce résultat sera très utile dans la discussion ci-dessous.</p>
+
+<p>Si l'ensemble de Julia plein
+<em class="EQ">K<sub>P<sub>c</sub></sub></em> n'est pas localement
+connexe, alors nous ne pouvons pas affirmer que toutes
+les rayons externes <em class="EQ">&Xi;<sub>c</sub>(t)</em>
+aboutissent sur <em class="EQ">&part;K<sub>P<sub>c</sub></sub></em>.
+Un courbe de champ <em class="EQ">&Xi;<sub>c</sub>(t)</em> peut
+converger vers cette frontière lorsque
+<em class="EQ">r &rarr; 1<sup>+</sup></em> mais sans l'atteindre.
+Nous allons revenir sur ce sujet lors de l'étude des rayon externes
+pour l'ensemble de Mandelbrot dans la procaine section.</p>
+
+<p>Les points suivants jouent un rôle important dans l'étude des
+ensembles de Julia et de l'ensemble de Mandelbrot.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Un point <em class="EQ">c &in; &complexes;</em>
+est un <em>point de Misiurewicz</em> si <em class="EQ">0</em> est un
+point éventuellement périodique mais n'est pas un point périodique
+de <em class="EQ">P<sub>c</sub></em>.</p>
+</div>
+
+<p>Il découle de la
+<script language="javascript">
+  buildLinK(fractal4.url_en+"#propXII",
+  "Proposition &#8555; du document "+fractal4.text_fr,
+  "MMathSStat", fractal4.id+"propXII2", fractal4.target); 
+</script>
+que <em class="EQ">J<sub>P<sub>c</sub></sub> =
+K<sub>P<sub>c</sub></sub></em> quand <em class="EQ">c</em> est un
+point de Misiurewicz.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Si <em class="EQ">c</em> est un point qui
+appartient à une composante hyperbolique de l'ensemble de Mandelbrot ou
+un point de Misiurewicz, alors l'ensemble de Julia plein
+<em class="EQ">K<sub>P<sub>c</sub></sub></em> est localement connexe.</p>
+</div>
+
+<p>Il va être utilise pour l'étude de l'ensemble de Mandelbrot dans la
+prochaine section de pouvoir décrire certaines rayons externes 
+de <em class="EQ">K<sub>c</sub></em> quand <em class="EQ">c</em> est
+le centre d'une composante hyperbolique de l'ensemble de Mandelbrot
+<em class="EQ">M</em> et quand <em class="EQ">c</em> est un point de
+Misiurewicz.</p>
+
+<h4 id="CASE1">Cas 1: <em class="EQ">c</em> est le centre d'une
+composante hyperbolique</h4>
+
+<p>Supposons que <em class="EQ">W</em> est une composante
+hyperbolique.  Soit
+<em class="EQ">c = &gamma;<sub>W</sub>(0)</em>, le centre de
+<em class="EQ">W</em>.  Nous avons que <em class="EQ">P<sub>c</sub></em>
+a une orbite périodique super-attractive.  Donc <em class="EQ">0</em>
+appartient à cette orbite périodique super-attractive et
+<em class="EQ">c = P<sub>c</sub>(0)</em>.  Ainsi
+<em class="EQ">c</em> est une valeur critique.  De plus, <em class="EQ">c</em>
+appartient à cette orbite périodique super-attractive.  Il s'en suit
+que <em class="EQ">c</em> est un point intérieur de
+<em class="EQ">K<sub>c</sub></em>.  Soit
+<em class="EQ">U<sub>c</sub></em> la composante simplement connexe de
+<em class="EQ">K<sub>P<sub>c</sub></sub> &setminus;
+J<sub>P<sub>c</sub></sub></em> qui
+contient <em class="EQ">c</em>.  Supposons que l'orbite
+périodique super-attractive est de période <em class="EQ">m</em>.
+Il existe un isomorphisme analytique
+<em class="EQ">&eta;<sub>c</sub>:U<sub>c</sub> &rarr; B<sub>1</sub>(0)</em>
+tel que <em class="EQ">
+&eta;<sub>c</sub>&#8728;(P<sub>c</sub><sup>m</sup>)&#8728;&eta;<sub>c</sub><sup>-1</sup>
+= P<sub>0</sub></em> on <em class="EQ"> B<sub>1</sub>(0)</em>.
+De plus, si
+<em class="EQ">&mu;<sub>c</sub> = &eta;<sub>c</sub><sup>-1</sup></em>,
+alors <em class="EQ">&mu;<sub>c</sub></em> peut être étendu à une
+fonction continue sur
+<em class="EQ"><span class="EQ_Over">B<sub>1</sub>(0)</span></em>
+avec
+<em class="EQ">&mu;<sub>c</sub>(S<sup>1</sup>) = &part; U<sub>c</sub>M</em>.
+Soit <em class="EQ">z = &mu;<sub>c</sub>(1)</em> la <em>racine</em>
+de <em class="EQ">U<sub>c</sub></em>.  Alors
+<em class="EQ">P<sub>c</sub><sup>m</sup>(z) = z</em> et
+<em class="EQ">z &in; &Gamma;<sub>c</sub> &cap; &part; U<sub>c</sub></em>.
+Étant donné <em class="EQ">t &in; &psi;<sub>c</sub><sup>-1</sup>({z})</em>,
+il découle de <em class="EQ">P<sub>c</sub>(&psi;<sub>c</sub>(t))
+= &psi;<sub>c</sub>(2t)</em> que
+<em class="EQ">t &in; ]0,1]</em> appartient à une orbite périodique
+de période <em class="EQ">m</em> ou un diviseur de <em class="EQ">m</em>
+sous l'action de la fonction
+<em class="EQ">T:&reals;/&integers; &rarr; &reals;/&integers;</em>
+définie dans la remarque précédente..  De plus,
+<em class="EQ">&psi;<sub>c</sub><sup>-1</sup>({z})</em>
+contient toujours au moins deux valeurs consécutifs de l'ensemble
+<em class="EQ">{1/m, 2/m, ..., (m-1)/m}</em> 
+si <em class="EQ">c &ne; 0</em>.</p>
+
+<div class="Example" id="egA">
+<p><em>Exemple A</em>: Nous considérons la composante hyperbolique
+<em class="EQ">W<sub>1/2</sub></em>.  Nous avons que
+<em class="EQ">c = &gamma;<sub>W<sub>1/2</sub></sub>(0) = -1</em>.
+La fonction polynomiale <em class="EQ">P<sub>-1</sub></em>
+a une orbite périodique super-attractive de période
+<em class="EQ">2</em> donnée par
+<em class="EQ">{0, -1, 0, -1, ...}</em>.  Nous notons que
+<em class="EQ">-1</em> est effectivement une valeur critique de
+<em class="EQ">P<sub>-1</sub></em>.  Un coup d'oeil au graphe de 
+<em class="EQ">P<sub>-1</sub><sup>2</sup>:&reals; &rarr; &reals;</em>
+montre que <em class="EQ">z = (1-5<sup>1/2</sup>)/2 &approx; -0.618034</em>
+est un point fixe répulsif de <em class="EQ">P<sub>-1</sub></em>.
+Comme il doit y avoir deux valeurs consécutives de
+<em class="EQ">{1/3,2/3}</em> dans
+<em class="EQ">&psi;<sub>-1</sub><sup>-1</sup>({z})</em>, les deux
+rayons externes <em class="EQ">&Xi;<sub>-1</sub>(1/3)</em> et
+<em class="EQ">&Xi;<sub>-1</sub>(2/3)</em> aboutissent à
+<em class="EQ">z</em>.</p>
+
+<div class="center">
+  <img src="julia7.png" style="width: 450px"
+       alt="L'ensemble de Julia de P_c pour c = -1 avec les rayons externes associés à t = 1/3 et 2/3, et quelques courbes équipotentielles."
+       class="framed">
+</div>
+</div>
+
+<div class="Example" id="egB">
+<p><em>Exemple B (<script language="javascript">
+  buildLinK("#LK", "B. Branner","MMathSStat","LKID5","_top");
+</script>)</em>: Nous considérons la composante hyperbolique 
+<em class="EQ">W</em> qui est représentée par un petit point en
+ magenta au dessus du rectangle C dans la
+<script language="javascript">
+  buildLinK("#man1", "Figure A","MMathSStat","man1ID","_top");
+</script>
+ci-dessus.  Puisque <em class="EQ">W</em> est très petit
+du point de vue calcul numérique, nous pouvons assumer que
+<em class="EQ">c = &gamma;<sub>W</sub>(0) &approx; -0.15652+1.03225i</em>,
+la position du petit point.
+La fonction polynomiale <em class="EQ">P<sub>c</sub></em>
+a une orbite périodique super-attractive de période
+<em class="EQ">4</em> donnée approximativement par</p>
+<div class="EQ_center">
+<em class="EQ_Display">{0, -0.15652+1.03225i, -1.1976+0.7091i,
+0.7748-0.6662i, 0, ...}</em> .
+</div>
+<p>Nous notons que <em class="EQ">c</em> est effectivement une valeur
+critique de <em class="EQ">P<sub>c</sub></em>.  L'ensemble
+<em class="EQ">&psi;<sub>c</sub><sup>-1</sup>({z})</em>
+doit contenir deux valeurs consécutives de
+<em class="EQ">{1/15,2/15, ...,14/15}</em>.  Puisque
+<em class="EQ">P<sub>c</sub></em> envoie les rayons externes
+associés à la composante simplement connexe de
+<em class="EQ">K<sub>P<sub>c</sub></sub> &setminus;
+J<sub>P<sub>c</sub></sub></em> qui contient un point périodique
+sur les rayons externes associés à la composante simplement
+connexe de <em class="EQ">K<sub>P<sub>c</sub></sub> &setminus;
+J<sub>P<sub>c</sub></sub></em> qui contient le point périodique
+suivant, nous ne pouvons pas avoir que
+<em class="EQ">&psi;<sub>c</sub><sup>-1</sup>({z})
+= {1/15, 2/15}</em>.  En raison de la position de
+<em class="EQ">c</em> (voir la figure ci-dessous), nous devons avoir
+que <em class="EQ">&psi;<sub>c</sub><sup>-1</sup>({z}) = {3/15, 4/15}</em>.
+Ainsi, nous obtenons que les rayons externes
+<em class="EQ">&Xi;<sub>c</sub>(1/5)</em>
+et <em class="EQ">&Xi;<sub>c</sub>(4/15)</em> aboutissent
+à <em class="EQ">z</em>.  Les autres rayons externes sont obtenus à
+l'aide de la relation <em class="EQ">P<sub>c</sub>(&Xi;<sub>c</sub>(t))
+= &Xi;<sub>c</sub>(2t)</em>.</p>
+
+<div class="center">
+  <img src="julia8.png" style="width: 600px"
+       alt="L'ensemble de Julia de P_c pour c = -0.15652 + 1.03225i avec les rayons externes associés à t = 1/15, 2/15, 4/15, 8/15 et t = 1/5, 2/5, 4/5, 3/5, et quelques courbes équipotentielles."
+       class="framed">
+</div>
+</div>
+
+<h4>Cas 2: <em class="EQ">c</em> est une point de Misiurewicz</h4>
+
+<p>Nous développons quelques outils pour identifier les rayons
+externes de l'ensemble de Julia de la fonction polynomiale
+<em class="EQ">P<sub>c</sub></em> quand <em class="EQ">c</em> est une
+point de Misiurewicz.  Un grande nombre de résultats dans cette
+section sont valides si <em class="EQ">0</em> appartient à une orbite
+périodique attractive.</p>
+
+<p>Nous considérons la fonction polynomiale <em class="EQ">P<sub>c</sub></em>
+et assumons que <em class="EQ">D<sub>i</sub></em> pour
+<em class="EQ">1 &le; i &le; I</em> sont les composantes connexes de
+<em class="EQ">K<sub>P<sub>c</sub></sub> &setminus;
+J<sub>P<sub>c</sub></sub></em>.
+Nous avons de la <script language="javascript">
+  buildLinK("#propXI", "Proposition &#8554;",
+  "MMathSStat", "propXIID1", "_top");
+</script> que <em class="EQ">D<sub>i</sub></em> est simplement connexe.
+Nous pouvons définir un homéomorphisme <em class="EQ">&rho;<sub>i</sub>:
+<span class="EQ_Over">D<sub>i</sub></span> &rarr;
+<span class="EQ_Over">B<sub>1</sub>(0)</span></em> pour chaque
+<em class="EQ">i</em>.  Un courbe
+<em class="EQ">L &subset; K<sub>P<sub>c</sub></sub></em> est un
+<em>arc régulier</em> si
+<em class="EQ">&rho;(L &cap; <span class="EQ_Over">D<sub>i</sub></span>)</em>
+est un sous-ensemble de deux rayons dans
+<em class="EQ"><span class="EQ_Over">B<sub>1</sub>(0)</span></em> pour
+tous <em class="EQ">i</em>.  Un sous-ensemble <em class="EQ">B</em>
+de <em class="EQ">K<sub>P<sub>c</sub></sub></em> est
+<em>régulièrement connexe</em> si, pour tous
+<em class="EQ">x,y &in; B</em>, il existe un arc régulier
+de <em class="EQ">x</em> à <em class="EQ">y</em> dans
+<em class="EQ">B</em>.  Nous avons que l'union d'ensembles
+régulièrement connexes avec une intersection commune non-vide
+est un ensemble régulièrement connexe, et l'intersection d'ensembles
+régulièrement connexes est un ensemble régulièrement connexe.
+L'<em>enveloppe régulière</em> <em class="EQ">R<sub>A</sub></em>
+d'un sous-ensemble <em class="EQ">A</em> de
+<em class="EQ">K<sub>P<sub>c</sub></sub></em> est l'ensemble
+régulièrement connexe définie par
+<em class="EQ">R<sub>A</sub> = &cap;<sub>B &supset;A, B reg. conn.</sub> B</em>.
+</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous traçons un arc régulier
+<em class="EQ">L</em> de
+<em class="EQ">w<sub>1</sub> = &rho;<sub>1</sub>(0) = -1</em> à
+<em class="EQ">w<sub>3</sub> = &rho;<sub>3</sub>(0) = 1</em> dans
+<em class="EQ">K<sub>P<sub>-1</sub></sub></em>.  Nous notons que cette
+courbe est unique et doit passer par <em class="EQ">w<sub>2</sub> =
+&rho;<sub>2</sub>(0)</em> .</p>
+
+<div class="center">
+  <img src="julia10.png" style="width: 250px"
+       alt="L'arc régulier entre -1 et 1 dans K_{-1}" class="framed">
+</div>
+</div>
+
+<div class="Theo">
+<p><em>Définition</em>; Soit <em class="EQ">A<sub>c</sub> =
+{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em>, l'orbite du
+point critique <em class="EQ">0</em>.  L'<em>arbre de Hubbard</em>
+<em class="EQ">H<sub>c</sub></em> de
+<em class="EQ">P<sub>c</sub></em> est l'enveloppe régulière
+<em class="EQ">R<sub>A<sub>c</sub></sub></em> de
+<em class="EQ">A<sub>c</sub></em> dans
+<em class="EQ">K<sub>P<sub>c</sub></sub></em>.</p>
+</div>
+
+<p>Nous avons que <em class="EQ">P<sub>c</sub>(H<sub>c</sub>) &subset;
+H<sub>c</sub></em>.  De plus, la fonction polynomiale
+<em class="EQ">P<sub>c</sub></em> est injective sur la fermeture de
+chacune des composantes connexes de
+<em class="EQ">H<sub>c</sub> &setminus; {0}</em>.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous avons dessiné à droite dans la figure
+ci-dessous un schéma de l'arbre de Hubbert <em class="EQ">H<sub>c</sub></em>
+pour <em class="EQ">P<sub>c</sub></em> où
+<em class="EQ">c &approx; -0.15652 + 1.03225i</em>.
+Nous avons que <em class="EQ">A<sub>c</sub> =
+{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub> = {z<sub>0</sub>,
+z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>}</em> avec
+<em class="EQ">z<sub>0</sub> = 0</em>,
+<em class="EQ">z<sub>1</sub> = c &approx; -0.15652+1.03225i</em>,
+<em class="EQ">z<sub>2</sub> &approx; -1.1976+0.7091i</em> et
+<em class="EQ">z<sub>3</sub> &approx; 0.7748-0.6662i</em>.</p>
+<div class="center">
+  <img src="julia11.png" style="width: 550px"
+       alt="L'arbre de Hubbard de P_c avec c = -0.15652+1.03225i"
+       class="framed">
+</div>
+</div>
+
+<p>Soit <em class="EQ">&beta;<sub>i</sub> = &psi;<sub>c</sub>(i/2)</em>
+pour <em class="EQ">i = 0,1</em>.  Nous avons que
+<em class="EQ">&beta;<sub>0</sub></em> est un point fixe répulsif car
+<em class="EQ">&beta;<sub>0</sub> &in; J<sub>c</sub></em>.</p>
+
+<div class="Theo" id="propIII">
+<p><em>Proposition &#8546;</em>:
+Soit <em class="EQ">&Acirc;<sub>c</sub> = A<sub>c</sub> &cup;
+{&beta;<sub>0</sub>,&beta;<sub>1</sub>}</em> et
+<em class="EQ">&Hcirc;<sub>c</sub></em> l'enveloppe régulière 
+<em class="EQ">R<sub>&Acirc;<sub>c</sub></sub></em>
+de <em class="EQ">&Acirc;<sub>c</sub></em>.
+Supposons que <em class="EQ">&Hcirc;<sub>c</sub> =
+&Hcirc;<sub>+</sub> &cup; &Hcirc;<sub>-</sub></em> avec
+<em class="EQ">&Hcirc;<sub>+</sub> &cap; &Hcirc;<sub>-</sub> = {0}</em>
+et <em class="EQ">c &in; &Hcirc;<sub>+</sub></em>.  Alors
+<em class="EQ">P<sub>c</sub>|<sub>&Hcirc;<sub>+/-</sub></sub></em>
+est injective, <em class="EQ">&beta;<sub>0</sub> &in; &Hcirc;<sub>-</sub></em>
+et <em class="EQ">&beta;<sub>1</sub> &in; &Hcirc;<sub>+</sub></em>.
+De plus, <em class="EQ">&beta;<sub>0</sub></em> et
+<em class="EQ">&beta;<sub>1</sub></em> sont des extrémités de
+<em class="EQ">&Hcirc;<sub>c</sub></em>, et
+<em class="EQ">&Xi;<sub>c</sub>(i/2)</em> est le seul rayon externe
+qui aboutit à <em class="EQ">&beta;<sub>i</sub></em>
+pour <em class="EQ">i = 0,1</em>.</p>
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>: Comme dans l'exemple précédent, nous
+considérons la fonction polynomiale
+<em class="EQ">P<sub>c</sub></em> où
+<em class="EQ">c &approx; -0.15652 + 1.03225i</em>.
+Nous avons tracé à droite dans la figure ci-dessous un schéma 
+de l'enveloppe régulière <em class="EQ">&Hcirc;<sub>c</sub></em> de
+<em class="EQ">&Acirc;<sub>c</sub> = A<sub>c</sub> &cup;
+{&beta;<sub>0</sub>,&beta;<sub>1</sub>}</em>.</p>
+<div class="center">
+  <img src="julia12.png" style="width: 600px"
+       alt="L'enveloppe régulière de A_c^ pour c = -0.15652+1.03225i"
+       class="framed">
+</div>
+</div>
+
+<p>Les points de <em class="EQ">A<sub>c</sub></em> et les points de
+branchement de l'arbre de Hubbard <em class="EQ">H<sub>c</sub></em>
+de la fonction polynomiale <em class="EQ">P<sub>c</sub></em> sont
+appelés des <em>points remarquables</em>.  Nous assumons que
+<em class="EQ">H<sub>c</sub> &cap; &part;K<sub>P<sub>c</sub></sub>
+&ne; &emptyset;</em> et choisissons
+<em class="EQ">z &in; H<sub>c</sub> &cap;
+&part;K<sub>P<sub>c</sub></sub></em>.  Soit <em class="EQ">D</em> une
+boule fermée centrée en <em class="EQ">z</em> et qui ne contient pas
+de points remarquables autre que <em class="EQ">z</em> lui-même.  De
+plus, supposons que <em class="EQ">L(z,w<sub>i</sub>)</em> pour
+<em class="EQ">1 &le; i &le; I</em> sont les <em>brins</em> des
+branches de <em class="EQ">H<sub>c</sub></em> qui émanent de 
+<em class="EQ">z</em> où <em class="EQ">w<sub>i</sub></em> est le
+premier point d'intersection d'une branche avec
+<em class="EQ">&part;D</em>.  Les <em>accès</em> à <em class="EQ">z</em>
+(par rapport à <em class="EQ">H<sub>c</sub></em>) sont les composantes
+connexes de
+<em class="EQ">D &setminus; &cup;<sub>i&in;I</sub> L(z,z<sub>i</sub>)</em>.
+La figure suivante illustre cette définition dans le cas où il y a
+trois accès à <em class="EQ">z</em>; les régions dénotées par
+I, II et III.</p>
+<div class="center">
+  <img src="julia13.png" style="width: 300px"
+       alt="Illustration d'un point avec trois accès." class="framed">
+</div>
+
+<div class="Theo">
+<p><em>Proposition</em>: Nous assumons que 
+<em class="EQ">z &in; H<sub>c</sub> &cap;
+&part;K<sub>P<sub>c</sub></sub></em> comme il est défini dans le
+paragraphe précédent.  Il y a au moins un rayon externe par accès
+qui aboutit à <em class="EQ">z</em>.</p>
+</div>
+
+<p>Étant donné <em class="EQ">z &in; A<sub>c</sub></em>, nous
+définissons <em class="EQ">&nu;(z)</em> comme étant le nombre de brins 
+qui émanent de <em class="EQ">z</em> dans
+<em class="EQ">H<sub>c</sub></em>.  Le
+<em>degré de ramification</em> de <em class="EQ">z</em>, dénoté
+<em class="EQ">&tau;(z)</em>, est un de plus que la multiplicité de 
+<em class="EQ">z</em> entant que point critique.  Donc, nous avons que
+<em class="EQ">&tau;(z) = 2</em> pour <em class="EQ">z = 0</em>, et
+<em class="EQ">&tau;(z) = 1</em> autrement.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que <em class="EQ">A<sub>c</sub> =
+{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em> est une orbite
+éventuellement périodique qui n'est pas périodique.  Alors
+<em class="EQ">&nu;(0) = 2</em>
+et
+<div class="EQ_center">
+<em class="EQ_Display">
+1 = &nu;(z<sub>1</sub>) &le; &nu;(z<sub>2</sub>) &le; ... &le;
+&nu;(z<sub>m</sub>) = &nu;(z<sub>m+1</sub>) = ... </em> ,
+</div>
+où <em class="EQ">z<sub>m</sub></em> est le premier élément de
+l'orbite périodique.</p>
+</div>
+
+<p>Il y a aussi un résultat si <em class="EQ">A<sub>c</sub></em> est
+une orbite périodique mais nous n'avons pas besoin de ce résultat 
+pour notre présentation.  À partir de maintenant, mous assumons que
+<em class="EQ">c</em> est un point de Misiurewicz.</p>
+
+<p>Pour chaque <em class="EQ">z<sub>n</sub> &in;
+A<sub>c</sub></em>, posons <em class="EQ">&mu;(z<sub>n</sub>)
+= &nu;(z<sub>m</sub>) &prod;<sub>n&le;i&le;m</sub> &tau;(z<sub>i</sub>)</em>
+où <em class="EQ">m &ge; n</em> est suffisamment grand pur avoir que
+<em class="EQ">z<sub>m</sub> &in; A<sub>c</sub></em>
+est un point périodique.  De plus, soit
+<em class="EQ">&Ouml;<sub>c</sub></em> l'arbre obtenu de 
+<em class="EQ">&Hcirc;<sub>c</sub></em> en ajoutant
+<em class="EQ">&mu;(z<sub>m</sub>)-&nu;(z<sub>n</sub>)</em>
+brins supplémentaires à chaque point
+<em class="EQ">z<sub>n</sub> &in; A<sub>c</sub></em>.
+L'arbre <em class="EQ">&Ouml;<sub>c</sub></em> est inclus dans
+l'arbre <em class="EQ">P<sub>c</sub><sup>-1</sup>(&Hcirc;<sub>c</sub>)</em>.
+Il y a <em class="EQ">&mu;(z<sub>n</sub>)</em> brins et accès à
+chaque <em class="EQ">z<sub>n</sub> &in; A<sub>c</sub></em>.
+Finalement, nous définissons une fonction
+<em class="EQ">u: &reals;/&integers; &rarr; {0,1}</em> par
+<em class="EQ">u(t) = i</em> si <em class="EQ">i/2 &le; t &lt; (i+1)/2</em>
+pour <em class="EQ">i = 0,1</em>.</p>
+
+<div class="Theo" id="theoIV">
+<p><em>Théorème &#8547;</em>: Supposons que
+<em class="EQ">z &in; &Acirc;<sub>c</sub></em> et que
+<em class="EQ">&Xi;<sub>c</sub>(t)</em> est un rayon externe qui
+aboutit à <em class="EQ">z</em>.  Soit
+<em class="EQ">t<sub>n</sub> &in; [0,1[</em> tel que
+<em class="EQ">&Xi;<sub>c</sub>(t<sub>n</sub>)
+= P<sub>c</sub><sup>n-1</sup>(&Xi;<sub>c</sub>(t))</em>
+pour <em class="EQ">n &ge; 1</em>.  Alors
+<em class="EQ">t = &sum;<sub>n&ge;1</sub>
+u(t<sub>n</sub>)/2<sup>n</sup></em>.</p>
+</div>
+
+<p>l'énoncé du théorème précédent nécessite une explication.
+Puisque <em class="EQ">P<sub>c</sub>(&Xi;<sub>c</sub>(t))
+= &Xi;<sub>c</sub>(2t)</em>, nous avons naturellement que
+<em class="EQ">t<sub>n</sub> = 2<sup>n-1</sup> t</em> pour
+<em class="EQ">n &ge; 1</em>.  Cependant, cette information est
+inutile puisque nous ne connaissons pas <em class="EQ">t</em>.
+Pour trouver la valeur de <em class="EQ">t</em>, nous utilisons 
+plutôt la propriété que <em class="EQ">P<sub>c</sub></em> est une
+transformation conforme qui <q class="en">envoie</q> les points
+remarquables sur les points remarquables, les brins sur des brins, et
+les accès sur les accès.  Quand nous disons que
+<em class="EQ">P<sub>c</sub></em> envoie un accès <em class="EQ">V</em>
+à <em class="EQ">z<sub>n</sub> &in; A<sub>c</sub></em> sur un accès 
+<em class="EQ">W</em> à <em class="EQ">z<sub>n+1</sub></em>, nous ne
+voulons pas dire que <em class="EQ">P<sub>c</sub>(V) &subset; W</em> car
+<em class="EQ">P<sub>c</sub></em> est une expansion.  Cependant, en 
+rapetissant la boule fermée <em class="EQ">D</em> utilisée pour définir
+les accès à <em class="EQ">z<sub>n</sub></em>, nous pouvons obtenir
+que <em class="EQ">P<sub>c</sub>(V) &subset; W</em> comme il est
+illustré dans la figure ci-dessous..</p>
+
+<div class="center">
+  <img src="julia14.png" style="width: 450px"
+       alt="L'action de P_c sur un accès à z_n." class="framed">
+</div>
+
+<p>Si <em class="EQ">&Xi;<sub>c</sub>(t)
+= {&psi;<sub>c</sub>(re<sup>2&pi;ti</sup>) : r &gt; 1}</em>
+est un rayon externe qui aboutit à
+<em class="EQ">z<sub>n</sub></em> et telle que
+<em class="EQ">&psi;<sub>c</sub>(re<sup>2&pi;ti</sup>) &in; V</em> pour
+<em class="EQ">r</em> assez près de <em class="EQ">1</em>, alors
+<em class="EQ">P<sub>c</sub>(&Xi;<sub>c</sub>(t))
+= {&psi;<sub>c</sub>(re<sup>4&pi;ti</sup>) : r &gt; 1}</em>
+est un rayon externe qui aboutit à
+<em class="EQ">z<sub>n+1</sub></em> et telle que
+<em class="EQ">&psi;<sub>c</sub>(re<sup>4&pi;ti</sup>) &in; W</em> pour
+<em class="EQ">r</em> assez près de <em class="EQ">1</em>.</p>
+
+<p>Donc, pour déterminer la valeur de <em class="EQ">t</em> au
+<script language="javascript">
+buildLinK("#theoIV","Theorem &#8547;","MMathSStat","theoIVId2","_top"); 
+</script>, nous avons seulement à prendre en note les itérations des
+accès sous l'action de <em class="EQ">P<sub>c</sub></em>.</p>
+
+<div class="Theo">
+<p><em>Corollaire</em>: Il y a un et seulement un rayon externe (associé
+à <em class="EQ">&Ouml;<sub>c</sub></em>) par accès.  La valeur de
+<em class="EQ">t</em> pour le rayon externe
+<em class="EQ">&Xi;<sub>c</sub>(t)</em> qui aboutit à
+<em class="EQ">z &in; &Acirc;<sub>c</sub></em> est toujours un nombre
+rationnel de la forme réduite <em class="EQ">p/q</em> où
+<em class="EQ">q</em> est un nombre premier si et seulement si
+<em class="EQ">z</em> est un point périodique.</p>
+</div>
+
+<div class="Example" id="egC">
+<p><em>Exemple C</em>: Nous considérons <em class="EQ">P<sub>c</sub></em>
+avec <em class="EQ">c = i</em>.  Nous avons que <em class="EQ">i</em> 
+est un point de Misiurewicz; Plus précisément, nous avons l'orbite
+<em class="EQ">{0, i, i-1, -i, i-1, -i, ...}</em>.</p>
+
+<p>Puisque <em class="EQ">&mu;(z<sub>0</sub>) = 2</em> et
+<em class="EQ">&mu;(z<sub>n</sub>) = 1</em> pour <em class="EQ">n &gt; 0</em>,
+il n'y a pas de brins supplémentaires à ajouter à
+<em class="EQ">&Hcirc;<sub>c</sub></em>.</p>
+
+<p>Pour déterminer la valeur de <em class="EQ">t</em> pour le rayon
+qui aboutit à <em class="EQ">z<sub>1</sub></em>, nous prenons en note
+les itérations de son seul accès. Nous avons
+<em class="EQ">u(t<sub>n</sub>) = 0</em> quand l'itération est dans la
+région en blanc et <em class="EQ">u(t<sub>n</sub>) = 1</em> quand
+l'itération est dans la région en rose.  Ainsi, nous obtenons
+<em class="EQ">u(t<sub>1</sub>) = u(t<sub>2</sub>) = 0</em>,
+<em class="EQ">u(t<sub>3</sub>) = 1</em>,
+<em class="EQ">u(t<sub>4</sub>) = u(t<sub>2</sub>) = 0</em> et ainsi
+de suite comme nous pouvons observer dans la figure ci-dessous.
+Donc, nous avons que
+<em class="EQ">t = (0.0<span class="EQ_Over">01</span>)<sub>2</sub> = 1/6</em>
+pour le rayon externe qui aboutit à <em class="EQ">z<sub>1</sub></em>.
+De façon semblable, pour déterminer la valeur de <em class="EQ">t</em>
+pour le rayon externe à <em class="EQ">z<sub>2</sub></em>, nous
+prenons note des itérations de son seul accès.  Comme précédemment,
+nous avons <em class="EQ">u(t<sub>n</sub>) = 0</em> quand l'itération
+est dans la région en blanc et et
+<em class="EQ">u(t<sub>n</sub>) = 1</em> quand l'itération est dans la
+région en rose.  Ainsi, nous avons que <em class="EQ">t =
+(0.<span class="EQ_Over">01</span>)<sub>2</sub> = 1/3</em> pour le
+rayon externe qui aboutit à <em class="EQ">z<sub>2</sub></em>.</p>
+
+<p>Nous pouvons procéder comme précédemment pour trouver la valeur de
+<em class="EQ">t</em> pour le rayon externe qui aboutit à
+<em class="EQ">z<sub>3</sub></em>
+ou nous pouvons simplement utiliser la relation
+<em class="EQ">P<sub>c</sub>(&Xi;<sub>c</sub>(t))
+= &Xi;<sub>c</sub>(2t)</em> pour obtenir que
+<em class="EQ">t = 2/3</em> pour le rayon externe qui aboutit à
+<em class="EQ">z<sub>3</sub></em>.
+Nous pouvons utiliser la ration
+<em class="EQ">P<sub>c</sub>(&Xi;<sub>c</sub>(t))
+= &Xi;<sub>c</sub>(2t)</em> pour obtenir la valeur de
+<em class="EQ">t</em> pour les deux rayons externes qui aboutissent à
+<em class="EQ">z<sub>0</sub></em>.  Nous obtenons
+<em class="EQ">t = 1/12</em> et <em class="EQ">t = 7/12</em>.  Notons
+qu'il y a deux accès à <em class="EQ">z<sub>0</sub></em>.
+Le lecteur est invité à vérifier que le <script language="javascript">
+buildLinK("#theoIV","Théorème &#8547;","MMathSStat","theoIVId2","_top"); 
+</script> donne ces deux valeurs de <em class="EQ">t</em>.</p>
+
+<div class="center">
+  <img src="julia9.png" style="width: 500px"
+       alt="L'ensemble de Julia de P_c pour c = i avec les rayons externes qui aboutissent à z_i pour chaque valeur de i."
+       class="framed">
+</div>
+</div>
+
+<div class="Example" id="egD">
+<p><em>Exemple D</em>: Nous considérons <em class="EQ">P<sub>c</sub></em>
+avec <em class="EQ">c &approx; -0.101096+0.956286i</em>.
+Nous avons que <em class="EQ">c</em> est un point de Misiurewicz;
+plus précisément, nous avons l'orbite</p>
+<div class="EQ_center">
+<em class="EQ_Display">{0, -0.101096+0.956286i, -1.005360+0.762933i,
+0.327586-0.577759i, -0.327588+0.577755i}</em> .
+</div>
+
+<p>Puisque <em class="EQ">&mu;(z<sub>0</sub>) = 6</em> et
+<em class="EQ">&mu;(z<sub>n</sub>) = 3</em> pour <em class="EQ">n &gt; 0</em>,
+nous devons ajouter des brins supplémentaires à
+<em class="EQ">&Hcirc;<sub>c</sub></em>:
+quatre brins supplémentaires à <em class="EQ">z<sub>0</sub></em> et
+deux brins supplémentaires à <em class="EQ">z<sub>n</sub></em> pour
+<em class="EQ">1 &le; n &lt; 4</em>.  Les brins à
+<em class="EQ">&beta;<sub>0</sub></em> et
+<em class="EQ">&beta;<sub>1</sub></em> comptent parmi les brins
+supplémentaires.</p>
+
+<p>Pour déterminer la valeur de <em class="EQ">t</em> pour le premier
+rayon externe qui aboutit à <em class="EQ">z<sub>1</sub></em>, nous prenons en
+note les itérations de l'accès utilisé par ce rayon externe.  Nous
+avons que <em class="EQ">u(t<sub>n</sub>) = 0</em> quand l'itération
+est dans la région en blanc et
+<em class="EQ">u(t<sub>n</sub>) = 1</em> quand l'itération est dans la
+région en rose.  Ainsi, nous obtenons
+<em class="EQ">u(t<sub>1</sub>) = u(t<sub>2</sub>) = 0</em>,
+<em class="EQ">u(t<sub>3</sub>) = 1</em>,
+<em class="EQ">u(t<sub>4</sub>) = 0</em>,
+<em class="EQ">u(t<sub>5</sub>) = 1</em>,
+<em class="EQ">u(t<sub>6</sub>) = 0</em>,
+<em class="EQ">u(t<sub>7</sub>) = u(t<sub>7</sub>) = 0</em>
+et ainsi de suite comme nous pouvons l'observer dans la figure
+ci-dessous.  Ainsi, nous avons que <em class="EQ">t =
+(0.0010<span class="EQ_Over">100</span>)<sub>2</sub> = 9/56</em>
+pour le premier rayon externe qui aboutit à <em class="EQ">z<sub>1</sub></em>.
+En utilisant la même procédure, nous obtenons que
+<em class="EQ">t = 11/56</em> pour le deuxième rayon externe 
+qui aboutit à <em class="EQ">z<sub>1</sub></em> et
+<em class="EQ">t = 15/56</em> pour le troisième rayon externe qui
+aboutit à <em class="EQ">z<sub>1</sub></em>.</p>
+
+<p>Nous pouvons procéder de la même façon pour trouver les valeurs de 
+<em class="EQ">t</em> pour les rayons externes qui aboutissent à
+<em class="EQ">z<sub>n</sub></em> pour <em class="EQ">n &gt; 1</em> ou
+nous pouvons simplement utiliser la relation 
+<em class="EQ">P<sub>c</sub>(&Xi;<sub>c</sub>(t))
+= &Xi;<sub>c</sub>(2t)</em>.  À l'aide de cette relation, nous
+obtenons que la valeur de <em class="EQ">t</em> pour le premier rayon
+externe qui aboutit à <em class="EQ">z<sub>4</sub></em> est
+<em class="EQ">2<sup>3</sup> 15/56 = 1/7 mod 1</em>.  Si nous
+utilisons le <script language="javascript">
+buildLinK("#theoIV","Théorème &#8547;","MMathSStat","theoIVId2","_top"); 
+</script> pour trouver la valeur de 
+<em class="EQ">t</em> pour le premier rayon externe qui aboutit à 
+<em class="EQ">z<sub>4</sub></em>, nous trouvons que
+<em class="EQ">t = (0.<span class="EQ_Over">001</span>)<sub>2</sub>
+= 1/7</em> comme il se doit.</p>
+
+<div class="center">
+  <img src="julia15.png" style="width: 500px"
+       alt="L'ensemble de Julia de P_c pour c = i avec les rayons externes qui aboutissent à z_i pour chaque valeur de i."
+       class="framed">
+</div>
+</div>
+
+<p>Après avoir lu les exemples précédents, le lecteur pourrait croire
+que les brins supplémentaires peuvent toujours être prédis à partir de
+la figure de <em class="EQ">J<sub>c</sub></em>.  Cependant, la qualité
+de la figure est limitée par la précision des calculs numériques et
+la résolution de l'écran d'ordinateur.  Donc, malgré le fait que la
+figure peut servir d'outil de recherche, nous devons utiliser la
+théorie pour confirmer le nombre de brins supplémentaires.</p>
+
+<p><script language="javascript">
+buildLinK("#PJS","H.-O. Peitgen, H. j&#252;rgens and D. Saupe",
+"MMathSStat","PJSId5","_top");
+</script> présentent une méthode différente pour trouver les valeurs
+de <em class="EQ">t</em> pour les rayons externes
+<em class="EQ">&Xi;<sub>c</sub>(t)</em> de l'ensemble de Julia de
+<em class="EQ">P<sub>c</sub></em>.  Ils utilisent les itérations de 
+<em class="EQ">P<sub>c</sub></em> dans le sens inverse avec les
+régions bornées par les courbes équipotentielles
+<em class="EQ">&Gamma;<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)</em>
+avec <em class="EQ">j &gt; 4</em> afin de générer la
+représentation binaire de <em class="EQ">t</em>.</p>
+
+<div class="Note">
+<p><em>Remarque</em>: L'action de <em class="EQ">P<sub>c</sub></em>
+sur l'arbre de Hubbard, son extension et les points remarquables est
+très intéressante.  Nous fournissons un peu plus d'information sur ce
+sujet ci-dessous.</p>
+
+<p>Soit <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup>
+= P<sub>c</sub><sup>-1</sup>(&Hcirc;<sub>c</sub>)</em>.
+Nous avons que <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup>
+= R<sub>&Acirc;<sub>c</sub><sup>[1]</sup></sub></sub></em>
+où <em class="EQ">&Acirc;<sub>c</sub><sup>[1]</sup>
+= P<sub>c</sub><sup>-1</sup>(&Acirc;<sub>c</sub>)</em>.
+Comme nous avons fait à la <script language="javascript">
+buildLinK("#propIII","Proposition &#8546;","MMathSStat","propIIIId2","_top"); 
+</script>, nous pouvons exprimer
+<em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup></em>
+sous la forme <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup> =
+&Hcirc;<sub>+</sub><sup>[1]</sup> &cup;
+&Hcirc;<sub>-</sub><sup>[1]</sup></em> avec
+<em class="EQ">&Hcirc;<sub>+</sub><sup>[1]</sup> &cap;
+ &Hcirc;<sub>-</sub><sup>[1]</sup> = {0}</em>
+et <em class="EQ">c &in; &Hcirc;<sub>+</sub><sup>[1]</sup></em>.
+Nous avons que <em class="EQ">P<sub>c</sub> : &Hcirc;<sub>+</sub><sup>[1]</sup>
+&rarr; &Hcirc;<sub>c</sub></em> et
+<em class="EQ">P<sub>c</sub> : &Hcirc;<sub>-</sub><sup>[1]</sup>
+&rarr; &Hcirc;<sub>c</sub></em> sont des homéomorphismes.  Ainsi, nous
+pouvons définir deux homéomorphismes
+<em class="EQ">Q<sub>+</sub> : &Hcirc;<sub>c</sub> &rarr;
+&Hcirc;<sub>+</sub><sup>[1]</sup></em> et
+<em class="EQ">Q<sub>-</sub> : &Hcirc;<sub>c</sub> &rarr;
+&Hcirc;<sub>-</sub><sup>[1]</sup></em> par
+<em class="EQ">Q<sub>+/-</sub>(w) = z</em> si et seulement si
+<em class="EQ">w = P<sub>c</sub>(z)</em> avec
+<em class="EQ"> z &in; &Hcirc;<sub>c</sub></em>.
+Puisque <em class="EQ">0</em> est un point de branchement, le nombre
+de points de branchement est préservé par ces homéomorphismes.  De
+même, le nombre et l'ordre des brins sont préservés par ces 
+homéomorphismes.</p>
+
+<p>Supposons que <em class="EQ">L(&beta;<sub>0</sub>,0)</em> et
+<em class="EQ">L(&beta;<sub>0</sub>,c)</em> sont respectivement les
+arcs réguliers de <em class="EQ">&beta;<sub>0</sub></em> à
+<em class="EQ">0</em> et de <em class="EQ">&beta;<sub>0</sub></em>
+à <em class="EQ">c</em> dans <em class="EQ">&Hcirc;<sub>c</sub></em>.
+Nous avons que <em class="EQ">P<sub>c</sub>: L(&beta;<sub>0</sub>,0) &rarr;
+L(&beta;<sub>0</sub>,c)</em> est un homéomorphisme.  Ainsi, nous
+pouvons définir la fonction inverse
+<em class="EQ">Q<sub>c</sub>: L(&beta;<sub>0</sub>,c) &rarr;
+L(&beta;<sub>0</sub>,0)</em> par
+<em class="EQ">Q<sub>c</sub>(w) = z</em> si et seulement si
+<em class="EQ">w = P<sub>c</sub>(z)</em> avec
+<em class="EQ"> z &in; L(&beta;<sub>0</sub>,0)</em>.
+Soit <em class="EQ">w<sub>n</sub> = Q<sub>c</sub><sup>n</sup>(c)</em> pour
+<em class="EQ">n &ge; 1</em>.  Nous avons que
+<em class="EQ">w<sub>1</sub> = 0</em> et <em class="EQ">w<sub>n</sub> &in;
+L(&beta;<sub>0</sub>,c)</em> pour <em class="EQ">n &ge; 1</em>.
+De plus, <em class="EQ">w<sub>n+1</sub> = Q<sub>+</sub>(w<sub>n</sub>)</em>
+pour <em class="EQ">w<sub>n</sub> &in; &Hcirc;<sub>c</sub></em>.
+Soit <em class="EQ">n<sup>&ast;</sup> = sup{n : w<sub>n</sub> &in;
+&Hcirc;<sub>c</sub>}</em>.
+Nous avons que <em class="EQ">n<sup>&ast;</sup> = &infin;</em> si et
+seulement si <em class="EQ">&beta;<sub>0</sub> &in; &Hcirc;<sub>c</sub></em>.
+Donc <em class="EQ">n<sup>&ast;</sup> = &infin;</em> si et seulement si
+<em class="EQ">&beta;<sub>0</sub> &in; &Hcirc;<sub>-</sub></em>
+est un point fixe.  Dans ce dernier cas, nous obtenons que
+<em class="EQ">H<sub>c</sub> = &Hcirc;<sub>c</sub></em>.
+Si <em class="EQ">n<sup>&ast;</sup> &lt; &infin;</em>, alors nous
+obtenons un homéomorphisme de <em class="EQ">&Hcirc;<sub>c</sub></em> sur
+l'enveloppe régulière de <em class="EQ">H<sub>c</sub> &cup;
+{-w<sub>n<sup>&ast;</sup>+1</sub>, w<sub>n<sup>&ast;</sup>+1</sub>}</em>
+dans <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup></em>.  Cet
+homéomorphisme est la fonction identité sur <em class="EQ">H<sub>c</sub></em>
+et envoie
+<em class="EQ">(-1)<sup>i</sup>w<sub>n<sup>&ast;</sup>+1</sub></em> sur
+<em class="EQ">&beta;<sub>i</sub></em> pour
+<em class="EQ">i = 0,1</em>.</p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="SS4">Courbes équipotentielles et rayons externes de l'ensemble
+  de Mandelbrot</h3>
+
+<div class="Theo">
+<p><em>Proposition</em>: La fonction <em class="EQ">&phi;<sub>c</sub>:
+&complexes; &setminus; <span class="EQ_Over">B<sub>a</sub>(0)</span>
+&rarr; &complexes; &setminus; <span class="EQ_Over">B<sub>b</sub>(0)</span></em>
+définie à la <script language="javascript">
+  buildLinK("#propII","Proposition &#8545;","MMathSStat","propIIID1","_top");
+</script> peut être étendu à un isomorphisme
+<em class="EQ">&phi;<sub>c</sub>: &complexes; &setminus;
+G<sub>c</sub><sup>-1</sup>(<span class="EQ_Over">B<sub>h</sub>(0)</span>)
+&rarr; &complexes; &setminus;
+<span class="EQ_Over">B<sub>e<sup>h</sup></sub>(0)</span></em>
+où <em class="EQ">h = G<sub>c</sub>(0)</em>.</p>
+</div>
+
+<p>Puisque <em class="EQ">h &gt; 0</em>, nous avons que
+<em class="EQ">G<sub>c</sub>(c) = G<sub>c</sub>(P<sub>c</sub>(0)) =
+  2G<sub>c</sub>(0) = 2h &gt; h</em>.  Donc, nous pouvons définir
+<em class="EQ">&phi;<sub>M</sub>: 
+&complexes; &setminus; M &rarr; &complexes; &setminus;
+<span class="EQ_Over">B<sub>e<sup>h</sup></sub>(0)</span></em>
+par <em class="EQ">&phi;<sub>M</sub>(c) = &phi;<sub>c</sub>(c)</em>.
+Nous avons que <em class="EQ">&phi;<sub>M</sub>: &complexes; &setminus;
+M &rarr; &complexes; &setminus;
+<span class="EQ_Over">B<sub>1</sub>(0)</span></em>
+car <em class="EQ">ln(|&phi;<sub>c</sub>(c)|)
+= G<sub>c</sub>(c) &gt; h &gt; 0</em> implique que
+<em class="EQ">|&phi;<sub>c</sub>(c)| &gt; 1</em>.  En fait, nous
+avons que <em class="EQ">&phi;<sub>M</sub>: &complexes; &setminus;
+M &rarr; &complexes; &setminus;
+<span class="EQ_Over">B<sub>1</sub>(0)</span></em> est un isomorphisme.
+Nous définissons la fonction
+<em class="EQ">G<sub>M</sub>:&complexes; &setminus; M &rarr; &reals;</em>
+par <em class="EQ">G<sub>M</sub>(c) = ln(|&phi;<sub>M</sub>(c)|)
+= G<sub>c</sub>(c)</em> pour tous
+<em class="EQ"> c &in; &complexes; &setminus; M</em>.
+</p>
+
+<p>Comme nous avons fait pour les ensembles de Julia pleins, nous
+pouvons définir les <em>courbes équipotentielles</em></p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&Gamma;<sub>M</sub>(r) = G<sub>M</sub><sup>-1</sup>(ln(r))
+= &phi;<sub>M</sub><sup>-1</sup>({r e<sup>2&pi;it</sup> : 0 &le; t &lt 1})
+</em>
+</div>
+<p>pour <em class="EQ">r &gt; 1</em>,
+et définir <em class="EQ">Q<sub>M</sub>(r)</em> comme étant la
+composante simplement connexe et fermée qui est bornée par la courbe
+fermée <em class="EQ">&Gamma;<sub>M</sub>(r)</em>.
+Nous avons que
+<em class="EQ">M = &cap;<sub>r&gt;1</sub> Q<sub>M</sub>(r)</em>.</p>
+
+<p>Comme nous avons fait dans la section précédente, nous pouvons
+démontrer que <em class="EQ">G<sub>M</sub>(c) = G<sub>c</sub>(c)
+= lim<sub>n&rarr;&infin;</sub> ln(|P<sub>c</sub><sup>n</sup>(c)|)/2<sup>n</sup>
+</em>
+et
+<em class="EQ">
+Q<sub>M</sub>(e<sup>2<sup>k</sup></sup>) = {c : lim<sub>m&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>m-k</sup>(c)|)/2<sup>m</sup> &le; 1}</em>
+pour <em class="EQ">k &ge; 0</em>.  Ainsi
+<div class="EQ_center">
+<em class="EQ_Display">
+Q<sub>M</sub>(e<sup>2<sup>k-j</sup></sup>) 
+= {c : lim<sub>m&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>m-k+j</sup>(c)|)/2<sup>m</sup> &le; 1} <br>
+= {c : P<sub>c</sub><sup>j</sup>(c) &in; {z :
+lim<sub>m&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>m-k</sup>(z)|)/2<sup>m</sup> &le; 1}} <br>
+= {c : P<sub>c</sub><sup>j</sup>(c) &in;
+ Q<sub>c</sub>(e<sup>2<sup>k</sup></sup>) </em> .
+</div>
+<p>Si nous prenons <em class="EQ">k = 3</em> comme nous avons fait
+dans la section précédente portant sur les ensembles de Julia plein, et
+utilisons la relation <em class="EQ">Q<sub>c</sub>(e<sup>8</sup>)
+&approx; B<sub>e<sup>8</sup></sub>(0)</em>, nous obtenons que
+<em class="EQ">
+Q<sub>M</sub>(e<sup>2<sup>k-j</sup></sup>) 
+&approx; {c : P<sub>c</sub><sup>j</sup>(c) &in;
+B<sub>e<sup>8</sup></sub>(0)}</em>.
+Donc <em class="EQ">&Gamma;<sub>M</sub>(e<sup>2<sup>3-j</sup></sup>)
+&approx; &part;{c : P<sub>c</sub><sup>j</sup>(c) &in;
+B<sub>e<sup>8</sup></sub>(0)}</em>
+pour <em class="EQ">j &ge; 0</em>.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous avons utilisé la fonction de
+<em>Matlab</em> <script language="javascript">
+buildLinK(matlabProgr.url_fr+"#Sect29", "mandelbrot2",
+"MMathSStat", matlabProgr.id+"2", matlabProgr.target); 
+</script>
+pour tracer quelques courbes équipotentielles de l'ensemble de Mandelbrot.</p>
+<div class="center" id="man1">
+  <img src="mandelbrot5.png" style="width: 450px"
+       alt="L'ensemble de Mandelbrot avec quelques courbes équipotentiiles."
+       class="framed">
+</div>
+</div>
+
+<p>La famille de courbes orthogonales à la famille de courbes fermées
+<em class="EQ">{&Gamma;<sub>M</sub>(r) : r &gt; 1}</em>
+est la famille de courbes
+<em class="EQ">{&Xi;<sub>M</sub>(t) : 0 &le; t &lt 1}</em> où</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&Xi;<sub>M</sub>(t)
+= &phi;<sub>M</sub><sup>-1</sup>({r e<sup>2&pi;it</sup> : r &gt; 1})</em>  .
+</div>
+<p>Comme pour les ensembles de Julia pleins, ces courbes sont appelées
+<em>lignes de champs</em> ou <em>rayons externes</em>.</p>
+
+<p>Puisque nous ne savons pas si l'ensemble de Mandelbrot est
+localement connexe, nous ne savons pas si la fonction <em class="EQ">
+&psi;<sub>M</sub> = &phi;<sub>M</sub><sup>-1</sup>: 
+&complexes; &setminus; <span class="EQ_Over">B<sub>1</sub>(0)</span>
+&rarr; &complexes; &setminus; M</em>
+peut être étendue à une fonction continue sur un domaine qui contient
+la frontière de <em class="EQ">B<sub>1</sub>(0)</em>.
+Donc, nous ne pouvons affirmer que les rayons externes 
+<em class="EQ">&Xi;<sub>M</sub>(t)</em>
+pour <em class="EQ">0 &le; t &lt; 1</em> aboutissent sur la frontière
+de <em class="EQ">M</em>.  Nous résumons ci-dessous ce qui est connu à
+ce sujet.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que
+<em class="EQ">t &in; &reals;/&integers;</em>.
+Alors, les rayons externes <em class="EQ">&Xi;<sub>M</sub>(t)</em>
+aboutissent aux points
+<em class="EQ">v = &gamma;<sub>M</sub>(t) &in; &part; M</em> qui sont
+soit la racine d'une composante hyperbolique <em class="EQ">W</em> de
+<em class="EQ">M</em> ou un point de Misiurewicz.  Plus précisément,</p>
+<ol style="list-style-type: decimal;">
+<li>Si <em class="EQ">t</em> est un point périodique de période
+<em class="EQ">m</em> pour la fonction
+<em class="EQ">T:[0,1[ &rarr; [0,1[</em> définie par
+<em class="EQ">T(t) = 2t mod 1</em>, alors <em class="EQ">v</em> est
+la racine d'une composante hyperbolique <em class="EQ">W</em>.  De plus,
+si <em class="EQ">c</em> est le centre de <em class="EQ">W</em>
+et <em class="EQ">z</em> est la racine de la composante simplement
+connexe <em class="EQ">U<sub>c</sub></em> de
+<em class="EQ">K<sub>c</sub> &setminus; J<sub>c</sub></em> qui contient
+<em class="EQ">c</em> comme décrit dans le <script language="javascript">
+  buildLinK("#CASE1", "Cas 1","MMathSStat", "Case1ID", "_top"); 
+</script> ci-dessus, alors <em class="EQ">&psi;<sub>M</sub><sup>-1</sup>({v})
+= &psi;<sub>c</sub><sup>-1</sup>({z})</em>.  Il y a une exception.
+Si <em class="EQ">v = 1/4</em>, alors <em class="EQ">t = 0</em> seulement.</li>
+<li>Si <em class="EQ">t</em> est un point éventuellement périodique
+  mais pas un point périodique de la fonction <em class="EQ">T</em>, alors
+<em class="EQ">c</em> est un point de Misiurewicz.  De plus,
+<em class="EQ">&psi;<sub>M</sub><sup>-1</sup>({v})
+= &psi;<sub>v</sub><sup>-1</sup>({v})</em>.</li>
+</ol>
+</div>
+
+<p>Si <em class="EQ">t = p/q</em> dans la forme réduite avec
+<em class="EQ">0 &le; p &lt; q</em>, alors nous avons le cas 1 quand
+<em class="EQ">q</em> est impaire et le cas 2 quand
+<em class="EQ">q</em> est pair.</p>
+
+<div class="Example">
+<p><em<Exemple</em>: Nous obtenons les résultats suivants des exemples
+suivants: <script language="javascript">
+  buildLinK("#egA","Exemple A","MMathSStat","egAID", "_top"); 
+</script>, <script language="javascript">
+  buildLinK("#egB","Exemple B","MMathSStat","egBID", "_top"); 
+</script>, <script language="javascript">
+  buildLinK("#egC","Exemple C","MMathSStat","egCID", "_top"); 
+</script> et
+<script language="javascript">
+  buildLinK("#egD","Exemple D","MMathSStat","egDID", "_top"); 
+</script>.</p>
 <ul>
-  <li> <em class="EQ">Real(c) = </em>
-    <input type="text" value="0.27" id="c_real"> </li>
-  <li> <em class="EQ">Im(c) = </em>
-    <input type="text" value="-0.48" id="c_img"> </li>
-  <li> Nombre d'itérations <input type="text" value="50" id="julia_nbr">
-  </li>
-  <li> <input type="button" value="Débuter" onclick="julia()">
-  </li>
-  <li> <input type="button" value="Effacer" onclick="clearDDS('julia')"> </li>
+<li>Les deux rayon externes de <em class="EQ">M</em> qui aboutissent
+à <em class="EQ">-3/4</em>, la racine de la composante hyperbolique 
+<em class="EQ">W<sub>1/2</sub></em>, sont
+<em class="EQ">&Xi;<sub>M</sub>(1/3)</em>
+et <em class="EQ">&Xi;<sub>M</sub>(2/3)</em>.</li>
+<li>Les deux rayons externes de <em class="EQ">M</em> qui aboutissent 
+à la racine de la composante hyperbolique avec le centre à
+<em class="EQ">-0.15652+1.03225i</em> sont
+<em class="EQ">&Xi;<sub>M</sub>(1/5)</em>
+et <em class="EQ">&Xi;<sub>M</sub>(4/15)</em>.</li>
+<li>Le seul rayon externe de <em class="EQ">M</em> qui aboutit
+à <em class="EQ">i</em> est <em class="EQ">&Xi;<sub>M</sub>(1/6)</em>.
+<li>Les trois rayons externes de <em class="EQ">M</em> qui aboutissent
+à <em class="EQ">-0.101096+0.956286i</em> sont
+<em class="EQ">&Xi;<sub>M</sub>(9/56)</em>,
+<em class="EQ">&Xi;<sub>M</sub>(11/56)</em>
+et <em class="EQ">&Xi;<sub>M</sub>(15/56)</em>.</li>
+</ul>
+<p>Nous avons dessiné la partie de l'ensemble de Mandelbrot au
+voisinage de <em class="EQ">c = -0.101096+0.956286i</em> et ébauché
+les trois rayons externes qui aboutissent à <em class="EQ">c</em>.
+Quelques courbes équipotentielles ont aussi été dessiné en bleu.</p>
+</p>
+<div class="center" id="man1">
+  <img src="mandelbrot10.png" style="width: 450px"
+       alt="L'ensemble de Mandelbrot au voisinage de c = -0.101096+0.956286i avec les trois rayons externes qui aboutissent à c."
+       class="framed">
+</div>
+</div>
+
+<p>Il a été démontré que l'ensemble des point de Misiurewicz est dense
+sur <em class="EQ">&part; M</em>.  Plus surprenant, il a été
+démontré que <em class="EQ">&part; M</em> est un sous-ensemble de la
+fermeture de l'ensemble des centres de toutes les composantes
+hyperboliques de <em class="EQ">M</em>.
+Si <em class="EQ">c</em> n'est pas une racine d'une composante
+hyperbolique de l'ensemble de Mandelbrot et n'est pas un point de
+Misiurewicz, alors <em class="EQ">c</em> est un point d'une orbite
+périodique neutre de
+<em class="EQ">P<sub>c</sub></em> associée à un disque de Seigel.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="SS5">Et plus ...</h3>
+
+<p>Nous observons aussi une similitude locale entre l'ensemble de
+Mandelbrot au voisinage d'un point de Misiurewicz <em class="EQ">c</em> 
+et l'ensemble de Julia de <em class="EQ">P<sub>c</sub></em> au
+voisinage de <em class="EQ">c</em> comme il est illustré dans la
+figure ci-dessous pour <em class="EQ">c = -0.101096 + 0.956287i</em>.
+Dans les deux figures, nous avons agrandi au voisinage de
+<em class="EQ">c</em>.</p>
+
+<div class="center">
+<img src="julia16.png" style="width: 350px"
+     alt="L'ensemble de Julia de P_c près de c pour c = -0.101096+0.956287i"
+     class="framed">
+<img src="mandelbrot6.png" style="width: 350px"
+     alt="L'ensemble de Mandelbrot près de c = -0.101096+0.956287i"
+     class="framed">
+<br>
+<p style="width: 70%;">
+L'ensemble de Julia de <em class="EQ">P<sub>c</sub></em> au
+voisinage de <em class="EQ">c = -0.101096+0.956287i</em> à gauche
+et l'ensemble de Mandelbrot au voisinage de
+<em class="EQ">c</em> à droite.</p>
+</div>
+
+<p>La notion de similitude locale est expliquée en termes mathématiques
+dans quelques-unes des 
+<script language="javascript">
+  buildLinK("#REF","références","MMathSStat","REFIDa", "_top"); 
+</script>
+à la fin du document.  Elle implique translation,
+rotation et dilatation.  En raison de cette propriété de similitude
+locale, certains auteurs dissent que l'ensemble de Mandelbrot est une
+table des matières pour les ensembles de Julia.</p>
+
+<p>L'ensemble de Mandelbrot n'est pas unique à la famille de fonctions
+polynomiales <em class="EQ">P<sub>c</sub></em> avec
+<em class="EQ">c &in; &complexes;</em>.  Dans la publication
+<script language="javascript">
+  buildLinK("#DH2","A. Douady and J. Hubbard (1985)","MMathSStat",
+  "DH2ID", "_top");
+</script>, ils montrent que des ensembles de Mandelbrot sont présents
+dans l'espace paramétrique de certaines familles de fonction
+rationnelles qui sont localement <q class="fr">comme des polynômes</q>.
+Par exemple, cela est observé dans la famille de fonctions
+rationnelles <em class="EQ">N<sub>c</sub></em>
+pour <em class="EQ">c &in; &complexes;</em> que nous obtenons en
+appliquant la méthode de Newton aux fonctions polynomiales
+<em class="EQ">Q<sub>c</sub></em> définie par
+<em class="EQ">Q<sub>c</sub>(z) = (z-1)(z-c+1/2)(z+c+1/2)</em>.
+C'est-à-dire,</p>
+<div class="EQ_center">
+<em class="EQ_Display">N<sub>c</sub>(z) = z-Q<sub>c</sub>(z)/Q<sub>c</sub>'(z)
+= (-8z<sup>3</sup>+4c<sup>2</sup>-1)/(-12z<sup>2</sup>+4c<sup>2</sup>+3)
+</em>
+</div>
+<p>pour <em class="EQ">c &in; &complexes;</em>.  La suite
+<em class="EQ">{N<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
+peut converger vers une des trois racines:
+<em class="EQ">1</em>, <em class="EQ">-c-1/2</em> ou
+<em class="EQ">c-1/2</em>.  Elle peut aussi ne pas converger
+vers une de ces trois racines mais plutôt être éventuellement périodique.
+Dans la figure ci-dessous, les points <em class="EQ">c</em> où
+<em class="EQ">{N<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
+converge vers <em class="EQ">r<sub>1</sub> = 1</em>,
+<em class="EQ">r<sub>2</sub> = -c-1/2</em> et
+<em class="EQ">r<sub>1</sub> = c-1/1</em> sont coloriés en rouge, bleu
+et vert respectivement.  Autrement, les points <em class="EQ">c</em>
+sont coloriés en noir.  Pour les values de <em class="EQ">c</em> dans
+le petit ensemble de Mandelbrot dans la figure ci-dessous, les orbites
+<em class="EQ">{N<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
+sont éventuellement périodiques et les périodes sont des multiples
+de <em class="EQ">2</em>.</p>
+
+<div class="center">
+  <img src="mandelbrot7.png" style="width: 450px"
+       alt="Le petit ensemble de Mandelbrot près de c=i/3 dans l'espace paramétrique de N_c."
+       class="framed">
+</div>
+
+<p>Si nous agrandissons la région de l'espace paramétrique qui
+contient le petite ensemble de Mandelbrot près de <em class="EQ">c = i/3</em>,
+nous obtenons la figure complexe suivante.</p>
+
+<div class="center">
+  <img src="mandelbrot8.png" style="width: 450px"
+       alt="Agrandissement du petit ensemble de Mandelbrot  près de c = i/3 dans l'espace paramétrique de N_c."
+       class="framed">
+</div>
+
+<p>Il y a d'autres ensembles de Mandelbrot dans l'espace paramétrique de
+<em class="EQ">N<sub>c</sub></em>.  Si nous agrandissons la région de
+l'espace paramétrique de <em class="EQ">N<sub>c</sub></em> au
+voisinage du point <em class="EQ">c = 0.51i</em>, alors nous obtenons
+la figure ci-dessous.  Pour les points <em class="EQ">c</em> qui
+appartiennent à l'ensemble de Mandelbrot dans la figure, les orbites
+de <em class="EQ">{N<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em> 
+sont éventuellement périodique et la périodes sont des multiples de
+<em class="EQ">3</em>.</p>
+
+<div class="center">
+  <img src="mandelbrot9.png" style="width: 450px"
+       alt="Agrandissement du petit ensemble de Mandelbrot près de c = 0.51i dans l'espace paramétrique de N_c."
+       class="framed">
+</div>
+
+<p>Il y a beaucoup plus à dire au sujet de l'ensemble de Mandelbrot et
+aussi beaucoup que nous ne connaissons pas à son sujet.  Une des
+question à laquelle nous n'avons pas encore de réponse est si
+l'ensemble de mandelbrot est localement connexe.  C'est probablement
+un bon endroit pour terminer ce document.  C'est aussi la limite des
+connaissances de l'auteur sur l'ensemble de Mandelbrot.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="MandelbrotFig">Exploration graphique de l'ensemble de Mandelbrot</h3>
+
+<p> L'application graphique qui suit peut être utilisé pour tracer
+l'ensemble de Mandelbrot.  Les points coloriés en noir forment
+l'ensemble de Mandelbrot.  L'image de l'ensemble de Mandelbrot
+produite par cette application graphique peut suggérer que l'ensemble
+de Mandelbrot n'est pas connexe mais il l'est.  Malheureusement,
+l'application graphique est écrite en JavaScript et n'est pas très
+précise.  Elle est aussi limité par la résolution de l'écran
+d'ordinateur.  C'est le compromis qui a dû être fait pour créer une
+application qui peut raisonnablement être utilisée avec un fureteur
+traditionnel.</p>
+
+<h4>Ensemble de Mandelbrot</h4>
+
+<div class="center">
+<canvas id="mandelbrot" width="400" height="400"> </canvas>
+</div>
+
+<table class="noB">
+<tr><td style="width: 50%;">
+<ul>
+<li> Nombre d'itérations
+  <input type="text" value="30" id="mandelbrot_nbr"> </li>
+<li> <input type="button" value="Débuter" onclick="mandelbrot()">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="button" value="Effacer" onclick="clearCanvas('mandelbrot')">
+</li>
+</ul>
+</td>
+<td style="width: 50%;">
+<p>Pour <em>agrandir</em> une région de l'ensemble de Mandelbrot, il suffit
+de cliquer avec le bouton gauche de la sourie sur la région désirée dans la
+figure ci-dessus.  Le nombre d'itérations doit être augmenté lorsque
+l'image est agrandie pour obtenir une image plus précise. </p>
+<p> Pour <em>dessiner l'ensemble de Julia plein</em> associé à un
+point de l'ensemble Mandelbrot, il suffit de cliquer sur ce point avec
+le bouton gauche de la sourie toute en appuyant sur la clef
+<em>Alt</em>.  L'ensemble de Julia plein est affiché dans la fenêtre
+de l'application graphique ci-dessous.</p>
+</td>
+</tr>
+</table>
+
+<p> L'ensemble de Mandelbrot est aussi appelé le
+<em>bonhomme en pain d'épice</em>.   N'est-ce pas que l'ensemble de Mandelbrot
+ressemble à un bonhomme en pain d'épice?  Si nous agrandissons certaines
+régions de l'ensemble de Mandelbrot, nous allons voir des bonshommes en pain
+d'épice de plus en plus petits.  Cela se compare à la notion
+d'auto-similitude que l'on a remarquée dans les images générées avec
+des SIF.</p>
+
+<h4>Ensembles de Julia</h4>
+
+<div class="center">
+<canvas id="julia" width="400" height="400"> </canvas>
+</div>
+
+<input type="hidden" value="0.27" id="default_c_real">
+<input type="hidden" value="-0.48" id="default_c_img">
+
+<table class="noB">
+<tr><td style="width: 50%;">
+<ul>
+<li> <em class="EQ">Real(c) = </em>
+  <input type="text" value="0.27" id="c_real"></li>
+<li> <em class="EQ">Im(c) = </em>
+  <input type="text" value="-0.48" id="c_img"></li>
+<li> Number of iterations <input type="text" value="20" id="julia_nbr"></li>
+<li> <input type="button" value="Débuter" onclick="julia()">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="button" value="Effacer"
+	 onclick="clearCanvasText
+	  ('julia','c_real','c_img','default_c_real','default_c_img')"> </li>
+</ul>
+</td>
+<td style="width: 50%;">
+<p>Pour <em>agrandir</em> une région de l'ensemble de Julia, il suffit
+de cliquer avec le bouton gauche de la sourie sur la région désirée dans la
+figure ci-dessus.  Le nombre d'itérations doit être augmenté lorsque
+l'image est agrandie pour obtenir une image plus précise. </p>
+<p><em>Attention</em>: Augmenter le nombre d'itérations n'assure pas
+la production d'une image plus précise en raison des erreurs de
+troncature.  En fait, le contraire peut se produire.</p>
+<p>Pour voir l'<q lang="en">ombre</q> d'une dendrite, le nombre
+d'itérations doit être petit.</p>
+<p>Seulement des nombres décimaux peuvent être utilisés comme valeurs
+de <em class="EQ">Real(c)</em> et <em class="EQ">Im(c)</em>.
+Un expression de la forme <em class="EQ">1/2</em> n'est pas acceptable
+car le contenu de ces champs n'est pas évalué mathématiquement.</p>
+</td>
+</tr>
+</table>
+
+<hr class="MMathSStat">
+
+<h3 id="REF">Références</h3>
+
+<p>Le contenu de ce document est principalement basé sur les livres et
+articles suivants.</p>
+
+<ul>
+<li id="PB">P. Blanchard, <em>Complex Analytic Dynamics of the Riemann
+Sphere</em>, Bull. Amer. Math. Soc. (N.S.) <em>11</em> (1984), 85-141.</li>
+<li id="LK"> B. Branner, <em>The Mandelbrot Set</em>, in
+<em>Chaos and Fractals: The Mathematics Behind the Computer Graphics</em>,
+R. L. Devaney and L. Keen, Editors, Proceeding of symposia in applied
+mathematics, AMS short course lecture notes (1989), 57-74.</li>
+<li id="AD">A. Douady, <em>Systèmes dynamiques holomorphes</em>,
+Séminaire Bourbaki, 35<sup>e</sup> année, <em>599</em>, Astérisque
+105-106 (1982), 39-63.</li>
+<li id="DH">A. Douady and J. Hubbard, <em>Itération des polynômes
+quadratiques complexes</em>, C. R. Acad. Sci. Paris, <em>294</em> (1982),
+123-126.</li>
+<li id="DH1">A. Douady and J. Hubbard (avec la collaboration de
+P. Lavours, T. Lei et P. Sentena), <em>Étude dynamique des polynômes
+complexes</em>, Soc. Math. France (2007). (The initial version was
+published in Publ. Math. Orsay in 1984, 1985.)</li>
+<li id="DH2">A. Douady and J. Hubbard, <em>On the Dynamics of
+Polynomial-Like Mappings</em>, Ann. Sci. École
+Norm. Sup.,(4) <em>18</em> (1985), 287-343.</li>
+<li id="PJS">H.-O. Peitgen, H. j&#252;rgens and D. Saupe, <em>Chaos
+and Fractals: New Frontiers of Science</em>, Springer-Verlag (1992).</li>
 </ul>
 
 <table class="noB">

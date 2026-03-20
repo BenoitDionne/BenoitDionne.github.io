@@ -65,15 +65,13 @@ function julia2(c, N, colour)
         end
 
         % We draw the point.
-        plot(x,y,'.','LineWidth',0.1);
+        plot(x,y,'.','LineWidth',0.1,'Color',colour);
         
         % Go on with the next iteration (if there is one).
         x = x - real(c);
         y = y - imag(c);        
         hold on
     end
-    h = gca;
-    set(h.Children,'Color',colour);
     axis equal;
     grid on
     title(['p(z) = z^2 + ',num2str(real(c)),' + ',num2str(imag(c)),'i']);
