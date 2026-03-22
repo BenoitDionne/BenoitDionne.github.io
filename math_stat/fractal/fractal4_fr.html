@@ -101,7 +101,7 @@ définie par <em class="EQ"> f<sub>&#120583;</sub>(x) = &#120583; x(1-x)
 à valeurs complexes définie sur le plan complexe.</p>
 
 <p>Certains lecteurs pourraient choisir d'ignorer les sections
-théoriques et de lire seulement la section sur la
+théoriques et plutôt choisir de lire seulement la section sur la
 <script language="javascript">
   buildLinK("#JuliaFig", "Représentation graphique des ensembles de Julia",
   "MMathSStat", "nextID", "_top");
@@ -215,6 +215,37 @@ que la fonction logistique <em class="EQ">f<sub>&#120583;</sub></em>
 est conformément conjuguée à la fonction
 <em class="EQ">P<sub>c</sub></em> où
 <em class="EQ">c = &#120583-&#120583<sup>2</sup>/4</em>.
+Quand <em class="EQ">&#120583; &ge; 4</em>, nous avons vu que
+<em class="EQ">f<sub>&#120583;</sub> :
+&#120549;<sub>&#120583;</sub> &rarr; &#120549;<sub>&#120583;</sub></em>
+est chaotique.  Nous pouvons donc supposer que
+<em class="EQ">P<sub>c</sub>:<span class="EQ_Over">&complexes;</span>
+&rarr; <span class="EQ_Over">&complexes;</span></em>
+aura un comportement étrange pour <em class="EQ">c &leq; -2</em>.
+De plus, quand <em class="EQ">c &in; &reals;</em> varie de
+<em class="EQ">0</em> à <em class="EQ">-2</em>, nous observons une
+cascade de dédoublement de périodes comme nous avons pour la fonction
+logistique.  Plus précisément, il découle de
+<em class="EQ">c = &#120583/2-&#120583<sup>2</sup>/4</em>
+que <em class="EQ">c</em> varie de <em class="EQ">0</em> à
+<em class="EQ">-2</em> lorsque <em class="EQ">&#120583</em> varie de
+<em class="EQ">2</em> à <em class="EQ">4</em>.  Il y a une application
+graphique dans le document
+<script language="javascript">
+  buildLinK(fractal5.url_fr, fractal5.text_fr,"MMathSStat",
+  fractal5.id+"PDC", fractal5.target);
+</script> semblable à l'application graphique dans le document
+<script language="javascript">
+  buildLinK(fractal1.url_fr, fractal1.text_fr,"MMathSStat",
+  fractal1.id+"PDC", fractal1.target);
+</script> pour explorer cette cascade de dédoublement de périodes.
+Le lecteur devrait lire la
+<script language="javascript">
+  buildLinK(fractal5.url_fr, "Remarque dans le decoment "
+  +fractal5.text_fr,"MMathSStat", fractal5.id+"PDC", fractal5.target);
+</script> pour plus d'information.</p>
+
+<p>Donc, l'étude des ensemble de Julia promet d'être excitante..</p>
 </div>
 
 <p>Soit <em class="EQ">B<sub>&epsilon;</sub>(w)
@@ -239,7 +270,8 @@ de Riemann est fourni par la fonction
 <em class="EQ">f:&complexes; &rarr; &complexes;</em> définie
 par <em class="EQ">f(z) = z<sup>2</sup></em>.
 Soit <em class="EQ">S<sub>i</sub> = &complexes; &setminus;
-{x : r &gt; 0}</em> pour <em class="EQ">i = 0,1</em>.  Les ensembles
+{x &in; &reals; : r &gt; 0}</em> pour <em class="EQ">i = 0,1</em>.
+Les ensembles
 <em class="EQ">S<sub>i</sub></em> sont deux copies du plan complexe
 après qu'il est été coupé le long de la section positive de l'axe
 des <em class="EQ">x</em>.</p>
@@ -474,8 +506,8 @@ qui n'est pas possible.  Donc
 <p>Puisque <em class="EQ">P<sub>0</sub>|<sub>S<sup>1</sup></sub></em>
 est topologiquement conjuguée à la fonction
 <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> 
-définie par <em class="EQ">T(&theta;) = 2&theta;</em>, et puisque
-<em class="EQ">T</em> est chaotique sur <em class="EQ">S<sup>1</sup></em>
+définie par <em class="EQ">T(z) = z<sup>2</sup></em> et puisque
+<em class="EQ">T</em> est chaotique sur <em class="EQ">S<sup>1</sup></em>,
 comme nous avons vu dans le document
 <script language="javascript"> 
 buildLinK(fractal1.url_fr,fractal1.text_fr,"MMathSStat",
@@ -502,9 +534,9 @@ définie par
 </p>
 
 <p>Par définition des ensembles de Julia, si
-<em class="EQ">z &in; J<sub>R</sub></em> et
+<em class="EQ">u &in; J<sub>R</sub></em> et
 <em class="EQ">V</em> est un voisinage ouvert de
-<em class="EQ">z</em>, alors l'ensemble
+<em class="EQ">u</em>, alors l'ensemble
 <em class="EQ">E<sub>V</sub> =
 <span class="EQ_Over">&complexes;</span> &setminus;
 &#8899;<sub>n&gt;0</sub> R<sup>n</sup>(V)</em>
@@ -512,26 +544,26 @@ contient au plus deux éléments.  Les éléments de
 <em class="EQ">E<sub>V</sub></em>
 sont appelés des <em>points exceptionnels</em>.
 Soit <em class="EQ">&#119985;</em> la collection des voisinages
-ouverts de <em class="EQ">z</em> et
-<em class="EQ">E<sub>z</sub> =
+ouverts de <em class="EQ">u</em> et
+<em class="EQ">E<sub>u</sub> =
 &#8899;<sub>V&in;&#119985;</sub> E<sub>V</sub></em>.
-L'ensemble <em class="EQ">E<sub>z</sub></em> contient aussi au plus
+L'ensemble <em class="EQ">E<sub>u</sub></em> contient aussi au plus
 deux éléments (la démonstration est laissée au lecteur).</p>
 
 <div class="Theo">
 <p><em>Proposition</em>: Si
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-est une fonction rationnelle et <em class="EQ">z &in; J<sub>R</sub></em>,
-alors <em class="EQ">E<sub>z</sub></em> est complètement invariant.</p>
+est une fonction rationnelle et <em class="EQ">u &in; J<sub>R</sub></em>,
+alors <em class="EQ">E<sub>u</sub></em> est complètement invariant.</p>
 </div>
 
 <p><em>Démonstration</em>: Nous démontrons en premier que
-<em class="EQ">E<sub>z</sub></em>
+<em class="EQ">E<sub>u</sub></em>
 est <em>inverse invariant</em> (c'est-à-dire,
-<em class="EQ">R<sup>-1</sup>(E<sub>z</sub>) &subset; E<sub>z</sub></em>).
+<em class="EQ">R<sup>-1</sup>(E<sub>u</sub>) &subset; E<sub>u</sub></em>).
 Soit  <em class="EQ">V</em> un voisinage ouvert de
-<em class="EQ">z</em> et
+<em class="EQ">u</em> et
 <em class="EQ">E<sub>V</sub> =
 <span class="EQ_Over">&complexes;</span> &setminus; W<sub>V</sub></em> où
 <em class="EQ"> W<sub>V</sub> = &#8899;<sub>n&gt;0</sub> R<sup>n</sup>(V)</em>.
@@ -548,34 +580,34 @@ W<sub>V</sub></em>.
 Ainsi, <em class="EQ">R(w) &in; E<sub>V</sub> &#8658; w &in; E<sub>V</sub></em>;
 c'est-à-dire, <em class="EQ">R<sup>-1</sup>(E<sub>V</sub>) &subset;
 E<sub>V</sub></em>.  Puisque cela est vrai pour tout voisinage ouvert
-<em class="EQ">V</em> de <em class="EQ">z</em>, nous avons que
-<em class="EQ">R<sup>-1</sup>(E<sub>z</sub>) &subset; E<sub>z</sub></em>.
+<em class="EQ">V</em> de <em class="EQ">u</em>, nous avons que
+<em class="EQ">R<sup>-1</sup>(E<sub>u</sub>) &subset; E<sub>u</sub></em>.
 Pour démontrer que <em class="EQ">R</em> est aussi
 <em>positivement invariant</em>
-(c'est-à-dire, <em class="EQ">R<sup></sup>(E<sub>z</sub>) &subset;
-E<sub>z</sub></em>),
+(c'est-à-dire, <em class="EQ">R<sup></sup>(E<sub>u</sub>) &subset;
+E<sub>u</sub></em>),
 Nous utilisons le fait que <em class="EQ">R</em> est surjectif, et que
-<em class="EQ">R<sup>-1</sup>(E<sub>z</sub>) &subset; E<sub>z</sub></em>
+<em class="EQ">R<sup>-1</sup>(E<sub>u</sub>) &subset; E<sub>u</sub></em>
 sont deux ensembles finis.  Donc, ils doivent avoir le même nombre
-d'éléments.  Ainsi <em class="EQ">R<sup>-1</sup>(E<sub>z</sub>) =
-E<sub>z</sub></em> et
-<em class="EQ">R<sup></sup>(E<sub>z</sub>) = E<sub>z</sub></em>.
+d'éléments.  Ainsi <em class="EQ">R<sup>-1</sup>(E<sub>u</sub>) =
+E<sub>u</sub></em> et
+<em class="EQ">R<sup></sup>(E<sub>u</sub>) = E<sub>u</sub></em>.
 <span class="EQ_Right">&#8718;</span></p>
 
 <ul>
-<li><p>Si <em class="EQ">E<sub>z</sub> = {&infin;}</em>, alors
+<li><p>Si <em class="EQ">E<sub>u</sub> = {&infin;}</em>, alors
 <em class="EQ">R</em> est une fonction polynomiale.
-Si <em class="EQ">E<sub>z</sub> = {w} &subset;
+Si <em class="EQ">E<sub>u</sub> = {w} &subset;
 &complexes;</em>, alors <em class="EQ">R</em> est conformément
 conjuguée à une fonction polynomiale.  Plus précisément, si
 <em class="EQ">H(z) = 1/(z-w)</em>, alors
 <em class="EQ">T = H&#8728;R&#8728;H<sup>-1</sup></em> est une
 fonction polynomiale car <em class="EQ">&infin;</em> est maintenant un
 point exceptionnel de <em class="EQ">T</em>.</p></li>
-<li><p>Si <em class="EQ">E<sub>z</sub> = {v,w} &subset;
+<li><p>Si <em class="EQ">E<sub>u</sub> = {v,w} &subset;
 &complexes;</em> et <em class="EQ">H(z) = (z-v)/(z-w)</em>, alors
 <em class="EQ">T = H&#8728;R&#8728;H<sup>-1</sup></em>
-où <em class="EQ">G = H(E<sub>z</sub>) = {0, &infin;}</em>
+où <em class="EQ">G = H(E<sub>u</sub>) = {0,&infin;}</em>
 est complètement invariant sous l'action de <em class="EQ">T</em>.
 Nous avons que <em class="EQ">T(0) = 0</em>
 et <em class="EQ">T(&infin;) = &infin;</em>, ou
@@ -593,22 +625,22 @@ En conclusion, <em class="EQ">R</em> est conformément conjuguée à
 <em class="EQ">T</em> définie par
 <em class="EQ">T(z) = z<sup>d</sup></em> ou
 <em class="EQ">T(z) = z<sup>-d</sup></em>.
-Si <em class="EQ">E<sub>z</sub> = {v,&infin;}</em>
+Si <em class="EQ">E<sub>u</sub> = {v,&infin;}</em>
 et <em class="EQ">H(z) = z-v</em>, alors
 <em class="EQ">T = H&#8728;R&#8728;H<sup>-1</sup></em>
-où <em class="EQ">G = H(E<sub>z</sub>) = {0, &infin;}</em>
+où <em class="EQ">G = H(E<sub>u</sub>) = {0,&infin;}</em>
 est complètement invariant sous l'action de <em class="EQ">T</em>.
 Nous pouvons alors utiliser le raisonnement précédent.</p></li>
 </ul>
 
 <p>Il découle de la discussion précédente que l'ensemble
-<em class="EQ">E<sub>z</sub></em> est indépendant de
-<em class="EQ">z &in; J<sub>R</sub></em>.  Nous pouvons donc
+<em class="EQ">E<sub>u</sub></em> est indépendant de
+<em class="EQ">u &in; J<sub>R</sub></em>.  Nous pouvons donc
 définir l'<em>ensemble des points exceptionnels</em>
 <em class="EQ">&#120020;<sub>R</sub></em>
 associé à la fonction rationnelle <em class="EQ">R</em> comme étant
-<em class="EQ">&#120020;<sub>R</sub> = E<sub>z</sub></em> pour
-<em class="EQ">z &in; J<sub>R</sub></em>.
+<em class="EQ">&#120020;<sub>R</sub> = E<sub>u</sub></em> pour
+<em class="EQ">u &in; J<sub>R</sub></em>.
 Nous allons voir prochainement que les points exceptionnels sont des
 points stables car les points exceptionnels sont
 des <q lang="en">points fixes super-attracteur</q> ou
@@ -735,8 +767,8 @@ pour <em class="EQ">1&leq;j&leq;k</em>.  Supposons que le degré de
 Puisque que chaque <em class="EQ">z<sub>j</sub></em> a seulement lui
 même comme préimage, la <em>déficience</em> de chaque
 <em class="EQ">z<sub>j</sub></em> est <em class="EQ">d-1</em>.
-Puisque la déficience totale (i.e. la somme de toutes les déficiences)
-est <em class="EQ">2d-2</em>, nous avons que <em class="EQ">k &leq; 2</em>.
+Nous avons que <em class="EQ">k &leq; 2</em> car la déficience totale
+(i.e. la somme de toutes les déficiences) est <em class="EQ">2d-2</em>.
 <span class="EQ_Right">&#8718;</span></p>
 
 <p>Le prochain résultat est une conséquence de la proposition
@@ -761,7 +793,7 @@ ou un nombre infini de points car
 <em class="EQ">J<sub>R</sub> &ne; &emptyset;</em>.
 Si <em class="EQ">J<sub>R</sub> = {w}</em>, alors nous pouvons
 procéder comme nous avons fait pour 
-<em class="EQ">E<sub>z</sub> = {w}</em> ci-dessus pour démontrer que
+<em class="EQ">E<sub>u</sub> = {w}</em> ci-dessus pour démontrer que
 <em class="EQ">R</em> est conformément conjuguée à une fonction
 polynomiale car
 <em class="EQ">J<sub>R</sub></em> est complètement invariant.
@@ -771,7 +803,7 @@ point stable.  Ceci est une contradiction de la définition de
 <em class="EQ">J<sub>R</sub></em>.
 Si <em class="EQ">J<sub>R</sub> = {v,w}</em>,
 alors nous pouvons procédé comme nous avons fait pour
-<em class="EQ">E<sub>z</sub> = {v,w}</em> ci-dessus pour démontrer
+<em class="EQ">E<sub>u</sub> = {v,w}</em> ci-dessus pour démontrer
 que <em class="EQ">R</em> est conformément conjuguée à la fonction
 <em class="EQ">T</em> définie par
 <em class="EQ">T(z) = z<sup>d</sup></em> ou
@@ -857,7 +889,7 @@ est un ensemble ouvert.  Puisque tous les points de
 </script>
 que <em class="EQ">&#8899;<sub>n&gt;0</sub> R<sup>n</sup>(V)
 = <span class="EQ_Over">&complexes;</span> &setminus; E</em>
-où <em class="EQ">E</em> a au plus deux éléments.
+où l'ensemble <em class="EQ">E</em> a au plus deux éléments.
 Puisque <em class="EQ">J<sub>R</sub></em> est complètement invariant,
 nous avons que <em class="EQ">J<sub>R</sub> &supset;
 &#8899;<sub>n&gt;0</sub> R<sup>n</sup>(V)
@@ -865,7 +897,7 @@ nous avons que <em class="EQ">J<sub>R</sub> &supset;
 Finallement, puisque <em class="EQ">J<sub>R</sub></em> est fermé, nous
 obtenons que <em class="EQ">J<sub>R</sub>
 = <span class="EQ_Over">J<sub>R</sub></span>
-&supset; <span class="EQ_Over">
+&supset; <span class="EQ_OverOver">
 <span class="EQ_Over"> &complexes;</span> &setminus; E</span>
   = <span class="EQ_Over">&complexes;</span></em>.
 <span class="EQ_Right">&#8718;</span></p>
@@ -930,7 +962,7 @@ associée à <em class="EQ">z</em>) est</p>
 <p>Dans la définition précédente, il découle du théorème de la dérivée
 des fonctions composées que
 <em class="EQ">(R<sup>n</sup>)'(z<sub>i</sub>) = &lambda;</em>
-pour tous <em class="EQ">z<sub>i</sub></em> sur l'orbite
+pour tous <em class="EQ">z<sub>i</sub></em> sur l'orbite périodique
 <em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
 associée à <em class="EQ">z</em>.</p>
 
@@ -1104,7 +1136,7 @@ W(R<sup>j</sup>(z),R<sup>k</sup>)</em>.
 Le <em>basin d'attraction immédiat</em> de ce point périodique
 est l'ensemble
 <em class="EQ">W<sup>i</sup>(z,R,n) = &#8899;<sub>0&leq;j&lt;k</sub>
-W(R<sup>j</sup>(z),R<sup>k</sup>)</em>.</p>
+W<sup>i</sup>(R<sup>j</sup>(z),R<sup>k</sup>)</em>.</p>
 </div>
 
 <p>Il découle du
@@ -1224,13 +1256,13 @@ C'est une contradiction de la
   buildLinK("#propV", "Proposition &#8548;",
   "MMathSStat", "propVID1", "_top");
 </script>
-car <em class="EQ">p</em> est un point fixe répulsif pour
+car <em class="EQ">z</em> est un point fixe répulsif pour
 <em class="EQ">T</em>. <span class="EQ_Right">&#8718;</span> </p>
 
 <p>La proposition précédente est aussi vrai si
 <q lang="fr">un point fixe</q> est
 remplacé par <q lang="fr">une orbite périodique</q> de période
-<em class"EQ">k</em>.  Il suffit d'utiliser la proposition précédente
+<em class="EQ">k</em>.  Il suffit d'utiliser la proposition précédente
 avec la fonction <em class="EQ">R</em> remplacée par la fonction
 <em class="EQ">R<sup>k</sup></em>.</p>
 
@@ -1407,9 +1439,9 @@ infini de composantes connexes fermées.</p>
 <em class="EQ">J<sub>R</sub></em> d'un fonction rationnelle
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>,
-il est utile de comprendre le comportement de l'ensemble des points
-stables <em class="EQ">S<sub>R</sub></em> d'une fonction rationnelle
-<em class="EQ">R</em> sous l'action de <em class="EQ">R</em>.
+il est utile d'étudier l'action de <em class="EQ">R</em> sur les
+composantes connexes de l'ensemble des points stables
+<em class="EQ">S<sub>R</sub></em> de <em class="EQ">R</em>.
 Nous résumons simplement les résultats sur ce sujet pour mieux comprendre
 la complexité de l'action de <em class="EQ">R</em>.</p> 
 
@@ -1511,7 +1543,8 @@ conjuguée à une rotation par un angle irrationnel
 analytique <em class="EQ">H:S &rarr; A</em> tel que
 <em class="EQ">H&#8728;(R<sup>k</sup>) = L&#8728;H</em>
 où la fonction <em class="EQ">L:A &rarr; A</em>
-est définie par <em class="EQ">L(w) = e<sup>i&theta;</sup>w</em>.</li>
+est définie par <em class="EQ">L(w) = e<sup>i&theta;</sup>w</em>
+avec <em class="EQ">&theta; &in; &reals; &setminus; &rationals;</em>.</li>
 </ul>
 
 <p>Si une des composantes connexes d'une orbite périodique dans
@@ -1536,7 +1569,7 @@ l'ensemble des points stables possède des anneaux de Herman.
 </script> affirme que les fonctions rationnelles 
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-définies par <em class="EQ">R(z) =
+de la forme <em class="EQ">R(z) =
 (e<sup>2&pi;i&alpha;</sup>(z-a)<sup>2</sup>)/(z(1-<span class="EQ_Over">a</span>z)<sup>2</sup>)</em>
 pour certaines valeurs de <em class="EQ">&alpha;</em>
 et <em class="EQ">a</em> ont un ensemble de points stables 
@@ -1571,9 +1604,9 @@ précédent que l'ensemble de Julia de
 <em class="EQ"><span class="EQ_Over">&complexes;</span></em>.
 Les points critiques de <em class="EQ">R</em> sont
 <em class="EQ">2</em> et <em class="EQ">&infin;</em>,
-et ils sont tous éventuellement périodiques et non périodiques car,
-pour <em class="EQ">z<sub>0</sub> = 2</em>, nous obtenons l'orbite
-<em class="EQ"> {R<sup>n</sup>(z)}<sub>n&ge;0</sub> =
+et ils sont tous éventuellement périodiques et non périodiques.  Plus
+précisément, pour <em class="EQ">z<sub>0</sub> = 2</em>, nous obtenons
+l'orbite <em class="EQ"> {R<sup>n</sup>(z)}<sub>n&ge;0</sub> =
 {2, 0, &infin;, 1, 1, 1, ...}</em>.</p>
 
 <div class="Theo">
@@ -1637,7 +1670,7 @@ transformation de M&ouml;bius définie par
 <em class="EQ">v &in; B</em>, alors
 <em class="EQ">T = H&#8728;R<sup>k</sup>&#8728;H<sup>-1</sup></em>
 est une fonction rationnelle telle que <em class="EQ">H(A)</em> et
-<em class="EQ">H(B)</em> sont des composantes connexes de l'ensemble
+<em class="EQ">H(B)</em> sont des composantes connexes distinctes de l'ensemble
 des points stables de <em class="EQ">T</em>, et sont
 complètement invariantes sous l'action de <em class="EQ">T</em>.
 De plus, <em class="EQ">&infin; &in; H(B)</em> et
@@ -1649,15 +1682,17 @@ qui ne peut pas être contractée homotopiquement dans <em class="EQ">H(A)</em>
 a un <em>index</em> de un (essentiellement, <em class="EQ">&gamma;</em>
 a l'allure d'un cercle).  Soit <em class="EQ">W</em> la région
 bornée par <em class="EQ">&gamma;</em> qui ne contient pas 
-<em class="EQ">&infin;</em>.  Nous avons que les
+<em class="EQ">&infin;</em>.  Donc
+<em class="EQ">H(B) &cup; W) = &emptyset;</em>.
+Nous avons que les
 <em class="EQ">T<sup>n</sup></em> sont des fonctions analytiques
 sur l'ensemble ouvert <em class="EQ">H(A) &cup; W</em>.  Notons
 que <em class="EQ">T</em> n'a pas de pôles dans
 <em class="EQ">H(A) &cup; W</em> car
-<em class="EQ">H(B) &cap; (H(A) &cup; W) = &emptyset;</em>,
-<em class="EQ"> &infin; &in; H(B)</em> et
-<em class="EQ">H(B)</em> est complètement invariant sous l'action de 
-<em class="EQ">T</em>.
+<em class="EQ">H(B) &cap; (H(A) &cup; W) = &emptyset;</em> et
+<em class="EQ">H(B)</em> est une composante connexe complètement
+invariant sous l'action de <em class="EQ">T</em> qui contient
+<em class="EQ">&infin;</em>.
 Ainsi, nous pouvons utiliser la formule d'intégration de 
 Cauchy pour démontrer que la famille de fonctions rationnelles
 <em class="EQ">{T<sup>n</sup>}<sub>n&gt;0</sub></em> est
@@ -1684,7 +1719,7 @@ pour tous <em class="EQ">n &gt; 0</em>.  Il en découle que
 Nous obtenons que</p>
 <div class="EQ_center">
 <em class="EQ_Display">
-|T<sup>n</sup>(w)| = 1/(2&pi;} 
+|T<sup>n</sup>(w)| = 1/(2&pi;)
 <span class="EQ_Larger">&int;</span><sub>&gamma;</sub>
 |T<sup>n</sup>(z)/|z-w| |dz|
 &le; C/(2&pi;}
@@ -1858,7 +1893,9 @@ précédente portent un nom spécial.</p>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 une fonction rationnelle.  Si l'ensemble stable
 <em class="EQ">S<sub>R</sub></em> est composé d'une seule composante
-connexe et simplement connexe, et l'ensemble de Julia
+connexe et simplement connexe dans
+<em class="EQ"><span class="EQ_Over">&complexes;</span></em>,
+et l'ensemble de Julia
 <em class="EQ">J<sub>R</sub></em> est localement connexe, alors 
 <em class="EQ">J<sub>R</sub></em> est appelé une <em>dendrite</em>.</p>
 </div>
@@ -1893,7 +1930,8 @@ sont équivalents.</p>
 conformément conjuguée à la fonction
 <em class="EQ">T</em> définie par <em class="EQ">T(z) = z<sup>d</sup></em>
 sur l'extérieure d'un cercle centré à l'origine.</li>
-<li> <em class="EQ">W<sup>i</sup>(&infin;,P)</em> est simplement connexe.</li>
+<li> <em class="EQ">W<sup>i</sup>(&infin;,P)</em> est simplement connexe
+dans <em class="EQ"><span class="EQ_Over">&complexes;</span></em>.</li>
 <li> <em class="EQ">J<sub>R</sub></em> est connexe.</li>
 <li> <em class="EQ">W<sup>i</sup>(&infin;,P) &cap;
     &#120018;<sub>P</sub> = {&infin;}</em>.</li>
@@ -1919,8 +1957,9 @@ Ce concept se généralise à plus de symboles.</p>
 <div class="Theo">
 <p><em>Définition</em>: Soit
 <em class="EQ">&Sigma;<sub>n</sub> =
-{(s<sub>0</sub>s<sub>1</sub>s<sub>2</sub>...) : 0 &le; s<sub>k</sub>
-&lt; n pour tous k &ge; 0}</em>.  L'<em>application de décalage sur
+{(s<sub>0</sub>s<sub>1</sub>s<sub>2</sub>...) :
+s<sub>k</sub> &in; &naturals; et 0 &le; s<sub>k</sub> &lt; n
+pour tous k &ge; 0}</em>.  L'<em>application de décalage sur
 <em class="EQ">n</em> symboles</em> est l'application
 <em class="EQ">&sigma;:&Sigma;<sub>n</sub> &rarr; &Sigma;<sub>n</sub></em>
 définie par
@@ -1988,13 +2027,13 @@ discontinu.</p>
 buildLinK("#egD", "Example D", "MMathSStat", "egDID", "_top");
 </script>, nous avons que <em class="EQ">0</em> est le seul point
 critique de <em class="EQ">P<sub>c</sub></em> où
-<em class="EQ">c &approx; -0.12256 + 0.74486i</em>, et la suite
+<em class="EQ">c &approx; -0.12256+0.74486i</em>, et la suite
 <em class="EQ">P<sup>n</sup><sub>c</sub>(0)</em> est borné car
 <em class="EQ">{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em>
 <q lang="en">approche</q> l'orbite périodique</p>
 <div class="EQ_center">
-<em class="EQ">{-0.1226... + 0.7449... i, -0.6624... + 0.5623... i,
--3.9415...&times;10<sup>-6</sup> + 1.6474...&times;10<sup>-6</sup> i}</em> .
+<em class="EQ">{-0.1226...+0.7449... i, -0.6624...+0.5623... i,
+-3.9415...&times;10<sup>-6</sup>+1.6474...&times;10<sup>-6</sup> i}</em> .
 </div>
 <p>Il découle de la <script language="javascript">
   buildLinK("#propXIII", "Proposition &#8553;&#8546;",
@@ -2047,7 +2086,7 @@ super-attractives, attractives ou neutres d'une fonction polynomiale
 
 <p> Il y a beaucoup plus de résultats sur les ensembles de Julia et
 aussi plusieurs questions mathématiques fascinantes à leur sujet
-qui sont toujours sans solutions.</p>
+qui sont toujours sans réponses.</p>
 
 <hr class="MMathSStat">
 
@@ -2066,7 +2105,7 @@ repose sur la
 <em class="EQ">J<sub>R</sub></em> est la fermeture de
 <em class="EQ">&#8899;<sub>n&gt;0</sub> R<sup>-n</sup>({w})</em>.
 Cependant, le temps de calcul et l'espace mémoire d'un ordinateur
-peuvent être des contraintes sur l'usage de cette méthode.
+peuvent limiter l'usage de cette méthode.
 De plus, la résolution de l'écran d'ordinateur peut affecter
 l'apparence de l'image.  Cette méthode est mise en oeuvre dans le
 document
@@ -2095,27 +2134,7 @@ conformément conjuguée à une fonction polynomiale
 <em class="EQ">P<sub>c</sub></em> pour une certaine valeur de
 <em class="EQ">c</em>.  Ainsi, il n'y a aucune perte de généralité
 à considérer seulement les fonctions polynomiales
-<em class="EQ">P<sub>c</sub></em>.  De plus, nous avons vu
-que la fonction logistique <em class="EQ">f<sub>&#120583;</sub></em>
-est conformément conjuguée à la fonction
-<em class="EQ">P<sub>c</sub></em> où
-<em class="EQ">c = &#120583/2-&#120583<sup>2</sup>/4</em>.
-Quand <em class="EQ">&#120583; &ge; 4</em>, nous avons vu que
-<em class="EQ">f<sub>&#120583;</sub> :
-&#120549;<sub>&#120583;</sub> &rarr; &#120549;<sub>&#120583;</sub></em>
-est chaotique.  Nous pouvons donc supposer que
-<em class="EQ">P<sub>c</sub>:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
-aura un comportement étrange pour <em class="EQ">c &leq; -2</em>.
-De plus, quand <em class="EQ">c &in; &reals;</em> varie de
-<em class="EQ">0</em> à <em class="EQ">-2</em>, nous observons une
-cascade de dédoublement de périodes comme nous avons pour la fonction
-logistique.  Plus précisément, il découle de
-<em class="EQ">c = &#120583/2-&#120583<sup>2</sup>/4</em>
-que <em class="EQ">c</em> varie de <em class="EQ">0</em> à
-<em class="EQ">-2</em> lorsque <em class="EQ">&#120583</em> varie de
-<em class="EQ">2</em> à <em class="EQ">4</em>.  Donc, l'étude des
-ensemble de Julia promet d'être excitante..</p>
+<em class="EQ">P<sub>c</sub></em>.</p>
 </div>
 
 <p>Pour dessiner l'ensemble de Julia

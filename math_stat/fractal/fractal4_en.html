@@ -100,8 +100,8 @@ for <em class="EQ">x &in; &reals;</em> and various values of
 <p>The logical next step is to consider the iterations of complex
 valued functions defined on the complex plane. </p>
 
-<p>Some reader may choose to skip the theoritical sections and to read
-only the section on <script language="javascript">
+<p>Some reader may choose to skip the theoritical sections and instead
+choose to read only the section on <script language="javascript">
 buildLinK("#JuliaFig", "Graphical Representation of Julia Sets",
 "MMathSStat", "nextID", "_top");
 </script>
@@ -208,6 +208,35 @@ that the logistic function
 <em class="EQ">f<sub>&#120583;</sub></em> is conformally
 conjugate to the function <em class="EQ">P<sub>c</sub></em> where
 <em class="EQ">c = &#120583/2-&#120583<sup>2</sup>/4</em>.
+When <em class="EQ">&#120583; &ge; 4</em>, we have seen that
+<em class="EQ">f<sub>&#120583;</sub>:&#120549;<sub>&#120583;</sub>
+&rarr; &#120549;<sub>&#120583;</sub></em>
+is chaotic.  We may therefore expect that
+<em class="EQ">P<sub>c</sub>:<span class="EQ_Over">&complexes;</span>
+&rarr; <span class="EQ_Over">&complexes;</span></em>
+will have a strange behaviour for <em class="EQ">c &leq; -2</em>.
+Moreover, when <em class="EQ">c &in; &reals;</em> goes from
+<em class="EQ">0</em> to <em class="EQ">-2</em>, we observe a period
+doubling cascade as we have for the logistic function.  More
+precisely, it follows from
+<em class="EQ">c = &#120583/2-&#120583<sup>2</sup>/4</em>
+that <em class="EQ">c</em> goes from <em class="EQ">0</em> to
+<em class="EQ">-2</em> when <em class="EQ">&#120583</em> goes from
+<em class="EQ">2</em> to <em class="EQ">4</em>.  There is a graphical
+application in the document
+<script language="javascript">
+  buildLinK(fractal5.url_en, fractal5.text_en,"MMathSStat",
+  fractal5.id+"PDC", fractal5.target);
+</script> similar to the graphical application in the document
+<script language="javascript">
+  buildLinK(fractal1.url_en, fractal1.text_en,"MMathSStat",
+  fractal1.id+"PDC", fractal1.target);
+</script> to explore this period doubling cascade.  The reader should read
+the <script language="javascript">
+  buildLinK(fractal5.url_en, "Remark in the document "
+  +fractal5.text_en,"MMathSStat",fractal5.id+"PDC", fractal5.target);
+</script> for more information.</p>
+<p>Therefore, the study of the Julia sets is promising to be exciting.</p>
 </div>
 
 <p>Let <em class="EQ">B<sub>&epsilon;</sub>(w)
@@ -232,7 +261,7 @@ the function
 <em class="EQ">f:&complexes; &rarr; &complexes;</em> defined
 by <em class="EQ">f(z) = z<sup>2</sup></em>.
 Let <em class="EQ">S<sub>i</sub> = &complexes; &setminus;
-{x : r &gt; 0}</em> for <em class="EQ">i = 0,1</em>.  The
+{x &in; &reals; : x &gt; 0}</em> for <em class="EQ">i = 0,1</em>.  The
 <em class="EQ">S<sub>i</sub></em> are two copies of the
 complex plane after it has been cut along the positive section of the
 <em class="EQ">x</em> axis.</p>
@@ -465,8 +494,8 @@ Thus <em class="EQ">J<sub>R</sub> = S<sup>1</sup></em>.</p>
 <p>Since <em class="EQ">P<sub>0</sub>|<sub>S<sup>1</sup></sub></em>
 is topological conjugate to the function
 <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> 
-defined by <em class="EQ">T(&theta;) = 2&theta;</em>, and since
-<em class="EQ">T</em> is chaotic on <em class="EQ">S<sup>1</sup></em>
+defined by <em class="EQ">T(z) = z<sup>2</sup></em> and since
+<em class="EQ">T</em> is chaotic on <em class="EQ">S<sup>1</sup></em>,
 as we have seen in the document
 <script language="javascript"> 
 buildLinK(fractal1.url_en,fractal1.text_en,"MMathSStat",
@@ -491,9 +520,9 @@ defined by
 </p>
 
 <p>By definition of Julia sets, if
-<em class="EQ">z &in; J<sub>R</sub></em> and
+<em class="EQ">u &in; J<sub>R</sub></em> and
 <em class="EQ">V</em> is an open neighbourhood of
-<em class="EQ">z</em>, then the set
+<em class="EQ">u</em>, then the set
 <em class="EQ">E<sub>V</sub> =
 <span class="EQ_Over">&complexes;</span> &setminus;
 &#8899;<sub>n&gt;0</sub> R<sup>n</sup>(V)</em>
@@ -501,25 +530,25 @@ has at most two elements.  The elements of
 <em class="EQ">E<sub>V</sub></em>
 are called <em>exceptional points</em>.
 Let <em class="EQ">&#119985;</em> be the collection of all open
-neighbourhoods of <em class="EQ">z</em> and
-<em class="EQ">E<sub>z</sub> =
+neighbourhoods of <em class="EQ">u</em> and
+<em class="EQ">E<sub>u</sub> =
 &#8899;<sub>V&in;&#119985;</sub> E<sub>V</sub></em>.
-The set <em class="EQ">E<sub>z</sub></em> has also at most two
+The set <em class="EQ">E<sub>u</sub></em> has also at most two
 elements (the proof is left to the reader.)</p>
 
 <div class="Theo">
 <p><em>Proposition</em>: If
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-is a rational function and <em class="EQ">z &in; J<sub>R</sub></em>,
-then <em class="EQ">E<sub>z</sub></em> is completely invariant.</p>
+is a rational function and <em class="EQ">u &in; J<sub>R</sub></em>,
+then <em class="EQ">E<sub>u</sub></em> is completely invariant.</p>
 </div>
 
-<p><em>Proof</em>: We first prove that <em class="EQ">E<sub>z</sub></em>
+<p><em>Proof</em>: We first prove that <em class="EQ">E<sub>u</sub></em>
 is <em>backward invariant</em> (namely,
-<em class="EQ">R<sup>-1</sup>(E<sub>z</sub>) &subset; E<sub>z</sub></em>).
+<em class="EQ">R<sup>-1</sup>(E<sub>u</sub>) &subset; E<sub>u</sub></em>).
 Let <em class="EQ">V</em> be an open neighbourhood of
-<em class="EQ">z</em> and
+<em class="EQ">u</em> and
 <em class="EQ">E<sub>V</sub> =
 <span class="EQ_Over">&complexes;</span> &setminus; W<sub>V</sub></em> where
 <em class="EQ"> W<sub>V</sub> = &#8899;<sub>n&gt;0</sub> R<sup>n</sup>(V)</em>.
@@ -536,33 +565,33 @@ W<sub>V</sub></em>.
 Hence <em class="EQ">R(w) &in; E<sub>V</sub> &#8658; w &in; E<sub>V</sub></em>;
 namely, <em class="EQ">R<sup>-1</sup>(E<sub>V</sub>) &subset;
 E<sub>V</sub></em>.  Since this is true for all
-open neighbourhood <em class="EQ">V</em> of <em class="EQ">z</em>, we have that
-<em class="EQ">R<sup>-1</sup>(E<sub>z</sub>) &subset; E<sub>z</sub></em>.
+open neighbourhood <em class="EQ">V</em> of <em class="EQ">u</em>, we have that
+<em class="EQ">R<sup>-1</sup>(E<sub>u</sub>) &subset; E<sub>u</sub></em>.
 To prove that <em class="EQ">R</em> is also <em>Forward invariant</em>
-(namely, <em class="EQ">R<sup></sup>(E<sub>z</sub>) &subset;
-E<sub>z</sub></em>),
+(namely, <em class="EQ">R<sup></sup>(E<sub>u</sub>) &subset;
+E<sub>u</sub></em>),
 we use the fact that <em class="EQ">R</em> is onto, and that
-<em class="EQ">R<sup>-1</sup>(E<sub>z</sub>) &subset; E<sub>z</sub></em>
+<em class="EQ">R<sup>-1</sup>(E<sub>u</sub>) &subset; E<sub>u</sub></em>
 are two finite sets.  Therefore, they must have the same finite number of
-elements.  Hence <em class="EQ">R<sup>-1</sup>(E<sub>z</sub>) =
-E<sub>z</sub></em> and
-<em class="EQ">R<sup></sup>(E<sub>z</sub>) = E<sub>z</sub></em>.
+elements.  Hence <em class="EQ">R<sup>-1</sup>(E<sub>u</sub>) =
+E<sub>u</sub></em> and
+<em class="EQ">R<sup></sup>(E<sub>u</sub>) = E<sub>u</sub></em>.
 <span class="EQ_Right">&#8718;</span></p>
 
 <ul>
-<li><p>If <em class="EQ">E<sub>z</sub> = {&infin;}</em>, then
+<li><p>If <em class="EQ">E<sub>u</sub> = {&infin;}</em>, then
 <em class="EQ">R</em> is a polynomial function.
-If <em class="EQ">E<sub>z</sub> = {w} &subset;
+If <em class="EQ">E<sub>u</sub> = {w} &subset;
 &complexes;</em>, then <em class="EQ">R</em> is conformally
 conjugate to a polynomial function.  More precisely, if
 <em class="EQ">H(z) = 1/(z-w)</em>, then
 <em class="EQ">T = H&#8728;R&#8728;H<sup>-1</sup></em> is a
 polynomial function because <em class="EQ">&infin;</em> is now an
 exceptional point of <em class="EQ">T</em>.</p></li>
-<li><p>If <em class="EQ">E<sub>z</sub> = {v,w} &subset;
+<li><p>If <em class="EQ">E<sub>u</sub> = {v,w} &subset;
 &complexes;</em> and <em class="EQ">H(z) = (z-v)/(z-w)</em>, then
 <em class="EQ">T = H&#8728;R&#8728;H<sup>-1</sup></em>
-where <em class="EQ">G = H(E<sub>z</sub>) = {0, &infin;}</em>
+where <em class="EQ">G = H(E<sub>u</sub>) = {0,&infin;}</em>
 is completely invariant under the action of <em class="EQ">T</em>.  We either
 have that <em class="EQ">T(0) = 0</em>
 and <em class="EQ">T(&infin;) = &infin;</em>, or
@@ -581,22 +610,22 @@ In conclusion, <em class="EQ">R</em> is conformally conjugate to
 <em class="EQ">T</em> defined by either
 <em class="EQ">T(z) = z<sup>d</sup></em> or
 <em class="EQ">T(z) = z<sup>-d</sup></em>.
-If <em class="EQ">E<sub>z</sub> = {v,&infin;}</em>
+If <em class="EQ">E<sub>u</sub> = {v,&infin;}</em>
 and <em class="EQ">H(z) = z-v</em>, then
 <em class="EQ">T = H&#8728;R&#8728;H<sup>-1</sup></em>
-where <em class="EQ">G = H(E<sub>z</sub>) = {0, &infin;}</em>
+where <em class="EQ">G = H(E<sub>u</sub>) = {0,&infin;}</em>
 is completely invariant under the action of <em class="EQ">T</em>.  We can then
 use the previous reasoning.</p></li>
 </ul>
 
 <p>It follows from the previous discussion that the set
-<em class="EQ">E<sub>z</sub></em> is independent of
-<em class="EQ">z &in; J<sub>R</sub></em>.  We may therefore
+<em class="EQ">E<sub>u</sub></em> is independent of
+<em class="EQ">u &in; J<sub>R</sub></em>.  We may therefore
 defined the <em>set of exceptional points</em>
 <em class="EQ">&#120020;<sub>R</sub></em>
 associated to a rational function <em class="EQ">R</em> as
-<em class="EQ">&#120020;<sub>R</sub> = E<sub>z</sub></em> for any
-<em class="EQ">z &in; J<sub>R</sub></em>.
+<em class="EQ">&#120020;<sub>R</sub> = E<sub>u</sub></em> for any
+<em class="EQ">u &in; J<sub>R</sub></em>.
 We will see later that exceptional points are stable points because
 the exceptional points are
 either <q lang="en">super-attracting fixed point</q> or
@@ -724,10 +753,9 @@ for <em class="EQ">1&leq;j&leq;k</em>.  Suppose that the degree
 of <em class="EQ">R<sup>n</sup></em> is <em class="EQ">d</em>.
 Since each <em class="EQ">z<sub>j</sub></em> has only itself as 
 preimage, the <em>deficiency</em> of each <em class="EQ">z<sub>j</sub></em> is
-<em class="EQ">d-1</em>.  Since total deficiency (i.e. the sum of all
-deficiencies) is <em class="EQ">2d-2</em>, we have that
-<em class="EQ">k &leq; 2</em>.
-<span class="EQ_Right">&#8718;</span></p>
+<em class="EQ">d-1</em>.  We have that <em class="EQ">k &leq; 2</em>
+because the total deficiency (i.e. the sum of all deficiencies) is
+<em class="EQ">2d-2</em>.  <span class="EQ_Right">&#8718;</span></p>
 
 <p>The next result follows from the previous proposition.</p>
 
@@ -750,7 +778,7 @@ points or infinitely many points because
 <em class="EQ">J<sub>R</sub> &ne; &emptyset;</em>.
 If <em class="EQ">J<sub>R</sub> = {w}</em>, then
 we can proceed as we have done for
-<em class="EQ">E<sub>z</sub> = {w}</em> above to show that
+<em class="EQ">E<sub>u</sub> = {w}</em> above to show that
 <em class="EQ">R</em> is conformally conjugate to a polynomial
 function because <em class="EQ">J<sub>R</sub></em> is completely invariant.
 Since <em class="EQ">&infin;</em> is a stable point for a
@@ -759,7 +787,7 @@ point.  This contradicts the definition of
 <em class="EQ">J<sub>R</sub></em>.
 If <em class="EQ">J<sub>R</sub> = {v,w}</em>,
 then we can proceed as we have done for
-<em class="EQ">E<sub>z</sub> = {v,w}</em> above to show that
+<em class="EQ">E<sub>u</sub> = {v,w}</em> above to show that
 <em class="EQ">R</em> is conformally conjugate to the function
 <em class="EQ">T</em> defined by either
 <em class="EQ">T(z) = z<sup>d</sup></em> or
@@ -842,7 +870,7 @@ is an open set.  Since all points of
 </script>
 that <em class="EQ">&#8899;<sub>n&gt;0</sub> R<sup>n</sup>(V)
 = <span class="EQ_Over">&complexes;</span> &setminus; E</em>
-where the <em class="EQ">E</em> has at most two elements.
+where the set <em class="EQ">E</em> has at most two elements.
 Since <em class="EQ">J<sub>R</sub></em> is completely invariant, we
 have that <em class="EQ">J<sub>R</sub> &supset;
 &#8899;<sub>n&gt;0</sub> R<sup>n</sup>(V)
@@ -850,7 +878,7 @@ have that <em class="EQ">J<sub>R</sub> &supset;
 Finally, since <em class="EQ">J<sub>R</sub></em> is closed, we get that
 <em class="EQ">J<sub>R</sub>
 = <span class="EQ_Over">J<sub>R</sub></span>
-&supset; <span class="EQ_Over">
+&supset; <span class="EQ_OverOver">
 <span class="EQ_Over"> &complexes;</span> &setminus; E</span>
   = <span class="EQ_Over">&complexes;</span></em>.
 <span class="EQ_Right">&#8718;</span></p>
@@ -914,7 +942,7 @@ associated to <em class="EQ">z</em>) is</p>
 
 <p>In the previous definition, it follows from the chain rule that
 <em class="EQ">(R<sup>n</sup>)'(z<sub>i</sub>) = &lambda;</em>
-for all <em class="EQ">z<sub>i</sub></em> on the orbit
+for all <em class="EQ">z<sub>i</sub></em> on the periodic orbit
 <em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
 associated to <em class="EQ">z</em>.</p>
 
@@ -1086,7 +1114,7 @@ W(R<sup>j</sup>(z),R<sup>k</sup>)</em>.
 The <em>immediate basin of attraction</em>
 this periodic point is the set
 <em class="EQ">W<sup>i</sup>(z,R,n) = &#8899;<sub>0&leq;j&lt;k</sub>
-W(R<sup>j</sup>(z),R<sup>k</sup>)</em>.</p>
+W<sup>i</sup>(R<sup>j</sup>(z),R<sup>k</sup>)</em>.</p>
 </div>
 
 <p>It follows from
@@ -1203,12 +1231,12 @@ This is a contradiction of
   buildLinK("#propV", "Proposition &#8548;",
   "MMathSStat", "propVID1", "_top");
 </script>
-because <em class="EQ">p</em> is a repelling fixed point for
+because <em class="EQ">z</em> is a repelling fixed point for
 <em class="EQ">T</em>. <span class="EQ_Right">&#8718;</span> </p>
 
 <p>The previous proposition is also true if <q lang="en">fixed point</q>
 is replaced by <q lang="en">periodic orbit</q> of period
-<em class"EQ">k</em>.  It suffices to use
+<em class="EQ">k</em>.  It suffices to use
 the previous proposition with the function <em class="EQ">R<sup>k</sup></em>
 instead of the function <em class="EQ">R</em>.</p>
 
@@ -1238,7 +1266,7 @@ To proof this result, we prove that
 R(&#120018;<sub>R</sub>) &cup; &#120032;<sub>R</sub>)
 &subset; <span class="EQ_Over">&#120031;<sub>R</sub></span></em>.
 Since <em class="EQ">{&infin;} &cup;
-R(&#120018;<sub>R</sub>) &cup; &#120032;<sub>R</sub></em> is finite set
+R(&#120018;<sub>R</sub>) &cup; &#120032;<sub>R</sub></em> is a finite set
 and <em class="EQ">J<sub>R</sub></em> is closed and perfect,
 we get that <em class="EQ">J<sub>R</sub> &subset;
 <span class="EQ_Over">&#120031;<sub>R</sub></span></em>.</li>
@@ -1387,11 +1415,11 @@ infinitely many closed connected components.</p>
 <em class="EQ">J<sub>R</sub></em> of a rational function
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>,
-it is useful to behaviour the structure of the set of stable points
-<em class="EQ">S<sub>R</sub></em> of a rational function
-<em class="EQ">R</em> under the action of <em class="EQ">R</em>.  We
-only summarize some of the results on this topic to get a better
-understanding of the complexity of the action
+it is useful to study the action of <em class="EQ">R</em> on the
+connected components of the set of stable points
+<em class="EQ">S<sub>R</sub></em> of <em class="EQ">R</em>.
+We only summarize some of the results on this
+topic to get a better understanding of the complexity of the action
 of <em class="EQ">R</em>.</p>
 
 <p> We already know that <em class="EQ">S<sub>R</sub></em> is
@@ -1492,7 +1520,8 @@ is analytically conjugate to a rotation by an irrational angle
 <em class="EQ">H:S &rarr; A</em> such that
 <em class="EQ">H&#8728;(R<sup>k</sup>) = L&#8728;H</em>
 where the function <em class="EQ">L:A &rarr; A</em> is defined by
-<em class="EQ">L(w) = e<sup>i&theta;</sup>w</em>.</li>
+<em class="EQ">L(w) = e<sup>i&theta;</sup>w</em>
+with <em class="EQ">&theta; &in; &reals; &setminus; &rationals;</em>.</li>
 </ul>
 
 <p>If a connected component of a periodic orbit in
@@ -1515,9 +1544,9 @@ categories of Sullivan domains listed above.</p>
 <script language="javascript">
   buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid3", "_top");
 </script> states that the
-rational function <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
+rational functions <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-defined by <em class="EQ">R(z) =
+of the form <em class="EQ">R(z) =
 (e<sup>2&pi;i&alpha;</sup>(z-a)<sup>2</sup>)/(z(1-<span class="EQ_Over">a</span>z)<sup>2</sup>)</em>
 for some values of <em class="EQ">&alpha;</em>
 and <em class="EQ">a</em> have a set of stable points
@@ -1553,8 +1582,8 @@ Julia set of
 <em class="EQ"><span class="EQ_Over">&complexes;</span></em>.
 The critical points of <em class="EQ">R</em> are
 <em class="EQ">2</em> and <em class="EQ">&infin;</em>,
-and they are all eventually periodic and not periodic because, for
-<em class="EQ">z<sub>0</sub> = 2</em>, we get the orbit
+and they are all eventually periodic and not periodic.  More
+precisely, for <em class="EQ">z<sub>0</sub> = 2</em>, we get the orbit
 <em class="EQ"> {R<sup>n</sup>(z)}<sub>n&ge;0</sub> =
 {2, 0, &infin;, 1, 1, 1, ...}</em>.</p>
 
@@ -1619,7 +1648,7 @@ M&ouml;bius transformation defined by
 <em class="EQ">v &in; B</em>, then
 <em class="EQ">T = H&#8728;R<sup>k</sup>&#8728;H<sup>-1</sup></em>
 is a rational function such that <em class="EQ">H(A)</em> and
-<em class="EQ">H(B)</em> are connected components of the set of
+<em class="EQ">H(B)</em> are distinct connected components of the set of
 stable points of <em class="EQ">T</em>, and are
 completely invariant under the action of <em class="EQ">T</em>.
 Moreover, <em class="EQ">&infin; &in; H(B)</em> and
@@ -1631,14 +1660,16 @@ to a point.  We may also assume that <em class="EQ">&gamma;</em>
 is of <em>index</em> one (basically, <em class="EQ">&gamma;</em>
 looks like a circle.)&nbsp; Let <em class="EQ">W</em> be the
 open region bounded by <em class="EQ">&gamma;</em> that does not contain
-<em class="EQ">&infin;</em>.  We have that the
+<em class="EQ">&infin;</em>.  Theefore
+<em class="EQ">H(B) &cup; W) = &emptyset;</em>.
+We have that the
 <em class="EQ">T<sup>n</sup></em> are analytic functions
 on the open set <em class="EQ">H(A) &cup; W</em>.  Note that
 <em class="EQ">T</em> has no pole in <em class="EQ">H(A) &cup; W</em>
-because <em class="EQ">H(B) &cap; (H(A) &cup; W) = &emptyset;</em>,
-<em class="EQ"> &infin; &in; H(B)</em> and
-<em class="EQ">H(B)</em> is completely invariant under the action of
-<em class="EQ">T</em>.
+because <em class="EQ">H(B) &cap; (H(A) &cup; W) = &emptyset;</em>
+and <em class="EQ">H(B)</em> is a completely invariant connected
+component under the action of <em class="EQ">T</em> that contains
+<em class="EQ">&infin;</em>.
 Thus, we can use the Cauchy integral formula to prove that the family
 of rational functions <em class="EQ">{T<sup>n</sup>}<sub>n&gt;0</sub></em> is
 normal on <em class="EQ">W</em>.  More precisely, we have
@@ -1664,7 +1695,7 @@ for all <em class="EQ">n &gt; 0</em>.  It follows that
 Hence, we get that</p>
 <div class="EQ_center">
 <em class="EQ_Display">
-|T<sup>n</sup>(w)| = 1/(2&pi;} 
+|T<sup>n</sup>(w)| = 1/(2&pi;) 
 <span class="EQ_Larger">&int;</span><sub>&gamma;</sub>
 |T<sup>n</sup>(z)/|z-w| |dz|
 &le; C/(2&pi;}
@@ -1834,7 +1865,9 @@ proposition have a special name.</p>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
 be a rational function.  If the stable set
 <em class="EQ">S<sub>R</sub></em> is composed of only one connected and
-simply connected component, and the Julia set
+simply connected component in
+<em class="EQ"><span class="EQ_Over">&complexes;</span></em>,
+and the Julia set
 <em class="EQ">J<sub>R</sub></em> is locally connected, then 
 <em class="EQ">J<sub>R</sub></em> is called
 a <em>dendrite</em>.</p>
@@ -1870,7 +1903,8 @@ be a polynomial function.  The following statements are equivalent.</p>
 conformally conjugate to the function
 <em class="EQ">T</em> defined by <em class="EQ">T(z) = z<sup>d</sup></em>
 on the exterior of a circle centred at the origin.</li>
-<li> <em class="EQ">W<sup>i</sup>(&infin;,P)</em> is simply connected.</li>
+<li> <em class="EQ">W<sup>i</sup>(&infin;,P)</em> is simply connected
+in <em class="EQ"><span class="EQ_Over">&complexes;</span></em>.</li>
 <li> <em class="EQ">J<sub>R</sub></em> is connected.</li>
 <li> <em class="EQ">W<sup>i</sup>(&infin;,P) &cap;
     &#120018;<sub>P</sub> = {&infin;}</em>.</li>
@@ -1896,8 +1930,9 @@ This concept can be generalized to more symbols.</p>
 <div class="Theo">
 <p><em>Definition</em>: Let
 <em class="EQ">&Sigma;<sub>n</sub> =
-{(s<sub>0</sub>s<sub>1</sub>s<sub>2</sub>...) : 0 &le; s<sub>k</sub>
-&lt; n for all k &ge; 0}</em>.  The
+{(s<sub>0</sub>s<sub>1</sub>s<sub>2</sub>...) :
+s<sub>k</sub> &in; &naturals; and 0 &le; s<sub>k</sub> &lt; n
+for all k &ge; 0}</em>.  The
 <em>shift map on <em class="EQ">n</em> symbols</em> is the map
 <em class="EQ">&sigma;:&Sigma;<sub>n</sub> &rarr; &Sigma;<sub>n</sub></em>
 defined by
@@ -1963,13 +1998,13 @@ infinitely many closed connected components.  Moreover, we get from
 buildLinK("#egD", "Example D", "MMathSStat", "egDID", "_top");
 </script>, we have that <em class="EQ">0</em> is the only finite
 critical point of <em class="EQ">P<sub>c</sub></em> where
-<em class="EQ">c &approx; -0.12256 + 0.74486i</em>,
+<em class="EQ">c &approx; -0.12256+0.74486i</em>,
 and the sequence <em class="EQ">P<sup>n</sup><sub>c</sub>(0)</em> is bounded
 because <em class="EQ">{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em>
 <q lang="en">approaches</q> the periodic orbit</p>
 <div class="EQ_center">
-<em class="EQ">{-0.1226... + 0.7449... i, -0.6624... + 0.5623... i,
--3.9415...&times;10<sup>-6</sup> + 1.6474...&times;10<sup>-6</sup> i}</em> .
+<em class="EQ">{-0.1226...+0.7449... i, -0.6624...+0.5623... i,
+-3.9415...&times;10<sup>-6</sup>+1.6474...&times;10<sup>-6</sup> i}</em> .
 </div>
 <p>It follows from <script language="javascript">
   buildLinK("#propXIII", "Proposition &#8553;&#8546;",
@@ -2025,7 +2060,7 @@ degree <em class="EQ">d</em> is at most <em class="EQ">d-1</em>.</p>
 
 <p>There are many more results about Julia sets and also many
 fascinating mathematical questions about them that are still
-unsolved.</p>
+unanswered.</p>
 
 <hr class="MMathSStat">
 
@@ -2042,8 +2077,8 @@ is based on
 <em class="EQ">w &in; J<sub>R</sub></em>, then
 <em class="EQ">J<sub>R</sub></em> is the closure of
 <em class="EQ">&#8899;<sub>n&gt;0</sub> R<sup>-n</sup>({w})</em>.
-However, computation time or memory space of the computer may be
-some constrains on the use of this method.  Also, the resolution of
+However, computation time and memory space of the computer may limit
+the use of this method.  Also, the resolution of
 the computer screen may affect the display of the figure.
 This method is implemented in the document
 <script language="javascript">
@@ -2070,27 +2105,7 @@ describe below.</p>
 conjugate to a polynomial function <em class="EQ">P<sub>c</sub></em>
 for some <em class="EQ">c</em>.  Hence, there is not loss of
 generality in considering only the polynomial functions
-<em class="EQ">P<sub>c</sub></em>.  Moreover, we have also seen
-that the logistic function <em class="EQ">f<sub>&#120583;</sub></em>
-is conformally conjugate to the function
-<em class="EQ">P<sub>c</sub></em> where
-<em class="EQ">c = &#120583/2-&#120583<sup>2</sup>/4</em>.
-When <em class="EQ">&#120583; &ge; 4</em>, we have seen that
-<em class="EQ">f<sub>&#120583;</sub>:&#120549;<sub>&#120583;</sub>
-&rarr; &#120549;<sub>&#120583;</sub></em>
-is chaotic.  We may therefore expect that
-<em class="EQ">P<sub>c</sub>:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
-will have a strange behaviour for <em class="EQ">c &leq; -2</em>.
-Moreover, when <em class="EQ">c &in; &reals;</em> goes from
-<em class="EQ">0</em> to <em class="EQ">-2</em>, we observe a period
-doubling cascade as we have for the logistic function.  More
-precisely, it follows from
-<em class="EQ">c = &#120583/2-&#120583<sup>2</sup>/4</em>
-that <em class="EQ">c</em> goes from <em class="EQ">0</em> to
-<em class="EQ">-2</em> when <em class="EQ">&#120583</em> goes from
-<em class="EQ">2</em> to <em class="EQ">4</em>.  Therefore, the study
-of the Julia sets is promising to be exciting.</p>
+<em class="EQ">P<sub>c</sub></em>.</p>
 </div>
 
 <p>To draw the Julia set <em class="EQ">J<sub>P<sub>c</sub></sub></em>

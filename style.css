@@ -230,12 +230,14 @@ em.EQ_Display { color: #8F001A; font-family: "Courier", monospace;
    /* background-color: white; border: 1px solid black; */
 span.EQ_Over { color: inherit; font-family: inherit;
   font-size: inherit; border-top: 1px #8F001A solid; padding-top: 2px }
+span.EQ_OverOver { color: inherit; font-family: inherit;
+  font-size: inherit; border-top: 1px #8F001A solid; padding-top: 4px }
 span.EQ_Larger { color: inherit; font-family: inherit;
   font-size: 150%;}
 span.EQ_Right { float: right; }
 div.EQ_center { text-align: center; margin: 10px; overflow-y: scroll; }
 
-canvas { background-color: white; border: 1px solid #8F001A; */
+canvas { background-color: white; border: 1px solid #8F001A; }
 
 em.matlab { color: blue; font-weight: bold; font-size: 100%; }
 pre.matlab { font-family: "Courier", monospace; overflow-y: scroll; }
