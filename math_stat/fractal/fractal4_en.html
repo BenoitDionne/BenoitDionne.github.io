@@ -143,7 +143,7 @@ onto <em class="EQ">&complexes; &cup; {&infin;}</em>,
 the compactification of the complexes plane.  The holomorphic functions
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-are rational functions <em class="EQ">R = P/Q</em> where
+are therefore rational functions <em class="EQ">R = P/Q</em> where
 <em class="EQ">P</em> and <em class="EQ">Q</em> are two
 polynomials.  We may assume that
 <em class="EQ">R = P/Q</em> is in <em>reduced</em> form;
@@ -187,7 +187,7 @@ are <em>conformally conjugate</em> if there exists a
 <p>It is taught in a first course on complex analysis that
 M&ouml;bius transformations are bijections and preserve angles.
 It follows that conformally conjugate functions have the same
-<q lang="en">dynamic</q>.</p>
+properties.</p>
 
 <div class="Example" id="egA">
 <p><em>Example A</em>: Every polynomial function <em class="EQ">P</em>
@@ -280,7 +280,7 @@ the function <em class="EQ">f</em>.
 The function <em class="EQ">f:&complexes; &rarr; S</em>
 is now a continuous bijection.  We have that
 <em class="EQ">
-f:{ r cos(&theta;) + r sin(&theta;) : r &ge; 0 and j&pi; &lt; &theta; &lt;
+f:{r cos(&theta;) + r sin(&theta;) : r &ge; 0 and j&pi; &lt; &theta; &lt;
 (j+1)&pi;} &rarr; S<sub>j</sub></em> is a bijection
 for <em class="EQ">j = 0,1</em>.
 The origin is called a <em>branch point</em> because it belongs to
@@ -292,7 +292,7 @@ The origin is called a <em>branch point</em> because it belongs to
 The reader should try to visualize the Riemann surface associated to the
 function 
 <em class="EQ">f:&complexes; &rarr; &complexes;</em> defined
-by <em class="EQ">f(z) = z<sup>n</sup></em> with
+by <em class="EQ">f(z) = z<sup>n</sup></em> for
 <em class="EQ">n</em> a positive integer.</p>
 
 <p>This is not a rigorous definition of Riemann surfaces but it is
@@ -491,10 +491,9 @@ subsequence would have to be a continuous function
 This is not possible.
 Thus <em class="EQ">J<sub>R</sub> = S<sup>1</sup></em>.</p>
 
-<p>Since <em class="EQ">P<sub>0</sub>|<sub>S<sup>1</sup></sub></em>
-is topological conjugate to the function
-<em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> 
-defined by <em class="EQ">T(z) = z<sup>2</sup></em> and since
+<p>Since <em class="EQ">P<sub>0</sub>|<sub>S<sup>1</sup></sub> = T</em>
+where the function <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> 
+is defined by <em class="EQ">T(z) = z<sup>2</sup></em> and since
 <em class="EQ">T</em> is chaotic on <em class="EQ">S<sup>1</sup></em>,
 as we have seen in the document
 <script language="javascript"> 
@@ -508,7 +507,7 @@ this is typical of Julia sets.</p>
 
 <p>As we will see, Julia sets are not usually simple curves as in the
 previous example.  Moreover, Julia sets may not have an empty interior
-as in the previous example.  Recall that the interior of a set
+contrary to the previous example.  Recall that the interior of a set
 <em class="EQ">K</em> is the largest open subset contained in
 <em class="EQ">K</em>.  For instance, we will prove later that the
 Julia set of the rational function
@@ -628,7 +627,7 @@ associated to a rational function <em class="EQ">R</em> as
 <em class="EQ">u &in; J<sub>R</sub></em>.
 We will see later that exceptional points are stable points because
 the exceptional points are
-either <q lang="en">super-attracting fixed point</q> or
+either <q lang="en">super-attracting fixed points</q> or
 <q lang="en">super-attracting periodic points</q>.  Thus
 <em class="EQ">&#120020;<sub>R</sub> &cap; J<sub>R</sub>
 = &emptyset;</em>.
@@ -687,8 +686,8 @@ that <em class="EQ">v</em> is an accumulation points of
 To prove the second statement of the previous proposition, it suffices to
 note that <em class="EQ">&#8899;<sub>n&gt;0</sub> R<sup>-n</sup>({w})
 &subset; J<sub>R</sub></em> because
-<em class="EQ">R</em> is completely invariant.
-<span class="EQ_Right">&#8718;</span></p>
+<em class="EQ">J<sub>R</sub></em> is completely invariant under the
+action of <em class="EQ">R</em>.  <span class="EQ_Right">&#8718;</span></p>
 
 <div class="Theo">
 <p><em>Definition</em>: A <em>critical point</em> of a rational
@@ -778,24 +777,24 @@ points or infinitely many points because
 <em class="EQ">J<sub>R</sub> &ne; &emptyset;</em>.
 If <em class="EQ">J<sub>R</sub> = {w}</em>, then
 we can proceed as we have done for
-<em class="EQ">E<sub>u</sub> = {w}</em> above to show that
+<em class="EQ">E<sub>u</sub> = {w}</em> above and show that
 <em class="EQ">R</em> is conformally conjugate to a polynomial
 function because <em class="EQ">J<sub>R</sub></em> is completely invariant.
 Since <em class="EQ">&infin;</em> is a stable point for a
 polynomial function, we have that <em class="EQ">w</em> is a stable
-point.  This contradicts the definition of
+point of <em class="EQ">R</em>.  This contradicts the definition of
 <em class="EQ">J<sub>R</sub></em>.
 If <em class="EQ">J<sub>R</sub> = {v,w}</em>,
 then we can proceed as we have done for
-<em class="EQ">E<sub>u</sub> = {v,w}</em> above to show that
+<em class="EQ">E<sub>u</sub> = {v,w}</em> above and show that
 <em class="EQ">R</em> is conformally conjugate to the function
 <em class="EQ">T</em> defined by either
 <em class="EQ">T(z) = z<sup>d</sup></em> or
 <em class="EQ">T(z) = z<sup>-d</sup></em>.
-Since <em class="EQ">0</em> is a stable point for 
+Since <em class="EQ">0</em> is a stable point of
 <em class="EQ">T</em> defined by
 <em class="EQ">T(z) = z<sup>d</sup></em> and
-<em class="EQ">&infin;</em> is a stable point for 
+<em class="EQ">&infin;</em> is a stable point of 
 <em class="EQ">T</em> defined by
 <em class="EQ">T(z) = z<sup>-d</sup></em>, we have that
 <em class="EQ">v</em> or <em class="EQ">w</em> is
@@ -910,7 +909,7 @@ a periodic orbit of period <em class="EQ">k = n-m</em>.</p>
 <p>Suppose that
 <em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>.  The
 <em>(positive) orbit associated</em> to <em class="EQ">z</em> is the sequence
-<em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
+<em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>
 where <em class="EQ"> z<sub>0</sub> = z</em> and
 <em class="EQ">z<sub>j</sub> = R(z<sub>j-1</sub>)</em>
 for <em class="EQ">j &geq; 1</em>.  In particular, if
@@ -927,7 +926,7 @@ periodic point of period <em class="EQ">n</em> of a rational function
 &rarr; <span class="EQ_Over">&complexes;</span></em> and that
 <em class="EQ">&lambda; = (R<sup>n</sup>)'(z)</em>.  We say that
 <em class="EQ">z</em> (or the periodic
-orbit <em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
+orbit <em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>
 associated to <em class="EQ">z</em>) is</p>
 <ul>
 <li> <em>super-attracting</em> if <em class="EQ">&lambda; = 0</em>, </li>
@@ -941,9 +940,9 @@ associated to <em class="EQ">z</em>) is</p>
 </div>
 
 <p>In the previous definition, it follows from the chain rule that
-<em class="EQ">(R<sup>n</sup>)'(z<sub>i</sub>) = &lambda;</em>
-for all <em class="EQ">z<sub>i</sub></em> on the periodic orbit
-<em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
+<em class="EQ">(R<sup>n</sup>)'(z<sub>j</sub>) = &lambda;</em>
+for all <em class="EQ">z<sub>j</sub></em> on the periodic orbit
+<em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>
 associated to <em class="EQ">z</em>.</p>
 
 <div class="Theo">
@@ -1056,13 +1055,13 @@ functional equation if <em class="EQ">&lambda;</em> is a root of unity.
 Even when <em class="EQ">&lambda;</em> is a not root of unity
 and <em class="EQ">|&lambda;|=1</em>,
 there may not be any function <em class="EQ">H</em> satisfying the
-Schr&ouml;der functional equation.  For instance, it has been proved
-by C. Seigel that there is no function <em class="EQ">H</em> satisfying the
+Schr&ouml;der functional equation.  However, it has been proved
+by C. Seigel that there is function <em class="EQ">H</em> satisfying the
 Schr&ouml;der functional equation if
 <em class="EQ">&lambda; = e<sup>2&pi;i&alpha;</em>
 with <em class="EQ">&alpha;</em> an irrational number for
 which there exist <em class="EQ">a,b &gt; 0</em> such that
-<em class="EQ">|&alpha;-p/q|&gt;1/q<sup>b</sup></em>
+<em class="EQ">|&alpha;-p/q|&gt;a/q<sup>b</sup></em>
 for all integers <em class="EQ">p</em> and
 <em class="EQ">q</em>.  The measure of the set of
 <em class="EQ">&lambda;</em> that satisfy the previous
@@ -1661,7 +1660,7 @@ is of <em>index</em> one (basically, <em class="EQ">&gamma;</em>
 looks like a circle.)&nbsp; Let <em class="EQ">W</em> be the
 open region bounded by <em class="EQ">&gamma;</em> that does not contain
 <em class="EQ">&infin;</em>.  Theefore
-<em class="EQ">H(B) &cup; W) = &emptyset;</em>.
+<em class="EQ">H(B) &cup; W = &emptyset;</em>.
 We have that the
 <em class="EQ">T<sup>n</sup></em> are analytic functions
 on the open set <em class="EQ">H(A) &cup; W</em>.  Note that
@@ -1715,8 +1714,8 @@ because <em class="EQ">J<sub>T</sub> = H(J<sub>R<sup>k</sup></sub>)
 <div class="Example" id="egB">
 <p><em>Example B</em>: The Julia set
 <em class="EQ">J<sub>P<sub>i/2</sub></sub></em>
-of the function <em class="EQ">P<sub>i/2</sub></em> is represented in
-the figure below.  We have that
+of the polynomial function <em class="EQ">P<sub>i/2</sub></em> is
+represented in the figure below.  We have that
 <em class="EQ">J<sub>P<sub>i/2</sub></sub></em> is a closed connected
 set.  The set
 <em class="EQ">S<sub>P<sub>i/2</sub></sub></em> is composed of two simply
@@ -1730,8 +1729,8 @@ connected components.  One of them contains <em class="EQ">&infin;</em>.</p>
 <div class="Example" id="egC">
 <p><em>Example C</em>: The Julia set
 <em class="EQ">J<sub>P<sub>0.3</sub></sub></em>
-of the function <em class="EQ">P<sub>0.3</sub></em> is represented in
-the figure below.  We have that
+of the polynomial function <em class="EQ">P<sub>0.3</sub></em> is
+represented in the figure below.  We have that
 <em class="EQ">J<sub>P<sub>0.3</sub></sub></em> is composed of
 infinitely many closed connected components.  The set
 <em class="EQ">S<sub>P<sub>0.3</sub></sub></em> is composed of a
@@ -1747,7 +1746,7 @@ single connected component that is not simply connected.</p>
 roots of <em class="EQ">P<sub>c</sub><sup>2</sup>(c) = c</em>.  More
 precisely, let <em class="EQ">c &approx; -0.12256 + 0.74486i</em>.
 The Julia set <em class="EQ">J<sub>P<sub>c</sub></sub></em>
-of the function <em class="EQ">P<sub>c</sub></em> is represented in
+of the polynomial function <em class="EQ">P<sub>c</sub></em> is represented in
 the figure below.  We have that
 <em class="EQ">J<sub>P<sub>c</sub></sub></em> is a connected set.
 The set <em class="EQ">S<sub>P<sub>c</sub></sub></em> is composed of
@@ -1795,8 +1794,9 @@ function <em class="EQ">P</em>.  In particular, there exists an open
 neighbourhood of <em class="EQ">&infin;</em> on which <em class="EQ">P</em> is
 conformally conjugate to the function <em class="EQ">T</em> defined
 by <em class="EQ">T(z) = z<sup>d</sup></em> where <em class="EQ">d</em>
-is the degree of <em class="EQ">P</em>.  Since
-<em class="EQ">&infin;</em> is always a stable
+is the degree of <em class="EQ">P</em>.  We recall that we only
+consider rational functions of degree <em class="EQ">d &ge; 2</em>.
+Since <em class="EQ">&infin;</em> is always a stable
 point of a polynomial function, the Julia set of a polynomial function
 is contained in <em class="EQ">&complexes;</em>; namely,
 <em class="EQ">J<sub>P</sub></em> is bounded.  We have that
@@ -1822,7 +1822,7 @@ Let <em class="EQ">U</em> be the open set bounded by
 <em class="EQ">&infin;</em>.  Since
 <em class="EQ">J<sub>P</sub> &cap; U &ne; &emptyset;</em>
 and the set of exceptional points is
-<em class="EQ">&#120020;<sub>R</sub> = {&infin;}</em>, we have that
+<em class="EQ">&#120020;<sub>P</sub> = {&infin;}</em>, we have that
 <em class="EQ">&#8899;<sub>n&gt;0</sub> P<sup>n</sup>(U)
 = &complexes;</em>.  But this is a contradiction of the maximum
 principal for analytic functions which says that the maximum of

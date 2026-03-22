@@ -93,8 +93,8 @@ main_title( MStexte, "MMathSStat");
 fonction logistique.  Plus spécifiquement, on a étudié les
 itérations de la fonction à valeurs réelles
 <em class="EQ"> f<sub>&#120583;</sub></em>
-définie par <em class="EQ"> f<sub>&#120583;</sub>(x) = &#120583; x(1-x)
-</em> pour <em class="EQ">x &in; [0,1]</em> lorsque 
+définie par <em class="EQ"> f<sub>&#120583;</sub>(x) = &#120583;x(1-x)
+</em> pour <em class="EQ">x &in; [0,1]</em> lorsque
 <em class="EQ">&#120583;</em> varie.</p>
 
 <p> L'étape logique suivante est d'étudier les itérations de fonctions
@@ -149,7 +149,7 @@ la compactification du plan complexe.
 Les fonctions holomorphes
 <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em>
-sont les fonctions rationnalles <em class="EQ">R = P/Q</em> où
+sont alors les fonctions rationnalles <em class="EQ">R = P/Q</em> où
 <em class="EQ">P</em> et <em class="EQ">Q</em> sont deux polynômes.
 Nous pouvons assumer que
 <em class="EQ">R = P/Q</em> est dans la forme <em>réduite</em>;
@@ -193,7 +193,7 @@ sont <em>conformément conjuguées</em> s'il existe une
 <p>Il est enseigné dans un premier cours d'analyse complexe que
 les transformations de M&ouml;bius sont des bijections et préservent
 les angles.  Il en découle que des fonctions conformément conjuguées
-ont la même <q lang="fr">dynamique</q>.</p>
+ont les mêmes propriétés.</p>
 
 <div class="Example" id="egA">
 <p><em>Exemple A</em>: Toute fonction polynomiale <em class="EQ">P</em>
@@ -270,10 +270,10 @@ de Riemann est fourni par la fonction
 <em class="EQ">f:&complexes; &rarr; &complexes;</em> définie
 par <em class="EQ">f(z) = z<sup>2</sup></em>.
 Soit <em class="EQ">S<sub>i</sub> = &complexes; &setminus;
-{x &in; &reals; : r &gt; 0}</em> pour <em class="EQ">i = 0,1</em>.
+{x &in; &reals; : x &gt; 0}</em> pour <em class="EQ">i = 0,1</em>.
 Les ensembles
 <em class="EQ">S<sub>i</sub></em> sont deux copies du plan complexe
-après qu'il est été coupé le long de la section positive de l'axe
+après qu'il est été découpé le long de la section positive de l'axe
 des <em class="EQ">x</em>.</p>
 <div class="center">
   <img src="Riemann1_fr.png" style="width: 200px"
@@ -290,7 +290,7 @@ fonction <em class="EQ">f</em>.
 La fonction <em class="EQ">f:&complexes; &rarr; S</em>
 est maintenant une bijection continue.  Nous avons que
 <em class="EQ">
-f:{ r cos(&theta;) + r sin(&theta;) : r &ge; 0 et j&pi; &lt; &theta; &lt;
+f:{r cos(&theta;) + r sin(&theta;) : r &ge; 0 et j&pi; &lt; &theta; &lt;
 (j+1)&pi;} &rarr; S<sub>j</sub></em> est une bijection pour
 <em class="EQ">j = 0,1</em>.
 L'origine est appelée un <em>point de branchement</em> car il
@@ -302,7 +302,7 @@ appartient à <em class="EQ">S<sub>0</sub></em> et
 Le lecteur devrait essayer de visualiser la surface de Riemann associée
 à la fonction 
 <em class="EQ">f:&complexes; &rarr; &complexes;</em> définie
-par <em class="EQ">f(z) = z<sup>n</sup></em> avec
+par <em class="EQ">f(z) = z<sup>n</sup></em> pour
 <em class="EQ">n</em> un entier positif.</p>
 
 <p>Ce n'est pas une définition rigoureuse des surfaces de Riemann mais
@@ -503,10 +503,9 @@ car la limite de cette sous-suite serait une fonction continue
 qui n'est pas possible.  Donc
 <em class="EQ">J<sub>R</sub> = S<sup>1</sup></em>.</p>
 
-<p>Puisque <em class="EQ">P<sub>0</sub>|<sub>S<sup>1</sup></sub></em>
-est topologiquement conjuguée à la fonction
-<em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> 
-définie par <em class="EQ">T(z) = z<sup>2</sup></em> et puisque
+<p>Puisque <em class="EQ">P<sub>0</sub>|<sub>S<sup>1</sup></sub> = T</em>
+où la fonction <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> 
+est définie par <em class="EQ">T(z) = z<sup>2</sup></em> et puisque
 <em class="EQ">T</em> est chaotique sur <em class="EQ">S<sup>1</sup></em>,
 comme nous avons vu dans le document
 <script language="javascript"> 
@@ -521,7 +520,7 @@ que cela est typique des ensembles de Julia.</p>
 <p>Comme nous allons voir, les ensemble de Julia ne sont pas
 normalement des courbes simples comme dans l'exemple précédent.
 De plus, l'intérieur des ensembles de Julia peut ne pas être vide
-comme dans l'exemple précédent.  Rappelons que l'intérieur d'une
+contrairement à l'exemple précédent.  Rappelons que l'intérieur d'une
 ensemble <em class="EQ">K</em> est le plus grand ensemble ouvert
 contenu dans <em class="EQ">K</em>.
 Par exemple, nous allons prouver prochainement que
@@ -643,8 +642,8 @@ associé à la fonction rationnelle <em class="EQ">R</em> comme étant
 <em class="EQ">u &in; J<sub>R</sub></em>.
 Nous allons voir prochainement que les points exceptionnels sont des
 points stables car les points exceptionnels sont
-des <q lang="en">points fixes super-attracteur</q> ou
-<q lang="en">points périodiques super-attracteur</q>.  Ainsi
+des <q lang="en">points fixes super-attracteurs</q> ou
+<q lang="en">points périodiques super-attracteurs</q>.  Ainsi
 <em class="EQ">&#120020;<sub>R</sub> &cap; J<sub>R</sub>
 = &emptyset;</em>.
 Nous rappelons au lecteur que nous considérons seulement les
@@ -699,8 +698,8 @@ Puisque cela est vrai pour tous les voisinages ouvert de
 Pour démontrer le deuxième énoncé de la proposition, il suffit de
 noter que <em class="EQ">&#8899;<sub>n&gt;0</sub> R<sup>-n</sup>({w})
 &subset; J<sub>R</sub></em> car
-<em class="EQ">R</em> est complètement invariant.
-<span class="EQ_Right">&#8718;</span></p>
+<em class="EQ">J<sub>R</sub></em> est complètement invariant sous
+l'action de <em class="EQ">R</em>.  <span class="EQ_Right">&#8718;</span></p>
 
 <div class="Theo">
 <p><em>Définition</em>: Un <em>point critique</em> d'une fonction
@@ -793,25 +792,26 @@ ou un nombre infini de points car
 <em class="EQ">J<sub>R</sub> &ne; &emptyset;</em>.
 Si <em class="EQ">J<sub>R</sub> = {w}</em>, alors nous pouvons
 procéder comme nous avons fait pour 
-<em class="EQ">E<sub>u</sub> = {w}</em> ci-dessus pour démontrer que
+<em class="EQ">E<sub>u</sub> = {w}</em> ci-dessus et démontrer que
 <em class="EQ">R</em> est conformément conjuguée à une fonction
 polynomiale car
 <em class="EQ">J<sub>R</sub></em> est complètement invariant.
 Puisque <em class="EQ">&infin;</em> est un point stable pour une
 fonction polynomiale, nous avons que <em class="EQ">w</em> est un
-point stable.  Ceci est une contradiction de la définition de
+point stable de <em class="EQ">R</em>.
+Ceci est une contradiction de la définition de
 <em class="EQ">J<sub>R</sub></em>.
 Si <em class="EQ">J<sub>R</sub> = {v,w}</em>,
 alors nous pouvons procédé comme nous avons fait pour
-<em class="EQ">E<sub>u</sub> = {v,w}</em> ci-dessus pour démontrer
+<em class="EQ">E<sub>u</sub> = {v,w}</em> ci-dessus et démontrer
 que <em class="EQ">R</em> est conformément conjuguée à la fonction
 <em class="EQ">T</em> définie par
 <em class="EQ">T(z) = z<sup>d</sup></em> ou
 <em class="EQ">T(z) = z<sup>-d</sup></em>.
-Puisque <em class="EQ">0</em> est un point stable
+Puisque <em class="EQ">0</em> est un point stable de
 <em class="EQ">T</em> définie par
 <em class="EQ">T(z) = z<sup>d</sup></em> et
-<em class="EQ">&infin;</em> est un point stable
+<em class="EQ">&infin;</em> est un point stable de
 <em class="EQ">T</em> définie par
 <em class="EQ">T(z) = z<sup>-d</sup></em>, nous avons que
 <em class="EQ">v</em> ou <em class="EQ">w</em> est un point stable.
@@ -882,7 +882,7 @@ alors <em class="EQ">J<sub>R</sub> =
 <p><em>Démonstration</em>: Supposons que
 <em class="EQ">V &subset; J<sub>R</sub></em>
 est un ensemble ouvert.  Puisque tous les points de
-<em class="EQ">J<sub>R</sub></em> ne sont pas stable, nous obtenons du
+<em class="EQ">J<sub>R</sub></em> ne sont pas stables, nous obtenons du
 <script language="javascript">
   buildLinK("#Montel", "théorème de Montel",
   "MMathSStat", "MontelID3", "_top");
@@ -922,16 +922,16 @@ entiers <em class="EQ">n &gt; m &geq; 0</em> tels que
 <em class="EQ">R<sup>n</sup>(z) = R<sup>m</sup>(z)</em>.
 Si nous assumons que <em class="EQ">n</em> est le plus petit nombre
 entier plus grand que <em class="EQ">m</em> tel que
-<em class="EQ">R<sup>n</sup>(z) = R<sup>m</sup>(z)</em> est satisfait,
+<em class="EQ">R<sup>n</sup>(z) = R<sup>m</sup>(z)</em> soit satisfait,
 alors <em class="EQ"> {R<sup>i</sup>(z)}<sub>i&ge;m</sub></em> est une
 orbite périodique de période <em class="EQ">k = n-m</em>.</p>
 
 <p>Supposons que
 <em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>.
 L'<em>orbite (positive) associée</em> à <em class="EQ">z</em> est la
-suite <em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
+suite <em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>
 où <em class="EQ"> z<sub>0</sub> = z</em> et
-<em class="EQ">z<sub>i</sub> = R(z<sub>j-1</sub>)</em>
+<em class="EQ">z<sub>j</sub> = R(z<sub>j-1</sub>)</em>
 pour <em class="EQ">j &geq; 1</em>.  En particulier, si
 <em class="EQ">z</em> est un point périodique de période
 <em class="EQ">k</em> de <em class="EQ">R</em>, alors
@@ -946,7 +946,7 @@ rationnelle <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
 &rarr; <span class="EQ_Over">&complexes;</span></em> et que
 <em class="EQ">&lambda; = (R<sup>n</sup>)'(z)</em>.  Nous disons que
 <em class="EQ">z</em> (ou l'orbite périodique
-<em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
+<em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>
 associée à <em class="EQ">z</em>) est</p>
 <ul>
 <li> <em>super-attractif</em> si <em class="EQ">&lambda; = 0</em>, </li>
@@ -961,9 +961,9 @@ associée à <em class="EQ">z</em>) est</p>
 
 <p>Dans la définition précédente, il découle du théorème de la dérivée
 des fonctions composées que
-<em class="EQ">(R<sup>n</sup>)'(z<sub>i</sub>) = &lambda;</em>
-pour tous <em class="EQ">z<sub>i</sub></em> sur l'orbite périodique
-<em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em>
+<em class="EQ">(R<sup>n</sup>)'(z<sub>j</sub>) = &lambda;</em>
+pour tous <em class="EQ">z<sub>j</sub></em> sur l'orbite périodique
+<em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>
 associée à <em class="EQ">z</em>.</p>
 
 <div class="Theo">
@@ -1077,13 +1077,13 @@ l'équation fonctionnelle de Schr&ouml;der si
 Même quand <em class="EQ">&lambda;</em> n'est pas une racine de
 l'unité et <em class="EQ">|&lambda;| = 1</em>, il peut ne pas y avoir
 de fonction <em class="EQ">H</em> qui satisfait 
-l'équation fonctionnelle de Schr&ouml;der.  Par exemple, il a été
-démontré par C. Seigel qu'il n'existe pas de fonction <em class="EQ">H</em>
+l'équation fonctionnelle de Schr&ouml;der.  Cependant, il a été
+démontré par C. Seigel qu'il existe une fonction <em class="EQ">H</em>
 qui satisfait l'équation fonctionnelle de Schr&ouml;der si
 <em class="EQ">&lambda; = e<sup>2&pi;i&alpha;</em>
 avec <em class="EQ">&alpha;</em> un nombre irrationnel pour lequel ils
 existent <em class="EQ">a,b &gt; 0</em> tels que
-<em class="EQ">|&alpha;-p/q|&gt;1/q<sup>b</sup></em>
+<em class="EQ">|&alpha;-p/q|&gt;a/q<sup>b</sup></em>
 pour tous nombres entiers <em class="EQ">p</em> et
 <em class="EQ">q</em>.  La mesure de l'ensemble des
 <em class="EQ">&lambda;</em> qui satisfont la condition précédente est
@@ -1452,7 +1452,7 @@ envoie un ensemble connexe sur un ensemble connexe.  Étant donné une
 composante connexe <em class="EQ">D</em> de
 <em class="EQ">S<sub>R</sub></em>, nous pouvons définir
 l'orbite <em class="EQ"> {R<sup>i</sup>(D)}<sub>i&ge;0</sub></em> dans
-<em class="EQ">S<sub>R</sub></em>.  Un Composante de
+<em class="EQ">S<sub>R</sub></em>.  Une composante connexe de
 <em class="EQ">S<sub>R</sub></em> est
 <em>éventuellement périodique</em> s'il existe deux nombres entiers
 positifs <em class="EQ">n &gt; m &geq; 0</em> tels que
@@ -1573,7 +1573,7 @@ de la forme <em class="EQ">R(z) =
 (e<sup>2&pi;i&alpha;</sup>(z-a)<sup>2</sup>)/(z(1-<span class="EQ_Over">a</span>z)<sup>2</sup>)</em>
 pour certaines valeurs de <em class="EQ">&alpha;</em>
 et <em class="EQ">a</em> ont un ensemble de points stables 
-<em class="EQ">S<sub>R</sub></em> qui contient un anneau de Herman qui
+<em class="EQ">S<sub>R</sub></em> qui possède un anneau de Herman qui
 contient le cercle unité.  L'existence de <em class="EQ">&alpha;</em>
 et <em class="EQ">a</em> est confirmée par un théorème de
 <script language="javascript">
@@ -1683,7 +1683,7 @@ a un <em>index</em> de un (essentiellement, <em class="EQ">&gamma;</em>
 a l'allure d'un cercle).  Soit <em class="EQ">W</em> la région
 bornée par <em class="EQ">&gamma;</em> qui ne contient pas 
 <em class="EQ">&infin;</em>.  Donc
-<em class="EQ">H(B) &cup; W) = &emptyset;</em>.
+<em class="EQ">H(B) &cup; W = &emptyset;</em>.
 Nous avons que les
 <em class="EQ">T<sup>n</sup></em> sont des fonctions analytiques
 sur l'ensemble ouvert <em class="EQ">H(A) &cup; W</em>.  Notons
@@ -1739,8 +1739,8 @@ car <em class="EQ">J<sub>T</sub> = H(J<sub>R<sup>k</sup></sub>)
 <div class="Example" id="egB">
 <p><em>Exemple B</em>: L'ensemble de Julia
 <em class="EQ">J<sub>P<sub>i/2</sub></sub></em>
-de la fonction <em class="EQ">P<sub>i/2</sub></em> est dessiné dans la
-figure ci-dessous.  Nous avons que
+de la fonction polynomiale <em class="EQ">P<sub>i/2</sub></em> est
+dessiné dans la figure ci-dessous.  Nous avons que
 <em class="EQ">J<sub>P<sub>i/2</sub></sub></em> est un ensemble
 connexe et fermé.  L'ensemble
 <em class="EQ">S<sub>P<sub>i/2</sub></sub></em> est composé de deux
@@ -1755,8 +1755,8 @@ composantes simplement connexes.  Une de celle-ci contient
 <div class="Example" id="egC">
 <p><em>Exemple C</em>: L'ensemble de Julia
 <em class="EQ">J<sub>P<sub>0.3</sub></sub></em>
-de la fonction <em class="EQ">P<sub>0.3</sub></em> est dessiné dans la
-figure ci-dessous.  Nous avons que
+de la fonction polynomiale <em class="EQ">P<sub>0.3</sub></em> est
+dessiné dans la figure ci-dessous.  Nous avons que
 <em class="EQ">J<sub>P<sub>0.3</sub></sub></em> est composé d'un
 nombre infini de composantes connexes fermées.  L'ensemble
 <em class="EQ">S<sub>P<sub>0.3</sub></sub></em> est composé d'une
@@ -1772,8 +1772,8 @@ seule composante connexe qui n'est pas simplement connexe.</p>
 non-nulles de <em class="EQ">P<sub>c</sub><sup>2</sup>(c) = c</em>.
 Plus spécifiquement, soit <em class="EQ">c &approx; -0.12256 + 0.74486i</em>.
 L'ensemble de Julia <em class="EQ">J<sub>P<sub>c</sub></sub></em>
-de la fonction <em class="EQ">P<sub>c</sub></em> est dessiné dans la
-figure ci-dessous. Nous avons que
+de la fonction polynomiale <em class="EQ">P<sub>c</sub></em> est
+dessiné dans la figure ci-dessous. Nous avons que
 <em class="EQ">J<sub>P<sub>c</sub></sub></em> est un ensemble connexe.
 L'ensemble <em class="EQ">S<sub>P<sub>c</sub></sub></em> est composé
 d'un nombre infini de composantes simplement connexes.  Cependant,
@@ -1823,6 +1823,8 @@ En particulier, il existe un voisinage ouvert de
 conformément conjugué à la fonction <em class="EQ">T</em> définie
 par <em class="EQ">T(z) = z<sup>d</sup></em>
 où <em class="EQ">d</em> est le degré de <em class="EQ">P</em>.
+Nous rappelons que nous considérons seulement
+les fonctions rationnelles de degré <em class="EQ">d &ge; 2</em>.
 Puisque <em class="EQ">&infin;</em> est toujours un point stable
 pour un fonction polynomiale, l'ensemble de Julia d'un fonction
 polynomiale est contenu dans <em class="EQ">&complexes;</em>;
@@ -1850,7 +1852,7 @@ Supposons que <em class="EQ">U</em> est l'ensemble ouvert borné par
 <em class="EQ">&infin;</em>.  Puisque
 <em class="EQ">J<sub>P</sub> &cap; U &ne; &emptyset;</em>
 et l'ensemble des points exceptionnels est
-<em class="EQ">&#120020;<sub>R</sub> = {&infin;}</em>, nous avons que
+<em class="EQ">&#120020;<sub>P</sub> = {&infin;}</em>, nous avons que
 <em class="EQ">&#8899;<sub>n&gt;0</sub> P<sup>n</sup>(U)
 = &complexes;</em>.  Mais ceci est une contradiction du principe du
 maximum pour les fonction analytiques qui dit que le maximum 
