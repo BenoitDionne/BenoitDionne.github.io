@@ -105,20 +105,20 @@ excitement about computer generated fractal images; namely, the
 <em>Mandelbrot set</em>.</p>
 
 <p>As for the previous document on Julia sets, some reader may choose
-to skip the next theoritical sections and to read only
+to skip the next theoretical sections and instead choose to read only
 the section on the <script language="javascript">
 buildLinK("#MandelbrotFig", "Graphical Exploration of the Mandelbrot Set",
 "MMathSStat", "nextID", "_top");
 </script>
-where they draw the Mandelbrot set and generate Julia sets for
-different values of the Mandelbrot set.</p>
+where they may draw the Mandelbrot set and generate Julia sets for
+different points of the Mandelbrot set.</p>
 
 <hr class="MMathSStat" style="clear: both;">
 
 <h3 id="SS1">Definition</h3>
 
 <p>Almost no proofs are included in the theoretical sections.
-The main reason for this choice is that they are not easy and so
+The main reason for this choice is that they are not easy and therefore
 inappropriate for a website. 
 The reader who want to study the proofs may consult the list of
 <script language="javascript">
@@ -181,7 +181,7 @@ J<sub>P<sub>c</sub></sub> is connected}</em>
 </script>
 have proved the following result which seem to contradict
 what we observe in the previous figure.  We must never forget that our
-graphical applications are limited by the accuracy of the
+graphical applications are limited by the accuracy of the numerical
 computations and the resolution of the computer screen.  It is
 therefore not surprising that some minuscule details may be missing
 in the figure.</p>
@@ -211,7 +211,7 @@ Mandelbrot set.  We leave it to the reader to
 rigorously prove that <em class="EQ">&#8477; &cap; M = [-2,1/4]</em>. 
 This result can be visualized with the following application.
 This application draws the cobweb graph associated to
-<em class="EQ">P<sub>c</sub></em> with
+<em class="EQ">P<sub>c</sub></em> for
 <em class="EQ">c &in; &reals;</em> and the initial condition
 <em class="EQ">z<sub>0</sub> = 0</em>.  We note that the orbit
 <em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>, where
@@ -242,9 +242,10 @@ values of <em class="EQ">c &in; &reals;</em>.</p>
 <em class="EQ">c &le; -2</em> or <em class="EQ">c &gt; 0</em>.
 When the orbit is unbounded, the cobweb graph grows very large very
 rapidly.</p>
-<p>An expression like <em class="EQ">1/2</em> is not accepted because
-the content of these fields is not evaluated.  Thus
-<em class="EQ">1/2</em> is not interpreted as a number.</p>
+<p>An expression like <em class="EQ">1/2</em> is not accepted as a
+value of <em class="EQ">c</em> because the content of these fields is
+not evaluated.  Thus <em class="EQ">1/2</em> is not interpreted as a
+number.</p>
 </td>
 </tr>
 </table>
@@ -282,8 +283,12 @@ has a finite super-attracting or attracting periodic orbit}</em> .
 unique finite critical point of <em class="EQ">P<sub>c</sub></em>.  Hence, if
 <em class="EQ">P<sub>c</sub></em> has a finite super-attracting or
 attracting orbit, then <em class="EQ">0</em> is in the basin of
-attraction of this periodic orbit.  Since <em class="EQ">H</em> is
-open, we have that <em class="EQ">H</em> is a subset of the interior
+attraction of this periodic orbit.  We have that <em class="EQ">H</em>
+is an open set because the function
+<em class="EQ">G:&complexes; &times; &complexes; &rarr; &complexes;</em>
+defined by <em class="EQ">G(z,c) = P<sub>c</sub>(z)</em> is analytic
+with respect to both variables (see the proof of the next proposition).
+Hence, <em class="EQ">H</em> is a subset of the interior
 of <em class="EQ">M</em>.</p>
 
 <div class="Theo">
@@ -355,7 +360,7 @@ super-attracting or attracting periodic orbit.
 Second, suppose that <em class="EQ">z</em> is a super-attracting or
 attracting periodic point of period <em class="EQ">k</em> of
 <em class="EQ">P<sub>c</sub></em>.
-Let <em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em> be the
+Let <em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em> be the
 periodic orbit containing <em class="EQ">z</em>; namely,
 <em class="EQ">z<sub>0</sub> = z</em> and
 <em class="EQ">z<sub>j+1</sub> = P<sub>c</sub>(z<sub>j</sub>)</em>
@@ -393,7 +398,7 @@ The <em>root</em> of <em class="EQ">W</em> is the point
 <p>By definition, <em class="EQ">P<sub>c</sub></em> with
 <em class="EQ">c = &gamma;<sub>M</sub>(0)</em> has a super-attracting
 periodic orbit, and <em class="EQ">P<sub>c</sub></em> with
-<em class="EQ">c = &gamma;<sub>W</sub>(1) &in; &part; W</em>
+<em class="EQ">c = &gamma;<sub>W</sub>(1) &in; &part;W</em>
 has a neutral periodic orbit.  In this last case, the period of the
 periodic orbit is <em class="EQ">k</em> or a divisor
 of <em class="EQ">k</em>.</p>
@@ -404,12 +409,15 @@ of <em class="EQ">k</em>.</p>
 
 <p>Let <em class="EQ">W<sub>0</sub></em> be the hyperbolic component
 of the Mandelbrot set <em class="EQ">M</em> such that
-<em class="EQ">o &in; W<sub>0</sub></em>.  We have that</p>
+<em class="EQ">0 &in; W<sub>0</sub></em>.  We have that</p>
 <div class="EQ_center">
 <em class="EQ_Display">W<sub>0</sub> &subset;
 {c &in; &complexes; : P<sub>c</sub> has an attracting or
-super-attracting fixed point}</em> .
+super-attracting fixed point}</em>
 </div>
+<p>because <em class="EQ">P<sub>0</sub></em> has super-attractive
+fixed point at the origin.</p>
+    
 <p>We also have the following result.</p>
 
 <div class="Theo" id="propI">
@@ -437,10 +445,10 @@ We have from <script language="javascript">
 buildLinK(fractal4.url_en+"#egA",
 "Example A of the document "+fractal4.text_en,
 "MMathSStat", fractal4.id+"egAID", fractal4.target);
-</script> that <em class="EQ">f<sub>c</sub></em> is conformally conjugate to
+</script> that <em class="EQ">P<sub>c</sub></em> is conformally conjugate to
 <em class="EQ">f<sub>&#120583;</sub></em>: namely,
 <em class="EQ">H&#8728;f<sub>&#120583;</sub></sub>
-= f<sub>c</sub>&#8728;H</em> with
+= P<sub>c</sub>&#8728;H</em> with
 <em class="EQ">H(z) = -&#120583;z+&#120583;/2</em> and
 <em class="EQ">c = &#120583;/2-&#120583;<sup>2</sup>/4</em>.
 The fixed point <em class="EQ">z = 0</em> of
@@ -489,7 +497,7 @@ for <em class="EQ">k=1,3</em>.</li>
 </ul>
 <p> The coloured disks mentioned above should all be tangent to the
 cardioid <em class="EQ">W<sub>0</sub></em>.  Unfortunately, because of the
-limit on the accuracy of the computations and the resolution of the
+limit on the accuracy of the numerical computations and the resolution of the
 computer screen, this is not so in the figure.
 The reader should use a little bit of imagination.</p>
 
@@ -529,10 +537,10 @@ converging toward a fixed point of <em class="EQ">P<sub>c</sub></em>
 may behave very like a periodic orbit of period <em class="EQ">2</em>
 when <em class="EQ">c</em> is very closed to the bifurcation point.
 Hence, because of the limited numerical accuracy of the
-<em class="EQ">Matlab</em> function <font class="matlab">mandelbrot1</font>,
+<em>Matlab</em> function <font class="matlab">mandelbrot1</font>,
 this function may determine that <em class="EQ">P<sub>c<sub></em> has
 an attracting periodic orbit instead of an attracting fixed point.
-Similarly, some points <em cllass="EQ">c &in; W<sub>1/2</sub></em>
+Similarly, some points <em class="EQ">c &in; W<sub>1/2</sub></em>
 very closed to the bifurcation point at <em class="EQ">-3/4</em>
 may mistakenly be coloured in red.  This is due to the fact that
 the two points of the periodic orbits
@@ -574,7 +582,7 @@ super-attracting periodic orbit of period <em class="EQ">2</em> if
 <li> The disk coloured in magenta is an hyperbolic component, denoted
 <em class="EQ">W<sub>(1/2,1/4)</sub></em>, such that
 <em class="EQ">P<sub>c</sub></em>  
-has an attracting (or a super-attracting) periodic orbit of period
+has an attracting or super-attracting periodic orbit of period
 <em class="EQ">4</em> for <em class="EQ">c &in; W<sub>(1/2,1/4)</sub></em>.
 We have that
 <em class="EQ"><span class="EQ_Over">W<sub>(1/2,1/4)</sub></span>
@@ -631,14 +639,14 @@ z<sup>4</sup>+2cz<sup>2</sup>+c<sup>2</sup> + c = z
 = (1&plusmn;(1-4c)<sup>1/2</sup>)/2</em>.  Therefore,
 <em class="EQ">z<sup>4</sup>+2cz<sup>2</sup>-z+c<sup>2</sup>+c</em>
 is divisible by
-<em class="EQ">(z-z<sub>-</sub>((z-z<sub>+</sub>)= z<sup>2</sup>-z+c</em>.
+<em class="EQ">(z-z<sub>-</sub>)(z-z<sub>+</sub>)= z<sup>2</sup>-z+c</em>.
 We get that</p>
 <div class="EQ_center">
 <em class="EQ_Display">
 z<sup>4</sup>+2cz<sup>2</sup>-z+c<sup>2</sup>+c = 
 (z<sup>2</sup>-z+c)(z<sup>2</sup>+z+c+1)</em> .
 </div>
-<p>The roots of polynomial <em class="EQ">z<sup>2</sup>+z+c+1</em> are
+<p>The roots of the polynomial <em class="EQ">z<sup>2</sup>+z+c+1</em> are
 <em class="EQ">z = w<sub>&plusmn;</sub>
 = (1&plusmn;(1-4(1+c))<sup>1/2</sup>)/2</em>.
 Thus, we find the periodic orbit
@@ -647,15 +655,15 @@ w<sub>-</sub>, ...}</em> of period <em class="EQ">2</em>.  This orbit
 is attracting if
 <em class="EQ">|(P<sub>c</sub><sup>2</sup>)'(w<sub>+</sub>)|
 = 4|c+1| &lt; 1</em>.  Thus
-<em class="EQ">W<sub>1/2</sub> = B<sub>1/2</sub>(-1)</em>.
+<em class="EQ">W<sub>1/2</sub> = B<sub>1/4</sub>(-1)</em>.
 Hence
 <em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>(u) = -1 + u/4</em>
 for <em class="EQ">u &in;
 <span class="EQ_Over">B<sub>1</sub>(0)</span></em>.</p>
 
 <p>We get the bifurcation point
-<em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>(1) = 
-&gamma;<sub>W<sub>0</sub></sub>(0) = -3/4</em>
+<em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>(0) = 
+&gamma;<sub>W<sub>0</sub></sub>(1) = -3/4</em>
 between <em class="EQ">W<sub>1/2</sub></em> and
 <em class="EQ">W<sub>0</sub></em> as expected.  We also get the
 bifurcation point
@@ -699,7 +707,7 @@ period doubling cascades above for each bifurcation point given by
 with
 <em class="EQ">p/q &in; &rationals; &cap; ]0,1]</em> in reduced form.
 The same phenomenon is repeated for all hyperbolic components of the
-Mandelbrot set, not just <em class="EQ">W<sup>0</sub></em>.</p>
+Mandelbrot set, not just <em class="EQ">W<sub>0</sub></em>.</p>
 
 <p>We finally consider the region inside the rectangle A in the
 <script language="javascript">
@@ -729,7 +737,7 @@ super-attracting periodic orbit of period
 component containing points <em class="EQ">c</em> such
 that <em class="EQ">P<sub>c</sub></em> has an attracting or
 super-attracting periodic orbit of period
-<em class="EQ">12</em> (region in magenta), and so on.</p>
+<em class="EQ">12</em> (region in red), and so on.</p>
 
 <hr class="MMathSStat">
 
@@ -779,7 +787,8 @@ as <em class="EQ">|z| &rarr; &infin;</em>, and
 z<sup>2</sup></em> for <em class="EQ">|z| &gt; 1</em>.
 </div>
 
-<p>We however need a little stronger result for your study of Julia sets.</p>
+<p>We however provide a little stronger result for the general study
+of Julia sets.</p>
 
 <div class="Theo" id="propII">
 <p><em>Proposition &#8545;</em>: Let
@@ -805,7 +814,7 @@ conformal isomorphism
 as <em class="EQ">|z| &rarr; &infin;</em>, and</li>
 <li><em class="EQ">
 &phi;<sub>c</sub>&#8728;P<sub>c</sub>&#8728;&phi;<sub>c</sub><sup>-1</sup> =
-z<sup>2</sup></em> for <em class="EQ">|z| &gt; b</em>.</li>
+P<sub>0</sub></em> for <em class="EQ">|z| &gt; b</em>.</li>
 </ul>
 </div>
 
@@ -854,15 +863,15 @@ K<sub>P<sub>c</sub></sub> &rarr; &reals;</em> as it follows.</p>
 <tr>
 <td><em class="EQ">G<sub>c</sub>(z) = </em></td>
 <td><em class="EQ">&#9128;</em></td>
-<td><em class="EQ">G<sub>c</sub>(P<sup>n</sup>(z))/2<sup>n</sup> if
-z &in; <span class="EQ_Over">B<sub>a</sub>(0)</span> &setminus; K<sub>P</sub>
-</em> </td>
+<td><em class="EQ">G<sub>c</sub>(P<sub>c</sub><sup>n</sup>(z))/2<sup>n</sup> if
+z &in; <span class="EQ_Over">B<sub>a</sub>(0)</span> &setminus;
+K<sub>P<sub>c</sub></sub></em> </td>
 </tr>
 <tr>
 <td></td>
 <td><em class="EQ">&#9129;</em></td>
 <td><em class="EQ"> &nbsp;&nbsp;&nbsp;&nbsp;
-where n is large enough to have P<sup>n</sup>(z) &in;
+where n is large enough to have P<sub>c</sub><sup>n</sup>(z) &in;
 &complexes; &setminus; <span class="EQ_Over">B<sub>a</sub>(0)</span></em></td>
 </tr>
 </table>
@@ -878,6 +887,21 @@ as <em class="EQ">dist(z,K<sub>P<sub>c</sub></sub>) &rarr; 0</em>. Moreover,
 <em class="EQ">G<sub>c</sub>(z) =
 G<sub>c</sub>(P<sub>c</sub>(z))/2</em> for all
 <em class="EQ">z &in; &complexes; &setminus; K<sub>P</sub></em>.</p>
+</div>
+
+<div class="Note">
+<p><em>Remark</em>: It follows from
+<em class="EQ">&phi;<sub>c</sub>(z)/z &rarr; 1</em>
+as <em class="EQ">|z| &rarr; &infin;</em> that
+<em class="EQ">ln|(&phi;<sub>c</sub>(z)/z)|
+= ln|&phi;<sub>c</sub>(z)|- ln|z|
+= G<sub>c</sub>(z)- ln|z| &rarr; 0</em>
+as <em class="EQ">|z| &rarr; &infin;</em>.
+Moreover, since <em class="EQ">n &rarr; &infin;</em> in the definition
+of <em class="EQ">G<sub>c</sub></em> above as
+<em class="EQ">dist(z,K<sub>P<sub>c</sub></sub>) &rarr; 0</em>,
+we get that <em class="EQ">G<sub>c</sub>(z) &rarr; 0</em> as
+<em class="EQ">dist(z,K<sub>P<sub>c</sub></sub>) &rarr; 0</em>.</p>
 </div>
 
 <p>We prove that the function <em class="EQ">G<sub>c</sub></em> is well defined;
@@ -903,7 +927,7 @@ G<sub>c</sub>(P<sub>c</sub>(z))/2</em> .
 </div>
 <p>for <em class="EQ">z &in; &complexes; &setminus;
 <span class="EQ_Over">B<sub>b</sub>(0)</span></em>.
-More generally, we have that</p>
+Inductively, we get that</p>
 <div class="EQ_center">
 <em class="EQ_Display">G<sub>c</sub>(z) =
 G<sub>c</sub>(P<sub>c</sub><sup>n</sup>(z))/2<sup>n</sup></em>
@@ -1070,7 +1094,8 @@ smaller than ours.  Nevertheless, the equipotential lines
 <em class="EQ">&Gamma;<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)</em>
 are the same up to scaling.</p>
 
-<p>In the figure below, we draw the equipotential lines
+<div class="Example">
+<p><em>Example</em>: In the figure below, we draw the equipotential lines
 <em class="EQ">&Gamma;<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)</em>
 for <em class="EQ">j = 4, 6, 8, 10, 12</em> associated the filled
 Julia set <em class="EQ">K<sub>P<sub>c</sub></sub></em> for
@@ -1081,6 +1106,7 @@ Julia set <em class="EQ">K<sub>P<sub>c</sub></sub></em> for
   <img src="julia6.png" style="width: 400px"
        alt="The Daoudy's rabbit with some equipotential lines associated to it."
        class="framed">
+</div>
 </div>
 
 <p>If the filled Julia set
@@ -1112,17 +1138,21 @@ on <em class="EQ">&part;K<sub>P<sub>c</sub></sub></em>.</p>
 
 <div class="Note">
 <p><em>Remark</em>: Since the function
-<em class="EQ">&theta;: &reals;/&integers; &rarr;
+<em class="EQ">&phi;: &reals;/&integers; &rarr;
 S<sup>1</sup> &subset; &complexes;</em> defined by
-<em class="EQ">&theta;(t) = e<sup>2&pi;it</sup></em>
+<em class="EQ">&phi;(t) = e<sup>2&pi;it</sup></em>
 is an isomorphism of groups between
 <em class="EQ">&reals;/&integers;</em> and <em class="EQ">S<sup>1</sup></em>,
 we may treat <em class="EQ">S<sup>1</sup></em> as
-<em class="EQ">&reals;/&integers;</em>.  We note that
-<em class="EQ">&theta;(t<sub>1</sub>+t<sub>2</sub>)
+<em class="EQ">&reals;/&integers;</em>.  Recall that
+<em class="EQ">S<sup>1</sup></em> is a multiplicative group and
+<em class="EQ">&reals;/&integers;</em> is an additive group, and
+<em class="EQ">&phi;</em> is an isomorphism of groups because
+<em class="EQ">&phi;(t<sub>1</sub>+t<sub>2</sub>)
 = e<sup>2&pi;i(t<sub>1</sub>+t<sub>2</sub>)</sup>
 = e<sup>2&pi;t<sub>1</sub></sup> e<sup>2&pi;t<sub>2</sub></sup>
-= &theta;(t<sub>1</sub>) &theta;(t<sub>2</sub>)</em>.  Thus, we may consider
+= &phi;(t<sub>1</sub>) &phi;(t<sub>2</sub>)</em>.
+Thus, we may consider
 <em class="EQ">&psi;<sub>c</sub>: &reals;/&integers; &rarr; 
 &part;K<sub>P<sub>c</sub></sub></em>
 defined by <em class="EQ">&psi;<sub>c</sub>(t) =
@@ -1132,54 +1162,13 @@ defined by <em class="EQ">&psi;<sub>c</sub>(t) =
 &part;K<sub>P<sub>c</sub></sub></em> when this is more convenient.</p>
 </div>
 
-<!--
-
-<div class="Note">
-<p><em>Remarque</em>: Puisque la fonction
-<em class="EQ">&phi;: &reals;/&integers; &rarr;
-S<sup>1</sup> &subset; &complexes;</em> définie par
-<em class="EQ">&phi;(t) = e<sup>2&pi;it</sup></em>
-est un isomorphisme de groupes entre
-<em class="EQ">&reals;/&integers;</em> et <em class="EQ">S<sup>1</sup></em>,
-nous pouvont identifier <em class="EQ">S<sup>1</sup></em> à
-<em class="EQ">&reals;/&integers;</em>.  Nous notons que
-<em class="EQ">&phi;(t<sub>1</sub>+t<sub>2</sub>)
-= e<sup>2&pi;i(t<sub>1</sub>+t<sub>2</sub>)</sup>
-= e<sup>2&pi;t<sub>1</sub></sup> e<sup>2&pi;t<sub>2</sub></sup>
-= &phi;(t<sub>1</sub>) &phi;(t<sub>2</sub>)</em>.  Ainsi, nous pouvons
-identifier <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> 
-défine par <em class="EQ">T(z) = z<sup>2</sup></em> à
-<em class="EQ">T:&reals;/&integers; &rarr; &reals;/&integers;</em> 
-défine par <em class="EQ">T(t) = 2t</em> quand cela est plus pratique.</p>
-</div>
-
-<div class="Note">
-<p><em>Remark</em>: Since the function
-<em class="EQ">&phi;: &reals;/&integers; &rarr;
-S<sup>1</sup> &subset; &complexes;</em> defined by
-<em class="EQ">&phi;(t) = e<sup>2&pi;it</sup></em>
-is an isomorphism of groups between
-<em class="EQ">&reals;/&integers;</em> and <em class="EQ">S<sup>1</sup></em>,
-we may treat <em class="EQ">S<sup>1</sup></em> as
-<em class="EQ">&reals;/&integers;</em>.  We note that
-<em class="EQ">&phi;(t<sub>1</sub>+t<sub>2</sub>)
-= e<sup>2&pi;i(t<sub>1</sub>+t<sub>2</sub>)</sup>
-= e<sup>2&pi;t<sub>1</sub></sup> e<sup>2&pi;t<sub>2</sub></sup>
-= &phi;(t<sub>1</sub>) &phi;(t<sub>2</sub>)</em>.  Thus, we may
-treat <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> 
-defined by <em class="EQ">T(z) = z<sup>2</sup></em> as
-<em class="EQ">T:&reals;/&integers; &rarr; &reals;/&integers;</em> 
-defined by <em class="EQ">T(t) = 2t</em> when this is more conveniet.</p>
-</div>
--->
-
 <div class="Note">
 <p><em>Remark</em>: Before diving deeper into the study of external
 rays  we need to review some result about the function
 <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> defined by
 <em class="EQ">T(z) = z<sup>2</sup></em>.</p>
 
-<p>Using the isomorphism <em class="EQ">&theta;: &reals;/&integers; &rarr;
+<p>Using the isomorphism <em class="EQ">&phi;: &reals;/&integers; &rarr;
 S<sup>1</sup> &subset; &complexes;</em> defined in the previous
 remark, we may consider
 <em class="EQ">T: &reals;/&integers; &rarr; &reals;/&integers;</em>
@@ -1322,7 +1311,7 @@ then <em class="EQ">&mu;<sub>c</sub></em> can be extended to a
 continuous function on
 <em class="EQ"><span class="EQ_Over">B<sub>1</sub>(0)</span></em>
 with
-<em class="EQ">&mu;<sub>c</sub>(S<sup>1</sup>) = &part; U<sub>c</sub>M</em>.
+<em class="EQ">&mu;<sub>c</sub>(S<sup>1</sup>) = &part;U<sub>c</sub></em>.
 Let <em class="EQ">z = &mu;<sub>c</sub>(1)</em> be the <em>root</em>
 of <em class="EQ">U<sub>c</sub></em>.  Then
 <em class="EQ">P<sub>c</sub><sup>m</sup>(z) = z</em> and
@@ -1351,7 +1340,8 @@ period <em class="EQ">2</em> given by
 <em class="EQ">-1</em> is effectively a critical value of
 <em class="EQ">P<sub>-1</sub></em>.  A little look at the graph of
 <em class="EQ">P<sub>-1</sub><sup>2</sup>:&reals; &rarr; &reals;</em>
-shows that <em class="EQ">z = (1-5<sup>1/2</sup>)/2 &approx; -0.618034</em>
+shows that <em class="EQ">z = &gamma;<sub>W<sub>1/2</sub></sub>(1)
+= (1-5<sup>1/2</sup>)/2 &approx; -0.618034</em>
 is an repulsive fixed point of <em class="EQ">P<sub>-1</sub></em>.
 Since there must be two consecutive values from
 <em class="EQ">{1/3,2/3}</em> in
@@ -1388,7 +1378,8 @@ period <em class="EQ">4</em> given approximately by</p>
 0.7748-0.6662i, 0, ...}</em> .
 </div>
 <p>We note that <em class="EQ">c</em> is effectively a critical value of
-<em class="EQ">P<sub>c</sub></em>.  The set
+<em class="EQ">P<sub>c</sub></em>.  Let
+<em class="EQ">z = &gamma;<sub>W</sub>(1)</em>.  The set
 <em class="EQ">&psi;<sub>c</sub><sup>-1</sup>({z})</em>
 must contain two consecutive values from
 <em class="EQ">{1/15,2/15, ...,14/15}</em>.  Since
@@ -1425,24 +1416,25 @@ results in this subsection are also valid if <em class="EQ">0</em> belongs
 to a attractive periodic orbit.</p> 
 
 <p>We consider the polynomial functions <em class="EQ">P<sub>c</sub></em>
-and assume that <em class="EQ">D<sub>i</sub></em> for
-<em class="EQ">1 &le; i &le; I</em> are the connected components of
+and assume that <em class="EQ">D<sub>j</sub></em> for
+<em class="EQ">1 &le; j &le; J</em> are the connected components of
 <em class="EQ">K<sub>P<sub>c</sub></sub> &setminus;
 J<sub>P<sub>c</sub></sub></em>.
 We have from <script language="javascript">
-  buildLinK("#propXI", "Proposition &#8554;",
-  "MMathSStat", "propXIID1", "_top");
-</script> that <em class="EQ">D<sub>i</sub></em> is simply connected.
-We can define an homeomorphism <em class="EQ">&rho;<sub>i</sub>:
-<span class="EQ_Over">D<sub>i</sub></span> &rarr;
+  buildLinK(fractal4.url_en+"#propXI", "Proposition &#8554; of the document "+
+  fractal4.text_en, "MMathSStat", "propXIID1", "_top");
+</script> that <em class="EQ">D<sub>j</sub></em> is simply connected.
+We can define an homeomorphism <em class="EQ">&rho;<sub>j</sub>:
+<span class="EQ_Over">D<sub>j</sub></span> &rarr;
 <span class="EQ_Over">B<sub>1</sub>(0)</span></em> for each
-<em class="EQ">i</em>.  A curve
+<em class="EQ">j</em>.  A curve
 <em class="EQ">L &subset; K<sub>P<sub>c</sub></sub></em> is a
 <em>regular arc</em> if
-<em class="EQ">&rho;(L &cap; <span class="EQ_Over">D<sub>i</sub></span>)</em>
+<em class="EQ">&rho;<sub>j</sub>(L &cap;
+<span class="EQ_Over">D<sub>j</sub></span>)</em>
 is a subset of two radius in
 <em class="EQ"><span class="EQ_Over">B<sub>1</sub>(0)</span></em> for
-all <em class="EQ">i</em>.  A subset <em class="EQ">B</em>
+all <em class="EQ">j</em>.  A subset <em class="EQ">B</em>
 of <em class="EQ">K<sub>P<sub>c</sub></sub></em> is
 <em>regularly connected</em>
 if, for every <em class="EQ">x,y &in; B</em>, there exists a regular
@@ -1459,16 +1451,18 @@ regularly connected set defined by
 </p>
 
 <div class="Example">
-<p><em>Example</em>: We have drawn the regular
-arc <em class="EQ">L</em> from
-<em class="EQ">w<sub>1</sub> = &rho;<sub>1</sub>(0) = -1</em> to
-<em class="EQ">w<sub>3</sub> = &rho;<sub>3</sub>(0) = 1</em> in
-<em class="EQ">K<sub>P<sub>-1</sub></sub></em>.  We note that this
-curve is unique and has to go through <em class="EQ">w<sub>2</sub> =
-&rho;<sub>2</sub>(0)</em> .</p>
+<p><em>Example</em>: We have drawn the regular arc
+<em class="EQ">L</em> from <em class="EQ">x &in; D<sub>1</sub></em> to
+<em class="EQ">y &in; D<sub>3</sub></em> in the figure below.
+The regular arc <em class="EQ">L</em> goes through
+<em class="EQ">w<sub>1</sub> = &rho;<sub>1</sub><sup>-1</sup>(0) = -1</em>,
+<em class="EQ">w<sub>2</sub> = &rho;<sub>2</sub><sup>-1</sup>(0) = 0</em> and
+<em class="EQ">w<sub>3</sub> = &rho;<sub>3</sub><sup>-1</sup>(0) = 1</em>
+in <em class="EQ">K<sub>P<sub>-1</sub></sub></em>.  This regular arc
+is unique.</p>
 
 <div class="center">
-  <img src="julia10.png" style="width: 250px"
+  <img src="julia10.png" style="width: 300px"
        alt="The regular arc from -1 to 1 in K_{-1}" class="framed">
 </div>
 </div>
@@ -1560,14 +1554,14 @@ of a polynomial function <em class="EQ">P<sub>c</sub></em> are called
 Let <em class="EQ">D</em> be a
 closed ball centred at <em class="EQ">z</em> that does not contain any
 remarkable points other than <em class="EQ">z</em> itself.  Moreover,
-suppose that <em class="EQ">L(z,w<sub>i</sub>)</em> for
-<em class="EQ">1 &le; i &le; I</em> are the <em>strands</em> of the
+suppose that <em class="EQ">L(z,w<sub>j</sub>)</em> for
+<em class="EQ">1 &le; j &le; J</em> are the <em>strands</em> of the
 branches of <em class="EQ">H<sub>c</sub></em> emanating from 
-<em class="EQ">z</em> where <em class="EQ">w<sub>i</sub></em> is the
+<em class="EQ">z</em> where <em class="EQ">w<sub>j</sub></em> is the
 first point of intersection of a branch with
 <em class="EQ">&part;D</em>.  The <em>accesses</em> to <em class="EQ">z</em>
 (relative to <em class="EQ">H<sub>c</sub></em>) are the connected components of 
-<em class="EQ">D &setminus; &cup;<sub>i&in;I</sub> L(z,z<sub>i</sub>)</em>.
+<em class="EQ">D &setminus; &cup;<sub>j&in;J</sub> L(z,z<sub>j</sub>)</em>.
 The following figure illustrate this definition in the case where
 there are three accesses to <em class="EQ">z</em>; the regions denoted
 by I, II and III.</p>
@@ -1616,24 +1610,26 @@ A<sub>c</sub></em>, let <em class="EQ">&mu;(z<sub>n</sub>)
 = &nu;(z<sub>m</sub>) &prod;<sub>n&le;i&le;m</sub> &tau;(z<sub>i</sub>)</em>
 where <em class="EQ">m &ge; n</em> is large enough to have that
 <em class="EQ">z<sub>m</sub> &in; A<sub>c</sub></em> is a periodic point.  
-Moreover, let <em class="EQ">&Ouml;<sub>c</sub></em>
+Moreover, let <em class="EQ">T<sub>c</sub></em>
 be the tree obtained from <em class="EQ">&Hcirc;<sub>c</sub></em> by adding
 <em class="EQ">&mu;(z<sub>m</sub>)-&nu;(z<sub>n</sub>)</em>
 extra strands at each point
-<em class="EQ">z<sub>n</sub> &in; A<sub>c</sub></em>.
-The tree <em class="EQ">&Ouml;<sub>c</sub></em> is a included in the
+<em class="EQ">z<sub>n</sub> &in; A<sub>c</sub></em> (this includes the
+strands associated to <em class="EQ">&beta;<sub>0</sub></em> and
+<em class="EQ">&beta;<sub>1</sub></em>.)&nbsp;
+The tree <em class="EQ">T<sub>c</sub></em> is a included in the
 tree <em class="EQ">P<sub>c</sub><sup>-1</sup>(&Hcirc;<sub>c</sub>)</em>.
 There are <em class="EQ">&mu;(z<sub>n</sub>)</em> strands and accesses
 at each <em class="EQ">z<sub>n</sub> &in; A<sub>c</sub></em>.
 Finally, we define a function
 <em class="EQ">u: &reals;/&integers; &rarr; {0,1}</em> by
-<em class="EQ">u(t) = i</em> if <em class="EQ">i/2 &le; t &lt; (i+1)/2</em>
-for <em class="EQ">i = 0,1</em>.</p>
+<em class="EQ">u(t) = j</em> if <em class="EQ">j/2 &le; t &lt; (j+1)/2</em>
+for <em class="EQ">j = 0,1</em>.</p>
 
 <div class="Theo" id="theoIV">
 <p><em>Theorem &#8547;</em>: Suppose that
-<em class="EQ">z &in; &Acirc;<sub>c</sub></em> and that
-<em class="EQ">&Xi;<sub>c</sub>(t)</em> is the external ray ending at
+<em class="EQ">z &in; A<sub>c</sub></em> and that
+<em class="EQ">&Xi;<sub>c</sub>(t)</em> is an external ray ending at
 <em class="EQ">z</em>.  Let
 <em class="EQ">t<sub>n</sub> &in; [0,1[</em> be such that
 <em class="EQ">&Xi;<sub>c</sub>(t<sub>n</sub>)
@@ -1669,12 +1665,12 @@ figure below.</p>
 </div>
 
 <p>If <em class="EQ">&Xi;<sub>c</sub>(t)
-= {&psi;<sub>c</sub>(re<sup>2&pi;ti</sup>) : r &gt; 1}</em>
+= {&psi;<sub>c</sub>(re<sup>2&pi;ti</sup>) : r &ge; 1}</em>
 is an external ray ending at <em class="EQ">z<sub>n</sub></em> and such that
 <em class="EQ">&psi;<sub>c</sub>(re<sup>2&pi;ti</sup>) &in; V</em> for
 <em class="EQ">r</em> closed enough to <em class="EQ">1</em>, then
 <em class="EQ">P<sub>c</sub>(&Xi;<sub>c</sub>(t))
-= {&psi;<sub>c</sub>(re<sup>4&pi;ti</sup>) : r &gt; 1}</em>
+= {&psi;<sub>c</sub>(re<sup>4&pi;ti</sup>) : r &ge; 1}</em>
 is an external ray ending at <em class="EQ">z<sub>n+1</sub></em> and such that
 <em class="EQ">&psi;<sub>c</sub>(re<sup>4&pi;ti</sup>) &in; W</em> for
 <em class="EQ">r</em> closed enough to <em class="EQ">1</em>.</p>
@@ -1687,10 +1683,10 @@ accesses under the action of <em class="EQ">P<sub>c</sub></em>.</p>
 
 <div class="Theo">
 <p><em>Corollary</em>: There is one and only one external ray (associated
-to <em class="EQ">&Ouml;<sub>c</sub></em>) per access.  The value of
+to <em class="EQ">T<sub>c</sub></em>) per access.  The value of
 <em class="EQ">t</em> for the external ray
 <em class="EQ">&Xi;<sub>c</sub>(t)</em> ending at
-<em class="EQ">z &in; &Acirc;<sub>c</sub></em> is always a rational
+<em class="EQ">z &in; A<sub>c</sub></em> is always a rational
 number of the reduced form <em class="EQ">p/q</em>
 where <em class="EQ">q</em> is prime if and only
 if <em class="EQ">z</em> is a periodic point.</p>
@@ -1700,7 +1696,8 @@ if <em class="EQ">z</em> is a periodic point.</p>
 <p><em>Example C</em>: We consider <em class="EQ">P<sub>c</sub></em>
 with <em class="EQ">c = i</em>.  We have that <em class="EQ">i</em> 
 is a Misiurewicz point; more precisely, we have the orbit 
-<em class="EQ">{0, i, i-1, -i, i-1, -i, ...}</em>.</p>
+<em class="EQ">{0, i, i-1, -i, i-1, -i, ...}</em>.  The eventual
+periodic orbit is pf period <em class="EQ">2</em>.</p>
 
 <p>Since <em class="EQ">&mu;(z<sub>0</sub>) = 2</em> and
 <em class="EQ">&mu;(z<sub>n</sub>) = 1</em> for <em class="EQ">n &gt; 0</em>,
@@ -1715,7 +1712,8 @@ region in white and <em class="EQ">u(t<sub>n</sub>) = 1</em> when the
 iteration is in the region in pink.  Hence,
 we get <em class="EQ">u(t<sub>1</sub>) = u(t<sub>2</sub>) = 0</em>,
 <em class="EQ">u(t<sub>3</sub>) = 1</em>,
-<em class="EQ">u(t<sub>4</sub>) = u(t<sub>2</sub>) = 0</em> and so on
+<em class="EQ">u(t<sub>4</sub>) = 0</em>,
+<em class="EQ">u(t<sub>5</sub>) = 1</em>, and so on
 as we can observe in the figure below.  Thus, we have that
 <em class="EQ">t = (0.0<span class="EQ_Over">01</span>)<sub>2</sub> = 1/6</em>
 for the external ray ending at <em class="EQ">z<sub>1</sub></em>.
@@ -1762,7 +1760,8 @@ more precisely, we have the orbit</p>
 0.327586-0.577759i, -0.327588+0.577755i}</em> .
 </div>
 
-<p>Since <em class="EQ">&mu;(z<sub>0</sub>) = 6</em> and
+<p>We eventually get a fixed point.
+Since <em class="EQ">&mu;(z<sub>0</sub>) = 6</em> and
 <em class="EQ">&mu;(z<sub>n</sub>) = 3</em> for <em class="EQ">n &gt; 0</em>,
 we have to add extra strands to <em class="EQ">&Hcirc;<sub>c</sub></em>:
 four extra strands at <em class="EQ">z<sub>0</sub></em> and two extra
@@ -1782,7 +1781,8 @@ we get <em class="EQ">u(t<sub>1</sub>) = u(t<sub>2</sub>) = 0</em>,
 <em class="EQ">u(t<sub>4</sub>) = 0</em>,
 <em class="EQ">u(t<sub>5</sub>) = 1</em>,
 <em class="EQ">u(t<sub>6</sub>) = 0</em>,
-<em class="EQ">u(t<sub>7</sub>) = u(t<sub>7</sub>) = 0</em>
+<em class="EQ">u(t<sub>7</sub>) = 0</em>,
+<em class="EQ">u(t<sub>8</sub>) = 1</em>,
 and so on as it can be observed in the figure below.  Thus,
 we have that <em class="EQ">t =
 (0.0010<span class="EQ_Over">100</span>)<sub>2</sub> = 9/56</em>
@@ -1800,7 +1800,7 @@ simply use the relation <em class="EQ">P<sub>c</sub>(&Xi;<sub>c</sub>(t))
 = &Xi;<sub>c</sub>(2t)</em>.  Using this relation, we find that the
 value of <em class="EQ">t</em> for the first external ray ending at 
 <em class="EQ">z<sub>4</sub></em> is
-<em class="EQ">2<sup>3</sup> 15/56 = 1/7 mod 1</em>.  If we use
+<em class="EQ">2<sup>5</sup> 9/56 = 1/7 mod 1</em>.  If we use
 <script language="javascript">
 buildLinK("#theoIV","Theorem &#8547;","MMathSStat","theoIVId2","_top"); 
 </script> to find the value of
@@ -1818,9 +1818,9 @@ buildLinK("#theoIV","Theorem &#8547;","MMathSStat","theoIVId2","_top");
 
 <p>After having read the previous examples, the reader may believe that the
 extra strands could have been predicted from the figure of
-<em class="EQ">J<sub>c</sub></em>.  However, the quality of figure is
+<em class="EQ">J<sub>c</sub></em>.  However, the quality of the figure is
 limited by the accuracy of the numerical computations and the computer
-screen resolution.  Thus, though the figure could be a used as an
+screen resolution.  Thus, though the figure could be used as an
 investigation tool, we need the theory to confirm the number of extra
 strands.</p>
 
@@ -1843,43 +1843,28 @@ on the Hubbard tree, its extensions and the remarkable points is quite
 interesting.  We provide a little bit more information on this topic
 below.</p>
 
-<p>Let <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup>
-= P<sub>c</sub><sup>-1</sup>(&Hcirc;<sub>c</sub>)</em>.
-We have that <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup>
-= R<sub>&Acirc;<sub>c</sub><sup>[1]</sup></sub></sub></em>
-where <em class="EQ">&Acirc;<sub>c</sub><sup>[1]</sup>
-= P<sub>c</sub><sup>-1</sup>(&Acirc;<sub>c</sub>)</em>.
-As we did in <script language="javascript">
+<p>Let <em class="EQ">H<sub>c</sub><sup>[1]</sup>
+= P<sub>c</sub><sup>-1</sup>(H<sub>c</sub>)</em>.
+We have that <em class="EQ">H<sub>c</sub><sup>[1]</sup>
+= R<sub>A<sub>c</sub><sup>[1]</sup></sub></sub></em>
+where <em class="EQ">A<sub>c</sub><sup>[1]</sup>
+= P<sub>c</sub><sup>-1</sup>(A<sub>c</sub>)</em>.
+It follows from <script language="javascript">
 buildLinK("#propIII","Proposition &#8546;","MMathSStat","propIIIId2","_top"); 
-</script>, we can express <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup></em>
-as <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup> =
-&Hcirc;<sub>+</sub><sup>[1]</sup> &cup;
-&Hcirc;<sub>-</sub><sup>[1]</sup></em> with
-<em class="EQ">&Hcirc;<sub>+</sub><sup>[1]</sup> &cap;
- &Hcirc;<sub>-</sub><sup>[1]</sup> = {0}</em>
-and <em class="EQ">c &in; &Hcirc;<sub>+</sub><sup>[1]</sup></em>.
-We have that <em class="EQ">P<sub>c</sub> : &Hcirc;<sub>+</sub><sup>[1]</sup>
-&rarr; &Hcirc;<sub>c</sub></em> and
-<em class="EQ">P<sub>c</sub> : &Hcirc;<sub>-</sub><sup>[1]</sup>
-&rarr; &Hcirc;<sub>c</sub></em> are homeomorphisms.  Hence, we may
-define two homeomorphisms
-<em class="EQ">Q<sub>+</sub> : &Hcirc;<sub>c</sub> &rarr;
-&Hcirc;<sub>+</sub><sup>[1]</sup></em> and
-<em class="EQ">Q<sub>-</sub> : &Hcirc;<sub>c</sub> &rarr;
-&Hcirc;<sub>-</sub><sup>[1]</sup></em> by
-<em class="EQ">Q<sub>+/-</sub>(w) = z</em> if and only if
-<em class="EQ">w = P<sub>c</sub>(z)</em> with
-<em class="EQ"> z &in; &Hcirc;<sub>c</sub></em>.
-Since <em class="EQ">0</em> is not a brnaching point, the number of
-branching points is preseved by these homeomorphisms.  Likewise, the
-number and the order of the strands are preserved by these
-homeomorphisms.</p>
-
-<p>Let <em class="EQ">L(&beta;<sub>0</sub>,0)</em> and
+</script> that we can express <em class="EQ">H<sub>c</sub><sup>[1]</sup></em>
+as <em class="EQ">H<sub>c</sub><sup>[1]</sup> =
+H<sub>+</sub><sup>[1]</sup> &cup; H<sub>-</sub><sup>[1]</sup></em> with
+<em class="EQ">H<sub>+</sub><sup>[1]</sup> =
+P<sub>c</sub><sup>-1</sup>(H<sub>+</sub>)</em>
+and <em class="EQ">H<sub>-</sub><sup>[1]</sup> =
+P<sub>c</sub><sup>-1</sup>(H<sub>-</sub>)</em>.
+We have that <em class="EQ">H<sub>+</sub><sup>[1]</sup> &cap;
+H<sub>-</sub><sup>[1]</sup> = {c}</em>.
+Let <em class="EQ">L(&beta;<sub>0</sub>,0)</em> and
 <em class="EQ">L(&beta;<sub>0</sub>,c)</em> be respectively the regular
 arcs from <em class="EQ">&beta;<sub>0</sub></em> to <em class="EQ">0</em>
 and from <em class="EQ">&beta;<sub>0</sub></em> to <em class="EQ">c</em>
-in <em class="EQ">&Hcirc;<sub>c</sub></em>.  We have that 
+in <em class="EQ">H<sub>c</sub><sup>[1]</sup></em>.  We have that 
 <em class="EQ">P<sub>c</sub>: L(&beta;<sub>0</sub>,0) &rarr;
 L(&beta;<sub>0</sub>,c)</em> is an homeomorphism.  Thus, we may define
 the inverse function
@@ -1891,22 +1876,20 @@ L(&beta;<sub>0</sub>,0)</em> by
 Let <em class="EQ">w<sub>n</sub> = Q<sub>c</sub><sup>n</sup>(c)</em> for
 <em class="EQ">n &ge; 1</em>.  We have that
 <em class="EQ">w<sub>1</sub> = 0</em> and <em class="EQ">w<sub>n</sub> &in;
-L(&beta;<sub>0</sub>,c)</em> for <em class="EQ">n &ge; 1</em>.
-Moreover, <em class="EQ">w<sub>n+1</sub> = Q<sub>+</sub>(w<sub>n</sub>)</em>
-for <em class="EQ">w<sub>n</sub> &in; &Hcirc;<sub>c</sub></em>.
+L(&beta;<sub>0</sub>,0)</em> for <em class="EQ">n &ge; 1</em>.
 Let <em class="EQ">n<sup>&ast;</sup> = sup{n : w<sub>n</sub> &in;
-&Hcirc;<sub>c</sub>}</em>.
+H<sub>c</sub>}</em>.
 We have that <em class="EQ">n<sup>&ast;</sup> = &infin;</em> if and
-only if <em class="EQ">&beta;<sub>0</sub> &in; &Hcirc;<sub>c</sub></em>.  Thus
+only if <em class="EQ">&beta;<sub>0</sub> &in; H<sub>c</sub></em>.  Thus
 <em class="EQ">n<sup>&ast;</sup> = &infin;</em> if and only if
-<em class="EQ">&beta;<sub>0</sub> &in; &Hcirc;<sub>-</sub></em>
+<em class="EQ">&beta;<sub>0</sub> &in; H<sub>-</sub></em>
 is a fixed point.  In this last case, we get that
 <em class="EQ">H<sub>c</sub> = &Hcirc;<sub>c</sub></em>.
 If <em class="EQ">n<sup>&ast;</sup> &lt; &infin;</em>, then we get an
 homeomorphism from <em class="EQ">&Hcirc;<sub>c</sub></em> onto the
 regular envelop of <em class="EQ">H<sub>c</sub> &cup;
 {-w<sub>n<sup>&ast;</sup>+1</sub>, w<sub>n<sup>&ast;</sup>+1</sub>}</em>
-inside <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup></em>.  This
+inside <em class="EQ">H<sub>c</sub><sup>[1]</sup></em>.  This
 homeomorphism is the identity on <em class="EQ">H<sub>c</sub></em>
 and maps
 <em class="EQ">(-1)<sup>i</sup>w<sub>n<sup>&ast;</sup>+1</sub></em> to
@@ -2044,7 +2027,7 @@ this topic.</p>
 <p><em>Proposition</em>: Suppose that
 <em class="EQ">t &in; &reals;/&integers;</em>.
 Then, the external rays <em class="EQ">&Xi;<sub>M</sub>(t)</em>
-end at these points
+end at the points
 <em class="EQ">v = &gamma;<sub>M</sub>(t) &in; &part; M</em> that are
 either a root of an hyperbolic component <em class="EQ">W</em> of
 <em class="EQ">M</em> or a Misiurewicz point.  More precisely,</p>
@@ -2220,7 +2203,7 @@ of <em class="EQ">N<sub>c</sub></em>.  If we zoom in the region
 of the parameter space of <em class="EQ">N<sub>c</sub></em> around the
 point <em class="EQ">c = 0.51i</em>, then we get the figure below.
 For the points <em class="EQ">c</em> belonging to the Mandelbrot set
-in the figure, the orbits
+in the figure below, the orbits
 <em class="EQ">{N<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em> 
 are eventually periodic and the periods are multiples
 of <em class="EQ">3</em>.</p>

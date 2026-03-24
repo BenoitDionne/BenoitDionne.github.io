@@ -107,12 +107,14 @@ générées par ordinateur; c'est-à-dire, <em>l'ensemble de Mandelbrot</em>. </
 
 <p>Comme pour le document précédent sur les ensembles de Julia,
 certains lecteurs pourraient choisir d'ignorer les sections
-théoriques et de lire seulement la section sur l'<script language="javascript">
+théoriques et plutôt choisir de lire seulement la section sur
+l'<script language="javascript">
 buildLinK("#MandelbrotFig", "Exploration graphique de l'ensemble de Mandelbrot",
 "MMathSStat", "nextID", "_top");
 </script>
 où ils peuvent dessiner l'ensemble de Mandelbrot et générer les
-ensembles de Julia pour différentes valeurs de l'ensemble de.</p>
+ensembles de Julia pour différentes points de l'ensemble de
+Mandelbrot.</p>
 
 <hr class="MMathSStat" style="clear: both;">
 
@@ -182,7 +184,7 @@ J<sub>P<sub>c</sub></sub> est connexe}</em>
 ont démontré le résultat suivant qui semble contredire ce que l'on
 observe dans la figure précédente.  Nous ne devons jamais oublier que
 nos applications graphiques sont limitées par la précision des calculs
-et la résolution de l'écran d'ordinateur.  Il n'est donc pas
+numériques et la résolution de l'écran d'ordinateur.  Il n'est donc pas
 surprenant que des détailles minuscules peuvent être manquant dans
 la figure.</p>
 
@@ -212,7 +214,7 @@ de Mandelbrot.  Nous laissons aux lecteurs le soin de démontrer
 rigoureusement que <em class="EQ">&#8477; &cap; M = [-2,1/4]</em>. 
 Ce résultat peut être visualisé avec l'application suivante.
 Cette application trace le graphe en forme de toile d'araignée associé
-à <em class="EQ">P<sub>c</sub></em> avec
+à <em class="EQ">P<sub>c</sub></em> pour
 <em class="EQ">c &in; &reals;</em> et la condition initiale
 <em class="EQ">z<sub>0</sub> = 0</em>.  Nous notons que l'orbite
 <em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>, où
@@ -244,8 +246,9 @@ autres valeurs de <em class="EQ">c &in; &reals;</em>.</p>
 Quand l'orbite n'est pas bornée, le graphe en forme de toiles
 d'araignée croît très rapidement.</p>
 <p>Un expression de la forme <em class="EQ">1/2</em> n'est pas
-acceptée car le contenu de ce champ n'est pas évalué.  Donc
-<em class="EQ">1/2</em> n'est pas interprété comme étant un nombre.</p>
+acceptée pour la valeur de <em class="EQ">c</em> car le contenu de ce
+champ n'est pas évalué.  Donc <em class="EQ">1/2</em> n'est pas
+interprété comme étant un nombre.</p> 
 </td>
 </tr>
 </table>
@@ -285,8 +288,12 @@ a une orbite périodique attractive ou super-attractive}</em> .
 l'unique point critique fini de <em class="EQ">P<sub>c</sub></em>.
 Ainsi, si <em class="EQ">P<sub>c</sub></em> a une orbite périodique
 attractive ou super-attractive, alors <em class="EQ">0</em> est dans
-le basin d'attraction de cette orbite périodique.  Puisque
-<em class="EQ">H</em> est ouvert, nous avons que
+le basin d'attraction de cette orbite périodique.  Nous avons que
+<em class="EQ">H</em> est un ensemble ouvert car la fonction
+<em class="EQ">G:&complexes; &times; &complexes; &rarr; &complexes;</em>
+définie par <em class="EQ">G(z,c) = P<sub>c</sub>(z)</em> est
+analytique par rapport à chacune des variables (voir la
+démonstration de la proposition suivante).  Ainsi,
 <em class="EQ">H</em> est un sous-ensemble de l'intérieur de
 <em class="EQ">M</em>.</p>
 
@@ -361,7 +368,7 @@ attractive ou super-attractive.  Deuxièmement, supposons que
 <em class="EQ">z</em> a un point périodique attractif ou
 super-attractif de période <em class="EQ">k</em> de
 <em class="EQ">P<sub>c</sub></em>.
-Soit <em class="EQ">{z<sub>i</sub>}<sub>i&geq;0</sub></em> l'orbite
+Soit <em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em> l'orbite
 périodique contenant <em class="EQ">z</em>; c'est-à-dire,
 <em class="EQ">z<sub>0</sub> = z</em> et
 <em class="EQ">z<sub>j+1</sub> = P<sub>c</sub>(z<sub>j</sub>)</em>
@@ -400,7 +407,7 @@ La <em>racine</em> de <em class="EQ">W</em> est le point
 <p>Par définition, <em class="EQ">P<sub>c</sub></em> avec
 <em class="EQ">c = &gamma;<sub>M</sub>(0)</em> a une orbite périodique
 super-attractive, et <em class="EQ">P<sub>c</sub></em> avec
-<em class="EQ">c = &gamma;<sub>W</sub>(1) &in; &part; W</em>
+<em class="EQ">c = &gamma;<sub>W</sub>(1) &in; &part;W</em>
 a une orbite périodique neutre.  Dans ce dernier cas, la période de
 l'orbite périodique est <em class="EQ">k</em> ou un diviseur de
 <em class="EQ">k</em>.</p>
@@ -411,12 +418,15 @@ l'orbite périodique est <em class="EQ">k</em> ou un diviseur de
 
 <p>Soit <em class="EQ">W<sub>0</sub></em> la composante hyperbolique
 de l'ensemble de Mandelbrot <em class="EQ">M</em> telle que
-<em class="EQ">o &in; W<sub>0</sub></em>.  Nous avons que</p>
+<em class="EQ">0 &in; W<sub>0</sub></em>.  Nous avons que</p>
 <div class="EQ_center">
 <em class="EQ_Display">W<sub>0</sub> &subset;
 {c &in; &complexes; : P<sub>c</sub> a un point fixe attractif ou
 super-attractif}</em> .
 </div>
+<p>car <em class="EQ">P<sub>0</sub></em> a un point fixe
+super-attractif à l'origine.</p> 
+
 <p>Nous avons aussi le résultat suivant.</p>
 
 <div class="Theo" id="propI">
@@ -445,10 +455,10 @@ Nous avons de l'<script language="javascript">
 buildLinK(fractal4.url_fr+"#egA",
 "Exemple A du document "+fractal4.text_fr,
 "MMathSStat", fractal4.id+"egAID", fractal4.target);
-</script> que <em class="EQ">f<sub>c</sub></em> est conformément
+</script> que <em class="EQ">P<sub>c</sub></em> est conformément
 conjuguée à <em class="EQ">f<sub>&#120583;</sub></em>: c'est-à-dire,
 <em class="EQ">H&#8728;f<sub>&#120583;</sub></sub>
-= f<sub>c</sub>&#8728;H</em> avec
+= P<sub>c</sub>&#8728;H</em> avec
 <em class="EQ">H(z) = -&#120583;z+&#120583;/2</em> et
 <em class="EQ">c = &#120583;/2-&#120583;<sup>2</sup>/4</em>.
 Le point fixe <em class="EQ">z = 0</em> de
@@ -498,7 +508,7 @@ pour <em class="EQ">k=1,3</em>.</li>
 <p> Les disques de couleurs mentionnés ci-dessus devraient être
 tangent au cardioïde <em class="EQ">W<sub>0</sub></em>.
 Malheureusement, en raison de la limite sur la précision des
-calculs et la résolution de l'écran d'ordinateur, cela n'est pas
+calculs numériques et la résolution de l'écran d'ordinateur, cela n'est pas
 le cas dans la figure ci-dessous.  Le lecteur doit utiliser un petit
 peu d'imagination.</p>
 
@@ -544,7 +554,7 @@ les calculs numériques de la fonction de
 peut détermine que <em class="EQ">P<sub>c<sub></em> a une orbite
 périodique attractive au lieu d'un point fixe attractif.
 Pour des raisons semblables, des points
-<em cllass="EQ">c &in; W<sub>1/2</sub></em> très près du point de
+<em class="EQ">c &in; W<sub>1/2</sub></em> très près du point de
 bifurcation à <em class="EQ">-3/4</em> peuvent être colorés en rouge
 par erreur.  Cela est dû au fait que les deux points de l'orbite périodique
 <em class="EQ">{P<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
@@ -648,7 +658,7 @@ z<sup>4</sup>+2cz<sup>2</sup>+c<sup>2</sup> + c = z
 = (1&plusmn;(1-4c)<sup>1/2</sup>)/2</em>.  Donc,
 <em class="EQ">z<sup>4</sup>+2cz<sup>2</sup>-z+c<sup>2</sup>+c</em>
 est divisible par
-<em class="EQ">(z-z<sub>-</sub>((z-z<sub>+</sub>)= z<sup>2</sup>-z+c</em>.
+<em class="EQ">(z-z<sub>-</sub>)(z-z<sub>+</sub>)= z<sup>2</sup>-z+c</em>.
 Nous obtenons que</p>
 <div class="EQ_center">
 <em class="EQ_Display">
@@ -664,15 +674,15 @@ w<sub>-</sub>, ...}</em> de période <em class="EQ">2</em>.  Cette
 orbite est attractive si
 <em class="EQ">|(P<sub>c</sub><sup>2</sup>)'(w<sub>+</sub>)|
 = 4|c+1| &lt; 1</em>.  Donc
-<em class="EQ">W<sub>1/2</sub> = B<sub>1/2</sub>(-1)</em>.
+<em class="EQ">W<sub>1/2</sub> = B<sub>1/4</sub>(-1)</em>.
 Ainsi
 <em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>(u) = -1 + u/4</em>
 pour <em class="EQ">u &in;
 <span class="EQ_Over">B<sub>1</sub>(0)</span></em>.</p>
 
 <p>Nous obtenons le point de bifurcation
-<em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>(1) = 
-&gamma;<sub>W<sub>0</sub></sub>(0) = -3/4</em>
+<em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>(0) = 
+&gamma;<sub>W<sub>0</sub></sub>(1) = -3/4</em>
 entre <em class="EQ">W<sub>1/2</sub></em> et
 <em class="EQ">W<sub>0</sub></em> comme il se doit.
 Nous obtenons aussi le point de bifurcation
@@ -719,7 +729,7 @@ avec
 <em class="EQ">p/q &in; &rationals; &cap; ]0,1]</em> dans sa forme réduite.
 Ce phénomène se répète pour toutes les composantes hyperboliques de
 l'ensemble de Mandelbrot, pas seulement pour
-<em class="EQ">W<sup>0</sub></em>.</p>
+<em class="EQ">W<sub>0</sub></em>.</p>
 
 <p>Nous considérons finalement la région à l'intérieure du rectangle
 A dans la <script language="javascript">
@@ -802,8 +812,8 @@ lorsque <em class="EQ">|z| &rarr; &infin;</em>, et
 z<sup>2</sup></em> pour <em class="EQ">|z| &gt; 1</em>.
 </div>
 
-<p>Nous avons cependant besoin d'un résultat un peu plus fort pour
-notre étude des ensembles de Julia.</p>
+<p>Nous fournissons cependant un résultat un peu plus fort pour
+l'étude générale des ensembles de Julia.</p>
 
 <div class="Theo" id="propII">
   <p><em>Proposition &#8545;</em>: Soit
@@ -828,7 +838,7 @@ analytique <em class="EQ">&phi;<sub>c</sub>:
 lorsque <em class="EQ">|z| &rarr; &infin;</em>, et</li>
 <li><em class="EQ">
 &phi;<sub>c</sub>&#8728;P<sub>c</sub>&#8728;&phi;<sub>c</sub><sup>-1</sup> =
-z<sup>2</sup></em> pour <em class="EQ">|z| &gt; b</em>.</li>
+P<sub>0</sub></em> pour <em class="EQ">|z| &gt; b</em>.</li>
 </ul>
 </div>
 
@@ -877,15 +887,15 @@ K<sub>P<sub>c</sub></sub> &rarr; &reals;</em> de la façon suivante.</p>
 <tr>
 <td><em class="EQ">G<sub>c</sub>(z) = </em></td>
 <td><em class="EQ">&#9128;</em></td>
-<td><em class="EQ">G<sub>c</sub>(P<sup>n</sup>(z))/2<sup>n</sup> si
-z &in; <span class="EQ_Over">B<sub>a</sub>(0)</span> &setminus; K<sub>P</sub>
-</em> </td>
+<td><em class="EQ">G<sub>c</sub>(P<sub>c</sub><sup>n</sup>(z))/2<sup>n</sup> si
+z &in; <span class="EQ_Over">B<sub>a</sub>(0)</span> &setminus;
+K<sub>P<sub>c</sub></sub></em> </td>
 </tr>
 <tr>
 <td></td>
 <td><em class="EQ">&#9129;</em></td>
 <td><em class="EQ"> &nbsp;&nbsp;&nbsp;&nbsp;
-où n est assez grand pour avoir P<sup>n</sup>(z) &in;
+où n est assez grand pour avoir P<sub>c</sub><sup>n</sup>(z) &in;
 &complexes; &setminus; <span class="EQ_Over">B<sub>a</sub>(0)</span></em></td>
 </tr>
 </table>
@@ -901,6 +911,21 @@ lorsque <em class="EQ">dist(z,K<sub>P<sub>c</sub></sub>) &rarr; 0</em>.
 De plus, <em class="EQ">G<sub>c</sub>(z) =
 G<sub>c</sub>(P<sub>c</sub>(z))/2</em> pour tous
 <em class="EQ">z &in; &complexes; &setminus; K<sub>P</sub></em>.</p>
+</div>
+
+<div class="Note">
+<p><em>Remarque</em>: Il découle de
+<em class="EQ">&phi;<sub>c</sub>(z)/z &rarr; 1</em>
+lorsque <em class="EQ">|z| &rarr; &infin;</em> que
+<em class="EQ">ln|(&phi;<sub>c</sub>(z)/z)|
+= ln|&phi;<sub>c</sub>(z)|- ln|z|
+= G<sub>c</sub>(z)- ln|z| &rarr; 0</em>
+lorsque <em class="EQ">|z| &rarr; &infin;</em>.
+De plus, puisuqe <em class="EQ">n &rarr; &infin;</em> dans la
+définition de <em class="EQ">G<sub>c</sub></em> ci-dessus lorsque
+<em class="EQ">dist(z,K<sub>P<sub>c</sub></sub>) &rarr; 0</em>,
+nous obtenons que <em class="EQ">G<sub>c</sub>(z) &rarr; 0</em> lorsque
+<em class="EQ">dist(z,K<sub>P<sub>c</sub></sub>) &rarr; 0</em>.</p>
 </div>
 
 <p>Nous démontrons que la fonction <em class="EQ">G<sub>c</sub></em> est bien
@@ -926,7 +951,7 @@ G<sub>c</sub>(P<sub>c</sub>(z))/2</em> .
 </div>
 <p>pour <em class="EQ">z &in; &complexes; &setminus;
 <span class="EQ_Over">B<sub>b</sub>(0)</span></em>.
-Plus généralement, nous avons que</p>
+Par induction, nous obtenons que</p>
 <div class="EQ_center">
 <em class="EQ_Display">G<sub>c</sub>(z) =
 G<sub>c</sub>(P<sub>c</sub><sup>n</sup>(z))/2<sup>n</sup></em>
@@ -1094,7 +1119,9 @@ plus petite que la notre.  Néanmoins, les courbes équipotentielles
 <em class="EQ">&Gamma;<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)</em>
 sont les mêmes sauf pour un changement de dimension.</p>
 
-<p>Dans la figure ci-dessous, nous traçons les courbes équipotentielles
+<div class="Example">
+<p><em>Exemple</em>: Dans la figure ci-dessous, nous traçons les
+courbes équipotentielles 
 <em class="EQ">&Gamma;<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)</em>
 pour <em class="EQ">j = 4, 6, 8, 10, 12</em> associées à l'ensemble de
 Julia plein <em class="EQ">K<sub>P<sub>c</sub></sub></em> pour
@@ -1104,6 +1131,7 @@ Julia plein <em class="EQ">K<sub>P<sub>c</sub></sub></em> pour
   <img src="julia6.png" style="width: 400px"
       alt="Le lapin de Daoudy avec quelques courbes équipotentielles qui lui sont associées."
        class="framed">
+</div>
 </div>
 
 <p>Si l'ensemble de Julia plein
@@ -1136,17 +1164,21 @@ aboutissent au même point sur
 
 <div class="Note">
 <p><em>Remarque</em>: Puisque la fonction
-<em class="EQ">&theta;: &reals;/&integers; &rarr;
+<em class="EQ">&phi;: &reals;/&integers; &rarr;
 S<sup>1</sup> &subset; &complexes;</em> définie par
-<em class="EQ">&theta;(t) = e<sup>2&pi;it</sup></em>
+<em class="EQ">&phi;(t) = e<sup>2&pi;it</sup></em>
 est un isomorphisme de groupes entre
 <em class="EQ">&reals;/&integers;</em> et <em class="EQ">S<sup>1</sup></em>,
 nous pouvons traiter <em class="EQ">S<sup>1</sup></em> comme étant
-<em class="EQ">&reals;/&integers;</em>.  Nous notons que
-<em class="EQ">&theta;(t<sub>1</sub>+t<sub>2</sub>)
+<em class="EQ">&reals;/&integers;</em>.
+Rappelons que
+<em class="EQ">S<sup>1</sup></em> est un groupe multiplicatif et
+<em class="EQ">&reals;/&integers;</em> est un groupe additif, et
+<em class="EQ">&phi;</em> est un isomorphisme de groupes car 
+<em class="EQ">&phi;(t<sub>1</sub>+t<sub>2</sub>)
 = e<sup>2&pi;i(t<sub>1</sub>+t<sub>2</sub>)</sup>
 = e<sup>2&pi;t<sub>1</sub></sup> e<sup>2&pi;t<sub>2</sub></sup>
-= &theta;(t<sub>1</sub>) &theta;(t<sub>2</sub>)</em>.  Donc, nous
+= &phi;(t<sub>1</sub>) &phi;(t<sub>2</sub>)</em>.  Donc, nous
 pouvons considérer
 <em class="EQ">&psi;<sub>c</sub>: &reals;/&integers; &rarr; 
 &part;K<sub>P<sub>c</sub></sub></em>
@@ -1163,7 +1195,7 @@ des rayons externes, nous devons réviser quelques résultats au sujet
 de la fonction <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em>
 définie par <em class="EQ">T(z) = z<sup>2</sup></em>.</p>
 
-<p>À l'aide de l'isomorphisme <em class="EQ">&theta;: &reals;/&integers; &rarr;
+<p>À l'aide de l'isomorphisme <em class="EQ">&phi;: &reals;/&integers; &rarr;
 S<sup>1</sup> &subset; &complexes;</em> définie dans la remarque
 précédente, nous pouvons considérer
 <em class="EQ">T: &reals;/&integers; &rarr; &reals;/&integers;</em>
@@ -1308,7 +1340,7 @@ alors <em class="EQ">&mu;<sub>c</sub></em> peut être étendu à une
 fonction continue sur
 <em class="EQ"><span class="EQ_Over">B<sub>1</sub>(0)</span></em>
 avec
-<em class="EQ">&mu;<sub>c</sub>(S<sup>1</sup>) = &part; U<sub>c</sub>M</em>.
+<em class="EQ">&mu;<sub>c</sub>(S<sup>1</sup>) = &part;U<sub>c</sub></em>.
 Soit <em class="EQ">z = &mu;<sub>c</sub>(1)</em> la <em>racine</em>
 de <em class="EQ">U<sub>c</sub></em>.  Alors
 <em class="EQ">P<sub>c</sub><sup>m</sup>(z) = z</em> et
@@ -1337,7 +1369,8 @@ a une orbite périodique super-attractive de période
 <em class="EQ">-1</em> est effectivement une valeur critique de
 <em class="EQ">P<sub>-1</sub></em>.  Un coup d'oeil au graphe de 
 <em class="EQ">P<sub>-1</sub><sup>2</sup>:&reals; &rarr; &reals;</em>
-montre que <em class="EQ">z = (1-5<sup>1/2</sup>)/2 &approx; -0.618034</em>
+montre que <em class="EQ">z = &gamma;<sub>W<sub>1/2</sub></sub>(1)
+= (1-5<sup>1/2</sup>)/2 &approx; -0.618034</em>
 est un point fixe répulsif de <em class="EQ">P<sub>-1</sub></em>.
 Comme il doit y avoir deux valeurs consécutives de
 <em class="EQ">{1/3,2/3}</em> dans
@@ -1374,7 +1407,8 @@ a une orbite périodique super-attractive de période
 0.7748-0.6662i, 0, ...}</em> .
 </div>
 <p>Nous notons que <em class="EQ">c</em> est effectivement une valeur
-critique de <em class="EQ">P<sub>c</sub></em>.  L'ensemble
+critique de <em class="EQ">P<sub>c</sub></em>.  Soit
+<em class="EQ">z = &gamma;<sub>W</sub>(1)</em>.  L'ensemble
 <em class="EQ">&psi;<sub>c</sub><sup>-1</sup>({z})</em>
 doit contenir deux valeurs consécutives de
 <em class="EQ">{1/15,2/15, ...,14/15}</em>.  Puisque
@@ -1414,24 +1448,26 @@ section sont valides si <em class="EQ">0</em> appartient à une orbite
 périodique attractive.</p>
 
 <p>Nous considérons la fonction polynomiale <em class="EQ">P<sub>c</sub></em>
-et assumons que <em class="EQ">D<sub>i</sub></em> pour
-<em class="EQ">1 &le; i &le; I</em> sont les composantes connexes de
+et assumons que <em class="EQ">D<sub>j</sub></em> pour
+<em class="EQ">1 &le; j &le; J</em> sont les composantes connexes de
 <em class="EQ">K<sub>P<sub>c</sub></sub> &setminus;
 J<sub>P<sub>c</sub></sub></em>.
 Nous avons de la <script language="javascript">
-  buildLinK("#propXI", "Proposition &#8554;",
-  "MMathSStat", "propXIID1", "_top");
-</script> que <em class="EQ">D<sub>i</sub></em> est simplement connexe.
-Nous pouvons définir un homéomorphisme <em class="EQ">&rho;<sub>i</sub>:
-<span class="EQ_Over">D<sub>i</sub></span> &rarr;
+  buildLinK(fractal4.url_fr+"#propXI", "Proposition &#8554; du document "+
+  fractal4.text_fr, "MMathSStat", "propXIID1", "_top");
+</script>
+que <em class="EQ">D<sub>j</sub></em> est simplement connexe.
+Nous pouvons définir un homéomorphisme <em class="EQ">&rho;<sub>j</sub>:
+<span class="EQ_Over">D<sub>j</sub></span> &rarr;
 <span class="EQ_Over">B<sub>1</sub>(0)</span></em> pour chaque
-<em class="EQ">i</em>.  Un courbe
+<em class="EQ">j</em>.  Un courbe
 <em class="EQ">L &subset; K<sub>P<sub>c</sub></sub></em> est un
 <em>arc régulier</em> si
-<em class="EQ">&rho;(L &cap; <span class="EQ_Over">D<sub>i</sub></span>)</em>
+<em class="EQ">&rho;<sub>j</sub>(L &cap;
+<span class="EQ_Over">D<sub>j</sub></span>)</em>
 est un sous-ensemble de deux rayons dans
 <em class="EQ"><span class="EQ_Over">B<sub>1</sub>(0)</span></em> pour
-tous <em class="EQ">i</em>.  Un sous-ensemble <em class="EQ">B</em>
+tous <em class="EQ">j</em>.  Un sous-ensemble <em class="EQ">B</em>
 de <em class="EQ">K<sub>P<sub>c</sub></sub></em> est
 <em>régulièrement connexe</em> si, pour tous
 <em class="EQ">x,y &in; B</em>, il existe un arc régulier
@@ -1450,11 +1486,14 @@ régulièrement connexe définie par
 <div class="Example">
 <p><em>Exemple</em>: Nous traçons un arc régulier
 <em class="EQ">L</em> de
-<em class="EQ">w<sub>1</sub> = &rho;<sub>1</sub>(0) = -1</em> à
-<em class="EQ">w<sub>3</sub> = &rho;<sub>3</sub>(0) = 1</em> dans
-<em class="EQ">K<sub>P<sub>-1</sub></sub></em>.  Nous notons que cette
-courbe est unique et doit passer par <em class="EQ">w<sub>2</sub> =
-&rho;<sub>2</sub>(0)</em> .</p>
+<em class="EQ">x &in; D<sub>1</sub></em> à
+<em class="EQ">y &in; D<sub>3</sub></em> dans la figure ci-dessous.
+L'arc régulier passe par
+<em class="EQ">w<sub>1</sub> = &rho;<sub>1</sub><sup>-1</sup>(0) = -1</em>,
+<em class="EQ">w<sub>2</sub> = &rho;<sub>2</sub><sup>-1</sup>(0) = 0</em> et
+<em class="EQ">w<sub>3</sub> = &rho;<sub>3</sub><sup>-1</sup>(0) = 1</em>
+dans <em class="EQ">K<sub>P<sub>-1</sub></sub></em>.  Cet arc
+régulier est unique.</p>
 
 <div class="center">
   <img src="julia10.png" style="width: 250px"
@@ -1551,15 +1590,15 @@ appelés des <em>points remarquables</em>.  Nous assumons que
 &part;K<sub>P<sub>c</sub></sub></em>.  Soit <em class="EQ">D</em> une
 boule fermée centrée en <em class="EQ">z</em> et qui ne contient pas
 de points remarquables autre que <em class="EQ">z</em> lui-même.  De
-plus, supposons que <em class="EQ">L(z,w<sub>i</sub>)</em> pour
-<em class="EQ">1 &le; i &le; I</em> sont les <em>brins</em> des
+plus, supposons que <em class="EQ">L(z,w<sub>j</sub>)</em> pour
+<em class="EQ">1 &le; j &le; J</em> sont les <em>brins</em> des
 branches de <em class="EQ">H<sub>c</sub></em> qui émanent de 
-<em class="EQ">z</em> où <em class="EQ">w<sub>i</sub></em> est le
+<em class="EQ">z</em> où <em class="EQ">w<sub>j</sub></em> est le
 premier point d'intersection d'une branche avec
 <em class="EQ">&part;D</em>.  Les <em>accès</em> à <em class="EQ">z</em>
 (par rapport à <em class="EQ">H<sub>c</sub></em>) sont les composantes
 connexes de
-<em class="EQ">D &setminus; &cup;<sub>i&in;I</sub> L(z,z<sub>i</sub>)</em>.
+<em class="EQ">D &setminus; &cup;<sub>j&in;J</sub> L(z,z<sub>j</sub>)</em>.
 La figure suivante illustre cette définition dans le cas où il y a
 trois accès à <em class="EQ">z</em>; les régions dénotées par
 I, II et III.</p>
@@ -1612,23 +1651,25 @@ A<sub>c</sub></em>, posons <em class="EQ">&mu;(z<sub>n</sub>)
 où <em class="EQ">m &ge; n</em> est suffisamment grand pur avoir que
 <em class="EQ">z<sub>m</sub> &in; A<sub>c</sub></em>
 est un point périodique.  De plus, soit
-<em class="EQ">&Ouml;<sub>c</sub></em> l'arbre obtenu de 
+<em class="EQ">T<sub>c</sub></em> l'arbre obtenu de 
 <em class="EQ">&Hcirc;<sub>c</sub></em> en ajoutant
 <em class="EQ">&mu;(z<sub>m</sub>)-&nu;(z<sub>n</sub>)</em>
 brins supplémentaires à chaque point
-<em class="EQ">z<sub>n</sub> &in; A<sub>c</sub></em>.
-L'arbre <em class="EQ">&Ouml;<sub>c</sub></em> est inclus dans
+<em class="EQ">z<sub>n</sub> &in; A<sub>c</sub></em>
+(cela inclut les brins associés à <em class="EQ">&beta;<sub>0</sub></em> et
+<em class="EQ">&beta;<sub>1</sub></em>).
+L'arbre <em class="EQ">T<sub>c</sub></em> est inclus dans
 l'arbre <em class="EQ">P<sub>c</sub><sup>-1</sup>(&Hcirc;<sub>c</sub>)</em>.
 Il y a <em class="EQ">&mu;(z<sub>n</sub>)</em> brins et accès à
 chaque <em class="EQ">z<sub>n</sub> &in; A<sub>c</sub></em>.
 Finalement, nous définissons une fonction
 <em class="EQ">u: &reals;/&integers; &rarr; {0,1}</em> par
-<em class="EQ">u(t) = i</em> si <em class="EQ">i/2 &le; t &lt; (i+1)/2</em>
-pour <em class="EQ">i = 0,1</em>.</p>
+<em class="EQ">u(t) = j</em> si <em class="EQ">j/2 &le; t &lt; (j+1)/2</em>
+pour <em class="EQ">j = 0,1</em>.</p>
 
 <div class="Theo" id="theoIV">
 <p><em>Théorème &#8547;</em>: Supposons que
-<em class="EQ">z &in; &Acirc;<sub>c</sub></em> et que
+<em class="EQ">z &in; A<sub>c</sub></em> et que
 <em class="EQ">&Xi;<sub>c</sub>(t)</em> est un rayon externe qui
 aboutit à <em class="EQ">z</em>.  Soit
 <em class="EQ">t<sub>n</sub> &in; [0,1[</em> tel que
@@ -1666,13 +1707,13 @@ illustré dans la figure ci-dessous..</p>
 </div>
 
 <p>Si <em class="EQ">&Xi;<sub>c</sub>(t)
-= {&psi;<sub>c</sub>(re<sup>2&pi;ti</sup>) : r &gt; 1}</em>
+= {&psi;<sub>c</sub>(re<sup>2&pi;ti</sup>) : r &ge; 1}</em>
 est un rayon externe qui aboutit à
 <em class="EQ">z<sub>n</sub></em> et telle que
 <em class="EQ">&psi;<sub>c</sub>(re<sup>2&pi;ti</sup>) &in; V</em> pour
 <em class="EQ">r</em> assez près de <em class="EQ">1</em>, alors
 <em class="EQ">P<sub>c</sub>(&Xi;<sub>c</sub>(t))
-= {&psi;<sub>c</sub>(re<sup>4&pi;ti</sup>) : r &gt; 1}</em>
+= {&psi;<sub>c</sub>(re<sup>4&pi;ti</sup>) : r &ge; 1}</em>
 est un rayon externe qui aboutit à
 <em class="EQ">z<sub>n+1</sub></em> et telle que
 <em class="EQ">&psi;<sub>c</sub>(re<sup>4&pi;ti</sup>) &in; W</em> pour
@@ -1686,10 +1727,10 @@ accès sous l'action de <em class="EQ">P<sub>c</sub></em>.</p>
 
 <div class="Theo">
 <p><em>Corollaire</em>: Il y a un et seulement un rayon externe (associé
-à <em class="EQ">&Ouml;<sub>c</sub></em>) par accès.  La valeur de
+à <em class="EQ">T<sub>c</sub></em>) par accès.  La valeur de
 <em class="EQ">t</em> pour le rayon externe
 <em class="EQ">&Xi;<sub>c</sub>(t)</em> qui aboutit à
-<em class="EQ">z &in; &Acirc;<sub>c</sub></em> est toujours un nombre
+<em class="EQ">z &in; A<sub>c</sub></em> est toujours un nombre
 rationnel de la forme réduite <em class="EQ">p/q</em> où
 <em class="EQ">q</em> est un nombre premier si et seulement si
 <em class="EQ">z</em> est un point périodique.</p>
@@ -1699,7 +1740,8 @@ rationnel de la forme réduite <em class="EQ">p/q</em> où
 <p><em>Exemple C</em>: Nous considérons <em class="EQ">P<sub>c</sub></em>
 avec <em class="EQ">c = i</em>.  Nous avons que <em class="EQ">i</em> 
 est un point de Misiurewicz; Plus précisément, nous avons l'orbite
-<em class="EQ">{0, i, i-1, -i, i-1, -i, ...}</em>.</p>
+<em class="EQ">{0, i, i-1, -i, i-1, -i, ...}</em>.  La période de
+l'orbite périodique éventuelle est <em class="EQ">2</em>.</p>
 
 <p>Puisque <em class="EQ">&mu;(z<sub>0</sub>) = 2</em> et
 <em class="EQ">&mu;(z<sub>n</sub>) = 1</em> pour <em class="EQ">n &gt; 0</em>,
@@ -1714,7 +1756,8 @@ région en blanc et <em class="EQ">u(t<sub>n</sub>) = 1</em> quand
 l'itération est dans la région en rose.  Ainsi, nous obtenons
 <em class="EQ">u(t<sub>1</sub>) = u(t<sub>2</sub>) = 0</em>,
 <em class="EQ">u(t<sub>3</sub>) = 1</em>,
-<em class="EQ">u(t<sub>4</sub>) = u(t<sub>2</sub>) = 0</em> et ainsi
+<em class="EQ">u(t<sub>4</sub>) = 0</em>,
+<em class="EQ">u(t<sub>5</sub>) = 1</em>, et ainsi
 de suite comme nous pouvons observer dans la figure ci-dessous.
 Donc, nous avons que
 <em class="EQ">t = (0.0<span class="EQ_Over">01</span>)<sub>2</sub> = 1/6</em>
@@ -1765,7 +1808,8 @@ plus précisément, nous avons l'orbite</p>
 0.327586-0.577759i, -0.327588+0.577755i}</em> .
 </div>
 
-<p>Puisque <em class="EQ">&mu;(z<sub>0</sub>) = 6</em> et
+<p>Nous obtenons éventuellement un point fixe.
+Puisque <em class="EQ">&mu;(z<sub>0</sub>) = 6</em> et
 <em class="EQ">&mu;(z<sub>n</sub>) = 3</em> pour <em class="EQ">n &gt; 0</em>,
 nous devons ajouter des brins supplémentaires à
 <em class="EQ">&Hcirc;<sub>c</sub></em>:
@@ -1788,7 +1832,8 @@ région en rose.  Ainsi, nous obtenons
 <em class="EQ">u(t<sub>4</sub>) = 0</em>,
 <em class="EQ">u(t<sub>5</sub>) = 1</em>,
 <em class="EQ">u(t<sub>6</sub>) = 0</em>,
-<em class="EQ">u(t<sub>7</sub>) = u(t<sub>7</sub>) = 0</em>
+<em class="EQ">u(t<sub>7</sub>) = 0</em>,
+<em class="EQ">u(t<sub>8</sub>) = 1</em>,
 et ainsi de suite comme nous pouvons l'observer dans la figure
 ci-dessous.  Ainsi, nous avons que <em class="EQ">t =
 (0.0010<span class="EQ_Over">100</span>)<sub>2</sub> = 9/56</em>
@@ -1807,7 +1852,7 @@ nous pouvons simplement utiliser la relation
 = &Xi;<sub>c</sub>(2t)</em>.  À l'aide de cette relation, nous
 obtenons que la valeur de <em class="EQ">t</em> pour le premier rayon
 externe qui aboutit à <em class="EQ">z<sub>4</sub></em> est
-<em class="EQ">2<sup>3</sup> 15/56 = 1/7 mod 1</em>.  Si nous
+<em class="EQ">2<sup>5</sup> 9/56 = 1/7 mod 1</em>.  Si nous
 utilisons le <script language="javascript">
 buildLinK("#theoIV","Théorème &#8547;","MMathSStat","theoIVId2","_top"); 
 </script> pour trouver la valeur de 
@@ -1850,73 +1895,57 @@ sur l'arbre de Hubbard, son extension et les points remarquables est
 très intéressante.  Nous fournissons un peu plus d'information sur ce
 sujet ci-dessous.</p>
 
-<p>Soit <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup>
-= P<sub>c</sub><sup>-1</sup>(&Hcirc;<sub>c</sub>)</em>.
-Nous avons que <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup>
-= R<sub>&Acirc;<sub>c</sub><sup>[1]</sup></sub></sub></em>
-où <em class="EQ">&Acirc;<sub>c</sub><sup>[1]</sup>
-= P<sub>c</sub><sup>-1</sup>(&Acirc;<sub>c</sub>)</em>.
-Comme nous avons fait à la <script language="javascript">
+<p>Soit <em class="EQ">H<sub>c</sub><sup>[1]</sup>
+= P<sub>c</sub><sup>-1</sup>(H<sub>c</sub>)</em>.
+Nous avons que <em class="EQ">H<sub>c</sub><sup>[1]</sup>
+= R<sub>A<sub>c</sub><sup>[1]</sup></sub></sub></em>
+où <em class="EQ">A<sub>c</sub><sup>[1]</sup>
+= P<sub>c</sub><sup>-1</sup>(A<sub>c</sub>)</em>.
+Il découle de la <script language="javascript">
 buildLinK("#propIII","Proposition &#8546;","MMathSStat","propIIIId2","_top"); 
-</script>, nous pouvons exprimer
-<em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup></em>
-sous la forme <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup> =
-&Hcirc;<sub>+</sub><sup>[1]</sup> &cup;
-&Hcirc;<sub>-</sub><sup>[1]</sup></em> avec
-<em class="EQ">&Hcirc;<sub>+</sub><sup>[1]</sup> &cap;
- &Hcirc;<sub>-</sub><sup>[1]</sup> = {0}</em>
-et <em class="EQ">c &in; &Hcirc;<sub>+</sub><sup>[1]</sup></em>.
-Nous avons que <em class="EQ">P<sub>c</sub> : &Hcirc;<sub>+</sub><sup>[1]</sup>
-&rarr; &Hcirc;<sub>c</sub></em> et
-<em class="EQ">P<sub>c</sub> : &Hcirc;<sub>-</sub><sup>[1]</sup>
-&rarr; &Hcirc;<sub>c</sub></em> sont des homéomorphismes.  Ainsi, nous
-pouvons définir deux homéomorphismes
-<em class="EQ">Q<sub>+</sub> : &Hcirc;<sub>c</sub> &rarr;
-&Hcirc;<sub>+</sub><sup>[1]</sup></em> et
-<em class="EQ">Q<sub>-</sub> : &Hcirc;<sub>c</sub> &rarr;
-&Hcirc;<sub>-</sub><sup>[1]</sup></em> par
-<em class="EQ">Q<sub>+/-</sub>(w) = z</em> si et seulement si
-<em class="EQ">w = P<sub>c</sub>(z)</em> avec
-<em class="EQ"> z &in; &Hcirc;<sub>c</sub></em>.
-Puisque <em class="EQ">0</em> est un point de branchement, le nombre
-de points de branchement est préservé par ces homéomorphismes.  De
-même, le nombre et l'ordre des brins sont préservés par ces 
-homéomorphismes.</p>
-
-<p>Supposons que <em class="EQ">L(&beta;<sub>0</sub>,0)</em> et
-<em class="EQ">L(&beta;<sub>0</sub>,c)</em> sont respectivement les
-arcs réguliers de <em class="EQ">&beta;<sub>0</sub></em> à
-<em class="EQ">0</em> et de <em class="EQ">&beta;<sub>0</sub></em>
-à <em class="EQ">c</em> dans <em class="EQ">&Hcirc;<sub>c</sub></em>.
-Nous avons que <em class="EQ">P<sub>c</sub>: L(&beta;<sub>0</sub>,0) &rarr;
-L(&beta;<sub>0</sub>,c)</em> est un homéomorphisme.  Ainsi, nous
-pouvons définir la fonction inverse
+</script> que nous pouvons exprimer
+<em class="EQ">H<sub>c</sub><sup>[1]</sup></em>
+sous la forme <em class="EQ">H<sub>c</sub><sup>[1]</sup> =
+H<sub>+</sub><sup>[1]</sup> &cup; H<sub>-</sub><sup>[1]</sup></em> avec
+<em class="EQ">H<sub>+</sub><sup>[1]</sup> =
+P<sub>c</sub><sup>-1</sup>(H<sub>+</sub>)</em>
+et <em class="EQ">H<sub>-</sub><sup>[1]</sup> =
+P<sub>c</sub><sup>-1</sup>(H<sub>-</sub>)</em>.
+Nous avons que <em class="EQ">H<sub>+</sub><sup>[1]</sup> &cap;
+H<sub>-</sub><sup>[1]</sup> = {c}</em>.
+Soit <em class="EQ">L(&beta;<sub>0</sub>,0)</em> et
+<em class="EQ">L(&beta;<sub>0</sub>,c)</em> des arcs réguliers
+dans <em class="EQ">H<sub>c</sub><sup>[1]</sup></em>
+de <em class="EQ">&beta;<sub>0</sub></em> à <em class="EQ">0</em>
+et de <em class="EQ">&beta;<sub>0</sub></em> à <em class="EQ">c</em>
+respectivement.  Nous avons que
+<em class="EQ">P<sub>c</sub>: L(&beta;<sub>0</sub>,0) &rarr;
+L(&beta;<sub>0</sub>,c)</em> est un homéomorphisme.  Ainsi, nous pouvons
+définir la fonction inverse
 <em class="EQ">Q<sub>c</sub>: L(&beta;<sub>0</sub>,c) &rarr;
-L(&beta;<sub>0</sub>,0)</em> par
+L(&beta;<sub>0</sub>,0)</em> par 
 <em class="EQ">Q<sub>c</sub>(w) = z</em> si et seulement si
 <em class="EQ">w = P<sub>c</sub>(z)</em> avec
 <em class="EQ"> z &in; L(&beta;<sub>0</sub>,0)</em>.
-Soit <em class="EQ">w<sub>n</sub> = Q<sub>c</sub><sup>n</sup>(c)</em> pour
-<em class="EQ">n &ge; 1</em>.  Nous avons que
+Posons <em class="EQ">w<sub>n</sub> = Q<sub>c</sub><sup>n</sup>(c)</em> pour
+<em class="EQ">n &ge; 1</em>.  Noua avons que
 <em class="EQ">w<sub>1</sub> = 0</em> et <em class="EQ">w<sub>n</sub> &in;
-L(&beta;<sub>0</sub>,c)</em> pour <em class="EQ">n &ge; 1</em>.
-De plus, <em class="EQ">w<sub>n+1</sub> = Q<sub>+</sub>(w<sub>n</sub>)</em>
-pour <em class="EQ">w<sub>n</sub> &in; &Hcirc;<sub>c</sub></em>.
+L(&beta;<sub>0</sub>,0)</em> pour <em class="EQ">n &ge; 1</em>.
 Soit <em class="EQ">n<sup>&ast;</sup> = sup{n : w<sub>n</sub> &in;
-&Hcirc;<sub>c</sub>}</em>.
+H<sub>c</sub>}</em>.
 Nous avons que <em class="EQ">n<sup>&ast;</sup> = &infin;</em> si et
-seulement si <em class="EQ">&beta;<sub>0</sub> &in; &Hcirc;<sub>c</sub></em>.
-Donc <em class="EQ">n<sup>&ast;</sup> = &infin;</em> si et seulement si
-<em class="EQ">&beta;<sub>0</sub> &in; &Hcirc;<sub>-</sub></em>
+seulement si <em class="EQ">&beta;<sub>0</sub> &in; H<sub>c</sub></em>.  Donc
+<em class="EQ">n<sup>&ast;</sup> = &infin;</em> si et seulement si
+<em class="EQ">&beta;<sub>0</sub> &in; H<sub>-</sub></em>
 est un point fixe.  Dans ce dernier cas, nous obtenons que
 <em class="EQ">H<sub>c</sub> = &Hcirc;<sub>c</sub></em>.
 Si <em class="EQ">n<sup>&ast;</sup> &lt; &infin;</em>, alors nous
-obtenons un homéomorphisme de <em class="EQ">&Hcirc;<sub>c</sub></em> sur
-l'enveloppe régulière de <em class="EQ">H<sub>c</sub> &cup;
+obtenons un homéomorphisme de <em class="EQ">&Hcirc;<sub>c</sub></em>
+sur l'enveloppe régulière de <em class="EQ">H<sub>c</sub> &cup;
 {-w<sub>n<sup>&ast;</sup>+1</sub>, w<sub>n<sup>&ast;</sup>+1</sub>}</em>
-dans <em class="EQ">&Hcirc;<sub>c</sub><sup>[1]</sup></em>.  Cet
-homéomorphisme est la fonction identité sur <em class="EQ">H<sub>c</sub></em>
-et envoie
+dans <em class="EQ">H<sub>c</sub><sup>[1]</sup></em>.  Cet
+homéomorphisme est l'identité sur  <em class="EQ">H<sub>c</sub></em>
+et envoies
 <em class="EQ">(-1)<sup>i</sup>w<sub>n<sup>&ast;</sup>+1</sub></em> sur
 <em class="EQ">&beta;<sub>i</sub></em> pour
 <em class="EQ">i = 0,1</em>.</p>
@@ -2238,7 +2267,7 @@ nous obtenons la figure complexe suivante.</p>
 l'espace paramétrique de <em class="EQ">N<sub>c</sub></em> au
 voisinage du point <em class="EQ">c = 0.51i</em>, alors nous obtenons
 la figure ci-dessous.  Pour les points <em class="EQ">c</em> qui
-appartiennent à l'ensemble de Mandelbrot dans la figure, les orbites
+appartiennent à l'ensemble de Mandelbrot dans la figure ci-dessous, les orbites
 de <em class="EQ">{N<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em> 
 sont éventuellement périodique et la périodes sont des multiples de
 <em class="EQ">3</em>.</p>
