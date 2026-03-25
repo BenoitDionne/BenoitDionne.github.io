@@ -209,14 +209,14 @@ as <em class="EQ">j &rarr; &infin;</em>.  The ball
 is the smallest ball centred at the origin that contains the
 Mandelbrot set.  We leave it to the reader to
 rigorously prove that <em class="EQ">&#8477; &cap; M = [-2,1/4]</em>. 
-This result can be visualized with the following application.
+This result can be visualized with the following graphical application.
 This application draws the cobweb graph associated to
 <em class="EQ">P<sub>c</sub></em> for
 <em class="EQ">c &in; &reals;</em> and the initial condition
-<em class="EQ">z<sub>0</sub> = 0</em>.  We note that the orbit
+<em class="EQ">z<sub>0</sub> = 0</em>.  Note that the orbit
 <em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>, where
 <em class="EQ">z<sub>j+1</sub> = P<sub>c</sub>(z<sub>j</sub>)</em>
-for <em class="EQ">j&geq;0</em>, converge to a fixed point if
+for <em class="EQ">j&geq;0</em>, converges to a fixed point if
 <em class="EQ">-2 &le; c &le; 1/4</em> but is unbounded for other
 values of <em class="EQ">c &in; &reals;</em>.</p>
 
@@ -312,7 +312,7 @@ defined by <em class="EQ">G(z,c) = P<sub>c</sub><sup>k</sup>(z) - z</em>
 is differentiable with respect to both variables,
 <em class="EQ">G(p,a) = 0</em> and <em class="EQ"> D<sub>z</sub>G(p,a)
 = (P<sub>a</sub><sup>k</sup>)'(p) - 1 &ne; 0</em> because
-<em class="EQ">|(P<sub>b</sub><sup>k</sup>)'(p)|&lt;1</em>,
+<em class="EQ">|(P<sub>a</sub><sup>k</sup>)'(p)|&lt;1</em>,
 we get from the implicit function theorem that there exist an open
 neighbourhood <em class="EQ">U</em> of <em class="EQ">a</em>,
 an open neighbourhood <em class="EQ">V</em> of <em class="EQ">p</em>,
@@ -361,7 +361,7 @@ Second, suppose that <em class="EQ">z</em> is a super-attracting or
 attracting periodic point of period <em class="EQ">k</em> of
 <em class="EQ">P<sub>c</sub></em>.
 Let <em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em> be the
-periodic orbit containing <em class="EQ">z</em>; namely,
+periodic orbit associated to <em class="EQ">z</em>; namely,
 <em class="EQ">z<sub>0</sub> = z</em> and
 <em class="EQ">z<sub>j+1</sub> = P<sub>c</sub>(z<sub>j</sub>)</em>
 for <em class="EQ">j&geq;0</em>.  We have seen in the section
@@ -563,9 +563,9 @@ phenomena appears at all bifurcation points.  With a better computer
 </div>
 
 <p>There is an hyperbolic component coloured in magenta inside the rectangle B
-such that points <em class="EQ">c</em> belonging to this component yield that
-<em class="EQ">P<sub>c</sub></em> has an attracting periodic orbit of
-period <em class="EQ">4</em>.  We zoom in on this rectangle.</p>
+such that <em class="EQ">P<sub>c</sub></em> has an attracting periodic
+orbit of period <em class="EQ">4</em> points when <em class="EQ">c</em>
+belongs to this component.  We zoom in on this rectangle.</p>
 
 <div class="center">
   <img src="mandelbrot2.png" style="width: 450px"
@@ -577,7 +577,7 @@ period <em class="EQ">4</em>.  We zoom in on this rectangle.</p>
 <li>The region in blue is a portion of
 <em class="EQ">W<sub>1/2</sub></em>.  Thus
 <em class="EQ">P<sub>c</sub></em> has an attracting or
-super-attracting periodic orbit of period <em class="EQ">2</em> if
+super-attracting periodic orbit of period <em class="EQ">2</em> when
 <em class="EQ">c &in; W<sub>1/2</sub></em>.</li>
 <li> The disk coloured in magenta is an hyperbolic component, denoted
 <em class="EQ">W<sub>(1/2,1/4)</sub></em>, such that
@@ -629,8 +629,8 @@ in reduced form.  To define <em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>:
 <em class="EQ">P<sub>c</sub><sup>2</sup>(z) = z</em>. we get that</p>
 <div class="EQ_center">
 <em class="EQ_Display">
-z<sup>4</sup>+2cz<sup>2</sup>+c<sup>2</sup> + c = z
-&rArr; z<sup>4</sup>+2cz<sup>2</sup>-z+c<sup>2</sup> + c = 0</em> .
+z<sup>4</sup>+2cz<sup>2</sup>+c<sup>2</sup>+c = z
+&rArr; z<sup>4</sup>+2cz<sup>2</sup>-z+c<sup>2</sup>+c = 0</em> .
 </div>
 <p>Two roots of this polynomial are fixed point of
 <em class="EQ">P<sub>c</sub></em>.  The solutions of
@@ -694,7 +694,7 @@ super-attracting fixed point (region in red) to a hyperbolic component
 containing points <em class="EQ">c</em> such
 that <em class="EQ">P<sub>c</sub></em> has an attracting or
 super-attracting periodic orbit of period <em class="EQ">3</em>
-(region in green), after that to a hyperbolic component containing
+(region in green), followed by a hyperbolic component containing
 points <em class="EQ">c</em> such that <em class="EQ">P<sub>c</sub></em>
 has an attracting or super-attracting periodic orbit of period
 <em class="EQ">6</em> (region in magenta), and so on.  We will not
@@ -716,7 +716,7 @@ Mandelbrot set, not just <em class="EQ">W<sub>0</sub></em>.</p>
 above.  We seem to have located a hyperbolic component containing 
 points <em class="EQ">c</em> such that <em class="EQ">P<sub>c</sub></em>
 has an attracting or super-attracting periodic orbit of period 
-<em class="EQ">3</em> (regione in green).  If we zoom in on this
+<em class="EQ">3</em> (region in green).  If we zoom in on this
 region, we get the following figure.</p>
 
 <div class="center">
@@ -751,7 +751,7 @@ super-attracting periodic orbit of period
 specifically about the polynomial function <em class="EQ">P<sub>c</sub></em>
 and is closely related to our study of the Mandelbrot set, it is more
 appropriate to include it in the present document.  Most of the proofs of
-the results in this section are given in
+the results stated in this section are given in
 <script language="javascript">
   buildLinK("#DH1", "A. Douady and J. Hubbard (1984, 2007)","MMathSStat",
   "DH1ID1","_top");
@@ -784,11 +784,13 @@ such that <em class="EQ">&phi;<sub>c</sub>(z)/z &rarr; 1</em>
 as <em class="EQ">|z| &rarr; &infin;</em>, and
 <em class="EQ">
 &phi;<sub>c</sub>&#8728;P<sub>c</sub>&#8728;&phi;<sub>c</sub><sup>-1</sup> =
-z<sup>2</sup></em> for <em class="EQ">|z| &gt; 1</em>.
+P<sub>0</sub></em> for <em class="EQ">|z| &gt; 1</em>.
 </div>
 
-<p>We however provide a little stronger result for the general study
-of Julia sets.</p>
+<p>We however provide a little stronger result.  We do not really need
+it for this section because we consider only connected and even
+locally connect Julia sets.  However, this result is useful for the
+study of the Mandelbrot set in the next section.  </p>
 
 <div class="Theo" id="propII">
 <p><em>Proposition &#8545;</em>: Let
@@ -894,8 +896,8 @@ G<sub>c</sub>(P<sub>c</sub>(z))/2</em> for all
 <em class="EQ">&phi;<sub>c</sub>(z)/z &rarr; 1</em>
 as <em class="EQ">|z| &rarr; &infin;</em> that
 <em class="EQ">ln|(&phi;<sub>c</sub>(z)/z)|
-= ln|&phi;<sub>c</sub>(z)|- ln|z|
-= G<sub>c</sub>(z)- ln|z| &rarr; 0</em>
+= ln|&phi;<sub>c</sub>(z)|-ln|z|
+= G<sub>c</sub>(z)-ln|z| &rarr; 0</em>
 as <em class="EQ">|z| &rarr; &infin;</em>.
 Moreover, since <em class="EQ">n &rarr; &infin;</em> in the definition
 of <em class="EQ">G<sub>c</sub></em> above as
@@ -1166,9 +1168,8 @@ defined by <em class="EQ">&psi;<sub>c</sub>(t) =
 <p><em>Remark</em>: Before diving deeper into the study of external
 rays  we need to review some result about the function
 <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> defined by
-<em class="EQ">T(z) = z<sup>2</sup></em>.</p>
-
-<p>Using the isomorphism <em class="EQ">&phi;: &reals;/&integers; &rarr;
+<em class="EQ">T(z) = z<sup>2</sup></em>.
+Using the isomorphism <em class="EQ">&phi;: &reals;/&integers; &rarr;
 S<sup>1</sup> &subset; &complexes;</em> defined in the previous
 remark, we may consider
 <em class="EQ">T: &reals;/&integers; &rarr; &reals;/&integers;</em>
@@ -1280,7 +1281,7 @@ connected.</p>
 section to be able to describe some of the external rays of
 <em class="EQ">K<sub>c</sub></em> when <em class="EQ">c</em> is the
 centre of an hyperbolic component of the Mandelbrot
-set <em class="EQ">M</em> and when <em class="EQ">c</em> is a
+set <em class="EQ">M</em> or when <em class="EQ">c</em> is a
 Misiurewicz point.</p>
 
 <h4 id="CASE1">Case 1: <em class="EQ">c</em> is the Centre of an Hyperbolic
@@ -1315,7 +1316,7 @@ with
 Let <em class="EQ">z = &mu;<sub>c</sub>(1)</em> be the <em>root</em>
 of <em class="EQ">U<sub>c</sub></em>.  Then
 <em class="EQ">P<sub>c</sub><sup>m</sup>(z) = z</em> and
-<em class="EQ">z &in; &Gamma;<sub>c</sub> &cap; &part; U<sub>c</sub></em>.
+<em class="EQ">z &in; J<sub>P<sub>c</sub></sub> &cap; &part;U<sub>c</sub></em>.
 Given <em class="EQ">t &in; &psi;<sub>c</sub><sup>-1</sup>({z})</em>,
 it follows from <em class="EQ">P<sub>c</sub>(&psi;<sub>c</sub>(t))
 = &psi;<sub>c</sub>(2t)</em> that
@@ -1367,7 +1368,7 @@ magenta above the rectangle C in the
   buildLinK("#man1", "Figure A","MMathSStat","man1ID","_top");
 </script>
 above.  Since <em class="EQ">W</em> is really
-small from a computation point of view, we may assume that
+small from a numerical computation point of view, we may assume that
 <em class="EQ">c = &gamma;<sub>W</sub>(0) &approx; -0.15652+1.03225i</em>,
 the location of the little point.
 The polynomial function <em class="EQ">P<sub>c</sub></em>
@@ -1483,10 +1484,10 @@ H<sub>c</sub></em>.  Moreover, the polynomial function
 <em class="EQ">P<sub>c</sub></em> is one-to-one on the closure of each
 connected component of <em class="EQ">H<sub>c</sub> &setminus; {0}</em>.</p>
 
-<div class="Example">
-<p><em>Example</em>: We have drawn on the right in the figure below 
+<div class="Example" id="egC">
+<p><em>Example C</em>: We have drawn on the right in the figure below 
 a schema of the Hubbert tree <em class="EQ">H<sub>c</sub></em>
-for <em class="EQ">P<sub>c</sub></em> where
+of <em class="EQ">P<sub>c</sub></em> where
 <em class="EQ">c &approx; -0.15652 + 1.03225i</em>.
 We have that <em class="EQ">A<sub>c</sub> =
 {P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub> = {z<sub>0</sub>,
@@ -1514,7 +1515,8 @@ Let <em class="EQ">&Acirc;<sub>c</sub> = A<sub>c</sub> &cup;
 <em class="EQ">&Hcirc;<sub>c</sub></em> be the regular envelop
 <em class="EQ">R<sub>&Acirc;<sub>c</sub></sub></em>
 of <em class="EQ">&Acirc;<sub>c</sub></em>.
-Suppose that <em class="EQ">&Hcirc;<sub>c</sub> =
+We split <em class="EQ">&Hcirc;<sub>c</sub></em> at
+<em class="EQ">0</em> to get <em class="EQ">&Hcirc;<sub>c</sub> =
 &Hcirc;<sub>+</sub> &cup; &Hcirc;<sub>-</sub></em> with
 <em class="EQ">&Hcirc;<sub>+</sub> &cap; &Hcirc;<sub>-</sub> = {0}</em>
 and <em class="EQ">c &in; &Hcirc;<sub>+</sub></em>.  Then
@@ -1588,22 +1590,48 @@ that ends at <em class="EQ">z</em>.</p>
 <em class="EQ">&tau;(z) = 1</em> otherwise.</p>
 
 <div class="Theo">
-<p><em>Proposition</em>: Suppose that <em class="EQ">A<sub>c</sub> =
+<p><em>Proposition</em>: If <em class="EQ">A<sub>c</sub> =
 {P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em> is an eventually
-periodic orbit that is not periodic.  Then <em class="EQ">&nu;(0) = 2</em>
+periodic orbit that is not periodic, then <em class="EQ">&nu;(0) = 2</em>
 and
 <div class="EQ_center">
 <em class="EQ_Display">
 1 = &nu;(z<sub>1</sub>) &le; &nu;(z<sub>2</sub>) &le; ... &le;
 &nu;(z<sub>m</sub>) = &nu;(z<sub>m+1</sub>) = ... </em> ,
 </div>
-where <em class="EQ">z<sub>m</sub></em> is the first element of the
-periodic orbit.</p>
+where <em class="EQ">z<sub>n</sub> = P<sup>n</sup><sub>c</sub>(0)</em>
+for <em class="EQ">n &ge; 0</em>
+and <em class="EQ">z<sub>m</sub></em> is the first element of the
+periodic orbit.<br>
+If <em class="EQ">A<sub>c</sub> =
+{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em> is a periodic
+orbit of period <em class="EQ">k &gt; 1</em>, then there exists
+<em class="EQ">1 &lt; m &le; k</em> such that
+<em class="EQ">&nu;(z<sub>n</sub>) = 1</em> for
+<em class="EQ">1 &le; n &le; m</em> and
+<em class="EQ">&nu;(z<sub>n</sub>) = 2</em> for
+<em class="EQ">m &lt; n &le; k</em>.<br>
+If <em class="EQ">A<sub>c</sub> =
+{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub> = {0}</em>, namely
+<em class="EQ">c = 0</em> and <em class="EQ">0</em> is a fixed
+point, then <em class="EQ">&nu;(0) = 0</em>.</p>
 </div>
 
-<p>There is also a result if <em class="EQ">A<sub>c</sub></em> is a
-periodic orbit but we do not need it for our presentation.
-From now on, we assume that <em class="EQ">c</em> is a Misiurewicz point.</p>
+<div class="Example">
+<p><em>Example</em>: In <script language="javascript">
+buildLinK("#egC","Example C","MMathSStat","egCId2","_top"); 
+</script>, we have that
+<em class="EQ">A<sub>c</sub> =
+{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em> is a periodic
+orbit of period <em class="EQ">k = 4</em> and
+<em class="EQ">m = 3</em> in the previous proposition.
+We note in particular that
+<em class="EQ">&nu;(0) = &nu;(z<sub>0</sub>) = &nu;(z<sub>4</sub>) = 2</em>.
+</p>
+</div>
+
+<p>For the remainder of this section, we assume
+that <em class="EQ">c</em> is a Misiurewicz point.</p>
 
 <p>For each <em class="EQ">z<sub>n</sub> &in;
 A<sub>c</sub></em>, let <em class="EQ">&mu;(z<sub>n</sub>)
@@ -1616,7 +1644,7 @@ be the tree obtained from <em class="EQ">&Hcirc;<sub>c</sub></em> by adding
 extra strands at each point
 <em class="EQ">z<sub>n</sub> &in; A<sub>c</sub></em> (this includes the
 strands associated to <em class="EQ">&beta;<sub>0</sub></em> and
-<em class="EQ">&beta;<sub>1</sub></em>.)&nbsp;
+<em class="EQ">&beta;<sub>1</sub></em> if necessary.)&nbsp;
 The tree <em class="EQ">T<sub>c</sub></em> is a included in the
 tree <em class="EQ">P<sub>c</sub><sup>-1</sup>(&Hcirc;<sub>c</sub>)</em>.
 There are <em class="EQ">&mu;(z<sub>n</sub>)</em> strands and accesses
@@ -1692,8 +1720,8 @@ where <em class="EQ">q</em> is prime if and only
 if <em class="EQ">z</em> is a periodic point.</p>
 </div>
 
-<div class="Example" id="egC">
-<p><em>Example C</em>: We consider <em class="EQ">P<sub>c</sub></em>
+<div class="Example" id="egD">
+<p><em>Example D</em>: We consider <em class="EQ">P<sub>c</sub></em>
 with <em class="EQ">c = i</em>.  We have that <em class="EQ">i</em> 
 is a Misiurewicz point; more precisely, we have the orbit 
 <em class="EQ">{0, i, i-1, -i, i-1, -i, ...}</em>.  The eventual
@@ -1750,8 +1778,8 @@ buildLinK("#theoIV","Theorem &#8547;","MMathSStat","theoIVId2","_top");
 </div>
 </div>
 
-<div class="Example" id="egD">
-<p><em>Example D</em>: We consider <em class="EQ">P<sub>c</sub></em>
+<div class="Example" id="egE">
+<p><em>Example E</em>: We consider <em class="EQ">P<sub>c</sub></em>
 with <em class="EQ">c &approx; -0.101096+0.956286i</em>.
 We have that <em class="EQ">c</em> is a Misiurewicz point;
 more precisely, we have the orbit</p>
@@ -1785,7 +1813,7 @@ we get <em class="EQ">u(t<sub>1</sub>) = u(t<sub>2</sub>) = 0</em>,
 <em class="EQ">u(t<sub>8</sub>) = 1</em>,
 and so on as it can be observed in the figure below.  Thus,
 we have that <em class="EQ">t =
-(0.0010<span class="EQ_Over">100</span>)<sub>2</sub> = 9/56</em>
+(0.001<span class="EQ_Over">010</span>)<sub>2</sub> = 9/56</em>
 for the first external ray ending at <em class="EQ">z<sub>1</sub></em>.
 Using the same procedure, we get that
 <em class="EQ">t = 11/56</em> for the second
@@ -1841,25 +1869,25 @@ of <em class="EQ">t</em>.</p>
 <p><em>Remark</em>: The action of <em class="EQ">P<sub>c</sub></em>
 on the Hubbard tree, its extensions and the remarkable points is quite
 interesting.  We provide a little bit more information on this topic
-below.</p>
+below in the case where <em class="ER">c</em> is a Misiurewicz point.</p>
 
-<p>Let <em class="EQ">H<sub>c</sub><sup>[1]</sup>
+<p>We can retrieve <em class="EQ">&Hcirc;<sub>c</sub></em>
+from <em class="EQ">H<sub>c</sub></em>.
+Let <em class="EQ">H<sub>c</sub><sup>[1]</sup>
 = P<sub>c</sub><sup>-1</sup>(H<sub>c</sub>)</em>.
 We have that <em class="EQ">H<sub>c</sub><sup>[1]</sup>
 = R<sub>A<sub>c</sub><sup>[1]</sup></sub></sub></em>
 where <em class="EQ">A<sub>c</sub><sup>[1]</sup>
 = P<sub>c</sub><sup>-1</sup>(A<sub>c</sub>)</em>.
-It follows from <script language="javascript">
+As in <script language="javascript">
 buildLinK("#propIII","Proposition &#8546;","MMathSStat","propIIIId2","_top"); 
-</script> that we can express <em class="EQ">H<sub>c</sub><sup>[1]</sup></em>
+</script>, we can express <em class="EQ">H<sub>c</sub><sup>[1]</sup></em>
 as <em class="EQ">H<sub>c</sub><sup>[1]</sup> =
-H<sub>+</sub><sup>[1]</sup> &cup; H<sub>-</sub><sup>[1]</sup></em> with
-<em class="EQ">H<sub>+</sub><sup>[1]</sup> =
-P<sub>c</sub><sup>-1</sup>(H<sub>+</sub>)</em>
-and <em class="EQ">H<sub>-</sub><sup>[1]</sup> =
-P<sub>c</sub><sup>-1</sup>(H<sub>-</sub>)</em>.
-We have that <em class="EQ">H<sub>+</sub><sup>[1]</sup> &cap;
-H<sub>-</sub><sup>[1]</sup> = {c}</em>.
+H<sub>+</sub><sup>[1]</sup> &cup; H<sub>-</sub><sup>[1]</sup></em> 
+where
+<em class="EQ">H<sub>+</sub><sup>[1]</sup> &cap;
+H<sub>-</sub><sup>[1]</sup> = {0}</em>
+and <em class="EQ">c &in; H<sub>+</sub><sup>[1]</sup></em>.
 Let <em class="EQ">L(&beta;<sub>0</sub>,0)</em> and
 <em class="EQ">L(&beta;<sub>0</sub>,c)</em> be respectively the regular
 arcs from <em class="EQ">&beta;<sub>0</sub></em> to <em class="EQ">0</em>
@@ -1869,7 +1897,7 @@ in <em class="EQ">H<sub>c</sub><sup>[1]</sup></em>.  We have that
 L(&beta;<sub>0</sub>,c)</em> is an homeomorphism.  Thus, we may define
 the inverse function
 <em class="EQ">Q<sub>c</sub>: L(&beta;<sub>0</sub>,c) &rarr;
-L(&beta;<sub>0</sub>,0)</em> by 
+L(&beta;<sub>0</sub>,0) &subset; L(&beta;<sub>0</sub>,c)</em> by 
 <em class="EQ">Q<sub>c</sub>(w) = z</em> if and only if
 <em class="EQ">w = P<sub>c</sub>(z)</em> with
 <em class="EQ"> z &in; L(&beta;<sub>0</sub>,0)</em>.
@@ -1915,7 +1943,10 @@ G<sub>c</sub><sup>-1</sup>(<span class="EQ_Over">B<sub>h</sub>(0)</span>)
 where <em class="EQ">h = G<sub>c</sub>(0)</em>.</p>
 </div>
 
-<p>Since <em class="EQ">h &gt; 0</em>, we have that
+<p>Since <em class="EQ">0 &notin; K<sub>P<sub>c</sub</sub></em> for
+<em class="EQ">c &notin; M</em>, we have that
+<em class="EQ">h = G<sub>c</sub>(0) &gt; 0</em> for
+<em class="EQ">c &notin; M</em>.  Hence,
 <em class="EQ">G<sub>c</sub>(c) = G<sub>c</sub>(P<sub>c</sub>(0)) =
 2G<sub>c</sub>(0) = 2h &gt; h</em>.  Thus, we may define
 <em class="EQ">&phi;<sub>M</sub>: 
@@ -2040,7 +2071,8 @@ root of an hyperbolic component <em class="EQ">W</em>.  Moreover,
 if <em class="EQ">c</em> is the centre of <em class="EQ">W</em>
 and <em class="EQ">z</em> is the root of the simply connected component
 <em class="EQ">U<sub>c</sub></em> of
-<em class="EQ">K<sub>c</sub> &setminus; J<sub>c</sub></em> containing
+<em class="EQ">K<sub>P<sub>c</sub></sub> &setminus;
+J<sub>P<sub>c</sub></sub></em> containing
 <em class="EQ">c</em> as described in the <script language="javascript">
   buildLinK("#CASE1", "Case 1","MMathSStat", "Case1ID", "_top"); 
 </script> above, then <em class="EQ">&psi;<sub>M</sub><sup>-1</sup>({v})
@@ -2060,16 +2092,16 @@ periodic point of the function <em class="EQ">T</em>, then
 <em class="EQ">q</em> is even.</p>
 
 <div class="Example">
-<p><em<Example</em>: We get the following results from
+<p><em>Example</em>: We get the following results from
 <script language="javascript">
   buildLinK("#egA","Example A","MMathSStat","egAID", "_top"); 
 </script>, <script language="javascript">
   buildLinK("#egB","Example B","MMathSStat","egBID", "_top"); 
 </script>, <script language="javascript">
-  buildLinK("#egC","Example C","MMathSStat","egCID", "_top"); 
+  buildLinK("#egD","Example D","MMathSStat","egCID", "_top"); 
 </script> and
 <script language="javascript">
-  buildLinK("#egD","Example D","MMathSStat","egDID", "_top"); 
+  buildLinK("#egE","Example E","MMathSStat","egDID", "_top"); 
 </script>.</p>
 <ul>
 <li>The two external rays of <em class="EQ">M</em> ending
@@ -2103,8 +2135,8 @@ with the three external rays ending at c."
 </div>
 
 <p>It has been proved that the set of Misiurewicz points is dense in
-<em class="EQ">&part; M</em>.  More surprisingly, it has also been
-proved that <em class="EQ">&part; M</em> is a subset of the closure of
+<em class="EQ">&part;M</em>.  More surprisingly, it has also been
+proved that <em class="EQ">&part;M</em> is a subset of the closure of
 the set of centres of all the hyperbolic components of <em class="EQ">M</em>.
 If <em class="EQ">c</em> is not the root of an hyperbolic
 component of the Mandelbrot set nor a Misiurewicz point, then
@@ -2125,14 +2157,17 @@ both figures, we zoom in on a neighbourhood of <em class="EQ">c</em>.</p>
 <div class="center">
   <img src="julia16.png" style="width: 350px"
        alt="The Julia set of P_c near c for c = -0.101096 + 0.956287i"
-       class="framed">
+       class="framed"> <br>
+  The Julia set of <em class="EQ">P<sub>c</sub></em> in a neighbourhood
+  of <em class="EQ">c = -0.101096 + 0.956287i</em>.
+</div>
+
+<div class="center">
   <img src="mandelbrot6.png" style="width: 350px"
-       alt="The Mandelbrot set near c = -0.101096 + 0.956287i" class="framed">
-<br>
-<p style="width: 70%;">
-The Julia set of <em class="EQ">P<sub>c</sub></em> in a neighbourhood
-of <em class="EQ">c = -0.101096 + 0.956287i</em> on the left and the
-Mandelbrot set in a neighbourhood of <em class="EQ">c</em> on the right.</p>
+       alt="The Mandelbrot set near c = -0.101096 + 0.956287i"
+       class="framed"> <br>
+  The Mandelbrot set in a neighbourhood of
+  <em class="EQ">c = -0.101096 + 0.956287i</em>.
 </div>
 
 <p>The notion of similarity is explained in mathematical terms in some of the 
