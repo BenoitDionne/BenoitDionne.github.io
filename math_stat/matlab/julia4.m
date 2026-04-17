@@ -2,7 +2,7 @@
 %
 % This function draw the (filled) Julia set of P_c(z) = z^2 + c with some
 % level curves Gamma_c(exp(2^(3-j))) if requested.  The value of c
-% must be a value such that P_C has a connected Julia set.
+% must be a value such that P_c has a connected Julia set.
 %
 % c is a complex number.
 %
@@ -10,7 +10,7 @@
 % 'Region' is an array of the form [a b c d].  The portion of the
 %          Julia set in the region [a,b] x [c,d] is displayed.
 %          The default region is [-2,2]x[-2,2].
-% 'Density' is a positive integer.  This the number of points per
+% 'Density' is a positive integer.  This is the number of points per
 %           unit used to plot the filled Julia set.  Double this
 %           value is used to draw the level curves.  The default
 %           value is 200.
@@ -18,12 +18,12 @@
 %          set, this is the number of iterations used to determine
 %          if the orbit { P_c^n(z)}_{n>0} is unbounded.
 %          Namely, it is unbounded if |P_c^n(z)| > max{2,|c|} for some
-%          n < N + 1.  The default value is 100.
+%          n < NbrItr + 1.  The default value is 100.
 % 'Levels' is a array of integer numbers (preferably greater than 3).
 %          The level curves Gamma_c(exp(2^(3-levels(j)))) for
 %          j=1,2,...,length(levels) are drawn in addition of the
 %          Julia set.  The function looks for level curves
-%          that go through the segment [0, max([2,abs(c),region(2)])].
+%          that go through the segment [0, max{2,abs(c),region(2)}].
 %          The default is Levels = [4].
 % 'Colour' is the colour to draw the Julia set.  Only colours
 %          allowed by Matlab can be used. The default colour is black.

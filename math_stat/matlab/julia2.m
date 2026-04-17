@@ -4,7 +4,7 @@
 %
 % c : Any complex number.  The default value is 0.3.
 % N : The number of iterations.  The default value is 4000.
-% colour : One of the colours accepted in Matlab plot/fill.
+% colour : One of the colours accepted by Matlab.
 %          The default colour is blue.
 %
 

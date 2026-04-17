@@ -39,10 +39,14 @@ document.write("Include javascript file has failed")
 top_function(fractal3,"fr");
 </script>
 
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
 <div class="page_contents"> <!-- The contents starts here -->
 
 <script language="javascript">
-main_title( MStexte, "MMathSStat");
+main_title(MStexte, "MMathSStat");
 </script>
 
 <table class="noB">
@@ -55,103 +59,1603 @@ main_title( MStexte, "MMathSStat");
 
 <h2> Dimensions fractales </h2>
 
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#SS1", "Dimension de Hausdorff",
+      "MMathSStat", "SS1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS2", "Dimension de packing",
+      "MMathSStat", "SS2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS3", "Dimension box-counting",
+      "MMathSStat", "SS3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS4", "Dimension de similarité",
+      "MMathSStat", "SS4ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
 <p> Il n'y a pas de définition précise d'une fractale.  Benoit
-B. Mandelbrot (le père de la géométrie fractale) défini une
+B. Mandelbrot (le père de la géométrie fractale) définit une
 fractale comme un ensemble pour lequel la dimension
 de <q lang="fr">Hausdorff</q> est
 strictement plus grande que la dimension topologique.  Quelques
-mathématiciens vont aussi exiger qu'il y ait autosimilarité.  C'est le
-cas du triangle de Sierpinski. </p> 
+mathématiciens vont aussi exiger qu'il y ait auto-similarité.  C'est le
+cas du triangle de Sierpinski par exemple. </p> 
 
-<p> Nous considérons seulement les notions de
-<em>dimension d'homothétie</em> et de <em>dimension de Minkowski</em>.
-Nous ajouterons possiblement plus d'information sur ces sujets plus
-tard. </p>
+<p> Nous considérons seulement la
+<q lang="fr">dimension de Hausdorff</q>,
+la <q lang="fr">dimension de packing</q>,
+la <q lang="fr">dimension box-counting</q> et
+la <q lang="fr">dimension de similarité</q>.  Il y a plusieurs autres
+types de dimensions.</p>
+
+<p>Dans ce document, nous assumons que le lecteur a une connaissance
+élémentaire de la théorie de la mesure.</p>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="SS1"> Dimension de Hausdorff </h3>
+
+<p>Supposons que <em class="EQ">(E,d)</em> est un espace métrique
+complet.  Un <em>recouvrement dénombrable</em>
+<em class="EQ">&#120016;</em> d'un ensemble
+<em class="EQ">A &subset; E</em> est une collection dénombrable
+d'ensembles ouverts dans <em class="EQ">E</em> telle que
+<em class="EQ">A &subset; &cup;<sub>U&in;&#120016;</sub> U</em>.
+Un <em>recouvrement <em class="EQ">&epsilon;</em> dénombrable</em>
+<em class="EQ">&#120016;</em> d'un ensemble
+<em class="EQ">A</em> est un recouvrement dénombrable de <em class="EQ">A</em>
+tel que <em class="EQ">diam(U) = sup{d(x,y) : x,y &in; U}
+&lt; &epsilon;</em> pour tout
+<em class="EQ">U &in; &#120016;</em>.  Soit</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;) =
+inf{&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup> :
+&#120016; est un recouvrement &epsilon; dénombrable de A}</em>
+</div>
+<p>et</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A) =
+sup<sub>&epsilon;&gt;0</sub>
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)</em>
+</div>
+<p>pour <em class="EQ">s &ge; 0</em>.  La valeur
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A)</em>
+est appelée la <em>mesure externe de Hausdorff de dimension
+<em class="EQ">s</em></em> de <em class="EQ">A</em>.  Puisque
+<em class="EQ">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;<sub>1</sub>)
+&ge; <span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;<sub>2</sub>)</em>
+pour <em class="EQ">&epsilon;<sub>1</sub> &le; &epsilon;<sub>2</sub></em>,
+nous avons que</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A) =
+lim<sub>&epsilon;&rarr;0</sub>
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)</em> .
+</div>
+
+<div class="Theo">
+<p><em>Définition</em>: Un ensemble <em class="EQ">A &subset; E</em> est
+<em>mesurable</em> dans le sens de Carathéodory si et seulement si
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A)
+= <span class="EQ_Over">&#119919;</span><sup>s</sup>(A &cap; B)
++ <span class="EQ_Over">&#119919;</span><sup>s</sup>(B &setminus; A)</em>
+pour tout ensemble <em class="EQ">B &subset; E</em>.</p>
+</div>
+
+<p>Lebesgue a donné une définition équivalente d'ensembles mesurables à
+l'aide de la mesure interne.  La définition de Lebesgue d'un ensemble
+mesurable est plus pratique que la définition de Carathéodory pour
+démontrer des résultats sur la mesure et l'intégration.  Cependant,
+puisque nous ne prévoyons pas démontrer des résultats sur la mesure
+et l'intégration, nous ne donnons pas cette définition.  La
+définition Carathéodory est suffisante pour nos besoins.</p>
+
+<div class="Theo">
+<p><em>Théorème</em>: La collection <em class="EQ">&#120028;</em>
+de tous les ensembles mesurables par rapport à la mesure externe de
+Hausdorff de dimension <em class="EQ">s</em> est une
+<em class="EQ">&sigma;</em>-algèbre et
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup></em>
+restreint à <em class="EQ">&#120028;</em> définit une mesure sur
+<em class="EQ">&#120028;</em>.  Cette mesure est appelée la <em>mesure
+de Hausdorff de dimension <em class="EQ">s</em></em>.
+Nous écrivons <em class="EQ">&#119919;<sup>s</sup>(A)
+= <span class="EQ_Over">&#119919;</span><sup>s</sup>(A)</em>
+pour <em class="EQ">A &in; &#120028;</em>.</p>
+</div>
+
+<p>La plus petite <em class="EQ">&sigma;</em>-algèbre qui contient les
+ensembles ouverts est appelée <em>l'algèbre de Borel</em> et est
+dénotée <em class="EQ">&#120017;</em>.  Les éléments de
+<em class="EQ">&#120017;</em> sont appelés des <em>ensembles de Borel</em>.
+Puisque
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A &cups; B)
+= <span class="EQ_Over">&#119919;</span><sup>s</sup>(A)
++ <span class="EQ_Over">&#119919;</span><sup>s</sup>(B)</em> pour tout
+ensemble <em class="EQ">A,B</em> tels que
+<em class="EQ">dist(A,B) = inf{d(x,y) : x &in; A and y &in; B} &gt; 0</em>,
+il est possible de démontrer que les ensembles de Borel sont des
+ensembles mesurables selon la définition ci-dessus (voir
+<script language="javascript">
+buildLinK("#GAE", "G. A. Edgar","MMathSStat", "GAEID3", "_top");
+</script>).  Nous considérons principalement les ensembles de 
+Borel dans ce document.  Cela est suffisant pour définir la
+<q lang="en">dimension</q> d'une <q lang="en">fractale</q>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que <em class="EQ">A</em> est un
+ensemble de Borel et que <em class="EQ">0 &lt; s &lt; t</em>.  Si
+<em class="EQ">&#119919;<sup>s</sup>(A) &lt; &infin;</em>, alors
+<em class="EQ">&#119919;<sup>t</sup>(A) = 0</em>.  Si
+<em class="EQ">&#119919;<sup>t</sup>(A) &gt; 0 </em>, alors
+<em class="EQ">&#119919;<sup>s</sup>(A) = &infin;</em>.</p>
+</div>
+
+<p><em>Démonstration (ébauche)</em>: Nous avons que
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>t</sup>(U,&epsilon;)
+&le; (diam(U))<sup>t</sup> 
+&le; &epsilon;<sup>t-s</sup>(diam(U))<sup>s</sup></em> pour
+tout ensemble ouvert <em class="EQ">U</em> tel que
+<em class="EQ">diam(U) &le; &epsilon;</em>.  Donc</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&epsilon;<sup>s-t</sup><span class="EQ_Over">&#119919;</span><sup>t</sup>(U,&epsilon;)
+&le; (diam(U))<sup>s</sup></em>
+</div>
+<p>pour tous les ensembles ouverts <em class="EQ">U</em> tels que
+<em class="EQ">diam(U) &le; &epsilon;</em>.
+Puisque toute mesure externe
+<em class="EQ"><span class="EQ_Over">M</span></em>
+qui satisfait
+<em class="EQ"><span class="EQ_Over">M</span>(U) &le; (diam(U))<sup>s</sup></em>
+pour tous les ensembles ouverts <em class="EQ">U</em> tels que
+<em class="EQ">diam(U) &le; &epsilon;</em> doit satisfaire
+<em class="EQ"> <span class="EQ_Over">M</span>(A) &le;
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)</em>
+pour tous les ensembles de Borel <em class="EQ">A</em>, nous obtenons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&epsilon;<sup>s-t</sup><span class="EQ_Over">&#119919;</span><sup>t</sup>(A,&epsilon;)
+&le; <span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)</em>
+</div>
+<p>pour tous les ensembles de Borel <em class="EQ">A</em>.  Ainsi, si
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A) &lt;
+&infin;</em>, alors</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="EQ_Over">&#119919;</span><sup>t</sup>(A)
+= lim<sub>&epsilon;&rarr;0</sub>
+<span class="EQ_Over">&#119919;</span><sup>t</sup>(A,&epsilon;)
+&le; lim<sub>&epsilon;&rarr;0</sub>
+&epsilon;<sup>t-s</sup><span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)
+= 0 </em> .
+</div>
+<p>Si <em class="EQ"><span class="EQ_Over">&#119919;</span><sup>t</sup>(A)
+&gt; 0</em>, alors</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A)
+= lim<sub>&epsilon;&rarr;0</sub>
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)
+&ge; lim<sub>&epsilon;&rarr;0</sub>
+&epsilon;<sup>s-t</sup><span class="EQ_Over">&#119919;</span><sup>t</sup>(A,&epsilon;)
+= &infin; </em> .  <span class="EQ_Right">&#8718;</span>
+</div>
+<!-- <p>&nbsp;<span class="EQ_Right">&#8718;</span></p> -->
+
+<p>Il découle de la proposition précédente qu'il existe une valeur
+unique <em class="EQ">d &in; [0,&infin;]</em> telle que
+<em class="EQ">&#119919;<sup>s</sup>(A) = 0</em> pour
+<em class="EQ">s &gt; d</em> et
+<em class="EQ">&#119919;<sup>s</sup>(A) = &infin;</em> pour
+<em class="EQ">s &lt; d</em>.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Supposons que <em class="EQ">A</em> est un
+ensemble de Borel.  La valeur <em class="EQ">d</em> définie
+ci-dessus est la <em>dimension de Hausdorff</em> de l'ensemble
+<em class="EQ">A</em>.  Nous écrivons
+<em class="EQ">dim<sub>&#119919;</sub>(A) = d</em>.</p>
+</div>
+
+<p>La dimension de Hausdorff satisfait des propriétés qu'une dimension
+devrait satisfaire.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que <em class="EQ">A</em> et
+<em class="EQ">B</em> sont des ensembles de Borel.  Si
+<em class="EQ">A &subset; B</em>, alors
+<em class="EQ">dim<sub>&#119919;</sub>(A) &le;
+dim<sub>&#119919;</sub>(B)</em>.</p>
+</div>
+
+<p><em>Démonstration</em>: Pour tout
+<em class="EQ">s &gt; dim<sub>&#119919;</sub>(B)</em>,
+nous avons que
+<em class="EQ">&#119919;<sup>s</sup>(A) &le; &#119919;<sup>s</sup>(B) = 0</em>.
+Donc <em class="EQ">dim<sub>&#119919;</sub>(A) &lt; s</em> pour tout
+<em class="EQ">s &gt; dim<sub>&#119919;</sub>(B)</em>.  Ainsi
+<em class="EQ">dim<sub>&#119919;</sub>(A) &le; dim<sub>&#119919;</sub>(B)</em>.
+<span class="EQ_Right">&#8718;</span></p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que <em class="EQ">A</em> et
+<em class="EQ">B</em> sont des ensembles de Borel.  Alors
+<em class="EQ">dim<sub>&#119919;</sub>(A &cup; B) =
+max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.</p>
+</div>
+
+<p><em>Démonstration</em>: Nous avons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+s &gt; max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))
+&rArr; s &gt;
+dim<sub>&#119919;</sub>(A) &rArr; &#119919;<sup>s</sup>(A) = 0</em>
+</div>
+<p>et</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+s &gt; max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))
+&rArr; s &gt;
+dim<sub>&#119919;</sub>(B) &rArr; &#119919;<sup>s</sup>(B) = 0</em>
+</div>
+<p>Donc <em class="EQ">&#119919;<sup>s</sup>(A &cup; B) &le;
+&#119919;<sup>s</sup>(A)+&#119919;<sup>s</sup>(B) = 0</em> pour
+<em class="EQ">s &gt;
+max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.
+Ainsi <em class="EQ">dim<sub>&#119919;</sub>(A &cup; B) &lt; s</em>
+pour tout <em class="EQ">s &gt;
+max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.
+Il en découle que <em class="EQ">dim<sub>&#119919;</sub>(A &cup; B) &le;
+max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.
+Nous obtenons l'inégalité inverse à partir de la proposition
+précédente car <em class="EQ">A &subset; A &cups; B</em> et
+<em class="EQ">B &subset; A &cups; B</em>.
+<span class="EQ_Right">&#8718;</span></p>
+
+<div class="Theo">
+<p><em>Définition</em>: Une fonction
+<em class="EQ">f: E<sub>1</sub> &rarr; E<sub>2</sub></em> entre deux
+espaces métriques <em class="EQ">(E<sub>1</sub>,d<sub>1</sub>)</em>
+et <em class="EQ">(E<sub>2</sub>,d<sub>2</sub>)</em> est une
+<em>fonction de similarité</em> avec un <em>rapport de similarité</em>
+<em class="EQ">C &gt; 0</em> si
+<em class="EQ">d<sub>2</sub>(f(x),f(y)) = C d<sub>1</sub>(x,y)</em>
+pour tout <em class="EQ">x,y &in; E<sub>1</sub></em>.</p> 
+</div>
+
+<p>Notons que les fonctions de similarité sont des fonctions continues
+et injective.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que
+<em class="EQ">f: E<sub>1</sub> &rarr; E<sub>2</sub></em> est
+une fonction de similarité avec un rapport de similarité
+<em class="EQ">C &gt; 0</em>.
+De plus, supposons que <em class="EQ">A &subset; E<sub>1</sub></em>
+est un ensemble de Borel et <em class="EQ">s &gt; 0</em>.  Alors
+<em class="EQ">&#119919;<sup>s</sup>(f(A))
+= C<sup>s</sup> &#119919;<sup>s</sup>(A)</em>.  En particulier,
+<em class="EQ">dim<sub>&#119919;</sub>(f(A))
+= dim<sub>&#119919;</sub>(A)</em>.</p>
+</div>
+
+<p><em>Démonstration</em>:  Sans perte de généralité, nous pouvons
+assumer que <em class="EQ">E<sub>2</sub> = f(E<sub>1</sub>)</em>.  Ainsi,
+<em class="EQ">f<sup>-1</sup>: E<sub>2</sub> &rarr; E<sub>1</sub></em>
+est bien définie.  De plus, nous avons que
+<em class="EQ">d<sub>1</sub>(f<sup>-1</sup>(x),f<sup>-1</sup>(y))
+= C<sup>-1</sup> d<sub>2</sub>(x,y)</em>
+pour tout <em class="EQ">x,y &in; E<sub>2</sub></em>.  Donc
+<em class="EQ">f<sup>-1</sup></em> est une fonction continue.
+Puisque <em class="EQ">f: E<sub>1</sub> &rarr; E<sub>2</sub></em>
+est un homéomorphisme, nous avons que <em class="EQ">f</em> définit une
+bijection entre l'algèbre de Borel sur
+<em class="EQ">E<sub>1</sub></em> et l'algèbre de Borel sur
+<em class="EQ">E<sub>2</sub></em>.</p>
+
+<p>Puisque <em class="EQ">diam(f(U)) = C diam(U)</em> pour tout
+ensemble <em class="EQ">U &subset; E<sub>1</sub></em>, nous obtenons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">diam(f(U))<sup>s</sup> = C<sup>s</sup>
+  diam(U)<sup>s</sup></em>
+</div>
+<p>pour tout ensemble 
+<em class="EQ">U &subset; E<sub>1</sub></em>.  De plus, puisque
+<em class="EQ">f</em> est un homéomorphisme, nous avons aussi que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+{U &subset; E<sub>2</sub> : U est ouvert et diam(U) &lt; C&epsilon;}
+= {f(U) : U &subset; E<sub>1</sub> est ouvert et diam(U) &lt; &epsilon;}</em> .
+</div>
+<p>Ainsi</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(f(A),C&epsilon;)
+= inf{&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup> :
+&#120016; est un recouvrement C&epsilon; dénombrable de f(A)} <br>
+= inf{&sum;<sub>U&in;&#120016;</sub> (diam(f(U)))<sup>s</sup> :
+&#120016; est un recouvrement &epsilon; dénombrable de A} <br>
+= C<sup>s</sup> inf{&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup> :
+&#120016; est un recouvrement &epsilon; dénombrable de A}
+= C<sup>s</sup>
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)</em>
+</div>
+<p>pour tout ensemble <em class="EQ">A &subset; E<sub>1</sub></em>.
+Donc, si nous prenons la limite des deux côtés de l'égalité
+précédente lorsque <em class="EQ">&epsilon;</em> converge vers
+<em class="EQ">0</em>, nous obtenons que
+<em class="EQ"> <span class="EQ_Over">&#119919;</span><sup>s</sup>(f(A))
+= C<sup>s</sup> <span class="EQ_Over">&#119919;</span><sup>s</sup>(A)</em>.
+Puisque <em class="EQ">C &gt; 0</em>, nous obtenons de cette relation que
+<em class="EQ"> &#119919;<sup>s</sup>(f(A)) = 0</em>
+(resp. <em class="EQ">&infin;</em>)
+si et seulement si <em class="EQ"> &#119919;<sup>s</sup>(A) = 0</em>
+(resp. <em class="EQ">&infin;</em>).  Ainsi
+<em class="EQ">dim<sub>&#119919;</sub>(f(A))
+= dim<sub>&#119919;</sub>(A)</em> pour tout ensemble de Borel
+<em class="EQ">A &subset; E<sub>1</sub></em>.
+<span class="EQ_Right">&#8718;</span></p>
+
+<p>Nous terminons cette section par le calcul de la dimension de 
+Hausdorff du fameux ensemble triadique de Cantor.  Rappelons que
+l'ensemble triadique de Cantor est l'ensemble
+<em class="EQ">K = &cap;<sub>k&gt;0</sub>K<sub>k</sub></em> où
+<em class="EQ">K<sub>1</sub> = [0,1/3] &cup; [2/3,1]</em>,
+<em class="EQ">K<sub>2</sub> = [0,1/9] &cup; [2/9,1/3] &cup;
+[2/3,7/9] &cup; [8/9,1]</em>, etc.</p>
+<div class="center">
+  <img src="dim0.png" style="width: 400px"
+    alt="Les ensembles K_1, K_2. K_3, ... utilisés pour définir l'ensemble triadique de Cantor."
+       class="framed">
+</div>
+
+<div class="Theo">
+<p><em>Proposition</em>: Soit <em class="EQ">K</em> l'ensemble
+triadique de Cantor.  Alors
+<em class="EQ">dim<sub>&#119919;</sub>(K) = ln(2)/ln(3)</em>
+où la mesure de Hausdorff <em class="EQ">&#119919;<sup>s</sup>(K)</em>
+utilisée pour calculer la dimension de Hausdorff est générée à partir
+de l'espace métrique complet
+<em class="EQ">(E,d) = (&reals;,|&middot;|)</em>.</p>
+</div>
+
+<p><em>Démonstration</em>: Posons <em class="EQ">s = ln(2)/ln(3)</em>.
+Nous démontrons que <em class="EQ">&#119919;<sup>s</sup>(K) = 1</em>.</p>
+
+<p>Premièrement, nous démontrons que
+<em class="EQ">&#119919;<sup>s</sup>(K) &le; 1</em>.
+Soit <em class="EQ">&epsilon; &gt; 0</em>.  Nous choisissons un entier
+positif <em class="EQ">k</em> tel que
+<em class="EQ">3<sup>-k</sup> &lt; &epsilon;/2</em>.  Il découle
+naturellement de la procédure pour définir <em class="EQ">K</em> que
+nous pouvons recouvrir
+<em class="EQ">K</em> avec <em class="EQ">2<sup>k</sup></em>
+intervalles fermés <em class="EQ">K<sub>k,j</sub></em> pour
+<em class="EQ">1 &le; j &le; 2<sup>k</sup></em> tels que
+<em class="EQ">diam(K<sub>k,j</sub>) = 3<sup>-k</sup></em>
+et
+<em class="EQ">dist(K<sub>k,j<sub>1</sub></sub>,K<sub>k,j<sub>2</sub></sub>)
+&ge; 3<sup>-k</sup></em> pour
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.</p>
+<div class="center">
+  <img src="dim1.png" style="width: 300px"
+       alt="L'ensemble K_2 utilisé pour définir l'ensemble triadique de Cantor.  Les intervalles K_{2,j} et I_j sont aussi inclus dans la figure."
+       class="framed">
+</div>
+<p>Étant donné <em class="EQ">r &gt; 1</em> assez près de
+<em class="EQ">1</em>, nous pouvons étendre légèrement chacun des
+ensembles fermés <em class="EQ">K<sub>k,j</sub></em> pour obtenir un
+intervalle ouvert <em class="EQ">I<sub>j</sub></em> tel que
+<em class="EQ">diam(I<sub>j</sub>) = 3<sup>-k</sup>r &lt; &epsilon;</em>,
+<em class="EQ">K<sub>k,j</sub> &subset; I<sub>j</sub></em> et
+<em class="EQ">I<sub>j<sub>1</sub></sub> &cap; I<sub>j<sub>2</sub></sub>
+= &emptyset;</em> pour
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.  Ainsi</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)
+= inf{&sum;<sub>U&in;&#120026;</sub> (diam(U))<sup>s</sup> :
+&#120026; est un recouvrement &epsilon; dénombrable de K}
+&le; 2<sup>k</sup> (3<sup>-k</sup>r)<sup>s</sup>
+= r<sup>s</sup></em>
+</div>
+<p>car <em class="EQ">(3<sup>-k</sup>)<sup>s</sup>
+= (3<sup>s</sup>)<sup>-k</sup> = 2<sup>-k</sup></em>.
+Puisque cela es vrai pour tout <em class="EQ">r &gt; 1</em>, nous
+obtenons que
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)
+&le; 1</em> pour tout <em class="EQ">&epsilon; &gt; 0</em>.
+Donc, <em class="EQ">&#119919;<sup>s</sup>(K)
+= <span class="EQ_Over">&#119919;</span><sup>s</sup>(K) &le; 1</em>.</p>
+
+<p>Nous démontrons maintenant que
+<em class="EQ">&#119919;<sup>s</sup>(K) &ge; 1</em>.  Il suffit de
+démontrer que
+<em class="EQ">&sum;<sub>U&in;&#120026;</sub> (diam(U))<sup>s</sup>
+&ge; 1</em> pour tout recouvrement <em class="EQ">&epsilon;</em>
+dénombrable <em class="EQ">&#120026;</em> de <em class="EQ">K</em>.
+Puisque <em class="EQ">K</em> est compact, nous pouvons assumer que 
+<em class="EQ">&#120026;</em> est fini.  Notons que tout ensemble
+ouvert <em class="EQ">U &in; &#120026;</em> peut être exprimé sous la
+forme
+<em class="EQ">U = V<sub>1</sub> &cup; R &cup; V<sub>2</sub></em> où</p>
+<ul>
+<li><em class="EQ">R</em> est un intervalle fermé avec ses extrémités
+dans <em class="EQ">K</em>,</li>
+<li> <em class="EQ">V<sub>i</sub></em> est un ensemble ouvert tel que
+<em class="EQ">K &cap; V<sub>i</sub> = &emptyset;</em>
+pour <em class="EQ">i = 1,2</em>, et</li>
+<li> <em class="EQ">v<sub>1</sub> &lt; r &lt; v<sub>2</sub></em> pour
+tout <em class="EQ">r &in; R</em> et
+<em class="EQ">v<sub>i</sub> &in; V<sub>i</sub></em>
+pour <em class="EQ">i = 1,2</em>.</li>
+</ul>
+<div class="center">
+  <img src="dim7.png" style="width: 350px"
+       alt="Une représemtation de R et U." class="framed">
+</div>
+<p>Puisque <em class="EQ">diam(U) &gt; diam(R)</em>, nous pouvons
+remplacer les éléments de <em class="EQ">&#120026;</em> par des
+intervalles fermés avec leurs extrémités dans
+<em class="EQ">K</em>.  Soit <em class="EQ">&#120026;'</em>
+la collections de ces intervalles fermés.
+Chaque intervalle fermé <em class="EQ">R &in; &#120026;'</em> peut être
+exprimé sous la forme
+<em class="EQ">R = R<sub>1</sub> &cup; V &cup; R<sub>2</sub></em> où</p>
+<ul>
+<li><em class="EQ">R<sub>1</sub></em> et <em class="EQ">R<sub>2</sub></em>
+sont des intervalles fermés avec leurs extrémités dans <em class="EQ">K</em>,</li>
+<li> <em class="EQ">V &subset; R</em> est un intervalle ouvert avec le
+plus grand diamètre possible tel que
+<em class="EQ">K &cap; V = &emptyset;</em>, et </li>
+<li> <em class="EQ">r<sub>1</sub> &lt; v &lt; r<sub>2</sub></em> pour tout
+<em class="EQ">r<sub>1</sub> &in; R<sub>1</sub></em>,
+<em class="EQ">r<sub>2</sub> &in; R<sub>2</sub></em> et
+<em class="EQ">v &in; V</em>.</li>
+</ul>
+<div class="center">
+  <img src="dim2.png" style="width: 350px"
+       alt="Un exemple du format de l'intervalle fermé R." class="framed">
+</div>
+<p>Nous avons par construction que
+<em class="EQ">diam(R<sub>i</sub>) &le; diam(V)</em>
+pour <em class="EQ">i = 1,2</em>.  Nous obtenons alors de
+<em class="EQ">(diam(K<sub>1</sub>) + diam(K<sub>2</sub>))/2 &le; diam(V)</em>
+que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+(diam(R))<sup>s</sup> = (diam(K<sub>1</sub>)
++ diam(V) + diam(K<sub>2</sub>))<sup>s</sup> <br>
+&ge; (3/2)<sup>s</sup>(diam(K<sub>1</sub>)
++ diam(K<sub>2</sub>))<sup>s</sup> <br>
+= 2((1/2)diam(K<sub>1</sub>)
++ (1/2)diam(K<sub>2</sub>)<sup>s</sup> <br>
+&ge; 2((1/2)diam(K<sub>1</sub>)<sup>s</sup>
++ (1/2)diam(K<sub>2</sub>)<sup>s</sup>) <br>
+= diam(K<sub>1</sub>)<sup>s</sup>
++ diam(K<sub>2</sub>)<sup>s</sup> </em> ,
+</div>
+<p>où la deuxième égalité provient de <em class="EQ">3<sup>s</sup> = 2</em>
+car <em class="EQ">s = ln(2)/ln(3)</em>, et la deuxième inégalité
+provient du fait que 
+<em class="EQ">(&lambda;a + (1-&lambda;)b)<sup>s</sup> &ge;
+&lambda;a<sup>s</sup> + (1-&lambda;)b<sup>s</sup></em> car
+<em class="EQ">t &mapsto; t<sup>s</sup></em> est concave sur
+l'intervalle <em class="EQ">]0,&infin;[</em> pour <em class="EQ">s &lt; 1</em>.
+Si <em class="EQ">R<sub>i</sub> &ne; K<sub>k,j</sub></em> pour
+certaines valeurs de <em class="EQ">k</em> et
+<em class="EQ">1 &le; j &le; 2<sup>k</sup></em>,
+nous répétons la procédure précédente avec <em class="EQ">R</em>
+remplacé par <em class="EQ">R<sub>i</sub></em>.  Après un nombre fini
+de répétitions, nous obtenons que
+<em class="EQ">diam(R)<sup>s</sup> &ge; &sum;
+diam(K<sub>k<sub>m</sub>,j<sub>m</sub></sub>)<sup>s</sup></em>
+où la somme est sur tous les intervalles fermés
+<em class="EQ">K<sub>k<sub>m</sub>,j<sub>m</sub></sub>
+&subset; R</em> de diamètre le plus grand possible.  Par exemple, dans
+la figure ci-dessus, nous obtenons que
+<em class="EQ">diam(R)<sup>s</sup> &ge; &sum;
+diam(K<sub>3,4</sub>)<sup>s</sup> + diam(K<sub>2,3</sub>)<sup>s</sup>
++ diam(K<sub>3,7</sub>)<sup>s</sup></em>.</p>
+
+<p>Nous répétons la procédure ci-dessus pour chacun des intervalles
+fermés <em class="EQ">R &in; &#120026;'</em>.  En fait, nous répétons
+la procédure de façon récursive sur tous les intervalles fermée
+<em class="EQ">R &in; &#120026;'</em> en même temps et arrêtons
+seulement quand nous avons obtenu des ensembles fermés
+<em class="EQ">K<sub>k,j<sub></em> où le nombre entier
+<em class="EQ">k</em> est le plus grand des indices
+<em class="EQ">k<sub>m<sub></em> que l'on obtient de la procédure
+précédente appliquée à tous les intervalles fermés
+<em class="EQ">R &in; &#120026;'</em>.  En particulier,
+nous appliquons aussi la procédure précédente de façon récursive aux
+intervalles fermés de la forme
+<em class="EQ">K<sub>k<sub>m</sub>,j<sub>m</sub></sub></em>
+quand <em class="EQ">k<sub>m</sub> &lt; k</em>.  Nous obtenons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&sum;<sub>V&in;&#120026;</sub> (diam(V))<sup>s</sup>
+&ge; &sum;<sub>R&in;&#120026;'</sub> (diam(R))<sup>s</sup> 
+&ge; &sum;<sub>1&le;i&le;2<sup>k</sup></sub>
+(diam(K<sub>k,i</sub>))<sup>s</sup> <br>
+= &sum;<sub>1&le;i&le;2<sup>k</sup></sub>
+(1/(3<sup>k</sup>))<sup>s</sup>
+= &sum;<sub>1&le;i&le;2<sup>k</sup></sub>
+(1/3<sup>s</sup>)<sup>k</sup>
+= &sum;<sub>1&le;i&le;2<sup>k</sup></sub> 1/2<sup>k</sup> = 1</em> .
+</div>
+<p>Tous les intervalles fermés de
+<em class="EQ">K<sub>k<sub></em> sont inclus dans la somme car nous
+avons préservé le fait que <em class="EQ">K</em> est un sous ensemble
+de notre décomposition récursive.
+<span class="EQ_Right">&#8718;</span></p>
+
+<p>Il est possible de démontrer que la dimension topologique d'un
+ensemble est plus petite ou égale à sa dimension de Hausdorff.
+L'énoncé précédent ne veut rien dire puisque nous n'avons pas défini
+ce qu'est la dimension topologique d'un ensemble.  Le lecteur peut
+consulter le livre de
+<script language="javascript">
+buildLinK("#GAE", "G. A. Edgar", "MMathSStat", "GAEID1", "_top");
+</script>.  Il dévoue un chapitre complet sur le sujet de dimension
+topologique.  La dimension topologique est beaucoup plus générale que
+la dimension en algèbre linéaire.</p>
+
+<p>Comme on s'y attend, la dimension de Hausdorff de
+<em class="EQ">(&reals;<sup>n</sup>,d)</em>,
+où <em class="EQ">d</em> est la distance euclidienne, est
+<em class="EQ">n</em>.  En particulier, nous pouvons démontrer que si
+l'ensemble <em class="EQ">K &subset; &reals;<sup>n</sup></em> contient
+un ensemble ouvert, alors
+<em class="EQ">dim<sub>&#119919;</sub>(K) = n</em>.</p>
+
+<p>Soit <em class="EQ">&#120027;</em> la collection de tous les
+ensembles 
+<em class="EQ">{x<sub>j</sub>}<sub>1&le;j&le;J</sub> &subset; [0,1]</em>
+tels que <em class="EQ">x<sub>1</sub> &lt; x<sub>2</sub> &lt; ... &lt;
+x<sub>J</sub></em> and <em class="EQ">J &gt; 1</em>.
+Un fonction continue <em class="EQ">g:[0,1] &rarr; E</em> est dite
+de <em>variation bornée</em> s'il existe une constante
+<em class="EQ">C</em> telle que
+<em class="EQ">&sum;<sub>1&le;j&lt;J</sub>
+d(g(x<sub>j</sub>),g(x<sub>j+1</sub>)) &le; C</em> pour tout
+<em class="EQ">{x<sub>j</sub>}<sub>1&le;j&le;J</sub> &in; &#120027;</em>.
+Nous pouvons alors définir la longueur de la courbe
+<em class="EQ">L = g([0,1])</em> comme étant la valeur
+<em class="EQ">length(L)
+= sup<sub>{x<sub>j</sub>}<sub>1&le;j&le;J</sub>&in;&#120027;</sub>
+&sum;<sub>1&le;j&lt;J</sub> d(g(x<sub>j</sub>),g(x<sub>j+1</sub>))</em>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que
+<em class="EQ">g:[0,1] &rarr; E</em> est une fonction de variation
+bornée et que <em class="EQ">L = g([0,1])</em>, alors
+<em class="EQ">length(L) &ge; &#119919;<sup>1</sup>(L)</em>.  En
+particulier, si <em class="EQ">g</em> est injective, alors
+<em class="EQ">length(L) = &#119919;<sup>1</sup>(L)</em> et donc
+<em class="EQ">dim<sub>&#119919;</sub>(L) = 1</em>.</p>
+</div>
+
+<p>Une démonstration de cette proposition se trouve dans le livre de
+<script language="javascript">
+buildLinK("#GAE", "G. A. Edgar", "MMathSStat", "GAEID1", "_top");
+</script>.  La démonstration n'est pas difficile mais assez longue.
+La première question qui vient à l'esprit est s'il existe des courbes
+qui ne sont pas de variation bornée et qui ont une dimension de
+Hausdorff supérieur à <em class="EQ">1</em>.  La réponse est
+affirmative.</p>
+
+<div class="Example" id="egA">
+<p><em>Exemple A</em>: La figure suivante illustre comment
+la <em>courbe (ou flocon) de Kock</em> est produite.
+La dimension de Hausdorff de cette courbe est 
+<em class="EQ">ln(4)/ln(3) &gt; 1</em>.
+Nous n'expliquons pas maintenant comme nous pouvons facilement
+calculer sa dimension de Hausdorff mais nous allons le faire après
+avoir introduit la <q lang="en">dimension de similarité</q>.</p>
+<div class="center">
+  <img src="dim4.png" style="width: 350px"
+    alt="Premières étapes pour construire la courbe de Kock." class="framed">
+</div>
+</div>
+
+<div class="Example" id="egB">
+<p><em>Exemple B</em>: Une version du <em>triangle d'Apollonius</em>
+est construite de la façon suivante.  Nous débutons avec un triangle
+courbé produit par l'intersection tangentielle externe de trois
+cercles comme à l'étape 0 de la figure ci-dessous.</p>
+<ol style="list-style-type: decimal;">
+<li>La première étape consiste à retirer le plus grand disque inscrit dans
+le triangle courbé comme cela est fait dans la figure ci-dessous.</li> 
+<li>La deuxième étape consiste à retirer le plus grand disque inscrit
+dans chacun des <em class="EQ">3</em> triangles courbés obtenus à
+l'étape 1 comme cela est fait dans la figure ci-dessous.</li>
+<li>La troisième étape consiste à retirer le plus grand disque inscrit dans
+chacun des <em class="EQ">9</em> triangles courbés obtenus à l'étape 2
+comme cela est fait dans la figure ci-dessous.</li>
+<li style="list-style-type: none;">...</li>
+<li style="list-style-type: 'k. '">La k<sup>e</sup> étape consiste à
+retirer le plus grand disque inscrit dans chacun des
+<em class="EQ">3<sup>k-1</sup></em> triangles
+courbés obtenus à l'étape précédente.</li>
+<li style="list-style-type: none;">...</li>
+</ol>
+<div class="center">
+  <img src="dim3_fr.png" style="width: 400px"
+       alt="Les premières étapes pour construire le triangle d'Apollonius."
+  class="framed">
+</div>
+<p>La valeur exacte de la dimension de Hausdorff du triangle
+d'Apollonius n'est pas connu.  Elle est estimé à approximativement 
+<em class+"EQ">1.30...</em>.  Nous allons en dire plus sur cette
+fractale à la fin de ce document.</p>
+</div>
+
+<p>Malheureusement, il n'y a pas de façon facile de calculer la
+dimension de Hausdorff d'une ensemble en général.  Nous présentons
+plus bas deux autres types de dimensions qui sont relativement plus simples
+à calculer.  Nous expliquons aussi de quelle façon elles sont reliées
+à la dimension de Hausdorff.</p>
 
 <hr class="MMathSStat">
 
-<h3> Dimension d'homothétie </h3>
+<h3 id="SS2"> Dimension de packing </h3>
 
-<p> La <em>dimension d'homothétie</em> d'un ensemble
-<em class="EQ"> A</em> est définie par l'équation </p>
-
+<p>Comme précédemment, nous assumons que <em class="EQ">(E,d)</em> est
+un espace métrique complet.  Étant donné <em class="EQ">A &subset; E</em>,
+posons </p>
 <div class="EQ_center">
 <em class="EQ_Display">
-    Dimension = log(a) / log(1/s)
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;) =
+sup{&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup> :
+&#120016; est une collection dénombrable de boules ouvertes <br>
+disjointes centrés en un point de A et de rayon plus petit que
+&epsilon;/2}</em> .
+</div>
+<p>et</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A)
+= inf<sub>&epsilon;&gt;0</sub>
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)</em>
+</div>
+<p>pour <em class="EQ">s &ge; 0</em>.  Puisque
+<em class="EQ">
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;<sub>1</sub>)
+&le; <span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;<sub>2</sub>)</em>
+pour <em class="EQ">&epsilon;<sub>1</sub> &le; &epsilon;<sub>2</sub></em>,
+nous avons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A) =
+lim<sub>&epsilon;&rarr;0</sub>
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)</em> .
+</div>
+<p>Il est possible de démontrer que
+<em class="EQ"><span class="EQ_OverDot">&#119927;</span><sup>s</sup></em>
+pour <em class="EQ">s &gt; 0</em> ne définit pas une mesure externe.
+L'expression</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_Over">&#119927;</span><sup>s</sup>(A) =
+inf{&sum;<sub>U&in;&#120016;</sub>
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(U) :
+&#120016; est un recouvrement ouvert de A}</em>
+</div>
+<p>pour <em class="EQ">A &subset; E</em> définie une mesure externe
+avec la propriété que
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup>(A &cups; B)
+= <span class="EQ_Over">&#119927;</span><sup>s</sup>(A)
++ <span class="EQ_Over">&#119927;</span><sup>s</sup>(B)</em> pour tous les
+ensembles <em class="EQ">A,B</em> tels que
+<em class="EQ">dist(A,B) = inf{d(x,y) : x &in; A and y &in; B} &gt; 0</em>.
+Comme nous avons fait pour la mesure de Hausdorff, nous pouvons
+définir les ensembles mesurables par rapport à
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup></em> 
+et une mesure pour ces ensembles.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Un ensemble <em class="EQ">A &subset; E</em> est
+<em>mesurable</em> par rapport à
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup></em>
+si et seulement si
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup>(A)
+= <span class="EQ_Over">&#119927;</span><sup>s</sup>(A &cap; B)
++ <span class="EQ_Over">&#119927;</span><sup>s</sup>(B &setminus; A)</em>
+pour tout ensemble <em class="EQ">B &subset; E</em>.</p>
+</div>
+
+<p>Nous avons que les ensembles de Borel sont mesurables selon cette
+définition.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: La collection <em class="EQ">&#120028;</em>
+de tous les ensembles mesurables par rapport à
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup></em>
+est un <em class="EQ">&sigma;</em>-algèbre et
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup></em>
+restreint à <em class="EQ">&#120028;</em> définit une mesure sur
+<em class="EQ">&#120028;</em>.  Cette mesure est appelée la 
+<em>mesure de packing de dimension <em class="EQ">s</em></em>.  
+Nous écrivons <em class="EQ">&#119927;<sup>s</sup>(A)
+= <span class="EQ_Over">&#119927;</span><sup>s</sup>(A)</em>
+pour <em class="EQ">A &in; &#120028;</em>.</p>
+</div>
+
+<p>Comme pour la mesure de Hausdorff, nous avons le résultat suivant. </p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que <em class="EQ">A</em> est un
+ensemble de Borel et que <em class="EQ">0 &lt; s &lt; t</em>.  Si
+<em class="EQ">&#119927;<sup>s</sup>(A) &lt; &infin;</em>, alors
+<em class="EQ">&#119927;<sup>t</sup>(A) = 0</em>.  Si
+<em class="EQ">&#119927;<sup>t</sup>(A) &gt; 0 </em>, alors
+<em class="EQ">&#119927;<sup>s</sup>(A) = &infin;</em>.</p>
+</div>
+
+<p>Ainsi, nous pouvons définir la dimension d'un ensemble de Borel à
+l'aide de la mesure de packing.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Supposons que <em class="EQ">A</em> est un
+ensemble de Borel.  La valeur unique <em class="EQ">d</em> telle que
+<em class="EQ">0 &lt; &#119927;<sup>d</sup>(A) &lt; &infin;</em> est
+la <em>dimension de packing</em> de l'ensemble <em class="EQ">A</em>.
+Nous écrivons <em class="EQ">dim<sub>&#119927;</sub>(A) = d</em>.</p>
+</div>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que <em class="EQ">A</em> est un
+ensemble de Borel.  Alors
+<em class="EQ">dim<sub>&#119919;</sub>(A) &le;
+dim<sub>&#119927;</sub>(A)</em>.</p>
+</div>
+
+<p><em>Démonstration (ébauche)</em>: Nous démontrons en premier que
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A,2&epsilon;)
+&le;
+2<sup>s</sup><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)</em>.
+</p>
+
+<p>Le résultat est évident si
+<em class="EQ"><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)
+= &infin;</em>.
+Donc, nous pouvons assumer que
+<em class="EQ"><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)
+&lt; &infin;</em>.  Le nombre de boules ouvertes disjointes de
+rayon <em class="EQ">&epsilon;/2</em> et de centre dans
+<em class="EQ">A</em> est fini.  S'il était infini, nous aurions alors
+que
+<em class="EQ"><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)
+= &infin;</em>.  Soit <em class="EQ">&#120016; =
+{B<sub>&epsilon;/2</sub>(x<sub>j</sub>)}<sub>1&le;j&le;J</sub></em>
+la collection des boules ouvertes disjointes avec leur centre dans 
+<em class="EQ">A</em> tel que, étant donné <em class="EQ">x &in; A</em>,
+il existe <em class="EQ">j</em> avec
+<em class="EQ">B<sub>&epsilon;/2</sub>(x) &cap; 
+B<sub>&epsilon;/2</sub>(x<sub>j</sub>) &ne; &emptyset;</em>.
+Comme nous avons mentionné précédemment, la collection
+<em class="EQ">&#120016;</em> est finie.  Nous avons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;) &ge;
+&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup>
+= J&epsilon;<sup>s</sup></em> .
+</div>
+<p>Puisque <em class="EQ">&#120018; =
+{B<sub>&epsilon;</sub>(x<sub>j</sub>)}<sub>1&le;j&le;J</sub></em>
+est un recouvrement <em class="EQ">&epsilon;</em> dénombrable de
+<em class="EQ">A</em>, nous avons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,2&epsilon;)
+&le;
+&sum;<sub>U&in;&#120018;</sub> (diam(U))<sup>s</sup>
+= J(2&epsilon;)<sup>s</sup></em> .
+</div>
+<p>Donc
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A,2&epsilon;)
+&le;
+2<sup>s</sup><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)</em>
+comme nous l'avons énoncé ci-haut.  Ainsi,
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A)
+= lim<sub>&epsilon;&rarr;0</sub>
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,2&epsilon;)
+&le; lim<sub>&epsilon;&rarr;0</sub>
+2<sup>s</sup><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)
+= 2<sup>s</sup><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A)</em> .
+</div>
+<p>En particulier, nous avons que
+<em class="EQ">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(U)
+&le; 2<sup>s</sup><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(U)
+= 2<sup>s</sup><span class="EQ_Over">&#119927;</span><sup>s</sup>(U)</em>
+pour tout ensemble ouvert <em class="EQ">U</em>.
+Puisque tout mesure externe <em class="EQ"><span class="EQ_Over">M</span></em>
+qui satisfait
+<em class="EQ"><span class="EQ_Over">M</span>(U) &le;
+<span class="EQ_Over">&#119927;</span><sup>s</sup>(U)</em>
+pour tout ensemble ouvert <em class="EQ">U</em> doit satisfaire
+<em class="EQ"> <span class="EQ_Over">M</span>(A) &le;
+<span class="EQ_Over">&#119927;</span><sup>s</sup>(A)</em> pour tout
+ensemble <em class="EQ">A</em>, nous obtenons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+2<sup>-s</sup>&#119919;<sup>s</sup>(A)
+= 2<sup>-s</sup> <span class="EQ_Over">&#119919;</span><sup>s</sup>(A)
+&le; <span class="EQ_Over">&#119927;</span><sup>s</sup>(A)
+= &#119927;<sup>s</sup>(A) </em>
+</div>
+<p>pour tout ensemble de Borel <em class="EQ">A</em>.  Puisque</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+s &lt; dim<sub>&#119919;</sub>(A) &rArr; &#119919;<sup>s</sup>(A) = &infin;
+&rArr; &#119927;<sup>s</sup>(A) = &infin;
+&rArr; s &lt; dim<sub>&#119927;</sub>(A) </em> ,
+</div>
+<p>nous obtenons que
+<em class="EQ"> dim<sub>&#119919;</sub>(A) &le; dim<sub>&#119927;</sub>(A)</em>.
+<span class="EQ_Right">&#8718;</span> </p>
+
+<hr class="MMathSStat">
+
+<h3 id="SS3"> Dimension box-counting </h3>
+
+<p>La dimension de packing n'est pas plus facile à calculer que la
+dimension de Hausdorff.  Nous introduisons maintenant un type de
+dimension qui littéralement se trouve entre les dimensions de
+Hausdorff et de packing.</p>
+
+<p>Étant donné <em class="EQ">r &gt; 0</em>, soit
+<em class="EQ">&#120018;<sub>r</sub></em> la collection de tous les
+carrées de la forme
+<em class="EQ">C<sub>i,j</sub> = [ir,(i+1)r[ &times; [jr,(j+1)r[</em> for
+<em class="EQ">i,j &in; &integers;</em>.  Nous avons que
+<em class="EQ">&reals;<sup>2</sup></em> est recouvert par les carrées
+dans <em class="EQ">&#120018;<sub>r</sub></em> et ces carrées sont
+disjoints.  Supposons que
+<em class="EQ">A &subset; &reals;<sup>2</sup></em> est un ensemble
+borné et que <em class="EQ">&#120016;<sub>r</sub> &subset;
+&#120018;<sub>r</sub></em> est la plus petite collection de carrées 
+qui recouvrent <em class="EQ">A</em>.  Soit
+<em class="EQ">N(A,r)</em> le nombre de carrées dans
+<em class="EQ">&#120016;<sub>r</sub></em>.
+De plus, soit <em class="EQ">&#119913;<sup>s</sup>(A,r)
+= &sum;<sub>C<sub>i,j</sub>&in;&#120016;<sub>r</sub></sub>r<sup>s</sup>
+= N(A,r)r<sup>s</sup></em>.  Notons que
+<em class="EQ">&#119913;<sup>2</sup>(A,r)</em> est l'aire de la région
+<em class="EQ">S = &cup;<sub>C<sub>i,j</sub>&in;&#120016;<sub>r</sub></sub>
+C<sub>i,j</sub></em>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que
+<em class="EQ">A &subset; &reals;<sup>2</sup></em> est un ensemble
+borné et que <em class="EQ">
+dim<sub>&#119913;</sub>(A) = lim<sub>r&rarr;0</sub> ln(N(A,r))/ln(1/r)</em>
+existe.  Alors, les limites <em class="EQ">
+X<sup>s</sup>(A) = lim<sub>r&rarr;0</sub> &#119913;<sup>s</sup>(A,r)</em>
+existent pour <em class="EQ">s &ne; dim<sub>&#119913;</sub>(A)</em>.
+De plus, <em class="EQ">X<sup>s</sup>(A) = &infin;</em> pour
+<em class="EQ">s &lt; dim<sub>&#119913;</sub>(A)</em>, et
+<em class="EQ">X<sup>s</sup>(A) = 0</em> pour
+<em class="EQ">s &gt; dim<sub>&#119913;</sub>(A)</em>.</p>
+</div>
+
+<p><em>Démonstration</em>:  Supposons que
+<em class="EQ">0 &lt; dim<sub>&#119913;</sub>(A) &lt; &infin;</em>.
+Étant donné <em class="EQ">t<sub>1</sub> &lt; dim<sub>&#119913;</sub>(A)
+&lt; t<sub>2</sub></em>,
+il existe <em class="EQ">R &gt; 0</em> tel que
+<em class="EQ"> t<sub>1</sub> &lt; ln(N(A,r))/ln(1/r) &lt;
+t<sub>2</sub></em> pour tout
+<em class="EQ">0 &lt; r &lt; R</em>.  Donc</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+N(A,r) r<sup>t<sub>1</sub></sup> &le; N(A,r) r<sup>(ln(N(A,r))/ln(1/r))</sup>
+= N(A,r) r<sup>(log<sub>r</sub>(N(A,r)<sup>-1</sup>)</sup>
+= 1 </em>
+</div>
+<p>et</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+N(A,r) r<sup>t<sub>2</sub></sup> &ge; N(A,r) r<sup>(ln(N(A,r))/ln(1/r))</sup>
+= N(A,r) r<sup>(log<sub>r</sub>(N(A,r)<sup>-1</sup>)</sup>
+= 1 </em>
+</div>
+<p>pour tout <em class="EQ">0 &lt; r &lt; R</em>.  Ainsi,
+<em class="EQ">r<sup>-t<sub>2</sub></sup> &le; N(A,r) &le;
+r<sup>-t<sub>1</sub></sup></em> pour tout
+<em class="EQ">0 &lt; r &lt; R</em>.</p>
+
+<p>Nous démontrons en premier que
+<em class="EQ">s &lt; dim<sub>&#119913;</sub>(A)</em>
+implique que <em class="EQ">X<sup>s</sup>(A) = &infin;</em>.
+Si <em class="EQ">s &lt; dim<sub>&#119913;</sub>(A)</em>, alors nous
+choisissons
+<em class="EQ">t<sub>2</sub> &gt; dim<sub>&#119913;</sub>(A)</em>
+comme au premier paragraphe.  Ainsi,</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+X<sup>s</sup>(A) = lim<sub>r&rarr;0</sub> N(A,r)r<sup>s</sup>
+&ge; lim<sub>r&rarr;0</sub> r<sup>s-t<sub>2</sub></sup> = &infin;</em>
+</div>
+<p>car <em class="EQ">s-t<sub>2</sub> &lt; 0</em>.</p>
+
+<p>Nous démontrons maintenant que
+<em class="EQ">s &gt; dim<sub>&#119913;</sub>(A)</em>
+implique que <em class="EQ">X<sup>s</sup>(A) = 0</em>.
+Si <em class="EQ">s &gt; dim<sub>&#119913;</sub>(A)</em>, alors nous
+choisissons
+<em class="EQ">t<sub>1</sub> &lt; dim<sub>&#119913;</sub>(A)</em>
+comme au premier paragraphe.  Ainsi,</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+X<sup>s</sup>(A) = lim<sub>r&rarr;0</sub> N(A,r)r<sup>s</sup>
+&le; lim<sub>r&rarr;0</sub> r<sup>s-t<sub>1</sub></sup> = 0</em>
+</div>
+<p>car <em class="EQ">s-t<sub>1</sub> &gt; 0</em>.</p>
+
+<p>Supposons que <em class="EQ">dim<sub>&#119913;</sub>(A) = 0</em>.
+Pour démontrer que <em class="EQ">X<sup>s</sup>(A) = 0</em>, nous
+démontrons que
+<em class="EQ">lim<sub>r&rarr;0</sub> ln(N(A,r)r<sup>s</sup>) = -&infin;</em>.
+Nous avons effectivement que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+lim<sub>r&rarr;0</sub> ln(N(A,r)r<sup>s</sup>)
+= lim<sub>r&rarr;0</sub> (ln(N(A,r) + s ln(r)) <br>
+= lim<sub>r&rarr;0</sub> (-ln(N(A,r))/ln(1/r) + s)ln(r)
+= lim<sub>r&rarr;0</sub> s ln(r) = -&infin; </em>
+</div>
+<p>car</p>
+<em class="EQ">lim<sub>r&rarr;0</sub> ln(N(A,r))/ln(1/r) = 0</em>.
+La démonstration pour le cas
+<em class="EQ">dim<sub>&#119913;</sub>(A) = &infin;</em> est
+semblables.
+<span class="EQ_Right">&#8718;</span> </p>
+
+<div class="Theo">
+<p><em>Définition</em>:  Supposons que <em class="EQ">A</em> est un
+ensemble de Borel.  Si elle existe, l'unique valeur
+<em class="EQ">dim<sub>&#119913;</sub>(A)</em> est appelée la
+<em>dimension box-counting</em> ou <em>dimension de Minkowski</em>
+de l'ensemble <em class="EQ">A</em>.</p>
+</div>
+
+<p>Pour éviter les problèmes associés à
+l'existence des limites utilisées pour définir
+<em class="EQ">X<sup>s</sup>(A)</em> et
+<em class="EQ">dim<sub>&#119913;</sub>(A)</em> pour un ensemble
+<em class="EQ">A</em>, il est préférable de considérer
+<em class="EQ">
+X<sup>s-</sup>(A) = lim&thinsp;inf<sub>r&rarr;0</sub> X<sup>s</sup>(A,r)</em>
+et <em class="EQ">
+dim<sub>&#119913;</sub><sup>-</sup>(A) = lim&thinsp;inf<sub>r&rarr;0</sub>
+(ln(N(A,r))/(ln(1/r))</em>, ou
+<em class="EQ">
+X<sup>s+</sup>(A) = lim&thinsp;sup<sub>r&rarr;0</sub> X<sup>s</sup>(A,r)</em>
+et <em class="EQ">
+dim<sub>&#119913;</sub><sup>+</sup>(A) = lim&thinsp;sup<sub>r&rarr;0</sub>
+(ln(N(A,r))/(ln(1/r))</em>.  La valeur
+<em class="EQ">dim<sub>&#119913;</sub><sup>-</sup>(A)</em> est appelée
+<em>l'index d'entropie inférieure</em> et la valeur
+<em class="EQ">dim<sub>&#119913;</sub><sup>+</sup>(A)</em> est appelée
+<em>l'index d'entropie supérieure</em>.</p>
+
+<p>La fonction <em class="EQ">X<sup>s</sup></em> n'est pas une mesure
+extérieure.  De même, les fonctions <em class="EQ">X<sup>s-</sup></em> et
+<em class="EQ">X<sup>s+</sup></em> ne sont pas des mesures externes.
+Nous pouvons procéder comme nous l'avons fait pour définir les mesures
+de Hausdorff et de packing afin de définir deux mesures externes à
+partir de <em class="EQ">&#119913;<sup>s</sup>(&middot;,r)</em>, et
+aussi deux dimensions associées à ces deux mesures.  Elles sont
+respectivement appelées la <em>dimension d'entropie inférieure</em> et
+la <em>dimension d'entropie supérieure</em>.  Nous n'allons pas
+présenter ce sujet.  La dimension box-counting est la dimension qui
+est souvent utilisée dans les applications car elle peut être estimée
+en comptant le nombre de carrées qui recouvrent l'ensemble
+<em class="EQ">A</em> pour obtenir
+<em class="EQ">N(A,r)</em> et en calculant
+<em class="EQ">N(A,r)/ln(1/r)</em> pour des valeurs de
+<em class="EQ">r</em> qui convergent vers <em class="EQ">0</em> afin
+d'estimer numériquement la limite <em class="EQ">
+lim<sub>r&rarr;0</sub> (ln(N(A,r))/(ln(1/r))</em>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que <em class="EQ">A</em> est un
+ensemble de Borel et que
+<em class="EQ">dim<sub>&#119913;</sub>(A)</em> existe.  Alors
+<em class="EQ">dim<sub>&#119919;</sub>(A) &le; dim<sub>&#119913;</sub>(A) &le;  
+  dim<sub>&#119927;</sub>(A)</em>.</p>
+</div>
+
+<p>Nous avons défini la dimension box-counting pour des
+sous-ensembles de <em class="EQ">&reals;<sup>2</sup></em>.  La
+présentation précédente peut naturellement se généraliser à
+<em class="EQ">&reals;<sup>n</sup></em>
+avec <em class="EQ">n &gt; 2</em>.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="SS4"> Dimension de similarité </h3>
+
+<div class="Theo">
+<p><em>Proposition</em>: Supposons que <em class="EQ">{C<sub>1</sub>,
+C<sub>2</sub>, ... , C<sub>J</sub>} &subset; ]0,1[</em>.  Alors, il
+  existe un nombre unique <em class="EQ">s &ge; 0</em> tel que
+<em class="EQ">&sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup> = 1</em>.
+De plus, <em class="EQ">s = 0</em> si et seulement si
+<em class="EQ">J = 1</em>.</p>
+</div>
+
+<p><em>Démonstration</em>: Soit
+<em class="EQ">F: [0,&infin;[ &rarr; [0,&infin;[</em> 
+la fonction définie par
+<em class="EQ">F(s) = &sum;<sub>1&le;j&le;J</sub>
+C<sub>j</sub><sup>s</sup></em>.  La fonction <em class="EQ">F</em> est
+une fonction continûment différentiable.  Puisque
+<em class="EQ">0 &lt; C<sub>j</sub> &lt; 1</em> pour tout
+<em class="EQ">j</em>,
+nous obtenons que <em class="EQ">F'(s) = &sum;<sub>1&le;j&le;J</sub>
+C<sub>j</sub><sup>s</sup>ln(C<sub>j</sub>) &lt; 0</em> pour tout
+<em class="EQ">s &in; ]0,&infin;[</em> et
+<em class="EQ">lim<sub>s&rarr;&infin;</sub> F(s) = 0</em>.
+Ainsi, nous avons que <em class="EQ">F</em> est une fonction
+strictement décroissante de <em class="EQ">F(0) = J</em> à
+<em class="EQ">0</em> sur l'intervalle
+<em class="EQ">[0,&infin;[</em>.
+Si <em class="EQ">J &gt; 1</em>, il découle du théorème des valeurs
+intermédiaires qu'il existe une valeur unique <em class="EQ">s &gt; 0</em>
+telle que <em class="EQ">F(s) = 1</em>.
+Si <em class="EQ">J = 1</em>, alors nous devons avoir
+<em class="EQ">s = 0</em> pour obtenir <em class="EQ">F(s) = 1</em>.
+Naturellement, <em class="EQ">s = 0</em> est seulement possible si
+<em class="EQ">J = 1</em>. <span class="EQ_Right">&#8718;</span></p>
+
+<p>Rappelons qu'un système itératif de fonctions (SIF)
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> est une
+collection de contractions sur l'espace métrique complet
+<em class="EQ">(E,d)</em>.  Associé à ce SIF, nous définissons une
+fonction <em class="EQ">f<sup>c</sup>: 
+E<sup>c</sup> &rarr; E<sup>c</sup></em> par </p>
+<div class="EQ_center">
+  <em class="EQ_Display">
+    f<sup>c</sup>(A) = &#8899;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(A)
+  </em>
+</div>
+<p>pour tout ensemble <em class="EQ">A &in; E<sup>c</sup></em>, où
+<em class="EQ">E<sup>c</sup></em> est l'espace des sous-ensembles
+compactes non-vides de <em class="EQ">E</em>.</p>
+
+<p>Presque tout les SIF que nous avons présentés sont des collections
+de fonctions <em class="EQ">f<sub>j</sub>: E &rarr; E</em> qui sont la
+composition de rotations, translations, réflexions et dilatations.
+Donc, nous avons que
+<em class="EQ">d(f<sub>j</sub>(x),f<sub>j</sub>(y)) =
+C<sub>j</sub>d(x,y)</em> pour tout <em class="EQ">x,y &in; E</em>, où
+<em class="EQ">0 &lt; C<sub>j</sub> &lt; 1</em> est le facteur de
+contraction de <em class="EQ">f<sub>j</sub></em>.
+Ces fonctions sont appelées des <em>fonctions de similarité</em>.  Les
+nombres <em class="EQ">C<sub>j</sub></em> sont appelés les
+<em>rapports de similarité</em>.  À partir de maintenant, nous
+assumons que nos SIF sont des collections de fonctions de similarité.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Supposons que <em class="EQ">K &in; E<sup>c</sup></em>
+est le point fixe de la fonction
+<em class="EQ">f<sup>c</sup></em> définie par le SIF
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>, et que
+<em class="EQ">C<sub>j</sub></em> est le rapport de similarité de
+<em class="EQ">f<sub>j</sub></em> pour <em class="EQ">1 &leq; j &leq; J</em>.
+La <em>dimension de similarité</em> ou <em>dimension d'homothétie </em> de
+<em class="EQ">K</em>, dénotée <em class="EQ">dim<sub>&#119930;</sub>(K)</em>,
+est la valeur unique <em class="EQ">s &ge; 0</em> telle que
+<em class="EQ">&sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup> = 1</em>.
+</p>
+</div>
+
+<p>La définition précédente a un défaut.  Le fait de considérer les
+SIF qui sont des collections de fonctions de similarité n'est pas
+suffisant pour garantir que la dimension de similarité
+est bien définie.  L'ensemble
+<em class="EQ">K &in; E<sup>c</sup></em> peut aussi être le point fixe
+de la fonction <em class="EQ">g<sup>c</sup></em> définie par un autre
+SIF <em class="EQ">{g<sub>i</sub>}<sub>1&leq;i&leq;I</sub></em> avec
+les rapports de similarité <em class="EQ">D<sub>i</sub></em> pour
+<em class="EQ">1 &leq; i &leq; I</sub></em> respectivement.
+La valeur de <em class="EQ">s</em> qui satisfait
+<em class="EQ">&sum;<sub>1&le;i&le;I</sub> D<sub>i</sub><sup>s</sup>
+= 1</em> est généralement différente de la valeur de
+<em class="EQ">s</em> qui satisfait
+<em class="EQ">&sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup>
+= 1</em>.  Donc, nous avons besoin d'une autre condition sur le SIF
+pour assurer que la dimension de similarité est indépendante du SIF
+utilisé pour calculer la dimension de similarité.  En fait, la
+condition proposée garantit que le SIF est unique.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Nous disons qu'un SIF
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> satisfait
+la <em>condition des ensembles ouverts</em> s'il existe un ensemble
+ouvert borné <em class="EQ">V &subset; E</em> tel que
+<em class="EQ">&cup;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(V) &subset; V</em>
+et <em class="EQ">f<sub>j<sub>1</sub></sub>(V) &cap;
+f<sub>j<sub>2</sub></sub>(V) = &emptyset;</em> pour
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.</p>
+</div>
+
+<p>À partir de maintenant, sauf indication contraire, nous
+considérons seulement des SIF qui satisfont la condition des ensembles
+ouverts.  Ainsi, la dimension de similarité est bien définie.</p>
+
+<div class="Theo">
+<p><em>Théorème</em>: Supposons que</p>
+<ul>
+<li><em class="EQ">(E,d) = (&reals;<sup>n</sup>,d)</em> où
+<em class="EQ">d</em> est la distance euclidienne, </li>
+<li><em class="EQ">K &in; E<sup>c</sup></em> est un point fixe de la
+fonction <em class="EQ">f<sup>c</sup></em> définie par le SIF
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>,</li>
+<li><em class="EQ">C<sub>j</sub></em> est le rapport de similarité de
+<em class="EQ">f<sub>j</sub></em> pour <em class="EQ">1 &leq; j &leq; J</em>,
+et </li>
+<li> le SIF satisfait la condition des ensembles ouverts.</li>
+</ul>
+Alors, <em class="EQ">dim<sub>&#119919;</sub>(K)
+= dim<sub>&#119930;</sub>(K)</em>.</p>
+</div>
+
+<p><em>Démonstration (ébauche)</em>:  Nous ébauchons la démonstration
+qui se trouve dans le livre de
+<script language="javascript">
+buildLinK("#KJF", "K. J. Falconer","MMathSStat", "KJFID1", "_top");
+</script>.  Notons que <em class="EQ">K</em> est un ensemble borné car
+<em class="EQ">K</em> est compacte.  En particulier,
+<em class="EQ">diam(K) &lt; &infin;</em>.
+Posons <em class="EQ">s = dim<sub>&#119930;</sub>(K)</em></em>.</p>
+<ol style="list-style-type: decimal;">
+<li>La première étape consiste à démonter qu'il existe une mesure de
+Borel
+<em class="EQ">&mu;</em> sur <em class="EQ">&reals;<sup>n</sup></em>
+telle que <em class="EQ">&mu;(&reals;<sup>n</sup>) = 1</em>. le
+support de <em class="EQ">&mu;</em> est contenu dans <em class="EQ">K</em>,
+et
+<em class="EQ">&mu;(U) = &sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup>
+&mu;(f<sub>j</sub><sup>-1</sup>(U))</em> pour tout ensemble mesurable
+<em class="EQ">U</em>.  Pour démontrer l'existence de
+<em class="EQ">&mu;</em>, nous définisons une fonctionnel linéaire
+positive <em class="EQ">F</em> sur l'espace <em class="EQ">&#120021;</em> 
+des fonctions continues sur <em class="EQ">K</em> et utilisons le
+théorème de repésentation de Riesz pour obtenir une mesure
+<em class="EQ">&mu;</em> telle que
+<em class="EQ">&int;<sub>K</sub> f d&mu; = F(f)</em> pour tout
+<em class="EQ">f &in; &#120021;</em>.</li>
+<li>La deuxième étape consiste à démontrer un résultat technique utile.
+Supposons que <em class="EQ">B</em> est une boule ouverte de rayon
+<em class="EQ">r</em>.  De plus, supposons que
+<em class="EQ">{U<sub>i</sub>}<sub>1&le;i&le;I</sub></em> est une
+collection d'ensembles ouverts disjoints tels que
+<em class="EQ">B<sub>1,i</sub> &subset; U<sub>i</sub> &subset;
+B<sub>2,i<sub></em> pour tout <em class="EQ">i</em> où les
+<em class="EQ">B<sub>1,i</sub></em> sont des boules ouvertes de rayon
+<em class="EQ">q<sub>1</sub>r</em> et les
+<em class="EQ">B<sub>2,i</sub></em> sont des boules ouvertes de rayon
+<em class="EQ">q<sub>2</sub>r</em> pour certaines constantes
+<em class="EQ">q<sub>1</sub></em> et <em class="EQ">q<sub>2</sub></em>.
+Alors <em class="EQ">B</em> a une intersection non-vide avec au plus
+<em class="EQ">(1+2q<sub>2</sub>)<sup>n</sup>q<sub>1</sub><sup>-n</sup></em>
+ensembles <em class="EQ"><span class="EQ_Over">U</span><sub>i</sub></em>.</li>
+<li> Soit <em class="EQ">K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+= f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+ &compfn;f<sub>j<sub>k</sub></sub>(K)</em> pour tout
+<em class="EQ">1&le;j<sub>i</sub>&le;J</em> et <em class="EQ">k &gt; 0</em>.
+Puisque chaque <em class="EQ">f<sub>j</sub></em> est une fonction de
+similarité avec un rapport de similarité
+<em class="EQ">C<sub>j</sub></em>, nous avons que
+<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+= C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
+  C<sub>j<sub>k</sub></sub> diam(K)</em>.  Ainsi
+<div class="EQ_center">
+<em class="EQ_Display">
+&sum;<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)<sup>s</sup>
+= &sum;<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+(C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
+C<sub>j<sub>k</sub></sub>)<sup>s</sup> diam(K)<sup>s</sup> <br>
+= (&sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup>)<sup>k</sup>
+diam(K)<sup>s</sup> = diam(K)<sup>s</sup></em> .
+</div>
+Étant donné <em class="EQ">&epsilon; &gt; 0</em>, puisque
+<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+&le; (max{C<sub>j</sub> : 1&le;j&le;J})<sup>k</sup> diam(K) &rarr; 0</em>
+lorsque <em class="EQ">k &rarr; &infin;</em>, il existe un entier
+positif <em class="EQ">k</em> tel que
+<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+&lt; &epsilon;</em> pour tous les indices.
+Puisque nous pouvons assumer que le recouvrement
+<em class="EQ">&epsilon;</em> dénombrable de <em class="EQ">K</em>
+dans la définition de
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)</em>
+est une collection d'ensembles fermés au lieu d'ensembles ouverts. alors
+<em class="EQ">{K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>}<sub><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+est un recouvrement <em class="EQ">&epsilon;</em> dénombrable de
+<em class="EQ">K</em> pour ce choix de <em class="EQ">k</em>.
+Nous obtenons de l'inégalité ci-dessus que
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)
+&le; diam(K)<sup>s</sup></em>.  Puisque cela est vrai pour tout
+<em class="EQ">&epsilon; &gt; 0</em>, nous obtenons que
+<em class="EQ">&#119919;<sup>s</sup>(K) =
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(K) &le; diam(K)<sup>s</sup>
+&lt; &infin;</em> car <em class="EQ">K</em> est un ensemble de Borel.</li>
+<li>Supposons que <em class="EQ">V</em> est l'ensemble ouvert borné
+dans la définition de la condition des ensemble ouverts.  Soit
+<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+= f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+ &compfn;f<sub>j<sub>k</sub></sub>(V)</em> pour tout
+<em class="EQ">1&le;j<sub>i</sub>&le;J</em> et <em class="EQ">k &gt; 0</em>.
+Puisque les ensembles <em class="EQ">V<sub>j</sub> = f<sub>j</sub>(V)</em>
+sont des ensembles ouverts disjoints par définition de la condition
+des ensembles ouverts, nous obtenons par induction que
+<em class="EQ">&cup;<sub>1&leq;j&leq;J</sub>
+V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>j</sub>
+&subset; V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+et <em class="EQ">
+V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>j</sub> &cap;
+V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>i</sub> = &emptyset;</em> pour
+<em class="EQ">j &ne; i</em>.
+Puisque <em class="EQ">{(f<sup>c</sup>)<sup>n</sup>(<span class="EQ_Over">V</span>)}<sub>n&ge;0</sub></em>
+est une suite décroissante d'ensembles compacts qui converge vers le
+point fixe <em class="EQ">K</em>, nous avons que
+<em class="EQ">K = &cap;<sub>n&ge;0</sub>
+(f<sup>c</sup>)<sup>n</sup>(<span class="EQ_Over">V</span>)</em>.
+En particulier, cela implique que <em class="EQ">
+K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub> &subset;
+<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+pour tous les indices.  Nous fournissons ci-dessous une
+représentation schématique des ensembles
+<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+dans le cas où <em class="EQ">J = 3</em>.
+<div class="center">
+  <img src="dim5.png" style="width: 400px"
+       alt="Représentation schématique des ensembles V_{j_1j_2...j_k}."
+       class="framed">
+</div>
+</li>
+<li>Nous choisissons deux boules ouvertes
+<em class="EQ">B<sub>1</sub></em> et <em class="EQ">B<sub>2</sub></em>
+de rayons <em class="EQ">q<sub>1</sub></em> et
+<em class="EQ">q<sub>2</sub></em> respectivement tels que
+<em class="EQ">B<sub>1</sub> &subset; V &subset; B<sub>2</sub></em>.
+Étant donné <em class="EQ">r &gt; 0</em>, soit
+<em class="EQ">&#120027;</em> la collection de toutes les suites finies
+<em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub></em>
+obtenues en tronquant les suites infinies
+<em class="EQ">{j<sub>i</sub>}<sub>i&ge;1</em></em>
+avec <em class="EQ">1 &le; j<sub>i</sub> &le; J</em>
+après <em class="EQ">k</em> termes où <em class="EQ">k</em> est la
+plus petite valeur telle que
+<div class="EQ_center">
+<em class="EQ_Display">(min<sub>1&le;j&leq;J</sub> C<sub>j</sub>)r &le;
+C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>
+&le; r</em> .
+</div>
+Évidemment, <em class="EQ">k</em> n'est pas nécessairement le même
+pour chaque suite infinie.  Nous avons de (4) que les ensembles
+ouverts
+<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+pour <em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
+sont disjoints.  De plus, puisque chaque fonction
+<em class="EQ">f<sub>j</sub></em> est une fonction de similarité avec
+le rapport de similarité <em class="EQ">C<sub>j</sub></em>, nous avons que
+chaque
+<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+contient une boule ouverte de rayon <em class="EQ">
+C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>q<sub>1</sub></em>
+(e.g. <em class="EQ">
+f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>k</sub></sub>(B<sub>1</sub>)</em>)
+et donc une boule ouverte de rayon
+<em class="EQ">(min<sub>1&le;j&leq;J</sub> C<sub>j</sub>)rq<sub>1</sub></em>.
+De même, chaque
+<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+est contenu dans une boule ouverte de rayon <em class="EQ">
+C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>q<sub>2</sub></em>
+(e.g. <em class="EQ">
+f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>k</sub></sub>(B<sub>2</sub>)</em>)
+et donc dans une boule ouverte de rayon <em class="EQ">rq<sub>2</sub></em>.
+Il découle de (2) qu'au plus
+<em class="EQ">N = (1+2q<sub>2</sub>)<sup>n</sup>
+(min<sub>1&le;j&leq;J</sub>
+C<sub>j</sub>)<sup>-n</sup>q<sub>1</sub><sup>-n</sup></em>
+des ensembles de la forme
+<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+avec <em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
+ont une intersection non-vide avec une boule ouverte de rayon
+<em class="EQ">r</em>.</li>
+<li>Étant donné une boule ouverte <em class="EQ">B</em> de rayon
+<em class="EQ">r &lt; diam(V)/2</em>, nous avons que
+<div class="EQ_center">
+<em class="EQ_Display">&mu;(B) &le;
+&sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+&mu;(<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+= &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+&mu;(f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+ &compfn;f<sub>j<sub>k</sub></sub>(<span class="EQ_Over">V</span>)) <br>
+= &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+C<sub>j<sub>1</sub></sub><sup>s</sup>
+&mu;(f<sub>j<sub>2</sub></sub>&compfn;f<sub>j<sub>3</sub></sub> ...
+ &compfn;f<sub>j<sub>k</sub></sub>(<span class="EQ_Over">V</span>)) <br>
+= &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+C<sub>j<sub>1</sub></sub><sup>s</sup>C<sub>j<sub>2</sub></sub><sup>s</sup>
+&mu;(f<sub>j<sub>3</sub></sub>&compfn;f<sub>j<sub>4</sub></sub> ...
+ &compfn;f<sub>j<sub>k</sub></sub>(<span class="EQ_Over">V</span>)) <br>
+= ...
+= &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+C<sub>j<sub>1</sub></sub><sup>s</sup>C<sub>j<sub>2</sub></sub><sup>s</sup>
+...C<sub>j<sub>k</sub></sub><sup>s</sup>
+&mu;(<span class="EQ_Over">V</span>) </br>
+&le; &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+C<sub>j<sub>1</sub></sub><sup>s</sup>C<sub>j<sub>2</sub></sub><sup>s</sup>
+...C<sub>j<sub>k</sub></sub><sup>s</sup>
+&mu;(&reals;<sup>n</sup>) <br>
+&le; Nr<sup>s</sup> = N(diam(B)/2)<sup>s</sup>
 </em>
 </div>
-
-<p> où <em class="EQ">a</em> est le nombre
-de <q lang="fr">petits</q> ensembles semblables à l'ensemble de départ
-<em class="EQ">A</em>
-et <em class="EQ">s</em> est la grandeur de la mise à l'échelle
-utilisée pour produire les <q lang="fr">petits</q> ensembles.  Par
-exemple: </p> 
-
-<ul>
-<li><p>La dimension d'homothétie du segment <em class="EQ">[0,1]</em>
-est 1.  Pour
-<em class="EQ">s = 1/2</em> et <em class="EQ">a = 2</em>,
-nous obtenons</p>
+où <em class="EQ">&#120027;' &subset; &#120027;</em> est l'ensemble
+des suites
+<em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
+telles que
+<em class="EQ"><span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+&cap; B &ne; &emptyset;</em>.  Notons que nous avons besoin de
+considérer seulement les ensembles
+<em class="EQ"><span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+qui ont une intersection non-vide avec <em class="EQ">B</em> car le support de
+<em class="EQ">&mu;</em> est contenu dans <em class="EQ">K</em> et
+<em class="EQ">
+K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub> &subset;
+<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+pour toutes les suites.</li>
+<li>Étant donné un recouvrement <em class="EQ">&epsilon;</em>
+dénombrable
+<em class="EQ">&#120026; = {U<sub>i</sub>}<sub>1&lt;i&lt;I</sub></em>
+de <em class="EQ">K</em>, nous pouvons choisir des boules ouvertes
+<em class="EQ">B<sub>i</sub></em> for <em class="EQ">1 &lt; i &lt; I</em>
+telles que <em class="EQ">{B<sub>i</sub>}<sub>1&lt;i&lt;I</sub></em>
+recouvre <em class="EQ">K</em> et le rayon de <em class="EQ">B<sub>i</sub></em>
+est <em class="EQ">diam(U<sub>i</sub>)/2</em> (il se peut que
+<em class="EQ">U<sub>i</sub> &subset; B<sub>i</sub></em> pour
+tout <em class="EQ">i</em> mais cela n'est pas requis.)&nbsp
+Ainsi
 <div class="EQ_center">
-  <em class="EQ_Display">log(a)/log(1/s) = log(2)/log(2) = 1</em> .
+<em class="EQ_Display">
+1 = &mu;(K) &le; &sum;<sub>1&le;i&le;I</sub> &mu;(B<sub>i</sub>)
+&le; N &sum;<sub>1&le;i&le;I</sub> (diam(B<sub>i</sub>)/2)<sup>s</sup>
+= N &sum;<sub>1&le;i&le;I</sub> diam(U<sub>i</sub>)<sup>s</sup>
+</em> .
 </div>
-<p> Nous laissons au lecteur le soin de décrire les deux (évidentes)
-fonctions de <em class="EQ">[0,1]</em> dans lui-même
-qui composent le SIF
-<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;2</sub></em>
-tel que l'intervalle <em class="EQ">[0,1]</em> est le point
-fixe de la fonction <em class="EQ">f<sup>c</sup></em> associée
-au SIF.</p>
+Donc <em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)
+&ge; 1/N</em>.  Puisque cela est vrai pour tout <em class="EQ">&epsilon;</em>,
+nous obtenons que <em class="EQ">&#119919;<sup>s</sup>(K)
+= <span class="EQ_Over">&#119919;</span><sup>s</sup>(K) &ge; 1/N &gt; 0</em>.
 </li>
-<li>
-<p><p>La dimension d'homothétie d'un cube est 3.  Pour
-<em class="EQ">s = 1/2</em> et <em class="EQ">a = 8</em>,
-nous obtenons</p>
-<div class="EQ_center">
-<em class="EQ_Display">log(a)/log(1/s) = log(8)/log(3) =
-  log<sub>2</sub>(8) = 3</em> .
+<li>Il découle de (3) et (7) que
+<em class="EQ">0 &lt; &#119919;<sup>s</sup>(K) &lt; &infin;</em>.  Donc
+<em class="EQ">dim<sub>&#119919;</sub>(K) = s</em>.
+<span class="EQ_Right">&#8718;</span></li>
+</ol>
+
+<p>Au théorème précédent, la condition que les ensembles
+<em class="EQ">f<sub>j</sub>(V)</em> soient disjoints garantit qu'il
+existe <q lang="en">presqu'aucun chevauchement</q> entre les
+ensembles <em class="EQ">f<sub>j</sub>(K)</em> où <em class="EQ">K</em>
+est un point fixe de <em class="EQ">f<sup>c</sup></em> dans
+<em class="EQ">E<sup>c</sup></em>.  C'est-à-dire,
+<em class="EQ">&#119919;<sup>s</sup>(f<sub>j<sub>1</sub></sub>(K) &cap;
+f<sub>j<sub>2</sub></sub>(K)) = 0</em> pour
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>
+quand <em class="EQ">s = dim<sub>&#119930;</sub>(K)
+= dim<sub>&#119919;</sub>(K)</em>.
+Ceci n'est pas difficile à démontrer.  Puisque le SIF est une
+collection de fonctions de similarité, nous avons que
+<em class="EQ">&sum;<sub>1&le;j&le;J</sub>
+&#119919;<sup>s</sup>(f<sub>j</sub>(K))
+= &sum;<sub>1&le;j&le;J</sub>
+C<sub>j</sub><sup>s</sup> &#119919;<sup>s</sup>(K)
+= &#119919;<sup>s</sup>(K)</em>.
+Puisque
+<em class="EQ">K = f<sup>c</sup>(K)
+= &cup;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(K)</em> et
+<em class="EQ">0 &lt; &#119919;<sup>s</sup>(K) &lt; &infin;</em>, nous
+obtenons des propriétés d'addition d'une mesure que l'égalité
+précédente est vrai si et seulement si
+<em class="EQ">&#119919;<sup>s</sup>(f<sub>j<sub>1</sub></sub>(K) &cap;
+f<sub>j<sub>2</sub></sub>(K)) = 0</em> pour
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.
+Cette condition est souvent utilisées comme définition
+<em>d'auto-similarité</em> pour <em class="EQ">K</em>.</p>
+
+<div class="Note">
+<p><em>Remarque</em>: Si le SIF ne satisfait pas la condition des
+ensembles ouverts, alors <em class="EQ">dim<sub>&#119919;</sub>(K) &le;
+dim<sub>&#119930;</sub>(K)</em> où la valeur
+<em class="EQ">dim<sub>&#119930;</sub>(K)</em> peut varier selon le
+SIF choisi.</p>
+
+<p>Il est aussi vrai que
+<em class="EQ">dim<sub>&#119927;</sub>(K) &le; dim<sub>&#119930;</sub>(K)</em>
+et
+<em class="EQ">dim<sub>&#119927;</sub>(K) = dim<sub>&#119930;</sub>(K)</em> si
+le SIF qui a <em class="EQ">K</em> comme point fixe satisfait la
+condition des ensembles ouverts.  Une démonstration de ce résultat se
+trouve dans le livre de
+<script language="javascript">
+buildLinK("#GAE", "G. A. Edgar","MMathSStat", "GAEID3", "_top");
+</script>.  Cela implique que
+<em class="EQ">dim<sub>&#119919;</sub>(K)
+= dim<sub>&#119913;</sub>(K) = dim<sub>&#119927;</sub>(K)
+= dim<sub>&#119930;</sub>(K)</em>
+quand le SIF qui a <em class="EQ">K</em> comme point fixe satisfait
+la condition des ensembles ouverts.</p>
 </div>
-<p>De nouveau, Nous laissons au lecteur le soin de décrire les huit
-(évidentes) fonctions de
-<em class="EQ">[0,1]<sup>3</sup></em> dans lui-même
-qui composent le SIF
-<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;8</sub></em>
-tel que le cube <em class="EQ">[0,1]<sup>3</sup></em> est le point
-fixe de la fonction <em class="EQ">f<sup>c</sup></em> associée
-au SIF.</p> </li>
-<li>
-<p>La dimension d'homothétie du triangle de Sierpinski est environ
-1.5850.  Pour <em class="EQ">s = 1/2</em> et
-<em class="EQ">a = 3</em>, nous obtenons</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous pouvons maintenant expliqué comment calculer
+la dimension de Hausdorff de la courbe de Kock à
+<script language="javascript">
+buildLinK("#egA", "l'Example A","MMathSStat", "egAID3", "_top");
+</script>.  La courbe de Kock est le point fixe <em class="EQ">K</em>
+de la fonction <em class="EQ">f<sup>c</sup></em> définie par le SIF
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em> où</p>
 <div class="EQ_center">
-<em class="EQ_Display">log(a)/log(1/s) = log(3)/log(2) &sim; 1.5850</em> .
+<em class="EQ_Display">f<sub>1</sub>(x,y) = (x/3,0)</em>,<br>
+<em class="EQ_Display">f<sub>2</sub>(x,y) = ((x/2+3<sup>1/2</sup>y/2)/3+1/3,(-3<sup>1/2</sup>x/2+y/3)/3)</em>, <br>
+<em class="EQ_Display">f<sub>3</sub>(x,y) = ((-x/2+3<sup>1/2</sup>y/2)/3+2/3,(-3<sup>1/2</sup>x/2-y/3)/3)</em> et <br>
+<em class="EQ_Display">f<sub>4</sub>(x,y) = (x/3 + 2/3,0)</em>
 </div>
-<p>Pour <em class="EQ">s = 1/4</em> et <em class="EQ">a = 9</em>,
-nous obtenons</p>
+<p>La fonction <em class="EQ">f<sub>2</sub></em> est une rotation dans
+le sense contraire aux aiguilles d'une montre par
+<em class="EQ">&pi;/3</em> radians composée avec une dilation par
+<em class="EQ">1/3</em> et suivie d'une translation par
+<em class="EQ">(1/3,0)</em> et la fonction
+<em class="EQ">f<sub>3</sub></em> est une rotation dans
+le sense contraire aux aiguilles d'une montre par
+<em class="EQ">2&pi;/3</em> radians composée avec une dilation
+par <em class="EQ">1/3</em> et suivie d'une translation
+par <em class="EQ">(2/3,0)</em>.  Ainsi, les
+<em class="EQ">f<sub>j</sub></em> sont des fonctions de similarité
+avec le rapport de similarité <em class="EQ">C<sub>j</sub> = 1/3</em>
+pour tout <em class="EQ">j</em>. De plus, soit
+<em class="EQ">h:[0,1] &rarr; &reals;</em> la fonction définie par</p>
 <div class="EQ_center">
-<em class="EQ_Display">log(a)/log(1/s) = log(9)/log(4) &sim; 1.5850</em> .
+<table class="noBS">
+<tr>
+<td style="width: 6em;"></td>
+<td style="width: 1.5em;"><em class="EQ">&#9127;</em></td>
+<td><em class="EQ">x/3<sup>1/2</sup> si 0 &le; x &le; 1/2</em>
+</td>
+</tr>
+<tr>
+<td><em class="EQ">h(x) = </em></td>
+<td><em class="EQ">&#9128;</em></td>
+<td><em class="EQ"></td>
+</tr>
+<tr>
+<td></td>
+<td><em class="EQ">&#9129;</em></td>
+<td><em class="EQ">(1-x)/3<sup>1/2</sup> si 1/2 &lt; x &le; 1</em></td>
+</tr>
+</table>
 </div>
-</li>
-</ul>
+Si <em class="EQ">V = {(x,y) : 0 &lt; x &lt; 1 and 0 &lt; y &lt; h(x)}</em>,
+nous avons que
+<em class="EQ">&cup;<sub>1&leq;j&leq;4</sub> f<sub>j</sub>(V) &subset; V</em>
+et <em class="EQ">f<sub>j<sub>1</sub></sub>(V) &cap;
+  f<sub>j<sub>2</sub></sub>(V) = &emptyset;</em> pour
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.</p>
+<div class="center">
+  <img src="dim6.png" style="width: 400px"
+    alt="Images de V, f^c(V), f^c(f^c(V)), f^c(f^c(f^c(V)))."
+       class="framed">
+</div>
+<p>Ainsi, le SIF satisfait la condition des ensembles ouverts.  Nous
+concluons du théorème précédent que
+<em class="EQ">dim<sub>&#119919;</sub>(K) = dim<sub>&#119930;</sub>(K) = s</em>
+où
+<em class="EQ">&sum;<sub>1&le;j&le;4</sub> C<sub>j</sub><sup>s</sup>
+= 4(1/3)<sup>s</sup> = 1</em>.  Donc
+<em class="EQ">dim<sub>&#119919;</sub>(K) = s = ln(4)/ln(3)
+&approx; 1.26186</em>.
+</p>
+</div>
+
+<div class="Example">
+<p><em>Exemple</em>: Le triangle de Sierpinski
+<em class="EQ">K</em> est le point fixe <em class="EQ">K</em>
+de la fonction <em class="EQ">f<sup>c</sup></em> définie par le SIF
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em> donné à la
+section <script language="javascript">
+buildLinK(fractal2.url_fr+"#SpkTrg","Triangle de Sierpinski du document "
++fractal2.text_fr,"MMathSStat", "SpkTrgID", "_top");
+</script>.
+Ainsi, les <em class="EQ">f<sub>j</sub></em> sont des fonctions de
+similarité avec le rapport de similarité
+<em class="EQ">C<sub>j</sub> = 1/2</em> pour tout
+<em class="EQ">j</em>.  De plus, si <em class="EQ">V</em> est le
+triangle ouvert 
+<em class="EQ">V = {(x,y) : 0 &lt; x &lt; 1 and 0 &lt; y &lt; 1-x}</em>,
+Nous avons que
+<em class="EQ">&cup;<sub>1&leq;j&leq;3</sub> f<sub>j</sub>(V) &subset; V</em>
+et <em class="EQ">f<sub>j<sub>1</sub></sub>(V) &cap;
+  f<sub>j<sub>2</sub></sub>(V) = &emptyset;</em> pour
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.  Donc, le SIF
+satisfait la condition des ensembles ouverts.  Nous concluons du
+théorème précédent que
+<em class="EQ">dim<sub>&#119919;</sub>(K) = dim<sub>&#119930;</sub>(K) = s</em>
+où
+<em class="EQ">&sum;<sub>1&le;j&le;3</sub> C<sub>j</sub><sup>s</sup>
+= 3(1/2)<sup>s</sup> = 1</em>.  Ainsi,
+<em class="EQ">dim<sub>&#119919;</sub>(K) = s = ln(3)/ln(2)
+&approx; 1.58496</em>.
+</p>
+</div>
+
+<div class="Note">
+<p><em>Remarque</em>: Le triangle d'Apollonius que nous avons décrit à
+<script language="javascript">
+buildLinK("#egA", "l'exemple A","MMathSStat", "egAID3", "_top");
+</script> est le point fixe de la fonction
+<em class="EQ">f<sup>c</sup></em> définit par un SIF
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em>
+où les fonctions <em class="EQ">f<sub>j</sub></em>
+ne sont pas des contractions et ne sont pas des fonctions de
+similarité.  Cependant, elle ne sont pas des expansions.
+Le SIF satisfait la condition des ensembles ouverts mais cela n'est
+pas suffisant pour utiliser la dimension de similarité pour calculer
+la dimension de Hausdorff du triangle d'Apollonius car 
+les fonctions <em class="EQ">f<sub>j</sub></em>
+ne sont pas des fonctions de similarité.</p>
+
+<p>Notons que le triangle d'Apollonius est homéomorphique au
+triangle de Sierpinski.  Cependant, les homéomorphismes ne préservent
+pas la dimension de Hausdorff.</p>
+
+<p>Le lecteur est invité à écrire les fonctions
+<em class="EQ">f<sub>j</sub></em>.</p>
+</div>
+
+<div class="Note">
+<p><em>Remarque</em>: Il existe quelques résultats théoriques au sujet de la
+<q lang="en">dimension de similarité</q> du point fixe
+<em class="EQ">K</em> d'un SIF
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> où les
+fonctions <em class="EQ">f<sub>j</sub></em> sont des contractions mais
+ne sont pas des fonctions de similarité.</p>
+</div>
 
 <hr class="MMathSStat">
 
-<h3> Dimension de Minkowski </h3>
+<h3 id="REF">Références</h3>
 
-<p> La <em>dimension de Minkowski</em> d'un ensemble
-<em class="EQ">A</em> est définie par la formule suivante.</p>
+<p>Le contenu de ce document est principalement basé sur les livres et
+articles suivants.</p>
 
-<div class="EQ_center">
-<em class="EQ_Display">
-Dimension = lim<sub>&#120583;->0</sub> log(N(A,&#120583;)) /
-log(1/&#120583;) </em> ,
-</div>
-
-<p> où <em class="EQ">N(A,&#120583;)</em> est le plus
-petit nombre de carrés ayant des côtés de longueur
-<em class="EQ">&#120583; &gt; 0</em>
-nécessaires pour couvrir <em class="EQ">A</em>.</p>
+<ul>
+<li id="MB">M. Barnsley, <em>Fractals Everywhere</em>, Academic Press,
+Inc. (1988).</li>
+<li id="KJF">K. J. Falconer, <em>The Geometry of Fractal Sets</em>,
+<em>85</em>, Cambridge University Press (1985). </li>
+<li id="GAE">G. A. Edgar, <em>Measure, Topology, and Fractal Geometry</em>,
+Undergraduate Text in Mathematics, Springer-Verlag (1990).</li>
+</ul>
 
 <table class="noB">
 <tr> <td rowspan="1" colspan="1" class="left">

@@ -232,6 +232,8 @@ span.EQ_Over { color: inherit; font-family: inherit;
   font-size: inherit; border-top: 1px #8F001A solid; padding-top: 2px }
 span.EQ_OverOver { color: inherit; font-family: inherit;
   font-size: inherit; border-top: 1px #8F001A solid; padding-top: 4px }
+span.EQ_OverDot { color: inherit; font-family: inherit;
+  font-size: inherit; border-top: 2px #8F001A dotted; padding-top: 2px }
 span.EQ_Larger { color: inherit; font-family: inherit;
   font-size: 150%;}
 span.EQ_Right { float: right; }

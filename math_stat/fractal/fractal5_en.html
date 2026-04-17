@@ -148,7 +148,7 @@ Julia sets of <em class="EQ">P<sub>c</sub></em> is connected.</p>
 set <em class="EQ">M</em> defined by</p> 
 <div class="EQ_center">
 <em class="EQ_Display">M = {c &in; &complexes; :
-{P<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub> is bounded} <br>
+{P<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub> is bounded} <br>
 &nbsp;&nbsp;
 = {c &in; &complexes; :
 {0, c, c^2 + c, (c^2 + c)^2 + c, ((c^2 + c)^2 + c)^2 + c, ...}
@@ -194,15 +194,15 @@ in the figure.</p>
 we have that <em class="EQ">M &subset;
 <span class="EQ_Over">B<sub>2</sub>(0)</span></em>.  To prove this
 claim, we consider <em class="EQ">|c|>2</em>.  We have that
-<em class="EQ">|P<sub>c</sub><sup>2</sup>(0)| = |c^2 +c|
+<em class="EQ">|P<sub>c</sub><sup>&#8728;2</sup>(0)| = |c^2 +c|
 = |c||c+1| > |c|</em>.  It follows from our discussion in the section 
 <script language="javascript">
   buildLinK(fractal4.url_en+"#JuliaFig",
   "Graphical Representation of Julia Sets of the document "+fractal4.text_en,
   "MMathSStat",fractal4.id+"GRJS", fractal4.target); 
 </script> that
-<em class="EQ"> |P<sub>c</sub><sup>j+2</sup>(0)|
-=|P<sub>c</sub><sup>j</sup>(P<sub>c</sub><sup>2</sup>(0))|
+<em class="EQ"> |P<sub>c</sub><sup>&#8728;(j+2)</sup>(0)|
+=|P<sub>c</sub><sup>&#8728;j</sup>(P<sub>c</sub><sup>&#8728;2</sup>(0))|
 &rarr; &infin;</em>
 as <em class="EQ">j &rarr; &infin;</em>.  The ball
 <em class="EQ"><span class="EQ_Over">B<sub>2</sub>(0)</span></em>
@@ -308,19 +308,20 @@ Suppose that <em class="EQ">a &in; W</em> and that
 of period <em class="EQ">k</em> of <em class="EQ">P<sub>a</sub></em>.
 Since the function
 <em class="EQ">G:&complexes; &times; &complexes; &rarr; &complexes;</em>
-defined by <em class="EQ">G(z,c) = P<sub>c</sub><sup>k</sup>(z) - z</em>
+defined by <em class="EQ">G(z,c) = P<sub>c</sub><sup>&#8728;k</sup>(z) - z</em>
 is differentiable with respect to both variables,
 <em class="EQ">G(p,a) = 0</em> and <em class="EQ"> D<sub>z</sub>G(p,a)
-= (P<sub>a</sub><sup>k</sup>)'(p) - 1 &ne; 0</em> because
-<em class="EQ">|(P<sub>a</sub><sup>k</sup>)'(p)|&lt;1</em>,
+= (P<sub>a</sub><sup>&#8728;k</sup>)'(p) - 1 &ne; 0</em> because
+<em class="EQ">|(P<sub>a</sub><sup>&#8728;k</sup>)'(p)|&lt;1</em>,
 we get from the implicit function theorem that there exist an open
 neighbourhood <em class="EQ">U</em> of <em class="EQ">a</em>,
 an open neighbourhood <em class="EQ">V</em> of <em class="EQ">p</em>,
 and a unique differentiable function <em class="EQ">f:U &rarr; V</em>
 such that <em class="EQ">f(a) = p</em> and <em class="EQ">G(f(c),c) = 0</em>
 for <em class="EQ">c &in; U</em>.  Since
-<em class="EQ">|(P<sub>a</sub><sup>k</sup>)'(p)|&lt;1</em>, we get by
-continuity that <em class="EQ">|(P<sub>c</sub><sup>k</sup>)'(f(c))|&lt;1</em>
+<em class="EQ">|(P<sub>a</sub><sup>&#8728;k</sup>)'(p)|&lt;1</em>, we get by
+continuity that
+<em class="EQ">|(P<sub>c</sub><sup>&#8728;k</sup>)'(f(c))|&lt;1</em>
 if <em class="EQ">c</em> is in a small enough neighbourhood of
 <em class="EQ">a</em>. <span class="EQ_Right">&#8718;</span></p>
 
@@ -338,7 +339,8 @@ component of <em class="EQ">M</em>, then
 <em class="EQ">B<sub>1</sub>(0)</em>.  The equivalence is given by the
 analytic homeomorphism
 <em class="EQ">&rho;<sub>W</sub>:W &rarr; B<sub>1</sub>(0)</em> defined
-by <em class="EQ">&rho;<sub>W</sub>(c) = (P<sub>c</sub><sup>k</sup>)'(z)</em>,
+by <em class="EQ">&rho;<sub>W</sub>(c)
+= (P<sub>c</sub><sup>&#8728;k</sup>)'(z)</em>,
 where <em class="EQ">z</em> is a point on the unique finite
 super-attracting or attracting periodic orbit of period <em class="EQ">k</em>
 of <em class="EQ">P<sub>c</sub></em>.  Moreover, if
@@ -370,8 +372,8 @@ for <em class="EQ">j&geq;0</em>.  We have seen in the section
   "An Equivalent Definition of Julia Sets of the document "
   +fractal4.text_en,"MMathSStat", fractal4.id+"propXV", fractal4.target);
 </script>
-that <em class="EQ">(P<sub>c</sub><sup>k</sup>)'(z<sub>j</sub>)
-= (P<sub>c</sub><sup>k</sup>)'(z)</em> for all
+that <em class="EQ">(P<sub>c</sub><sup>&#8728;k</sup>)'(z<sub>j</sub>)
+= (P<sub>c</sub><sup>&#8728;k</sup>)'(z)</em> for all
 <em class="EQ">j</em>.  Thus, the definition of
 <em class="EQ">&rho;<sub>W</sub>(c)</em> does not depend on the choice
 of <em class="EQ">z</em> on the super-attracting or attracting
@@ -520,8 +522,8 @@ bifurcation points on the boundary of <em class="EQ">W<sub>0</sub></em>.</p>
 <em class="EQ">c &in; W<sub>0</sub></span></em>
 very closed to the boundary of <em class="EQ">W<sub>0</sub></span></em>,
 we have that the convergence of the sequence
-<em class="EQ">{P<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em> to the
-fixed point of <em class="EQ">P<sub>c</sub></em> is very slow.
+<em class="EQ">{P<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub></em>
+to the fixed point of <em class="EQ">P<sub>c</sub></em> is very slow.
 For this reason, they are often coloured in black because
 the <em>Matlab</em> function <script language="javascript">
   buildLinK(matlabProgr.url_en+"#Sect29", "mandelbrot1",
@@ -532,7 +534,7 @@ large) number of iterations.  Moreover, some
 points <em class="EQ">c &in; W<sub>0</sub></em>
 very closed to the bifurcation point at <em class="EQ">-3/4</em>
 may mistakenly be coloured in blue.  This is due to the fact that the
-orbit <em class="EQ">{P<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
+orbit <em class="EQ">{P<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub></em>
 converging toward a fixed point of <em class="EQ">P<sub>c</sub></em>
 may behave very like a periodic orbit of period <em class="EQ">2</em>
 when <em class="EQ">c</em> is very closed to the bifurcation point.
@@ -544,7 +546,7 @@ Similarly, some points <em class="EQ">c &in; W<sub>1/2</sub></em>
 very closed to the bifurcation point at <em class="EQ">-3/4</em>
 may mistakenly be coloured in red.  This is due to the fact that
 the two points of the periodic orbits
-<em class="EQ">{P<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
+<em class="EQ">{P<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub></em>
 of period <em class="EQ">2</em>
 are very closed to each other.  Thus, because of the limited numerical
 accuracy of the <em>Matlab</em> function
@@ -626,7 +628,7 @@ for every <em class="EQ">p/q &in; &rationals; &cap; ]0,1]</em>
 in reduced form.  To define <em class="EQ">&gamma;<sub>W<sub>1/2</sub></sub>:
 <span class="EQ_Over">B<sub>1</sub>(0)</span>
 &rarr; <span class="EQ_Over">W<sub>1/2</sub></span></em>, we consider
-<em class="EQ">P<sub>c</sub><sup>2</sup>(z) = z</em>. we get that</p>
+<em class="EQ">P<sub>c</sub><sup>&#8728;2</sup>(z) = z</em>. we get that</p>
 <div class="EQ_center">
 <em class="EQ_Display">
 z<sup>4</sup>+2cz<sup>2</sup>+c<sup>2</sup>+c = z
@@ -653,7 +655,7 @@ Thus, we find the periodic orbit
 <em class="EQ">{w<sub>+</sub>, w<sub>-</sub>, w<sub>+</sub>,
 w<sub>-</sub>, ...}</em> of period <em class="EQ">2</em>.  This orbit
 is attracting if
-<em class="EQ">|(P<sub>c</sub><sup>2</sup>)'(w<sub>+</sub>)|
+<em class="EQ">|(P<sub>c</sub><sup>&#8728;2</sup>)'(w<sub>+</sub>)|
 = 4|c+1| &lt; 1</em>.  Thus
 <em class="EQ">W<sub>1/2</sub> = B<sub>1/4</sub>(-1)</em>.
 Hence
@@ -824,29 +826,29 @@ P<sub>0</sub></em> for <em class="EQ">|z| &gt; b</em>.</li>
 <div class="EQ_center">
 <em class="EQ_Display">
 &phi;<sub>c</sub>(z) = lim<sub>n&rarr;&infin;</sub>
-(P<sub>c</sub><sup>n</sup>(z))<sup>2<sup>-n</sup></sup>
+(P<sub>c</sub><sup>&#8728;n</sup>(z))<sup>2<sup>-n</sup></sup>
 = z &prod;<sub>n&ge;0</sub>
-(1+c/(P<sub>c</sub><sup>n</sup>(z))<sup>2</sup>)<sup>2<sup>-n-1</sup</sup>
+(1+c/(P<sub>c</sub><sup>&#8728;n</sup>(z))<sup>2</sup>)<sup>2<sup>-n-1</sup</sup>
 </em>
 </div>
 <p>for <em class="EQ">z &in; &complexes; &setminus;
 <span class="EQ_Over">B<sub>a</sub>(0)</span></em>,
 where the principal branch (the first branch) of the roots of degree
-<em class="EQ">2<sup>k</sup></em> is used.
+<em class="EQ">2<sup>&#8728;k</sup></em> is used.
 The equality between the two formulae comes from the relation</p>
 <div class="EQ_center">
 <em class="EQ_Display">
-(P<sub>c</sub><sup>n</sup>(z))<sup>2<sup>-n</sup></sup>
+(P<sub>c</sub><sup>&#8728;n</sup>(z))<sup>2<sup>-n</sup></sup>
 = z 
-[(P<sub>c</sub><sup>1</sup>(z))<sup>2<sup>-1</sup></sup>/(P<sub>c</sub><sup>0</sup>(z))<sup>2<sup>0</sup></sup>]
-[(P<sub>c</sub><sup>2</sup>(z))<sup>2<sup>-2</sup></sup>/(P<sub>c</sub><sup>1</sup>(z))<sup>2<sup>-1</sup></sup>]
+[(P<sub>c</sub><sup>&#8728;1</sup>(z))<sup>2<sup>-1</sup></sup>/(P<sub>c</sub><sup>&#8728;0</sup>(z))<sup>2<sup>0</sup></sup>]
+[(P<sub>c</sub><sup>&#8728;2</sup>(z))<sup>2<sup>-2</sup></sup>/(P<sub>c</sub><sup>&#8728;1</sup>(z))<sup>2<sup>-1</sup></sup>]
 ... <br>
-[(P<sub>c</sub><sup>n</sup>(z))<sup>2<sup>-n</sup></sup>/(P<sub>c</sub><sup>n-1</sup>(z))<sup>2<sup>-n-1</sup></sup>] <br>
+[(P<sub>c</sub><sup>&#8728;n</sup>(z))<sup>2<sup>-n</sup></sup>/(P<sub>c</sub><sup>&#8728;(n-1)</sup>(z))<sup>2<sup>-n-1</sup></sup>] <br>
 = z 
-[1+c/(P<sub>c</sub><sup>0</sup>(z))<sup>2</sup>]<sup>2<sup>-1</sup></sup>
-[1+c/(P<sub>c</sub><sup>1</sup>(z))<sup>2</sup>]<sup>2<sup>-2</sup></sup>
+[1+c/(P<sub>c</sub><sup>&#8728;0</sup>(z))<sup>2</sup>]<sup>2<sup>-1</sup></sup>
+[1+c/(P<sub>c</sub><sup>&#8728;1</sup>(z))<sup>2</sup>]<sup>2<sup>-2</sup></sup>
 ...
-[1+c/(P<sub>c</sub><sup>n-1</sup>(z))<sup>2</sup>]<sup>2<sup>-n</sup></sup>
+[1+c/(P<sub>c</sub><sup>&#8728;(n-1)</sup>(z))<sup>2</sup>]<sup>2<sup>-n</sup></sup>
 </em>
 </div>
 
@@ -865,7 +867,7 @@ K<sub>P<sub>c</sub></sub> &rarr; &reals;</em> as it follows.</p>
 <tr>
 <td><em class="EQ">G<sub>c</sub>(z) = </em></td>
 <td><em class="EQ">&#9128;</em></td>
-<td><em class="EQ">G<sub>c</sub>(P<sub>c</sub><sup>n</sup>(z))/2<sup>n</sup> if
+<td><em class="EQ">G<sub>c</sub>(P<sub>c</sub><sup>&#8728;n</sup>(z))/2<sup>n</sup> if
 z &in; <span class="EQ_Over">B<sub>a</sub>(0)</span> &setminus;
 K<sub>P<sub>c</sub></sub></em> </td>
 </tr>
@@ -873,7 +875,7 @@ K<sub>P<sub>c</sub></sub></em> </td>
 <td></td>
 <td><em class="EQ">&#9129;</em></td>
 <td><em class="EQ"> &nbsp;&nbsp;&nbsp;&nbsp;
-where n is large enough to have P<sub>c</sub><sup>n</sup>(z) &in;
+where n is large enough to have P<sub>c</sub><sup>&#8728;n</sup>(z) &in;
 &complexes; &setminus; <span class="EQ_Over">B<sub>a</sub>(0)</span></em></td>
 </tr>
 </table>
@@ -916,9 +918,9 @@ It follows from</p>
 <div class="EQ_center">
 <em class="EQ_Display">
 &phi;<sub>c</sub>(P<sub>c</sub>(z)) = lim<sub>n&rarr;&infin;</sub>
-(P<sub>c</sub><sup>n+1</sup>(z))<sup>2<sup>-n</sup></sup>
+(P<sub>c</sub><sup>&#8728;(n+1)</sup>(z))<sup>2<sup>-n</sup></sup>
 = (lim<sub>n&rarr;&infin;</sub>
-(P<sub>c</sub><sup>n+1</sup>(z))<sup>2<sup>-n-1</sup></sup>)<sup>2</sup>
+(P<sub>c</sub><sup>&#8728;(n+1)</sup>(z))<sup>2<sup>-n-1</sup></sup>)<sup>2</sup>
 = (&phi;<sub>c</sub>(z))<sup>2</sup> </em>
 </div>
 <p>for <em class="EQ">z &in; &complexes; &setminus;
@@ -932,7 +934,7 @@ G<sub>c</sub>(P<sub>c</sub>(z))/2</em> .
 Inductively, we get that</p>
 <div class="EQ_center">
 <em class="EQ_Display">G<sub>c</sub>(z) =
-G<sub>c</sub>(P<sub>c</sub><sup>n</sup>(z))/2<sup>n</sup></em>
+G<sub>c</sub>(P<sub>c</sub><sup>&#8728;n</sup>(z))/2<sup>n</sup></em>
 </div>
 <p>for <em class="EQ">n &in; &naturals;</em> and
 <em class="EQ">z &in; &complexes; &setminus;
@@ -944,19 +946,20 @@ of <em class="EQ">n</em>.  If
 <em class="EQ">z &in; <span class="EQ_Over">B<sub>b</sub>(0)</span>
 &setminus; K<sub>P<sub>c</sub></sub></em> and
 <em class="EQ">n</em> is large enough to have
-<em class="EQ">P<sub>c</sub><sup>n</sup>(P<sub>c</sub>(z)) &in;
+<em class="EQ">P<sub>c</sub><sup>&#8728;n</sup>(P<sub>c</sub>(z)) &in;
 &complexes; &setminus; <span class="EQ_Over">B<sub>b</sub>(0)</span></em>,
 then <em class="EQ">G<sub>c</sub>(P<sub>c</sub>(z))
-= G<sub>c</sub>(P<sub>c</sub><sup>n+1</sup>(z))/2<sup>n</sup>
-= 2(G<sub>c</sub>(P<sub>c</sub><sup>n+1</sup>(z))/2<sup>n+1</sup>)
+= G<sub>c</sub>(P<sub>c</sub><sup>&#8728;(n+1)</sup>(z))/2<sup>n</sup>
+= 2(G<sub>c</sub>(P<sub>c</sub><sup>&#8728;(n+1)</sup>(z))/2<sup>n+1</sup>)
 = 2G<sub>c</sub>(z)</em>.</p>
 
 <p>Since <em class="EQ">G<sub>c</sub>(z) - ln(|z|)</em> is bounded in a
 neighbourhood of <em class="EQ">&infin;</em>, we have that</p>
 <div class="EQ_center">
 <em class="EQ_Display">G<sub>c</sub>(z) = lim<sub>n&rarr;&infin;</sub>
-G<sub>c</sub>(P<sub>c</sub><sup>n</sup>(z))/2<sup>n</sup>
-= lim<sub>n&rarr;&infin;</sub> ln(|P<sub>c</sub><sup>n</sup>(z)|)/2<sup>n</sup>
+G<sub>c</sub>(P<sub>c</sub><sup>&#8728;n</sup>(z))/2<sup>n</sup>
+= lim<sub>n&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>&#8728;n</sup>(z)|)/2<sup>n</sup>
 </em> .
 </div>
 <p>Since <em class="EQ">G<sub>c</sub>(z) &rarr; 0</em>
@@ -1015,29 +1018,31 @@ is the family of curves
 <p>Since</p>
 <div class="EQ_center">
 <em class="EQ_Display">
-ln(|P<sub>c</sub><sup>m-k</sup>(z)|) &le; 2<sup>m</sup> &#8660;
-ln(|P<sub>c</sub><sup>m-k</sup>(z)|)/2<sup>m-k</sup> &le; 2<sup>k</sup></em> ,
+ln(|P<sub>c</sub><sup>&#8728;(m-k)</sup>(z)|) &le; 2<sup>m</sup> &#8660;
+ln(|P<sub>c</sub><sup>&#8728;(m-k)</sup>(z)|)/2<sup>m-k</sup> &le;
+2<sup>k</sup></em> ,
 </div>
 <p>we get that</p>
 <div class="EQ_center">
 <em class="EQ_Display">
 {z : lim<sub>m&rarr;&infin;</sub>
-ln(|P<sub>c</sub><sup>m-k</sup>(z)|)/2<sup>m</sup> &le; 1}
+ln(|P<sub>c</sub><sup>&#8728;(m-k)</sup>(z)|)/2<sup>m</sup> &le; 1}
 = {z : lim<sub>m&rarr;&infin;</sub>
-ln(|P<sub>c</sub><sup>m-k</sup>(z)|)/2<sup>m-k</sup> &le; 2<sup>k</sup>} <br>
+ln(|P<sub>c</sub><sup>&#8728;(m-k)</sup>(z)|)/2<sup>m-k</sup> &le;
+2<sup>k</sup>} <br>
 = {z : lim<sub>m&rarr;&infin;</sub>
-ln(|P<sub>c</sub><sup>m</sup>(z)|)/2<sup>m</sup> &le; 2<sup>k</sup>}
+ln(|P<sub>c</sub><sup>&#8728;m</sup>(z)|)/2<sup>m</sup> &le; 2<sup>k</sup>}
 = {z : G<sub>c</sub>(z) &le; 2<sup>k</sup>}
 = Q<sub>c</sub>(e<sup>2<sup>k</sup></sup>)</em> .
 </div>
 <p>Hence</p>
 <div class="EQ_center">
 <em class="EQ_Display">
-P<sub>c</sub><sup>-j</sup>(Q<sub>c</sub>(e<sup>2<sup>k</sup></sup>))
-= P<sub>c</sub><sup>-j</sup>({z : lim<sub>m&rarr;&infin;</sub>
-ln(|P<sub>c</sub><sup>m-k</sup>(z)|)/2<sup>m</sup> &le; 1}) <br>
+P<sub>c</sub><sup>&#8728;(-j)</sup>(Q<sub>c</sub>(e<sup>2<sup>k</sup></sup>))
+= P<sub>c</sub><sup>&#8728;(-j)</sup>({z : lim<sub>m&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>&#8728;(m-k)</sup>(z)|)/2<sup>m</sup> &le; 1}) <br>
 = {z : lim<sub>m&rarr;&infin;</sub>
-ln(|P<sub>c</sub><sup>m-k+j</sup>(z)|)/2<sup>m</sup> &le; 1}
+ln(|P<sub>c</sub><sup>&#8728;(m-k+j)</sup>(z)|)/2<sup>m</sup> &le; 1}
 = Q<sub>c</sub>(e<sup>2<sup>k-j</sup></sup>) </em>
 </div>
 <p>for <em class="EQ">j &ge; 0</em>.  
@@ -1046,20 +1051,20 @@ We set <em class="EQ">k = 3</em> and consider the sets
 <em class="EQ_Display">
 Q<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)
 = P<sub>c</sub><sup>-j</sup>(Q<sub>c</sub>(e<sup>2<sup>3</sup></sup>))
-= {z : P<sub>c</sub><sup>j</sup>(z) &in;
+= {z : P<sub>c</sub><sup>&#8728;j</sup>(z) &in;
 Q<sub>c</sub>(e<sup>8</sup>)}</em>
 </div>
 for <em class="EQ">j &ge; 0</em>.
 Unfortunately, we do not have an exact description of
 <em class="EQ">Q<sub>c</sub>(e<sup>8</sup>)</em>.
 However, for <em class="EQ">m</em> very large,
-we have that <em class="EQ">P<sub>c</sub><sup>m</sup>(z) &approx;
+we have that <em class="EQ">P<sub>c</sub><sup>&#8728;m</sup>(z) &approx;
 z<sup>2<sup>m</sup></sup></em>.  Therefore,
 <div class="EQ_center">
 <em class="EQ_Display">
 Q<sub>c</sub>(e<sup>8</sup>)
 = {z : lim<sub>m&rarr;&infin;</sub>
-ln(|P<sub>c</sub><sup>m</sup>(z)|)/2<sup>m</sup> &le; 8}
+ln(|P<sub>c</sub><sup>&#8728;m</sup>(z)|)/2<sup>m</sup> &le; 8}
 &approx; {z : lim<sub>m&rarr;&infin;</sub>
 ln(|z|<sup>2<sup>m</sup></sup>)/2<sup>m</sup> = ln(|z|) &le; 8} <br>
 = {z : |z| &le; e<sup>8</sup>}
@@ -1070,8 +1075,8 @@ ln(|z|<sup>2<sup>m</sup></sup>)/2<sup>m</sup> = ln(|z|) &le; 8} <br>
 <div class="EQ_center">
 <em class="EQ_Display">&Gamma;<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)
 = &part; Q<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)
-= &part; P<sub>c</sub><sup>-j</sup>(Q<sub>c</sub>(e<sup>2<sup>3</sup></sup>))
-&approx; &part; P<sub>c</sub><sup>-j</sup>(B<sub>e<sup>8</sup></sub>(0))
+= &part; P<sub>c</sub><sup>&#8728;(-j)</sup>(Q<sub>c</sub>(e<sup>2<sup>3</sup></sup>))
+&approx; &part; P<sub>c</sub><sup>&#8728;(-j)</sup>(B<sub>e<sup>8</sup></sub>(0))
 </em>
 </div>
 <p>in the <em>Matlab</em> function
@@ -1109,6 +1114,22 @@ Julia set <em class="EQ">K<sub>P<sub>c</sub></sub></em> for
        alt="The Daoudy's rabbit with some equipotential lines associated to it."
        class="framed">
 </div>
+</div>
+
+<div class="Note">
+<p><em>Remark</em>: The <em>escape time algorithm</em> presented in
+many introductory textbooks on Julia sets is another way to present
+the equipotential lines.  Points <em class="EQ">z</em> outside
+<em class="EQ">Q<sub>c</sub>(e<sup>2<sup>3-j</sup></sup>)</em>
+reach <em class="EQ">Q<sub>c</sub>(e<sup>8</sup>)</em> in less than 
+<em class="EQ">j</em> iterations; namely, we get
+<em class="EQ">P<sub>c</sub><sup>&#8728;j</sup>(z) &in;
+Q<sub>c</sub>(e<sup>8</sup>)</em>.  If our only goal it to
+illustrate a Julia set, then the ball
+<em class="EQ">B<sub>e<sup>8</sup></sub>(0)</em> in our
+algorithm to draw equipotential lines can be replaced by any other
+ball containing the Julia set as it is done in the many introductory
+textbooks on Julia sets.</p>
 </div>
 
 <p>If the filled Julia set
@@ -1304,7 +1325,7 @@ J<sub>P<sub>c</sub></sub></em> containing
 is of period <em class="EQ">m</em>.  There exists an analytic isomorphism
 <em class="EQ">&eta;<sub>c</sub>:U<sub>c</sub> &rarr; B<sub>1</sub>(0)</em>
 such that <em class="EQ">
-&eta;<sub>c</sub>&#8728;(P<sub>c</sub><sup>m</sup>)&#8728;&eta;<sub>c</sub><sup>-1</sup>
+&eta;<sub>c</sub>&#8728;(P<sub>c</sub><sup>&#8728;m</sup>)&#8728;&eta;<sub>c</sub><sup>-1</sup>
 = P<sub>0</sub></em> on <em class="EQ"> B<sub>1</sub>(0)</em>.
 Moreover, if
 <em class="EQ">&mu;<sub>c</sub> = &eta;<sub>c</sub><sup>-1</sup></em>,
@@ -1315,7 +1336,7 @@ with
 <em class="EQ">&mu;<sub>c</sub>(S<sup>1</sup>) = &part;U<sub>c</sub></em>.
 Let <em class="EQ">z = &mu;<sub>c</sub>(1)</em> be the <em>root</em>
 of <em class="EQ">U<sub>c</sub></em>.  Then
-<em class="EQ">P<sub>c</sub><sup>m</sup>(z) = z</em> and
+<em class="EQ">P<sub>c</sub><sup>&#8728;m</sup>(z) = z</em> and
 <em class="EQ">z &in; J<sub>P<sub>c</sub></sub> &cap; &part;U<sub>c</sub></em>.
 Given <em class="EQ">t &in; &psi;<sub>c</sub><sup>-1</sup>({z})</em>,
 it follows from <em class="EQ">P<sub>c</sub>(&psi;<sub>c</sub>(t))
@@ -1340,7 +1361,7 @@ period <em class="EQ">2</em> given by
 <em class="EQ">{0, -1, 0, -1, ...}</em>.  We note that
 <em class="EQ">-1</em> is effectively a critical value of
 <em class="EQ">P<sub>-1</sub></em>.  A little look at the graph of
-<em class="EQ">P<sub>-1</sub><sup>2</sup>:&reals; &rarr; &reals;</em>
+<em class="EQ">P<sub>-1</sub><sup>&#8728;2</sup>:&reals; &rarr; &reals;</em>
 shows that <em class="EQ">z = &gamma;<sub>W<sub>1/2</sub></sub>(1)
 = (1-5<sup>1/2</sup>)/2 &approx; -0.618034</em>
 is an repulsive fixed point of <em class="EQ">P<sub>-1</sub></em>.
@@ -1470,7 +1491,7 @@ is unique.</p>
 
 <div class="Theo">
 <p><em>Definition</em>; Let <em class="EQ">A<sub>c</sub> =
-{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em>, the orbit of the
+{P<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub></em>, the orbit of the
 critical point <em class="EQ">0</em>.  The <em>Hubbard tree</em>
 <em class="EQ">H<sub>c</sub></em> of
 <em class="EQ">P<sub>c</sub></em> is the regular envelop
@@ -1490,7 +1511,7 @@ a schema of the Hubbert tree <em class="EQ">H<sub>c</sub></em>
 of <em class="EQ">P<sub>c</sub></em> where
 <em class="EQ">c &approx; -0.15652 + 1.03225i</em>.
 We have that <em class="EQ">A<sub>c</sub> =
-{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub> = {z<sub>0</sub>,
+{P<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub> = {z<sub>0</sub>,
 z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>}</em> with
 <em class="EQ">z<sub>0</sub> = 0</em>,
 <em class="EQ">z<sub>1</sub> = c &approx; -0.15652+1.03225i</em>,
@@ -1591,7 +1612,7 @@ that ends at <em class="EQ">z</em>.</p>
 
 <div class="Theo">
 <p><em>Proposition</em>: If <em class="EQ">A<sub>c</sub> =
-{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em> is an eventually
+{P<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub></em> is an eventually
 periodic orbit that is not periodic, then <em class="EQ">&nu;(0) = 2</em>
 and
 <div class="EQ_center">
@@ -1599,12 +1620,12 @@ and
 1 = &nu;(z<sub>1</sub>) &le; &nu;(z<sub>2</sub>) &le; ... &le;
 &nu;(z<sub>m</sub>) = &nu;(z<sub>m+1</sub>) = ... </em> ,
 </div>
-where <em class="EQ">z<sub>n</sub> = P<sup>n</sup><sub>c</sub>(0)</em>
+where <em class="EQ">z<sub>n</sub> = P<sub>c</sub><sup>&#8728;n</sup>(0)</em>
 for <em class="EQ">n &ge; 0</em>
 and <em class="EQ">z<sub>m</sub></em> is the first element of the
 periodic orbit.<br>
 If <em class="EQ">A<sub>c</sub> =
-{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em> is a periodic
+{P<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub></em> is a periodic
 orbit of period <em class="EQ">k &gt; 1</em>, then there exists
 <em class="EQ">1 &lt; m &le; k</em> such that
 <em class="EQ">&nu;(z<sub>n</sub>) = 1</em> for
@@ -1612,7 +1633,7 @@ orbit of period <em class="EQ">k &gt; 1</em>, then there exists
 <em class="EQ">&nu;(z<sub>n</sub>) = 2</em> for
 <em class="EQ">m &lt; n &le; k</em>.<br>
 If <em class="EQ">A<sub>c</sub> =
-{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub> = {0}</em>, namely
+{P<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub> = {0}</em>, namely
 <em class="EQ">c = 0</em> and <em class="EQ">0</em> is a fixed
 point, then <em class="EQ">&nu;(0) = 0</em>.</p>
 </div>
@@ -1622,7 +1643,7 @@ point, then <em class="EQ">&nu;(0) = 0</em>.</p>
 buildLinK("#egC","Example C","MMathSStat","egCId2","_top"); 
 </script>, we have that
 <em class="EQ">A<sub>c</sub> =
-{P<sup>n</sup><sub>c</sub>(0)}<sub>n&ge;0</sub></em> is a periodic
+{P<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub></em> is a periodic
 orbit of period <em class="EQ">k = 4</em> and
 <em class="EQ">m = 3</em> in the previous proposition.
 We note in particular that
@@ -1661,7 +1682,7 @@ for <em class="EQ">j = 0,1</em>.</p>
 <em class="EQ">z</em>.  Let
 <em class="EQ">t<sub>n</sub> &in; [0,1[</em> be such that
 <em class="EQ">&Xi;<sub>c</sub>(t<sub>n</sub>)
-= P<sub>c</sub><sup>n-1</sup>(&Xi;<sub>c</sub>(t))</em>
+= P<sub>c</sub><sup>&#8728;(n-1)</sup>(&Xi;<sub>c</sub>(t))</em>
 for <em class="EQ">n &ge; 1</em>.  Then
 <em class="EQ">t = &sum;<sub>n&ge;1</sub>
 u(t<sub>n</sub>)/2<sup>n</sup></em>.</p>
@@ -1901,7 +1922,7 @@ L(&beta;<sub>0</sub>,0) &subset; L(&beta;<sub>0</sub>,c)</em> by
 <em class="EQ">Q<sub>c</sub>(w) = z</em> if and only if
 <em class="EQ">w = P<sub>c</sub>(z)</em> with
 <em class="EQ"> z &in; L(&beta;<sub>0</sub>,0)</em>.
-Let <em class="EQ">w<sub>n</sub> = Q<sub>c</sub><sup>n</sup>(c)</em> for
+Let <em class="EQ">w<sub>n</sub> = Q<sub>c</sub><sup>&#8728;n</sup>(c)</em> for
 <em class="EQ">n &ge; 1</em>.  We have that
 <em class="EQ">w<sub>1</sub> = 0</em> and <em class="EQ">w<sub>n</sub> &in;
 L(&beta;<sub>0</sub>,0)</em> for <em class="EQ">n &ge; 1</em>.
@@ -1985,22 +2006,23 @@ We have that
 
 <p>As we did in the previous section, we can prove that
 <em class="EQ">G<sub>M</sub>(c) = G<sub>c</sub>(c)
-= lim<sub>n&rarr;&infin;</sub> ln(|P<sub>c</sub><sup>n</sup>(c)|)/2<sup>n</sup>
+= lim<sub>n&rarr;&infin;</sub>
+ln(|P<sub>c</sub><sup>&#8728;n</sup>(c)|)/2<sup>n</sup>
 </em>
 and
 <em class="EQ">
 Q<sub>M</sub>(e<sup>2<sup>k</sup></sup>) = {c : lim<sub>m&rarr;&infin;</sub>
-ln(|P<sub>c</sub><sup>m-k</sup>(c)|)/2<sup>m</sup> &le; 1}</em>
+ln(|P<sub>c</sub><sup>&#8728;(m-k)</sup>(c)|)/2<sup>m</sup> &le; 1}</em>
 for <em class="EQ">k &ge; 0</em>.  Hence
 <div class="EQ_center">
 <em class="EQ_Display">
 Q<sub>M</sub>(e<sup>2<sup>k-j</sup></sup>) 
 = {c : lim<sub>m&rarr;&infin;</sub>
-ln(|P<sub>c</sub><sup>m-k+j</sup>(c)|)/2<sup>m</sup> &le; 1} <br>
-= {c : P<sub>c</sub><sup>j</sup>(c) &in; {z :
+ln(|P<sub>c</sub><sup>&#8728;(m-k+j)</sup>(c)|)/2<sup>m</sup> &le; 1} <br>
+= {c : P<sub>c</sub><sup>&#8728;j</sup>(c) &in; {z :
 lim<sub>m&rarr;&infin;</sub>
-ln(|P<sub>c</sub><sup>m-k</sup>(z)|)/2<sup>m</sup> &le; 1}} <br>
-= {c : P<sub>c</sub><sup>j</sup>(c) &in;
+ln(|P<sub>c</sub><sup>&#8728;(m-k)</sup>(z)|)/2<sup>m</sup> &le; 1}} <br>
+= {c : P<sub>c</sub><sup>&#8728;j</sup>(c) &in;
  Q<sub>c</sub>(e<sup>2<sup>k</sup></sup>) </em> .
 </div>
 <p>If we take <em class="EQ">k = 3</em> as we did in the previous section
@@ -2009,10 +2031,10 @@ about the filled Julia sets, and use the relation
 &approx; B<sub>e<sup>8</sup></sub>(0)</em>, we get that
 <em class="EQ">
 Q<sub>M</sub>(e<sup>2<sup>k-j</sup></sup>) 
-&approx; {c : P<sub>c</sub><sup>j</sup>(c) &in;
+&approx; {c : P<sub>c</sub><sup>&#8728;j</sup>(c) &in;
 B<sub>e<sup>8</sup></sub>(0)}</em>.
 Thus <em class="EQ">&Gamma;<sub>M</sub>(e<sup>2<sup>3-j</sup></sup>)
-&approx; &part;{c : P<sub>c</sub><sup>j</sup>(c) &in;
+&approx; &part;{c : P<sub>c</sub><sup>&#8728;j</sup>(c) &in;
 B<sub>e<sup>8</sup></sub>(0)}</em>
 for <em class="EQ">j &ge; 0</em>.</p>
 
@@ -2200,20 +2222,20 @@ Namely,</p>
 </em>
 </div>
 <p>for <em class="EQ">c &in; &complexes;</em>.  The sequence
-<em class="EQ">{N<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
+<em class="EQ">{N<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub></em>
 may converge to one of the three roots:
 <em class="EQ">1</em>, <em class="EQ">-c-1/2</em> or
 <em class="EQ">c-1/2</em>.  It may also not converge to one of
 these three roots but instead be eventually periodic.  In the figure
 below, the points <em class="EQ">c</em> where
-<em class="EQ">{N<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
+<em class="EQ">{N<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub></em>
 converges to <em class="EQ">r<sub>1</sub> = 1</em>,
 <em class="EQ">r<sub>2</sub> = -c-1/2</em> and
 <em class="EQ">r<sub>1</sub> = c-1/1</em> are coloured in
 red, blue and green respectively.  Otherwise, the points <em class="EQ">c</em>
 are coloured in black.  For the values of <em class="EQ">c</em> in the
 little Mandelbrot set in the figures below, the orbits
-<em class="EQ">{N<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em>
+<em class="EQ">{N<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub></em>
 are eventually periodic and the periods are multiples of
 <em class="EQ">2</em>.</p>
 
@@ -2239,7 +2261,7 @@ of the parameter space of <em class="EQ">N<sub>c</sub></em> around the
 point <em class="EQ">c = 0.51i</em>, then we get the figure below.
 For the points <em class="EQ">c</em> belonging to the Mandelbrot set
 in the figure below, the orbits
-<em class="EQ">{N<sub>c</sub><sup>n</sup>(0)}<sub>n&ge;0</sub></em> 
+<em class="EQ">{N<sub>c</sub><sup>&#8728;n</sup>(0)}<sub>n&ge;0</sub></em> 
 are eventually periodic and the periods are multiples
 of <em class="EQ">3</em>.</p>
 

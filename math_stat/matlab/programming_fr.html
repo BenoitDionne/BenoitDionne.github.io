@@ -1186,7 +1186,7 @@ pour calculer la racine carrée de \(1 -4 c\), alors \(|z_+| > 1/2\). Puisque
 est un point fixe répulsif.  Ainsi \(z_+ \in J_{P_c}\).
 Pour \(c = 1/4\), nous avons que \(z_+ = z_- = 1/2\) est un point fixe
 neutre.  Néanmoins, la méthode pour dessiner l'ensemble de Julia
-\(J_{P_c}\) est fonctionne pour \(c = 1/4\).</p>
+\(J_{P_c}\) fonctionne pour \(c = 1/4\).</p>
 
 <p>Nous n'avons pas à dessiner l'ensemble
 \(\displaystyle \overline{\bigcup_{n>0} P_c^{-n}(\{z_+\})}\)
@@ -1198,7 +1198,7 @@ la résolution des écrans d'ordinateurs..  De plus, nous devons éviter
 de tirer des conclusions <q lang="en">fines</q> au sujet d'un ensemble de
 Julia en se basant sur la figure qui apparaît sur l'écran d'un
 ordinateur.  Nous ne devons pas oublier qu'un pixel sur l'écran d'un
-ordinateur représente un disque avec un petit rayon dan le plan
+ordinateur représente un disque avec un petit rayon dans le plan
 complexe, non pas un seul point.  Ainsi, ce qui peut ressembler à une
 courbe continue peut en fait être une collection infinie de courbes fermées
 disjointes ou de points.  Seul la théorie peut nous dire si c'est une
@@ -1222,7 +1222,7 @@ est d'environ 20.</p>
 %
 % c : Any complex number.  The default value is i.
 % N : The number of backward iterations.  The default value is 17.
-% colour : One of the colours accepted in Matlab plot/fill.
+% colour : One of the colours accepted by Matlab.
 %          The default colour is blue.
 %
 
@@ -1315,18 +1315,18 @@ The drawing is completed.
 </div>
 
 <p>Il existe une autre méthode pour dessiner l'ensemble de Julia d'une
-fonction rationnelle.  Cette méthode a été utilisé depuis que les
+fonction rationnelle.  Cette méthode a été utilisée depuis que les
 ordinateurs personnels ont été employés pour dessiner des ensembles de Julia.
 Les premiers ordinateurs personnels n'avaient pas la capacité de
 mémoire que les ordinateurs personnels ont présentement.  Donc, le
 calcul des images inverses entières n'était pas réaliste.  Un
 élément stochastique a été ajouté à la méthode précédente.
 Au lieu de calculer tous les éléments de l'image inverse, seulement un
-point de l'image inverse est choisi au hasard et dessiné sur l'écran
+point de chaque image inverse est choisi au hasard et dessiné sur l'écran
 d'ordinateur.   Ce point est alors utilisé pour l'itération inverse
 suivante.  Il n'est pas nécessaire de conserver en mémoire les
 coordonnées de ce point après qu'il est été dessiné et utilisé pour
-l'itération inverse suivante.  Pour compenser pour les points de
+calculer l'itération inverse suivante.  Pour compenser pour les points de
 l'image inverse qui sont ignorés, le nombre d'itérations inverses 
 doit être très grand pour obtenir une bonne représentation d'un
 ensemble de Julia.  Très peu d'espace mémoire est utilisé mais le
@@ -1352,7 +1352,7 @@ l'écran d'ordinateur.</p>
 %
 % c : Any complex number.  The default value is 0.3.
 % N : The number of iterations.  The default value is 4000.
-% colour : One of the colours accepted in Matlab plot/fill.
+% colour : One of the colours accepted by Matlab.
 %          The default colour is blue.
 %
 
@@ -1430,7 +1430,8 @@ end
 </div>
 
 <div class="Example">
-<p><em>Exemple</em>: Nous utilisons notre nouvelle fonction pour
+<p><em>Exemple</em>: Nous utilisons notre nouvelle fonction
+de <em>Matlab</em> pour
 dessiner l'ensemble de Julia \(J_{P_{-1}}\) de la fonction polynomiale
 \(P_{-1}\) définie par \(P_{-1}(z) = z^2 -1\).</p> 
 
@@ -1446,8 +1447,8 @@ The drawing is completed.
        alt="L'ensemble de Julia de P_{-1} = z^2 - 1 dessiné à l'aide de notre nouvelle fonction.">
 </div>
 <p>Même après 40,000 itérations, l'image de l'ensemble de Julia n'est
-toujours pas aussi <q lang="en">bonne</q> que l'image produite avec
-a méthode précédente.</p> 
+pas aussi <q lang="en">précise</q> que l'image produite avec
+la méthode précédente.</p> 
 </div>
 
 <p><p>Il est démontré dans le document
@@ -1485,8 +1486,8 @@ est le complément du basin d'attraction du point fixe
   "MMathSStat", fractal4.id, fractal4.target);
 </script> que \(z \in W^s(\infty,P_c)\) si
 \(P_c^n(z) > \max\{|c|,2\}\) pour une valeur \(n \in \mathbb{N}\).
-Il est souvent beaucoup plus difficile pour d'autres fonctions
-rationnelles de trouver une condition nécessaire et suffisante pour
+Il est souvent beaucoup plus difficile de trouver pour d'autres fonctions
+rationnelles une condition nécessaire et suffisante pour
 déterminer si un point appartient au basin d'attraction d'un point
 fixe attractif.</p>
 
@@ -1728,8 +1729,8 @@ Pour produire la figure ci-dessous, nous avons utilisé la condition
 qu'un point \(z\) appartient au basin d'attraction d'un point fixe \(p\) si
 \(|R^n(z)-p| < 10^{-3}\) pour une valeur de \(n \in \mathbb{N}\).
 C'est un condition nécessaire mais ce n'est pas une condition
-suffisante.  Elle n'est même pas nécessaire si nous limitons
-\(n\) à un sous-ensemble fini de \\mathbb{N}\) comme cela est fait dans
+suffisante.  Elle n'est même pas nécessaire si nous considérons
+seulement un nombre fini d'itérations comme cela est fait dans
 la fonction <em class="matlab">julia3</em>.  Nous obtenons néanmoins
 une figure acceptable.</p> 
 
@@ -1749,11 +1750,11 @@ The drawing is completed.
        alt="Ensemble de Julia plein pour R(z) = (2 z^3 +1)/(3 z^2).">
 </div>
 
-<p>Le lecteur  se demande peut être pour nous n'avons pas simplement
+<p>Le lecteur se demande peut être pourquoi nous n'avons pas simplement
 utilisé la commande
 <font class="matlab">julia3(R,[r1],'Tols',[0.001],'Colours',{'black'},
 ...);</font> pour dessiner le basin d'attraction de \(1\).
-Si la densité de points et le nombre d'itérations à chaque point sont
+Si la densité de points et le nombre d'itérations sont
 grands, la fonction de <em>Matlab</em> <font class="matlab">julia3</font>
 utilisera beaucoup de temps de calcul et d'espace mémoire.
 En particulier, à tout point \(z\) où l'orbite
@@ -1781,8 +1782,8 @@ tracer les courbes équipotentielles \(\Gamma_c(e^{2^{3-j}})\) pour
 \(j \geq 0\) associées à l'ensemble de Julia plein de la fonction
 polynomiale \(P_c\).  La
 courbe qui est tracée par la fonction <em class="matlab">julia4</em>
-est une courbe linéaire par morceau qui est presque que la vrai courbe
-\(\Gamma_c(e^{2^{3-j}})\).</p>
+est une courbe linéaire par morceau qui est <q lang="fr">presque</q>
+que la vrai courbe \(\Gamma_c(e^{2^{3-j}})\).</p>
 
 <div class="center">
   <img src="julia4_fr.png" style="width: 500px"
@@ -1832,7 +1833,7 @@ comme extrémités pour obtenir un nouveau point que l'on colore en jaune.</li>
 </ol>
 
 <p>À chaque étape, nous considérons seulement les points qui sont les
-sommet du triangle tracé avec une ligne hachuré en bleu.  Le point
+sommets du triangle tracé avec une ligne hachuré en bleu.  Le point
 dont nous fessons la réflection n'est jamais le point qui a été
 colorié en jaune deux étapes précédemment.  La réflexion est toujours
 faite au travers d'un segment dont une des extrémités est un point en
@@ -1850,7 +1851,7 @@ buildLinK("julia4.m", "julia4.m","MMathSStat", "juliaID1", "_blank");
 %
 % This function draw the (filled) Julia set of P_c(z) = z^2 + c with some
 % level curves Gamma_c(exp(2^(3-j))) if requested.  The value of c
-% must be a value such that P_C has a connected Julia set.
+% must be a value such that P_c has a connected Julia set.
 %
 % c is a complex number.
 %
@@ -1858,7 +1859,7 @@ buildLinK("julia4.m", "julia4.m","MMathSStat", "juliaID1", "_blank");
 % 'Region' is an array of the form [a b c d].  The portion of the
 %          Julia set in the region [a,b] x [c,d] is displayed.
 %          The default region is [-2,2]x[-2,2].
-% 'Density' is a positive integer.  This the number of points per
+% 'Density' is a positive integer.  This is the number of points per
 %           unit used to plot the filled Julia set.  Double this
 %           value is used to draw the level curves.  The default
 %           value is 200.
@@ -1866,12 +1867,12 @@ buildLinK("julia4.m", "julia4.m","MMathSStat", "juliaID1", "_blank");
 %          set, this is the number of iterations used to determine
 %          if the orbit { P_c^n(z)}_{n>0} is unbounded.
 %          Namely, it is unbounded if |P_c^n(z)| > max{2,|c|} for some
-%          n < N + 1.  The default value is 100.
+%          n < NbrItr + 1.  The default value is 100.
 % 'Levels' is a array of integer numbers (preferably greater than 3).
 %          The level curves Gamma_c(exp(2^(3-levels(j)))) for
 %          j=1,2,...,length(levels) are drawn in addition of the
 %          Julia set.  The function looks for level curves
-%          that go through the segment [0, max([2,abs(c),region(2)])].
+%          that go through the segment [0, max{2,abs(c),region(2)}].
 %          The default is Levels = [4].
 % 'Colour' is the colour to draw the Julia set.  Only colours
 %          allowed by Matlab can be used. The default colour is black.
@@ -2258,12 +2259,12 @@ buildLinK("mandelbrot1.m", "mandelbrot1.m","MMathSStat", "Manbrid1", "_blank");
 % 'Region' is an array of the form [a b c d].  The Mandelbrot set
 %          in the region [a,b] x [c,d] is displayed.  The default
 %          region is [-2,2]x[-2,2].
-% 'Density' is a positive integer.  This the number of points per unit.
+% 'Density' is a positive integer.  This is the number of points per unit.
 %           The default value is 100.
 % 'NbrItr' is a positive integer number.  This is the number of
 %          iterations used to determine if the orbit
 %          { P_c^n(0)}_{n>0} is unbounded.  Namely, it is unbounded
-%          if |P_c^n(0)| > 2 for some n < N + 1.  The default value
+%          if |P_c^n(0)| > 2 for some n < NbrItr + 1.  The default value
 %          is 200.  This is also the number of iterations used to
 %          determine if the orbit converges to a period orbit.
 % 'Periods' is a array of periods.  The hyperbolic sets associated to
@@ -2278,7 +2279,7 @@ buildLinK("mandelbrot1.m", "mandelbrot1.m","MMathSStat", "Manbrid1", "_blank");
 %           highlighted as hyperbolic sets associated to periodic
 %           orbits of period p as it may be expected.
 % 'Tol" is a real number.  This is the accuracy used to determine 
-%       is an orbit has converged to an attracting periodic orbit.
+%       if an orbit has converged to an attracting periodic orbit.
 %       The default value is 10^(-7).   
 % 'Colour' is the colour to draw the Mandelbrot set.  Only colours
 %          allowed by Matlab can be used. The default colour is black.
@@ -2428,7 +2429,7 @@ end
 
 <div class="Example">
 <p><em>Exemple</em>: Nous dessinons l'ensemble de Mandelbrot avec les
-<q class="fr">sous-ensembles hyperboliques</em> associés aux valeurs de 
+sous-ensembles hyperboliques associés aux valeurs de 
 \(c\) pour lesquelles \(P_c\) a un point fixe attractif et une orbite
 périodique attractive de période \(2\), \(3\) ou \(4\).</p>
 
@@ -2482,7 +2483,7 @@ buildLinK("mandelbrot2.m", "mandelbrot2.m","MMathSStat", "Manbrid1", "_blank");
 %          Mandelbrot set, this is the number of iterations used
 %          to determine if the orbit { P_c^n(0)}_{n>0} is
 %          unbounded.  Namely, it is unbounded if |P_c^n(0)| > 2
-%          for some n < N + 1.  The default value is 100.
+%          for some n < NbrItr + 1.  The default value is 100.
 % 'Levels' is an array of integer numbers (preferably greater than 3).
 %          The level curves Gamma_c(exp(2^(3-levels(j)))) for
 %          j=1,2,...,length(levels) are drawn in addition of the
@@ -2783,12 +2784,12 @@ La fonction de <em>Matlab</em>
 <font class="matlab">mandelbrot3</font> colore les points \(c\)
 tels que \(\displaystyle \{N_c^n(0)\}_{n>0}\) converge vers un
 point fixe de \(N_c\); c'est-à-dire, une racine de \(P_c\).
-Cette fonction de <em>Matlab</em> est utilisé pour afficher un petit
+Cette fonction de <em>Matlab</em> est utilisée pour afficher un petit
 ensemble de Mandelbrot à l'intérieur de l'espace des paramètres de \(N_c\)
 comme il est expliqué dans la section
 <script language="javascript"> 
-  buildLinK(fractal5.url_en+"#SS5","Et plus ... du document précédent",
-  "MMathSStat", fractal5.id, fractal5.target);
+  buildLinK(fractal5.url_en+"#SS5","Et plus ... du document "
+  +fractal4.text_fr,"MMathSStat", fractal5.id, fractal5.target);
 </script>.  Le code de la fonction <em>Matlab</em>
 <font class="matlab">mandelbrot3</font>
 se trouve dans le <em>fichier m</em> <script language="javascript">
@@ -2818,7 +2819,7 @@ cette fonction.</p>
            {N_c^n(0)}_{n>0} converges to one of the fixed points
            of N_c.  The default value is 100.
   'Tol" is a real number.  This is the accuracy used to determine 
-        is an orbit has converged to a fixed point of M_c.
+        if an orbit has converged to a fixed point of M_c.
         The default value is 10^(-3).
   'Colour' is the colour to draw the points c such that
            the orbit { N_c^n(0)}_{n>0} does not converge to one of

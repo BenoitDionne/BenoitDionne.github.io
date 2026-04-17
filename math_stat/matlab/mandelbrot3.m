@@ -18,7 +18,7 @@
 %          {N_c^n(0)}_{n>0} converges to one of the fixed points
 %          of N_c.  The default value is 100.
 % 'Tol" is a real number.  This is the accuracy used to determine 
-%       is an orbit has converged to a fixed point of M_c.
+%       if an orbit has converged to a fixed point of M_c.
 %       The default value is 10^(-3).
 % 'Colour' is the colour to draw the points c such that
 %          the orbit { N_c^n(0)}_{n>0} does not converge to one of

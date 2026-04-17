@@ -35,10 +35,14 @@ document.write("Include javascript file has failed")
 top_function(fractal3,"en")
 </script>
 
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
 <div class="page_contents"> <!-- The contents starts here -->
 
 <script language="javascript">
-main_title( MStext, "MMathSStat");
+main_title(MStext, "MMathSStat");
 </script>
 
 <table class="noB">
@@ -49,101 +53,1549 @@ main_title( MStext, "MMathSStat");
 </tr>
 </table>
 
-<h2> Fractal Dimensions </h2>
+<h2 id="TOP"> Fractal Dimensions </h2>
+
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#SS1", "Hausdorff Dimension",
+      "MMathSStat", "SS1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS2", "Packing Dimension",
+      "MMathSStat", "SS2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS3", "Box-Counting Dimension",
+      "MMathSStat", "SS3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS4", "Similarity Dimension",
+      "MMathSStat", "SS4ID", "_top");
+  </script> </li>
+</ul>
+</div>
 
 <p> There is no clear definition of a fractal.  Benoit
 B. Mandelbrot (the father of Fractal Geometry) defines a fractal
 as a set for which the <q lang="en">Hausdorff</q> dimension is strictly
 greater than the topological dimension.  Some mathematicians will also
 request that the set had some self-similarity.  This is the case for
-the Sierpinski triangle. </p>
+the Sierpinski triangle for instance. </p>
 
-<p> We only consider the notion of <em>similarity dimension</em> and
-<em>Minkowski dimension</em>.  We may add more information on these
-topics later (?).</p>
+<p> We only consider the <q lang="en">Hausdorff</q>,
+<q lang="en">packing</q>, <q lang="en">box-counting</q> and
+<q lang="en">similarity</q> dimensions.  There are many more type
+of dimension.</p>
+
+<p>In this document, we assume that readers have some basic knowledge
+of measure theory.</p>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="SS1"> Hausdorff Dimension </h3>
+
+<p>Suppose that <em class="EQ">(E,d)</em> is a complete metric space.
+A <em>countable cover</em> <em class="EQ">&#120016;</em> of a set
+<em class="EQ">A &subset; E</em> is a countable collection of open
+sets in <em class="EQ">E</em> such
+that <em class="EQ">A &subset; &cup;<sub>U&in;&#120016;</sub> U</em>.
+A <em>countable <em class="EQ">&epsilon;</em> cover</em>
+<em class="EQ">&#120016;</em> of a set
+<em class="EQ">A</em> is a countable cover of <em class="EQ">A</em>
+such that <em class="EQ">diam(U) = sup{d(x,y) : x,y &in; U}
+&lt; &epsilon;</em> for all
+<em class="EQ">U &in; &#120016;</em>.  Let</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;) =
+inf{&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup> :
+&#120016; is a countable &epsilon; cover of A}</em>
+</div>
+<p>and</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A) =
+sup<sub>&epsilon;&gt;0</sub>
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)</em>
+</div>
+<p>for <em class="EQ">s &ge; 0</em>.  The value
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A)</em>
+is called the
+<em><em class="EQ">s</em>-dimensional Hausdorff outer measure</em>
+of <em class="EQ">A</em>.  Since
+<em class="EQ">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;<sub>1</sub>)
+&ge; <span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;<sub>2</sub>)</em>
+for <em class="EQ">&epsilon;<sub>1</sub> &le; &epsilon;<sub>2</sub></em>,
+we have that</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A) =
+lim<sub>&epsilon;&rarr;0</sub>
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)</em> .
+</div>
+
+<div class="Theo">
+<p><em>Definition</em>: A set <em class="EQ">A &subset; E</em> is
+<em>measurable</em> in the sense of Carathéodory if and only if
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A)
+= <span class="EQ_Over">&#119919;</span><sup>s</sup>(A &cap; B)
++ <span class="EQ_Over">&#119919;</span><sup>s</sup>(B &setminus; A)</em>
+for all sets <em class="EQ">B &subset; E</em>.</p>
+</div>
+
+<p>Lebesgue gave an equivalent definition of measurable sets
+using inner measure.  Lebesgue's definition of measurable sets is more
+convenient than Carathéodory's definition to prove results about
+measure and integration.  However, since we do not plan to prove any
+results about measure and integration, we do not need to present this
+definition.  Carathéodory's definition is enough for our need.</p>
+
+<div class="Theo">
+<p><em>Theorem</em>: The collection <em class="EQ">&#120028;</em>
+of all the measurable sets with respect to the
+<em class="EQ">s</em>-dimensional Hausdorff outer measure is a
+<em class="EQ">&sigma;</em>-algebra and
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup></em>
+restricted to <em class="EQ">&#120028;</em> defines a measure on
+<em class="EQ">&#120028;</em>.  This measure is called the
+<em><em class="EQ">s</em>-dimensional Hausdorff measure</em>.
+We write <em class="EQ">&#119919;<sup>s</sup>(A)
+= <span class="EQ_Over">&#119919;</span><sup>s</sup>(A)</em>
+for <em class="EQ">A &in; &#120028;</em>.</p>
+</div>
+
+<p>The smallest <em class="EQ">&sigma;</em>-algebra that contains the
+open sets is called the <em>Borel algebra</em> and denoted
+<em class="EQ">&#120017;</em>.  The elements of
+<em class="EQ">&#120017;</em> are called <em>Borel sets</em>.
+Since
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A &cups; B)
+= <span class="EQ_Over">&#119919;</span><sup>s</sup>(A)
++ <span class="EQ_Over">&#119919;</span><sup>s</sup>(B)</em> for all sets
+<em class="EQ">A,B</em> such that
+<em class="EQ">dist(A,B) = inf{d(x,y) : x &in; A and y &in; B} &gt; 0</em>,
+it can be proved that the Borel sets are measurable sets according to
+the previous definition (see
+<script language="javascript">
+buildLinK("#GAE", "G. A. Edgar","MMathSStat", "GAEID3", "_top");
+</script>). We mainly consider Borel sets in this document.  This is
+sufficient to define the <q lang="en">dimension</q> of a
+<q lang="en">fractal</q>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that <em class="EQ">A</em> is a Borel
+set and <em class="EQ">0 &lt; s &lt; t</em>.  If
+<em class="EQ">&#119919;<sup>s</sup>(A) &lt; &infin;</em>, then 
+<em class="EQ">&#119919;<sup>t</sup>(A) = 0</em>.  If
+<em class="EQ">&#119919;<sup>t</sup>(A) &gt; 0 </em>, then 
+<em class="EQ">&#119919;<sup>s</sup>(A) = &infin;</em>.</p>
+</div>
+
+<p><em>Proof (sketch)</em>: We have that
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>t</sup>(U,&epsilon;)
+&le; (diam(U))<sup>t</sup> 
+&le; &epsilon;<sup>t-s</sup>(diam(U))<sup>s</sup></em> for
+all open sets <em class="EQ">U</em> such that
+<em class="EQ">diam(U) &le; &epsilon;</em>.  Thus</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&epsilon;<sup>s-t</sup><span class="EQ_Over">&#119919;</span><sup>t</sup>(U,&epsilon;)
+&le; (diam(U))<sup>s</sup></em>
+</div>
+<p>for all open sets <em class="EQ">U</em> such that
+<em class="EQ">diam(U) &le; &epsilon;</em>.
+Since all outer measures <em class="EQ"><span class="EQ_Over">M</span></em>
+that satsify
+<em class="EQ"><span class="EQ_Over">M</span>(U) &le; (diam(U))<sup>s</sup></em>
+for all open sets <em class="EQ">U</em> such that
+<em class="EQ">diam(U) &le; &epsilon;</em> must
+satisfy <em class="EQ"> <span class="EQ_Over">M</span>(A) &le;
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)</em>
+for all Borel sets
+<em class="EQ">A</em>, we get that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&epsilon;<sup>s-t</sup><span class="EQ_Over">&#119919;</span><sup>t</sup>(A,&epsilon;)
+&le; <span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)</em>
+</div>
+<p>for all Borel sets <em class="EQ">A</em>.  Hence, if
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A) &lt;
+&infin;</em>, then</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="EQ_Over">&#119919;</span><sup>t</sup>(A)
+= lim<sub>&epsilon;&rarr;0</sub>
+<span class="EQ_Over">&#119919;</span><sup>t</sup>(A,&epsilon;)
+&le; lim<sub>&epsilon;&rarr;0</sub>
+&epsilon;<sup>t-s</sup><span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)
+= 0 </em> .
+</div>
+<p>If <em class="EQ"><span class="EQ_Over">&#119919;</span><sup>t</sup>(A)
+&gt; 0</em>, then</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A)
+= lim<sub>&epsilon;&rarr;0</sub>
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)
+&ge; lim<sub>&epsilon;&rarr;0</sub>
+&epsilon;<sup>s-t</sup><span class="EQ_Over">&#119919;</span><sup>t</sup>(A,&epsilon;)
+= &infin; </em> .
+</div>
+<p>&nbsp;<span class="EQ_Right">&#8718;</span></p>
+
+<p>It follows from the previous proposition that there exists a unique value
+<em class="EQ">d &in; [0,&infin;]</em> such that
+<em class="EQ">&#119919;<sup>s</sup>(A) = 0</em> for
+<em class="EQ">s &gt; d</em> and
+<em class="EQ">&#119919;<sup>s</sup>(A) = &infin;</em> for
+<em class="EQ">s &lt; d</em>.</p>
+
+<div class="Theo">
+<p><em>Definition</em>: Suppose that <em class="EQ">A</em> is a Borel
+set.  The value <em class="EQ">d</em> defined above is the
+<em>Hausdorff dimension</em> of the set <em class="EQ">A</em>.
+We write <em class="EQ">dim<sub>&#119919;</sub>(A) = d</em>.</p>
+</div>
+
+<p>The Hausdorff dimension satisfies properties that a dimension is
+expected to satisfy.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that <em class="EQ">A</em> and
+<em class="EQ">B</em> are Borel sets.  If
+<em class="EQ">A &subset; B</em>, then
+<em class="EQ">dim<sub>&#119919;</sub>(A) &le;
+dim<sub>&#119919;</sub>(B)</em>.</p>
+</div>
+
+<p><em>Proof</em>: For all <em class="EQ">s &gt;
+dim<sub>&#119919;</sub>(B)</em>, we have that
+<em class="EQ">&#119919;<sup>s</sup>(A) &le; &#119919;<sup>s</sup>(B) = 0</em>.
+Thus <em class="EQ">dim<sub>&#119919;</sub>(A) &lt; s</em> for all
+<em class="EQ">s &gt; dim<sub>&#119919;</sub>(B)</em>.  Therefore
+<em class="EQ">dim<sub>&#119919;</sub>(A) &le; dim<sub>&#119919;</sub>(B)</em>.
+<span class="EQ_Right">&#8718;</span></p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that <em class="EQ">A</em> and
+<em class="EQ">B</em> are Borel sets.  Then
+<em class="EQ">dim<sub>&#119919;</sub>(A &cup; B) =
+max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.</p>
+</div>
+
+<p><em>Proof</em>: We have that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+s &gt; max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))
+&rArr; s &gt;
+dim<sub>&#119919;</sub>(A) &rArr; &#119919;<sup>s</sup>(A) = 0</em>
+</div>
+<p>and</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+s &gt; max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))
+&rArr; s &gt;
+dim<sub>&#119919;</sub>(B) &rArr; &#119919;<sup>s</sup>(B) = 0</em>
+</div>
+<p>Thus <em class="EQ">&#119919;<sup>s</sup>(A &cup; B) &le;
+&#119919;<sup>s</sup>(A)+&#119919;<sup>s</sup>(B) = 0</em> for
+<em class="EQ">s &gt;
+max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.
+Hence <em class="EQ">dim<sub>&#119919;</sub>(A &cup; B) &lt; s</em>
+for all <em class="EQ">s &gt;
+max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.
+Therefore <em class="EQ">dim<sub>&#119919;</sub>(A &cup; B) &le;
+max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.
+We get the reverse inequality from the previous proposition since
+<em class="EQ">A &subset; A &cups; B</em> and
+<em class="EQ">B &subset; A &cups; B</em>.
+<span class="EQ_Right">&#8718;</span></p>
+
+<div class="Theo">
+<p><em>Definition</em>: A function
+<em class="EQ">f: E<sub>1</sub> &rarr; E<sub>2</sub></em> between two
+metric spaces <em class="EQ">(E<sub>1</sub>,d<sub>1</sub>)</em>
+and <em class="EQ">(E<sub>2</sub>,d<sub>2</sub>)</em> is a
+<em>simularity function</em> with <em>similarity ratio</em>
+<em class="EQ">C &gt; 0</em> if
+<em class="EQ">d<sub>2</sub>(f(x),f(y)) = C d<sub>1</sub>(x,y)</em>
+for all <em class="EQ">x,y &in; E<sub>1</sub></em>.</p> 
+</div>
+
+<p>We note that similarity functions are continuous and one-to-one
+functions.</p> 
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that
+<em class="EQ">f: E<sub>1</sub> &rarr; E<sub>2</sub></em> is a
+similarity function with similarity ratio <em class="EQ">C &gt; 0</em>.
+Moreover, suppose that <em class="EQ">A &subset; E<sub>1</sub></em> is
+a Borel set and <em class="EQ">s &gt; 0</em>.  Then
+<em class="EQ">&#119919;<sup>s</sup>(f(A))
+= C<sup>s</sup> &#119919;<sup>s</sup>(A)</em>.
+In particular,
+<em class="EQ">dim<sub>&#119919;</sub>(f(A))
+= dim<sub>&#119919;</sub>(A)</em>.</p>
+</div>
+
+<p><em>Proof</em>:  Without lost of generality, we may assume
+that <em class="EQ">E<sub>2</sub> = f(E<sub>1</sub>)</em>.  Hence,
+<em class="EQ">f<sup>-1</sup>: E<sub>2</sub> &rarr; E<sub>1</sub></em>
+is well defined.  Moreover, we have that
+<em class="EQ">d<sub>1</sub>(f<sup>-1</sup>(x),f<sup>-1</sup>(y))
+= C<sup>-1</sup> d<sub>2</sub>(x,y)</em>
+for all <em class="EQ">x,y &in; E<sub>2</sub></em>.  Thus
+<em class="EQ">f<sup>-1</sup></em> is a continuous function.
+Since <em class="EQ">f: E<sub>1</sub> &rarr; E<sub>2</sub></em>
+is an homeomorphism, we have that <em class="EQ">f</em> defines a
+bijection between the Borel algebra on
+<em class="EQ">E<sub>1</sub></em> and the algebra on
+<em class="EQ">E<sub>2</sub></em>.</p>
+
+<p>Since <em class="EQ">diam(f(U)) = C diam(U)</em> for
+all sets <em class="EQ">U &subset; E<sub>1</sub></em>, we get that</p>
+<div class="EQ_center">
+<em class="EQ_Display">diam(f(U))<sup>s</sup> = C<sup>s</sup>
+  diam(U)<sup>s</sup></em>
+</div>
+<p>for all sets
+<em class="EQ">U &subset; E<sub>1</sub></em>.  Moreover, since
+<em class="EQ">f</em> is an homeomorphism, we also get that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+{U &subset; E<sub>2</sub> : U is open and diam(U) &lt; C&epsilon;}
+= {f(U) : U &subset; E<sub>1</sub> is open and diam(U) &lt; &epsilon;}</em> .
+</div>
+<p>Hence</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(f(A),C&epsilon;)
+= inf{&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup> :
+&#120016; is a countable C&epsilon; cover of f(A)} <br>
+= inf{&sum;<sub>U&in;&#120016;</sub> (diam(f(U)))<sup>s</sup> :
+&#120016; is a countable &epsilon; cover of A} <br>
+= C<sup>s</sup> inf{&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup> :
+&#120016; is a countable &epsilon; cover of A}
+= C<sup>s</sup>
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,&epsilon;)</em>
+</div>
+<p>for all sets <em class="EQ">A &subset; E<sub>1</sub></em>.
+Therefore, if we take the limit on both sides of the previous equality
+as <em class="EQ">&epsilon;</em> goes to <em class="EQ">0</em>, we get that
+<em class="EQ"> <span class="EQ_Over">&#119919;</span><sup>s</sup>(f(A))
+= C<sup>s</sup> <span class="EQ_Over">&#119919;</span><sup>s</sup>(A)</em>.
+Since <em class="EQ">C &gt; 0</em>, we get from this relation that
+<em class="EQ"> &#119919;<sup>s</sup>(f(A)) = 0</em>
+(resp. <em class="EQ">&infin;</em>)
+if and only if <em class="EQ"> &#119919;<sup>s</sup>(A) = 0</em>
+(resp. <em class="EQ">&infin;</em>).  Therefore
+<em class="EQ">dim<sub>&#119919;</sub>(f(A)) =
+dim<sub>&#119919;</sub>(A)</em> for all
+Borel sets <em class="EQ">A &subset; E<sub>1</sub></em>.
+<span class="EQ_Right">&#8718;</span></p>
+
+<p>We end this section by computing the Hausdorff dimension of the
+famous Cantor middle-third set.  Recall that the Cantor middle-third
+set is the set
+<em class="EQ">K = &cap;<sub>k&gt;0</sub>K<sub>k</sub></em> where
+<em class="EQ">K<sub>1</sub> = [0,1/3] &cup; [2/3,1]</em>,
+<em class="EQ">K<sub>2</sub> = [0,1/9] &cup; [2/9,1/3] &cup;
+[2/3,7/9] &cup; [8/9,1]</em>, and so on.</p>
+<div class="center">
+  <img src="dim0.png" style="width: 400px"
+    alt="The set K_1, K_2. K_3, ... used to define the Cantor middle-third set."
+       class="framed">
+</div>
+
+<div class="Theo">
+<p><em>Proposition</em>: Let <em class="EQ">K</em> be the
+Cantor middle-third set.  Then
+<em class="EQ">dim<sub>&#119919;</sub>(K) = ln(2)/ln(3)</em>
+where the Hausdorff measure
+<em class="EQ">&#119919;<sup>s</sup>(K)</em> used to compute
+the Hausdorff dimension is generated from the complete metric space
+<em class="EQ">(E,d) = (&reals;,|&middot;|)</em>.</p>
+</div>
+
+<p><em>Proof</em>: Let <em class="EQ">s = ln(2)/ln(3)</em>.
+We proof that <em class="EQ">&#119919;<sup>s</sup>(K) = 1</em>.</p>
+
+<p>We first prove that <em class="EQ">&#119919;<sup>s</sup>(K) &le; 1</em>.
+Given <em class="EQ">&epsilon; &gt; 0</em>, we choose a positive
+integer <em class="EQ">k</em> such that
+<em class="EQ">3<sup>-k</sup> &lt; &epsilon;/2</em>.  It follows
+naturally from the procedure to define <em class="EQ">K</em> that we can
+cover <em class="EQ">K</em> with <em class="EQ">2<sup>k</sup></em> closed 
+intervals <em class="EQ">K<sub>k,j</sub></em> for
+<em class="EQ">1 &le; j &le; 2<sup>k</sup></em> such that
+<em class="EQ">diam(K<sub>k,j</sub>) = 3<sup>-k</sup></em>
+and
+<em class="EQ">dist(K<sub>k,j<sub>1</sub></sub>,K<sub>k,j<sub>2</sub></sub>)
+&ge; 3<sup>-k</sup></em> for
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.</p>
+<div class="center">
+  <img src="dim1.png" style="width: 300px"
+       alt="The set K_2 used to define the Cantor middle-third set.  The intervals K_{2,j} and I_j are also included in the figure."
+       class="framed">
+</div>
+<p>Given any <em class="EQ">r &gt; 1</em> closed enough to
+<em class="EQ">1</em>, we can slightly expand each closed interval
+<em class="EQ">K<sub>k,j</sub></em> to get an open
+interval <em class="EQ">I<sub>j</sub></em> such that
+<em class="EQ">diam(I<sub>j</sub>) = 3<sup>-k</sup>r &lt; &epsilon;</em>,
+<em class="EQ">K<sub>k,j</sub> &subset; I<sub>j</sub></em> and
+<em class="EQ">I<sub>j<sub>1</sub></sub> &cap; I<sub>j<sub>2</sub></sub>
+= &emptyset;</em> for
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.  Hence</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)
+= inf{&sum;<sub>U&in;&#120026;</sub> (diam(U))<sup>s</sup> :
+&#120026; is a countable &epsilon; cover of K}
+&le; 2<sup>k</sup> (3<sup>-k</sup>r)<sup>s</sup>
+= r<sup>s</sup></em>
+</div>
+<p>because <em class="EQ">(3<sup>-k</sup>)<sup>s</sup>
+= (3<sup>s</sup>)<sup>-k</sup> = 2<sup>-k</sup></em>.
+Since this is true for all <em class="EQ">r &gt; 1</em>, we get that
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)
+&le; 1</em> for all <em class="EQ">&epsilon; &gt; 0</em>.
+Therefore, <em class="EQ">&#119919;<sup>s</sup>(K)
+= <span class="EQ_Over">&#119919;</span><sup>s</sup>(K) &le; 1</em>.</p>
+
+<p>We now prove that <em class="EQ">&#119919;<sup>s</sup>(K) &ge; 1</em>.
+It is enough to prove that
+<em class="EQ">&sum;<sub>U&in;&#120026;</sub> (diam(U))<sup>s</sup>
+&ge; 1</em> for all countable <em class="EQ">&epsilon;</em> cover
+<em class="EQ">&#120026;</em> of <em class="EQ">K</em>.
+Since <em class="EQ">K</em> is compact, we may assume that
+<em class="EQ">&#120026;</em> is finite.
+We note that any open set
+<em class="EQ">U &in; &#120026;</em> can be expressed as
+<em class="EQ">U = V<sub>1</sub> &cup; R &cup; V<sub>2</sub></em> where</p>
+<ul>
+<li><em class="EQ">R</em> is a closed interval with end points in
+<em class="EQ">K</em>,</li>
+<li> <em class="EQ">V<sub>i</sub></em> is an open set such that
+<em class="EQ">K &cap; V<sub>i</sub> = &emptyset;</em>
+for <em class="EQ">i = 1,2</em>, and</li>
+<li> <em class="EQ">v<sub>1</sub> &lt; r &lt; v<sub>2</sub></em> for all
+<em class="EQ">r &in; R</em> and
+<em class="EQ">v<sub>i</sub> &in; V<sub>i</sub></em>
+for <em class="EQ">i = 1,2</em>.</li>
+</ul>
+<div class="center">
+  <img src="dim7.png" style="width: 350px"
+       alt="A representation of R and U." class="framed">
+</div>
+<p>Since <em class="EQ">diam(U) &gt; diam(R)</em>, we may replace that
+the elements of <em class="EQ">&#120026;</em> by closed intervals
+with end points in <em class="EQ">K</em>.  Let
+<em class="EQ">&#120026;'</em> be the collection of these closed intervals.
+Every closed interval <em class="EQ">R &in; &#120026;'</em> can be
+expressed as
+<em class="EQ">R = R<sub>1</sub> &cup; V &cup; R<sub>2</sub></em> where</p>
+<ul>
+<li><em class="EQ">R<sub>1</sub></em> and <em class="EQ">R<sub>2</sub></em>
+are closed intervals with end points in <em class="EQ">K</em>,</li>
+<li> <em class="EQ">V &subset; R</em> is an open interval with the largest
+possible diameter such that <em class="EQ">K &cap; V = &emptyset;</em>,
+and</li>
+<li> <em class="EQ">r<sub>1</sub> &lt; v &lt; r<sub>2</sub></em> for all
+<em class="EQ">r<sub>1</sub> &in; R<sub>1</sub></em>,
+<em class="EQ">r<sub>2</sub> &in; R<sub>2</sub></em> and
+<em class="EQ">v &in; V</em>.</li>
+</ul>
+<div class="center">
+  <img src="dim2.png" style="width: 350px"
+       alt="An example of the format of the closed interval R." class="framed">
+</div>
+<p>We have by construction that
+<em class="EQ">diam(R<sub>i</sub>) &le; diam(V)</em>
+for <em class="EQ">i = 1,2</em>.  We then get from
+<em class="EQ">(diam(K<sub>1</sub>) + diam(K<sub>2</sub>))/2 &le; diam(V)</em>
+that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+(diam(R))<sup>s</sup> = (diam(K<sub>1</sub>)
++ diam(V) + diam(K<sub>2</sub>))<sup>s</sup> <br>
+&ge; (3/2)<sup>s</sup>(diam(K<sub>1</sub>)
++ diam(K<sub>2</sub>))<sup>s</sup> <br>
+= 2((1/2)diam(K<sub>1</sub>)
++ (1/2)diam(K<sub>2</sub>)<sup>s</sup> <br>
+&ge; 2((1/2)diam(K<sub>1</sub>)<sup>s</sup>
++ (1/2)diam(K<sub>2</sub>)<sup>s</sup>) <br>
+= diam(K<sub>1</sub>)<sup>s</sup>
++ diam(K<sub>2</sub>)<sup>s</sup> </em> ,
+</div>
+<p>where the second equality comes from <em class="EQ">3<sup>s</sup> = 2</em>
+because <em class="EQ">s = ln(2)/ln(3)</em>, and the second inequality
+comes from the fact that
+<em class="EQ">(&lambda;a + (1-&lambda;)b)<sup>s</sup> &ge;
+&lambda;a<sup>s</sup> + (1-&lambda;)b<sup>s</sup></em> because
+<em class="EQ">t &mapsto; t<sup>s</sup></em> is concave down
+on <em class="EQ">]0,&infin;[</em> for <em class="EQ">s &lt; 1</em>.
+If <em class="EQ">R<sub>i</sub> &ne; K<sub>k,j</sub></em> for some
+values of <em class="EQ">k</em> and
+<em class="EQ">1 &le; j &le; 2<sup>k</sup></em>,
+we repeat the previous procedure with <em class="EQ">R</em>
+replaced by <em class="EQ">R<sub>i</sub></em>.  After a finite number
+of repetitions, we get that
+<em class="EQ">diam(R)<sup>s</sup> &ge; &sum;
+diam(K<sub>k<sub>m</sub>,j<sub>m</sub></sub>)<sup>s</sup></em>
+where the sum is over all the closed intervalles
+<em class="EQ">K<sub>k<sub>m</sub>,j<sub>m</sub></sub>
+&subset; R</em> of larger possible diameter.  For instance, in the
+figure above, we get that
+<em class="EQ">diam(R)<sup>s</sup> &ge; &sum;
+diam(K<sub>3,4</sub>)<sup>s</sup> + diam(K<sub>2,3</sub>)<sup>s</sup>
++ diam(K<sub>3,7</sub>)<sup>s</sup></em>.</p>
+
+<p>We repeat the procedure above for each of the closed intervals
+<em class="EQ">R &in; &#120026;'</em>.  In fact, we repeat this procedure
+recursively on all the closed intervals <em class="EQ">R</em>
+simultaneously and stop only when we have obtained closed
+intervals <em class="EQ">K<sub>k,j<sub></em> where the integer
+<em class="EQ">k</em> is the largest of the indices
+<em class="EQ">k<sub>m<sub></em> that we get from
+the previous procedure applied to all the closed
+intervals <em class="EQ">R &in; &#120026;'</em>.  In particular,
+we also apply the previous procedure recursively to the closed intervals
+of the form <em class="EQ">K<sub>k<sub>m</sub>,j<sub>m</sub></sub></em>
+when <em class="EQ">k<sub>m</sub> &lt; k</em>.  We get that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&sum;<sub>V&in;&#120026;</sub> (diam(V))<sup>s</sup>
+&ge; &sum;<sub>R&in;&#120026;'</sub> (diam(R))<sup>s</sup> 
+&ge; &sum;<sub>1&le;i&le;2<sup>k</sup></sub>
+(diam(K<sub>k,i</sub>))<sup>s</sup> <br>
+= &sum;<sub>1&le;i&le;2<sup>k</sup></sub>
+(1/(3<sup>k</sup>))<sup>s</sup>
+= &sum;<sub>1&le;i&le;2<sup>k</sup></sub>
+(1/3<sup>s</sup>)<sup>k</sup>
+= &sum;<sub>1&le;i&le;2<sup>k</sup></sub> 1/2<sup>k</sup> = 1</em> .
+</div>
+<p>All the closed intervals of
+<em class="EQ">K<sub>k<sub></em> are included in the sum because
+we have preserved the fact that <em class="EQ">K</em> is a
+subset of our recursive decomposition.
+<span class="EQ_Right">&#8718;</span></p>
+
+<p>It can be proved that the topological dimension of a set is smaller
+or equal to its Hausdorff dimension.  The previous statement does not
+mean anything since we have not defined what is the topological
+dimension of a set.  The reader should consult the book by
+<script language="javascript">
+buildLinK("#GAE", "G. A. Edgar", "MMathSStat", "GAEID1", "_top");
+</script>.  He devotes a full chapter on the subject of
+topological dimension.  The topological dimension is a lot more
+general than the dimension in linear algebra.</p>
+
+<p>As expected, the Hausdorff dimension of
+<em class="EQ">(&reals;<sup>n</sup>,d)</em>,
+where <em class="EQ">d</em> is the Euclidean distance, is
+<em class="EQ">n</em>.  In particular, we can shown that if the set
+<em class="EQ">K &subset; &reals;<sup>n</sup></em> contains an open
+set, then <em class="EQ">dim<sub>&#119919;</sub>(K) = n</em>.</p>
+
+<p>Let <em class="EQ">&#120027;</em> be the collection of all sets
+<em class="EQ">{x<sub>j</sub>}<sub>1&le;j&le;J</sub> &subset; [0,1]</em>
+such that <em class="EQ">x<sub>1</sub> &lt; x<sub>2</sub> &lt; ... &lt;
+x<sub>J</sub></em> and <em class="EQ">J &gt; 1</em>.
+A continuous function
+<em class="EQ">g:[0,1] &rarr; E</em> is of <em>bounded variation</em> if there
+exists a constant <em class="EQ">C</em> such that
+<em class="EQ">&sum;<sub>1&le;j&lt;J</sub>
+d(g(x<sub>j</sub>),g(x<sub>j+1</sub>)) &le; C</em> for all
+<em class="EQ">{x<sub>j</sub>}<sub>1&le;j&le;J</sub> &in; &#120027;</em>.
+We may then define the length of the curve <em class="EQ">L = g([0,1])</em> 
+as the value <em class="EQ">length(L)
+= sup<sub>{x<sub>j</sub>}<sub>1&le;j&le;J</sub>&in;&#120027;</sub>
+&sum;<sub>1&le;j&lt;J</sub> d(g(x<sub>j</sub>),g(x<sub>j+1</sub>))</em>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that
+<em class="EQ">g:[0,1] &rarr; E</em> is a function of
+bounded variation and <em class="EQ">L = g([0,1])</em>, then
+<em class="EQ">length(L) &ge; &#119919;<sup>1</sup>(L)</em>.  In particular,
+if <em class="EQ">g</em> is one-to-one, then
+<em class="EQ">length(L) = &#119919;<sup>1</sup>(L)</em> and so
+<em class="EQ">dim<sub>&#119919;</sub>(L) = 1</em>.</p>
+</div>
+
+<p>A proof of this proposition can be found in the book of
+<script language="javascript">
+buildLinK("#GAE", "G. A. Edgar", "MMathSStat", "GAEID1", "_top");
+</script>.  The proof is not hard but a little longish.  The obvious question
+that comes to mind is if there exist curves that are not of bounded
+variation and have Hausdorff dimension greater
+than <em class="EQ">1</em>.  The answer is affirmative.</p>
+
+<div class="Example" id="egA">
+<p><em>Example A</em>: The next figure illustrates how the <em>Kock
+(or snowflake) curve</em> is generated.  The Hausdorff dimension of
+this curve is <em class="EQ">ln(4)/ln(3) &gt; 1</em>.
+We do not explain right now how to easily compute its Hausdorff
+dimension but do so after we have introduced the
+<q lang="en">similarity dimension</q>.</p>
+<div class="center">
+  <img src="dim4.png" style="width: 350px"
+    alt="First steps to construct the Kock curve." class="framed">
+</div>
+</div>
+
+<div class="Example" id="egB">
+<p><em>Example B</em>: A version of the <em>Apollonian gasket</em> is
+constructed as it follows.  We start with a curved triangle produced
+by the external tangential intersection of three circles as in step 0
+of the figure below.</p>
+<ol style="list-style-type: decimal;">
+<li>The first step is to remove the largest disk inscribed in the curved
+triangle as in the figure below.</li>
+<li>The second step is to remove the largest disk inscribed in each of
+the <em class="EQ">3</em> curved triangles obtained from step 1 as
+in the figure below.</li>
+<li>The third step is to remove the largest disk inscribed in each of
+the <em class="EQ">9</em> curved triangles obtained from step 2 as
+in the figure below.</li>
+<li style="list-style-type: none;">...</li>
+<li style="list-style-type: 'k. '">The k<sup>th</sup> step is to remove
+the largest disk inscribed in each of the
+<em class="EQ">3<sup>k-1</sup></em> curved triangles
+obtained at the previous step.</li>
+<li style="list-style-type: none;">...</li>
+</ol>
+<div class="center">
+  <img src="dim3.png" style="width: 400px"
+    alt="The first step to construct the Apollonian gasket." class="framed">
+</div>
+<p>The exact value of the Hausdorff dimension of the Apollonian gasket
+is still unknown.  It is estimated to be about
+<em class+"EQ">1.30...</em>.  We will say more
+about this fractal at the end of this document.</p>
+</div>
+
+<p>Unfortunately, there is no easy way to compute the Hausdorff
+dimension of a set in general.  We present later two other types of dimensions
+that are relatively easier to compute.  We also explain how they are
+related to the Hausdorff dimension.</p>
 
 <hr class="MMathSStat">
 
-<h3> Similarity Dimension </h3>
+<h3 id="SS2"> Packing Dimension </h3>
 
-<p> The <em>similarity dimension</em> of a set
-<em class="EQ">A</em> is defined by the equation </p>
-
+<p>As usual, we assume that <em class="EQ">(E,d)</em> is a complete
+metric space.  Given <em class="EQ">A &subset; E</em>, let</p>
 <div class="EQ_center">
 <em class="EQ_Display">
-Dimension = log(a) / log(1/s)
-</em>
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;) =
+sup{&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup> :
+&#120016; is a countable collection of disjoint <br>
+open balls U with centre in A and of radius less than &epsilon;/2}</em> .
+</div>
+<p>and</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A)
+= inf<sub>&epsilon;&gt;0</sub>
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)</em>
+</div>
+<p>for <em class="EQ">s &ge; 0</em>.  Since
+<em class="EQ">
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;<sub>1</sub>)
+&le; <span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;<sub>2</sub>)</em>
+for <em class="EQ">&epsilon;<sub>1</sub> &le; &epsilon;<sub>2</sub></em>,
+we have that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A) =
+lim<sub>&epsilon;&rarr;0</sub>
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)</em> .
+</div>
+<p>It can be shown that
+<em class="EQ"><span class="EQ_OverDot">&#119927;</span><sup>s</sup></em>
+for <em classxo="EQ">s &gt; 0</em> does not define an outer measure.
+The expression</p>
+<div class="EQ_center">
+<em class="EQ_Display"><span class="EQ_Over">&#119927;</span><sup>s</sup>(A) =
+inf{&sum;<sub>U&in;&#120016;</sub>
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(U) :
+&#120016; is a countable cover of A}</em>
+</div>
+<p>for <em class="EQ">A &subset; E</em> defines an outer measure with
+the property that
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup>(A &cups; B)
+= <span class="EQ_Over">&#119927;</span><sup>s</sup>(A)
++ <span class="EQ_Over">&#119927;</span><sup>s</sup>(B)</em> for all sets
+<em class="EQ">A,B</em> such that
+<em class="EQ">dist(A,B) = inf{d(x,y) : x &in; A and y &in; B} &gt; 0</em>.
+As we did for the Hausdorff measure, we can define measurable sets
+according to
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup></em> 
+and a measure for these sets.</p>
+
+<div class="Theo">
+<p><em>Definition</em>: A set <em class="EQ">A &subset; E</em> is
+<em>measurable</em> according to
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup></em>
+if and only if
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup>(A)
+= <span class="EQ_Over">&#119927;</span><sup>s</sup>(A &cap; B)
++ <span class="EQ_Over">&#119927;</span><sup>s</sup>(B &setminus; A)</em>
+for all sets <em class="EQ">B &subset; E</em>.</p>
 </div>
 
-<p> where <em class="EQ">a</em> is the number of
-<q lang="en">small</q> sets similar to the original set
-<em class="EQ">A</em> and
-<em class="EQ">s</em> is the size of the rescaling used to
-produce the <q lang="en">small</q> sets. For instance:
+<p>We have that all Borel sets are measurable according to this
+definition.</p> 
+
+<div class="Theo">
+<p><em>Proposition</em>: The collection <em class="EQ">&#120028;</em>
+of all the measurable sets according to
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup></em> is a
+<em class="EQ">&sigma;</em>-algebra and
+<em class="EQ"><span class="EQ_Over">&#119927;</span><sup>s</sup></em>
+restricted to <em class="EQ">&#120028;</em> defines a measure on
+<em class="EQ">&#120028;</em>.  This measure is called the
+<em><em class="EQ">s</em>-dimensional packing  measure</em>.  
+We write <em class="EQ">&#119927;<sup>s</sup>(A)
+= <span class="EQ_Over">&#119927;</span><sup>s</sup>(A)</em>
+for <em class="EQ">A &in; &#120028;</em>.</p>
+</div>
+
+<p>As for the Hausdorff measure, we have the following result. </p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that <em class="EQ">A</em> is a Borel
+set and <em class="EQ">0 &lt; s &lt; t</em>.  If
+<em class="EQ">&#119927;<sup>s</sup>(A) &lt; &infin;</em>, then 
+<em class="EQ">&#119927;<sup>t</sup>(A) = 0</em>.  If
+<em class="EQ">&#119927;<sup>t</sup>(A) &gt; 0 </em>, then 
+<em class="EQ">&#119927;<sup>s</sup>(A) = &infin;</em>.</p>
+</div>
+
+<p>Hence, we can define the dimension of a Borel set using the
+packing measure.</p>
+
+<div class="Theo">
+<p><em>Definition</em>: Suppose that <em class="EQ">A</em> is a Borel
+set.  The unique value <em class="EQ">d</em> such that
+<em class="EQ">0 &lt; &#119927;<sup>d</sup>(A) &lt; &infin;</em> is the
+<em>packing dimension</em> of the set <em class="EQ">A</em>.
+We write <em class="EQ">dim<sub>&#119927;</sub>(A) = d</em>.</p>
+</div>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that <em class="EQ">A</em> is a Borel
+set.  Then
+<em class="EQ">dim<sub>&#119919;</sub>(A) &le;
+dim<sub>&#119927;</sub>(A)</em>.</p>
+</div>
+
+<p><em>Proof (sketch)</em>: We first prove that
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A,2&epsilon;)
+&le;
+2<sup>s</sup><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)</em>.
 </p>
 
-<ul>
-<li>
-<p>The similarity dimension of the interval <em class="EQ">[0,1]</em>
-is 1.  For
-<em class="EQ">s = 1/2</em> and <em class="EQ">a = 2</em>,
-we get</p> 
+<p>The result is obvious if
+<em class="EQ"><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)
+= &infin;</em>.
+So, we may assume that
+<em class="EQ"><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)
+&lt; &infin;</em>.  The number of disjoint open balls of radius
+<em class="EQ">&epsilon;/2</em> and centre in <em class="EQ">A</em>
+is finite.  If it was infinite, we would then have that
+<em class="EQ"><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)
+= &infin;</em>.  Let <em class="EQ">&#120016; =
+{B<sub>&epsilon;/2</sub>(x<sub>j</sub>)}<sub>1&le;j&le;J</sub></em>
+be a collection of disjoint open balls with their centre in
+<em class="EQ">A</em> 
+such that, given any <em class="EQ">x &in; A</em>, there exists
+<em class="EQ">j</em> with
+<em class="EQ">B<sub>&epsilon;/2</sub>(x) &cap; 
+B<sub>&epsilon;/2</sub>(x<sub>j</sub>) &ne; &emptyset;</em>.
+As mentioned before, the collection <em class="EQ">&#120016;</em> is finite.
+We have that</p>
 <div class="EQ_center">
-  <em class="EQ_Display">log(a)/log(1/s) = log(2)/log(2) = 1</em> .
+<em class="EQ_Display">
+<span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;) &ge;
+&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup>
+= J&epsilon;<sup>s</sup></em> .
 </div>
-<p>We leave it to the reader to describe the (obvious) two functions
-from <em class="EQ">[0,1]</em> into itself that compose the IFS
-<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;2</sub></em> such
-that the interval <em class="EQ">[0,1]</em> is the fixed points
-of the function <em class="EQ">f<sup>c</sup></em> associaited
-to the IFS.</p>
-</li>
-<li>
-<p>The similarity dimension of a cube is 3.  For
-<em class="EQ">s = 1/2</em> and <em class="EQ">a = 8</em>,
-we get</p>
+<p>Since <em class="EQ">&#120018; =
+{B<sub>&epsilon;</sub>(x<sub>j</sub>)}<sub>1&le;j&le;J</sub></em>
+is a countable <em class="EQ">&epsilon;</em> cover
+of <em class="EQ">A</em>, we have that</p>
 <div class="EQ_center">
-<em class="EQ_Display">log(a)/log(1/s) = log(8)/log(3) =
-  log<sub>2</sub>(8) = 3</em> .
+<em class="EQ_Display">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,2&epsilon;)
+&le;
+&sum;<sub>U&in;&#120018;</sub> (diam(U))<sup>s</sup>
+= J(2&epsilon;)<sup>s</sup></em> .
 </div>
-<p>Again, we leave it to the reader to describe the (obvious) eight functions
-from <em class="EQ">[0,1]<sup>3</sup></em> into itself that
-compose the IFS 
-<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;8</sub></em> such
-that the cube <em class="EQ">[0,1]<sup>3</sup></em> is the fixed points
-of the function <em class="EQ">f<sup>c</sup></em> associaited
-to the IFS.</p> </li>
-<li>
-<p>The similarity dimension of the Sierpinski triamgle is about 1.5850.  For
-<em class="EQ">s = 1/2</em> and <em class="EQ">a = 3</em>,
-we get</p>
+<p>Thus
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(A,2&epsilon;)
+&le;
+2<sup>s</sup><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)</em>
+as claimed above.  Hence,
 <div class="EQ_center">
-<em class="EQ_Display">log(a)/log(1/s) = log(3)/log(2) &sim; 1.5850</em> .
+<em class="EQ_Display">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A)
+= lim<sub>&epsilon;&rarr;0</sub>
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(A,2&epsilon;)
+&le; lim<sub>&epsilon;&rarr;0</sub>
+2<sup>s</sup><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A,&epsilon;)
+= 2<sup>s</sup><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(A)</em> .
 </div>
-<p>For <em class="EQ">s = 1/4</em> and <em class="EQ">a = 9</em>,
-we get</p>
+<p>In particular, we have that
+<em class="EQ">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(U)
+&le; 2<sup>s</sup><span class="EQ_OverDot">&#119927;</span><sup>s</sup>(U)
+= 2<sup>s</sup><span class="EQ_Over">&#119927;</span><sup>s</sup>(U)</em>
+for all open sets <em class="EQ">U</em>.
+Since all outer measures <em class="EQ"><span class="EQ_Over">M</span></em>
+that satisfy
+<em class="EQ"><span class="EQ_Over">M</span>(U) &le;
+<span class="EQ_Over">&#119927;</span><sup>s</sup>(U)</em>
+for all open sets <em class="EQ">U</em> must
+satisfy <em class="EQ"> <span class="EQ_Over">M</span>(A) &le;
+<span class="EQ_Over">&#119927;</span><sup>s</sup>(A)</em> for all sets
+<em class="EQ">A</em>, we get that</p>
 <div class="EQ_center">
-<em class="EQ_Display">log(a)/log(1/s) = log(9)/log(4) &sim; 1.5850</em> .
+<em class="EQ_Display">
+2<sup>-s</sup>&#119919;<sup>s</sup>(A)
+= 2<sup>-s</sup> <span class="EQ_Over">&#119919;</span><sup>s</sup>(A)
+&le; <span class="EQ_Over">&#119927;</span><sup>s</sup>(A)
+= &#119927;<sup>s</sup>(A) </em>
 </div>
-</li>
-</ul>
+<p>for all Borel sets <em class="EQ">A</em>.  Since</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+s &lt; dim<sub>&#119919;</sub>(A) &rArr; &#119919;<sup>s</sup>(A) = &infin;
+&rArr; &#119927;<sup>s</sup>(A) = &infin;
+&rArr; s &lt; dim<sub>&#119927;</sub>(A) </em> ,
+</div>
+<p>we get
+<em class="EQ"> dim<sub>&#119919;</sub>(A) &le; dim<sub>&#119927;</sub>(A)</em>.
+<span class="EQ_Right">&#8718;</span> </p>
 
 <hr class="MMathSStat">
 
-<h3>Minkowski Dimension </h3>
+<h3 id="SS3"> Box-Counting Dimension </h3>
 
-<p> The <em>Minkowski dimension </em> of a set
-<em class="EQ">A</em> is defined by the following formula.</p>
+<p>The packing dimension is not easier to compute than the Hausdorff
+dimension.  We now introduce a type of dimension which literally fits
+between the Hausdorff and packing dimensions. </p>
 
-<div class="EQ_center">
-<em class="EQ_Display">
-Dimension = lim<sub>&#120583;->0</sub> log(N(A,&#120583;)) /
-log(1/&#120583;)</em> ,
+<p>Given <em class="EQ">r &gt; 0</em>, let
+<em class="EQ">&#120018;<sub>r</sub></em> be the collections of
+all the squares of the form
+<em class="EQ">C<sub>i,j</sub> = [ir,(i+1)r[ &times; [jr,(j+1)r[</em> for
+<em class="EQ">i,j &in; &integers;</em>.  We have that
+<em class="EQ">&reals;<sup>2</sup></em> is covered by
+the squares in <em class="EQ">&#120018;<sub>r</sub></em> and these
+squares are disjoint.  Suppose that
+<em class="EQ">A &subset; &reals;<sup>2</sup></em> is bounded set
+and that <em class="EQ">&#120016;<sub>r</sub> &subset;
+&#120018;<sub>r</sub></em> is the smallest
+collection of squares that covers <em class="EQ">A</em>.  Let
+<em class="EQ">N(A,r)</em> be the number of squares in
+<em class="EQ">&#120016;<sub>r</sub></em>.
+Moreover, let <em class="EQ">&#119913;<sup>s</sup>(A,r)
+= &sum;<sub>C<sub>i,j</sub>&in;&#120016;<sub>r</sub></sub>r<sup>s</sup>
+= N(A,r)r<sup>s</sup></em>.  Note that
+<em class="EQ">&#119913;<sup>2</sup>(A,r)</em> is the area of the region
+<em class="EQ">S = &cup;<sub>C<sub>i,j</sub>&in;&#120016;<sub>r</sub></sub>
+C<sub>i,j</sub></em>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that
+<em class="EQ">A &subset; &reals;<sup>2</sup></em> is a bounded set
+and that <em class="EQ">
+dim<sub>&#119913;</sub>(A) = lim<sub>r&rarr;0</sub> ln(N(A,r))/ln(1/r)</em>
+exists.  Then, the limits <em class="EQ">
+X<sup>s</xosup>(A) = lim<sub>r&rarr;0</sub> &#119913;<sup>s</sup>(A,r)</em>
+exist for <em class="EQ">s &ne; dim<sub>&#119913;</sub>(A)</em>.
+Moreover, <em class="EQ">X<sup>s</sup>(A) = &infin;</em> for
+<em class="EQ">s &lt; dim<sub>&#119913;</sub>(A)</em>, and
+<em class="EQ">X<sup>s</sup>(A) = 0</em> for
+<em class="EQ">s &gt; dim<sub>&#119913;</sub>(A)</em>.</p>
 </div>
 
-<p> where <em class="EQ">N(A,&#120583;)</em> is the smallest
-number of squares of side length <em class="EQ">&#120583; &gt; 0</em>
-needed to cover <em class="EQ">A</em>.</p>
+<p><em>Proof</em>:  Suppose that
+<em class="EQ">0 &lt; dim<sub>&#119913;</sub>(A) &lt; &infin;</em>.
+Given <em class="EQ">t<sub>1</sub> &lt; dim<sub>&#119913;</sub>(A)
+&lt; t<sub>2</sub></em>,
+there exists <em class="EQ">R &gt; 0</em> such that
+<em class="EQ"> t<sub>1</sub> &lt; ln(N(A,r))/ln(1/r) &lt;
+t<sub>2</sub></em> for all
+<em class="EQ">0 &lt; r &lt; R</em>.  Thus</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+N(A,r) r<sup>t<sub>1</sub></sup> &le; N(A,r) r<sup>(ln(N(A,r))/ln(1/r))</sup>
+= N(A,r) r<sup>(log<sub>r</sub>(N(A,r)<sup>-1</sup>)</sup>
+= 1 </em>
+</div>
+<p>and</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+N(A,r) r<sup>t<sub>2</sub></sup> &ge; N(A,r) r<sup>(ln(N(A,r))/ln(1/r))</sup>
+= N(A,r) r<sup>(log<sub>r</sub>(N(A,r)<sup>-1</sup>)</sup>
+= 1 </em>
+</div>
+<p>for all <em class="EQ">0 &lt; r &lt; R</em>.  Hence,
+<em class="EQ">r<sup>-t<sub>2</sub></sup> &le; N(A,r) &le;
+r<sup>-t<sub>1</sub></sup></em> for all
+<em class="EQ">0 &lt; r &lt; R</em>.</p>
+
+<p>We first prove that <em class="EQ">s &lt; dim<sub>&#119913;</sub>(A)</em>
+implies that <em class="EQ">X<sup>s</sup>(A) = &infin;</em>.
+If <em class="EQ">s &lt; dim<sub>&#119913;</sub>(A)</em>, then we choose
+<em class="EQ">t<sub>2</sub> &gt; dim<sub>&#119913;</sub>(A)</em> as in the
+first paragraph.  Hence</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+X<sup>s</sup>(A) = lim<sub>r&rarr;0</sub> N(A,r)r<sup>s</sup>
+&ge; lim<sub>r&rarr;0</sub> r<sup>s-t<sub>2</sub></sup> = &infin;</em>
+</div>
+<p>because <em class="EQ">s-t<sub>2</sub> &lt; 0</em>.</p>
+
+<p>We now prove that <em class="EQ">s &gt; dim<sub>&#119913;</sub>(A)</em>
+implies that <em class="EQ">X<sup>s</sup>(A) = 0</em>.
+If <em class="EQ">s &gt; dim<sub>&#119913;</sub>(A)</em>, then we choose
+<em class="EQ">t<sub>1</sub> &lt; dim<sub>&#119913;</sub>(A)</em> as in the
+first paragraph of the proof.  Hence</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+X<sup>s</sup>(A) = lim<sub>r&rarr;0</sub> N(A,r)r<sup>s</sup>
+&le; lim<sub>r&rarr;0</sub> r<sup>s-t<sub>1</sub></sup> = 0</em>
+</div>
+<p>because <em class="EQ">s-t<sub>1</sub> &gt; 0</em>.</p>
+
+<p>Suppose that <em class="EQ">dim<sub>&#119913;</sub>(A) = 0</em>.
+To prove that <em class="EQ">X<sup>s</sup>(A) = 0</em>, we prove that
+<em class="EQ">lim<sub>r&rarr;0</sub> ln(N(A,r)r<sup>s</sup>) = -&infin;</em>.
+We effectively have that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+lim<sub>r&rarr;0</sub> ln(N(A,r)r<sup>s</sup>)
+= lim<sub>r&rarr;0</sub> (ln(N(A,r) + s ln(r)) <br>
+= lim<sub>r&rarr;0</sub> (-ln(N(A,r))/ln(1/r) + s)ln(r)
+= lim<sub>r&rarr;0</sub> s ln(r) = -&infin; </em>
+</div>
+<p>because
+<em class="EQ">lim<sub>r&rarr;0</sub> ln(N(A,r))/ln(1/r) = 0</em>.
+The proof for the case
+<em class="EQ">dim<sub>&#119913;</sub>(A) = &infin;</em> is similar.
+<span class="EQ_Right">&#8718;</span> </p>
+
+<div class="Theo">
+<p><em>Definition</em>:  Suppose that <em class="EQ">A</em> is a Borel
+set.  If it exists, the unique value
+<em class="EQ">dim<sub>&#119913;</sub>(A)</em> is called the
+<em>box-counting dimension</em> or <em>Minkowski dimension</em>
+of the set <em class="EQ">A</em>.</p>
+</div>
+
+<p>To avoid any issue related to the existence for the limits
+used to define <em class="EQ">X<sup>s</sup>(A)</em> and
+<em class="EQ">dim<sub>&#119913;</sub>(A)</em> for a
+set <em class="EQ">A</em>, it is preferable to consider
+<em class="EQ">
+X<sup>s-</sup>(A) = lim&thinsp;inf<sub>r&rarr;0</sub> X<sup>s</sup>(A,r)</em>
+and <em class="EQ">
+dim<sub>&#119913;</sub><sup>-</sup>(A) = lim&thinsp;inf<sub>r&rarr;0</sub>
+(ln(N(A,r))/(ln(1/r))</em>, or
+<em class="EQ">
+X<sup>s+</sup>(A) = lim&thinsp;sup<sub>r&rarr;0</sub> X<sup>s</sup>(A,r)</em>
+and <em class="EQ">
+dim<sub>&#119913;</sub><sup>+</sup>(A) = lim&thinsp;sup<sub>r&rarr;0</sub>
+(ln(N(A,r))/(ln(1/r))</em>.  The value
+<em class="EQ">dim<sub>&#119913;</sub><sup>-</sup>(A)</em> is called the
+<em>lower entropy index</em> and the value
+<em class="EQ">dim<sub>&#119913;</sub><sup>+</sup>(A)</em> is called the
+<em>upper entropy index</em>.</p>
+
+<p>The function <em class="EQ">X<sup>s</sup></em> is not an outer
+measure.  Likewise, the functions <em class="EQ">X<sup>s-</sup></em> and
+<em class="EQ">X<sup>s+</sup></em> are not outer measures.
+We can proceed as we have done to define the Hausdorff and
+packing measures in order to define two outer measures from
+<em class="EQ">&#119913;<sup>s</sup>(&middot;,r)</em>, and also two dimensions
+associated to these outer measures.  They are respectively called the
+<em>lower entropy dimension</em> and
+<em>upper entropy dimension</em>.  We will not present this
+topic.  The box-counting dimension is the dimension often used in
+applications because it can be estimated by counting the number of
+squares covering the set <em class="EQ">A</em> to get
+<em class="EQ">N(A,r)</em> and by computing
+<em class="EQ">N(A,r)/ln(1/r)</em> for values of
+<em class="EQ">r</em> approaching <em class="EQ">0</em> in order to
+estimate numerically the limit <em class="EQ">
+lim<sub>r&rarr;0</sub> (ln(N(A,r))/(ln(1/r))</em>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that <em class="EQ">A</em> is a Borel
+set and that <em class="EQ">dim<sub>&#119913;</sub>(A)</em> exists.  Then
+<em class="EQ">dim<sub>&#119919;</sub>(A) &le; dim<sub>&#119913;</sub>(A) &le;  
+  dim<sub>&#119927;</sub>(A)</em>.</p>
+</div>
+
+<p>We have defined the box-counting dimension for subsets of
+<em class="EQ">&reals;<sup>2</sup></em>.  The previous presentation
+could obviously be generalized to <em class="EQ">&reals;<sup>n</sup></em>
+with <em class="EQ">n &gt; 2</em>.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="SS4"> Similarity Dimension </h3>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that <em class="EQ">{C<sub>1</sub>,
+C<sub>2</sub>, ... , C<sub>J</sub>} &subset; ]0,1[</em>.  Then, there
+exists a unique number <em class="EQ">s &ge; 0</em> such that
+<em class="EQ">&sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup> = 1</em>.
+Moreover, <em class="EQ">s = 0</em> if and only if <em class="EQ">J = 1</em>.
+</p>
+</div>
+
+<p><em>Proof</em>: Let <em class="EQ">F: [0,&infin;[ &rarr; [0,&infin;[</em> 
+be the function defined by
+<em class="EQ">F(s) = &sum;<sub>1&le;j&le;J</sub>
+C<sub>j</sub><sup>s</sup></em>.  The function <em class="EQ">F</em> is
+a continuously differentiable function.  Since
+<em class="EQ">0 &lt; C<sub>j</sub> &lt; 1</em> for all <em class="EQ">j</em>,
+we get that <em class="EQ">F'(s) = &sum;<sub>1&le;j&le;J</sub>
+C<sub>j</sub><sup>s</sup>ln(C<sub>j</sub>) &lt; 0</em> for all
+<em class="EQ">s &in; ]0,&infin;[</em> and
+<em class="EQ">lim<sub>s&rarr;&infin;</sub> F(s) = 0</em>.
+Hence, we have that <em class="EQ">F</em> is a strictly decreasing
+function from <em class="EQ">F(0) = J</em> to <em class="EQ">0</em> on
+the interval <em class="EQ">[0,&infin;[</em>.
+If <em class="EQ">J &gt; 1</em>, it follows from the intermediate value
+theorem that there exists a unique value <em class="EQ">s &gt; 0</em> such
+that <em class="EQ">F(s) = 1</em>.
+If <em class="EQ">J = 1</em>, then we must have
+<em class="EQ">s = 0</em> to get <em class="EQ">F(s) = 1</em>.
+Obviously, <em class="EQ">s = 0</em> is only possible if
+<em class="EQ">J = 1</em>. <span class="EQ_Right">&#8718;</span></p>
+
+<p>Recall that an iterative function systems (IFS)
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is a
+collection of contractions on the complete metric space
+<em class="EQ">(E,d)</em>.  Associated to this IFS, we define
+a function <em class="EQ">f<sup>c</sup>: 
+E<sup>c</sup> &rarr; E<sup>c</sup></em> by </p>
+<div class="EQ_center">
+  <em class="EQ_Display">
+    f<sup>c</sup>(A) = &#8899;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(A)
+  </em>
+</div>
+<p>for all sets <em class="EQ">A &in; E<sup>c</sup></em>, where
+<em class="EQ">E<sup>c</sup></em> be the space of non-empty
+compact subsets of <em class="EQ">E</em>.</p>
+
+<p>Almost all the IFS that we have presented are collections
+of functions <em class="EQ">f<sub>j</sub>: E &rarr; E</em> that
+are the composition of rotations, translations, reflections and dilatations.
+Therefore, we have that
+<em class="EQ">d(f<sub>j</sub>(x),f<sub>j</sub>(y)) =
+C<sub>j</sub>d(x,y)</em> for all <em class="EQ">x,y &in; E</em>, where
+<em class="EQ">0 &lt; C<sub>j</sub> &lt; 1</em> is the contraction
+factor of <em class="EQ">f<sub>j</sub></em>.
+Such functions are called <em>similarity functions</em>.  The
+numbers <em class="EQ">C<sub>j</sub></em> are called <em>similarity ratios</em>.
+From now on, we assume that our IFS are collections of similarity
+functions.</p>
+
+<div class="Theo">
+<p><em>Definition</em>: Suppose that <em class="EQ">K &in; E<sup>c</sup></em>
+is the fixed point of the function
+<em class="EQ">f<sup>c</sup></em> defined by the IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>, and that
+<em class="EQ">C<sub>j</sub></em> is the similarity ratio of
+<em class="EQ">f<sub>j</sub></em> for <em class="EQ">1 &leq; j &leq; J</em>.
+The <em>similarity dimension</em> of
+<em class="EQ">K</em>, denoted <em class="EQ">dim<sub>&#119930;</sub>(K)</em>,
+is the unique value <em class="EQ">s &ge; 0</em> such that
+<em class="EQ">&sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup> = 1</em>.
+</p>
+</div>
+
+<p>The previous definition has a flaw.  Considering IFS that are
+collections of similarity functions is not enough to ensure that
+the similarity dimension is well defined.  The set
+<em class="EQ">K &in; E<sup>c</sup></em> may also be the fixed point
+of the function <em class="EQ">g<sup>c</sup></em> defined by another IFS
+<em class="EQ">{g<sub>i</sub>}<sub>1&leq;i&leq;I</sub></em> with
+similarity ratios <em class="EQ">D<sub>i</sub></em> for
+<em class="EQ">1 &leq; i &leq; I</sub></em> respectively.
+The value of <em class="EQ">s</em> that satisfies
+<em class="EQ">&sum;<sub>1&le;i&le;I</sub> D<sub>i</sub><sup>s</sup>
+= 1</em> is generally different than the value of
+<em class="EQ">s</em> that satisfies
+<em class="EQ">&sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup>
+= 1</em>.  Therefore, we need to add a condition on the IFS
+to ensure that the similarity dimension is independent of the IFS
+used to compute the similarity dimension.  In fact, the condition
+proposed ensures that the IFS is unique.</p>
+
+<div class="Theo">
+<p><em>Definition</em>: We say that an IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> satisfies
+the <em>open set condition</em> if there exists a bounded open set
+<em class="EQ">V &subset; E</em> such that
+<em class="EQ">&cup;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(V) &subset; V</em>
+and <em class="EQ">f<sub>j<sub>1</sub></sub>(V) &cap;
+f<sub>j<sub>2</sub></sub>(V) = &emptyset;</em> for
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.</p>
+</div>
+
+<p>From now on, unless there is an indication to the contrary, we
+consider only IFS that satisfy the open set condition.  Hence, the
+similarity dimension is well defined.</p>
+
+<div class="Theo">
+<p><em>Theorem</em>: Suppose that</p>
+<ul>
+<li><em class="EQ">(E,d) = (&reals;<sup>n</sup>,d)</em> where
+<em class="EQ">d</em> is the Euclidean distance, </li>
+<li><em class="EQ">K &in; E<sup>c</sup></em> is the fixed point of the
+function <em class="EQ">f<sup>c</sup></em> defined by the IFS
+  <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>,</li>
+<li><em class="EQ">C<sub>j</sub></em> is the similarity ratio of
+<em class="EQ">f<sub>j</sub></em> for <em class="EQ">1 &leq; j &leq; J</em>,
+and </li>
+<li> the IFS satisfies the open set condition.</li>
+</ul>
+Then, <em class="EQ">dim<sub>&#119919;</sub>(K)
+= dim<sub>&#119930;</sub>(K)</em>.</p>
+</div>
+
+<p><em>Proof (sketch)</em>:  We sketch the proof given in the book of
+<script language="javascript">
+buildLinK("#KJF", "K. J. Falconer","MMathSStat", "KJFID1", "_top");
+</script>.  Note that <em class="EQ">K</em> is a bounded set because
+<em class="EQ">K</em> is compact.  In particular,
+<em class="EQ">diam(K) &lt; &infin;</em>.
+Let <em class="EQ">s = dim<sub>&#119930;</sub>(K)</em></em>.</p>
+<ol style="list-style-type: decimal;">
+<li>The first step is to prove that there exists a Borel measure
+<em class="EQ">&mu;</em> on <em class="EQ">&reals;<sup>n</sup></em>
+such that <em class="EQ">&mu;(&reals;<sup>n</sup>) = 1</em>, the
+support of <em class="EQ">&mu;</em> is contained in <em class="EQ">K</em>,
+and
+<em class="EQ">&mu;(U) = &sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup>
+&mu;(f<sub>j</sub><sup>-1</sup>(U))</em> for all measurable
+sets <em class="EQ">U</em>.  To prove the existence of
+<em class="EQ">&mu;</em>, we define a positive linear functional
+<em class="EQ">F</em> on the space <em class="EQ">&#120021;</em> 
+of continuous functions on <em class="EQ">K</em> and use the Riesz
+representation theorem to get a measure <em class="EQ">&mu;</em>
+such that <em class="EQ">&int;<sub>K</sub> f d&mu; = F(f)</em> for all
+<em class="EQ">f &in; &#120021;</em>.</li>
+<li>The second step is to prove a useful technical result.  Suppose that
+<em class="EQ">B</em> is an open ball of radius <em class="EQ">r</em>.
+Moreover, suppose that
+<em class="EQ">{U<sub>i</sub>}<sub>1&le;i&le;I</sub></em> is a
+collection of disjoint open sets such that
+<em class="EQ">B<sub>1,i</sub> &subset; U<sub>i</sub> &subset;
+B<sub>2,i<sub></em> for all <em class="EQ">i</em> where the
+<em class="EQ">B<sub>1,i</sub></em> are open balls of radius
+<em class="EQ">q<sub>1</sub>r</em> and the
+<em class="EQ">B<sub>2,i</sub></em> are open balls of radius
+<em class="EQ">q<sub>2</sub>r</em> for some constants
+<em class="EQ">q<sub>1</sub></em> and <em class="EQ">q<sub>2</sub></em>.
+Then <em class="EQ">B</em> intersects at most
+<em class="EQ">(1+2q<sub>2</sub>)<sup>n</sup>q<sub>1</sub><sup>-n</sup></em>
+sets <em class="EQ"><span class="EQ_Over">U</span><sub>i</sub></em>.</li>
+<li> Let <em class="EQ">K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+= f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+ &compfn;f<sub>j<sub>k</sub></sub>(K)</em> for all
+<em class="EQ">1&le;j<sub>i</sub>&le;J</em> and <em class="EQ">k &gt; 0</em>.
+Since each <em class="EQ">f<sub>j</sub></em> is a similarity function with
+similarity ratio <em class="EQ">C<sub>j</sub></em>, we have that
+<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+= C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
+  C<sub>j<sub>k</sub></sub> diam(K)</em>.  Thus
+<div class="EQ_center">
+<em class="EQ_Display">
+&sum;<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)<sup>s</sup>
+= &sum;<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+(C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
+C<sub>j<sub>k</sub></sub>)<sup>s</sup> diam(K)<sup>s</sup> <br>
+= (&sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup>)<sup>k</sup>
+diam(K)<sup>s</sup> = diam(K)<sup>s</sup></em> .
+</div>
+Given <em class="EQ">&epsilon; &gt; 0</em>, since
+<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+&le; (max{C<sub>j</sub> : 1&le;j&le;J})<sup>k</sup> diam(K) &rarr; 0</em>
+as <em class="EQ">k &rarr; &infin;</em>, there exists a positive integer
+<em class="EQ">k</em> such that
+<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+&lt; &epsilon;</em> for all indices.
+Since we may assume that the countable <em class="EQ">&epsilon;</em> covers
+of <em class="EQ">K</em> in the definition of
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)</em>
+are collections of closed sets instead of open sets, then
+<em class="EQ">{K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>}<sub><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+is a countable <em class="EQ">&epsilon;</em> covers of <em class="EQ">K</em>
+for this choice of <em class="EQ">k</em>.
+We get from the inequality above that
+<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)
+&le; diam(K)<sup>s</sup></em>.  Since this is true for all
+<em class="EQ">&epsilon; &gt; 0</em>, we get that
+<em class="EQ">&#119919;<sup>s</sup>(K) =
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(K) &le; diam(K)<sup>s</sup>
+&lt; &infin;</em> because <em class="EQ">K</em> is a Borel set.</li>
+<li>Suppose that <em class="EQ">V</em> is the bounded open set in the
+definition of the open set condition.  Let
+<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+= f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+ &compfn;f<sub>j<sub>k</sub></sub>(V)</em> for all
+<em class="EQ">1&le;j<sub>i</sub>&le;J</em> and <em class="EQ">k &gt; 0</em>.
+Since the sets <em class="EQ">V<sub>j</sub> = f<sub>j</sub>(V)</em>
+are open disjoint sets by definition of the open set condition, we get
+by induction that <em class="EQ">&cup;<sub>1&leq;j&leq;J</sub>
+V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>j</sub>
+&subset; V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+and <em class="EQ">
+V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>j</sub> &cap;
+V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>i</sub> = &emptyset;</em> for
+<em class="EQ">j &ne; i</em>.
+Since <em class="EQ">{(f<sup>c</sup>)<sup>n</sup>(<span class="EQ_Over">V</span>)}<sub>n&ge;0</sub></em>
+is a decreasing sequence of compact sets converging toward the fixed
+point <em class="EQ">K</em>, we have that
+<em class="EQ">K = &cap;<sub>n&ge;0</sub>
+(f<sup>c</sup>)<sup>n</sup>(<span class="EQ_Over">V</span>)</em>.
+In particular, this implies that <em class="EQ">
+K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub> &subset;
+<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+for all indices.  We provide below a schematic representation of the
+sets <em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+in the case where <em class="EQ">J = 3</em>.
+<div class="center">
+  <img src="dim5.png" style="width: 400px"
+       alt="Schematic representation of the sets V_{j_1j_2...j_k}."
+       class="framed">
+</div>
+</li>
+<li>We choose two open balls
+<em class="EQ">B<sub>1</sub></em> and <em class="EQ">B<sub>2</sub></em>
+of radius <em class="EQ">q<sub>1</sub></em> and
+<em class="EQ">q<sub>2</sub></em> respectively such that
+<em class="EQ">B<sub>1</sub> &subset; V &subset; B<sub>2</sub></em>.
+Given <em class="EQ">r &gt; 0</em>, let <em class="EQ">&#120027;</em>
+be the collection of all finite
+sequences <em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub></em>
+obtained by truncating all the infinite sequences
+<em class="EQ">{j<sub>i</sub>}<sub>i&ge;1</em></em>
+with <em class="EQ">1 &le; j<sub>i</sub> &le; J</em>
+after <em class="EQ">k</em> terms where <em class="EQ">k</em> is the
+smallest value such that
+<div class="EQ_center">
+<em class="EQ_Display">(min<sub>1&le;j&leq;J</sub> C<sub>j</sub>)r &le;
+C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>
+&le; r</em> .
+</div>
+Obviously, <em class="EQ">k</em> is not necessarily the
+same for each infinite sequence.  We have from (4) that the open sets
+<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+for <em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
+are disjoints.  Moreover, since each funciton <em class="EQ">f<sub>j</sub></em>
+is a similarity function with similarity ratio
+<em class="EQ">C<sub>j</sub></em>, we have that each
+<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+contains an open ball of radius <em class="EQ">
+C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>q<sub>1</sub></em>
+(e.g. <em class="EQ">
+f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>k</sub></sub>(B<sub>1</sub>)</em>)
+and so an open ball of radius
+<em class="EQ">(min<sub>1&le;j&leq;J</sub> C<sub>j</sub>)rq<sub>1</sub></em>.
+Likewise, each
+<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+is contained in an open ball of radius <em class="EQ">
+C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>q<sub>2</sub></em>
+(e.g. <em class="EQ">
+f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>k</sub></sub>(B<sub>2</sub>)</em>)
+and so in an open ball of radius <em class="EQ">rq<sub>2</sub></em>.
+It follows from (2) that at most
+<em class="EQ">N = (1+2q<sub>2</sub>)<sup>n</sup>
+(min<sub>1&le;j&leq;J</sub>
+C<sub>j</sub>)<sup>-n</sup>q<sub>1</sub><sup>-n</sup></em>
+sets of the form
+<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+with <em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
+intersect open balls of radius <em class="EQ">r</em>.</li>
+<li>Given an open ball <em class="EQ">B</em> of radius
+<em class="EQ">r &lt; diam(V)/2</em>, we have that
+<div class="EQ_center">
+<em class="EQ_Display">&mu;(B) &le;
+&sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+&mu;(<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+= &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+&mu;(f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+ &compfn;f<sub>j<sub>k</sub></sub>(<span class="EQ_Over">V</span>)) <br>
+= &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+C<sub>j<sub>1</sub></sub><sup>s</sup>
+&mu;(f<sub>j<sub>2</sub></sub>&compfn;f<sub>j<sub>3</sub></sub> ...
+ &compfn;f<sub>j<sub>k</sub></sub>(<span class="EQ_Over">V</span>)) <br>
+= &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+C<sub>j<sub>1</sub></sub><sup>s</sup>C<sub>j<sub>2</sub></sub><sup>s</sup>
+&mu;(f<sub>j<sub>3</sub></sub>&compfn;f<sub>j<sub>4</sub></sub> ...
+ &compfn;f<sub>j<sub>k</sub></sub>(<span class="EQ_Over">V</span>)) <br>
+= ...
+= &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+C<sub>j<sub>1</sub></sub><sup>s</sup>C<sub>j<sub>2</sub></sub><sup>s</sup>
+...C<sub>j<sub>k</sub></sub><sup>s</sup>
+&mu;(<span class="EQ_Over">V</span>) </br>
+&le; &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
+C<sub>j<sub>1</sub></sub><sup>s</sup>C<sub>j<sub>2</sub></sub><sup>s</sup>
+...C<sub>j<sub>k</sub></sub><sup>s</sup>
+&mu;(&reals;<sup>n</sup>) <br>
+&le; Nr<sup>s</sup> = N(diam(B)/2)<sup>s</sup>
+</em>
+</div>
+where <em class="EQ">&#120027;' &subset; &#120027;</em> is the set of
+sequences
+<em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
+such that
+<em class="EQ"><span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+&cap; B &ne; &emptyset;</em>.  Note that we only need to consider the sets
+<em class="EQ"><span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+that intersect <em class="EQ">B</em> becasue the support of
+<em class="EQ">&mu;</em> is contained in <em class="EQ">K</em> and
+<em class="EQ">
+K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub> &subset;
+<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+for all sequences.</li>
+<li>Given any countable <em class="EQ">&epsilon;</em> cover
+<em class="EQ">&#120026; = {U<sub>i</sub>}<sub>1&lt;i&lt;I</sub></em>
+of <em class="EQ">K</em>, we can choose open balls
+<em class="EQ">B<sub>i</sub></em> for <em class="EQ">1 &lt; i &lt; I</em>
+such that <em class="EQ">{B<sub>i</sub>}<sub>1&lt;i&lt;I</sub></em>
+covers <em class="EQ">K</em> and the radius of <em class="EQ">B<sub>i</sub></em>
+is <em class="EQ">diam(U<sub>i</sub>)/2</em> (it may happen that
+<em class="EQ">U<sub>i</sub> &subset; B<sub>i</sub></em> for
+all <em class="EQ">i</em> but that is not required.)&nbsp
+Hence
+<div class="EQ_center">
+<em class="EQ_Display">
+1 = &mu;(K) &le; &sum;<sub>1&le;i&le;I</sub> &mu;(B<sub>i</sub>)
+&le; N &sum;<sub>1&le;i&le;I</sub> (diam(B<sub>i</sub>)/2)<sup>s</sup>
+= N &sum;<sub>1&le;i&le;I</sub> diam(U<sub>i</sub>)<sup>s</sup>
+</em> .
+</div>
+Thus <em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)
+&ge; 1/N</em>.  Since this is true for all <em class="EQ">&epsilon;</em>,
+we get that <em class="EQ">&#119919;<sup>s</sup>(K)
+= <span class="EQ_Over">&#119919;</span><sup>s</sup>(K) &ge; 1/N &gt; 0</em>.
+</li>
+<li>It follows from (3) and (7) that
+<em class="EQ">0 &lt; &#119919;<sup>s</sup>(K) &lt; &infin;</em>.  Thus
+<em class="EQ">dim<sub>&#119919;</sub>(K) = s</em>.
+<span class="EQ_Right">&#8718;</span></li>
+</ol>
+
+<p>In the previous theorem, the condition that the sets
+<em class="EQ">f<sub>j</sub>(V)</em> be disjoint ensures that there are
+<q lang="en">almost no overlapping</q> between the sets
+<em class="EQ">f<sub>j</sub>(K)</em> where <em class="EQ">K</em>
+is the fixed point of <em class="EQ">f<sup>c</sup></em> in
+<em class="EQ">E<sup>c</sup></em>.  Namely,
+<em class="EQ">&#119919;<sup>s</sup>(f<sub>j<sub>1</sub></sub>(K) &cap;
+f<sub>j<sub>2</sub></sub>(K)) = 0</em> for
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>
+when <em class="EQ">s = dim<sub>&#119930;</sub>(K)
+= dim<sub>&#119919;</sub>(K)</em>.
+This is not hard to prove.  Since the IFS is a collection of
+similarity functions, we have that
+<em class="EQ">&sum;<sub>1&le;j&le;J</sub>
+&#119919;<sup>s</sup>(f<sub>j</sub>(K))
+= &sum;<sub>1&le;j&le;J</sub>
+C<sub>j</sub><sup>s</sup> &#119919;<sup>s</sup>(K)
+= &#119919;<sup>s</sup>(K)</em>.
+Since
+<em class="EQ">K = f<sup>c</sup>(K)
+= &cup;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(K)</em> and
+<em class="EQ">0 &lt; &#119919;<sup>s</sup>(K) &lt; &infin;</em>, we get from
+the properties of addition of a measure that the previous equality is
+satisfied if and only if
+<em class="EQ">&#119919;<sup>s</sup>(f<sub>j<sub>1</sub></sub>(K) &cap;
+f<sub>j<sub>2</sub></sub>(K)) = 0</em> for
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.
+This condition is often used as definition of <em>self-similarty</em> for
+<em class="EQ">K</em>.</p>
+
+<div class="Note">
+<p><em>Remark</em>: If the IFS does not satisfy the open set
+condition, then <em class="EQ">dim<sub>&#119919;</sub>(K) &le;
+dim<sub>&#119930;</sub>(K)</em> where the value
+<em class="EQ">dim<sub>&#119930;</sub>(K)</em>
+may vary according to the selected IFS.</p>
+
+<p>It is also true that
+<em class="EQ">dim<sub>&#119927;</sub>(K) &le; dim<sub>&#119930;</sub>(K)</em>
+and
+<em class="EQ">dim<sub>&#119927;</sub>(K) = dim<sub>&#119930;</sub>(K)</em> if
+the IFS having <em class="EQ">K</em> as fixed point satisfies the open
+set condition.  A proof of this result is given in the book of
+<script language="javascript">
+buildLinK("#GAE", "G. A. Edgar","MMathSStat", "GAEID3", "_top");
+</script>.  This implies that
+<em class="EQ">dim<sub>&#119919;</sub>(K)
+= dim<sub>&#119913;</sub>(K) = dim<sub>&#119927;</sub>(K)
+= dim<sub>&#119930;</sub>(K)</em>
+when the IFS having <em class="EQ">K</em> as fixed point satisfies the open
+set condition.</p>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: We may now explain how we computed the Hausdorff
+dimension of the Kock curve in
+<script language="javascript">
+buildLinK("#egA", "Example A","MMathSStat", "egAID3", "_top");
+</script>.  The Kock curve is the fixed point <em class="EQ">K</em>
+of the function <em class="EQ">f<sup>c</sup></em> defined by the IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em> where</p>
+<div class="EQ_center">
+<em class="EQ_Display">f<sub>1</sub>(x,y) = (x/3,0)</em>,<br>
+<em class="EQ_Display">f<sub>2</sub>(x,y) = ((x/2+3<sup>1/2</sup>y/2)/3+1/3,(-3<sup>1/2</sup>x/2+y/3)/3)</em>, <br>
+<em class="EQ_Display">f<sub>3</sub>(x,y) = ((-x/2+3<sup>1/2</sup>y/2)/3+2/3,(-3<sup>1/2</sup>x/2-y/3)/3)</em> and <br>
+<em class="EQ_Display">f<sub>4</sub>(x,y) = (x/3 + 2/3,0)</em>
+</div>
+<p>The function <em class="EQ">f<sub>2</sub></em> is a
+counterclockwise rotation by <em class="EQ">&pi;/3</em> radians
+composed with a dilation by <em class="EQ">1/3</em> and followed by a
+translation by <em class="EQ">(1/3,0)</em> and
+the function <em class="EQ">f<sub>3</sub></em> is a
+counterclockwise rotation by <em class="EQ">2&pi;/3</em> radians
+composed with a dilation by <em class="EQ">1/3</em> and followed by a
+translation by <em class="EQ">(2/3,0)</em>.  Hence, the
+<em class="EQ">f<sub>j</sub></em> are similarity functions with
+the similarity ratio <em class="EQ">C<sub>j</sub> = 1/3</em> for all 
+<em class="EQ">j</em>.  Moreover, let
+<em class="EQ">h:[0,1] &rarr; &reals;</em> be the function defined by</p>
+<div class="EQ_center">
+<table class="noBS">
+<tr>
+<td style="width: 6em;"></td>
+<td style="width: 1.5em;"><em class="EQ">&#9127;</em></td>
+<td><em class="EQ">x/3<sup>1/2</sup> if 0 &le; x &le; 1/2</em>
+</td>
+</tr>
+<tr>
+<td><em class="EQ">h(x) = </em></td>
+<td><em class="EQ">&#9128;</em></td>
+<td><em class="EQ"></td>
+</tr>
+<tr>
+<td></td>
+<td><em class="EQ">&#9129;</em></td>
+<td><em class="EQ">(1-x)/3<sup>1/2</sup> if 1/2 &lt; x &le; 1</em></td>
+</tr>
+</table>
+</div>
+If <em class="EQ">V = {(x,y) : 0 &lt; x &lt; 1 and 0 &lt; y &lt; h(x)}</em>,
+we have
+<em class="EQ">&cup;<sub>1&leq;j&leq;4</sub> f<sub>j</sub>(V) &subset; V</em>
+and <em class="EQ">f<sub>j<sub>1</sub></sub>(V) &cap;
+  f<sub>j<sub>2</sub></sub>(V) = &emptyset;</em> for
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.</p>
+<div class="center">
+  <img src="dim6.png" style="width: 400px"
+    alt="Images of V, f^c(V), f^c(f^c(V)), f^c(f^c(f^c(V)))."
+       class="framed">
+</div>
+<p>Thus, the IFS satisfies the open set condition.  We conclude from
+the previous theorem that
+<em class="EQ">dim<sub>&#119919;</sub>(K) = dim<sub>&#119930;</sub>(K) = s</em>
+where
+<em class="EQ">&sum;<sub>1&le;j&le;4</sub> C<sub>j</sub><sup>s</sup>
+= 4(1/3)<sup>s</sup> = 1</em>.  Hence,
+<em class="EQ">dim<sub>&#119919;</sub>(K) = s = ln(4)/ln(3)
+&approx; 1.26186</em>.
+</p>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: The Sierpinski triamgle
+<em class="EQ">K</em> is the fixed point <em class="EQ">K</em>
+of the function <em class="EQ">f<sup>c</sup></em> defined by the IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em> given in
+the section <script language="javascript">
+buildLinK(fractal2.url_en+"#SpkTrg","Sierpinski Triangle of the document "
++fractal2.text_en,"MMathSStat", "SpkTrgID", "_top");
+</script>.
+Hence, the <em class="EQ">f<sub>j</sub></em> are similarity functions with
+the similarity ratio <em class="EQ">C<sub>j</sub> = 1/2</em> for all 
+<em class="EQ">j</em>.  Moreover, if <em class="EQ">V</em> is the open
+triangle 
+<em class="EQ">V = {(x,y) : 0 &lt; x &lt; 1 and 0 &lt; y &lt; 1-x}</em>,
+we have that
+<em class="EQ">&cup;<sub>1&leq;j&leq;3</sub> f<sub>j</sub>(V) &subset; V</em>
+and <em class="EQ">f<sub>j<sub>1</sub></sub>(V) &cap;
+  f<sub>j<sub>2</sub></sub>(V) = &emptyset;</em> for
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.  Thus, the IFS
+satisfies the open set condition.  We conclude from the previous
+theorem that
+<em class="EQ">dim<sub>&#119919;</sub>(K) = dim<sub>&#119930;</sub>(K) = s</em>
+where
+<em class="EQ">&sum;<sub>1&le;j&le;3</sub> C<sub>j</sub><sup>s</sup>
+= 3(1/2)<sup>s</sup> = 1</em>.  Hence,
+<em class="EQ">dim<sub>&#119919;</sub>(K) = s = ln(3)/ln(2)
+&approx; 1.58496</em>.
+</p>
+</div>
+
+<div class="Note">
+<p><em>Remark</em>: The Apollonian gasket that we have described in
+<script language="javascript">
+buildLinK("#egA", "Example A","MMathSStat", "egAID3", "_top");
+</script> is the fixed point of the
+function <em class="EQ">f<sup>c</sup></em> defined by an IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em>
+where the functions <em class="EQ">f<sub>j</sub></em>
+are neither contractions nor similarity functions.  However, they are
+not expansions.  The IFS satisfies the open set condition but that is
+not enough to use the similarity dimension to compute the Hausdorff
+dimension of the Apollonian gasket because
+the functions <em class="EQ">f<sub>j</sub></em>
+are not similarity functions.</p>
+
+<p>We note that the Apollonian gasket is homeomorphic to the
+Sierpinski triangle.  However, homeomorphisms do not preserve the
+Hausdorff dimension.</p>
+
+<p>We leave it to the reader to write down the functions
+<em class="EQ">f<sub>j</sub></em>.</p>
+</div>
+
+<div class="Note">
+<p><em>Remark</em>: There exist some theoretical results concerning
+the <q lang="en">similarity dimension</q> of the fixed point
+<em class="EQ">K</em> of an IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> where the
+functions <em class="EQ">f<sub>j</sub></em> are contractions but not
+similarity functions.</p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="REF">References</h3>
+
+<p>The content of this document is mostly based on the following
+books and articles.</p>
+
+<ul>
+<li id="MB">M. Barnsley, <em>Fractals Everywhere</em>, Academic Press,
+Inc. (1988).</li>
+<li id="KJF">K. J. Falconer, <em>The Geometry of Fractal Sets</em>,
+<em>85</em>, Cambridge University Press (1985). </li>
+<li id="GAE">G. A. Edgar, <em>Measure, Topology, and Fractal Geometry</em>,
+Undergraduate Text in Mathematics, Springer-Verlag (1990).</li>
+</ul>
 
 <table class="noB">
 <tr> <td rowspan="1" colspan="1" class="left">

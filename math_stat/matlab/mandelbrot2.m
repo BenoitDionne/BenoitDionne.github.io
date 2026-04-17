@@ -12,7 +12,7 @@
 %          Mandelbrot set, this is the number of iterations used
 %          to determine if the orbit { P_c^n(0)}_{n>0} is
 %          unbounded.  Namely, it is unbounded if |P_c^n(0)| > 2
-%          for some n < N + 1.  The default value is 100.
+%          for some n < NbrItr + 1.  The default value is 100.
 % 'Levels' is an array of integer numbers (preferably greater than 3).
 %          The level curves Gamma_c(exp(2^(3-levels(j)))) for
 %          j=1,2,...,length(levels) are drawn in addition of the

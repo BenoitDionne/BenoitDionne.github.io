@@ -4,12 +4,12 @@
 % 'Region' is an array of the form [a b c d].  The Mandelbrot set
 %          in the region [a,b] x [c,d] is displayed.  The default
 %          region is [-2,2]x[-2,2].
-% 'Density' is a positive integer.  This the number of points per unit.
+% 'Density' is a positive integer.  This is the number of points per unit.
 %           The default value is 100.
 % 'NbrItr' is a positive integer number.  This is the number of
 %          iterations used to determine if the orbit
 %          { P_c^n(0)}_{n>0} is unbounded.  Namely, it is unbounded
-%          if |P_c^n(0)| > 2 for some n < N + 1.  The default value
+%          if |P_c^n(0)| > 2 for some n < NbrItr + 1.  The default value
 %          is 200.  This is also the number of iterations used to
 %          determine if the orbit converges to a period orbit.
 % 'Periods' is a array of periods.  The hyperbolic sets associated to
@@ -24,7 +24,7 @@
 %           highlighted as hyperbolic sets associated to periodic
 %           orbits of period p as it may be expected.
 % 'Tol" is a real number.  This is the accuracy used to determine 
-%       is an orbit has converged to an attracting periodic orbit.
+%       if an orbit has converged to an attracting periodic orbit.
 %       The default value is 10^(-7).   
 % 'Colour' is the colour to draw the Mandelbrot set.  Only colours
 %          allowed by Matlab can be used. The default colour is black.
