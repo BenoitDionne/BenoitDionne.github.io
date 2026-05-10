@@ -60,7 +60,7 @@ main_title(MStexte, "MMathSStat");
 <h2> Dimensions fractales </h2>
 
 <div style="float: left; margin-right: 20px">
-<div class="center"><em>Content</em></div>
+<div class="center"><em>Contenu</em></div>
 <ul>
   <li> <script language="javascript">
       buildLinK("#SS1", "Dimension de Hausdorff",
@@ -78,6 +78,10 @@ main_title(MStexte, "MMathSStat");
       buildLinK("#SS4", "Dimension de similarité",
       "MMathSStat", "SS4ID", "_top");
   </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#REF", "Références", "MMathSStat", "ReferencesID", "_top");
+    </script>
+  </li>
 </ul>
 </div>
 
@@ -598,6 +602,56 @@ avons préservé le fait que <em class="EQ">K</em> est un sous ensemble
 de notre décomposition récursive.
 <span class="EQ_Right">&#8718;</span></p>
 
+<p>En général, il n'est pas facile de calculer la dimension de
+Hausdorff d'un ensemble comme l'exemple suivant illustre.</p>
+
+<div class="Example" id="egB">
+<p><em>Exemple B</em>: Une version du <em>baderne d'Apollonius</em>
+est construite de la façon suivante.  Nous débutons avec un triangle
+curviligne produit par l'intersection tangentielle externe de trois
+cercles comme à l'étape 0 de la figure ci-dessous.</p>
+<ol style="list-style-type: decimal;">
+<li>La première étape consiste à retirer le plus grand disque inscrit dans
+le triangle curviligne comme cela est fait dans la figure ci-dessous.</li> 
+<li>La deuxième étape consiste à retirer le plus grand disque inscrit
+dans chacun des <em class="EQ">3</em> triangles curvilignes obtenus à
+l'étape 1 comme cela est fait dans la figure ci-dessous.</li>
+<li>La troisième étape consiste à retirer le plus grand disque inscrit dans
+chacun des <em class="EQ">9</em> triangles curvilignes obtenus à l'étape 2
+comme cela est fait dans la figure ci-dessous.</li>
+<li style="list-style-type: none;">...</li>
+<li style="list-style-type: 'k. '">La k<sup>e</sup> étape consiste à
+retirer le plus grand disque inscrit dans chacun des
+<em class="EQ">3<sup>k-1</sup></em> triangles
+curvilignes obtenus à l'étape précédente.</li>
+<li style="list-style-type: none;">...</li>
+</ol>
+<div class="center">
+  <img src="dim3_fr.png" style="width: 400px"
+       alt="Les premières étapes pour construire le triangle d'Apollonius."
+  class="framed">
+</div>
+<p>La valeur exacte de la dimension de Hausdorff du baderne
+d'Apollonius n'est pas connu.  Elle a été estimée à plus de 100
+chiffres décimaux.  Elle est approximativement 
+<em class+"EQ">1.305...</em>.  Le lecteur peut trouver dans le livre
+de <script language="javascript">
+buildLinK("#KJF", "K. J. Falconer","MMathSStat", "KJFID1", "_top");
+</script> une démonstration que la dimension de Hausdorff du baderne
+d'Apollonius est entre <em class="EQ">1</em> et 
+<em class="EQ">1</em>ln(3)/ln(1+2&times;3<sup>-1/2</sup>)
+&approx; 1.43...</em> inclusivement.  Il y a plusieurs versions du
+baderne d'Apollonius. Nous allons en dire plus sur cette
+fractale à la fin de ce document.</p>
+
+<p>Une petite note historique: Apollonius de Perga (240 à 190 av. J.-C.
+approximativement) était un mathématicien Grecque.  Un de ses
+fameux problèmes était de trouver une méthode géométrique pour tracer
+un cercle tangent à trois autres cercles.  C'est la motivation pour le
+nom baderne d'Apollonius.  Le mot baderne est un terme utilisé dans la
+navigation à voile.</p>
+</div>
+
 <p>Il est possible de démontrer que la dimension topologique d'un
 ensemble est plus petite ou égale à sa dimension de Hausdorff.
 L'énoncé précédent ne veut rien dire puisque nous n'avons pas défini
@@ -606,13 +660,27 @@ consulter le livre de
 <script language="javascript">
 buildLinK("#GAE", "G. A. Edgar", "MMathSStat", "GAEID1", "_top");
 </script>.  Il dévoue un chapitre complet sur le sujet de dimension
-topologique.  La dimension topologique est beaucoup plus générale que
+topologique.  Pour la présente présentation, une définition
+intuitive de la dimension topologique est suffisante.  Par exemple,
+une surface différentiable dans <em class="EQ">&reals;<sup>3</sup></em>
+est de dimension topologique <em class="EQ">2</em>.  De même, une
+courbe différentiable est de dimension topologique <em class="EQ">1</em>.
+Le mot <q lang="en">différentiable</em> dans les énoncés précédents
+est très important.   Une courbe qui est simplement continue peut ne
+pas être de dimension topologique <em class="EQ">1</em> comme cela est
+illustré par la courbe de remplissage d'espace de Peano qui est
+de dimension topologique <em class="EQ">2</em>.
+La dimension topologique est préservée par les homéomorphismes.
+Cependant, nous allons voir prochainement que la dimension de 
+Hausdorff n'est généralement pas préservée par les homéomorphismes.
+La dimension topologique est beaucoup plus générale que
 la dimension en algèbre linéaire.</p>
 
-<p>Comme on s'y attend, la dimension de Hausdorff de
-<em class="EQ">(&reals;<sup>n</sup>,d)</em>,
-où <em class="EQ">d</em> est la distance euclidienne, est
-<em class="EQ">n</em>.  En particulier, nous pouvons démontrer que si
+<p>Comme on s'y attend,
+<em class="EQ">dim<sub>&#119919;</sub>(&reals;<sup>n</sup>) = n</em>
+si la mesure de Hausdorff est déduite de l'espace métrique
+<em class="EQ">(&reals;<sup>n</sup>,d)</em> où <em class="EQ">d</em> 
+est la distance euclidienne.  En particulier, nous pouvons démontrer que si
 l'ensemble <em class="EQ">K &subset; &reals;<sup>n</sup></em> contient
 un ensemble ouvert, alors
 <em class="EQ">dim<sub>&#119919;</sub>(K) = n</em>.</p>
@@ -667,36 +735,25 @@ avoir introduit la <q lang="en">dimension de similarité</q>.</p>
 </div>
 </div>
 
-<div class="Example" id="egB">
-<p><em>Exemple B</em>: Une version du <em>triangle d'Apollonius</em>
-est construite de la façon suivante.  Nous débutons avec un triangle
-courbé produit par l'intersection tangentielle externe de trois
-cercles comme à l'étape 0 de la figure ci-dessous.</p>
-<ol style="list-style-type: decimal;">
-<li>La première étape consiste à retirer le plus grand disque inscrit dans
-le triangle courbé comme cela est fait dans la figure ci-dessous.</li> 
-<li>La deuxième étape consiste à retirer le plus grand disque inscrit
-dans chacun des <em class="EQ">3</em> triangles courbés obtenus à
-l'étape 1 comme cela est fait dans la figure ci-dessous.</li>
-<li>La troisième étape consiste à retirer le plus grand disque inscrit dans
-chacun des <em class="EQ">9</em> triangles courbés obtenus à l'étape 2
-comme cela est fait dans la figure ci-dessous.</li>
-<li style="list-style-type: none;">...</li>
-<li style="list-style-type: 'k. '">La k<sup>e</sup> étape consiste à
-retirer le plus grand disque inscrit dans chacun des
-<em class="EQ">3<sup>k-1</sup></em> triangles
-courbés obtenus à l'étape précédente.</li>
-<li style="list-style-type: none;">...</li>
-</ol>
-<div class="center">
-  <img src="dim3_fr.png" style="width: 400px"
-       alt="Les premières étapes pour construire le triangle d'Apollonius."
-  class="framed">
-</div>
-<p>La valeur exacte de la dimension de Hausdorff du triangle
-d'Apollonius n'est pas connu.  Elle est estimé à approximativement 
-<em class+"EQ">1.30...</em>.  Nous allons en dire plus sur cette
-fractale à la fin de ce document.</p>
+<p>Une fonction <em class="EQ">f: [0,1] &rarr; &reals;<sup>n</sup></em> est
+<em>continue de classe <em class="EQ">s</em> au sens de H&ouml;lder</em>
+avec <em class="EQ">0 &lt; s &le; 1</em> s'il existe deux constantes
+positives <em class="EQ">&delta;</em> et <em class="EQ">C</em> telles que
+<em class="EQ">&parallel;f(x) - f(y)&parallel; &le; C|x - y|</em> pour
+tout <em class="EQ">x,y &in; [0,1]</em> qui satisfont
+<em class="EQ">|x - y| &le; &delta;</em>.</p>
+
+<p><script language="javascript">
+buildLinK("#BU", "A. S. Besicovitch and H. D. Ursell", "MMathSStat",
+"BUID1","_top");
+</script> ont démontré le résultat suivant.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: si <em class="EQ">f: [0,1] &rarr; &reals;</em>
+est une fonction continue de classe <em class="EQ">s</em> au
+sens de H&ouml;lder, alors la courbe
+<em class="EQ">L = {(x,f(x)) : x &in; [0,1]}</em>
+satisfait <em class="EQ">1 &le; dim<sub>&#119919;</sub>(L) &le; 2 - s</em>.</p>
 </div>
 
 <p>Malheureusement, il n'y a pas de façon facile de calculer la
@@ -1059,7 +1116,14 @@ partir de <em class="EQ">&#119913;<sup>s</sup>(&middot;,r)</em>, et
 aussi deux dimensions associées à ces deux mesures.  Elles sont
 respectivement appelées la <em>dimension d'entropie inférieure</em> et
 la <em>dimension d'entropie supérieure</em>.  Nous n'allons pas
-présenter ce sujet.  La dimension box-counting est la dimension qui
+présenter ce sujet.  La dimension box-counting est malheureusement trop
+grossière pour définir la dimension fractale car
+la dimension box-counting respecte la fermeture d'un ensemble.  Par
+exemple, la dimension box-counting des nombres rationnels
+<em class="EQ">&rationals;</em> est égale à la dimension box-counting
+de sa fermeture qui est <em class="EQ">&reals;</em>; c'est-à-dire,
+ils sont tous les deux de dimension box-counting <em class="EQ">1</em>.
+Néanmoins, la dimension box-counting est la dimension qui
 est souvent utilisée dans les applications car elle peut être estimée
 en comptant le nombre de carrées qui recouvrent l'ensemble
 <em class="EQ">A</em> pour obtenir
@@ -1074,7 +1138,7 @@ lim<sub>r&rarr;0</sub> (ln(N(A,r))/(ln(1/r))</em>.</p>
 ensemble de Borel et que
 <em class="EQ">dim<sub>&#119913;</sub>(A)</em> existe.  Alors
 <em class="EQ">dim<sub>&#119919;</sub>(A) &le; dim<sub>&#119913;</sub>(A) &le;  
-  dim<sub>&#119927;</sub>(A)</em>.</p>
+dim<sub>&#119927;</sub>(A)</em>.</p>
 </div>
 
 <p>Nous avons défini la dimension box-counting pour des
@@ -1253,39 +1317,41 @@ B<sub>2,i<sub></em> pour tout <em class="EQ">i</em> où les
 Alors <em class="EQ">B</em> a une intersection non-vide avec au plus
 <em class="EQ">(1+2q<sub>2</sub>)<sup>n</sup>q<sub>1</sub><sup>-n</sup></em>
 ensembles <em class="EQ"><span class="EQ_Over">U</span><sub>i</sub></em>.</li>
-<li> Soit <em class="EQ">K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+<li> Soit
+<em class="EQ">K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>
 = f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
  &compfn;f<sub>j<sub>k</sub></sub>(K)</em> pour tout
 <em class="EQ">1&le;j<sub>i</sub>&le;J</em> et <em class="EQ">k &gt; 0</em>.
 Puisque chaque <em class="EQ">f<sub>j</sub></em> est une fonction de
 similarité avec un rapport de similarité
 <em class="EQ">C<sub>j</sub></em>, nous avons que
-<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+<em class="EQ">diam(K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>)
 = C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
   C<sub>j<sub>k</sub></sub> diam(K)</em>.  Ainsi
 <div class="EQ_center">
 <em class="EQ_Display">
-&sum;<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
-diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)<sup>s</sup>
-= &sum;<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+&sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub></sub>
+diam(K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>)<sup>s</sup>
+= &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub></sub>
 (C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
 C<sub>j<sub>k</sub></sub>)<sup>s</sup> diam(K)<sup>s</sup> <br>
 = (&sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup>)<sup>k</sup>
 diam(K)<sup>s</sup> = diam(K)<sup>s</sup></em> .
 </div>
 Étant donné <em class="EQ">&epsilon; &gt; 0</em>, puisque
-<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+<em class="EQ">diam(K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>)
 &le; (max{C<sub>j</sub> : 1&le;j&le;J})<sup>k</sup> diam(K) &rarr; 0</em>
 lorsque <em class="EQ">k &rarr; &infin;</em>, il existe un entier
 positif <em class="EQ">k</em> tel que
-<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+<em class="EQ">diam(K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>)
 &lt; &epsilon;</em> pour tous les indices.
 Puisque nous pouvons assumer que le recouvrement
 <em class="EQ">&epsilon;</em> dénombrable de <em class="EQ">K</em>
 dans la définition de
-<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)</em>
+<em class="EQ">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)</em>
 est une collection d'ensembles fermés au lieu d'ensembles ouverts. alors
-<em class="EQ">{K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>}<sub><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ">{K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>}<sub><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 est un recouvrement <em class="EQ">&epsilon;</em> dénombrable de
 <em class="EQ">K</em> pour ce choix de <em class="EQ">k</em>.
 Nous obtenons de l'inégalité ci-dessus que
@@ -1297,7 +1363,7 @@ Nous obtenons de l'inégalité ci-dessus que
 &lt; &infin;</em> car <em class="EQ">K</em> est un ensemble de Borel.</li>
 <li>Supposons que <em class="EQ">V</em> est l'ensemble ouvert borné
 dans la définition de la condition des ensemble ouverts.  Soit
-<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>...,j<sub>k</sub></sub>
 = f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
  &compfn;f<sub>j<sub>k</sub></sub>(V)</em> pour tout
 <em class="EQ">1&le;j<sub>i</sub>&le;J</em> et <em class="EQ">k &gt; 0</em>.
@@ -1305,27 +1371,30 @@ Puisque les ensembles <em class="EQ">V<sub>j</sub> = f<sub>j</sub>(V)</em>
 sont des ensembles ouverts disjoints par définition de la condition
 des ensembles ouverts, nous obtenons par induction que
 <em class="EQ">&cup;<sub>1&leq;j&leq;J</sub>
-V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>j</sub>
-&subset; V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub>j</sub>
+&subset; V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 et <em class="EQ">
-V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>j</sub> &cap;
-V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>i</sub> = &emptyset;</em> pour
+V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub>j</sub> &cap;
+V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub>i</sub> = &emptyset;</em>
+pour
 <em class="EQ">j &ne; i</em>.
-Puisque <em class="EQ">{(f<sup>c</sup>)<sup>n</sup>(<span class="EQ_Over">V</span>)}<sub>n&ge;0</sub></em>
+Puisque <em class="EQ">
+{(f<sup>c</sup>)<sup>n</sup>(<span class="EQ_Over">V</span>)}<sub>n&ge;0</sub>
+</em>
 est une suite décroissante d'ensembles compacts qui converge vers le
 point fixe <em class="EQ">K</em>, nous avons que
 <em class="EQ">K = &cap;<sub>n&ge;0</sub>
 (f<sup>c</sup>)<sup>n</sup>(<span class="EQ_Over">V</span>)</em>.
 En particulier, cela implique que <em class="EQ">
-K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub> &subset;
-<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub> &subset;
+<span class="EQ_Over">V</span><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 pour tous les indices.  Nous fournissons ci-dessous une
 représentation schématique des ensembles
-<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 dans le cas où <em class="EQ">J = 3</em>.
 <div class="center">
   <img src="dim5.png" style="width: 400px"
-       alt="Représentation schématique des ensembles V_{j_1j_2...j_k}."
+       alt="Représentation schématique des ensembles V_{j_1,j_2,...,j_k}."
        class="framed">
 </div>
 </li>
@@ -1350,13 +1419,13 @@ C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>
 Évidemment, <em class="EQ">k</em> n'est pas nécessairement le même
 pour chaque suite infinie.  Nous avons de (4) que les ensembles
 ouverts
-<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 pour <em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
 sont disjoints.  De plus, puisque chaque fonction
 <em class="EQ">f<sub>j</sub></em> est une fonction de similarité avec
 le rapport de similarité <em class="EQ">C<sub>j</sub></em>, nous avons que
 chaque
-<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 contient une boule ouverte de rayon <em class="EQ">
 C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>q<sub>1</sub></em>
 (e.g. <em class="EQ">
@@ -1365,7 +1434,7 @@ f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
 et donc une boule ouverte de rayon
 <em class="EQ">(min<sub>1&le;j&leq;J</sub> C<sub>j</sub>)rq<sub>1</sub></em>.
 De même, chaque
-<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 est contenu dans une boule ouverte de rayon <em class="EQ">
 C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>q<sub>2</sub></em>
 (e.g. <em class="EQ">
@@ -1377,7 +1446,7 @@ Il découle de (2) qu'au plus
 (min<sub>1&le;j&leq;J</sub>
 C<sub>j</sub>)<sup>-n</sup>q<sub>1</sub><sup>-n</sup></em>
 des ensembles de la forme
-<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 avec <em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
 ont une intersection non-vide avec une boule ouverte de rayon
 <em class="EQ">r</em>.</li>
@@ -1386,7 +1455,7 @@ ont une intersection non-vide avec une boule ouverte de rayon
 <div class="EQ_center">
 <em class="EQ_Display">&mu;(B) &le;
 &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
-&mu;(<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+&mu;(<span class="EQ_Over">V</span><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>)
 = &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
 &mu;(f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
  &compfn;f<sub>j<sub>k</sub></sub>(<span class="EQ_Over">V</span>)) <br>
@@ -1414,15 +1483,16 @@ où <em class="EQ">&#120027;' &subset; &#120027;</em> est l'ensemble
 des suites
 <em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
 telles que
-<em class="EQ"><span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+<em class="EQ">
+<span class="EQ_Over">V</span><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>
 &cap; B &ne; &emptyset;</em>.  Notons que nous avons besoin de
 considérer seulement les ensembles
-<em class="EQ"><span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ"><span class="EQ_Over">V</span><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 qui ont une intersection non-vide avec <em class="EQ">B</em> car le support de
 <em class="EQ">&mu;</em> est contenu dans <em class="EQ">K</em> et
 <em class="EQ">
-K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub> &subset;
-<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub> &subset;
+<span class="EQ_Over">V</span><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 pour toutes les suites.</li>
 <li>Étant donné un recouvrement <em class="EQ">&epsilon;</em>
 dénombrable
@@ -1581,10 +1651,10 @@ où
 <p><em>Exemple</em>: Le triangle de Sierpinski
 <em class="EQ">K</em> est le point fixe <em class="EQ">K</em>
 de la fonction <em class="EQ">f<sup>c</sup></em> définie par le SIF
-<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em> donné à la
-section <script language="javascript">
-buildLinK(fractal2.url_fr+"#SpkTrg","Triangle de Sierpinski du document "
-+fractal2.text_fr,"MMathSStat", "SpkTrgID", "_top");
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em> donné à
+<script language="javascript">
+buildLinK(fractal2.url_fr+"#SS2A","l'exemple A du document "
++fractal2.text_fr,"MMathSStat", "SS2AID", "_top");
 </script>.
 Ainsi, les <em class="EQ">f<sub>j</sub></em> sont des fonctions de
 similarité avec le rapport de similarité
@@ -1609,7 +1679,7 @@ où
 </div>
 
 <div class="Note">
-<p><em>Remarque</em>: Le triangle d'Apollonius que nous avons décrit à
+<p><em>Remarque</em>: Le baderne d'Apollonius que nous avons décrit à
 <script language="javascript">
 buildLinK("#egA", "l'exemple A","MMathSStat", "egAID3", "_top");
 </script> est le point fixe de la fonction
@@ -1620,11 +1690,11 @@ ne sont pas des contractions et ne sont pas des fonctions de
 similarité.  Cependant, elle ne sont pas des expansions.
 Le SIF satisfait la condition des ensembles ouverts mais cela n'est
 pas suffisant pour utiliser la dimension de similarité pour calculer
-la dimension de Hausdorff du triangle d'Apollonius car 
+la dimension de Hausdorff du baderne d'Apollonius car 
 les fonctions <em class="EQ">f<sub>j</sub></em>
 ne sont pas des fonctions de similarité.</p>
 
-<p>Notons que le triangle d'Apollonius est homéomorphique au
+<p>Notons que le baderne d'Apollonius est homéomorphique au
 triangle de Sierpinski.  Cependant, les homéomorphismes ne préservent
 pas la dimension de Hausdorff.</p>
 
@@ -1651,10 +1721,17 @@ articles suivants.</p>
 <ul>
 <li id="MB">M. Barnsley, <em>Fractals Everywhere</em>, Academic Press,
 Inc. (1988).</li>
-<li id="KJF">K. J. Falconer, <em>The Geometry of Fractal Sets</em>,
-<em>85</em>, Cambridge University Press (1985). </li>
+<li id="BU">A. S. Besicovitch and H. D. Ursell, <em>Sets of fractional
+dimwnsion (V): On Dimensional Numbers of some Continuous Curves</em>,
+J. London Math. Soc., <em>12</em> (1934), 18-25.</li>
 <li id="GAE">G. A. Edgar, <em>Measure, Topology, and Fractal Geometry</em>,
 Undergraduate Text in Mathematics, Springer-Verlag (1990).</li>
+<li id="KJF">K. J. Falconer, <em>The Geometry of Fractal Sets</em>,
+<em>85</em>, Cambridge University Press (1985). </li>
+<li id="JH"> J. Harrison, <em>An Introduction to Fractals</em>, in
+<em>Chaos and Fractals: The Mathematics Behind the Computer Graphics</em>,
+R. L. Devaney and L. Keen, Editors, Proceeding of symposia in applied
+mathematics, AMS short course lecture notes (1989), 107-126.</li>
 </ul>
 
 <table class="noB">

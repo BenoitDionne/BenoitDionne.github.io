@@ -59,62 +59,190 @@ main_title( MStext, "MMathSStat");
 
 <h2 id="TOP">Iterative Function Systems</h2>
 
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#SS1", "Definition of Iterative Function Systems",
+      "MMathSStat", "SS1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS2", "Examples",
+      "MMathSStat", "SS2ID", "_top");
+    </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS3", "Addaptive Cut Method",
+      "MMathSStat", "SS3ID", "_top");
+    </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS4", "The Chaos Game",
+      "MMathSStat", "SS4ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS5", "Iterative Function Ssystems with Condensation",
+      "MMathSStat", "SS5ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS6", "Dependence on a Parameter",
+      "MMathSStat", "SS6ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS7", "Networks of Iterative Function Systems",
+      "MMathSStat", "SS7ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS8", "Inverse Problem for Iterative Function Ssystems",
+      "MMathSStat", "SS8ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS9", "Measures on Fractals",
+      "MMathSStat", "SS9ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#REF", "References", "MMathSStat", "ReferencesID", "_top");
+    </script>
+  </li>
+</ul>
+</div>
+
 <p>We do not define what is a fractal in this
-document.  We postpone this task to the next document; namely,
+document.  We postpone this task to the next document; namely, the document
 <script language="javascript">
 buildLinK(fractal3.url_en, fractal3.text_en, "MMathSStat",
 fractal3.id, fractal3.target);
 </script>.  In the present document, we introduce a method to generate
 fractals.</p>
 
-<hr class="MMathSStat">
-
-<h3> Definition of Iterative Function Systems</h3>
-
 <p>In our study of DDS in the previous document, we have considered
-simple functions and computed iterations starting with a single initial
-point.  We now consider more complex functions than the simple
-functions of the previous document.  Moreover, we replace the initial
-point by an initial set.</p> 
+functions from <em class="EQ">&reals;</em> to itself and computed
+iterations starting at an initial point.  We now consider
+set valued functions acting on sets and compute iterations starting with
+an initial set.</p>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="SS1"> Definition of Iterative Function Systems</h3>
 
 <p>This section is theoretical.  Readers who do not have the
 mathematical background may skip this section and resume reading
-with the next section that provides examples of a procedure to draw
-fractals.</p>
+with the next section where we provide examples of fractals produced
+with the help of iterative function systems.</p>
 
 <p> A <em>metric space</em> is a set <em class="EQ">E</em>
 with a <em>metric</em>
 <em class="EQ">d:E&times;E  &rarr; [0,&infin;[</em>.  We
-denote this metric space by <em class="EQ">(E,d)</em>.</p>
+denote this metric space by <em class="EQ">(E,d)</em>.
+The distance between a point <em class="EQ">a &in; E</em> and
+a set <em class="EQ">B &subset; E</em> is defined by
+<em class="EQ">d(a,B) = inf{d(a,b) : b &in; B}</em>, and
+the distance from the set <em class="EQ">A &subset; E</em> to the
+set <em class="EQ">B &subset; E</em> is
+defined by <em class="EQ">d(A,B) = sup{d(a,B) : a &in; A}</em>.</p>
+
+<div class="center">
+  <img src="hausdorff1.png" style="width: 300px"
+       alt="Illustration of d(A,B) and d(B,A)" class="framed">
+</div>
+
+<p>We note that <em class="EQ">d(A,B)</em> may not be equal
+to <em class="EQ">d(B,A)</em>.</p>
 
 <div class="Theo">
 <p><em>Proposition</em>: Suppose that the metric space
 <em class="EQ">(E,d)</em> is complete; namely, every Cauchy sequence converges.
 Let <em class="EQ">E<sup>c</sup></em> be the space of non-empty
-compact subsets of <em class="EQ">E</em>.  Then, the function
-<em class="EQ">d<sup>c</sup>:E<sup>c</sup> &times;
-E<sup>c</sup> &rarr; [0,&infin;[</em>
+compact subsets of <em class="EQ">E</em>.  Then the function
+<em class="EQ">d<sup>c</sup>:E<sup>c</sup>&times;E<sup>c</sup>
+&rarr; [0,&infin;[</em>
 defined by</p>
 <div class="EQ_center">
   <em class="EQ_Display">
-   d<sup>c</sup>(A,B) = max{max{d(a,B):a &in; A},max{d(b,A):b &in; B}}
+   d<sup>c</sup>(A,B) = max{d(A,B),d(B,A)}
   </em>
 </div>
-<p> for all <em class="EQ">A,B &sub; E<sup>c</sup></em>
+<p> for all <em class="EQ">A,B &subset; E<sup>c</sup></em>
 is a metric on <em class="EQ">E<sup>c</sup></em>.
 Moreover, the metric space
 <em class="EQ">(E<sup>c</sup>,d<sup>c</sup>)</em>
 is complete.  The metric
 <em class="EQ">d<sup>c</sup></em> is called the
-<em>Hausdorff distance</em>.</p>
+<em>Hausdorff distance</em> or <em>Hausdorff metric</em>.</p>
 </div>
 
-<p>If <em class="EQ">f: E &rarr; E</em> is a continuous
-function, then it maps compact sets to compact sets.
-Hence, the function <em class="EQ">f</em> also defines
-a function
-<em class="EQ">f: E<sup>c</sup> &rarr; E<sup>c</sup></em> in a
-natural way.</p>
+<p>A proof of this proposition is found in the book by
+<script language="javascript">
+buildLinK("#MB", "M. Barnsley", "MMathSStat", "MBId3", "_top");
+</script>.  Note that for <em class="EQ">a &in; A</em>
+and <em class="EQ">A,B &in; E<sup>c</sup></em>,
+we have that <em class="EQ">d(a,B) = min{d(a,b) : b &in; B} &lt; &infin;</em>
+and <em class="EQ">d(A,B) = max{d(a,B) : a &in; A} &lt; &infin;</em> because
+<em class="EQ">A</em> and <em class="EQ">B</em> are compact sets.</p>
+
+<div class="Theo" id="propI">
+<p><em>Proposition &#8544;</em>: Suppose that
+<em class="EQ">{A<sub>j</sub>}<sub>1&le;j&le;J</sub></em>
+and <em class="EQ">{B<sub>j</sub>}<sub>1&le;j&le;J</sub></em>
+are two collections of elements in <em class="EQ">E<sup>c</sup></em>.  Then
+<em class="EQ">
+d<sup>c</sup>(&cup;<sub>1&le;j&le;J</sub>
+A<sub>j</sub>,&cup;<sub>1&le;j&le;J</sub> B<sub>j</sub>)
+&leq; max<sub>1&le;j&le;J</sub>
+d<sup>c</sup>(A<sub>j</sub>,B<sub>j</sub>)</em>.</p>
+</div>
+
+<p><em>Proof</em>: We have that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d(A &cup; B,P)
+= max{d(u,P) : u &in; A &cup; B} <br>
+= max{max{d(u,P) : u &in; A},max{d(u,P) : u &in; B}}
+= max{d(A,P),d(B,P)}
+</em>
+</div>
+<p>for all <em class="EQ">A,B,P &in; E<sup>c</sup></em>.  Moreover,
+since</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d(a,P &cup; Q)
+= min{d(a,u) : u &in; P &cup; Q} <br>
+= min{min{d(a,u) : u &in; P},min{d(a,u) : u &in; Q}
+= min{d(a,P),d(a,Q)}
+</em>
+</div>
+<p>for all <em class="EQ">a &in; E</em> and
+<em class="EQ">P,Q &in; E<sup>c</sup></em>, we get that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d(A,P &cup; Q)
+= max{d(a,P &cup; Q) : a &in; A} <br>
+= max{min{d(a,P),d(a,Q)} : a &in; A}
+&le; max{d(a,P) : a &in; A} = d(A,P)
+</em>
+</div>
+<p>and similarly that <em class="EQ"> d(A,P &cup; Q) &le; d(A,Q)</em>
+for all <em class="EQ">A,P,Q &in; E<sup>c</sup></em>.  It follows that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d(A &cup; B,P &cup; Q)
+&le; max{d(A,P &cup; Q),d(B,P &cup; Q)} 
+&le; max{d(A,P),d(B,Q)}
+</em>
+</div>
+<p>for all <em class="EQ">A,B,P,Q &in; E<sup>c</sup></em>.  We finally
+conclude that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d<sup>c</sup>(A &cup; B,P &cup; Q)
+= max{d(A &cup; B,P &cup; Q),d(P &cup; Q,A &cup; B)} <br>
+&le; max{max{d(A,P),d(B,Q)},max{d(P,A),d(Q,B)} <br>
+= max{max{d(A,P),d(P,A)},max{d(B,Q),d(Q,B)} <br>
+= max{d<sup>c</sup>(A,P),d<sup>c</sup>(B,Q)}
+</em>
+</div>
+<p>for all <em class="EQ">A,B,P,Q &in; E<sup>c</sup></em>.
+This proves the proposition for <em class="EQ">J = 2</em>.  A simple induction
+on <em class="EQ">J</em> completes the proof of the proposition.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
 
 <p>A function <em class="EQ">f: E &rarr; E</em> is a
 <em>contraction</em> if there exists a
@@ -125,12 +253,17 @@ number <em class="EQ">C</em> such that
 continuous function.  The value <em class="EQ">C</em>
 is called a <em>contraction factor</em>.</p>
 
-<p>Suppose that
+<p>If <em class="EQ">f: E &rarr; E</em> is a continuous
+function, then it maps compact sets to compact sets.
+Hence, the function <em class="EQ">f</em> also induces
+a function
+<em class="EQ">f: E<sup>c</sup> &rarr; E<sup>c</sup></em> in a
+natural way.  Suppose that
 <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is a
 collection of continuous
 functions <em class="EQ">f<sub>j</sub>: E &rarr; E</em>, we
-define a function <em class="EQ">f<sup>c</sup>: 
-E<sup>c</sup> &rarr; E<sup>c</sup></em> by </p>
+define a function
+<em class="EQ">f<sup>c</sup>: E<sup>c</sup> &rarr; E<sup>c</sup></em> by </p>
 <div class="EQ_center">
   <em class="EQ_Display">
     f<sup>c</sup>(A) = &#8899;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(A)
@@ -141,30 +274,81 @@ function is well defined because the finite union of compact sets is a
 compact set.</p> 
 
 <div class="Theo">
-<p><em>Proposition</em>: If each function
-<em class="EQ">f<sub>j</sub></em> is a contraction with
-a contraction factor <em class="EQ">C<sub>j</sub></em>,
-then the function <em class="EQ">f<sup>c</sup>:
-E<sup>c</sup> &rarr; E<sup>c</sup></em>
+<p><em>Definition</em>: A
+<em>(hyperbolic) iterative function system</em> (IFS) on
+a complete metric space <em class="EQ">(E<sup>c</sup>,d<sup>c</sup>)</em> is
+a collection <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> of
+contractions from <em class="EQ">E</em> to itself.</p>
+</div>
+
+<div class="Theo" id="propII">
+<p><em>Proposition &#8545;</em>: Suppose that
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is an IFS where
+each function <em class="EQ">f<sub>j</sub></em> is a contraction with
+a contraction factor <em class="EQ">C<sub>j</sub></em>.
+Then the function
+<em class="EQ">f<sup>c</sup>: E<sup>c</sup> &rarr; E<sup>c</sup></em>
 is a contraction with a contraction factor
 <em class="EQ">C = max<sub>1&leq;j&leq;J</sub> C<sub>j</sub></em>.</p>
 </div>
 
-<div class="Theo">
-<p><em>Theorem</em>: If <em class="EQ">(E,d)</em> is a complete metric space
+<p><em>Proof</em>: Given <em class="EQ">A,B &in; E<sup>c</sup></em>,
+we have that <em class="EQ">d(f<sub>j</sub>(a),f<sub>j</sub>(b))
+&le; C<sub>j</suB> d(a,b)</em> for all <em class="EQ">a &in; A</em>
+and <em class="EQ">b &in; B</em>.  Hence</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d(f<sub>j</sub>(a),f<sub>j</sub>(B))
+= min{d(f<sub>j</sub>(a),f<sub>j</sub>(b)) : b &in; B} <br>
+&le; min{C<sub>j</sub> d(a,b) : b &in; B}
+= C<sub>j</sub> min{d(a,b) : b &in; B} <br>
+= C<sub>j</sub> d(a,B)
+</em>
+</div>
+<p>for all <em class="EQ">a &in; A</em> and so</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d(f<sub>j</sub>(A),f<sub>j</sub>(B))
+= max{d(f<sub>j</sub>(a),f<sub>j</sub>(B)) : a &in; A} <br>
+&le; max{C<sub>j</sub> d(a,B) : a &in; A}
+= C<sub>j</sub> max{d(a,B) : a &in; A} <br>
+= C<sub>j</sub> d(A,B)</em> .
+</div>
+<p>Similarly, we have that
+<em class="EQ">d(f<sub>j</sub>(B),f<sub>j</sub>(A))
+&le; C<sub>j</sub> d(B,A)</em>.  Thus
+<em class="EQ">d<sup>c</sup>(f<sub>j</sub>(A),f<sub>j</sub>(B))
+&le; C<sub>j</sub> d<sup>c</sup>(A,B)</em>.  It follows from
+<script language="javascript">
+buildLinK("#propI", "Proposition &#8544;", "MMathSStat", "propIId7", "_top");
+</script>
+that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d<sup>c</sup>(f<sup>c</sup>(A),f<sup>c</sup>(B))
+= d<sup>c</sup>(&cup;<sub>1&le;j&le;J</sub>
+f<sub>j</sub>(A),&cup;<sub>1&le;j&le;J</sub> f<sub>j</sub>(B)) <br>
+&le; max<sub>1&le;j&le;J</sub>{d<sup>c</sup>(f<sub>j</sub>(A),f<sub>j</sub>(B))
+&le; max<sub>1&le;j&le;J</sub> C<sub>j</sub> d<sup>c</sup>(A,B)
+= C d<sup>c</sup>(A,B)</em> . &nbsp;<span class="EQ_Right">&#8718;</span>
+</div>
+<!-- <p>&nbsp; &nbsp;<span class="EQ_Right">&#8718;</span></p> -->
+
+<div class="Theo" id="theoIII">
+<p><em>Theorem &#8546;</em>: If <em class="EQ">(E,d)</em> is a
+complete metric space
 and <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is a
-collection of contractions from <em class="EQ">E</em> to itself, then
-<em class="EQ">f<sup>c</sup>:
+(hyperbolic) IFS, then <em class="EQ">f<sup>c</sup>:
 E<sup>c</sup> &rarr; E<sup>c</sup></em> has a unique
-<em>fixed point</em>; namely, there exists a unique
-<em class="EQ">A &sub; E<sup>c</sup></em> such that
-<em class="EQ">f<sup>c</sup>(A) = A</em>.  Moreover, for all
-set <em class="EQ">X<sub>0</sub> &in; E<sup>c</sup></em>, the
-sequence of sets <em class="EQ">{X<sub>i</sub>}<sub>i&geq;0</sub></em>
+<em>fixed point</em>; namely, there exists a unique set
+<em class="EQ">K &in; E<sup>c</sup></em> such that
+<em class="EQ">f<sup>c</sup>(K) = K</em>.  Moreover, for all
+sets <em class="EQ">A<sub>0</sub> &in; E<sup>c</sup></em>, the
+sequence of sets <em class="EQ">{A<sub>i</sub>}<sub>i&geq;0</sub></em>
 defined by
-<em class="EQ">X<sub>i+1</sub> = f<sup>c</sup>(X<sub>i</sub>)</em>
-converges to <em class="EQ">A</em> according to the metric
-<em class="EQ">d<sup>c</sup></em> as 
+<em class="EQ">A<sub>i+1</sub> = f<sup>c</sup>(A<sub>i</sub>)</em>
+converges to <em class="EQ">K</em> according to the Hausdorff metric
+<em class="EQ">d<sup>c</sup></em> as
 <em class="EQ">i &rarr; &infin;</em>.</p>
 </div>
 
@@ -174,311 +358,2021 @@ converges to <em class="EQ">A</em> according to the metric
 is a complete metric space and <em class="EQ">f<sup>c</sup>:
 E<sup>c</sup> &rarr; E<sup>c</sup></em> is a contraction.</p>
 
-<p>An <em>iterative function system</em> (IFS) on a complete metric space
-<em class="EQ">(E<sup>c</sup>,d<sup>c</sup>)</em> is a
-collection
-<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> of
-contractions from <em class="EQ">E</em> to itself.</p>
+<hr class="MMathSStat">
+
+<h3 id="SS2">Examples </h3>
 
 <p> In the examples that we consider below,
-<em class="EQ">E</em> is the plane and
+<em class="EQ">E</em> is the real plane and
 <em class="EQ">d</em> is the Euclidean metric.
 The fractals that we draw are the fixed points
 of functions <em class="EQ">f<sup>c</sup>:
-E<sup>c</sup> &rarr; E<sup>c</sup></em> associated to IFS
+E<sup>c</sup> &rarr; E<sup>c</sup></em> induced by some IFS
 <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.
-The challenge is to choose the IFS that will produce the fractal that we
-want.</p>
+The challenge is to choose the IFS that produces the fractal that we
+want.  We address this issue in the section
+<script language="javascript">
+buildLinK("#SS8", "Inverse Problem for IFS", "MMathSStat","invIFSId5","_top");
+</script>
+below.</p>
 
-<hr class="MMathSStat">
+<p>The first example is the example of the must famous IFS.</p>
 
-<h3>Examples </h3>
-
-<h4 id="SpkTrg"> Sierpinski Triangle </h4>
-
-<p> The following figure shows the famous <em>Sierpinski gasket</em> or
+<div class="Example" id="SS2A">
+<p><em>Example A - Sierpinski Triangle</em>:
+The following figure shows the famous <em>Sierpinski gasket</em> or
 <em>Sierpinski triangle</em>. </p>
 
 <div class="center">
-  <img src="sierpinski.png" style="width: 400px"
-       alt="Image of Sierpinski Gasket" class="framed">
+  <img src="sierpinski.png" style="width: 300px"
+       alt="Image of Sierpinski triangle" class="framed">
 </div>
 
-<p> It is a typical example of a fractal.  We give a definition
-of a fractal in the document <script language="javascript">
+<p>It is a typical example of a fractal.  We give a definition
+of fractals in the document <script language="javascript">
 buildLinK(fractal3.url_en, fractal3.text_en, "MMathSStat",
 fractal3.id, fractal3.target);
 </script>.  We do not need this definition right now. </p>
 
-<p> To store this figure on a computer, we need about 10857 bytes (in
-png format).  Using IFS, this figure (and the next two figures at any
-level of accuracy) can be stored using less than 2876 bytes (a simple
-Matlab code).</p>
-
 <p> The Sierpinski triangle is the fixed point of the
 function <em class="EQ">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
-&rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
-associated to the IFS
+&rarr; (&reals;<sup>2</sup>)<sup>c</sup></em> induced by the IFS
 <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em>
 where</p>
 <div class="EQ_center">
 <em class="EQ_Display">
-f<sub>1</sub>(x) = ( x<sub>1</sub>/2 , x<sub>2</sub>/2 + 1/2 ) <br>
-f<sub>2</sub>(x) = ( x<sub>1</sub>/2 + 1/2 , x<sub>2</sub>/2 ) <br>
-f<sub>3</sub>(x) = ( x<sub>1</sub>/2 , x<sub>2</sub>/2 )
-</em>
+f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (x<sub>1</sub>/2,x<sub>2</sub>/2 + 1/2)</em> ,<br>
+<em class="EQ_Display">
+f<sub>2</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (x<sub>1</sub>/2 + 1/2,x<sub>2</sub>/2)</em> ,<br>
+<em class="EQ_Display">
+f<sub>3</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (x<sub>1</sub>/2,x<sub>2</sub>/2)</em> .
 </div>
 
-<p> We now explain in a graphical way how the Sierpinski triangle is
-drawn using the IFS composed of the three simple functions described
-above.</p>
+<p><em class="EQ">f<sub>1</sub></em> and <em class="EQ">f<sub>2</sub></em>
+are dilatations followed by translations.  <em class="EQ">f<sub>3</sub></em> 
+is only a dilatation.  We now explain in a graphical way how the
+Sierpinski triangle is drawn using the IFS composed of the three
+functions described above.</p>
 
 <ul>
-<li>
-First, we choose any initial set.  In the present case, we choose the
-solid triangle defined by
-<em class="EQ"> T = {x : x<sub>1</sub>,x<sub>2</sub> &geq; 0 and
-x<sub>1</sub> + x<sub>2</sub> &leq; 1 }</em>. </li> 
-<li> Second, we shrink the solid triangle <em class="EQ">T</em>
-to a quarter of its original size and translate it vertically by 0.5.
+<li>First, we choose any initial set.  In the present case, we choose the
+filled triangle defined by
+<em class="EQ"> T = {<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
+: x<sub>1</sub>,x<sub>2</sub> &geq; 0 and
+x<sub>1</sub> + x<sub>2</sub> &leq; 1}</em>. </li> 
+<li> Second, we shrink the filled triangle <em class="EQ">T</em>
+to a quarter of its original size (a dilatation by <em class="EQ">1/2</em>)
+and translate it vertically by <em class="EQ">0.5</em>
+(a translation by <em class="EQ">(0,1/2)</em>).
 This is the work of the function
 <em class="EQ">f<sub>1</sub></em>. </li>
-<li> Third, we shrink the solid triangle <em class="EQ">T</em>
-to a quarter of its original size and translate it horizontally by 0.5.
-This is the work of the function
-<em class="EQ">f<sub>2</sub></em>.</li>
-<li> Fourth, we shrink the solid triangle <em class="EQ">T</em>
-to a quarter of its original size only.  This is the work of the function
+<li> Third, we shrink the filled triangle <em class="EQ">T</em>
+to a quarter of its original size (a dilatation by <em class="EQ">1/2</em>)
+and translate it horizontally by <em class="EQ">0.5</em>
+(a translation by <em class="EQ">(1/2,0)</em>).  This is the work of
+the function <em class="EQ">f<sub>2</sub></em>.</li>
+<li> Fourth, we shrink the filled triangle <em class="EQ">T</em>
+to a quarter of its original size only (a dilatation
+by <em class="EQ">1/2</em>).  This is the work of the function
 <em class="EQ">f<sub>3</sub></em>.</li>
-</li>
 </ul>
 
 <p>This four steps are illustrated in the figure below.</p>
 
 <div class="center">
   <img src="step_one.png" class="framed" style="width: 500px"
-       alt="First iteration to produce a Sierpinski triangle">
+       alt="First iteration to produce a Sierpinski triangle.">
 </div>
 
 <p> We repeat the second, third and fourth steps above with the new set
-formed of three solid triangles.  The next figure
+formed of three filled triangles.  The next figure
 illustrates the second iteration of the second, third and fourth
-steps described above. </p>
+step described above. </p>
 
 <div class="center">
   <img src="step_two.png" class="framed" style="width: 500px"
-       alt="Second iteration to produce a Sierpinski triangle">
+       alt="Second iteration to produce a Sierpinski triangle.">
 </div>
 
 <p>We repeat this procedure until we are happy with the figure that we
 get.  Usually, we stop when we can no longer observe any variation in the
-figure. </p>
+figure.</p>
 
-<p> As we mentioned in the previous theoretical section above,
+<p> As we mentioned in the theoretical section above,
 independently of the set of points that we choose initially, we always
 get the Sierpinski triangle after an <q lang="en">infinite</q> number
 of iterations. </p> 
 
-<p> In the following application, we may select one of the three
-initial polygonal curves proposed, and the number of iterations to be
-performed.  The reader should only use a small number of iterations,
-no more than 10 or 11, to avoid slowing down too much the browser response
-time.  Browsers normally display a warning in such situation.  The
-script used to produce the figures is written in JavaScript which is
-not at all a computer language for number crunching.  Moreover,
-because of the limited number of pixels on the computer screen, there
-is an inferior limit on the size of the copies of the initial set that
-can be drawn in the second, third and fourth steps above.</p>
-
-<div class="center">
-<canvas id="SRPK" width="400" height="400">
-</canvas>
+<p> We need about 20431 bytes (in png format) to store the figure of
+the Sierpinski triangle above on a computer.  Instead of storing on
+the computer all 
+the pixels of the figure of the Sierpinski triangle, we only have to
+store on the computer the mathematical formulae of the functions
+<em class="EQ">f<sub>j</sub></em> that compose the IFS
+(e.g. using <em>Matlab</em> commands.)&nbsp;  We
+assume that the procedure to iterate the function
+<em class="EQ">f<sup>c</sup></em> induced by an IFS is available
+(e.g. the <em>matlab</em> function <em class="matlab">ifs2</em>
+provided in the document <script language="javascript">
+buildLinK(matlabProgr.url_en, matlabProgr.text_en, "MMathSStat",
+matlabProgr.id, matlabProgr.target);
+</script> in <em>Matlab</em>.)</p>
 </div>
 
-<input type="hidden" value="false" id="filledSRPK">
-<input type="hidden" value="blue" id="colourSRPK">
-<input type="hidden" value="400" id="scaleSRPK">
+<div class="Example">
+<p><em>Example - Variations of the Sierpinski Triangle</em>:  The three
+functions of the IFS used to obtain the Sierpinski triangle were
+simple compositions of dilatations and translations of the initial
+set.  We get interesting fractals if we consider also
+reflections and rotations by multiples of <em class="EQ">&pi;/2</em>.</p>
 
-<ul>
-  <li> Number of iterations: <input type="text" value="5" id="nbrSRPK"> </li>
-  <li> Initial figure: <select id="initSRPK">
-      <option value="0" selected> triangle </option>
-      <option value="1"> square </option>
-      <option value="2"> lozenge </option>
-  </select> </li>
-  <li> <input type="button" value="Start" onclick="iterateSRPK()"> </li>
-  <li> <input type="button" value="Clear" onclick="clearIFS('SRPK')"> </li>
-</ul>
-
-<p> Instead of storing on the computer all the pixels of the figure of
-the Sierpinski triangle, we only have to store on the computer
-(using mathematical formulae) the functions that compose the IFS and
-the procedure to iterate the function
-<em class="EQ">f<sup>c</sup></em> associated to this IFS.</p>
-
-<p> <em> Question </em>: What happen if the second function of the IFS
-above also rotates the square by 45 degrees? </p>
-
-<div class="Note">
-<p> <em>Probabilistic System</em>:
-This is a simple technique to illustrate the Sierpinski
-triangle.  Let <em class="EQ">A</em> be the point with
-coordinate (0,1), <em class="EQ">B</em> be the point with  
-coordinate (1,0) and <em class="EQ">C</em> be the origin (see
-the figure below).  Suppose that we have an unbiased dice and that 1,6
-are associated to <em class="EQ">A</em>, 2,5 are associated
-to <em class="EQ">B</em> and 3,4 are associated to
-<em class="EQ">C</em>. </p> 
-
-<div class="center">
-  <img src="probability1.png" class="framed" style="width: 300px"
-       alt="A few iterations of the probabislitic IFS to produce the Sierpinski triangle">
+<p>We draw below the fixed point of the
+function <em class="EQ">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
+&rarr; (&reals;<sup>2</sup>)<sup>c</sup></em> induced by the IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em>
+where</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (x<sub>1</sub>/2,x<sub>2</sub>/2 + 1/2)</em> ,<br>
+<em class="EQ_Display">
+f<sub>2</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (-x<sub>1</sub>/2 + 1/2,x<sub>2</sub>/2)</em> ,<br>
+<em class="EQ_Display">
+f<sub>3</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (-x<sub>2</sub>/2 + 1,-x<sub>1</sub>/2 + 1/2)</em> .
 </div>
 
-<ul>
-<li> We choose a point <em class="EQ">x<sub>0</sub></em> in the
-plane.</li> 
-<li> We throw the dice.  Suppose that we get a 3. </li>
-<li> The point <em class="EQ">x<sub>1</sub></em> is the middle
-of the segment between <em class="EQ">x<sub>0<</sub></em> and C. </li>
-<li> We throw the dice a second time.  Suppose that we get a 1. </li>
-<li> The point <em class="EQ">x<sub>2</sub></em> is the middle
-of the segment between <em class="EQ">x<sub>1</sub></em> and A. </li>
-<li> And so on. </li>
-</ul>
-
-<p> The isolated points are invisible.  We only see the cluster of
-points.  This cluster of points shadows the Sierpinski triangle. To
-get a good approximation of the Sierpinski triangle, the number of
-iterations must be very large and the random number generator of
-the computer must be really ... really good. </p>
-
-<p><em> Question </em>: Which are the points that constitute (make up)
-the Sierpinski gasket? <br> <em> Question </em>: What happen if the
-dice is biased (loaded)? </p>
+<div class="center">
+  <img src="sierpinski_var.png" style="width: 300px"
+       alt="Image of the variation on Sierpinski triangle." class="framed">
 </div>
 
-<h4> Ferns </h4>
-
-<p> The following image of a fern has been produced with an IFS. </p>
+<p>The function <em class="EQ">f<sub>1</sub></em> is the composition
+of a dilatation by <em class="EQ">1/2</em> followed by a translation
+by <em class="EQ">(0,1/2)</em>.  The function
+<em class="EQ">f<sub>2</sub></em> is the composition
+of a reflection through the vertical axis followed by a
+dilatation by <em class="EQ">1/2</em> and a translation 
+by <em class="EQ">(1/2,0)</em>.  Finally, the function
+<em class="EQ">f<sub>3</sub></em> is the composition
+of a counterclockwise rotation by <em class="EQ">&pi;/2</em> followed
+a reflection through the horizontal axis, a dilatation by
+<em class="EQ">1/2</em> and a translation 
+by <em class="EQ">(1,1/2)</em>.  The following figure illustrates
+the action of these functions on the set
+<em class="EQ"> T = {<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
+: x<sub>1</sub>,x<sub>2</sub> &geq; 0 and
+x<sub>1</sub> + x<sub>2</sub> &leq; 1}</em>.</p>
 
 <div class="center">
-  <img src="fern_4.png" class="framed" style="width: 400px"
+  <img src="step_one_var.png" class="framed" style="width: 500px"
+       alt="The first iteration to produce a variation of the Sierpinski triangle.">
+</div>
+
+<p>The reader will find in the book by
+<script language="javascript">
+buildLinK("#PJS", "H.-O. Peitgen, H. j&#252;rgens and D. Saupe", "MMathSStat",
+"PJSId1", "_top");
+</script> a list of all the possible variations of the Sierpinski triangle.
+They refer to them as the output of the
+<q lang="en">multiple reduction copy machine</q>.</p>
+</div>
+
+<div class="Example">
+<p><em>Example - Ferns</em>: The following image of a fern has been
+produced with an IFS. </p> 
+
+<div class="center">
+  <img src="fern_4.png" class="framed" style="width: 300px"
        alt="Image of a fern produced with an IFS">
 </div>
 
-<p> The fern above is the fixed point of the
+<p>The fern above is the fixed point of the
 function <em class="EQ">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
 &rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
-associated to the IFS
+induced by the IFS
 <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
 where</p>
 <div class="EQ_center">
 <em class="EQ_Display">
-f<sub>1</sub>(x) = ( 0 , 0.16 x<sub>2</sub> ) <br>
-f<sub>2</sub>(x) = ( 0.85 x<sub>1</sub> + 0.04 x<sub>2</sub> ,
--0.04 x<sub>1</sub> + 0.85 x<sub>2</sub> + 1.6 ) <br>
-f<sub>3</sub>(x) = ( 0.20 x<sub>1</sub> - 0.26 x<sub>2</sub> ,
-0.23 x<sub>1</sub> + 0.22 x<sub>2</sub> + 1.6 ) <br>
-f<sub>4</sub>(x) = ( -0.15 x<sub>1</sub> + 0.28 x<sub>2</sub> ,
-0.26 x<sub>1</sub> + 0.24 x<sub>2</sub> + 0.44 )
-</em>
+f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0,0.16 x<sub>2</sub>)</em> ,<br>
+<em class="EQ_Display">
+f<sub>2</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.85 x<sub>1</sub> + 0.04 x<sub>2</sub>,-0.04
+x<sub>1</sub> + 0.85 x<sub>2</sub> + 1.6)</em> ,<br>
+<em class="EQ_Display">
+f<sub>3</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.20 x<sub>1</sub> - 0.26 x<sub>2</sub>,0.23
+x<sub>1</sub> + 0.22 x<sub>2</sub> + 1.6)</em> ,<br>
+<em class="EQ_Display">
+f<sub>4</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (-0.15 x<sub>1</sub> + 0.28 x<sub>2</sub>,0.26
+x<sub>1</sub> + 0.24 x<sub>2</sub> + 0.44)</em> .
 </div>
 
 <p>To visualize the action of the four functions above, it suffices to
-select a simple set like a square and to compute only one iteration
-using the application below.  We get the four images resulting
-from the action of the four functions on the simple set chosen. </p>
-
-<p> As for the application for the Sierpinski triangle above, the reader
-should not choose more than 10 or 11 iterations to avoid slowing down
-too much the browser response time.</p>
-
-<div class="center">
-<canvas id="FERN" width="400" height="400">
-</canvas>
+select a simple set like a triangle and to compute only one iteration of
+the function <em class="EQ">f<sup>c</sup></em> using the graphical
+application provided at the end of this section.  We get the four
+images resulting from the action of the four functions of the IFS on
+the simple set chosen. </p>
 </div>
 
-<input type="hidden" value="false" id="filledFERN">
-<input type="hidden" value="#00ff00" id="colourFERN">
-<input type="hidden" value="400" id="scaleFERN">
-
-<ul>
-  <li> Number of iterations: <input type="text" value="5" id="nbrFERN"> </li>
-  <li> Initial figure: <select id="initFERN">
-      <option value="0" selected> triangle </option>
-      <option value="1"> square </option>
-      <option value="2"> lozenge </option>
-  </select> </li>
-  <li> <input type="button" value="Start" onclick="iterateFERN()"> </li>
-  <li> <input type="button" value="Clear" onclick="clearIFS('FERN')"> </li>
-</ul>
-
-<h4> Leafs </h4>
-
-<p> The following image of a leaf has been produced with an IFS.</p>
+<div class="Example">
+<p><em>Example - Leafs</em>: The following image of a leaf has been
+produced with an IFS.</p> 
 
 <div class="center">
-  <img src="leaf_2.png" class="framed" style="width: 400px"
+  <img src="leaf_2.png" class="framed" style="width: 300px"
        alt="Image of a leaf produced with an IFS">
 </div>
 
 <p> The leaf above is the fixed point of the
 function <em class="EQ">f<sup>c</sup>:(&reals;<sup>2</sup>)<sup>c</sup>
 &rarr; (&reals;<sup>2</sup>)<sup>c</sup></em>
-associated to the IFS
+induced by the IFS
 <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
 where</p>
 <div class="EQ_center">
 <em class="EQ_Display">
-f<sub>1</sub>(x) = ( 0.6 x<sub>1</sub> + 0.18 , 0.6 x<sub>2</sub>
-+ 0.36 ) <br>
-f<sub>2</sub>(x) = ( 0.6 x<sub>1</sub> + 0.18 ,
-0.6 x<sub>2</sub> + 0.12 ) <br>
-f<sub>3</sub>(x) = ( 0.4 x<sub>1</sub> + 0.3 x<sub>2</sub> + 0.27 ,
--0.3 x<sub>1</sub> + 0.4 x<sub>2</sub> + 0.32 ) <br>
-f<sub>4</sub>(x) = ( 0.4 x<sub>1</sub> - 0.3 x<sub>2</sub> + 0.27 ,
-0.3 x<sub>1</sub> + 0.4 x<sub>2</sub> + 0.09 )
-</em>
+f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.6 x<sub>1</sub> + 0.18,0.6 x<sub>2</sub> + 0.36)</em> ,<br>
+<em class="EQ_Display">
+f<sub>2</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.6 x<sub>1</sub> + 0.18,0.6 x<sub>2</sub> + 0.12)</em> ,<br>
+<em class="EQ_Display">
+f<sub>3</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.4 x<sub>1</sub> + 0.3 x<sub>2</sub> + 0.27,-0.3
+x<sub>1</sub> + 0.4 x<sub>2</sub> + 0.32)</em> ,<br>
+<em class="EQ_Display">
+f<sub>4</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.4 x<sub>1</sub> - 0.3 x<sub>2</sub> + 0.27,0.3
+x<sub>1</sub> + 0.4 x<sub>2</sub> + 0.09)</em> .
 </div>
 
-<p>To visualize the action of the four functions above, it suffices to
-select a simple set like a triangle and to compute only one iteration
-using the application below.  We get four images resulting from
-the action of the four functions on the simple set chosen.</p>
+<p>As for the fern above, to visualize the action of the four
+functions above, it suffices to select a simple set like a triangle
+and to compute only one iteration of the function
+<em class="EQ">f<sup>c</sup></em> using the graphical application
+provided at the end of this section.  We get four images resulting from
+the action of the four functions of the IFS on the simple set chosen.</p>
+</div>
 
-<p> As usual, the reader should not choose more than 10 or 11 iterations
-to avoid slowing down too much the browser response time.</p> 
+<div class="Example">
+<p><em>Examples</em>: We add two more examples to our list.  The
+fixed point of the function <em class="EQ">f<sup>c</sup></em> induced
+by the IFS <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;5</sub></em>
+where</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.195 x<sub>1</sub> - 0.488 x<sub>2</sub>
++ 0.4431,0.344 x<sub>1</sub> + 0.443 x<sub>2</sub> + 0.2452)</em> ,<br>
+<em class="EQ_Display">
+f<sub>2</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.462 x<sub>1</sub> + 0.414 x<sub>2</sub>
++ 0.2511,-0.252 x<sub>1</sub> + 0.361 x<sub>2</sub> + 0.5692)</em> ,<br>
+<em class="EQ_Display">
+f<sub>3</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (-0.058 x<sub>1</sub> - 0.070 x<sub>2</sub>
++ 0.5976,0.453 x<sub>1</sub> - 0.111 x<sub>2</sub> + 0.0969)</em> ,<br>
+<em class="EQ_Display">
+f<sub>4</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (-0.035 x<sub>1</sub> + 0.070 x<sub>2</sub>
++ 0.4884,-0.469 x<sub>1</sub> - 0.022 x<sub>2</sub> + 0.5069)</em> ,<br>
+<em class="EQ_Display">
+f<sub>5</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (-0.637 x<sub>1</sub> + 0.8562,0.501 x<sub>2</sub>
++ 0.2513)</em>
+</div>
+<p>is a dead tree.</p>
+
+<p>The fixed point of the function <em class="EQ">f<sup>c</sup></em> induced
+by the IFS <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em>
+where</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.255 x<sub>1</sub> + 0.3726,0.255 x<sub>2</sub>
++ 0.6714)</em> ,<br>
+<em class="EQ_Display">
+f<sub>2</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.255 x<sub>1</sub> + 0.1146,0.255 x<sub>2</sub>
++ 0.2232)</em> ,<br>
+<em class="EQ_Display">
+f<sub>3</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.255 x<sub>1</sub> + 0.6306,0.255 x<sub>2</sub>
++ 0.2232)</em> ,<br>
+<em class="EQ_Display">
+f<sub>4</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.370x<sub>1</sub> - 0.642 x<sub>2</sub>
++ 0.6356,0.642 x<sub>1</sub> + 0.370 x<sub>2</sub> - 0.0061)</em>
+</div>
+<p>is a crystal.</p>
+
+<p>The reader may use the graphical application below to draw the dead
+tree and the crystal associated to the two previous IFS. 
+As usual, to visualize the action of the functions composing these IFS, it
+suffices to select a simple set like a triangle and to compute only
+one iteration of the function <em class="EQ">f<sup>c</sup></em>
+using the graphical application below.  We get
+several images resulting from the action of the functions of the IFS on the
+simple set chosen.</p>
+</div>
+
+<p>The following graphical application can be used to draw the
+fixed point of the function <em class="EQ">f<sup>c</sup></em> induced
+by each of the IFS presented above.  We have
+also added the option to draw the fixed point of the function
+<em class="EQ">f<sup>cc</sup></em> induced by the
+<q lang="en>">IFS with condensation</q> given in the
+next section.  The computer program used to draw the fixed points is
+written in JavaScript which is not at all a computer language for
+number crunching.  Moreover, because of the limited number of pixels
+of the computer screen, there is a lower limit on the size of
+the <q lang="en">components</q> of the fixed point that can be
+drawn.</p> 
 
 <div class="center">
-<canvas id="LEAF" width="400" height="400">
+<canvas id="FractalCanvas" width="400" height="400">
 </canvas>
 </div>
 
-<input type="hidden" value="false" id="filledLEAF">
+<input type="hidden" value="blue" id="colourSRPK">
+<input type="hidden" value="blue" id="colourSRPKVAR">
+<input type="hidden" value="#00ff00" id="colourFERN">
 <input type="hidden" value="#ff0000" id="colourLEAF">
-<input type="hidden" value="400" id="scaleLEAF">
+<input type="hidden" value="brown" id="colourTREE">
+<input type="hidden" value="blue" id="colourCRYSTAL">
+<input type="hidden" value="#99C28D" id="colourTREEcond">
+<input type="hidden" value="false" id="filledSet">
 
+<table class="noB">
+<tr><td style="width: 50%;">
 <ul>
-  <li> Number of iterations: <input type="text" value="5" id="nbrLEAF"> </li>
-  <li> Initial figure: <select id="initLEAF">
+  <li> IFS: <select id="IFSchoice">
+      <option value="SRPK" selected> Sierpinski triangle </option>
+      <option value="SRPKVAR"> Variation on Sierpinski triangle </option>
+      <option value="FERN"> Fern </option>
+      <option value="LEAF"> Leaf </option>
+      <option value="TREE"> Dead Tree </option>
+      <option value="CRYSTAL"> Crystal </option>
+      <option value="TREEcond"> Tree (condensation) </option>
+  </select> </li>
+  <li> Number of iterations: <input type="text" value="7" id="nbrItr"> </li>
+  <li> Initial set: <select id="initSet">
       <option value="0" selected> triangle </option>
       <option value="1"> square </option>
       <option value="2"> lozenge </option>
   </select> </li>
-  <li> <input type="button" value="Start" onclick="iterateLEAF()"> </li>
-  <li> <input type="button" value="Clear" onclick="clearIFS('LEAF')"> </li>
+  <li> Number of points per unit:
+    <input type="text" value="400" id="scalePlot"> </li>
+  <li> <input type="button" value="Start" onclick="iterateIFS()">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="button" value="Clear" onclick="clearIFS('FractalCanvas')">
+  </li>
 </ul>
+</td>
+<td style="width: 50%;">
+<p>In addition to a pull-down menu to select an IFS, there is also a
+pull-down menu to select one of the three initial sets represented by
+polynomial curves.  The user can also choose the number of iterations.
+Only a small number of iterations should be used,
+no more than 10 or 11, to avoid slowing down too much the browser response
+time.  Browsers normally display a warning in such situation.
+It is possible to select the number of points per unit for the image.
+Increasing this number should normally improve the quality of the
+drawing.  The improvement is however limited by the quality of the
+computer screen.  We have to keep in mind that increasing the number
+of points per unit increases the computing time.</p>
+</td>
+</tr>
+</table>
 
 <div class="Note">
-<p>We have used a script written for <em>Matlab</em> to produce the
-images of the Sierpinski triangle, the fern and the leaf above.
-This script can be found on the website
-<script language="javascript">
+<p><em>Remark</em>:  We have used the <em>Matlab</em> function
+<em class="matlab">ifs2</em> to produce the images of the Sierpinski triangle,
+the variation of the Sierpinski triangle, the fern and the leaf above.
+This function is described in the document <script language="javascript">
 buildLinK(matlabProgr.url_en, matlabProgr.text_en, "MMathSStat",
 matlabProgr.id, matlabProgr.target);
-</script>.</p>
+</script> in <em>Matlab</em>.</p>
 </div>
+
+<hr class="MMathSStat">
+
+<h3 id="SS3">Adaptive Cut Method</h3>
+
+<p>This method to draw the fixed point of the
+function <em class="EQ">f<sup>c</sup></em> induced by an IFS
+has been proposed by
+<script language="javascript">
+  buildLinK("#PJS", "H.-O. Peitgen, H. j&#252;rgens and D. Saupe",
+  "MMathSStat", "PJSId8", "_top");
+</script>.</p>
+
+<p>We assume in this section that
+<em class="EQ">(E,d) = (&reals;<sup>2</sup>,d)</em>
+where <em class="EQ">d</em> is the Euclidean distance
+<em class="EQ">d(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>,<math> <mover> <mi>y</mi> <mo>&rarr;</mo> </mover> </math>) =
+((x<sub>2</sub>-x<sub>1</sub>)<sup>2</sup>+(y<sub>2</sub>-y<sub>1</sub>)<sup>2</sup>)<sup>1/2</sup></em>
+for <em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>,<math> <mover> <mi>y</mi> <mo>&rarr;</mo> </mover> </math>
+&in; &reals;<sup>2</sup></em>.
+This assumption simplifies the presentation but a similar presentation can be
+done for any complete metric space <em class="EQ">(E,d)</em>.</p>
+
+<p>Suppose that <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>
+is an IFS, <em class="EQ">f<sup>c</sup></em> is the function induced by this
+IFS and <em class="EQ">K &in; (&reals;<sup>2</sup>)<sup>c</sup></em>
+is the fixed point of the function <em class="EQ">f<sup>c</sup></em>.
+Given <em class="EQ">A<sub>0</sub> &in; E<sup>c</sup></em> and
+<em class="EQ">&epsilon; &gt; 0</em>, our goal is to find a set
+<em class="EQ">A &in; (&reals;<sup>2</sup>)<sup>c</sup></em> such that
+<em class="EQ">d<sup>c</sup>(A,K) &le; &epsilon;</em>.  Since
+<em class="EQ">d<sup>c</sup>(A<sub>n</sub>,K) &rarr; 0</em> as
+<em class="EQ">n &rarr; &infin;</em>, we can take
+<em class="EQ">A = A<sub>n</sub></em> for <em class="EQ">n</em> large
+enough.  However, computing the iterations <em class="EQ">A<sub>n+1</sub>
+= f<sup>c</sup>(A<sub>n</sub>)</em> for <em class="EQ">n = 0,1,2,...</em>
+can be very demanding in term of memory space on a computer.  We
+explain below how to find a set <em class="EQ">A</em> that may not be
+exactly one of the sets <em class="EQ">A<sub>n</sub></em> but nevertheless
+satisfies <em class="EQ">d<sup>c</sup>(A,K) &le; &epsilon;</em>
+and requires less memory space on the computer.</p>
+
+<p>If we look closely at the action of the
+iterations of <em class="EQ">f<sup>c</sup></em>, then
+we find that <em class="EQ">A<sub>n</sub>
+= (f<sup>c</sup>)<sup>&#8728;n</sup>(A<sub>0</sub>)</em> is the union
+of the sets
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>
+= f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>n</sub></sub>(A<sub>0</sub>)</em>
+for <em class="EQ">1 &le; j<sub>i</sub> &le; J</em>.  The sets
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,j<sub>3</sub></sub></em>
+for the IFS associated to the Sierpinski triangle are illustrated in
+the figure below.  To draw this figure, we have assumed that the set
+<em class="EQ">A<sub>0</sub></em> is the filled triangle with vertices
+at <em class="EQ">(0,0)</em>, <em class="EQ">(1,0)</em> and
+<em class="EQ">(0,1)</em>.</p>
+<div class="center">
+  <img src="sierpinski_CG.png" style="width: 650px"
+       alt="illustration of the sets V_{j_1,j_2,j_3} for the Sierpinski triangle."
+       class="framed">
+</div>
+<p>We assume that <em class="EQ">K &subset; A<sub>0</sub></em> where
+<em class="EQ">K</em> is the the fixed point of
+<em class="EQ">f<sup>c</sup></em>.</p>
+<ul>
+<li> If
+<em class="EQ">diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&lt; &epsilon;</em> and <em class="EQ">
+<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math> &in;
+V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub></em>, then all
+the other points in
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub></em>
+are at a distance less than <em class="EQ">&epsilon;</em> of
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math></em>.
+There is therefore no need to find the sets
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n+1</sub>,...</sub></em>
+since they are subsets of
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub></em>.
+</li>
+<li> If
+<em class="EQ">diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&ge; &epsilon;</em>, then we consider the sets
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub>,j<sub>n+1</sub></sub>
+= f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>n+1</sub></sub>(A<sub>0</sub>)</em>
+for <em class="EQ">j<sub>n+1</sub> = 1,2,...,J</em>.</li>
+</ul>
+<p>We illustrate this situation with the set
+<em class="EQ">V<sub>1,1</sub></em> in pink in the figure above.
+The IFS associated to the Sierpinski triangle is not a very good
+example of the procedure above because all the functions
+<em class="EQ">f<sub>j</sub></em> of the IFS have the same contraction
+factor of <em class="EQ">1/2</em>.  Thus, if
+<em class="EQ">diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&lt; &epsilon;</em> for one sequence of <em class="EQ">n</em> indices, then
+<em class="EQ">diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&lt; &epsilon;</em> for all sequences of <em class="EQ">n</em> indices.
+In general, the functions <em class="EQ">f<sub>j</sub></em> that form
+an IFS do not have all the same contraction factor.  The IFS for the fern above
+is one such example.</p>
+
+<p>We claim that after a finite number of iterations of the procedure
+above, we get sets
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub></em>
+of diameters less than <em class="EQ">&epsilon;</em> such that their union
+covers <em class="EQ">K</em>.  To prove this claim, suppose that
+<em class="EQ">C<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub></em>
+is a contraction factor for
+<em class="EQ">f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>n</sub></sub></em>.
+In particular, <em class="EQ">C<sub>j</sub></em> is a contraction factor
+for <em class="EQ">f<sub>j</sub></em> with <em class="EQ">1 &le; j &le; J</em>. 
+Then
+<em class="EQ">diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&le; C<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>
+diam(A<sub>0</sub>)</em>.  Using the induction principle, we get that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d(f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>n</sub></sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>),f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>n</sub></sub>(<math> <mover> <mi>y</mi> <mo>&rarr;</mo> </mover> </math>)) &le;
+C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
+C<sub>j<sub>n</sub></sub>d(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>,<math> <mover> <mi>y</mi> <mo>&rarr;</mo> </mover> </math>) </em>
+</div>
+<p>for all <em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>,<math> <mover> <mi>y</mi> <mo>&rarr;</mo> </mover> </math> &in; &reals;<sup>2</sup></em>.  Thus
+<em class="EQ">
+diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&le; C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
+C<sub>j<sub>n</sub></sub>diam(A<sub>0</sub>)</em>.
+Hence, we may assume that
+<em class="EQ">C<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>
+&le; C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
+C<sub>j<sub>n</sub></sub> &le;
+(max<sub>1&le;j&le;J</sub> C<sub>j</sub>)<sup>n</sup></em>.  Since
+<em class="EQ">0 &le; C<sub>j</sub> &lt; 1</em> for
+<em class="EQ">1 &le; j &le; J</em>, we have that
+<em class="EQ">C<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>
+&rarr; 0</em> as <em class="EQ">n &rarr; &infin;</em>.
+Thus, <em class="EQ">
+diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&rarr; 0</em> as <em class="EQ">n &rarr; &infin;</em>.
+This result proves that the number of iterations of the procedure
+above is finite because <em class="EQ">A<sub>n</sub> &rarr; K</em> as
+<em class="EQ">n &rarr; &infin;</em> with
+respect to the Hausdorff measure and <em class="EQ">K</em> is
+compact.  Thus, <em class="EQ">K</em> can be covered by
+a finite number of sets of the form
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub></em>
+and diameter <em class="EQ">&epsilon;/2</em> for instance.
+Since <em class="EQ">K</em> is the fixed point
+of <em class="EQ">f<sup>c</sup></em>, the union of the sets
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub></em>
+covers <em class="EQ">K</em>.</p>
+
+<p>Let <em class="EQ">S</em> be the set of all vectors of
+the form <em class="EQ">(j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub>)</em>
+such that
+<em class="EQ">diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&lt; &epsilon;</em> that we obtained with the procedure above.  The set
+<em class="EQ">S</em> is a finite set.  Given
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
+&in; K</em>, let <em class="EQ">A =
+{f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>n</sub></sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>) &in;
+V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub> :
+(j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub>) &in; S}</em>.  We have by
+construction that <em class="EQ">d<sup>c</sup>(A,K) &le; &epsilon;</em>.</p>
+
+<p>There are two issues that come out of the previous paragraph.
+First, how can we find
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
+&in; K</em>?
+It suffices to take a fixed point <em class="EQ">x</em> of a function
+<em class="EQ">f<sub>j</sub></em> of the IFS.  The functions
+<em class="EQ">f<sub>j</sub></em> that we
+consider are of the form
+<em class="EQ">f<sub>j</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= M<sub>j</sub><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
++ <math> <mover> <mi>b</mi> <mo>&rarr;</mo> </mover> </math><sub>j</sub></em>
+where <em class="EQ">M<sub>j</sub></em>
+is a <em class="EQ">2&times;2</em> matrix
+and <em class="EQ">
+<math> <mover> <mi>b</mi> <mo>&rarr;</mo> </mover> </math><sub>j</sub></em>
+is a column vector.  It is easy to solve the linear
+system of equations
+<em class="EQ">M<sub>j</sub><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
++ <math> <mover> <mi>b</mi> <mo>&rarr;</mo> </mover> </math><sub>j</sub>
+= <math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math></em> to get
+a fixed point of <em class="EQ">f<sub>j</sub></em>.</p>
+
+<p>The second issue is how to compute the diameter of a set
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub></em>?
+The answer is that we do not computer this diameter but we compute instead
+the smallest upper bound to this diameter that we can find.  Since
+<em class="EQ">diam(<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&le; C<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>
+diam(A<sub>0</sub>)</em>, instead of testing for
+<em class="EQ">diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&lt; &epsilon;</em>, we test for
+<em class="EQ">C<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>diam(A<sub>0</sub>)
+&lt; &epsilon;</em>.
+If
+<em class="EQ">C<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>diam(A<sub>0</sub>)
+&ge; &epsilon;</em>, then we assume that
+<em class="EQ">diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&ge; &epsilon;</em> though we may have that
+<em class="EQ">diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)
+&lt; &epsilon;</em>.  Using this approach to estimate
+<em class="EQ">diam(V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>)</em>
+may imply a few more iterations of the procedure above than
+theoretically expected but it is still generally less demanding
+in term of computer time than trying to compute directly the diameters
+of the sets
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub></em>.
+We therefore need to find the smallest contraction factors
+<em class="EQ">C<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub></em>
+that we can.
+We do not want to greatly over-estimate these contraction factors 
+because this will imply extra iterations of the
+procedure above and therefore a larger set <em class="EQ">S</em> than
+necessary.  As the next example shows, using
+<em class="EQ">C<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>
+= C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
+C<sub>j<sub>n</sub></sub></em> is not a good idea.</p>
+
+<div class="Example">
+<p><em>Example</em>: Suppose that
+<em class="EQ">f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= M<sub>1</sub><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
++ <math> <mover> <mi>b</mi> <mo>&rarr;</mo> </mover> </math><sub>1</sub></em>
+with
+<em class="EQ">A<sub>1</sub> =
+<math class="EQ">
+<mrow>
+<mo> ( </mo>
+<mtable>
+<mtr> <mn>&mu;</mn> &nbsp; <mn>0</mn> </mtr>
+<mtr> <mn>0</mn> &nbsp; <mn>&nu;</mn> </mtr>
+</mtable>
+<mo> ) </mo>
+</mrow>
+</math>
+</em>
+and <em class="EQ">
+f<sub>2</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= M<sub>2</sub><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
++ <math> <mover> <mi>b</mi> <mo>&rarr;</mo> </mover> </math><sub>2</sub></em>
+with
+<em class="EQ">A<sub>2</sub> =
+<math class="EQ">
+<mrow>
+<mo> ( </mo>
+<mtable>
+<mtr> <mn>&nu;</mn> &nbsp; <mn>0</mn> </mtr>
+<mtr> <mn>0</mn> &nbsp; <mn>&mu;</mn> </mtr>
+</mtable>
+<mo> ) </mo>
+</mrow>
+</math>
+</em>
+for some numbers <em class="EQ">&mu; &lt; &nu;</em>.  Then</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d(f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>),f<sub>1</sub>(<math> <mover> <mi>y</mi> <mo>&rarr;</mo> </mover> </math>))
+= (&mu;<sup>2</sup>(x<sub>1</sub>-y<sub>1</sub>)<sup>2</sup> +
+&nu;<sup>2</sup>(x<sub>2</sub>-y<sub>2</sub>)<sup>2</sup>)<sup>1/2</sup> <br>
+&le;
+(&nu;<sup>2</sup>(x<sub>1</sub>-y<sub>1</sub>)<sup>2</sup> +
+&nu;<sup>2</sup>(x<sub>2</sub>-y<sub>2</sub>)<sup>2</sup>)<sup>1/2</sup>
+=|&nu;| d(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>,<math> <mover> <mi>y</mi> <mo>&rarr;</mo> </mover> </math>) </em>
+</div>
+<p>for all
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>,<math> <mover> <mi>y</mi> <mo>&rarr;</mo> </mover> </math>
+&in; &reals;<sup>2</sup></em> with an
+equality when <em class="EQ">x<sub>1</sub> = y<sub>1</sub></em>.
+Thus <em class="EQ">C<sub>1</sub> = |&nu;|</em> is the smallest
+contraction factor for <em class="EQ">f<sub>1</sub></em>.
+Similarly, <em class="EQ">C<sub>2</sub> = |&nu;|</em> is the smallest
+contraction factor for <em class="EQ">f<sub>2</sub></em>.
+Therefore, if we use
+<em class="EQ">C<sub>1,2</sub> = C<sub>1</sub>C<sub>2</sub></em>, then
+we get <em class="EQ">C<sub>1,2</sub> = &nu;<sup>2</sup></em>.
+However, <em class="EQ">f<sub>1</sub>&compfn;f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= M<sub>1,2</sub><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
++ <math> <mover> <mi>b</mi> <mo>&rarr;</mo> </mover> </math><sub>1,2</sub></em>
+where
+<em class="EQ">M<sub>1,2</sub> = M<sub>1</sub>M<sub>2</sub>
+= <math class="EQ">
+<mrow>
+<mo> ( </mo>
+<mtable>
+<mtr> <mn>&mu;&nu;</mn> &nbsp; <mn>0</mn> </mtr>
+<mtr> <mn>0</mn> &nbsp; <mn>&mu;&nu;</mn> </mtr>
+</mtable>
+<mo> ) </mo>
+</mrow>
+</math></em>
+and <em class="EQ">b<sub>1,2</sub> = M<sub>1</sub>b<sub>2</sub> +
+b<sub>1</sub></em>.  Hence,
+the smallest contraction factor for
+<em class="EQ">f<sub>1</sub>&compfn;f<sub>2</sub></em>
+is <em class="EQ">|&mu;&nu;|</em>, a value that can be a lot smaller than
+<em class="EQ">&nu;<sup>2</sup></em>.  For instance,
+with <em class="EQ">&mu; = 0.01</em> and <em class="EQ">&nu; = 0.9</em>, we
+get <em class="EQ">|&mu;&nu;| = 0.009 &lt; 0.81 = &nu;<sup>2</sup></em>.
+Thus <em class="EQ">&nu;<sup>2</sup></em> is <em class="EQ">90</em>
+times bigger than the smallest contraction factor for
+<em class="EQ">f<sub>1</sub>&compfn;f<sub>2</sub></em>.</p>
+</div>
+
+<p>To estimate the smallest contraction factor of
+<em class="EQ">
+f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>n</sub></sub></em>,
+we therefore need to compute
+<em class="EQ">M<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>
+= M<sub>j<sub>1</sub></sub>M<sub>j<sub>2</sub></sub> ...
+M<sub>j<sub>n</sub></sub></em>.  Suppose that
+<em class="EQ">M<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub>
+= <math class="EQ">
+<mrow>
+<mo> ( </mo>
+<mtable>
+<mtr> <mn>&alpha;</mn> &nbsp; <mn>&beta;</mn> </mtr>
+<mtr> <mn>&gamma;</mn> &nbsp; <mn>&delta;</mn> </mtr>
+</mtable>
+<mo> ) </mo>
+</mrow>
+</math>
+</em>
+for some values <em class="EQ">&alpha;,&beta;,&gamma;,&delta; &in; &reals;</em>.
+It is shown in the classical textbook by <script language="javascript">
+buildLinK("#GL", "G. H. Gollub and C. F. van Loan", "MMathSStat",
+"GLId1", "_top");
+</script> that the smallest contraction factor of
+<em class="EQ">f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>n</sub></sub></em> is at most equal to
+<em class="EQ">2 max{|&alpha;|,|&beta;|,|&gamma;|,|&delta;|}</em>.
+We may use this value as an estimate of the smallest contraction
+factor of
+<em class="EQ">f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>n</sub></sub></em>.</p>
+
+<div class="Example">
+<p><em>Example (continued)</em>: In the previous example, we have
+that <em class="EQ">M<sub>1,2</sub>
+= <math class="EQ">
+<mrow>
+<mo> ( </mo>
+<mtable>
+<mtr> <mn>&mu;&nu;</mn> &nbsp; <mn>0</mn> </mtr>
+<mtr> <mn>0</mn> &nbsp; <mn>&mu;&nu;</mn> </mtr>
+</mtable>
+<mo> ) </mo>
+</mrow>
+</math></em>.  Thus
+<em class="EQ">&alpha; = &delta; = &mu;&nu;</em> and
+<em class="EQ">&beta; = &gamma; = 0</em>.  Hence
+<em class="EQ">2 max{|&alpha;|,|&beta;|,|&gamma;|,|&delta;|}
+= 2|&mu;&nu;|</em>.
+This value is only twice the smallest contraction factor of
+<em class="EQ">f<sub>1</sub>&compfn;f<sub>2</sub></em>.</p>
+</div>
+
+<p>It is proved in linear algebra that the smallest contraction factor
+of the function
+<em class="EQ">f(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= M<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math> + b</em>
+is the largest singular value of <em class="EQ">M</em>; namely,
+<em class="EQ">max{(&lambda;)<sup>1/2</sup> : &lambda; is an eigenvalue of
+MM<sup>T</sup>}</em>.  This is obviously the best method
+to estimate the smallest contraction factor of
+<em class="EQ">
+f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>n</sub></sub></em> if we are
+ready to accept the extra computer time to evaluate the singular
+eigenvalues of
+<em class="EQ">M<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub></sub></em>.
+</p>
+
+<p>There is a third problem that we have ignored so far but cannot
+ignore to implement the adaptive cut method.  We have assume that
+<em class="EQ">A<sub>0</sub> &supset; K</em> in the discussion above.
+But we do not know <em class="EQ">K</em>.  So, how can we choose
+<em class="EQ">A<sub>0</sub> &supset; K</em>?  In fact, we assume
+that <em class="EQ">A<sub>0</sub> = K</em> and choose to the better of
+our knowledge a value for <em class="EQ">diam(K)</em>, the only
+information needed.</p>
+
+<div class="Note">
+<p><em>Remark</em>:  The adaptive cut method is implemented in
+the <em>Matlab</em> function  
+<em class="matlab">ifs_adaptive</em> that is given in the section
+<script language="javascript">
+  buildLinK(matlabProgr.url_en+"#Sect25A", "Adaptive Cut Method",
+  "MMathSStat", matlabProgr.id+"Sect25A", matlabProgr.target);
+</script> of the document
+<script language="javascript">
+  buildLinK(matlabProgr.url_en,matlabProgr.text_en,"MMathSStat",
+  matlabProgr.id, matlabProgr.target);
+</script> in <em>Matlab</em>.</p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="SS4">The Chaos Game</h3>
+
+<div class="Example">
+<p><em>Example</em>: There is another method to draw the
+Sierpinski triangle using a random number generator.
+We choose a point <em class="EQ">x<sub>0</sub></em> in the plane.
+For each value of <em class="EQ">n &gt; 0</em>, we use the computer number
+generator to select a number <em class="EQ">r &in; [0,1]</em> and set</p>
+<div class="EQ_center">
+<table class="noBS">
+<tr>
+<td style="width: 4em;"></td>
+<td style="width: 1.5em;"><em class="EQ">&#9127;</em></td>
+<td><em class="EQ"> f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n-1</sub>) if r &le; 1/3</em>
+</td>
+</tr>
+<tr>
+<td><em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n</sub> = </em></td>
+<td><em class="EQ">&#9128;</em></td>
+<td><em class="EQ">f<sub>2</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n-1</sub>) if 1/3 &lt; r &le;
+2/3</em> </td> 
+</tr>
+<tr>
+<td></td>
+<td><em class="EQ">&#9129;</em></td>
+<td><em class="EQ"> f<sub>3</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n-1</sub>) if r &gt; 2/3</em></td>
+</tr>
+</table>
+</div>
+<p>If we plot the points of the finite sequence
+<em class="EQ">{<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n</sub>}<sub>0&lt;n&le;N</sub></em>
+where <em class="EQ">N</em> is very large, we get
+the <q lang="en">shadow</q> of the Sierpinski triangle.  To get a
+better image, it is preferable to start
+plotting the points <em class="EQ">x<sub>n</sub></em>
+from a value of <em class="EQ">n</em> a little larger then
+<em class="EQ">0</em>.
+The first transient points are usually not very closed to the set
+representing the Sierpinski triangle.  The number of
+iterations <em class="EQ">N</em> must be very large and the random
+number generator of the computer must be really ... really good.  The
+following image of the Sierpinski triangle was produced with
+<em class="EQ">N = 20,000</em> iterations of the procedure above
+starting from the point
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>0</sub>
+= (1,0)</em>
+which is a point of the Sierpinski triangle.</p>
+<div class="center">
+  <img src="sierpinski_prob.png" style="width: 300px"
+       alt="Image of the Sierpinski triangle produced with the chaos game."
+       class="framed">
+</div>
+<p>The result is not bad.</p>
+</div>
+
+<p>This method to draw the Sierpinski triangle can obviously be
+generalized to draw the fixed point <em class="EQ">K</em>
+of the function <em class="EQ">f<sup>c</sup></em> induced by an IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.
+We choose a point <em class="EQ">x<sub>0</sub></em> in the plane.
+For each value of <em class="EQ">n &gt; 0</em>, we use the computer number
+generator to select a number <em class="EQ">r &in; [0,1]</em> and set</p>
+<div class="EQ_center">
+<table class="noBS">
+<tr>
+<td style="width: 4em;"></td>
+<td style="width: 1.5em;"><em class="EQ">&#9127;</em></td>
+<td><em class="EQ">
+f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n-1</sub>)
+if r &le; q<sub>1</sup></em>
+</td>
+</tr>
+<tr>
+<td></td>
+<td><em class="EQ">&#9130;</em></td>
+<td><em class="EQ">f<sub>2</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n-1</sub>)
+if q<sub>1</sub> &lt; r &le; q<sub>2</sub></em> </td> 
+</tr>
+<tr>
+<td><em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n</sub> = </em></td>
+<td><em class="EQ">&#9128;</em></td>
+<td><em class="EQ">f<sub>3</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n-1</sub>)
+if q<sub>2</sub> &lt; r &le; q<sub>3</sub></em> </td> 
+</tr>
+<tr>
+<td></td>
+<td><em class="EQ">&#9130;</em></td>
+<td>&nbsp;&nbsp; <em class="EQ"> &vellip; </em></td> 
+</tr>
+<tr>
+<td></td>
+<td><em class="EQ">&#9129;</em></td>
+<td><em class="EQ">
+f<sub>J</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n-1</sub>)
+if r &gt; q<sub>J-1</sub></em></td>
+</tr>
+</table>
+</div>
+<p>If we plot the points of the finite sequence
+<em class="EQ">{<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n</sub>}<sub>0&lt;n&le;N</sub></em>
+where <em class="EQ">N</em> is very large, we get
+the <q lang="en">shadow</q> of the fixed point <em class="EQ">K</em>.
+This method to draw the fixed point of the
+function <em class="EQ">f<sup>c</sup></em> induced by an IFS
+is called the <em>chaos game</em>.  Assuming that the
+random generator of the computer has a uniform distribution, then at
+each iteration,</p>
+<ul>
+<Li><em class="EQ">p<sub>1</sub> = q<sub>1</sub></em> is the
+probability of selecting the function <em class="EQ">f<sub>1</sub></em>,</li>
+<Li><em class="EQ">p<sub>2</sub> = q<sub>2</sub> - q<sub>1</sub></em> is the
+probability of selecting the function <em class="EQ">f<sub>2</sub></em>,</li>
+<Li><em class="EQ">p<sub>3</sub> = q<sub>3</sub> - q<sub>2</sub></em> is the
+probability of selecting the function <em class="EQ">f<sub>3</sub></em>,</li>
+<li> ... ,</li>
+<Li><em class="EQ">p<sub>J-1</sub> = q<sub>J-1</sub> - q<sub>j-2</sub></em>
+is the probability of selecting the function
+<em class="EQ">f<sub>J-1</sub></em>, and</li>
+<Li><em class="EQ">p<sub>J</sub> = 1 - q<sub>J-1</sub></em> is the
+probability of selecting the function <em class="EQ">f<sub>J</sub></em>.</li>
+</ul>
+
+<p>This method complicates the
+<script language="javascript">
+buildLinK("#SS8", "inverse problem for IFS", "MMathSStat", "ipIFSId1", "_top");
+</script> because, in addition to the problem of determining the function
+<em class="EQ">f<sub>j</sub></em> that compose the IFS, we have just added
+the problem of determining the values of the probabilities
+<em class="EQ">p<sub>j</sub></em>.
+Nevertheless, This method is very often used to draw the fixed
+point <em class="EQ">K</em> because it requires little memory space on
+the computer, only computing time.</p>
+
+<div class="Theo">
+<p><em>Definition</em>: An <em>IFS with probabilities</em> is a pair
+<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>
+where <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>
+is an IFS and
+<em class="EQ">{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>
+is a collection of probabilities for the chaos game.</p>
+</div>
+
+<p>In the example for the Sierpinski triangle above, we have
+<em class="EQ">J = 3</em> and we have
+selected <em class="EQ">q<sub>1</sub> = 1/3</em> and
+<em class="EQ">q<sub>2</sub> = 2/3</em>.  We have simply assumed
+that at each iteration the functions
+<em class="EQ">f<sub>j</sub></em> had an equal
+probability of <em class="EQ">1/3</em> to be selected.  The image of
+the Sierpinski triangle is not bad.  We now
+consider the IFS for a fern proposed by <script language="javascript">
+buildLinK("#PJS", "H.-O. Peitgen, H. j&#252;rgens and D. Saupe", "MMathSStat",
+"PJSId1", "_top");
+</script>.</p>
+
+<div class="Example">
+<p><em>Example</em>: We consider the IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;4</sub></em> where</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.5,0.27 x<sub>2</sub>)</em> ,<br>
+<em class="EQ_Display">
+f<sub>2</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (-0.139 x<sub>1</sub> + 0.263 x<sub>2</sub> + 0.57,0.246
+x<sub>1</sub> + 0.224 x<sub>2</sub> - 0.036)</em> ,<br>
+<em class="EQ_Display">
+f<sub>3</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.17 x<sub>1</sub> - 0.215 x<sub>2</sub> + 0.408,0.222
+x<sub>1</sub> + 0.176 x<sub>2</sub> + 0.0893)</em> ,<br>
+<em class="EQ_Display">
+f<sub>4</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= (0.781 x<sub>1</sub> + 0.034 x<sub>2</sub> + 0.1075,-0.032
+x<sub>1</sub> + 0.739 x<sub>2</sub> + 0.27)</em> .
+</div>
+<p>We use the chaos game to draw the fixed point <em class="EQ">K</em>
+of the function <em class="EQ">f<sup>c</sup></em> induced by the IFS
+above.  We have that <em class="EQ">J = 4</em>.</p>
+<ul>
+<li>If we assume that at each iteration the
+functions <em class="EQ">f<sub>j</sub></em> 
+have an equal probability to be selected, then we
+have that <em class="EQ">q<sub>1</sub> = 1/4</em>,
+<em class="EQ">q<sub>2</sub> = 1/2</em> and
+<em class="EQ">q<sub>3</sub> = 3/4</em>.  If we perform
+<em class="EQ">N = 30,000</em> iterations starting with the point
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>0</sub>
+&approx; (0.5284,0.1211)</em> which is a
+point in <em class="EQ">K</em>, then we get the figure on
+the left below.</li>
+<li>If we use the Method A described below with
+<em class="EQ">&delta; = 0.01</em>, we get
+<em class="EQ">q<sub>1</sub> = 0.0131</em>,
+<em class="EQ">q<sub>2</sub> = 0.1389</em> and
+<em class="EQ">q<sub>3</sub> = 0.2409</em>.  Namely, at each
+iteration, we have a probability
+<em class="EQ">p<sub>1</sub> = 1.31</em> % that the function
+<em class="EQ">f<sub>1</sub></em> be selected, a probability
+<em class="EQ">p<sub>2</sub> = 12.58</em> % that the
+function <em class="EQ">f<sub>2</sub></em> be selected,
+a probability <em class="EQ">p<sub>3</sub> = 10.19</em> % that the
+function <em class="EQ">f<sub>3</sub></em> be selected, and
+a probability <em class="EQ">p<sub>4</sub> = 75.91</em> % that the
+function <em class="EQ">f<sub>4</sub></em> be selected.
+If we repeat the chaos game with these values
+of <em class="EQ">p<sub>j</sub></em> and perform
+<em class="EQ">N = 30,000</em> iterations starting with the point
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>0</sub>
+&approx; (0.5284,0.1211)</em>, then we get the
+figure on the middle below.</li>
+<li>With the Method B described below, <script language="javascript">
+buildLinK("#PJS", "H.-O. Peitgen, H. j&#252;rgens and D. Saupe", "MMathSStat",
+"PJSId1", "_top");
+</script> got, based on experimental data, that
+<em class="EQ">q<sub>1</sub> = 0.02</em>,
+<em class="EQ">q<sub>2</sub> = 0.17</em> and 
+<em class="EQ">q<sub>3</sub> = 0.3</em>.  Namely, at each iteration,
+we have a probability
+<em class="EQ">p<sub>1</sub> = 2</em> % that the function
+<em class="EQ">f<sub>1</sub></em> be selected, a probability
+<em class="EQ">p<sub>2</sub> = 15</em> % that the
+function <em class="EQ">f<sub>2</sub></em> be selected,
+a probability <em class="EQ">p<sub>3</sub> = 13</em> % that the
+function <em class="EQ">f<sub>3</sub></em> be selected, and
+a probability <em class="EQ">p<sub>4</sub> = 70</em> % that the
+function <em class="EQ">f<sub>4</sub></em> be selected.
+If we repeat the chaos game with these values
+of <em class="EQ">p<sub>j</sub></em> and compute
+<em class="EQ">N = 30,000</em> iterations starting with the point
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>0</sub>
+&approx; (0.5284,0.1211)</em>, then we get the figure on the right below.</li>
+</ul>
+<div class="center">
+  <img src="fern_prob_1.png" style="width: 250px"
+       alt="Image of the fern produced with the chaos game and equal values of p_j."
+       class="framed">
+  &nbsp;&nbsp;
+  <img src="fern_prob_3.png" style="width: 250px"
+       alt="Image of the fern produced with the chaos game and p_1=0.0131, p_2=0.1389, p_3=0.2409 ."
+       class="framed">
+  &nbsp;&nbsp;
+  <img src="fern_prob_2.png" style="width: 250px"
+       alt="Image of the fern produced with the chaos game and p_1=0.02, p_2=0.17, p_3=0.3 ."
+       class="framed">
+</div>
+<p>We observe that the distribution of density of
+points <em class="EQ">x<sub>n</sub></em>
+is not constant over all the fern in the figure on the left.  There
+are more points <em class="EQ">x<sub>n</sub></em> in some parts of the
+fern than others.  Increasing the number of iterations may finally
+produce the complete fern but a very large number of iterations would
+have only produced points that have already been plotted at the level of
+resolution of the computer screen.  This is not an efficient use the
+chaos game.  The figure in the middle is surprisingly good but 
+it is the figure on the right which is the best.</p>
+</div>
+
+<p>Assuming that the IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is known
+(we will come back on the subject of selecting the IFS in the section
+<script language="javascript">
+buildLinK("#SS8", "Inverse Problem for IFS", "MMathSStat", "IPforFId",
+"_top");
+</script> below), how can we choose the <q lang="en">best</q>
+probability distribution for the random selection of the
+function <em class="EQ">f<sub>j</sub></em> at each iteration of the
+chaos game?  There is a theoretical answer to this question
+given in the Section <script language="javascript">
+buildLinK("#SS9", "Measures on Fractals", "MMathSStat", "mofFId2","_top");
+</script> below.  For the applications, we present two partial
+answers below.</p>
+
+<h4>Method A</h4>
+
+<p>The functions <em class="EQ">f<sub>j</sub></em> that we
+consider for our IFS are of the form
+<em class="EQ">f<sub>j</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= M<sub>j</sub><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
++ b<sub>j</sub></em> for a given <em class="EQ">2&times;2</em>
+matrix <em class="EQ">M<sub>j</sub></em> and vector
+<em class="EQ">b<sub>j</sub></em>.  If we use the Euclidean norm
+on <em class="EQ">&reals;<sup>2</sup></em>, then we have that
+<em class="EQ">area(f<sub>j</sub>(A)) = |det(M<sub>j</sub>)|
+area(A)</em> for all sets <em class="EQ">A &subset; &reals;<sup>2</sup></em>.
+Let <em class="EQ">D<sub>j</sub> = |det(M<sub>j</sub>)|</em> for
+<em class="EQ">1 &le;j &le; J</em>.
+We select
+<em class="EQ">p<sub>j</sub> = max{&delta;,D<sub>j</sub>}
+(&sum;<sub>1&le;i&le;J</sub> max{&delta;,D<sub>i</sub>})<sup>-1</sup></em>
+for <em class="EQ">j = 1,2,...,J</em> where
+<em class="EQ">&delta;</em> is a very small fixed positive value.
+Thus, at each iteration, the probability of
+selecting the function <em class="EQ">f<sub>j</sub></em> 
+is <em class="EQ">p<sub>j</sub></em>.
+This small value <em class="EQ">&delta;</em> is introduced to avoid
+the situation where the probability of selecting a
+function <em class="EQ">f<sub>j</sub></em> would be null because
+<em class="EQ">det(M<sub>j</sub>) = 0</em> as it is the case for
+instance with the function <em class="EQ">f<sub>1</sub></em> of the
+IFS associated to the fern above.
+This method to determine the values of
+the <em class="EQ">p<sub>j</sub></em> is good when the
+IFS satisfies the <q lang="en">open set condition</q> defined in the
+section
+<script language="javascript">
+buildLinK(fractal3.url_en+"#SS5","Similarity Dimension",
+"MMathSStat",fractal3.id+"SS5", fractal3.target);
+</script> of the document <script language="javascript">
+buildLinK(fractal3.url_en,fractal3.text_en, "MMathSStat",
+fractal3.id+"docSS5", fractal3.target);
+</script>.  Roughly, this condition ensures that
+<em class="EQ">f<sub>j<sub>1</sub></sub>(K) &cap;
+  f<sub>j<sub>2</sub></sub>(K)</em> is negligible for
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.
+The IFS associated to the Sierpinski triangle satisfies the
+<q lang="en">open set condition</q> but the IFS associated to the fern
+above does not satisfy this condition.</p>
+
+<h4>Method B</h4>
+
+<p>Given <em class="EQ">&epsilon; &gt; 0</em> and
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
+&in; K</em>, if we use the adaptive cut method to draw the fixed point
+of the function <em class="EQ">f<sup>c</sup></em> induced by an IFS,
+we get the set <em class="EQ">A =
+{f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
+&compfn;f<sub>j<sub>n</sub></sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>) :
+(j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub>) &in; S}</em> where
+<em class="EQ">S</em> is a finite set of vectors of the form
+<em class="EQ">(j<sub>1</sub>,j<sub>2</sub>,...,j<sub>n</sub>)</em>.
+We have that <em class="EQ">d<sup>c</sup>(A,K) &le; &epsilon;</em>.
+Let <em class="EQ">N</em> be the number of points in
+<em class="EQ">A</em>, and <em class="EQ">N<sub>j</sub></em> be the
+number of points in <em class="EQ">A &cap; f<sub>j</sub>(K)</em> for
+<em class="EQ">1 &le; j &le; J</em>.
+We set <em class="EQ">p<sub>j</sub> &approx; N<sub>j</sub>/N</em>
+for <em class="EQ">j = 1,2,...,J</em>.  We use the symbol of
+approximation instead of the equality sign in the previous
+formula because we may have that
+<em class="EQ">f<sub>j<sub>1</sub></sub>(K) &cap;
+f<sub>j<sub>2</sub></sub>(K) &ne; &emptyset;</em> for some
+<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.  Therefore, some 
+of the <em class="EQ">N<sub>j</sub></em> may have to be slightly modified to
+ensure that <em class="EQ">&sum;<sub>1&le;j&le;J</sub> N<sub>j</sub> = N</em>.
+</p>
+
+<div class="Note">
+<p><em>Remark - Probabilistic System</em>: For the Sierpinski
+triangle, there is another probabilistic game
+to <q lang="en>">draw</q> the Sierpinski triangle.
+Let <em class="EQ">A</em> be the point with
+coordinates <em class="EQ">(0,1)</em>, <em class="EQ">B</em> be the point with  
+coordinates <em class="EQ">(1,0)</em> and <em class="EQ">C</em> be the
+origin (see the figure below).  Suppose that we have an unbiased dice
+and that
+<em class="EQ">1,6</em> are associated to <em class="EQ">A</em>,
+<em class="EQ">2,5</em> are associated to <em class="EQ">B</em> and
+<em class="EQ">3,4</em> are associated to <em class="EQ">C</em>.</p> 
+
+<div class="center">
+  <img src="probability1.png" class="framed" style="width: 300px"
+       alt="A few iterations of the probabilistic system to produce the Sierpinski triangle">
+</div>
+
+<ul>
+<li> We choose a point
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>0</sub></em>
+in the plane.</li> 
+<li> We throw the dice.  Suppose that we get a <em class="EQ">3</em>. </li>
+<li> The point
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>1</sub></em>
+is the middle of the segment between
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>0</sub></em>
+and <em class="EQ">C</em>. </li>
+<li> We throw the dice a second time.  Suppose that we get
+a <em class="EQ">1</em>. </li>
+<li> The point
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>2</sub></em>
+is the middle of the segment between
+<em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>1</sub></em>
+and <em class="EQ">A</em>. </li>
+<li> And so on. </li>
+</ul>
+
+<p>If we plot the points of the finite sequence
+<em class="EQ">{<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math><sub>n</sub>}<sub>0&lt;n&le;N</sub></em>
+where <em class="EQ">N</em> is very large, and skip the first transient
+points as suggested above, we get the <q lang="en">shadow</q>
+of the Sierpinski triangle.</p>
+
+<p><em>Question</em>: Which are the points
+<em class="EQ">x<sub>n</sub></em> that belong to the set representing
+the Sierpinski triangle? <br>
+<em>Question</em>: What happen if the dice is biased? </p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="SS5">Iterative Function Systems with Condensation</h3>
+
+<p>As in the previous sections, we assume that <em class="EQ">(E,d)</em>
+is a complete metric space.  A function
+<em class="EQ">f<sub>0</sub>: E<sup>c</sup> &rarr; E<sup>c</sup></em>
+defined by <em class="EQ">f<sup>c</sup>(A) = Q</em> for all
+<em class="EQ">A &in; E<sup>c</sup></em> and some fixed element
+<em class="EQ">Q &in; E<sup>c</sup></em> is called a
+<em>condensation function</em> and the set
+<em class="EQ">Q</em> is called the <em>condensation set</em>.</p>
+
+<div class="Theo">
+<p><em>Definition</em>: Suppose that
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is an IFS
+and that 
+<em class="EQ">f<sub>0</sub>: E<sup>c</sup> &rarr; E<sup>c</sup></em>
+is a condensation function.  The collection of functions
+<em class="EQ">{f<sub>j</sub>}<sub>0&leq;j&leq;J</sub></em> is called
+an <em>IFS with condensation</em>.</p>
+</div>
+
+<p>We now define
+<em class="EQ">f<sup>cc</sup>: E<sup>c</sup> &rarr; E<sup>c</sup></em> by </p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sup>cc</sup>(A) = f<sub>0</sub>(A) &cup; f<sup>c</sup>(A)
+= &#8899;<sub>0&leq;j&leq;J</sub> f<sub>j</sub>(A)</em>
+</div>
+<p>for all <em class="EQ">A &in; E<sup>c</sup></em>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that <em class="EQ">(E,d)</em> is a
+complete metric space and that
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is an
+IFS where each function <em class="EQ">f<sub>j</sub></em> is a contraction with
+a contraction factor <em class="EQ">C<sub>j</sub></em>.  If
+<em class="EQ">f<sub>0</sub>: E<sup>c</sup> &rarr; E<sup>c</sup></em>
+is a condensation function with condensation set <em class="EQ">Q</em>, then
+<em class="EQ">f<sup>cc</sup>: E<sup>c</sup> &rarr; E<sup>c</sup></em>
+is a contraction with a contraction factor
+<em class="EQ">C = max<sub>1&leq;j&leq;J</sub> C<sub>j</sub></em>
+as <em class="EQ">f<sup>c</sup></em>.</p>
+</div>
+
+<p><em>Proof</em>: The proof is identical to the proof of
+<script language="javascript">
+buildLinK("#propII", "Proposition &#8545;","MMathSStat","propIIId3","_top");
+</script> except that the last line of the proof is now</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d<sup>c</sup>(f<sup>c</sup>(A),f<sup>c</sup>(B))
+= d<sup>c</sup>(&cup;<sub>0&le;j&le;J</sub>
+f<sub>j</sub>(A),&cup;<sub>0&le;j&le;J</sub> f<sub>j</sub>(B)) <br>
+&le; max<sub>0&le;j&le;J</sub>{d<sup>c</sup>(f<sub>j</sub>(A),f<sub>j</sub>(B))
+= max<sub>1&le;j&le;J</sub>{d<sup>c</sup>(f<sub>j</sub>(A),f<sub>j</sub>(B))
+<br>
+&le; max<sub>1&le;j&le;J</sub> C<sub>j</sub> d<sup>c</sup>(A,B)
+= C d<sup>c</sup>(A,B)</em>
+</div>
+<p>because <em class="EQ">f<sub>0</sub>(A) = f<sub>0</sub>(B) = Q</em>.
+<span class="EQ_Right">&#8718;</span></p>
+
+<p>We have the following version of <script language="javascript">
+buildLinK("#theoIII", "Theorem &#8546;","MMathSStat","theoIIIId","_top");
+</script>.</p>
+
+<div class="Theo">
+<p><em>Theorem</em>: If <em class="EQ">(E,d)</em> is a
+complete metric space and
+<em class="EQ">{f<sub>j</sub>}<sub>0&leq;j&leq;J</sub></em> is an
+IFS with condensation, then
+<em class="EQ">f<sup>cc</sup>:
+E<sup>c</sup> &rarr; E<sup>c</sup></em> has a unique
+<em>fixed point</em>; namely, there exists a unique set
+<em class="EQ">K &subset; E<sup>c</sup></em> such that
+<em class="EQ">f<sup>cc</sup>(K) = K</em>.  Moreover, for all
+sets <em class="EQ">A<sub>0</sub> &in; E<sup>c</sup></em>, the
+sequence of sets <em class="EQ">{A<sub>i</sub>}<sub>i&geq;0</sub></em>
+defined by
+<em class="EQ">A<sub>i+1</sub> = f<sup>cc</sup>(A<sub>i</sub>)</em>
+converges to <em class="EQ">K</em> according to the Hausdorff metric
+<em class="EQ">d<sup>c</sup></em> as
+<em class="EQ">i &rarr; &infin;</em>.</p>
+</div>
+
+<p> An example of IFS with condensation is provided by
+the collection of functions
+<em class="EQ">{f<sub>j</sub>}<sub>0&le;j&le;3</sub></em> where</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>0</sub>(A) = {<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
+: x<sub>1</sub> = 1/2 and 0 &le; x<sub>2</sub> &le; 1/2}
+</em> &nbsp;&nbsp;&nbsp; (The condensation function), <br>
+<em class="EQ_Display">
+f<sub>1</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+= 0.6(2<sup>1/2</sup>/2(x<sub>1</sub> - 1/2) - 2<sup>1/2</sup>/2
+x<sub>2</sub>,2<sup>1/2</sup>/2(x<sub>1</sub> - 1/2)
++ 2<sup>1/2</sup>/2 x<sub>2</sub>)
++ (1/2,1/2) <br>
+  = 0.3 2<sup>1/2</sup> (x<sub>1</sub> - x<sub>2</sub>,x<sub>1</sub>
++ x<sub>2</sub>)
++ (1/2 - 0.15 2<sup>1/2</sup>,1/2 - 0.15 2<sup>1/2</sup>)</em> , <br>
+<em class="EQ_Display">
+f<sub>2</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+=  0.6( 1/2(x<sub>1</sub> - 1/2) + 3<sup>1/2</sup>/2
+x<sub>2</sub>,-3<sup>1/2</sup>/2(x<sub>1</sub> - 1/2) + 1/2 x<sub>2</sub>)
++ (1/2,1/2) </br>
+= 0.3(x<sub>1</sub> + 3<sup>1/2</sup> x<sub>2</sub>,-3<sup>1/2</sup>
+x<sub>1</sub> + x<sub>2</sub>)
++ (1/2 - 0.15,1/2 + 0.15 3<sup>1/2</sup>) </em> ,<br>
+<em class="EQ_Display">
+f<sub>3</sub>(<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>)
+=  0.4(cos(&pi;/10)(x<sub>1</sub> - 1/2)
+- sin(&pi;/10)x<sub>2</sub>,sin(&pi;/10)(x<sub>1</sub> - 1/2)
++ cos(&pi;/10)x<sub>2</sub>) <br>
++ (1/2,1/2) <br>
+=  0.4(cos(&pi;/10)x<sub>1</sub>
+- sin(&pi;/10)x<sub>2</sub>,sin(&pi;/10)x<sub>1</sub>
++ cos(&pi;/10)x<sub>2</sub>) <br>
++ (1/2 - 0.2 cos(&pi;/10),1/2 - 0.2 sin(&pi;/10)) </em>
+</div>
+<p>for all sets <em class="EQ">A &subset; &reals;<sup>2</sup></em>
+and <em class="EQ"><math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math>
+&in; &reals;<sup>2</sup></em>.
+The condensation set is <em class="EQ">Q
+= {<math> <mover> <mi>x</mi> <mo>&rarr;</mo> </mover> </math> :
+x<sub>1</sub> = 1/2 and 0 &le; x<sub>2</sub> &le; 1/2}</em>.
+The fixed point of the function <em class="EQ">f<sup>cc</sup></em>
+induced by this IFS with condensation represents the tree displayed in
+the figure below.</p>
+
+<div class="center">
+  <img src="tree.png" class="framed" style="width: 300px"
+       alt="A tree">
+</div>
+
+<p>This figure was produced with the <em>Matlab</em> function
+<em class="matlab">ifs2</em> that is given in the section
+<script language="javascript">
+buildLinK(matlabProgr.url_en+"#Sect25","Iterative Function Systems",
+"MMathSStat",matlabProgr.id+"sect25Id2", matlabProgr.target);
+</script> of the document
+<script language="javascript">
+buildLinK(matlabProgr.url_en,matlabProgr.text_en,"MMathSStat",
+matlabProgr.id+"ifs2", matlabProgr.target);
+</script> in <em>Matlab</em>.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="SS6">Dependence on a Parameter</h3>
+
+<p>It is interesting to note that if an IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> 
+depends continuously on a parameter, then the fixed point of
+<em class="EQ">f<sup>c</sup></em> induced by this IFS varies
+continuously with respect to this parameter.  More precisely, we have
+the following result.</p>
+
+<div class="Theo">
+<p><em>Theorem</em>: Suppose that <em class="EQ">(E,d</em> and
+<em class="EQ">(<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span>,<span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span>)</em>
+are two metric spaces with <em class="EQ">(E,d)</em> complete and
+<em class="EQ"><span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></em> compact.
+Moreover, suppose that
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> 
+is a collection of functions such that, for each <em class="EQ">j</em>,
+the function <em class="EQ">f<sub>j</sub>: E&times<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span> &rarr; E</em>
+is a continuous function that satisfies
+<em class="EQ">d(f<sub>j</sub>(x,v),f<sub>j</sub>(y,v))
+&le; C<sub>j</sub>(v) d(x,y)</em>
+for all <em class="EQ">x,y &in; E</em> and
+<em class="EQ">v &in;
+<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></em>,
+where <em class="EQ">C<sub>j</sub>: <span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span>
+&rarr; ]0,1[</em> is a continuous function.
+Let <em class="EQ">f<sup>c</sup>: E<sup>c</sup>&times;<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span> &rarr; E<sup>c</sup></em>
+be the function defined by
+<em class="EQ">f<sup>c</sup>(A,v)
+= &cup;<sub>1&leq;j&leq;J</sub> f<sub>j</sub>(A,v)</em> for all
+<em class="EQ">A &in; E<sup>c</sup></em> and
+<em class="EQ">v &in;
+<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></em>.  If
+<em class="EQ">K<sub>v</sub></em> is the fixed point of
+<em class="EQ">f<sub>v</sub><sup>c</sup> &equiv; f<sup>c</sup>(&middot;,v)</em>,
+then <em class="EQ">d<sup>c</sup>(K<sub>v</sub>,K<sub>w</sub>) &rarr; 0</em>
+as <em class="EQ">v &rarr; w</em>; namely, as
+<em class="EQ">
+<span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span>(v,w) &rarr; 0</em>
+with <em class="EQ">w</em> fixed.</p>
+</div>
+
+<p><em>Proof</em>: Note that, for each
+<em class="EQ">v &in;
+<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></em>,
+the collection
+<em class="EQ">{f<sub>j</sub>(&middot;,v)}<sub>1&leq;j&leq;J</sub></em> 
+is an IFS and the contraction factor of the function
+<em class="EQ">f<sub>v</sub><sup>c</sup></em> induced by this IFS is
+<em class="EQ">C(v) = max<sub>1&le;j&le;J</sub> C<sub>j</sub>(v)
+&in; ]0,1[</em>.</p>
+
+<p>We first prove that
+<em class="EQ">f<sup>c</sup>: E<sup>c</sup>&times;<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span> &rarr;
+E<sup>c</sup></em> is continuous with respect to it second variable.
+Choose <em class="EQ">&epsilon; &gt; 0</em>.
+Given <em class="EQ">v,w &in;
+<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></em>
+and <em class="EQ">A &in; E<sup>c</sup></em>, we have that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d(f<sub>j</sub>(A,v),f<sub>j</sub>(A,w)) <br>
+= max{min{ d(f<sub>j</sub>(a,v),f<sub>j</sub>(&acirc;,w)) : &acirc;
+&in; A} : a &in; A} <br>
+&le;
+max{min{ d(f<sub>j</sub>(a,v),f<sub>j</sub>(&acirc;,v))
++ d(f<sub>j</sub>(&acirc;,v),f<sub>j</sub>(&acirc;,w))
+: &acirc; &in; A} : a &in; A}
+</em> .
+</div>
+<p>The function <em class="EQ">f<sub>j</sub></em> is uniformly
+continuous on the compact set
+<em class="EQ">A&times;<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></em>
+because it is continuous on this set by assumption.  Thus, there exists
+<em class="EQ">&delta;<sub>j</sub></em> such that
+<em class="EQ">
+d(f<sub>j</sub>(&acirc;,v),f<sub>j</sub>(&acirc;,w)) &lt; &epsilon;</em>
+for all <em class="EQ">&acirc; &in; A</em> if
+<em class="EQ">
+<span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span>(v,w) &lt; &delta;<sub>j</sub></em>.
+Hence,</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d(f<sub>j</sub>(A,v),f<sub>j</sub>(A,w)) <br>
+&le;
+max{min{ d(f<sub>j</sub>(a,v),f<sub>j</sub>(&acirc;,v))
+: &acirc; &in; A} : a &in; A} + &epsilon; <br>
+= d(f<sub>j</sub>(A,v),f<sub>j</sub>(A,v)) + &epsilon;
+= &epsilon;</em> .
+</div>
+<p>for <em class="EQ">
+<span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span>(v,w) &lt; &delta;<sub>j</sub></em>.
+Similarly, we get that
+<em class="EQ">d(f<sub>j</sub>(A,w),f<sub>j</sub>(A,v))
+&le; &epsilon;</em> for <em class="EQ">
+<span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span>(v,w) &lt; &delta;<sub>j</sub></em>.
+Thus
+<em class="EQ">d<sup>c</sup>(f<sub>j</sub>(A,v),f<sub>j</sub>(A,w))
+&le; &epsilon;</em> for <em class="EQ">
+<span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span>(v,w) &lt; &delta;<sub>j</sub></em>.
+If we take <em class="EQ">&delta; = min<sub>1&le;j&le;J</sub>
+&delta;<sub>j</sub></em>, then it follows from
+<script language="javascript">
+buildLinK("#propI", "Proposition &#8544;", "MMathSStat",
+"lemmaIID", "_top");
+</script> that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d<sup>c</sup>(f<sup>c</sup>(A,v),f<sup>c</sup>(A,w))
+= d<sup>c</sup>(&cup;<sub>1&le;j&le;J</sub>
+f<sub>j</sub>(A,v),&cup;<sub>1&le;j&le;J</sub> f<sub>j</sub>(A,w)) <br>
+&le; max<sub>1&le;j&le;J</sub>
+d<sup>c</sup>(f<sub>j</sub>(A,v),f<sub>j</sub>(A,w))
+&le; &epsilon;</em>
+</div>
+<p>for <em class="EQ">
+<span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span>(v,w) &lt; &delta;</em>.</p>
+
+<p>Since <em class="EQ">C<sub>j</sub></em> is a
+continuous function on the compact set
+<em class="EQ"><span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></em>, there
+exists
+<em class="EQ">v<sub>j</sub> &in;
+<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></em> 
+such that <em class="EQ">0 &lt;
+max<sub>v&in;<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></sub> C<sub>j</sub>(v)
+&le; C<sub>j</sub>(v<sub>j</sub>)</em>.  Let
+<em class="EQ">C = max<sub>1&le;j&le;J</sub> C<sub>j</sub>(v<sub>j</sub>)</em>.
+Then <em class="EQ">C &in; ]0,1[</em> and
+<em class="EQ">d(f<sub>j</sub>(x,v),f<sub>j</sub>(y,v))
+&le; C d(x,y)</em> for all <em class="EQ">x,y &in; E</em> and
+<em class="EQ">v &in;
+<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></em>.
+Proceeding as we did in the proof of <script language="javascript">
+buildLinK("#propII", "Proposition &#8545;", "MMathSStat",
+"propIIID", "_top");
+</script>, we get that
+<em class="EQ">d<sup>c</sup>(f<sup>c</sup>(A,v),f<sup>c</sup>(B,v))
+&le; C d<sup>c</sup>(A,B)</em> for all <em class="EQ">A,B &in;
+E<sup>c</sup></em> and
+<em class="EQ">v &in;
+<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></em>.</p>
+
+<p>Given <em class="EQ">v,w &in;
+<span class="math_smaller"><math> <mover> <mi>E</mi> <mo>&circ;</mo> </mover> </math></span></em>,
+we have that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d<sup>c</sup>(K<sub>v</sub>,K<sub>w</sub>)
+= d<sup>c</sup>(f<sup>c</sup>(K<sub>v</sub>,v),f<sup>c</sup>(K<sub>w</sub>,w))
+<br> &le;
+d<sup>c</sup>(f<sup>c</sup>(K<sub>v</sub>,v),f<sup>c</sup>(K<sub>w</sub>,v))
++ d<sup>c</sup>(f<sup>c</sup>(K<sub>w</sub>,v),f<sup>c</sup>(K<sub>w</sub>,w))
+<br> &le;
+C d<sup>c</sup>(K<sub>v</sub>,K<sub>w</sub>)
++ d<sup>c</sup>(f<sup>c</sup>(K<sub>w</sub>,v),f<sup>c</sup>(K<sub>w</sub>,w))
+</em> .
+</div>
+<p>Therefore</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d<sup>c</sup>(K<sub>v</sub>,K<sub>w</sub>)
+&le; (1 - C)<sup>-1</sup> 
+d<sup>c</sup>(f<sup>c</sup>(K<sub>w</sub>,v),f<sup>c</sup>(K<sub>w</sub>,w))
+&rarr; 0</em>
+</div>
+<p>as <em class="EQ">
+<span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span>(v,w) &rarr; 0</em>
+with <em class="EQ">w</em> fixed. <span class="EQ_Right">&#8718;</span></p>
+
+<p>It follows from the previous theorem that, with enough computer
+time, we could create animation videos using fractals.  For instance, a
+leave blows by the wind.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="SS7">Network of Iterative Function Systems</h3>
+
+<p>As usual, we assume that <em class="EQ">(E,d)</em> is a complete
+metric space.  A possible metric
+<em class="EQ"><span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span></em>
+on the product space <em class="EQ">E&times;E</em> is defined by
+<em class="EQ"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math>((x,y),(u,v))
+= max{d(x,u).d(y,v)}</em> for all
+<em class="EQ">(x,y),(u,v) &in; E&times;E</em>.
+We have that
+<em class="EQ">(E&times;E,<math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math>)</em>
+is a complete metric space.  Similarly, a possible metric
+<em class="EQ"><span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup></em>
+on the product space <em class="EQ">E<sup>c</sup>&times;E<sup>c</sup></em>
+is defined by
+<em class="EQ"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math><sup>c</sup>((A&times;B,U&times;V)
+= max{d<sup>c</sup>(A,U).d<sup>c</sup>(B,V)}</em>
+for all
+<em class="EQ">A&times;B,U&times;V &in; E<sup>c</sup>&times;E<sup>c</sup></em>.
+We also have that <em class="EQ">(E<sup>c</sup>&times;E<sup>c</sup>,<math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math><sup>c</sup>)</em>
+is a complete metric space.</p>
+
+<p>Suppose that
+<em class="EQ">
+{f<sub>j</sub><sup>[1]</sup>}<sub>1&leq;j&leq;J<sup>[1]</sup></sub></em>
+and
+<em class="EQ">
+{f<sub>j</sub><sup>[2]</sup>}<sub>1&leq;j&leq;J<sup>[2]</sup></sub></em>
+are two IFS where the functions
+<em class="EQ">f<sub>j</sub><sup>[k]</sup>:E &rarr; E</em>
+are contractions with contractions factor
+<em class="EQ">0 &le; C<sub>j</sub><sup>[k]</sup> &lt; 1</em>
+for <em class="EQ">k = 1,2</em> and all <em class="EQ">j</em>.
+For <em class="EQ">k = 1,2</em>, suppose that
+<em class="EQ">S<sub>1</sub><sup>[k]</sup>,S<sub>2</sub><sup>[k]</sup>
+  &subset; {1,2,...,J<sup>[k]</sup>}</em> are two subsets such that
+<em class="EQ">S<sub>1</sub><sup>[k]</sup> &cap; S<sub>2</sub><sup>[k]</sup>
+= &emptyset;</em> and <em class="EQ">
+S<sub>1</sub><sup>[k]</sup> &cup; S<sub>2</sub><sup>[k]</sup>
+= {1,2,...,J<sup>[k]</sup>}</em>.  We define a function
+<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup>
+= <span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>1</sub><sup>c</sup>&times;<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>2</sub><sup>c</sup>
+: E<sup>c</sup>&times;E<sup>c</sup>
+&rarr; E<sup>c</sup>&times;E<sup>c</sup></em> as it follows.</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>1</sub><sup>c</sup>(A&times;B)
+= &cup;<sub>j&in;S<sub>1</sub><sup>[1]</sup></sub>
+f<sub>j</sub><sup>[1]</sup>(A) &cup;
+&cup;<sub>j&in;S<sub>2</sub><sup>[1]</sup></sub>
+f<sub>j</sub><sup>[1]</sup>(B) <br>
+<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>2</sub><sup>c</sup>(A&times;B)
+= &cup;<sub>j&in;S<sub>1</sub><sup>[2]</sup></sub>
+f<sub>j</sub><sup>[2]</sup>(A) &cup;
+&cup;<sub>j&in;S<sub>2</sub><sup>[2]</sup></sub>
+f<sub>j</sub><sup>[2]</sup>(B)</em>
+</div>
+<p>for all <em class="EQ">A&times;B &in; E<sup>c</sup>&times;E<sup>c</sup></em>.
+It can be proved that
+<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup></em>
+satisfies the contraction mapping theorem.  Thus, we have a theorem
+similar to <script language="javascript">
+buildLinK("#theoIII", "Theorem &#8546;","MMathSStat","theoIIIIz","_top");
+</script>.</p>
+
+<div class="Theo">
+<p><em>Theorem</em>: If <em class="EQ">(E,d)</em> is a
+complete metric space, and
+<em class="EQ">
+{f<sub>j</sub><sup>[1]</sup>}<sub>1&leq;j&leq;J<sup>[1]</sup></sub></em>
+and
+<em class="EQ">
+{f<sub>j</sub><sup>[2]</sup>}<sub>1&leq;j&leq;J<sup>[2]</sup></sub></em>
+are two (hyperbolic) IFS, then
+<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup>:
+E<sup>c</sup>&times;E<sup>c</sup> &rarr;
+E<sup>c</sup>&times;E<sup>c</sup></em> has a unique
+<em>fixed point</em>; namely, there exists a unique set
+<em class="EQ">K&times;<span class="math_smaller"><math> <mover> <mi>K</mi> <mo>&sim;</mo> </mover> </math></span>
+&in; E<sup>c</sup>&times;E<sup>c</sup></em> such that
+<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup>(K&times;<span class="math_smaller"><math> <mover> <mi>K</mi> <mo>&sim;</mo> </mover> </math></span>)
+= K&times;<span class="math_smaller"><math> <mover> <mi>K</mi> <mo>&sim;</mo> </mover> </math></span></em>.
+Moreover, for all sets <em class="EQ">A<sub>0</sub>&times;B<sub>0</sub> &in;
+E<sup>c</sup>&times;E<sup>c</sup></em>, the
+sequence of sets
+<em class="EQ">{A<sub>i</sub>&times;B<sub>i</sub>}<sub>i&geq;0</sub></em>
+defined by
+<em class="EQ">A<sub>i+1</sub>&times;B<sub>i+1</sub>
+= <span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup>(A<sub>i</sub>&times;B<sub>i</sub>)</em>
+converges to
+<em class="EQ">K&times;<span class="math_smaller"><math> <mover> <mi>K</mi> <mo>&sim;</mo> </mover> </math></span></em>
+according to the Hausdorff metric
+<em class="EQ"><span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup></em>
+as <em class="EQ">i &rarr; &infin;</em>.</p>
+</div>
+
+<div class="Example">
+<p><em>Example</em>: Suppose that
+<em class="EQ">
+{f<sub>j</sub><sup>[1]</sup>}<sub>1&leq;j&leq;4</sup></sub></em>
+and
+<em class="EQ">
+{f<sub>j</sub><sup>[2]</sup>}<sub>1&leq;j&leq;3</sup></sub></em>
+are two IFS.  Moreover, suppose that
+<em class="EQ">S<sub>1</sub><sup>[1]</sup> = {1,2}</em>,
+<em class="EQ">S<sub>2</sub><sup>[1]</sup> = {3,4}</em>,
+<em class="EQ">S<sub>1</sub><sup>[2]</sup> = {2,3}</em> and
+<em class="EQ">S<sub>2</sub><sup>[2]</sup> = {1}</em>.
+We get the function
+<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup>
+= <span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>1</sub><sup>c</sup>&times;<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>2</sub><sup>c</sup>
+: E<sup>c</sup>&times;E<sup>c</sup>
+&rarr; E<sup>c</sup>&times;E<sup>c</sup></em>
+defined by</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>1</sub><sup>c</sup>(A&times;B)
+= f<sub>1</sub><sup>[1]</sup>(A) &cup; f<sub>2</sub><sup>[1]</sup>(A)
+&cup; f<sub>3</sub><sup>[1]</sup>(B) &cup; f<sub>4</sub><sup>[1]</sup>(B) 
+<br>
+<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>2</sub><sup>c</sup>(A&times;B)
+= f<sub>2</sub><sup>[2]</sup>(A) &cup; f<sub>3</sub><sup>[2]</sup>(A) &cup;
+f<sub>1</sub><sup>[2]</sup>(B)</em>
+</div>
+<p>for all <em class="EQ">A&times;B &in; E<sup>c</sup>&times;E<sup>c</sup></em>.
+This function
+<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup></em>
+is represented by the following graph.</p>
+<div class="center">
+  <img src="network1.png" style="width: 300px"
+       alt="Graph representation of the function \hat{f}^c" class="framed">
+</div>
+</div>
+
+<p>Obviously, what we have described for the product
+space <em class="EQ">E&times;E</em> can be generalized to the
+product space of more copies of <em class="EQ">E</em>.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="SS8">Inverse Problem for Iterative Function Systems</h3>
+
+<p>Most of the IFS that we have presented in the previous sections come
+from the books listed in the <script language="javascript">
+buildLinK("#REF", "references", "MMathSStat", "REFId3", "_top");
+</script>
+at the end of this document.  It is intuitively easy to create IFS to
+generate figures like the Sierpinski triangle.  But how can we find an
+IFS that generates a flower for instance?  Suppose that
+a compact set <em class="EQ">L &subset; &reals;<sup>2</sup></em>
+represents some figure that we would like to generate with an IFS.
+The next theorem gives an upper bound on the Hausdorff distance
+between the set <em class="EQ">L</em> 
+and the fixed point <em class="EQ">K</em> of the function
+<em class="EQ">f<sup>c</sup></em> induced by an IFS.
+This theorem does not give us an IFS to generate the set
+<em class="EQ">L</em> but it at least allows us to test if an IFS
+generates a set <em class="EQ">K</em> closed to the
+set <em class="EQ">L</em>.</p>
+
+<div class="Theo">
+<p><em>Theorem (Collage)</em>: Suppose that <em class="EQ">(E,d)</em>
+is a complete metric space and that <em class="EQ">L &in; E<sup>c</sup></em>.
+If <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> is an
+IFS with a contraction factor <em class="EQ">C &lt; 1</em> such that
+<em class="EQ">d<sup>c</sup>(L,f<sup>c</sup>(L)) &le; &epsilon;</em>, then
+<em class="EQ">d<sup>c</sup>(L,K) &le; &epsilon;/(1-C)</em> where
+<em class="EQ">K</em> is the fixed point of the function
+<em class="EQ">f<sup>c</sup></em> induced by the IFS.</p>
+</div>
+
+<p>This theorem is nothing else than a reformulation of a well know
+result about contractions on complete metric spaces.</p>
+
+<div class="Theo" id="propIV">
+<p><em>Proposition &#8547;</em>; Suppose that <em class="EQ">(E,d)</em> 
+is a complete metric space and that <em class="EQ">f:E &rarr; E</em> is a
+contraction with a contraction factor <em class="EQ">C &in; ]0,1[</em>.
+If <em class="EQ">p &in; E</em> is the fixed point of <em class="EQ">f</em>,
+then <em class="EQ">d(x,p) &le; (1-C)<sup>-1</sup> d(x,f(x))</em> for all
+<em class="EQ">x &in; E</em>.</p>
+</div>
+
+<p>The problem of finding an IFS that generates a given compact set
+<em class="EQ">L &subset; &reals;<sup>n</sup></em> is known as
+the <em>inverse problem for IFS</em>.  This is not an easy problem
+to solve.  Using IFS for <em>image compression</em> is one of the
+main motivations to develop efficient algorithms to solve the inverse
+problem for IFS.  A readable introduction to this subject is given by
+<script language="javascript">
+buildLinK("#YF", "Y. Fisher", "MMathSStat", "YFId3", "_top");
+</script>.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="SS9">Measures on Fractals</h3>
+
+<p>For this section, we assume that the reader has a basic knowledge of
+measure theory.  This section illustrates the role that
+measure theory plays in the study of IFS with probabilities.
+This is the entrance door to the use of IFS for neural networks, image
+compression, and so on.</p>
+
+<div class="Theo">
+<p><em>Definition</em>: Suppose that <em class="EQ">&mu;</em> is a
+Borel measure on the compact metric space <em class="EQ">(E,d)</em>.
+The measure <em class="EQ">&mu;</em> is said to
+be <em>normalized</em> if <em class="EQ">&mu;(E) = 1</em>.</p>
+</div>
+
+<p>The reader may find a little bit of information about
+<q lang="en">measure</q>, <q lang="en">measurable sets</q> and the
+<q lang="en">Borel algebra</q> in the section
+<script language="javascript">
+buildLinK(fractal3.url_en+"#SS1", "Hausdorff Dimension", "MMathSStat",
+fractal3.id+"Borel", fractal3.target);
+</script> of the document <script language="javascript">
+buildLinK(fractal3.url_en, fractal3.text_en, "MMathSStat",
+fractal3.id, fractal3.target);
+</script>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that <em class="EQ">(E,d)</em> is
+a compact metric space.  Let <em class="EQ">&#120017;</em> be the
+collection of all normalized Borel measures on <em class="EQ">E</em>.
+The function
+<em class="EQ">d<sub>&#120017;</sub> : &#120017;&times;&#120017; &rarr;
+[0,&infin;[</em> defined by</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+d<sub>&#120017;</sub>(&mu;,&nu;)
+= sup{|&int;<sub>E</sub>g d&mu; - &int;<sub>E</sub>g d&nu;| :
+g:E &rarr; &reals; satisfies <br>
+|g(x)-g(y)| &le; d(x,y) for all x,y &in; E}
+</em>
+</div>
+<p>for all <em class="EQ">&mu;,&nu; &in; &#120017;</em> is a metric
+on <em class="EQ">&#120017;</em>.  It is called the
+<em>Hutchinson metric</em>.  Moreover,
+<em class="EQ">(&#120017;,d<sub>&#120017;</sub>)</em> is a compact
+metric space.</p>
+</div>
+
+<div class="Theo">
+<p><em>Definition</em>: Suppose that <em class="EQ">(E,d)</em> is
+a compact metric space and that <em class="EQ">&#120017;</em> is the
+collection of all normalized Borel measures on <em class="EQ">E</em>.
+The <em>Markov operator</em> associated to
+an IFS with probabilities
+<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>
+is the function <em class="EQ">M: &#120017; &rarr; &#120017;</em>
+defined by <em class="EQ_Display">
+M(&mu;) = sum<sub>1&le;j&le;J</sub> p<sub>j</sub>
+&mu;&compfn;f<sub>j</sub><sup>-1</sup> 
+</em>
+for <em class="EQ">&mu; &in; &#120017;</em>.</p>
+</div>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that <em class="EQ">(E,d)</em> is
+a compact metric space, that <em class="EQ">&#120017;</em> is the
+collection of all normalized Borel measures on <em class="EQ">E</em>, and
+that
+<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>
+is an IFS with probabilities.
+If <em class="EQ">M: &#120017; &rarr; &#120017;</em> is the Markov
+operator associated to this IFS with probabilities and
+<em class="EQ">C = max<sub>1&le;j&le;J</sub> C<sub>j</sub></em>, where
+<em class="EQ">C<sub>j</sub></em> is a contraction factor for
+<em class="EQ">f<sub>j</sub></em>, then
+<em class="EQ">M: &#120017; &rarr; &#120017;</em> is a contraction
+with contraction factor <em class="EQ">C</em> with respect to the
+Hutchinson metric <em class="EQ">d<sub>&#120017;</sub></em>; namely,
+<em class="EQ">d<sub>&#120017;</sub>(M(&mu;),M(&nu;))
+  &le; C d<sub>&#120017;</sub>(&mu;,&nu;)</em> for all
+<em class="EQ">&mu;,&nu; &in; &#120017;</em>.</p>
+</div>
+
+<p><em>Proof (sketch)</em>: Let
+<em class="EQ">G = {g:E &rarr; &reals; : |g(x)-g(y)| &le;
+d(x,y) for all x,y &in; E}</em>.  We first prove that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+&int;<sub>E</sub> g d(M(&nu;)) =
+&sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> &int;<sub>E</sub>
+g&compfn;f<sub>j</sub> d&nu; </em>
+</div>
+<p>for all <em class="EQ">g &in; G</em>.
+Since <em class="EQ">E</em> is a compact set, there exists a sequence of
+step functions <em class="EQ">{s<sub>i</sub>}<sub>i&ge;1</sub></em>
+that converges uniformly to <em class="EQ">g</em>
+on <em class="EQ">E</em>.  It is easy to verify that
+<div class="EQ_center">
+<em class="EQ_Display">
+&int;<sub>E</sub> s<sub>i</sub> d(M(&nu;))
+= &sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> &int;<sub>E</sub>
+s<sub>i</sub> d(&nu;&compfn;f<sub>j</sub><sup>-1</sup>) <br>
+= &sum;<sub>1&le;j&le;J</sub> p<sub>j</sub>
+&int;<sub>f<sub>j</sub>(E)</sub> s<sub>i</sub> d&nu;
+= &sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> &int;<sub>E</sub>
+s<sub>i</sub>&compfn;f<sub>j</sub> d&nu;</em>
+</div>
+<p>for all <em class="EQ">i</em>.  Since
+<em class="EQ">S<sub>i</sub> &rarr; g</em> uniformly on the compact
+set <em class="EQ">E</em> as <em class="EQ">i &rarr; &infin;</em>, we
+get that
+<em class="EQ">&int;<sub>E</sub> s<sub>i</sub> d(M(&nu;)) &rarr;
+&int;<sub>E</sub> g d(M(&nu;))</em> and
+<em class="EQ">&int;<sub>E</sub>  s<sub>i</sub>&compfn;f<sub>j</sub> d&nu;
+&rarr; &int;<sub>E</sub> g&compfn;f<sub>j</sub> d&nu;</em>
+as <em class="EQ">i &rarr; &infin;</em>.  This proves the
+result claimed above.</p>
+
+<p>Let <em class="EQ">
+<span class="math_smaller"><math> <mover> <mi>G</mi> <mo>&circ;</mo> </mover> </math></span>
+= {C<sup>-1</sup> &sum;<sub>1&le;j&le;J</sub>
+p<sub>j</sub> g&compfn;f<sub>j</sub> : g &in; G}</em>.  We have that</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+|C<sup>-1</sup> &sum;<sub>1&le;j&le;J</sub>
+p<sub>j</sub> g&compfn;f<sub>j</sub>(x) - 
+C<sup>-1</sup> &sum;<sub>1&le;j&le;J</sub>
+p<sub>j</sub> g&compfn;f<sub>j</sub>(y)|
+&le; C<sup>-1</sup> &sum;<sub>1&le;j&le;J</sub>
+p<sub>j</sub> |g&compfn;f<sub>j</sub>(x)-g&compfn;f<sub>j</sub>(y)| <br>
+&le; C<sup>-1</sup> &sum;<sub>1&le;j&le;J</sub>
+p<sub>j</sub> d(f<sub>j</sub>(x),f<sub>j</sub>(y))
+&le; &sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> d(x,y)
+= d(x,y)
+</em>
+</div>
+<p>for all <em class="EQ">x,y &in; E</em> and
+<em class="EQ">g &in; G</em>.  Therefore,
+<em class="EQ">
+<span class="math_smaller"><math> <mover> <mi>G</mi> <mo>&circ;</mo> </mover> </math></span>
+&subset; G</em>.  Hence,
+<div class="EQ_center">
+<em class="EQ_Display">
+d<sub>&#120017;</sub>(M(&mu;),M(&nu;))
+= sup{|&int;<sub>E</sub>g d(M(&mu;)) - &int;<sub>E</sub>g d(M(&nu;))|
+: g &in; G} <br>
+= sup{|&sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> &int;<sub>E</sub>
+g&compfn;f<sub>j</sub> d&mu; -
+&sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> &int;<sub>E</sub>
+g&compfn;f<sub>j</sub> d&nu;| : g &in; G} <br>
+= sup{|C &int;<sub>E</sub>
+<math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math> d&mu; -
+C &int;<sub>E</sub>
+<math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math> d&nu;|
+: <math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math>
+&in; <span class="math_smaller">
+<math> <mover> <mi>G</mi> <mo>&circ;</mo> </mover> </math></span>} <br>
+&le; C sup{|&int;<sub>E</sub>
+<math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math> d&mu; -
+&int;<sub>E</sub>
+<math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math> d&nu;|
+: <math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math> &in; G}
+= C d<sub>&#120017;</sub>(&mu;,&nu;)
+</em>
+</div>
+<p>for all <em class="EQ">&mu;,&nu; &in; &#120017;</em>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+
+<p>The next theorem is a corollary of the previous proposition and the
+contraction mapping theorem.</p>
+
+<div class="Theo">
+<p><em>Theorem</em>: Suppose that <em class="EQ">(E,d)</em> is
+a compact metric space, that <em class="EQ">&#120017;</em> is the
+collection of all normalized Borel measures on <em class="EQ">E</em>, and
+that
+<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>
+is an IFS with probabilities.
+If <em class="EQ">M: &#120017; &rarr; &#120017;</em> is the Markov
+operator associated to this IFS with probabilities, then
+there exists a unique set
+<em class="EQ">&mu; &in; &#120017;</em> such that
+<em class="EQ">M<sub>&#120017;</sub>(&mu;) = &mu;</em>.  Moreover, for all
+measures <em class="EQ">&nu;<sub>0</sub> &in; &#120017;</em>, the
+sequence of measures
+<em class="EQ">{&nu;<sub>i</sub>}<sub>i&geq;0</sub></em>
+defined by
+<em class="EQ">&nu;<sub>i+1</sub> = M<sub>&#120017;</sub>(&nu;<sub>i</sub>)</em>
+converges to <em class="EQ">&mu;</em> according to the Hutchinson
+metric <em class="EQ">d<sub>&#120017;</sub></em> as
+<em class="EQ">i &rarr; &infin;</em>.</p>
+</div>
+
+<div class="Theo">
+<p><em>Definition</em>: In the previous theorem, the
+measure <em class="EQ">&mu;</em> such that
+<em class="EQ">M<sub>&#120017;</sub>(&mu;) = &mu;</em>
+is called the <em>invariant measure</em> of the IFS with
+probabilities.</p>
+</div>
+
+<div class="Theo">
+<p><em>Proposition</em>: Suppose that <em class="EQ">(E,d)</em> is
+a compact metric space, that <em class="EQ">&#120017;</em> is the
+collection of all normalized Borel measures on <em class="EQ">E</em>, and
+that
+<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>
+is an IFS with probabilities.  Then,
+the support <em class="EQ">K &subset; E</em> of the invariant measure
+<em class="EQ">&mu; &in; &#120017;</em> of this IFS with probabilities
+is the fixed point of the function <em class="EQ">f<sup>c<sup></em>
+induced by the IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.</p>
+</div>
+
+<p><em>Proof (sketch)</em>: Let <em class="EQ">K</em> be the
+fixed point of the function
+<em class="EQ">f<sup>c</sup></em> induced by the IFS
+<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.
+The set <em class="EQ">K</em> is invariant under the action of the
+IFS with probabilities
+<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>.
+Therefore, there exists an invariant measure <em class="EQ">&nu;</em>
+for the IFS with probabilities
+<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>
+restricted to <em class="EQ">K</em>.
+If we assume that <em class="EQ">&nu;(A) = 0</em> for all Borel
+measurable sets <em class="EQ">A &subset; E &setminus; K</em>, then
+<em class="EQ">&nu;</em> defines a normalized Borel measure
+on <em class="EQ">E</em>.  By uniqueness of the invariant measure,
+we have that <em class="EQ">&nu; = &mu;</em>.  This implies that the
+support of <em class="EQ">&nu;</em> is a subset of
+<em class="EQ">K</em>.</p>
+
+<p>A proof that the support of <em class="EQ">&nu;</em> is
+equal to <em class="EQ">K</em> uses the isometry
+between the set
+<em class="EQ">&Sigma;<sub>J</sub> =
+{(s<sub>0</sub>s<sub>1</sub>s<sub>2</sub>...) :
+s<sub>k</sub> &in; {1,2,...,J} for all k &ge; 0}</em>
+and the set <em class="EQ">K</em>, and the shift map
+on <em class="EQ">J</em> symbols acting on
+<em class="EQ">&Sigma;<sub>J</sub></em>.  This is a topic that we have not
+addressed.  It is similar to what was done in the document
+<script language="javascript">
+  buildLinK(fractal1.url_en, fractal1.text_en,
+  "MMathSStat", fractal1.id, fractal1.target);
+</script>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+
+<p>There exists a collage theorem for measures similar to the college
+theorem for IFS in the previous section.  It is also a corollary of 
+<script language="javascript">
+  buildLinK("#propIV", "Proposition &#8547;",
+  "MMathSStat", "propIVId", "_top");
+</script>.</p>
+
+<div class="Theo">
+<p><em>Theorem (Collage)</em>:  Suppose that <em class="EQ">(E,d)</em> is
+a compact metric space and that <em class="EQ">&#120017;</em> is the
+collection of all normalized Borel measures on <em class="EQ">E</em>.
+Moreover, suppose that <em class="EQ">M: &#120017; &rarr; &#120017;</em>
+is the Markov operator associated to the IFS with probabilities
+<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>.
+Finally, suppose that <em class="EQ">C</em> is a
+contraction factor for the function <em class="EQ">f<sup>c</sup></em>
+induced by the IFS <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.
+If <em class="EQ">d<sub>&#120017;</sub>(&nu;,M(&nu;)) &le; &epsilon;</em>, then
+<em class="EQ">d<sub>&#120017;</sub>(&nu;,&mu;) &le; &epsilon;/(1-C)</em> where
+<em class="EQ">&mu;</em> is the invariant measure of the IFS with
+probabilities.</p>
+</div>
+
+<p>As for IFS in the previous section, we have an inverse problem for
+IFS with probabilities.  The problem is now to find an
+IFS with probabilities whose associated invariant measure is a given
+Borel measure.  Let <em class="EQ">K</em> be the support of this
+measure.  Ideally, the density distribution on
+<em class="EQ">K</em> of the points produced by the chaos game
+for the IFS with probabilities should represent the density distribution of
+the invariant measure on <em class="EQ">K</em>.  This is a
+difficult area of constant research.  The reader may consult the article by
+<script language="javascript">
+buildLinK("#BS", "P. C. Bressloff and J. Stark", "MMathSStat", "BSId3", "_top");
+</script> for an introduction to neural networks and automata using
+IFS with probabilities.</p>
 
 <hr class="MMathSStat">
 
@@ -490,6 +2384,15 @@ books and articles.</p>
 <ul>
 <li id="MB">M. Barnsley, <em>Fractals Everywhere</em>, Academic Press,
 Inc. (1988).</li>
+<li id="BS">P. C. Bressloff and J. Stark, <em>Neural Networks, Learning
+Automata and Iterated Function Systems</em> in <em>Fractals and Chaos</em>,
+A. J. Crilly, R. A. Earnshaw and H. Jones, Editors, Springer-Verlag (1991),
+145-164.</li>
+<li id="YF">Y. Fisher, <em>A Discussion of Fractal Image Compression</em>
+in Appendix A of H.-O. Peitgen, H. j&#252;rgens and D. Saupe, <em>Chaos
+and Fractals: New Frontiers of Science</em>, Springer-Verlag (1992).</li>
+<li id="GL">G. H. Gollub and C. F. van Loan, <em>Matrix Computation</em>,
+2<sup>nd</sup> Edition, John Hopkins (1989).</li>
 <li id="PJS">H.-O. Peitgen, H. j&#252;rgens and D. Saupe, <em>Chaos
 and Fractals: New Frontiers of Science</em>, Springer-Verlag (1992).</li>
 </ul>

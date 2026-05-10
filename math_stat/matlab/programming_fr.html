@@ -78,7 +78,7 @@ main_title( MStexte, "MMathSStat");
 <div class="center"><em>Contenu</em></div>
 <ul>
   <li> <script language="javascript">
-      buildLinK("#Sect16", "Fonctions itératives",
+      buildLinK("#Sect16", "Itération des fonctions",
       "MMathSStat", "sect16ID", "_top");
   </script> </li>
   <li> <script language="javascript">
@@ -127,7 +127,7 @@ un outil très utile pour exécuter nos tâches académiques régulières.</p>
 
 <hr class="MMathSStat" style="clear: both;">
 
-<h3 id="Sect16"> Fonctions itératives </h3>
+<h3 id="Sect16"> Itération des fonctions </h3>
 
 <p>La version standard de <em>Matlab</em> n'a pas de fonctions pour
 exécuter les méthodes itératives.  L'utilisateur doit donc programmer
@@ -240,7 +240,7 @@ ans =
 </div>
 
 <div class="Note">
-<p><em>Note</em>: Si nous utilisons la ligne
+<p><em>Remarque</em>: Si nous utilisons la ligne
 <font class="matlab">x = funct(x);</font> au lieu de la ligne
 <font class="matlab">x = feval(funct,x);</font> dans le script
 pour la fonction <font class="matlab">fxpt2</font>, alors la
@@ -714,20 +714,16 @@ arbitraire.  En particulier, nous sommes intéressé au cas
 <h3 id="Sect25"> Systèmes itératifs de fonctions </h3>
 
 <p>Pour une introduction aux <em>systèmes itératifs de fonctions</em>
-(SIF), le lecteur peut consulter les sites Internet
-<script language="javascript"> 
-  buildLinK(fractal1.url_fr, fractal1.text_fr, "MMathSStat",
-  fractal1.id, fractal1.target);
-</script> et <script language="javascript"> 
+(SIF), le lecteur peut consulter le document <script language="javascript"> 
   buildLinK(fractal2.url_fr, fractal2.text_fr, "MMathSStat",
   fractal2.id, fractal2.target);
 </script>.</p>
 
-<p>Nous considérons les trois SIF suivants:</p>
+<p>Voici quelques exemples de SIF.</p>
 <ol>
 <li><p><em>Triangle de Sierpinski</em>: Cet ensemble est le
-<q lang="fr">point fixe</q> de la fonction \( \mathcal{S} = f^c\)
-associée au SIF \( \{ f_j\}_{j=1}^3 \) où</p>
+<q lang="fr">point fixe</q> de la fonction \(f^c\)
+définie par le SIF \( \{ f_j\}_{j=1}^3 \) où</p>
 \[
 \begin{split}
 &f_1(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x} +
@@ -738,11 +734,12 @@ f_2(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x} +
 f_3(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix}\vec{x} \ .
 \end{split}
 \]
-<p>Un rappel que \(\displaystyle \mathcal{S}(X) = \bigcup_{j=1}^3 f_j(X)\).</p>
+<p>Rappelons que \(\displaystyle f^c(X) = \bigcup_{j=1}^3 f_j(X)\) pour
+\(X \in (\mathbb{R}^2)^c\).</p>
 </li>
 <li><p><em>Fougère</em>: Cet ensemble est le
-<q lang="fr">point fixe</q> de la fonction \( \mathcal{F} = f^c\)
-associée au SIF \( \{ f_j\}_{j=1}^4 \) où</p>
+<q lang="fr">point fixe</q> de la fonction \(f^c\) définie par le
+SIF \( \{ f_j\}_{j=1}^4 \) où</p>
 \[
 \begin{split}
 &f_1(\vec{x}) = \begin{pmatrix} 0 & 0 \\ 0 & 0.16 \end{pmatrix} \vec{x}
@@ -755,11 +752,12 @@ f_4(\vec{x}) = \begin{pmatrix} -0.15 & 0.28 \\ 0.26 & 0.24 \end{pmatrix}
 \vec{x} + \begin{pmatrix} 0 \\ 0.44 \end{pmatrix} \ .
 \end{split}
 \]
-<p>Un rappel que \(\displaystyle \mathcal{F}(X) = \bigcup_{j=1}^4 f_j(X)\).</p> 
+<p>Rappelons que \(\displaystyle f^c(X) = \bigcup_{j=1}^4 f_j(X)\) pour
+\(X \in (\mathbb{R}^2)^c\).</p> 
 </li>
 <li><p><em>Feuille</em>: Cet ensemble est le
-<q lang="fr">point fixe</q> de la fonction \( \mathcal{L} = f^c\)
-associée au SIF \( \{ f_j\}_{j=1}^4 \) où</p>
+<q lang="fr">point fixe</q> de la fonction \(f^c\) définie par le
+SIF \( \{ f_j\}_{j=1}^4 \) où</p>
 \[
 \begin{split}
 &f_1(\vec{x}) = \begin{pmatrix} 0.6 & 0 \\ 0 & 0.6 \end{pmatrix}
@@ -772,68 +770,68 @@ f_4(\vec{x}) = \begin{pmatrix} 0.4 & -0.3 \\ 0.3 & 0.4 \end{pmatrix}
 \vec{x} + \begin{pmatrix} 0.27 \\ 0.09 \end{pmatrix} \ .
 \end{split}
 \]
-<p>Un rappel que \(\displaystyle \mathcal{F}(X) = \bigcup_{j=1}^4 f_j(X)\).</p>
+<p>Rappelons que \(\displaystyle f^c(X) = \bigcup_{j=1}^4 f_j(X)\) pour
+\(X \in (\mathbb{R}^2)^c\).</p>
 </li>
 </ol>
+<p>Ces SIF et plusieurs autres SIF sont définis dans le
+<em>fichier m</em> <script language="javascript"> 
+  buildLinK("ifs_systems.m", "ifs_systems.m", "MMathSStat",
+  "ifsstmmId","_blank");
+</script>.</p>
 
 <p>Nous fournissons deux fonctions dans <em>Matlab</em> pour
-approximer le <q lang="en">point fixe</q> de chacun de ces
-SIF.  La première fonction décrite ci-dessous applique strictement la
-procédure itérative de chacun des SIF.  Les seules inexactitudes
+approximer le <q lang="en">point fixe</q> de la fonction \(f^c\)
+définie par un SIF.  La première fonction décrite ci-dessous applique
+strictement la procédure itérative au SIF donné.  Les seules inexactitudes
 sont dues aux calculs numériques.  Cependant, cette fonction
 ne peut pas effectuer beaucoup d'itérations avant d'épuiser
 la mémoire de l'ordinateur.  Nous supposons que l'ensemble initial
-est un ensemble simple (e.g. une courbe polygonale).  Après une
-itération, nous avons 3 copies de l'ensemble initial transformé.
-Après 2 itérations, nous avons 3<sup>2</sup> copies de l'ensemble
-initial transformé.  Et ainsi de suite.  Après 10 itérations, nous
-avons déjà 3<sup>10</sup> = 59,049 copies de l'ensemble initial
-transformé.  Nous atteignons rapidement la capacité limite de la
-mémoire de l'ordinateur.</p>
+est un ensemble simple (e.g. une courbe polygonale).  Si le SIF est
+composé de \(N\) fonctions, alors après une itération, nous avons
+\(N\) copies de l'ensemble initial transformé.
+Après 2 itérations, nous avons \(N^2\) copies de l'ensemble
+initial transformé.  Et ainsi de suite.  Si \(N=3\), alors,
+après 10 itérations, nous avons déjà \(3^{10]) = 59,049 \)
+copies de l'ensemble initial transformé.  Nous atteignons rapidement
+la capacité limite de la mémoire de l'ordinateur.</p>
 
 <div class="Code">
 <pre class="matlab">
 % function ifs(X, N, syst, colour)
 %
-% X      : Initial set, a (2 x n) matrix storing the corners of the
-%          closed polygonal curve.
+% Compute the iterations of the function defined by an IFS starting
+% with a given closed polygonal curve.
+%
+% X      : Initial polygonal curve, a (2 x n) matrix storing the corners
+%          of the closed polygonal curve.
 % N      : The number of iterations.
-% syst   : It is one of Sierpinski (default), Fern or Leaf
+% syst   : A cell array of function handles for the functions in the IFS.
 % colour : One of the colours accepted in Matlab plot/fill.
 %          The default colour is blue.
 %
-
 <font class="matlab">function ifs(X, N, syst, colour)
     if ( nargin < 4 )
         colour = 'blue';
         if ( nargin < 3 )
-            syst = "Sierpinski";
+            disp("Not enough arguments.  Use the help command with ifs.")
+            return;
         end
     end
 
-    if ( strcmpi(syst,"Sierpinski") )
-        for i=1:N
-            fprintf('%d ',i)
-            X = sierpinski(X);
+    for i=1:N
+        fprintf('%d ',i)
+        XX = [];
+        for j=1:length(syst)
+            XX = [XX , syst{j}(X), [NaN;NaN]];
         end
-    elseif ( strcmpi(syst,"Fern") )
-        for i=1:N
-            fprintf('%d ',i)
-            X = fern(X);
-        end
-    elseif ( strcmpi(syst,"Leaf") )
-        for i=1:N
-            fprintf('%d ',i)
-            X = leaf(X);
-        end
-    else
-        disp('No knows IFS has been given. Use help IFS for the instructions.');
-        return;
+        X = XX;
     end
 
     cla;
     hold on;
     axis off;
+    axis equal;		  
 
     %    If the function fill() was behaving like the function
     %    plot() when a point with coordinates NaN is inserted,
@@ -845,63 +843,25 @@ mémoire de l'ordinateur.</p>
     %    p.EdgeColor = colour;
 
     I = find(isnan(X(1,:)));
-    if ( length(I) == 0 )
-        p = fill(X(1,:), X(2,:),'b');
-        set(p,'FaceColor',colour);
-        set(p,'EdgeColor',colour);
-    else
-        i1 = 1;
-        i2 = I(1)-1;
+    i1 = 1;
+    for i = 1:length(I)
+        i2 = I(i)-1;
         p = fill(X(1,i1:i2), X(2,i1:i2),'b');
         set(p,'FaceColor',colour);
         set(p,'EdgeColor',colour);
-        i1 = I(1)+1;
-        for i = 2:length(I)
-            i2 = I(i)-1;
-            p = fill(X(1,i1:i2), X(2,i1:i2),'b');
-            set(p,'FaceColor',colour);
-            set(p,'EdgeColor',colour);
+        if (i < length(I) )
             i1 = I(i)+1;
         end
-        p = fill(X(1,i1:size(X,2)), X(2,i1:size(X,2)),'b');
-        set(p,'FaceColor',colour);
-        set(p,'EdgeColor',colour);
     end
 
     fprintf('\nThe figure has been drawn.\n');
-end
-
-% Sierpinski Triangle
-
-function XX = sierpinski(X)
-    XX = [0.5 * X + [0 ; 0.5], [NaN ; NaN]];
-    XX = [XX, 0.5 * X + [0.5 ; 0 ], [NaN ; NaN]];
-    XX = [XX, 0.5 * X];
-end
-
-% fern
-
-function XX = fern(X)
-    XX = [[0 , 0 ; 0, 0.16]*X, [NaN; NaN]];
-    XX = [XX, [0.85 , 0.04 ; -0.04 , 0.85]*X + [0 ; 1.6], [NaN ; NaN]];
-    XX = [XX, [0.20 ,-0.26 ; 0.23 , 0.22]*X + [0 ; 1.6],[NaN ; NaN]];
-    XX = [XX, [-0.15 , 0.28 ; 0.26 , 0.24]*X + [0 ; 0.44]];
-end
-
-% leaf
-
-function XX = leaf(X)
-    XX = [ [0.6 , 0 ; 0 , 0.6]*X + [0.18; 0.36],[NaN;NaN]];
-    XX = [XX, [0.6 , 0 ; 0 , 0.6]*X + [0.18; 0.12], [NaN;NaN]];
-    XX = [XX, [0.4, 0.3 ; -0.3 , 0.4]*X + [0.27; 0.32], [NaN;NaN]];
-    XX = [XX, [0.4, -0.3 ; 0.3 , 0.4]*X + [0.27; 0.09]];
 end
 </font></pre>
 </div>
 
 <p>Le premier argument de la fonction précédente doit être une courbe
 polygonale fermée.  L'ensemble initiale est l'ensemble des points
-inclus dans la région bornée par la courbe polygonale.
+inclus dans la région bornée par la courbe polygonale fermée.
 Il est possible de modifier la fonction précédente pour accepter des
 ensembles initiaux plus généraux.  La fonction ci-dessus se trouve
 dans le <em>fichier m</em> <script language="javascript"> 
@@ -909,32 +869,50 @@ dans le <em>fichier m</em> <script language="javascript">
 </script>. </p>
 
 <div class="Example">
-<p><em>Exemple</em>: La courbe polynomiale initiale que nous
-choisissons est définie par le triangle avec les sommets aux 
-points \( (0,0), (1,0) \) et \( (0,1) \).  Nous calculons 5 itérations
-pour le triangle de Sierpinski.  En raison de la simplicité du
-triangle de Sierpinski et du nombre limité de pixels des écrans
-d'ordinateur, nous obtenons après 5 itérations presque la meilleure
-représentation du triangle de Sierpinski qui peut être affichée.</p>
+<p><em>Exemple</em>: Nous dessinons le triangle de Sierpinski.  La
+courbe polynomiale fermée initiale que nous choisissons est définie
+par le triangle avec les sommets aux
+points \( (0,0), (1,0) \) et \( (0,1) \).  Nous calculons 6 itérations
+de la fonction \(f^c\) définie par le SIF associé au triangle de
+Sierpinski.  Ce SIF est définie dans le
+<em>fichier m</em> <script language="javascript"> 
+buildLinK("ifs_systems.m", "ifs_systems.m", "MMathSStat",
+"ifsstmmId","_blank");
+</script> par les commandes suivantes:</p>
+
+<pre class="matlab">
+<font class="matlab">% Sierpinski triangle
+S1 = @(x) 0.5*x + [0;0.5]; ...
+S2 = @(x) 0.5*x + [0.5;0]; ...
+S3 = @(x) 0.5*x; ...
+S = {S1, S2, S3}; </font>
+</pre>
+
+<p>En raison de la simplicité du triangle de Sierpinski et du nombre
+limité de pixels des écrans d'ordinateur, nous obtenons après 6
+itérations presque la meilleure représentation du triangle de
+Sierpinski qui peut être affichée.</p> 
 
 <pre class="matlab">
 >> <font class="matlab">close all;</font>
->> <font class="matlab">X= [ 0 1 0 0 ; 0 0 1 0];</font>
->> <font class="matlab">ifs(X,5,'Sierpinski','red')</font>
-1 2 3 4 5
+>> <font class="matlab">ifs_systems;</font>
+>> <font class="matlab">ifs(X,6,S,'red')</font>
+1 2 3 4 5 6
 The figure has been drawn
 </pre>
 
 <div class="center">
-  <img src="Matlab_fractal1.png" style="width: 400px"
+  <img src="Matlab_fractal1.png" style="width: 300px"
        alt="Triangle de Sierpinski">
 </div>
 
-<p>Le résultat n'est pas aussi bien pour la fougère et la feuille car
+<p>Le résultat n'est pas aussi bien pour les autres SIF car
 ce sont des <q lang="fr">points fixe</q> pour des SIF qui
-sont beaucoup plus complexe.  Le lecteur devrait répéter cet exemple
-avec la fougère et la feuille au lieu du triangle de Sierpinski
-pour observer les limites de cette fonction.</p>
+sont beaucoup plus complexes.  Le lecteur devrait répéter cet exemple
+avec les autres SIF dans le <em>fichier m</em> <script language="javascript"> 
+  buildLinK("ifs_systems.m", "ifs_systems.m", "MMathSStat",
+  "ifsstmmId","_blank");
+</script> pour observer les limites de cette fonction.</p>
 </div>
 
 <p>Pour éviter le problème associé à la croissance exponentielle du
@@ -966,14 +944,18 @@ Après cela, nous pouvons utiliser le SIF \( \{ g_j\}_{j=1}^J \)
 composé des fonctions données en \eqref{Equ1} avec l'ensemble initial \(T\).
 En pratique, nous utilisons l'ensemble initiale \(T\) défini par</p>
 \[
- T = \{ \lfloor M\vec{x} \rfloor \equiv
-( \lfloor M x_1 \rfloor ,\lfloor M x_2 \rfloor)
-: \vec{x} \in S \} \subset \mathbb{Z} \times \mathbb{Z} \ .
+ T = \{ \text{round}(M\vec{x}) \equiv
+( \text{round}(M x_1) , \text{round}(M x_2) )
+: \vec{x} \in S \} \subset \mathbb{Z} \times \mathbb{Z} \ ,
 \]
-<p>Après cela, nous utilisons le SIF \( \{ g_j\}_{j=1}^J \)
+<p>où \(\text{round}(x)\) est le nombre entier le plus près de \(x\).
+Pour les nombres comme \(3.5\), \(\text{round}(x)\) est le nombre
+entier le plus près de \(x\) qui est aussi le plus loin de l'origine
+(implémentation de <em>Matlab</em>).
+Après cela, nous utilisons le SIF \( \{ g_j\}_{j=1}^J \)
 composé des fonctions données en \eqref{Equ1} restreint
 à l'espace \(\mathbb{Z} \times \mathbb{Z}\); c'est-à-dire,
-nous utilisons \(\displaystyle \lfloor g_j(\vec{y}) \rfloor\) au lieu
+nous utilisons \(\displaystyle \text{round}(g_j(\vec{y}))\) au lieu
 de \(\displaystyle g_j(\vec{y})\).
 Ceci est équivalent à représenter \(S\) avec les pixels de l'écran
 d'ordinateur et à mettre en oeuvre le SIF sur les pixels.</p>
@@ -1001,125 +983,70 @@ modifiée pour accepter des ensembles initiaux plus généraux.</p>
 
 <div class="Code">
 <pre class="matlab">
-% function ifs2(X, N, syst, colour)
+% function ifs2(X, N, syst, M, colour)
+%
+% Compute the iterations of the function defined by an IFS starting
+% with a given closed polygonal curve.
 %
 % X      : Initial set, a (2 x n) matrix storing the corners of the
 %          polygonal curve.
 % N      : The number of iterations.
-% syst   : It is one of Sierpinski (default), Fern or Leaf
-% colour : One of the colours accepted in Matlab plot/fill.
+% syst   : A cell array of function handles for the functions in the IFS.
+% M      : The number of points per unit length.  The default value is
+%          400 points.
+% colour : One of the colours accepted in Matlab plot.
 %          The default colour is blue.
 %
-
-<font class="matlab">function ifs2(X, N, syst, colour)
-    if ( nargin < 4 )
+<font class="matlab">function ifs2(X, N, syst, M, colour)
+    if ( nargin < 5 )
         colour = 'blue';
-        if ( nargin < 3 )
-            syst = "Sierpinski";
+        if ( nargin < 4 )
+            M = 400;
+            if ( nargin < 3 )
+                disp("Not enough arguments.  Use the help command with ifs.")
+                return;
+            end
         end
     end
-
-    M = 400;
 
     % We rescale the initial polygonal curve to get the set T.
     ro = [];
     co = [];
-    X1 = floor(M*X(:,1));
+    X1 = round(M*X(:,1));
     for i = 2:size(X,2)
-        X2 = floor(M*X(:,i));
+        X2 = round(M*X(:,i));
         R = max(abs(X1(1,1)-X2(1,1)),abs(X1(2,1)-X2(2,1)))+1;
-        ro = [ro,floor(linspace(X1(1,1),X2(1,1),R))];
-        co = [co,floor(linspace(X1(2,1),X2(2,1),R))];
+        ro = [ro,round(linspace(X1(1,1),X2(1,1),R))];
+        co = [co,round(linspace(X1(2,1),X2(2,1),R))];
         X1 = X2;
     end
-    rc = unique([ro;co]','rows');
+    rc = unique([ro;co]','rows')';
 
-    % We compute the iterations of the selected IFS starting with T.
-    if ( strcmpi(syst,"Sierpinski") )
-        for i = 1:N
-            fprintf('%d ',i)
-            rc = sierpinski(rc,M);
+    % We compute the iterations of the IFS starting at T.
+    for i = 1:N
+        fprintf('%d ',i)
+        RC = [];
+        for j=1:length(syst)
+            RC = [RC , syst{j}(rc,M)];
         end
-    elseif ( strcmpi(syst,"Fern") )
-        for i=1:N
-            fprintf('%d ',i)
-            rc = fern(rc,M);
-        end
-    elseif ( strcmpi(syst,"Leaf") )
-        for i=1:N
-            fprintf('%d ',i)
-            rc = leaf(rc,M);
-        end
-    else
-        disp('No knows IFS has been given. Use help IFS for the instructions.');
-        return;
+        rc = round(RC);
+        rc = unique(rc','rows')';
     end
 
     cla;
     hold on;
     axis off;
+    axis equal;		  
 
     % We rescale the resulting set to the initial coordinate system.
-    ro = rc(:,1)/M;
-    co = rc(:,2)/M;
+    ro = rc(1,:)/M;
+    co = rc(2,:)/M;
 
     % We draw the resulting set.
-    p = plot(ro,co,'.');
+    p = plot(ro,co,'.','LineWidth',0.1);
     set(p,'Color',colour);
 
     fprintf('\nThe figure has been drawn.\n');
-end
-
-% Sierpinski Triangle
-
-function RC = sierpinski(rc,M)
-    ro = rc(:,1);
-    co = rc(:,2);
-    r1 = 0.5*ro;
-    c1 = 0.5*co + M*0.5;
-    r2 = 0.5*ro + M*0.5;
-    c2 = 0.5*co;
-    r3 = 0.5*ro;
-    c3 = 0.5*co;
-    r = floor([r1;r2;r3]);
-    c = floor([c1;c2;c3]);
-    RC = unique([r,c],'rows');
-end
-
-% fern
-
-function RC = fern(rc,M)
-    ro = rc(:,1);
-    co = rc(:,2);
-    r1 = 0*ro;
-    c1 = 0.16*co;
-    r2 = 0.85*ro + 0.04*co;
-    c2 = -0.04*ro + 0.85*co + M*1.6;
-    r3 = 0.20*ro - 0.26*co;
-    c3 = 0.23*ro + 0.22*co + M*1.6;
-    r4 = -0.15*ro + 0.28*co;
-    c4 = 0.26*ro + 0.24*co + M*0.44;
-    r = floor([r1;r2;r3;r4]);
-    c = floor([c1;c2;c3;c4]);
-    RC = unique([r,c],'rows');
-end
-
-% leaf
-
-function RC = leaf(rc,M)
-    ro = rc(:,1);
-    co = rc(:,2);
-    r1 = 0.6*ro + M*0.18;
-    c1 = 0.6*co + M*0.36;
-    r2 = 0.6*ro + M*0.18;
-    c2 = 0.6*co + M*0.12;
-    r3 = 0.4*ro + 0.3*co + M*0.27;
-    c3 = -0.3*ro + 0.4*co + M*0.32;
-    r4 = 0.4*ro - 0.3*co + M*0.27;
-    c4 = 0.3*ro + 0.4*co + M*0.09;
-    r = floor([r1;r2;r3;r4]);
-    c = floor([c1;c2;c3;c4]);
-    RC = unique([r,c],'rows');
 end
 </font></pre>
 </div>
@@ -1127,40 +1054,394 @@ end
 <p>Cette fonction se trouve dans le <em>fichier m</em>
 <script language="javascript"> 
   buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
-</script>.  Il pourrait être utile de modifier la fonction précédente
-en ajoutant le facteur \(M\) comme argument.  Ainsi, cette valeur
-pourrait alors être choisie pour tirer avantage au maximum de la
-qualité de l'écran d'ordinateur.</p>
+</script>.  La valeur de \(M\) peut être choisie pour tirer avantage
+au maximum de la qualité de l'écran d'ordinateur.
+Nous avons défini plusieurs SIF dans le
+<em>fichier m</em> <script language="javascript"> 
+  buildLinK("ifs2_systems.m", "ifs_systems.m", "MMathSStat",
+  "ifsstmmId","_blank");
+</script>.  Par exemple, le SIF pour le triangle de Sierpinski est
+maintenant défini par les commandes suivantes:</p>
+<pre class="matlab">
+<font class="matlab">% Sierpinski triangle
+S1 = @(x,M) 0.5*x + M*[0;0.5]; ...
+S2 = @(x,M) 0.5*x + M*[0.5;0]; ...
+S3 = @(x,M) 0.5*x; ...
+S = {S1, S2, S3};</font>
+</pre>
+<p>La seul différence entre cette définition du SIF pour le triangle de
+Sierpinski et la définition du SIF pour le triangle de Sierpinski
+donnée pour la fonction <em class="matlab">ifs</em> ci-dessus est l'addition du
+paramètre \(M\) pour redimensionner le système.</p>
 
 <div class="Example">
-<p><em>Exemple</em>: L'ensemble initial que nous choisissons est la
-courbe polygonale définie par le triangle avec les sommets aux
+<p><em>Exemple</em>: Nous dessinons la fougère représentée par le
+point fixe de la fonction \(f^c\) définie par le SIF donné au début
+de cette section.  La définition de ce SIF est aussi incluse dans le
+<em>fichier m</em> <script language="javascript"> 
+  buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
+</script>.  L'ensemble initial que nous choisissons est la
+courbe polygonale fermée définie par le triangle avec les sommets aux
 points \( (0,0), (1,0) \) et \( (0,1) \).  Nous calculons 
-18 itérations pour la fougère.  Nous répétons cet exemple avec la
-feuille au lieu de la fougère.</p>
+18 itérations de \(f^c\).</p>
 
 <pre class="matlab">
 >> <font class="matlab">X= [ 0 1 0 0 ; 0 0 1 0];</font>
->> <font class="matlab">ifs2(X,18,'Fern','green')</font>
+>> <font class="matlab">ifs2_systems;</font>
+>> <font class="matlab">ifs2(X,18,F,600,'green')</font>
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
 The figure has been drawn
 </pre>
 
 <div class="center">
-  <img src="Matlab_fractal2.png" style="width: 400px"
+  <img src="Matlab_fractal2.png" style="width: 300px"
        alt="A fern">
 </div>
 
+<p>Nous dessinons la feuille représentée par le
+point fixe de la fonction \(f^c\) définie par le SIF donné au début
+de cette section.  La définition de ce SIF est aussi incluse dans le
+<em>fichier m</em> <script language="javascript"> 
+  buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
+</script>.  Nous utilisons le même ensemble initial qui ci-dessus et
+calculons 20 itérations de \(f^c\).</p>
+
 <pre class="matlab">
->> <font class="matlab">ifs2(X,20,'leaf','red')</font>
+>> <font class="matlab">ifs2(X,20,L,600,'red')</font>
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
 The figure has been drawn
 </pre>
 
 <div class="center">
-  <img src="Matlab_fractal3.png" style="width: 400px"
+  <img src="Matlab_fractal3.png" style="width: 300px"
        alt="A leaf">
 </div>
+</div>
+
+<h4 id="Sect25A">Méthode de coupe adaptative</h4>
+
+<p>La méthode de coupe adaptative est décrite à la section
+<script language="javascript"> 
+  buildLinK(fractal2.url_fr+"#SS3", "Méthode de coupe adaptative",
+  "MMathSStat", fractal2.id+"SS3", fractal2.target);
+</script> du document
+<script language="javascript"> 
+  buildLinK(fractal2.url_fr,fractal2.text_fr,"MMathSStat",
+  fractal2.id, fractal2.target);
+</script>.  C'est un compromis entre la méthode utilisée pour la
+fonction de <em>Matlab</em> <em class="matlab">ifs</em> et la
+méthode utilisée pour la fonction de <em>Matlab</em> 
+<em class="matlab">ifs2</em>.  La méthode de coupe adaptative est mise
+en oeuvre dans la fonction de <em>Matlab</em> suivante.</p>
+
+<div class="Code">
+<pre class="matlab">
+% function ifs_adaptive(X, delta, syst, matr, diam, colour)
+%
+% Draw the fixed point K of the function defined by an IFS using the
+% adaptive cut method.
+%
+% X      : A point on K, a (2 x 1) matrix in Matlab.
+% delta  : The Hausdorff distance between the set A drawn and the set K.
+% syst   : A cell array of function handles for the functions in the IFS.
+% matr   : A cell array of (2 x 2) matrices where matr{j} is the matrix
+%          in the definition of syst{j}.  We assume that the functions
+%          in the IFS are of the form f(x) = Mx + b.
+% diam   : The estimated diameter of the fixed point K.  The default value
+%          is 1.
+% colour : One of the colours accepted in Matlab plot.
+%          The default colour is blue.
+%
+<font class="matlab">function ifs_adaptive(X, delta, syst, matr, diam, colour)
+    if ( nargin < 6 )
+        colour = 'blue';
+        if ( nargin < 5 )
+            diam = 1;
+            if ( nargin < 4 )
+                disp("Not enough arguments.")
+                disp("Use the help command with ifs_adaptive.")
+                return;
+            end
+        end
+    end
+
+    J = length(syst);
+    if ( J ~= length(matr) )
+        disp("syst and matr do not have the same dimension.")
+        disp("Use the help command with ifs.")
+        return;
+    end
+
+    cla;
+    hold on;
+    axis off;
+    axis equal;
+
+    A = [1 0 ; 0 1];
+    V = [];
+    nested(syst,matr,A,V,J,delta,X,gca,diam,colour);
+
+    fprintf('\nThe figure has been drawn.\n');
+end
+
+function nested(syst,matr,A,V,J,delta,X,axe,diam,colour)
+    for j=1:J
+        AA = A*matr{j};
+        VV = [V,j];
+        C = 2*max(max(abs(AA)))*diam;
+        if ( C < delta )
+            Y = X;
+            for k = length(VV):-1:1
+                Y = syst{VV(k)}(Y);
+            end
+            plot(axe,Y(1),Y(2),'.','LineWidth',0.1,'Color',colour);
+        else
+            nested(syst,matr,AA,VV,J,delta,X,axe,diam,colour);
+        end
+    end
+end
+</font></pre>
+</div>
+
+<p>La fonction ci-dessus se trouve dans le <em>fichier m</em>
+<script language="javascript"> 
+buildLinK("ifs_adaptive.m","ifs_adaptive.m","MMathSStat","ifsmId","_blank");
+</script>.  Pour utiliser la fonction de <em>Matlab</em>
+<em class="matlab">ifs_adaptive</em>, les matrices
+\(A_j\) utilisées pour la définition des fonctions \(f_j\) qui composent le
+SIF doivent être fournies séparément.  Nous avons ajouté la liste de
+ces matrices à chacun des SIF définis dans le <em>fichier m</em>
+<script language="javascript">
+buildLinK("ifs_systems.m", "ifs_systems.m","MMathSStat", "ifsId44", "_blank");
+</script>.  Par exemple, la définition du SIF pour la fougère est la
+suivante.</p>
+
+<pre class="matlab">
+<font class="matlab">% Fern
+F1 = @(x) [0,0;0,0.16]*x; ...
+F2 = @(x) [0.85,0.04;-0.04,0.85]*x + [0;1.6]; ...
+F3 = @(x) [0.20,-0.26;0.23,0.22]*x + [0;1.6]; ...
+F4 = @(x) [-0.15,0.28;0.26,0.24]*x + [0;0.44]; ...
+F = {F1, F2, F3, F4}; ...
+FM = { [0,0;0,0.16],[0.85,0.04;-0.04,0.85],[0.20,-0.26;0.23,0.22], ...
+       [-0.15,0.28;0.26,0.24] };
+</font></pre>
+<p>La liste <em class="matlab">FM</em> contient les matrices
+\(A_j\) utilisées pour la définition des fonctions \(f_j\) du SIF.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: Nous utilisons la fonction de <em>Matlab</em>
+<em class="matlab">ifs_adaptive</em> pour dessiner la fougère.  Le
+point \((1,0)\) appartient au point fixe \(K\) de la fonction
+\(f^c\) définie par le SIF pour la fougère.</p>
+
+<pre class="matlab">
+>> <font class="matlab">ifs_systems;</font>
+>> <font class="matlab">ifs_adaptive([1;0],0.01,F,FM,2,'green');</font>
+
+The figure has been drawn.
+</pre>
+
+<div class="center">
+  <img src="Matlab_fractal7.png" style="width: 300px"
+       alt="A fern">
+</div>
+</div>
+
+<p>La fonction <em class="matlab">ifs_adaptive</em> demande moins
+d'espace mémoire sur l'ordinateur que la fonction <em class="matlab">ifs</em>
+mais elle est quand même exigeante pour la carte graphique de
+l'ordinateur.</p>
+
+<h4>Le jeux du chaos</h4>
+
+<p>La méthode mise en oeuvre dans les fonctions de <em>Matlab</em>
+<em class="matlab">ifs</em> et
+<em class="matlab">ifs2</em> n'est pas la seule méthode
+utilisée pour dessiner le point fixe \(K\) de la fonction
+\(f^c\) définie par un SIF \(\{f_j\}_{j=1}^J\).
+Le <em>jeux du chaos</em> est souvent utilisé pour dessiner le point
+fixe \(K\).  Cette méthode requière très peu d'espace mémoire sur un
+ordinateur.  Elle peut par contre nécessité une période importante de
+calcul sur ordinateur afin d'obtenir une belle image.
+Le <em>jeux du chaos</em> est décrit dans la section
+<script language="javascript">
+buildLinK(fractal2.url_fr+"#SS3", "Le jeux du chaos","MMathSStat",
+"f2SS3id", "_blank");</script> du document <script language="javascript">
+buildLinK(fractal2.url_fr,fractal2.text_fr,"MMathSStat",
+"f2SS3id", "_blank");</script>.  Il est très simple de mettre en
+oeuvre le <em>jeux du chaos</em> sur un ordinateur.  Cependant, cette
+méthode demande une distribution de probabilité soigneusement choisie
+pour le choix aléatoire de la fonction \(f_j\) à chaque itération comme
+cela est expliqué dans la section <script language="javascript">
+buildLinK(fractal2.url_fr+"#SS3", "Le jeux du chaos","MMathSStat",
+"f2SS3id2", "_blank");</script> du document <script language="javascript">
+buildLinK(fractal2.url_en,fractal2.text_en,"MMathSStat",
+"f2SS3id2", "_blank");</script>.  Les fonctions de <em>Matlab</em>
+<em class="matlab">ifs_prob</em> et <em class="matlab">ifs2_prob</em>
+mettent en oeuvre le <em>jeux du chaos</em>.  Ces fonctions se
+trouvent dans les <em>fichiers m</em> <script language="javascript">
+buildLinK("ifs_prob.m", "ifs_prob.m","MMathSStat", "idifsp1", "_blank");
+</script> et
+<script language="javascript">
+buildLinK("ifs2_prob.m", "ifs2_prob.m","MMathSStat", "idifsp2", "_blank");
+</script> respectivement.  Le première fonction doit être utilisée
+avec des SIF comme ceux définis dans le <em>fichier m</em>
+<script language="javascript">
+buildLinK("ifs_systems.m", "ifs_systems.m","MMathSStat", "idifsp3", "_blank");
+</script> alors que la deuxième fonction doit être utilisée avec des SIF
+comme ceux définis dans le <em>fichier m</em>
+<script language="javascript">
+buildLinK("ifs2_systems.m", "ifs2_systems.m","MMathSStat", "idifsp4", "_blank");
+</script>.</p>
+
+<h4>SIF avec condensation</h4>
+
+<p>Les fonctions de <em>Matlab</em> <em class="matlab">ifs</em>
+et <em class="matlab">ifs</em> peuvent
+être utilisées pour dessiner le point fixe de la fonction \(f^c\)
+définie par un SIF avec condensation.  Un exemple de SIF
+avec condensation est fourni par la collection de fonctions
+\( \{ f_j\}_{j=0}^3 \) où</p>
+\[
+\begin{split}
+f_0(A) &= \{ \vec{x} : x_1 = 1/2 \ \text{and}\ 0 \leq x_2 \leq 1/2 \}
+\qquad \text{(La fonction de condensation)} \ , \\
+f_1(\vec{x}) &=  0.6 \begin{pmatrix} \sqrt{2}/2 & -\sqrt{2}/2 \\
+\sqrt{2}/2 & \sqrt{2}/2 \end{pmatrix} \left( \vec{x} - \begin{pmatrix}
+1/2 \\ 0 \end{pmatrix} \right) + \begin{pmatrix} 1/2 \\ 1/2 \end{pmatrix} \\
+&= 0.6 \begin{pmatrix} \sqrt{2}/2 & -\sqrt{2}/2 \\
+\sqrt{2}/2 & \sqrt{2}/2\end{pmatrix} \vec{x}
++ \begin{pmatrix} 1/2 \\ 1/2 \end{pmatrix}
+- 0.6 \begin{pmatrix} \sqrt{2}/2 & -\sqrt{2}/2 \\
+\sqrt{2}/2 & \sqrt{2})/2\end{pmatrix} \begin{pmatrix} 1/2 \\ 0 \end{pmatrix}
+\ , \\
+f_2(\vec{x}) &=  0.6 \begin{pmatrix} 1/2 & \sqrt{3}/2 \\
+-\sqrt{3}/2 & 1/2\end{pmatrix} \left( \vec{x} - \begin{pmatrix}
+1/2 \\ 0 \end{pmatrix} \right) + \begin{pmatrix} 1/2 \\ 1/2
+\end{pmatrix} \\
+&= 0.6 \begin{pmatrix} 1/2 & \sqrt{3}/2 \\
+-\sqrt{3}/2 & 1/2\end{pmatrix} \vec{x}
++ \begin{pmatrix} 1/2 \\ 1/2 \end{pmatrix}
+- 0.6 \begin{pmatrix} 1/2 & \sqrt{3}/2 \\
+-\sqrt{3}/2 & 1/2\end{pmatrix} \begin{pmatrix} 1/2 \\ 0 \end{pmatrix} \\
+\text{et} & \\
+f_3(\vec{x}) &=  0.4 \begin{pmatrix} \cos(\pi/10) & -\sin(\pi/10) \\
+\sin(\pi/10) & \cos(\pi/10) \end{pmatrix} \left( \vec{x} - \begin{pmatrix}
+1/2 \\ 0 \end{pmatrix} \right) + \begin{pmatrix} 1/2 \\ 1/2 \end{pmatrix} \\
+&=  0.4 \begin{pmatrix} \cos(\pi/10) & -\sin(\pi/10) \\
+\sin(\pi/10) & \cos(\pi/10) \end{pmatrix} \vec{x}
++ \begin{pmatrix} 1/2 \\ 1/2 \end{pmatrix}
+- 0.4 \begin{pmatrix} \cos(\pi/10) & -\sin(\pi/10) \\
+\sin(\pi/10) & \cos(\pi/10) \end{pmatrix} \begin{pmatrix}
+1/2 \\ 0 \end{pmatrix}
+\end{split}
+\]
+<p>pour tout ensemble \( A \subset \mathbb{R}^2\) et
+\(\vec{x} \in \mathbb{R}^2\).
+Rappelons que \(\displaystyle f^c(X) = \bigcup_{j=0}^3 f_j(X)\) pour
+\(X \in (\mathbb{R}^2)^c\).
+L'ensemble de condensation est
+\( \{\vec{x} : x_1 = 1/2 \ \text{et} \ 0 \leq x_2 \leq 1/2 \}\).
+Le point fixe de la fonction \(f^c\) définie par ce SIF avec
+condensation représente un arbre comme cela est illustré dans le
+prochain exemple.</p>
+
+<p>Le SIF avec condensation ci-dessus est défini dans le
+<em>fichier m</em> <script language="javascript">
+buildLinK("ifs2_systems.m", "ifs2_systems.m","MMathSStat", "ifs2Id4", "_blank");
+</script> par le code en <em>Matlab</em> suivant.</p>
+<pre class="matlab">
+<font class="matlab">% Tree from an IFS with condensation
+function rc = cond(x,M)
+    ro = [];
+    co = [];
+    X = [0.5,0.5;0,0.5];
+    X1 = round(M*X(:,1));
+    for i = 2:size(X,2)
+        X2 = round(M*X(:,i));
+        R = max(abs(X1(1,1)-X2(1,1)),abs(X1(2,1)-X2(2,1)))+1;
+        ro = [ro,round(linspace(X1(1,1),X2(1,1),R))];
+        co = [co,round(linspace(X1(2,1),X2(2,1),R))];
+        X1 = X2;
+    end
+    rc = unique([ro;co]','rows')';
+end
+Transl1 = [0.5;0.5]-[sqrt(2)/2,-sqrt(2)/2;sqrt(2)/2,sqrt(2)/2]*[0.3;0]; ...
+Transl2 = [0.5;0.5]-[1/2,sqrt(3)/2;-sqrt(3)/2,1/2]*[0.3;0]; ...
+Transl3 = [0.5;0.5]-[cos(pi/10),-sin(pi/10);sin(pi/10),cos(pi/10)]*[0.2;0]; ...
+TC0 = str2func('cond'); ...
+TC1 = @(x,M) 0.6*[sqrt(2)/2,-sqrt(2)/2;sqrt(2)/2,sqrt(2)/2]*x + M*Transl1; ...
+TC2 = @(x,M) 0.6*[1/2,sqrt(3)/2;-sqrt(3)/2,1/2]*x + M*Transl2; ...
+TC3 = @(x,M) 0.4*[cos(pi/10),-sin(pi/10);sin(pi/10),cos(pi/10)]*x ...
+          + M*Transl3; ...
+TC = {TC0, TC1, TC2, TC3};</font>
+</pre>
+
+<div class="Example">
+<p><em>Exemple</em>: Le dessin du point fixe de la fonction \(f^c\)
+définie par le SIF avec condensation ci-dessus est produit par les
+commandes de <em>Matlab</em> suivantes.
+L'ensemble initial que nous choisissons est la courbe polygonale fermée
+définie par le triangle avec les sommets aux points \( (0,0), (1,0) \) et
+\( (0,1) \).  Nous calculons 20 itérations de \(f^c\).</p>
+<pre class="matlab">
+>> <font class="matlab">X= [ 0 1 0 0 ; 0 0 1 0];</font>
+>> <font class="matlab">ifs2_systems;</font>
+>> <font class="matlab">ifs2(X,18,TC,2500,'#99C28D')</font>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+The figure has been drawn
+</pre>
+
+<div class="center">
+  <img src="Matlab_fractal4.png" style="width: 300px"
+       alt="Un arbre">
+</div>
+</div>
+
+<p>Pour ceux qui voudraient répéter l'exemple précédent avec la
+fonction de <em>Matlab</em> <em class="matlab">ifs</em>, le SIF avec
+condensation ci-dessus est aussi défini dans le
+<em>fichier m</em> <script language="javascript">
+buildLinK("ifs_systems.m", "ifs_systems.m","MMathSStat", "ifsId4", "_blank");
+</script>.</p>
+
+<div class="Note">
+<p><em>Remarque</em>: Nous confessons que la fonction
+de <em>Matlab</em> <em class="matlab">ifs</em> génère des meilleures
+images que la fonction de <em>Matlab</em> <em class="matlab">ifs2</em>
+si l'ordinateur utilisé a suffisamment d'espace mémoire pour calculer
+plusieurs itérations de la fonction \(f^c\) définie par un SIF.
+Par exemple, 10 itérations de la fonction \(f^c\) définie par le SIF
+avec condensation ci-dessus donne l'image suivante.</p>
+<div class="center">
+<img src="Matlab_fractal5.png" style="width: 300px" alt="Un arbre">
+</div>
+<p>Nous pouvons observer plus de détails fins de l'arbre.</p>
+
+<p>Nous devons aussi garder en tête qu'il y a une grande perte de
+qualité de l'image quand nous exportons une figure produite avec
+<em>Matlab</em> au format png (ou tout autre format) même si
+600 ppp est utilisé.  En fait, le seul effet d'utiliser
+600 ppp est de produire un très gros fichier en format png.  La
+figure ci-dessous est produite en faisant un gros plan sur une section
+de la figure produite par la fonction de <em>Matlab</em>
+<em class="matlab">ifs2</em> avant d'exporter la figure en format png.
+Nous obtenons beaucoup de détails qui sont perdus dans la grande figure
+donnée à l'exemple précédent.</p> 
+<div class="center">
+  <img src="Matlab_fractal6.png" style="width: 300px"
+       alt="Un gros plan sur une section de l'arbre">
+</div>
+<p>Il est aussi possible avec <em>Matlab</em> d'augmenter les
+dimensions d'une figure avant de l'exporter en format png.  Ceci
+améliore la qualité de l'image sans générer un gros fichier en
+format png.  C'est ce qui a été fait dans les exemples précédents.
+Afin d'augmenter les dimensions d'une figure, il peut être nécessaire
+d'augmenter en premier le nombre de points par unité de longueur 
+quand nous utilisons la fonction de <em>Matlab</em>
+<em class="matlab">ifs2</em>.</p>
+
 </div>
 
 <hr class="MMathSStat">

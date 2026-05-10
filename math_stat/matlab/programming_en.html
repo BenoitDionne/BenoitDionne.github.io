@@ -78,7 +78,7 @@ main_title( MStext, "MMathSStat");
 <div class="center"><em>Content</em></div>
 <ul>
   <li> <script language="javascript">
-      buildLinK("#Sect16", "Iterative Mappings",
+      buildLinK("#Sect16", "Iteration of Functions",
       "MMathSStat", "sect16ID", "_top");
   </script> </li>
   <li> <script language="javascript">
@@ -126,7 +126,7 @@ to carry out our regular academic tasks.</p>
 
 <hr class="MMathSStat" style="clear: both;">
 
-<h3 id="Sect16"> Iterative Mappings </h3>
+<h3 id="Sect16"> Iteration of Functions </h3>
 
 <p>The plain version of <em>Matlab</em> does not have functions to
 execute iterative methods.  Therefore, the user has to
@@ -237,7 +237,7 @@ ans =
 </div>
 
 <div class="Note">
-<p><em>Note</em>: If we use the line
+<p><em>Remark</em>: If we use the line
 <font class="matlab">x = funct(x);</font> instead of the line
 <font class="matlab">x = feval(funct,x);</font> in the code for
 the function <font class="matlab">fxpt2</font>, then the function
@@ -704,19 +704,16 @@ arbitrary parameter.  In particular, we are interested in the case
 <h3 id="Sect25"> Iterative Function Systems </h3>
 
 <p>For an introduction to <em>iterative function systems</em> (IFS), the
-reader may consult the websites <script language="javascript"> 
-  buildLinK(fractal1.url_en, fractal1.text_en, "MMathSStat",
-  fractal1.id, fractal1.target);
-</script> and <script language="javascript"> 
+reader may consult the document <script language="javascript"> 
   buildLinK(fractal2.url_en, fractal2.text_en, "MMathSStat",
   fractal2.id, fractal2.target);
-</script>. </p>
+</script>.</p>
 
-<p>We consider the following three IFS:</p>
+<p>Here are a few examples of IFS.</p>
 <ol>
 <li><p><em>Sierpinski triangle</em>: This set is
-the <q lang="en">fixed point</q> of the function \( \mathcal{S} = f^c\)
-associated to the IFS \( \{ f_j\}_{j=1}^3 \) where</p>
+the <q lang="en">fixed point</q> of the function \(f^c\)
+defined by the IFS \( \{ f_j\}_{j=1}^3 \) where</p>
 \[
 \begin{split}
 &f_1(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x} +
@@ -727,11 +724,11 @@ f_2(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x} +
 f_3(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix}\vec{x} \ .
 \end{split}
 \]
-<p>Recall that \(\mathcal{S}(X) = \bigcup_{j=1}^3 f_j(X)\). </p>
+<p>Recall that \(\displaystyle f^c(X) = \bigcup_{j=1}^3 f_j(X)\) for
+\(X \in (\mathbb{R}^2)^c\). </p>
 </li>
 <li><p><em>Fern</em>: This set is the <q lang="en">fixed point</q>
-of the function \( \mathcal{F} = f^c\)
-associated to the IFS \( \{ f_j\}_{j=1}^4 \) where</p> 
+of the function \(f^c\) defined by the IFS \( \{ f_j\}_{j=1}^4 \) where</p> 
 \[
 \begin{split}
 &f_1(\vec{x}) = \begin{pmatrix} 0 & 0 \\ 0 & 0.16 \end{pmatrix} \vec{x}
@@ -744,11 +741,11 @@ f_4(\vec{x}) = \begin{pmatrix} -0.15 & 0.28 \\ 0.26 & 0.24 \end{pmatrix}
 \vec{x} + \begin{pmatrix} 0 \\ 0.44 \end{pmatrix} \ .
 \end{split}
 \]
-<p>Recall that \(\displaystyle \mathcal{F}(X) = \bigcup_{j=1}^4 f_j(X)\).</p>
+<p>Recall that \(\displaystyle f^c(X) = \bigcup_{j=1}^4 f_j(X)\) for
+\(X \in (\mathbb{R}^2)^c\).</p>
 </li>
 <li><p><em>Leaf</em>: This set is the <q lang="en">fixed point</q>
-of the function \( \mathcal{L} = f^c\)
-associated to the IFS \( \{ f_j\}_{j=1}^4 \) where</p> 
+of the function \(f^c\) defined by the IFS \( \{ f_j\}_{j=1}^4 \) where</p> 
 \[
 \begin{split}
 &f_1(\vec{x}) = \begin{pmatrix} 0.6 & 0 \\ 0 & 0.6 \end{pmatrix}
@@ -761,67 +758,67 @@ f_4(\vec{x}) = \begin{pmatrix} 0.4 & -0.3 \\ 0.3 & 0.4 \end{pmatrix}
 \vec{x} + \begin{pmatrix} 0.27 \\ 0.09 \end{pmatrix} \ .
 \end{split}
 \]
-<p>Recall that \(\displaystyle \mathcal{F}(X) = \bigcup_{j=1}^4 f_j(X)\).</p>
+<p>Recall that \(\displaystyle f^c(X) = \bigcup_{j=1}^4 f_j(X)\) for
+\(X \in (\mathbb{R}^2)^c\).</p>
 </li>
 </ol>
+<p>These IFS and several other IFS are defined in the file
+<em>m-file</em> <script language="javascript"> 
+  buildLinK("ifs_systems.m", "ifs_systems.m", "MMathSStat",
+  "ifsstmmId","_blank");
+</script>.</p>
 
 <p>We provide two functions in <em>Matlab</em> to approximate the
-<q lang="en">fixed point</q> for each of these IFS.
+<q lang="en">fixed point</q> of the function \(f^c\) defined by an IFS.
 The first function described below applies strictly
-the iterative procedure for each of the IFS.  The only
+the iterative procedure to the given IFS.  The only
 inaccuracies are due to numerical computations.  However, this
 function cannot compute many iterations before exhausting the computer
 memory.  We assume that the initial set is a simple set (e.g. a polygonal
-curve).  After 1 iteration, we have 3 copies of the transformed
-initial set.  After 2 iterations, we have 3<sup>2</sup>
-copies of the transformed initial set. and so on.  After 10
-iterations, we have already 3<sup>10</sup> = 59,049 copies of the
-transformed initial set.  We rapidly reach the full capacity of the computer
-memory.</p>
+curve).  If the IFS is composed on \(N\) functions, then
+after 1 iteration, we have \(N\) copies of the transformed
+initial set.  After 2 iterations, we have \(N^2\)
+copies of the transformed initial set. and so on.  If \(N=3\), then,
+after 10 iterations, we have already \(3^{10} = 59,049\) copies of the
+transformed initial set.  We rapidly reach the full
+capacity of the computer memory.</p>
 
 <div class="Code">
 <pre class="matlab">
 % function ifs(X, N, syst, colour)
 %
-% X      : Initial set, a (2 x n) matrix storing the corners of the
-%          closed polygonal curve.
+% Compute the iterations of the function defined by an IFS starting
+% with a given closed polygonal curve.
+%
+% X      : Initial polygonal curve, a (2 x n) matrix storing the corners
+%          of the closed polygonal curve.
 % N      : The number of iterations.
-% syst   : It is one of Sierpinski (default), Fern or Leaf
+% syst   : A cell array of function handles for the functions in the IFS.
 % colour : One of the colours accepted in Matlab plot/fill.
 %          The default colour is blue.
 %
-
 <font class="matlab">function ifs(X, N, syst, colour)
     if ( nargin < 4 )
         colour = 'blue';
         if ( nargin < 3 )
-            syst = "Sierpinski";
+            disp("Not enough arguments.  Use the help command with ifs.")
+            return;
         end
     end
 
-    if ( strcmpi(syst,"Sierpinski") )
-        for i=1:N
-            fprintf('%d ',i)
-            X = sierpinski(X);
+    for i=1:N
+        fprintf('%d ',i)
+        XX = [];
+        for j=1:length(syst)
+            XX = [XX , syst{j}(X), [NaN;NaN]];
         end
-    elseif ( strcmpi(syst,"Fern") )
-        for i=1:N
-            fprintf('%d ',i)
-            X = fern(X);
-        end
-    elseif ( strcmpi(syst,"Leaf") )
-        for i=1:N
-            fprintf('%d ',i)
-            X = leaf(X);
-        end
-    else
-        disp('No knows IFS has been given. Use help IFS for the instructions.');
-        return;
+        X = XX;
     end
 
     cla;
     hold on;
     axis off;
+    axis equal;		  
 
     %    If the function fill() was behaving like the function
     %    plot() when a point with coordinates NaN is inserted,
@@ -833,94 +830,75 @@ memory.</p>
     %    p.EdgeColor = colour;
 
     I = find(isnan(X(1,:)));
-    if ( length(I) == 0 )
-        p = fill(X(1,:), X(2,:),'b');
-        set(p,'FaceColor',colour);
-        set(p,'EdgeColor',colour);
-    else
-        i1 = 1;
-        i2 = I(1)-1;
+    i1 = 1;
+    for i = 1:length(I)
+        i2 = I(i)-1;
         p = fill(X(1,i1:i2), X(2,i1:i2),'b');
         set(p,'FaceColor',colour);
         set(p,'EdgeColor',colour);
-        i1 = I(1)+1;
-        for i = 2:length(I)
-            i2 = I(i)-1;
-            p = fill(X(1,i1:i2), X(2,i1:i2),'b');
-            set(p,'FaceColor',colour);
-            set(p,'EdgeColor',colour);
+        if (i < length(I) )
             i1 = I(i)+1;
         end
-        p = fill(X(1,i1:size(X,2)), X(2,i1:size(X,2)),'b');
-        set(p,'FaceColor',colour);
-        set(p,'EdgeColor',colour);
     end
 
     fprintf('\nThe figure has been drawn.\n');
-end
-
-% Sierpinski Triangle
-
-function XX = sierpinski(X)
-    XX = [0.5 * X + [0 ; 0.5], [NaN ; NaN]];
-    XX = [XX, 0.5 * X + [0.5 ; 0 ], [NaN ; NaN]];
-    XX = [XX, 0.5 * X];
-end
-
-% fern
-
-function XX = fern(X)
-    XX = [[0 , 0 ; 0, 0.16]*X, [NaN; NaN]];
-    XX = [XX, [0.85 , 0.04 ; -0.04 , 0.85]*X + [0 ; 1.6], [NaN ; NaN]];
-    XX = [XX, [0.20 ,-0.26 ; 0.23 , 0.22]*X + [0 ; 1.6],[NaN ; NaN]];
-    XX = [XX, [-0.15 , 0.28 ; 0.26 , 0.24]*X + [0 ; 0.44]];
-end
-
-% leaf
-
-function XX = leaf(X)
-    XX = [ [0.6 , 0 ; 0 , 0.6]*X + [0.18; 0.36],[NaN;NaN]];
-    XX = [XX, [0.6 , 0 ; 0 , 0.6]*X + [0.18; 0.12], [NaN;NaN]];
-    XX = [XX, [0.4, 0.3 ; -0.3 , 0.4]*X + [0.27; 0.32], [NaN;NaN]];
-    XX = [XX, [0.4, -0.3 ; 0.3 , 0.4]*X + [0.27; 0.09]];
 end
 </font></pre>
 </div>
 
 <p>The first argument of the previous function must be a closed
 polygonal curve.  The initial set is the set of all points enclosed by
-the polygonal curve.  It is possible to modify the previous function
+the closed polygonal curve.  It is possible to modify the previous function
 to accept more general initial sets.  The function above is found in
 the <em>m-file</em> <script language="javascript"> 
   buildLinK("ifs.m", "ifs.m", "MMathSStat", "ifsmId", "_blank");
 </script>. </p>
 
 <div class="Example">
-<p><em>Example</em>: the initial polygonal curve that we choose is
+<p><em>Example</em>:  We draw the Sierpinski triangle.
+The initial closed polygonal curve that we choose is
 defined by the triangle with vertices at \( (0,0), (1,0) \) and
- \( (0,1) \).  We compute 5 iterations for the Sierpinski triangle.
-Because of the simplicity of the Sierpinski triangle and the
+ \( (0,1) \).  We compute 6 iterations of the function \(f^c\)
+defined by the IFS associated to the Sierpinski triangle.
+This IFS is defined in the <em>m-file</em> <script language="javascript"> 
+  buildLinK("ifs_systems.m", "ifs_systems.m", "MMathSStat",
+  "ifsstmmId","_blank");
+</script> by the following commands:</p>
+
+<pre class="matlab">
+<font class="matlab">% Sierpinski triangle
+S1 = @(x) 0.5*x + [0;0.5]; ...
+S2 = @(x) 0.5*x + [0.5;0]; ...
+S3 = @(x) 0.5*x; ...
+S = {S1, S2, S3}; </font>
+</pre>
+
+<p>Because of the simplicity of the Sierpinski triangle and the
 limited number of pixels on the computer screens, we almost get 
-after 5 iterations the best representation of the Sierpinski triangle
-that may be displayed.</p>
+after 6 iterations the best representation of the Sierpinski triangle
+that could be displayed.</p>
 
 <pre class="matlab">
 >> <font class="matlab">close all;</font>
 >> <font class="matlab">X= [ 0 1 0 0 ; 0 0 1 0];</font>
->> <font class="matlab">ifs(X,5,'Sierpinski','red')</font>
-1 2 3 4 5
+>> <font class="matlab">ifs_systems;</font>
+>> <font class="matlab">ifs(X,6,S,'red')</font>
+1 2 3 4 5 6
 The figure has been drawn
 </pre>
 
 <div class="center"> 
-  <img src="Matlab_fractal1.png" style="width: 400px"
+  <img src="Matlab_fractal1.png" style="width: 300px"
        alt="Sierpinski triangle">
 </div>
 
-<p>The result is not as nice for the fern and the leaf because they
+<p>The result is not always as nice for other IFS because they
 are <q lang="en">fixed points</q> for more complex IFS.  The reader
-should repeat this example with the fern and the leaf instead of the
-Sierpinski triangle to observe the limits of this function.</p>
+should repeat this example with the other IFS in the 
+<em>m-file</em> <script language="javascript"> 
+  buildLinK("ifs_systems.m", "ifs_systems.m", "MMathSStat",
+  "ifsstmmId","_blank");
+</script> to observe the limits of this <em>Matlab</em> function.</p>
 </div>
 
 <p>To avoid the problem associated to exponential growth in the number of
@@ -951,14 +929,18 @@ After that, we may use the IFS \( \{ g_j\}_{j=1}^J \)
 composed of the functions given in \eqref{Equ1} with the initial set \(T\).
 In practice, we use the initial set \(T\) defined by</p>
 \[
- T = \{ \lfloor M\vec{x} \rfloor \equiv
-( \lfloor M x_1 \rfloor ,\lfloor M x_2 \rfloor)
-: \vec{x} \in S \} \subset \mathbb{Z} \times \mathbb{Z} \ .
+ T = \{ \text{round}(M\vec{x}) \equiv
+( \text{round}(M x_1) ,\text{round}(M x_2) )
+: \vec{x} \in S \} \subset \mathbb{Z} \times \mathbb{Z} \ ,
 \]
-<p>After that, we use the IFS \( \{ g_j\}_{j=1}^J \)
+<p>where \(\text{round}(x)\) is the closest integer to \(x\).
+For numbers like \(3.5\), \(\text{round}(x)\) is the closest integer
+to \(x\) that is also the furthest away from the origin
+(<em>Matlab</em>'s implementation). 
+After that, we use the IFS \( \{ g_j\}_{j=1}^J \)
 composed of the functions given in \eqref{Equ1} restricted to
 the space \(\mathbb{Z} \times \mathbb{Z}\); namely,
-we use \(\displaystyle \lfloor g_j(\vec{y}) \rfloor\)
+we use \(\displaystyle \text{round}(g_j(\vec{y}))\)
 instead of \(\displaystyle g_j(\vec{y})\).
 This is equivalent to representing \(S\) with pixels on the computer
 screen and implementing the IFS on the pixels.</p>
@@ -983,125 +965,70 @@ modified to accept more general initial sets. </p>
 
 <div class="Code">
 <pre class="matlab">
-% function ifs2(X, N, syst, colour)
+% function ifs2(X, N, syst, M, colour)
+%
+% Compute the iterations of the function defined by an IFS starting
+% with a given closed polygonal curve.
 %
 % X      : Initial set, a (2 x n) matrix storing the corners of the
 %          polygonal curve.
 % N      : The number of iterations.
-% syst   : It is one of Sierpinski (default), Fern or Leaf
-% colour : One of the colours accepted in Matlab plot/fill.
+% syst   : A cell array of function handles for the functions in the IFS.
+% M      : The number of points per unit length.  The default value is
+%          400 points.
+% colour : One of the colours accepted in Matlab plot.
 %          The default colour is blue.
 %
-
-<font class="matlab">function ifs2(X, N, syst, colour)
-    if ( nargin < 4 )
+<font class="matlab">function ifs2(X, N, syst, M, colour)
+    if ( nargin < 5 )
         colour = 'blue';
-        if ( nargin < 3 )
-            syst = "Sierpinski";
+        if ( nargin < 4 )
+            M = 400;
+            if ( nargin < 3 )
+                disp("Not enough arguments.  Use the help command with ifs.")
+                return;
+            end
         end
     end
-
-    M = 400;
 
     % We rescale the initial polygonal curve to get the set T.
     ro = [];
     co = [];
-    X1 = floor(M*X(:,1));
+    X1 = round(M*X(:,1));
     for i = 2:size(X,2)
-        X2 = floor(M*X(:,i));
+        X2 = round(M*X(:,i));
         R = max(abs(X1(1,1)-X2(1,1)),abs(X1(2,1)-X2(2,1)))+1;
-        ro = [ro,floor(linspace(X1(1,1),X2(1,1),R))];
-        co = [co,floor(linspace(X1(2,1),X2(2,1),R))];
+        ro = [ro,round(linspace(X1(1,1),X2(1,1),R))];
+        co = [co,round(linspace(X1(2,1),X2(2,1),R))];
         X1 = X2;
     end
-    rc = unique([ro;co]','rows');
+    rc = unique([ro;co]','rows')';
 
-    % We compute the iterations of the selected IFS starting with T.
-    if ( strcmpi(syst,"Sierpinski") )
-        for i = 1:N
-            fprintf('%d ',i)
-            rc = sierpinski(rc,M);
+    % We compute the iterations of the IFS starting at T.
+    for i = 1:N
+        fprintf('%d ',i)
+        RC = [];
+        for j=1:length(syst)
+            RC = [RC , syst{j}(rc,M)];
         end
-    elseif ( strcmpi(syst,"Fern") )
-        for i=1:N
-            fprintf('%d ',i)
-            rc = fern(rc,M);
-        end
-    elseif ( strcmpi(syst,"Leaf") )
-        for i=1:N
-            fprintf('%d ',i)
-            rc = leaf(rc,M);
-        end
-    else
-        disp('No knows IFS has been given. Use help IFS for the instructions.');
-        return;
+        rc = round(RC);
+        rc = unique(rc','rows')';
     end
 
     cla;
     hold on;
     axis off;
+    axis equal;		  
 
     % We rescale the resulting set to the initial coordinate system.
-    ro = rc(:,1)/M;
-    co = rc(:,2)/M;
+    ro = rc(1,:)/M;
+    co = rc(2,:)/M;
 
     % We draw the resulting set.
-    p = plot(ro,co,'.');
+    p = plot(ro,co,'.','LineWidth',0.1);
     set(p,'Color',colour);
 
     fprintf('\nThe figure has been drawn.\n');
-end
-
-% Sierpinski Triangle
-
-function RC = sierpinski(rc,M)
-    ro = rc(:,1);
-    co = rc(:,2);
-    r1 = 0.5*ro;
-    c1 = 0.5*co + M*0.5;
-    r2 = 0.5*ro + M*0.5;
-    c2 = 0.5*co;
-    r3 = 0.5*ro;
-    c3 = 0.5*co;
-    r = floor([r1;r2;r3]);
-    c = floor([c1;c2;c3]);
-    RC = unique([r,c],'rows');
-end
-
-% fern
-
-function RC = fern(rc,M)
-    ro = rc(:,1);
-    co = rc(:,2);
-    r1 = 0*ro;
-    c1 = 0.16*co;
-    r2 = 0.85*ro + 0.04*co;
-    c2 = -0.04*ro + 0.85*co + M*1.6;
-    r3 = 0.20*ro - 0.26*co;
-    c3 = 0.23*ro + 0.22*co + M*1.6;
-    r4 = -0.15*ro + 0.28*co;
-    c4 = 0.26*ro + 0.24*co + M*0.44;
-    r = floor([r1;r2;r3;r4]);
-    c = floor([c1;c2;c3;c4]);
-    RC = unique([r,c],'rows');
-end
-
-% leaf
-
-function RC = leaf(rc,M)
-    ro = rc(:,1);
-    co = rc(:,2);
-    r1 = 0.6*ro + M*0.18;
-    c1 = 0.6*co + M*0.36;
-    r2 = 0.6*ro + M*0.18;
-    c2 = 0.6*co + M*0.12;
-    r3 = 0.4*ro + 0.3*co + M*0.27;
-    c3 = -0.3*ro + 0.4*co + M*0.32;
-    r4 = 0.4*ro - 0.3*co + M*0.27;
-    c4 = 0.3*ro + 0.4*co + M*0.09;
-    r = floor([r1;r2;r3;r4]);
-    c = floor([c1;c2;c3;c4]);
-    RC = unique([r,c],'rows');
 end
 </font></pre>
 </div>
@@ -1109,39 +1036,382 @@ end
 <p>This function is found in the <em>m-file</em>
 <script language="javascript"> 
   buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
-</script>.  It may be useful to modify the previous function by
-adding the factor \(M\) as argument.  Hence, this value could then be
-chosen to take full advantage of the quality of the computer screen.
-</p>
+</script>.  The value of \(M\) can be chosen to take full advantage
+of the quality of the computer screen.  We have defined several IFS in
+the <em>m-file</em> <script language="javascript"> 
+  buildLinK("ifs2_systems.m", "ifs_systems.m", "MMathSStat",
+  "ifsstmmId","_blank");
+</script>.  For instance, the IFS for the Sierpinski triangle is now
+defined by the following commands:</p>
+<pre class="matlab">
+<font class="matlab">% Sierpinski triangle
+S1 = @(x,M) 0.5*x + M*[0;0.5]; ...
+S2 = @(x,M) 0.5*x + M*[0.5;0]; ...
+S3 = @(x,M) 0.5*x; ...
+S = {S1, S2, S3};</font>
+</pre>
+<p>The only difference between this definition of the IFS for the
+Sierpinski triangle and the definition of the IFS for the Sierpinski
+triangle given for the function <em class="matlab">ifs</em> above is the
+addition of the parameter \(M\) for the rescaling of the system.</p>
 
 <div class="Example">
-<p><em>Example</em>: The initial set that we choose is the polygonal curve 
+<p><em>Example</em>: We draw the fern obtained as the fixed point of
+the function \(f^c\) defined by the IFS given at the beginning of this
+section.  The definition of this IFS is also included in the 
+<em>m-file</em> <script language="javascript"> 
+  buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
+</script>.  The initial set that we choose is the closed polygonal curve  
 defined by the triangle with vertices at \( (0,0), (1,0) \) and
-\( (0,1) \).  We compute 18 iterations for the fern.  We repeat this
-example with the leaf instead of the fern.</p>
+\( (0,1) \).  We compute 18 iterations of \(f^c\).</p>
 
 <pre class="matlab">
 >> <font class="matlab">X= [ 0 1 0 0 ; 0 0 1 0];</font>
->> <font class="matlab">ifs2(X,18,'Fern','green')</font>
+>> <font class="matlab">ifs2_systems;</font>
+>> <font class="matlab">ifs2(X,18,F,600,'green')</font>
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
 The figure has been drawn
 </pre>
 
 <div class="center"> 
-  <img src="Matlab_fractal2.png" style="width: 400px"
+  <img src="Matlab_fractal2.png" style="width: 300px"
        alt="A fern">
 </div>
 
+<p>We draw the leaf obtained as the fixed point of the function
+\(f^c\) defined by the IFS given at the beginning of this 
+section.  The definition of the IFS is also included in the 
+<em>m-file</em> <script language="javascript"> 
+  buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
+</script>.  We use the same initial set as above and compute 20
+iterations of \(f^c\).</p>
+
 <pre class="matlab">
->> <font class="matlab">ifs2(X,20,'leaf','red')</font>
+>> <font class="matlab">ifs2(X,20,L,600,'red')</font>
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
 The figure has been drawn
 </pre>
 
 <div class="center"> 
-  <img src="Matlab_fractal3.png" style="width: 400px"
+  <img src="Matlab_fractal3.png" style="width: 300px"
        alt="A leaf">
 </div>
+</div>
+
+<h4 id="Sect25A">Adaptive Cut Method</h4>
+
+<p>The adaptive cut method is described in Section
+<script language="javascript"> 
+  buildLinK(fractal2.url_en+"#SS3", "Addaptive Cut Method",
+  "MMathSStat", fractal2.id+"SS3", fractal2.target);
+</script> of the document
+<script language="javascript"> 
+  buildLinK(fractal2.url_en,fractal2.text_en,"MMathSStat",
+  fractal2.id, fractal2.target);
+</script>.  It is a compromise between the method used in
+the <em>Matlab</em> function <em class="matlab">ifs</em> and the
+method used in the <em>Matlab</em> function <em class="matlab">ifs2</em>.
+The adaptive cut method is implemented in the following
+<em>Matlab</em> function.</p>
+
+<div class="Code">
+<pre class="matlab">
+% function ifs_adaptive(X, delta, syst, matr, diam, colour)
+%
+% Draw the fixed point K of the function defined by an IFS using the
+% adaptive cut method.
+%
+% X      : A point on K, a (2 x 1) matrix in Matlab.
+% delta  : The Hausdorff distance between the set A drawn and the set K.
+% syst   : A cell array of function handles for the functions in the IFS.
+% matr   : A cell array of (2 x 2) matrices where matr{j} is the matrix
+%          in the definition of syst{j}.  We assume that the functions
+%          in the IFS are of the form f(x) = Mx + b.
+% diam   : The estimated diameter of the fixed point K.  The default value
+%          is 1.
+% colour : One of the colours accepted in Matlab plot.
+%          The default colour is blue.
+%
+<font class="matlab">function ifs_adaptive(X, delta, syst, matr, diam, colour)
+    if ( nargin < 6 )
+        colour = 'blue';
+        if ( nargin < 5 )
+            diam = 1;
+            if ( nargin < 4 )
+                disp("Not enough arguments.")
+                disp("Use the help command with ifs_adaptive.")
+                return;
+            end
+        end
+    end
+
+    J = length(syst);
+    if ( J ~= length(matr) )
+        disp("syst and matr do not have the same dimension.")
+        disp("Use the help command with ifs.")
+        return;
+    end
+
+    cla;
+    hold on;
+    axis off;
+    axis equal;
+
+    A = [1 0 ; 0 1];
+    V = [];
+    nested(syst,matr,A,V,J,delta,X,gca,diam,colour);
+
+    fprintf('\nThe figure has been drawn.\n');
+end
+
+function nested(syst,matr,A,V,J,delta,X,axe,diam,colour)
+    for j=1:J
+        AA = A*matr{j};
+        VV = [V,j];
+        C = 2*max(max(abs(AA)))*diam;
+        if ( C < delta )
+            Y = X;
+            for k = length(VV):-1:1
+                Y = syst{VV(k)}(Y);
+            end
+            plot(axe,Y(1),Y(2),'.','LineWidth',0.1,'Color',colour);
+        else
+            nested(syst,matr,AA,VV,J,delta,X,axe,diam,colour);
+        end
+    end
+end
+</font></pre>
+</div>
+
+<p>The function above is found in
+the <em>m-file</em> <script language="javascript"> 
+buildLinK("ifs_adaptive.m","ifs_adaptive.m","MMathSStat","ifsmId","_blank");
+</script>.  The use the <em>Matlab</em> function
+<em class="matlab">ifs_adaptive</em>, the matrices
+\(A_j\) used for the defintion of the functions \(f_j\) that compose
+the IFS must be given separately.  We have added the list of these
+matrices to each of the IFS defined in the <em>m-file</em>
+<script language="javascript">
+buildLinK("ifs_systems.m", "ifs_systems.m","MMathSStat", "ifsId44", "_blank");
+</script>.  For instance, the definition of the IFS for the fern is as
+it follows.</p>
+
+<pre class="matlab">
+<font class="matlab">% Fern
+F1 = @(x) [0,0;0,0.16]*x; ...
+F2 = @(x) [0.85,0.04;-0.04,0.85]*x + [0;1.6]; ...
+F3 = @(x) [0.20,-0.26;0.23,0.22]*x + [0;1.6]; ...
+F4 = @(x) [-0.15,0.28;0.26,0.24]*x + [0;0.44]; ...
+F = {F1, F2, F3, F4}; ...
+FM = { [0,0;0,0.16],[0.85,0.04;-0.04,0.85],[0.20,-0.26;0.23,0.22], ...
+       [-0.15,0.28;0.26,0.24] };
+</font></pre>
+<p>The list <em class="matlab">FM</em> contains the matrices
+\(A_j\) used for the definition of the functions \(f_j\) of the IFS.</p>
+
+<div class="Example">
+<p><em>Example</em>: We use the <em>Matlab</em> function
+<em class="matlab">ifs_adaptive</em> to draw the fern.  The
+point \((1,0)\) belongs to the fixed point \(K\) of the fonction
+\(f^c\) defined by the IFS for the fern.</p>
+
+<pre class="matlab">
+>> <font class="matlab">ifs_systems;</font>
+>> <font class="matlab">ifs_adaptive([1;0],0.01,F,FM,2,'green');</font>
+
+The figure has been drawn.
+</pre>
+
+<div class="center">
+  <img src="Matlab_fractal7.png" style="width: 300px"
+       alt="A fern">
+</div>
+</div>
+
+<p>The function <em class="matlab">ifs_adaptive</em> requires lest
+computer memory than the function <em class="matlab">ifs</em>
+but it is still demanding on the graphic card of the computer.</p>
+
+<h4>The Chaos game</h4>
+
+<p>The method implemented in the <em>Matlab</em> functions 
+<em class="matlab">ifs</em> and
+<em class="matlab">ifs2</em> is not the only method used to draw
+the fixed point \(K\) of the
+function \(f^c\) defined by an IFS \(\{f_j\}_{j=1}^J\).
+The <em>chaos game</em> is often used to draw the fixed
+point \(K\).  This method requires very little computer memory.  It
+may however requires a significant amount of computation time to
+obtain a nice image.  The <em>chaos game</em>
+is described in the section <script language="javascript">
+buildLinK(fractal2.url_en+"#SS3", "The Chaos Game","MMathSStat",
+"f2SS3id", "_blank");</script> of the document <script language="javascript">
+buildLinK(fractal2.url_en,fractal2.text_en,"MMathSStat",
+"f2SS3id", "_blank");</script>.  It is very simple to implement the
+<em>chaos game</em> on a computer.  However, this method requires a
+carefully chosen probability distribution for the random choice of the
+function \(f_j\) at each iteration as it
+is explained in the section <script language="javascript">
+buildLinK(fractal2.url_en+"#SS3", "The Chaos Game","MMathSStat",
+"f2SS3id2", "_blank");</script> of the document <script language="javascript">
+buildLinK(fractal2.url_en,fractal2.text_en,"MMathSStat",
+"f2SS3id2", "_blank");</script>.  The <em>Matlab</em> functions
+<em class="matlab">ifs_prob</em> and <em class="matlab">ifs2_prob</em>
+implement the <em>chaos game</em>.  These functions are found in the
+<em>m-files</em> <script language="javascript">
+buildLinK("ifs_prob.m", "ifs_prob.m","MMathSStat", "idifsp1", "_blank");
+</script> and
+<script language="javascript">
+buildLinK("ifs2_prob.m", "ifs2_prob.m","MMathSStat", "idifsp2", "_blank");
+</script> respectively.  The first function is to
+be used with IFS as those defined in the <em>m-file</em>
+<script language="javascript">
+buildLinK("ifs_systems.m", "ifs_systems.m","MMathSStat", "idifsp3", "_blank");
+</script> while the second function is to be
+used with IFS as those defined in the <em>m-file</em>
+<script language="javascript">
+buildLinK("ifs2_systems.m", "ifs2_systems.m","MMathSStat", "idifsp4", "_blank");
+</script>.</p>
+
+<h4>IFS with Condensation</h4>
+
+<p>The <em>Matlab</em> functions <em class="matlab">ifs</em> and
+<em class="matlab">ifs2</em> can be used
+to draw the fixed point of the function \(f^c\) defined by an IFS
+with condensation.  An example of IFS with condensation is provided by
+the collection of functions \( \{ f_j\}_{j=0}^3 \) where</p>
+\[
+\begin{split}
+f_0(A) &= \{ \vec{x} : x_1 = 1/2 \ \text{and}\ 0 \leq x_2 \leq 1/2 \}
+\qquad \text{(The condensation function)} \ , \\
+f_1(\vec{x}) &=  0.6 \begin{pmatrix} \sqrt{2}/2 & -\sqrt{2}/2 \\
+\sqrt{2}/2 & \sqrt{2}/2 \end{pmatrix} \left( \vec{x} - \begin{pmatrix}
+1/2 \\ 0 \end{pmatrix} \right) + \begin{pmatrix} 1/2 \\ 1/2 \end{pmatrix} \\
+&= 0.6 \begin{pmatrix} \sqrt{2}/2 & -\sqrt{2}/2 \\
+\sqrt{2}/2 & \sqrt{2}/2\end{pmatrix} \vec{x}
++ \begin{pmatrix} 1/2 \\ 1/2 \end{pmatrix}
+- 0.6 \begin{pmatrix} \sqrt{2}/2 & -\sqrt{2}/2 \\
+\sqrt{2}/2 & \sqrt{2})/2\end{pmatrix} \begin{pmatrix} 1/2 \\ 0 \end{pmatrix}
+\ , \\
+f_2(\vec{x}) &=  0.6 \begin{pmatrix} 1/2 & \sqrt{3}/2 \\
+-\sqrt{3}/2 & 1/2\end{pmatrix} \left( \vec{x} - \begin{pmatrix}
+1/2 \\ 0 \end{pmatrix} \right) + \begin{pmatrix} 1/2 \\ 1/2
+\end{pmatrix} \\
+&= 0.6 \begin{pmatrix} 1/2 & \sqrt{3}/2 \\
+-\sqrt{3}/2 & 1/2\end{pmatrix} \vec{x}
++ \begin{pmatrix} 1/2 \\ 1/2 \end{pmatrix}
+- 0.6 \begin{pmatrix} 1/2 & \sqrt{3}/2 \\
+-\sqrt{3}/2 & 1/2\end{pmatrix} \begin{pmatrix} 1/2 \\ 0 \end{pmatrix} \\
+\text{and} & \\
+f_3(\vec{x}) &=  0.4 \begin{pmatrix} \cos(\pi/10) & -\sin(\pi/10) \\
+\sin(\pi/10) & \cos(\pi/10) \end{pmatrix} \left( \vec{x} - \begin{pmatrix}
+1/2 \\ 0 \end{pmatrix} \right) + \begin{pmatrix} 1/2 \\ 1/2 \end{pmatrix} \\
+&=  0.4 \begin{pmatrix} \cos(\pi/10) & -\sin(\pi/10) \\
+\sin(\pi/10) & \cos(\pi/10) \end{pmatrix} \vec{x}
++ \begin{pmatrix} 1/2 \\ 1/2 \end{pmatrix}
+- 0.4 \begin{pmatrix} \cos(\pi/10) & -\sin(\pi/10) \\
+\sin(\pi/10) & \cos(\pi/10) \end{pmatrix} \begin{pmatrix}
+1/2 \\ 0 \end{pmatrix}
+\end{split}
+\]
+<p>for all set \( A \subset \mathbb{R}^2\) and \(\vec{x} \in \mathbb{R}^2\).
+Recall that \(\displaystyle f^c(X) = \bigcup_{j=0}^3 f_j(X)\) for
+\(X \in (\mathbb{R}^2)^c\).  The condensation set is
+\( \{\vec{x} : x_1 = 1/2 \ \text{and} \ 0 \leq x_2 \leq 1/2 \}\).
+The fixed point of the function \(f^c\) defined by this IFS with
+condensation represents a tree as it shows in the next example.</p>
+
+<p>The IFS with condensation above if defined
+in the <em>m-file</em> <script language="javascript">
+buildLinK("ifs2_systems.m", "ifs2_systems.m","MMathSStat", "ifs2Id4", "_blank");
+</script> by the following <em>Matlab</em> code.</p>
+<pre class="matlab">
+<font class="matlab">% Tree from an IFS with condensation
+function rc = cond(x,M)
+    ro = [];
+    co = [];
+    X = [0.5,0.5;0,0.5];
+    X1 = round(M*X(:,1));
+    for i = 2:size(X,2)
+        X2 = round(M*X(:,i));
+        R = max(abs(X1(1,1)-X2(1,1)),abs(X1(2,1)-X2(2,1)))+1;
+        ro = [ro,round(linspace(X1(1,1),X2(1,1),R))];
+        co = [co,round(linspace(X1(2,1),X2(2,1),R))];
+        X1 = X2;
+    end
+    rc = unique([ro;co]','rows')';
+end
+Transl1 = [0.5;0.5]-[sqrt(2)/2,-sqrt(2)/2;sqrt(2)/2,sqrt(2)/2]*[0.3;0]; ...
+Transl2 = [0.5;0.5]-[1/2,sqrt(3)/2;-sqrt(3)/2,1/2]*[0.3;0]; ...
+Transl3 = [0.5;0.5]-[cos(pi/10),-sin(pi/10);sin(pi/10),cos(pi/10)]*[0.2;0]; ...
+TC0 = str2func('cond'); ...
+TC1 = @(x,M) 0.6*[sqrt(2)/2,-sqrt(2)/2;sqrt(2)/2,sqrt(2)/2]*x + M*Transl1; ...
+TC2 = @(x,M) 0.6*[1/2,sqrt(3)/2;-sqrt(3)/2,1/2]*x + M*Transl2; ...
+TC3 = @(x,M) 0.4*[cos(pi/10),-sin(pi/10);sin(pi/10),cos(pi/10)]*x ...
+          + M*Transl3; ...
+TC = {TC0, TC1, TC2, TC3};</font>
+</pre>
+
+<div class="Example">
+<p><em>Example</em>: The drawing of the fixed point of the function
+\(f^c\) defined by the IFS with condensation above is produced by
+the <em>Matlab</em> commands below. 
+The initial set that we choose is the closed polygonal curve  
+defined by the triangle with vertices at \( (0,0), (1,0) \) and
+\( (0,1) \).  We compute 20 iterations of \(f^c\).</p>
+<pre class="matlab">
+>> <font class="matlab">X= [ 0 1 0 0 ; 0 0 1 0];</font>
+>> <font class="matlab">ifs2_systems;</font>
+>> <font class="matlab">ifs2(X,18,TC,2500,'#99C28D')</font>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+The figure has been drawn
+</pre>
+
+<div class="center">
+  <img src="Matlab_fractal4.png" style="width: 300px"
+       alt="A tree">
+</div>
+</div>
+
+<p>For those who would like to repeat the previous example with
+the <em>Matlab</em> function <em class="matlab">ifs</em>, the IFS
+with condensation above if also defined in the <em>m-file</em>
+<script language="javascript">
+buildLinK("ifs_systems.m", "ifs_systems.m","MMathSStat", "ifsId4", "_blank");
+</script>.</p>
+
+<div class="Note">
+<p><em>Remark</em>: We confess that the <em>Matlab</em>
+function <em class="matlab">ifs</em>
+generates better images than the <em>Matlab</em> function
+<em class="matlab">ifs2</em> if the computer used has enough memory to
+compute many iterations of the function \(f^c\) defined by an IFS.
+For instance, 10 iterations of the function \(f^c\) defined by the IFS
+with condensation above yields the following image.</p>
+<div class="center">
+<img src="Matlab_fractal5.png" style="width: 300px" alt="Un arbre">
+</div>
+<p>We can see more fine details of the tree.</p>
+
+<p>We must also keep in mind that there is a big lost of image quality 
+when exporting a figure produced with <em>Matlab</em> to png format (or any
+other format) even if 600 dpi is used.  In fact, the only effect of
+using 600 dpi is to produce a very large file in format png.  The
+figure below is produced by zooming on a section of the figure
+produced by the <em>Matlab</em> function <em class="matlab">ifs2</em>
+before exporting the figure to png format.  We get a lot of details
+that are lost in the large figure given in the previous example.</p> 
+<div class="center">
+  <img src="Matlab_fractal6.png" style="width: 300px"
+       alt="Zoom on a section of the tree">
+</div>
+<p>It is also possible with <em>Matlab</em> to increase the dimensions
+of a figure before exporting it to png format.  This improves the
+image quality without generating a large file in format png.   This
+has been done in the examples above.  In order to increase the dimensions of a
+figure, it may be necessary to first increase the number of points per
+unit length when using the <em>Matlab</em> function
+<em class="matlab">ifs2</em>.</p>
 </div>
 
 <hr class="MMathSStat">

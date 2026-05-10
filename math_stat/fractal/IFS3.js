@@ -1,80 +1,52 @@
 window.onload = apps_init;
 
 function apps_init() {
-    if ( document.getElementById("SRPK") != null ) {
-	var initSRPK = document.getElementById("initSRPK");
-	var filledSRPK = document.getElementById("filledSRPK");
-	var colourSRPK = document.getElementById("colourSRPK");
-	var fillSrpk = false;
-	var colSrpk = "black";
-    
-	if ( filledSRPK != null )
-	    fillSrpk = ( filledSRPK.value === 'true' );
+    if ( document.getElementById("FractalCanvas") != null ) {
+	var initSet = document.getElementById("initSet");
+	var filledSet = document.getElementById("filledSet");
+	var initS = 0;
+	var filled = false;
+	var colour = "black";
+	var colourE = null;
+	var choice = "SRPK";
 
-	if ( colourSRPK != null )
-	    colSrpk = colourSRPK.value;
-
-	if ( initSRPK != null )
-	    initSRPK.onchange = function() {
-		initObject("SRPK", fillSrpk, colSrpk, initSRPK.value);
+	if ( filledSet != null )
+	    filled = ( filledSet.value === 'true' );
+	if ( initSet != null ) {
+	    initS = initSet.value;
+	    initSet.onchange = function() { apps_init(); }
+	}
+	
+	var IFSchoice = document.getElementById("IFSchoice");
+	if ( IFSchoice != null ) {
+	    IFSchoice.onchange = function() { apps_init(); }
+	    choice = IFSchoice.value;
+	    if ( choice == "SRPK" ) {
+		colourE = document.getElementById("colourSRPK");
 	    }
-
-	initObject("SRPK", fillSrpk, colSrpk, 0);
-	initSRPK.value = 0;
-    }
-
-    if ( document.getElementById("FERN") != null ) {
-	var initFERN = document.getElementById("initFERN");
-	var filledFERN = document.getElementById("filledFERN");
-	var colourFERN = document.getElementById("colourFERN");
-	var fillFern = false;
-	var colFern = "black";
-    
-	if ( filledFERN != null )
-	    fillFern = ( filledFERN.value === 'true' );
-
-	if ( colourFERN != null )
-	    colFern = colourFERN.value;
-
-	if ( initFERN != null )
-	    initFERN.onchange = function() {
-		initObject("FERN", fillFern, colFern, initFERN.value);
+	    else if ( choice == "SRPKVAR" ) {
+		colourE = document.getElementById("colourSRPKVAR");
 	    }
-
-	initObject("FERN", fillFern, colFern, 0);
-	initFERN.value = 0;
-    }
-
-    if ( document.getElementById("LEAF") != null ) {
-	var initLEAF = document.getElementById("initLEAF");
-	var filledLEAF = document.getElementById("filledLEAF");
-	var colourLEAF = document.getElementById("colourLEAF");
-	var fillLeaf = false;
-	var colLeaf = "black";
-    
-	if ( filledLEAF != null )
-	    fillLeaf = ( filledLEAF.value === 'true' );
-
-	if ( colourLEAF != null )
-	    colLeaf = colourLEAF.value;
-
-	if ( initLEAF != null )
-	    initLEAF.onchange = function() {
-		initObject("LEAF", fillLeaf, colLeaf, initLEAF.value);
+	    else if ( choice == "FERN" ) {
+		colourE = document.getElementById("colourFERN");
 	    }
-
-	initObject("LEAF", fillLeaf, colLeaf, 0);
-	initLEAF.value = 0;
-    }
-}
-
-/* *********************************************************************** */
-
-function clearIFS(CnvsName) {
-    var cnvs = document.getElementById(CnvsName);
-    if ( cnvs != null ) {
-	var cntxt = cnvs.getContext("2d");
-	cntxt.clearRect(0,0, cnvs.width, cnvs.height);
+	    else if ( choice == "LEAF" ) {
+		colourE = document.getElementById("colourLEAF");
+	    }
+	    else if ( choice == "TREE" ) {
+		colourE = document.getElementById("colourTREE");
+	    }
+	    else if ( choice == "CRYSTAL" ) {
+		colourE = document.getElementById("colourCRYSTAL");
+	    }
+	    else if ( choice == "TREEcond" ) {
+		colourE = document.getElementById("colourTREEcond");
+	    }
+	}
+	if ( colourE != null )
+	    colour = colourE.value;
+	
+	initObject("FractalCanvas", filled, colour, initS);
     }
 }
 
@@ -85,7 +57,7 @@ class Curves {
     }
 }
 
-function plotCurve(cntxt,curve,fillCurve) {
+function plotCurve(cntxt,curve,filled) {
     var X = curve.X;
     var Y = curve.Y;
     var J = curve.X.length;
@@ -97,13 +69,13 @@ function plotCurve(cntxt,curve,fillCurve) {
     }
     cntxt.stroke();
     cntxt.closePath();
-    if ( fillCurve ) {
+    if ( filled ) {
     	cntxt.fill();
     }
     cntxt.save();
 }
 
-function initObject(cnvsName, fillCurve, colour, choice) {
+function initObject(cnvsName, filled, colour, initS) {
     var cnvs = document.getElementById(cnvsName);
     var width = cnvs.width;
     var height = cnvs.height;
@@ -119,10 +91,10 @@ function initObject(cnvsName, fillCurve, colour, choice) {
     var curvesY = [0, h2, h2, 0];
     var initNbrVtx = 3;
     
-    if ( choice == 1 ) {
+    if ( initS == 1 ) {
 	curvesX = [0, w2, w2, 0, 0];
 	curvesY = [0, 0, h2, h2, 0];
-    } else if ( choice == 2 ) {
+    } else if ( initS == 2 ) {
 	var w3 = Math.floor(width/2);
 	var h3 = Math.floor(height/2);
 	curvesX = [w3, w2, w3, 0, w3];
@@ -131,14 +103,22 @@ function initObject(cnvsName, fillCurve, colour, choice) {
     
     // The initial figure
     cntxt.strokeStyle = colour;
-    if ( fillCurve ) {
+    if ( filled ) {
 	cntxt.fillStyle = colour;
     }
     
     var newcurve = new Curves(curvesX, curvesY);
-    plotCurve(cntxt, newcurve, fillCurve);
+    plotCurve(cntxt, newcurve, filled);
+}
 
-    return newcurve;
+/* *********************************************************************** */
+
+function clearIFS(CnvsName) {
+    var cnvs = document.getElementById(CnvsName);
+    if ( cnvs != null ) {
+	var cntxt = cnvs.getContext("2d");
+	cntxt.clearRect(0,0, cnvs.width, cnvs.height);
+    }
 }
 
 /* *********************************************************************** */
@@ -209,7 +189,7 @@ class Points {
     }
 }
 
-function initPoints(cnvs, M, fillFig, colour, choice) {
+function initPoints(cnvs, M, filled, colour, initS) {
     var width = cnvs.width;
     var height = cnvs.height;
     var cntxt = cnvs.getContext("2d");
@@ -220,16 +200,16 @@ function initPoints(cnvs, M, fillFig, colour, choice) {
     var X = [0, 1, 0, 0];
     var Y = [0, 0, 1, 0];
     
-    if ( choice == 1 ) {
+    if ( initS == 1 ) {
 	X = [0, 1, 1, 0, 0];
 	Y = [0, 0, 1, 1, 0];
-    } else if ( choice == 2 ) {
+    } else if ( initS == 2 ) {
 	X = [1/2, 1, 1/2, 0, 1/2];
 	Y = [0, 1/2, 1, 1/2, 0];
     }
 
     var points = new Points(X, Y, M);
-    points.create(fillFig);
+    points.create(filled);
     
     /* Both strokeStyle and fillStyle are set to the chosen colour.
        This does not mean that the interior of closed polygonal curve
@@ -277,27 +257,102 @@ function plotPoints(cnvs, points) {
 /* *********************************************************************** */
 
 /* Iterations on the discretized coordinates of the rescaled IFS */
-function iterateSRPK() {
-    var cnvs = document.getElementById("SRPK");
+function iterateIFS() {
+    var cnvs = document.getElementById("FractalCanvas");
     var width = cnvs.width;
     var height = cnvs.height;
     var cntxt = cnvs.getContext("2d");
 
-    var nbr = Number( document.getElementById("nbrSRPK").value );
-    var choice = Number( document.getElementById("initSRPK").value );
-    var fillSrpk = ( document.getElementById("filledSRPK").value === 'true' );
-    var colSrpk = document.getElementById("colourSRPK").value;
-    var M = Number( document.getElementById("scaleSRPK").value );
-    
-    var points = initPoints(cnvs, M, fillSrpk, colSrpk, choice);
+    var nbrItr = document.getElementById("nbrItr");
+    var scaleP = document.getElementById("scalePlot");
+    var initSet = document.getElementById("initSet");
+    var filledSet = document.getElementById("filledSet");
+    var initS = 0;
+    var filled = false;
+    var colour = "black";
+    var colourE = null;
+    var choice = "SRPK";
+    var nbr = 7;
+    var M = 400;
 
-    for ( var i = 0 ; i < nbr ; ++i )
-	points = nextStepSRPK(points);
+    if ( nbrItr != null )
+	nbr = nbrItr.value;
+
+    if ( scaleP != null )
+	M = scaleP.value;
+
+    if ( filledSet != null )
+	filled = ( filledSet.value === 'true' );
+
+    if ( initSet != null )
+	initS = initSet.value;
+
+    var IFSchoice = document.getElementById("IFSchoice");
+    if ( IFSchoice != null ) {
+	choice = IFSchoice.value;
+	if ( choice == "SRPK" ) {
+	    colourE = document.getElementById("colourSRPK");
+	    if ( colourE != null )
+		colour = colourE.value;
+	    var points = initPoints(cnvs, M, filled, colour, initS);
+	    for ( var i = 0 ; i < nbr ; ++i )
+		points = nextStepSRPK(points);
+	}
+	else if ( choice == "SRPKVAR" ) {
+	    colourE = document.getElementById("colourSRPKVAR");
+	    if ( colourE != null )
+		colour = colourE.value;
+	    var points = initPoints(cnvs, M, filled, colour, initS);
+	    for ( var i = 0 ; i < nbr ; ++i )
+		points = nextStepSRPKVAR(points);
+	}
+	else if ( choice == "FERN" ) {
+	    colourE = document.getElementById("colourFERN");
+	    if ( colourE != null )
+		colour = colourE.value;
+	    var points = initPoints(cnvs, M, filled, colour, initS);
+	    for ( var i = 0 ; i < nbr ; ++i )
+		points = nextStepFERN(points);
+	}
+	else if ( choice == "LEAF" ) {
+	    colourE = document.getElementById("colourLEAF");
+	    if ( colourE != null )
+		colour = colourE.value;
+	    var points = initPoints(cnvs, M, filled, colour, initS);
+	    for ( var i = 0 ; i < nbr ; ++i )
+		points = nextStepLEAF(points);
+	}
+	else if ( choice == "TREE" ) {
+	    colourE = document.getElementById("colourTREE");
+	    if ( colourE != null )
+		colour = colourE.value;
+	    var points = initPoints(cnvs, M, filled, colour, initS);
+	    for ( var i = 0 ; i < nbr ; ++i )
+		points = nextStepTREE(points);
+	}
+	else if ( choice == "CRYSTAL" ) {
+	    colourE = document.getElementById("colourCRYSTAL");
+	    if ( colourE != null )
+		colour = colourE.value;
+	    var points = initPoints(cnvs, M, filled, colour, initS);
+	    for ( var i = 0 ; i < nbr ; ++i )
+		points = nextStepCRYSTAL(points);
+	}
+	else if ( choice == "TREEcond" ) {
+	    colourE = document.getElementById("colourTREEcond");
+	    if ( colourE != null )
+		colour = colourE.value;
+	    var points = initPoints(cnvs, M, filled, colour, initS);
+	    for ( var i = 0 ; i < nbr ; ++i )
+		points = nextStepTREEcond(points);
+	}
+    }
 
     cntxt.clearRect(0,0, width, height);
     plotPoints(cnvs, points);
 }
 
+/* Iterations on the discretized coordinates of the rescaled IFS */
 function nextStepSRPK(points) {
     var X = points.X;
     var Y = points.Y;
@@ -306,7 +361,7 @@ function nextStepSRPK(points) {
 
     var newPoints = new Points([],[],M);
 
-    for (var j=0 ; j < J ; ++j ) {
+    for (var j=0 ; j < J ; ++j) {
 	var X1 = 0.5*X[j];
 	var Y1 = 0.5*Y[j] + M*0.5;
 	newPoints.push(Math.floor(X1),Math.floor(Y1));
@@ -320,28 +375,26 @@ function nextStepSRPK(points) {
     return newPoints;
 }
 
-/* *********************************************************************** */
+function nextStepSRPKVAR(points) {
+    var X = points.X;
+    var Y = points.Y;
+    var M = points.M;
+    var J = X.length;
 
-/* Iterations on the discretized coordinates of the rescaled IFS */
-function iterateFERN() {
-    var cnvs = document.getElementById("FERN");
-    var width = cnvs.width;
-    var height = cnvs.height;
-    var cntxt = cnvs.getContext("2d");
+    var newPoints = new Points([],[],M);
 
-    var nbr = Number( document.getElementById("nbrFERN").value );
-    var choice = Number( document.getElementById("initFERN").value );
-    var fillFern = ( document.getElementById("filledFERN").value === 'true' );
-    var colFern = document.getElementById("colourFERN").value;
-    var M = Number( document.getElementById("scaleFERN").value );
-
-    var points = initPoints(cnvs, M, fillFern, colFern, choice);
-
-    for ( var i = 0 ; i < nbr ; ++i )
-	points = nextStepFERN(points);
-    
-    cntxt.clearRect(0,0, width, height);
-    plotPoints(cnvs, points);
+    for (var j=0 ; j < J ; ++j) {
+	var X1 = 0.5*X[j];
+	var Y1 = 0.5*Y[j] + M*0.5;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+	X1 = -0.5*X[j] + M*0.5;
+	Y1 = 0.5*Y[j];
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+	X1 = -0.5*Y[j] + M;
+	Y1 = -0.5*X[j] + M*0.5;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+    }
+    return newPoints;
 }
 
 function nextStepFERN(points) {
@@ -352,7 +405,7 @@ function nextStepFERN(points) {
 
     var newPoints = new Points([],[],M);
 
-    for (var j=0 ; j < J ; ++j ) {
+    for (var j=0 ; j < J ; ++j) {
         var X1 = 0*X[j];
 	var Y1 = 0.16*Y[j];
 	newPoints.push(Math.floor(X1),Math.floor(Y1));
@@ -369,30 +422,6 @@ function nextStepFERN(points) {
     return newPoints;
 }
 
-/* *********************************************************************** */
-
-/* Iterations on the discretized coordinates of the rescaled IFS */
-function iterateLEAF() {
-    var cnvs = document.getElementById("LEAF");
-    var width = cnvs.width;
-    var height = cnvs.height;
-    var cntxt = cnvs.getContext("2d");
-
-    var nbr = Number( document.getElementById("nbrLEAF").value );
-    var choice = Number( document.getElementById("initLEAF").value );
-    var fillLeaf = ( document.getElementById("filledLEAF").value === 'true' );
-    var colLeaf = document.getElementById("colourLEAF").value;
-    var M = Number( document.getElementById("scaleLEAF").value );
-
-    var points = initPoints(cnvs, M, fillLeaf, colLeaf, choice);
-
-    for ( var i = 0 ; i < nbr ; ++i )
-	points = nextStepLEAF(points);
-
-    cntxt.clearRect(0,0, width, height);
-    plotPoints(cnvs, points);
-}
-
 function nextStepLEAF(points) {
     var X = points.X;
     var Y = points.Y;
@@ -401,7 +430,7 @@ function nextStepLEAF(points) {
 
     var newPoints = new Points([],[],M);
 
-    for (var j=0 ; j < J ; ++j ) {
+    for (var j=0 ; j < J ; ++j) {
 	var X1 = 0.6*X[j] + M*0.18;
 	var Y1 = 0.6*Y[j] + M*0.36;
 	newPoints.push(Math.floor(X1),Math.floor(Y1));
@@ -413,6 +442,97 @@ function nextStepLEAF(points) {
 	newPoints.push(Math.floor(X1),Math.floor(Y1));
 	X1 = 0.4*X[j] - 0.3*Y[j] + M*0.27;
 	Y1 = 0.3*X[j] + 0.4*Y[j] + M*0.09;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+    }
+    return newPoints;
+}
+
+function nextStepTREE(points) {
+    var X = points.X;
+    var Y = points.Y;
+    var M = points.M;
+    var J = X.length;
+
+    var newPoints = new Points([],[],M);
+
+    for (var j=0 ; j < J ; ++j) {
+	var X1 = 0.195*X[j] - 0.488*Y[j] + M*0.4431;
+	var Y1 = 0.344*X[j] + 0.443*Y[j] + M*0.2452;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+	X1 = 0.462*X[j] + 0.414*Y[j] + M*0.2511;
+	Y1 = -0.252*Y[j] + 0.361*Y[j] + M*0.5692;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+	X1 = -0.058*X[j] - 0.070*Y[j] + M*0.5976;
+	Y1 = 0.453*X[j] - 0.111*Y[j] + M*0.0969;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+	X1 = -0.035*X[j] + 0.070*Y[j] + M*0.4884;
+	Y1 = -0.469*X[j] - 0.022*Y[j] + M*0.5069;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+	X1 = -0.637*X[j] + M*0.8562;
+	Y1 = 0.501*Y[j] + M*0.2513;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+    }
+    return newPoints;
+}
+
+function nextStepCRYSTAL(points) {
+    var X = points.X;
+    var Y = points.Y;
+    var M = points.M;
+    var J = X.length;
+
+    var newPoints = new Points([],[],M);
+
+    for (var j=0 ; j < J ; ++j) {
+	var X1 = 0.255*X[j] + M*0.3726;
+	var Y1 = 0.255*Y[j] + M*0.6714;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+	X1 = 0.255*X[j] + M*0.1146;
+	Y1 = 0.255*Y[j] + M*0.2232;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+	X1 = 0.255*X[j] + M*0.6306;
+	Y1 = 0.255*Y[j] + M*0.2232;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+	X1 = 0.370*X[j] - 0.642*Y[j] + M*0.6356;
+	Y1 = 0.642*X[j] + 0.370*Y[j] - M*0.0061;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+    }
+    return newPoints;
+}
+
+function nextStepTREEcond(points) {
+    var X = points.X;
+    var Y = points.Y;
+    var M = points.M;
+    var J = X.length;
+
+    var newPoints = new Points([],[],M);
+    var SQRT2 = Math.sqrt(2);
+    var SQRT3 = Math.sqrt(3);
+    var COSpi10 = Math.cos(Math.PI/10); 
+    var SINpi10 = Math.sin(Math.PI/10);
+    Transl11 = 0.5-0.15*SQRT2;
+    Transl12 = 0.5-0.15*SQRT2;
+    Transl21 = 0.5-0.15;
+    Transl22 = 0.5+0.15*SQRT3;
+    Transl31 = 0.5-0.2*COSpi10;
+    Transl32 = 0.5-0.2*SINpi10;
+
+    var R = Math.round(M/2);
+    var S = 0;
+    for (var j=0 ; j <= R ; ++j) {
+	newPoints.push(R,S);
+	S = S + 1;
+    }
+    for (var j=0 ; j < J ; ++j ) {
+	var X1 = 0.3*SQRT2*(X[j]-Y[j]) + M*Transl11;
+	var Y1 = 0.3*SQRT2*(X[j]+Y[j]) + M*Transl12;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+	X1 = 0.3*(X[j]+SQRT3*Y[j]) + M*Transl21;
+	Y1 = 0.3*(-SQRT3*X[j]+Y[j]) + M*Transl22;
+	newPoints.push(Math.floor(X1),Math.floor(Y1));
+	X1 = 0.4*(COSpi10*X[j]-SINpi10*Y[j]) + M*Transl31;
+	Y1 = 0.4*(SINpi10*X[j]+COSpi10*Y[j]) + M*Transl32;
 	newPoints.push(Math.floor(X1),Math.floor(Y1));
     }
     return newPoints;

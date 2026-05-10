@@ -74,6 +74,10 @@ main_title(MStext, "MMathSStat");
       buildLinK("#SS4", "Similarity Dimension",
       "MMathSStat", "SS4ID", "_top");
   </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#REF", "References", "MMathSStat", "ReferencesID", "_top");
+    </script>
+  </li>
 </ul>
 </div>
 
@@ -580,6 +584,53 @@ we have preserved the fact that <em class="EQ">K</em> is a
 subset of our recursive decomposition.
 <span class="EQ_Right">&#8718;</span></p>
 
+<p>In general, it is not easy to compute the Hausdorff dimension of a
+set as the following example illustrates.</p>
+
+<div class="Example" id="egB">
+<p><em>Example B</em>: A version of the <em>Apollonian gasket</em> is
+constructed as it follows.  We start with a curvilinear triangle produced
+by the external tangential intersection of three circles as in step 0
+of the figure below.</p>
+<ol style="list-style-type: decimal;">
+<li>The first step is to remove the largest disk inscribed in the curvilinear
+triangle as in the figure below.</li>
+<li>The second step is to remove the largest disk inscribed in each of
+the <em class="EQ">3</em> curvilinear triangles obtained from step 1 as
+in the figure below.</li>
+<li>The third step is to remove the largest disk inscribed in each of
+the <em class="EQ">9</em> curvilinear triangles obtained from step 2 as
+in the figure below.</li>
+<li style="list-style-type: none;">...</li>
+<li style="list-style-type: 'k. '">The k<sup>th</sup> step is to remove
+the largest disk inscribed in each of the
+<em class="EQ">3<sup>k-1</sup></em> curvilinear triangles
+obtained at the previous step.</li>
+<li style="list-style-type: none;">...</li>
+</ol>
+<div class="center">
+  <img src="dim3.png" style="width: 400px"
+    alt="The first step to construct the Apollonian gasket." class="framed">
+</div>
+<p>The exact value of the Hausdorff dimension of the Apollonian gasket
+is still unknown.  It has been estimated to more than 100 decimals.
+It is about <em class+"EQ">1.305...</em>.  The reader
+can find in the book of <script language="javascript">
+buildLinK("#KJF", "K. J. Falconer","MMathSStat", "KJFID1", "_top");
+</script> a proof that the Hausdorff dimension of the Apollonian
+gasket is between <em class="EQ">1</em> and 
+<em class="EQ">1 &lt; ln(3)/ln(1+2&times;3<sup>-1/2</sup>)
+&approx; 1.43...</em> inclusively.  There are several versions of the
+Apollonian gasket.  We will say more
+about this fractal at the end of this document.</p>
+
+<p>A little historical note: Apollonius of Perga (240 BC to 190 BC
+approximately) was a Greek mathematician.  One of his famous problem
+was to find a geometric method to draw a circle tangent to
+three other circles.  This is the motivation for the name Apollonian
+gasket.  The definition of gasket is the one used in sailing.</p>
+</div>
+
 <p>It can be proved that the topological dimension of a set is smaller
 or equal to its Hausdorff dimension.  The previous statement does not
 mean anything since we have not defined what is the topological
@@ -587,13 +638,26 @@ dimension of a set.  The reader should consult the book by
 <script language="javascript">
 buildLinK("#GAE", "G. A. Edgar", "MMathSStat", "GAEID1", "_top");
 </script>.  He devotes a full chapter on the subject of
-topological dimension.  The topological dimension is a lot more
+topological dimension.  For this presentation, the intuitive
+definition of topological dimension is enough.  For instance, a smooth
+surface in <em class="EQ">&reals;<sup>3</sup></em> is of topological
+dimension <em class="EQ">2</em>.  Likewise, a smooth curve is of
+topological dimension <em class="EQ">1</em>.  The
+word <q lang="en">smooth</em> in the previous statements is really
+important.  A curve that is simply continuous may not be of topological
+dimension <em class="EQ">1</em> as it is illustrated by the Peano's
+space-filling curve which is of topological dimension <em class="EQ">2</em>.
+The topological dimension is preserved by homeomorphims.  However, as
+we will see later, the Hausdorff dimension is not usually preserved by
+homemorphisms.  The topological dimension is a lot more
 general than the dimension in linear algebra.</p>
 
-<p>As expected, the Hausdorff dimension of
-<em class="EQ">(&reals;<sup>n</sup>,d)</em>,
-where <em class="EQ">d</em> is the Euclidean distance, is
-<em class="EQ">n</em>.  In particular, we can shown that if the set
+<p>As expected,
+<em class="EQ">dim<sub>&#119919;</sub>(&reals;<sup>n</sup>) = n</em>
+if the Hausdorff measure is deduced from the metric space
+<em class="EQ">(&reals;<sup>n</sup>,d)</em>
+where <em class="EQ">d</em> is the Euclidean distance.
+In particular, we can shown that if the set
 <em class="EQ">K &subset; &reals;<sup>n</sup></em> contains an open
 set, then <em class="EQ">dim<sub>&#119919;</sub>(K) = n</em>.</p>
 
@@ -643,35 +707,24 @@ dimension but do so after we have introduced the
 </div>
 </div>
 
-<div class="Example" id="egB">
-<p><em>Example B</em>: A version of the <em>Apollonian gasket</em> is
-constructed as it follows.  We start with a curved triangle produced
-by the external tangential intersection of three circles as in step 0
-of the figure below.</p>
-<ol style="list-style-type: decimal;">
-<li>The first step is to remove the largest disk inscribed in the curved
-triangle as in the figure below.</li>
-<li>The second step is to remove the largest disk inscribed in each of
-the <em class="EQ">3</em> curved triangles obtained from step 1 as
-in the figure below.</li>
-<li>The third step is to remove the largest disk inscribed in each of
-the <em class="EQ">9</em> curved triangles obtained from step 2 as
-in the figure below.</li>
-<li style="list-style-type: none;">...</li>
-<li style="list-style-type: 'k. '">The k<sup>th</sup> step is to remove
-the largest disk inscribed in each of the
-<em class="EQ">3<sup>k-1</sup></em> curved triangles
-obtained at the previous step.</li>
-<li style="list-style-type: none;">...</li>
-</ol>
-<div class="center">
-  <img src="dim3.png" style="width: 400px"
-    alt="The first step to construct the Apollonian gasket." class="framed">
-</div>
-<p>The exact value of the Hausdorff dimension of the Apollonian gasket
-is still unknown.  It is estimated to be about
-<em class+"EQ">1.30...</em>.  We will say more
-about this fractal at the end of this document.</p>
+<p>A function <em class="EQ">f: [0,1] &rarr; &reals;<sup>n</sup></em> is a
+<em>H&ouml;lder continuous of class <em class="EQ">s</em></em>
+with <em class="EQ">0 &lt; s &le; 1</em> if there exist two positive
+constants <em class="EQ">&delta;</em> and <em class="EQ">C</em> such that
+<em class="EQ">&parallel;f(x) - f(y)&parallel; &le; C|x - y|</em> for all
+<em class="EQ">x,y &in; [0,1]</em> satisfying
+<em class="EQ">|x - y| &le; &delta;</em>.</p>
+
+<p><script language="javascript">
+buildLinK("#BU", "A. S. Besicovitch and H. D. Ursell", "MMathSStat",
+"BUID1","_top");
+</script> have proved the following result.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>: If <em class="EQ">f: [0,1] &rarr; &reals;</em> is a
+H&ouml;lder continuous function of class <em class="EQ">s</em>, then
+the curve <em class="EQ">L = {(x,f(x)) : x &in; [0,1]}</em>
+satisfies <em class="EQ">1 &le; dim<sub>&#119919;</sub>(L) &le; 2 - s</em>.</p>
 </div>
 
 <p>Unfortunately, there is no easy way to compute the Hausdorff
@@ -912,7 +965,7 @@ C<sub>i,j</sub></em>.</p>
 and that <em class="EQ">
 dim<sub>&#119913;</sub>(A) = lim<sub>r&rarr;0</sub> ln(N(A,r))/ln(1/r)</em>
 exists.  Then, the limits <em class="EQ">
-X<sup>s</xosup>(A) = lim<sub>r&rarr;0</sub> &#119913;<sup>s</sup>(A,r)</em>
+X<sup>s</sup>(A) = lim<sub>r&rarr;0</sub> &#119913;<sup>s</sup>(A,r)</em>
 exist for <em class="EQ">s &ne; dim<sub>&#119913;</sub>(A)</em>.
 Moreover, <em class="EQ">X<sup>s</sup>(A) = &infin;</em> for
 <em class="EQ">s &lt; dim<sub>&#119913;</sub>(A)</em>, and
@@ -1023,7 +1076,13 @@ packing measures in order to define two outer measures from
 associated to these outer measures.  They are respectively called the
 <em>lower entropy dimension</em> and
 <em>upper entropy dimension</em>.  We will not present this
-topic.  The box-counting dimension is the dimension often used in
+topic.  The box-counting dimension is unfortunately too rough to define
+the fractal dimension because the box-counting dimension respect the closure
+of a set.  For instance, the box-counting dimension of the rational numbers
+<em class="EQ">&rationals;</em> is equal to box-counting dimension
+of its closure which is <em class="EQ">&reals;</em>; namely,
+they are both of box-counting dimension <em class="EQ">1</em>.
+Nevertheless, the box-counting dimension is the dimension often used in
 applications because it can be estimated by counting the number of
 squares covering the set <em class="EQ">A</em> to get
 <em class="EQ">N(A,r)</em> and by computing
@@ -1036,7 +1095,7 @@ lim<sub>r&rarr;0</sub> (ln(N(A,r))/(ln(1/r))</em>.</p>
 <p><em>Proposition</em>: Suppose that <em class="EQ">A</em> is a Borel
 set and that <em class="EQ">dim<sub>&#119913;</sub>(A)</em> exists.  Then
 <em class="EQ">dim<sub>&#119919;</sub>(A) &le; dim<sub>&#119913;</sub>(A) &le;  
-  dim<sub>&#119927;</sub>(A)</em>.</p>
+dim<sub>&#119927;</sub>(A)</em>.</p>
 </div>
 
 <p>We have defined the box-counting dimension for subsets of
@@ -1207,37 +1266,38 @@ B<sub>2,i<sub></em> for all <em class="EQ">i</em> where the
 Then <em class="EQ">B</em> intersects at most
 <em class="EQ">(1+2q<sub>2</sub>)<sup>n</sup>q<sub>1</sub><sup>-n</sup></em>
 sets <em class="EQ"><span class="EQ_Over">U</span><sub>i</sub></em>.</li>
-<li> Let <em class="EQ">K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+<li> Let <em class="EQ">K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>
 = f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
  &compfn;f<sub>j<sub>k</sub></sub>(K)</em> for all
 <em class="EQ">1&le;j<sub>i</sub>&le;J</em> and <em class="EQ">k &gt; 0</em>.
 Since each <em class="EQ">f<sub>j</sub></em> is a similarity function with
 similarity ratio <em class="EQ">C<sub>j</sub></em>, we have that
-<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+<em class="EQ">diam(K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>)
 = C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
   C<sub>j<sub>k</sub></sub> diam(K)</em>.  Thus
 <div class="EQ_center">
 <em class="EQ_Display">
-&sum;<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
-diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)<sup>s</sup>
-= &sum;<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+&sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub></sub>
+diam(K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>)<sup>s</sup>
+= &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub></sub>
 (C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub> ...
 C<sub>j<sub>k</sub></sub>)<sup>s</sup> diam(K)<sup>s</sup> <br>
 = (&sum;<sub>1&le;j&le;J</sub> C<sub>j</sub><sup>s</sup>)<sup>k</sup>
 diam(K)<sup>s</sup> = diam(K)<sup>s</sup></em> .
 </div>
 Given <em class="EQ">&epsilon; &gt; 0</em>, since
-<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+<em class="EQ">diam(K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>)
 &le; (max{C<sub>j</sub> : 1&le;j&le;J})<sup>k</sup> diam(K) &rarr; 0</em>
 as <em class="EQ">k &rarr; &infin;</em>, there exists a positive integer
 <em class="EQ">k</em> such that
-<em class="EQ">diam(K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+<em class="EQ">diam(K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>)
 &lt; &epsilon;</em> for all indices.
 Since we may assume that the countable <em class="EQ">&epsilon;</em> covers
 of <em class="EQ">K</em> in the definition of
-<em class="EQ"><span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)</em>
+<em class="EQ">
+<span class="EQ_Over">&#119919;</span><sup>s</sup>(K,&epsilon;)</em>
 are collections of closed sets instead of open sets, then
-<em class="EQ">{K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>}<sub><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ">{K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>}<sub><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 is a countable <em class="EQ">&epsilon;</em> covers of <em class="EQ">K</em>
 for this choice of <em class="EQ">k</em>.
 We get from the inequality above that
@@ -1249,33 +1309,36 @@ We get from the inequality above that
 &lt; &infin;</em> because <em class="EQ">K</em> is a Borel set.</li>
 <li>Suppose that <em class="EQ">V</em> is the bounded open set in the
 definition of the open set condition.  Let
-<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>
 = f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
  &compfn;f<sub>j<sub>k</sub></sub>(V)</em> for all
 <em class="EQ">1&le;j<sub>i</sub>&le;J</em> and <em class="EQ">k &gt; 0</em>.
 Since the sets <em class="EQ">V<sub>j</sub> = f<sub>j</sub>(V)</em>
 are open disjoint sets by definition of the open set condition, we get
 by induction that <em class="EQ">&cup;<sub>1&leq;j&leq;J</sub>
-V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>j</sub>
-&subset; V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub>j</sub>
+&subset; V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 and <em class="EQ">
-V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>j</sub> &cap;
-V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub>i</sub> = &emptyset;</em> for
+V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub>j</sub> &cap;
+V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub>i</sub> = &emptyset;</em> for
 <em class="EQ">j &ne; i</em>.
-Since <em class="EQ">{(f<sup>c</sup>)<sup>n</sup>(<span class="EQ_Over">V</span>)}<sub>n&ge;0</sub></em>
+Since <em class="EQ">
+{(f<sup>c</sup>)<sup>n</sup>(<span class="EQ_Over">V</span>)}<sub>n&ge;0</sub>
+</em>
 is a decreasing sequence of compact sets converging toward the fixed
 point <em class="EQ">K</em>, we have that
 <em class="EQ">K = &cap;<sub>n&ge;0</sub>
 (f<sup>c</sup>)<sup>n</sup>(<span class="EQ_Over">V</span>)</em>.
 In particular, this implies that <em class="EQ">
-K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub> &subset;
-<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub> &subset;
+<span class="EQ_Over">V</span><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 for all indices.  We provide below a schematic representation of the
-sets <em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+sets <em class="EQ">
+V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 in the case where <em class="EQ">J = 3</em>.
 <div class="center">
   <img src="dim5.png" style="width: 400px"
-       alt="Schematic representation of the sets V_{j_1j_2...j_k}."
+       alt="Schematic representation of the sets V_{j_1,j_2,...,j_k}."
        class="framed">
 </div>
 </li>
@@ -1299,12 +1362,12 @@ C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>
 </div>
 Obviously, <em class="EQ">k</em> is not necessarily the
 same for each infinite sequence.  We have from (4) that the open sets
-<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 for <em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
 are disjoints.  Moreover, since each funciton <em class="EQ">f<sub>j</sub></em>
 is a similarity function with similarity ratio
 <em class="EQ">C<sub>j</sub></em>, we have that each
-<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 contains an open ball of radius <em class="EQ">
 C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>q<sub>1</sub></em>
 (e.g. <em class="EQ">
@@ -1313,7 +1376,7 @@ f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
 and so an open ball of radius
 <em class="EQ">(min<sub>1&le;j&leq;J</sub> C<sub>j</sub>)rq<sub>1</sub></em>.
 Likewise, each
-<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 is contained in an open ball of radius <em class="EQ">
 C<sub>j<sub>1</sub></sub>C<sub>j<sub>2</sub></sub>...C<sub>j<sub>k</sub></sub>q<sub>2</sub></em>
 (e.g. <em class="EQ">
@@ -1325,7 +1388,7 @@ It follows from (2) that at most
 (min<sub>1&le;j&leq;J</sub>
 C<sub>j</sub>)<sup>-n</sup>q<sub>1</sub><sup>-n</sup></em>
 sets of the form
-<em class="EQ">V<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ">V<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 with <em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
 intersect open balls of radius <em class="EQ">r</em>.</li>
 <li>Given an open ball <em class="EQ">B</em> of radius
@@ -1333,7 +1396,7 @@ intersect open balls of radius <em class="EQ">r</em>.</li>
 <div class="EQ_center">
 <em class="EQ_Display">&mu;(B) &le;
 &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
-&mu;(<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>)
+&mu;(<span class="EQ_Over">V</span><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>)
 = &sum;<sub>{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;'</sub>
 &mu;(f<sub>j<sub>1</sub></sub>&compfn;f<sub>j<sub>2</sub></sub> ...
  &compfn;f<sub>j<sub>k</sub></sub>(<span class="EQ_Over">V</span>)) <br>
@@ -1360,15 +1423,15 @@ C<sub>j<sub>1</sub></sub><sup>s</sup>C<sub>j<sub>2</sub></sub><sup>s</sup>
 where <em class="EQ">&#120027;' &subset; &#120027;</em> is the set of
 sequences
 <em class="EQ">{j<sub>i</sub>}<sub>1&le;i&le;k</sub> &in; &#120027;</em>
-such that
-<em class="EQ"><span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub>
+such that <em class="EQ">
+<span class="EQ_Over">V</span><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub>
 &cap; B &ne; &emptyset;</em>.  Note that we only need to consider the sets
-<em class="EQ"><span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+<em class="EQ"><span class="EQ_Over">V</span><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 that intersect <em class="EQ">B</em> becasue the support of
 <em class="EQ">&mu;</em> is contained in <em class="EQ">K</em> and
 <em class="EQ">
-K<sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub> &subset;
-<span class="EQ_Over">V</span><sub>j<sub>1</sub>j<sub>2</sub>...j<sub>k</sub></sub></em>
+K<sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub> &subset;
+<span class="EQ_Over">V</span><sub>j<sub>1</sub>,j<sub>2</sub>,...,j<sub>k</sub></sub></em>
 for all sequences.</li>
 <li>Given any countable <em class="EQ">&epsilon;</em> cover
 <em class="EQ">&#120026; = {U<sub>i</sub>}<sub>1&lt;i&lt;I</sub></em>
@@ -1524,9 +1587,9 @@ where
 <em class="EQ">K</em> is the fixed point <em class="EQ">K</em>
 of the function <em class="EQ">f<sup>c</sup></em> defined by the IFS
 <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;3</sub></em> given in
-the section <script language="javascript">
-buildLinK(fractal2.url_en+"#SpkTrg","Sierpinski Triangle of the document "
-+fractal2.text_en,"MMathSStat", "SpkTrgID", "_top");
+<script language="javascript">
+buildLinK(fractal2.url_en+"#SS2A","example A of the document "
++fractal2.text_en,"MMathSStat", "SS2AID", "_top");
 </script>.
 Hence, the <em class="EQ">f<sub>j</sub></em> are similarity functions with
 the similarity ratio <em class="EQ">C<sub>j</sub> = 1/2</em> for all 
@@ -1591,10 +1654,17 @@ books and articles.</p>
 <ul>
 <li id="MB">M. Barnsley, <em>Fractals Everywhere</em>, Academic Press,
 Inc. (1988).</li>
-<li id="KJF">K. J. Falconer, <em>The Geometry of Fractal Sets</em>,
-<em>85</em>, Cambridge University Press (1985). </li>
+<li id="BU">A. S. Besicovitch and H. D. Ursell, <em>Sets of fractional
+dimwnsion (V): On Dimensional Numbers of some Continuous Curves</em>,
+J. London Math. Soc., <em>12</em> (1934), 18-25.</li>
 <li id="GAE">G. A. Edgar, <em>Measure, Topology, and Fractal Geometry</em>,
 Undergraduate Text in Mathematics, Springer-Verlag (1990).</li>
+<li id="KJF">K. J. Falconer, <em>The Geometry of Fractal Sets</em>,
+<em>85</em>, Cambridge University Press (1985). </li>
+<li id="JH"> J. Harrison, <em>An Introduction to Fractals</em>, in
+<em>Chaos and Fractals: The Mathematics Behind the Computer Graphics</em>,
+R. L. Devaney and L. Keen, Editors, Proceeding of symposia in applied
+mathematics, AMS short course lecture notes (1989), 107-126.</li>
 </ul>
 
 <table class="noB">
