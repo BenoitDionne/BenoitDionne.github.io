@@ -1,0 +1,2225 @@
+<!doctype html>
+<html>
+
+<head>
+<title>
+Math. et Stat. -- Benoit Dionne
+</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="Title" content="Mathematiques et Statistique">
+<meta name="Author" content="Benoit Dionne">
+<meta scheme="Year-Month-Day" name="Date of Publication" content="2025-11-10">
+<meta name="Keywords" content="mathematiques,statistique,universite,ottawa">
+<meta name="Copyright" content= "&copy; 2014 Benoit Dionne, uOttawa">
+<meta http-equiv="Expires" content="">
+<meta http-equiv="Content-Language" content="fr-CA">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<script language="javascript" src="../../utilities.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="../../locations.js">
+document.write("Include javascript file has failed")
+</script>
+
+<script language="javascript" src="DDS.js">
+  document.write("Include javascript file has failed")
+</script>
+
+<link href="../../style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<script language="javascript">
+top_function(fractal0,"fr");
+</script>
+
+<script language="javascript"> 
+  topPage("TOP", "fr");
+</script>
+
+<div class="page_contents"> <!-- The contents starts here -->
+
+<script language="javascript">
+main_title( MStexte, "MMathSStat");
+</script>
+
+<table class="noB">
+<tr> <td rowspan="1" colspan="1" class="left"> </td>
+<td rowspan="1" colspan="1" class="right">
+<a href="fractal1_fr.html"> Document suivant </a> </td>
+</tr>
+</table>
+
+<h2 id="TOP"> Systèmes dynamiques discrets </h2>
+
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Contenu</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#SS1", "Introduction aux systèmes dynamiques discrets",
+      "MMathSStat", "SS1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS2", "Fonctions affines",
+      "MMathSStat", "SS2ID", "_top");
+    </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS3", "Fonction logistique",
+      "MMathSStat", "SS3ID", "_top");
+    </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#REF", "Références", "MMathSStat", "ReferencesID", "_top");
+    </script>
+  </li>
+</ul>
+</div>
+
+<p>Notre introduction au chaos et aux fractales débute avec le plus
+simple système dynamique discret.  Malgré sa simplicité, il
+illustre toute la complexité que le comportement d'un système dynamique
+discret peut exhiber.</p>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="SS1">Introduction aux systèmes dynamiques discrets</h3>
+
+<p> Soit
+<math display="inline"><mi>f</mi></math>
+une fonction à valeurs réelles qui est définie sur la droite réelle.
+Étant donné un point
+<math display="inline"><msub><mi>x</mi><mn class="ss1">0</mn></msub></math>,
+la formule</p>
+
+<math display="block" style="display:block math;">
+<mrow><msub><mi>x</mi><mrow><mi class="ss1">n</mi><mo class="ss1">+</mo><mn class="ss1">1</mn></mrow></msub>
+<mo>=</mo>
+<mi>f</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><mspace width="1em"></mspace>
+<mi>n</mi><mo>=</mo><mn>0,1,2</mn><mo separator="true">,</mo><mo>&hellip;</mo>
+</mrow></math>
+
+<p>définit une suite
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow><mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub><mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo separator="true">,</mo>
+<msub><mi>x</mi><mn class="ss1">1</mn></msub>
+<mo separator="true">,</mo>
+<msub><mi>x</mi><mn class="ss1">2</mn></msub>
+<mo separator="true">,</mo>
+<mo>&hellip;</mo><mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow></mrow></math>.
+Cette suite est appelée <em>l'orbite (positive)</em> de
+<math display="inline"><msub><mi>x</mi><mn class="ss1">0</mn></msub></math>
+générée par
+<math display="inline"><mi>f</mi></math>.
+Nous désignons par
+<math display="inline"><msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup></math>
+la composition
+<math display="inline">
+<mrow><mi>f</mi><mo>&compfn;</mo><mi>f</mi><mo>&compfn;</mo><mi>f</mi><mo>&compfn;</mo>
+<mo>&hellip;</mo><mo>&compfn;</mo><mi>f</mi></mrow></math>
+de
+<math display="inline"><mi>n</mi></math>
+fois la fonction
+<math display="inline"><mi>f</mi></math>.
+Ainsi,
+<math display="inline">
+<mrow><msub><mi>x</mi><mi class="ss1">n</mi></msub><mo>=</mo>
+<msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>.
+</p>
+
+<div class="Theo">
+<p><em>Définition</em>: La fonction
+<math display="inline">
+<mrow><mi>&phi;</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>&naturals;</mi><mo>&times;</mo><mi>&reals;</mi><mo>&rarr;</mo>
+<mi>&reals;</mi></mrow></math>
+définie par
+<math display="inline">
+<mrow><mi>&phi;</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>n</mi><mo separator="true">,</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>
+est appelée un <em>système dynamique discret</em> (SDD) généré par
+la fonction
+<math display="inline"><mi>f</mi></math>.  La fonction
+<math display="inline"><mi>f</mi></math>
+est appelée la <em>fonction génératrice</em>.</p>
+</div>
+
+<!-- HERE mathml -->
+
+<p>Certains points de la droite jouent un rôle particulièrement
+important dans l'étude des SDD.</p>
+
+<div class="Theo">
+<p><em>Définition</em>:  Soit
+<em class="EQ">f: &reals; &rarr; &reals;</em>.  Un point
+<em class="EQ">p &in; &reals;</em> est un <em>point fixe</em> pour
+<math display="inline"><mi>f</mi></math> si <em class="EQ">f(p) = p</em>.
+Un point <em class="EQ">p &in; &reals;</em> est un <em>point périodique</em> de
+<em>période</em> <em class="EQ">k</em>
+pour
+<math display="inline"><mi>f</mi></math>
+si
+<em class="EQ">f<sup>&compfn;k</sup>(p) = p</em> et
+<em class="EQ">f<sup>&compfn;j</sup>(p) &ne; p</em> pour
+<em class="EQ">0 &lt; j &lt; k</em>.
+Si <em class="EQ">p</em> est un point périodique de période
+<em class="EQ">k</em>, alors l'orbite
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+ avec
+<em class="EQ">x<sub>0</sub> = p</em> est appelée une
+<em>orbite périodique</em> de période <em class="EQ">k</em>.</p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="SS2">Fonctions affines</h3>
+
+<p> Nous débutons avec l'étude des SDD générés par des fonctions
+génératrices affines
+<math display="inline"><mi>f</mi></math>;
+c'est-à-dire, par des fonctions de la forme <em class="EQ">f(x) = mx+b</em>, où
+<em class="EQ">m</em> est la pente de la droite qui représente
+le graphe de la fonction
+<math display="inline"><mi>f</mi></math>
+et
+<em class="EQ">b</em> est l'ordonnée à l'origine (l'intersection de
+cette droite avec l'axe des <em class="EQ">y</em>).  Malgré sa
+simplicité, cette fonction génératrice fournit une bonne base pour
+l'étude des SDD générés par des fonctions
+<math display="inline"><mi>f</mi></math>
+plus générales comme nous allons voir plus tard.</p>
+
+<p> Qu'arrive-t-il à l'orbite
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+si on change les valeurs de <em class="EQ">m</em> et
+<em class="EQ">b</em>?  Nous invitons le lecteur à explorer à l'aide
+de l'application graphique ci-dessous le comportement des orbites 
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+
+pour différentes valeurs de <em class="EQ">m</em> et <em class="EQ">b</em>, et
+pour différentes conditions initiales <em class="EQ">x<sub>0</sub></em>. </p>  
+
+<p>L'application graphique ci-dessous dessine le
+<em>graphe en forme de toile d'araignée</em> du SDD généré par la fonction
+génératrice
+<math display="inline"><mi>f</mi></math>
+choisie et pour la condition initiale
+<em class="EQ">x<sub>0</sub></em> choisie.  Le graphe en forme de
+toile d'araignée commence toujours au point
+<em class="EQ">(x<sub>0</sub>,0)</em>.</p>
+<ol style="list-style-type: decimal;">
+<li> À partir de <em class="EQ">(x<sub>0</sub>,0)</em>,
+nous traçons une droite verticale qui coupe le graphe de
+<math display="inline"><mi>f</mi></math>
+au point
+<em class="EQ">(x<sub>0</sub>,x<sub>1</sub>)</em>. </li>
+<li> À partir de <em class="EQ">(x<sub>0</sub>,x<sub>1</sub>)</em>,
+nous traçons une droite horizontale qui coupe la droite 
+<em class="EQ">y = x</em> au point
+<em class="EQ">(x<sub>1</sub>,x<sub>1</sub>)</em>. </li>
+<li> À partir de <em class="EQ">(x<sub>1</sub>,x<sub>1</sub>)</em>,
+nous traçons une droite verticale qui coupe le graphe de 
+<math display="inline"><mi>f</mi></math>
+au point
+<em class="EQ">(x<sub>1</sub>,x<sub>2</sub>)</em>. </li>
+<li> À partir de <em class="EQ">(x<sub>1</sub>,x<sub>2</sub>)</em>,
+nous traçons une droite horizontal qui coupe la droite 
+<em class="EQ">y = x</em> au point
+<em class="EQ">(x<sub>2</sub>,x<sub>2</sub>)</em>.</li>
+<li> À partir de <em class="EQ">(x<sub>2</sub>,x<sub>2</sub>)</em>,
+nous traçons une droite verticale qui coupe le graphe de 
+<math display="inline"><mi>f</mi></math>
+au point
+<em class="EQ">(x<sub>2</sub>,x<sub>3</sub>)</em>. </li>
+<li> Et ainsi de suite.</li>
+</ol>
+
+<p>Les points <em class="EQ">(x<sub>n</sub>,x<sub>n</sub>)</em>
+sur la droite <em class="EQ">y = x</em> peuvent être associés 
+aux points <em class="EQ">x<sub>n</sub></em> sur l'axe horizontal 
+et donc décrivent le comportement de l'orbite
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+.</p>
+
+<div class="center">
+  <canvas id="linearDDS" width="400" height="400">
+  </canvas>
+</div>
+
+<ul>
+<li><em class="EQ">m = </em>
+  <input type="text" value="0.5" id="linear_m">
+  &nbsp;&nbsp;&nbsp;&nbsp; <em class="EQ">b = </em>
+  <input type="text" value="2" id="linear_b"> </li>
+<li><em class="EQ">x<sub>0</sub> = </em>
+  <input type="text" value="0.5" id="linear_x"> </li>
+<li>Nombre d'itérations: <input type="text" value="10" id="linear_nbr"></li>
+<li><input type="button" value="Débuter" onclick="linearDDS()">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="button" value="Effacer" onclick="clearDDS('linearDDS')">
+</li>
+</ul>
+
+<p> La courbe en bleu dans la figure ci-dessus (après avoir cliqué sur
+le bouton <em>Débuter</em>) est le graphe de la fonction
+<math display="inline"><mi>f</mi></math>
+et la ligne diagonale en rouge est la
+droite <em class="EQ">y = x</em>. Le point <em class="EQ">p</em>
+dans la figure ci-dessus est un point fixe de
+<math display="inline"><mi>f</mi></math>.</p>
+
+<p>Quelles sont les conditions que
+<math display="inline"><mi>f</mi></math> doit
+satisfaire pour garantir que l'orbite 
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+converge vers le point fixe <em class="EQ">p</em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>?
+La réponse dépend seulement de la pente <em class="EQ">m</em>.</p>
+
+<div class="Theo">
+<p><em>Proposition</em>:  Soit
+<em class="EQ">f: &reals; &rarr; &reals;</em> la fonction définit par
+<em class="EQ">f(x) = mx+b</em>.
+<ul>
+<li>Si <em class="EQ">|m| &lt; 1</em>,
+alors
+<math display="inline"><mi>f</mi></math>
+a un point fixe unique <em class="EQ">p</em>
+et toutes les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+convergent vers <em class="EQ">p</em>
+lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.</li>
+<li>Si <em class="EQ">|m| &gt; 1</em>,
+alors
+<math display="inline"><mi>f</mi></math>
+a un point fixe unique <em class="EQ">p</em>
+mais aucune des orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+converge vers <em class="EQ">p</em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>
+sauf pour l'orbite constante qui début avec
+<em class="EQ">x<sub>0</sub> = p</em>.</li>
+<li>Si <em class="EQ">m = 1</em> et <em class="EQ">b &ne; 0</em>,
+alors
+<math display="inline"><mi>f</mi></math>
+n'a aucun point fixe et toutes les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+convergent vers <em class="EQ">&infin;</em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Si <em class="EQ">m = 1</em> et <em class="EQ">b = 0</em>,
+alors <em class="EQ">f(x) = x</em> et tous les points sont des points
+fixes.</li>
+<li>si <em class="EQ">m = -1</em>, alors
+<math display="inline"><mi>f</mi></math> a un
+point fixe unique <em class="EQ">p</em> mais aucune orbite
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec <em class="EQ">x<sub>0</sub> &ne; p</em>
+converge vers ce point fixe lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Toutes les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec <em class="EQ">x<sub>0</sub> &ne; p</em> sont périodiques de
+période <em class="EQ">2</em>.</li>
+</ul>
+</div>
+
+<p>Le lecteur devrait utiliser l'application graphique ci-dessus pour
+reproduire et visualiser les résultats de la proposition précédente.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="SS3"> La fonction Logistique </h3>
+
+<p> Une des plus simples fonctions génératrices non-affine est
+<em>la fonction logistique</em>.  Par contre, nous montrons ci-dessous
+que le comportement des orbites générées par les itérations de cette fonction
+est loin d'être simple.  La fonction logistique est la
+fonction <em class="EQ">f<sub>&mu;</sub>:&reals; &rarr; &reals; </em>
+définie par</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>&mu;</sub>(x) = &mu; x(1-x) </em> ,
+</div>
+<p>où <math display="inline"><mi>&mu;</mi></math> est un paramètre fixe mais
+arbitraire.  Nous avons une famille de fonctions, une fonction pour chaque
+valeur de <math display="inline"><mi>&mu;</mi></math>. </p>
+
+<p>Les orbites <em class="EQ">{x<sub>n</sub>}<sub>n&ge;0</sub></em>
+générées par <math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math> sont données par la
+formule suivante.</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+x<sub>n+1</sub> = f<sub>&mu;</sub>(x<sub>n</sub>), n = 0,1,2,3,... </em>
+</div>
+<p> Le lecteur est invité à explorer à l'aide de l'application graphique
+suivante le comportement des orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+pour différentes valeurs du paramètre
+<math display="inline"><mi>&mu;</mi></math>
+(entre <em class="EQ">1</em> et <em class="EQ">4</em>) et de la
+condition initiale <em class="EQ">x<sub>0</sub></em>
+(entre <em class="EQ">0</em> et <em class="EQ">1</em>).</p> 
+
+<p>L'application graphique ci-dessous dessine le <em>graphe en forme
+de toile d'araignée</em> du SDD généré par
+<em class="EQ">f<sub>&mu;</sub></em> pour les valeurs du paramètre
+<math display="inline"><mi>&mu;</mi></math> et de la condition initiale
+<em class="EQ">x<sub>0</sub></em> choisies.  La description du
+graphe en forme de toile d'araignée pour la fonction affine
+<math display="inline"><mi>f</mi></math> considérée à la section précédente peut être
+répétée mot pour mot pour la fonction
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>.</p>
+
+<div class="center">
+<canvas id="DDS" width="400" height="400"> </canvas>
+</div>
+
+<table class="noB">
+<tr><td style="width: 50%;">
+<ul>
+<li> <em class="EQ">&mu; =</em>
+  <input type="text" value="3.5" id="logistic_mu"><br>
+  (valeur entre <em class="EQ">1</em> et <em class="EQ">4</em>) </li>
+<li> <em class="EQ">x<sub>o</sub> = </em>
+  <input type="text" value="0.2" id="logistic_x"><br>
+  (valeur entre <em class="EQ">0</em> et <em class="EQ">1</em>) </li>
+<li>Nombre d'itérations: <input type="text" value="10" id="logistic_nbr">
+</li>
+<li> <input type="button" value="Débuter" onclick="logisticDDS('English')">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="button" value="Effacer" onclick="clearDDS('DDS')"> </li>
+</ul>
+</td>
+<td style="width: 50%;">
+<p>Pour obtenir une image claire du comportement des orbites, il est
+parfois préférable d'utiliser la valeur de <em class="EQ">x<sub>n</sub></em>
+qui est affichée au coin droit au haut du graphe (après une exécution
+de l'application graphique) comme valeur de 
+<em class="EQ">x<sub>0</sub></em> pour l'exécution suivante
+de l'application graphique.</p>
+</td>
+</tr>
+</table>
+
+<p>La courbe en bleu dans la figure ci-dessus (après avoir cliqué sur
+le bouton <em>Débuter</em>) est le graphe de
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+et la ligne diagonale
+en rouge est la droite <em class="EQ">y = x</em>. </p>
+
+<p>Pour étudier le comportement des orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+générées par
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>
+quand
+<em class="EQ">1 &lt; &mu; &lt; 4</em>, nous avons besoin du fameux
+résultat suivant.</p>
+
+<div class="Theo">
+<p><em>Théorème (Théorème du point fixe)</em>:
+Supposons que <em class="EQ">f:[a,b] &rarr; [a,b]</em>.  S'il existe
+une constante <em class="EQ">C &lt; 1</em> telle que
+<em class="EQ">|f(x)-f(y)| &le; C|x-y|</em> pour tout
+<em class="EQ">x,y &in; [a,b]</em>, alors toutes les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+données par la
+formule <em class="EQ"> x<sub>n+1</sub> = f(x<sub>n</sub>)</em> pour
+<em class="EQ">n = 0,1,2,...</em> et
+<em class="EQ">x<sub>0</sub> &in; [a,b]</em> convergent vers un point
+fixe unique <em class="EQ">p &in; [a,b]</em> de
+<math display="inline"><mi>f</mi></math> lorsque <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.</p> 
+</div>
+
+<p>Le théorème précédent est aussi vrai si l'intervalle
+<em class="EQ">[a,b]</em> est remplacée par un espace métrique complet
+<em class="EQ">E</em> et
+<em class="EQ">|f(x)-f(y)| &le; C|x-y|</em> est remplacé par
+<em class="EQ">d(f(x),f(y)) &le; Cd(x,y)</em> où
+<em class="EQ">d:E&times;E &rarr; [0,&infin;[</em> est la métrique
+sur <em class="EQ">E</em>.
+Ce théorème joue un rôle majeur dans les documents qui suivent
+La conclusion de ce théorème est aussi vrai si
+<em class="EQ">f:[a,b] &rarr; [a,b]</em> est continument
+différentiable et il exists une constante 
+<em class="EQ">C &lt; 1</em> telle que
+<em class="EQ">|f'(x)| &le; C</em> pour tout
+<em class="EQ">x &in; [a,b]</em>.  Cela découle du théorème des
+valeurs moyennes car, étant donné <em class="EQ">x,y &in; [a,b]</em>,
+il existe <em class="EQ">z</em> entre <em class="EQ">x</em>
+et <em class="EQ">y</em> telle que
+<em class="EQ">|f(x)-f(y)| = |f'(z)| |x-y| &le; C|x-y|</em>.</p>
+
+<p>La fonction
+<em class="EQ">f<sub>&mu;</sub>:[0,1] &rarr; [0,1]</em>
+a toujours un point fixe à l'origine.  Pour
+<em class="EQ">&mu; > 1</em>, elle a un autre point fixe
+<em class="EQ">p<sub>&mu;</sub> &gt; 0</em>.  En fait, si nous
+résolvons <em class="EQ">f<sub>&mu;</sub>(p) = p</em> pour
+<em class="EQ">p</em>, nous obtenons que ce point fixe est
+<em class="EQ">p<sub>&mu;</sub> = (&mu;-1)/&mu;</em>.
+</p>
+
+<p>Le résultat suivant sera utile pour l'étude du comportement des
+orbites <math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+
+générées par <math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+lorsque <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.</p>
+
+<div class="Theo" id="propI">
+<p><em>Proposition &#8544;</em>: Supposons que
+<em class="EQ">p &in; ]a,b[</em> est un point fixe de la fonction
+continument différentiable
+<em class="EQ">f:[a,b] &rarr; [a,b]</em> et que
+<em class="EQ">|f'(p)| &lt; 1</em>.  Alors, il existe un intervalle
+ouvert <em class="EQ">]p-&delta;,p+&delta;[ &subset; [a,b]</em> telle que
+les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+ avec
+<em class="EQ">x<sub>0</sub> &in; ]p-&delta;,p+&delta;[</em>
+convergent vers
+<em class="EQ">p</em> lorsque <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.</p>
+</div>
+
+<p><em>Démonstration</em>:  Puisque <em class="EQ">f'</em> est
+continue, il existe <em class="EQ">&delta; &gt; 0</em> et
+<em class="EQ">C &lt; 1</em> tels que
+<em class="EQ">|f'(x)| &leq; C</em> pour tout
+<em class="EQ">x &in; [p-&delta;,p+&delta;] &subset; [a,b]</em>.
+Le résultat découle du théorème du point fixe avec l'intervalle
+<em class="EQ">[a,b]</em> remplacé par l'intervalle
+<em class="EQ">[p-&delta;,p+&delta;]</em>.
+Le lecteur devrait revoir les commentaires après l'énoncé du théorème
+du point fixe. Notons que
+<em class="EQ">f:[p-&delta;,p+&delta;] &rarr; [p-&delta;,p+&delta;]</em>
+car <em class="EQ">|f(x) - p| = |f(x)-f(p)|
+= |f'(z)| |x-p| &le; C|x-p| &lt; &delta;</em>
+pour tout <em class="EQ">x &in; [p-&delta;,p+&delta;]</em>,
+où
+<math display="inline"><mi>z</mi></math>
+est entre
+<math display="inline"><mi>x</mi></math>
+et
+<math display="inline"><mi>p</mi></math>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Si <em class="EQ">1 &lt; &mu; &lt; 3</em>,
+alors les orbites <math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+
+générées par <math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+avec <em class="EQ">x<sub>0</sub> &in; ]0,1[</em>
+convergent vers <em class="EQ">p<sub>&mu;</sub></em>
+lorsque <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.</p>
+</div>
+
+<p><em>Démonstration</em>:
+Supposons que <em class="EQ">1 &lt; &mu; &lt; 2</em>.  Étant donné
+<em class="EQ">&delta; &in; ]0,p<sub>&mu;</sub>[ &subset; ]0,1/2[</em>,
+posons <em class="EQ">I<sub>&delta;</sub> = [&delta;,1-&delta;]</em>.
+Nous avons que <em class="EQ">f<sub>&mu;</sub>:
+I<sub>&delta;</sub> &rarr; I<sub>&delta;</sub></em> car
+<span id="proof1A">&nbsp;...</span></p>
+<div id="proof1B" class="moreORless">
+<div class="EQ_center">
+<em class="EQ_Display"> &delta; &le; &mu;&delta;(1-&delta;)
+= f<sub>&mu;</sub>(&delta;) &le;
+  f<sub>&mu;</sub>(x) &le; f<sub>&mu;</sub>(1/2)
+  = &mu;/4 &le; 1/2 &le; 1 - &delta;</em>
+</div>
+<p>pour tout <em class="EQ">x &in; I<sub>&delta;</sub></em>.</p>
+<div class="center">
+  <img src="logistic1.png" style="width: 350px"
+       alt="graphe de f_\mu" class="framed">
+</div>
+<p>Nous obtenons du Théorème d'expansion de Taylor que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>&mu;</sub>(x) =
+f<sub>&mu;</sub>(p<sub>&mu;</sub>)
++ f<sub>&mu;</sub>'(p<sub>&mu;</sub>)(x-p<sub>&mu;</sub>)
++ (1/2)f<sub>&mu;</sub>''(p<sub>&mu;</sub>)(x-p<sub>&mu;</sub>)<sup>2</sup> <br>
+= p<sub>&mu;</sub>
++ (2-&mu;)(x-p<sub>&mu;</sub>)
+- &mu;(x-p<sub>&mu;</sub>)<sup>2</sup> </em> .
+</div>
+<p>Donc</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>&mu;</sub>(x) - p<sub>&mu;</sub>
+=
+(2-&mu;-&mu;x+&mu;p<sub>&mu;</sub>)(x-p<sub>&mu;</sub>)
+= (1-&mu;x)(x-p<sub>&mu;</sub>)</em> .
+</div>
+<p>Nous obtenons que
+<em class="EQ"> |f<sub>&mu;</sub>(x) - p<sub>&mu;</sub>|
+&le; C<sub>&mu;</sub> |x-p<sub>&mu;</sub>|</em>
+pour tout <em class="EQ">x &in; [&delta;,1- &delta;]</em>, où
+<em class="EQ">C<sub>&mu;</sub> =
+max{|1-&mu;x| : x &in; [&delta;,1- &delta;]}
+  = 1-&mu;&delta; &lt; 1</em>.  Il découle d'une procédure standard
+d'induction que
+<em class="EQ"> |x<sub>n</sub> - p<sub>&mu;</sub>|
+&le; C<sub>&mu;</sub><sup>n</sup>
+|x<sub>0</sub>-p<sub>&mu;</sub>|</em> pour toutes orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+ avec
+<em class="EQ">x<sub>0</sub> &in; ]&delta;,1-&delta;[</em>.
+Notons que <em class="EQ">x<sub>n</sub> &in; ]&delta;,1-&delta;[</em>
+pour tout <em class="EQ">n</em> car
+<em class="EQ">f<sub>&mu;</sub>:
+I<sub>&delta;</sub> &rarr; I<sub>&delta;</sub></em>.  Puisque
+<em class="EQ">C<sub>&mu;</sub> &lt; 1</em>, nous obtenons que
+<em class="EQ">x<sub>n</sub> &rarr; p<sub>&mu;</sub></em>
+lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Puisque la discussion précédente est vrai pour tout
+<em class="EQ">&delta; &in ]0,p<sub>&mu;</sub>[</em>, nous pouvons
+conclure que toutes les orbites 
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+ avec
+<em class="EQ">x<sub>0</sub> &in; ]0,1[</em> convergent
+vers <em class="EQ">p<sub>&mu;</sub></em>
+lorsque <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.</p>
+
+<p>Pour <em class="EQ">&mu; = 2</em>, nous avons que
+<em class="EQ">p<sub>&mu;</sub> = 1/2</em>.  Puisque
+<em class="EQ">f<sub>&mu;</sub>([1/2,1]) = [0,1/2]</em>, il suffit
+d'assumer que <em class="EQ">x<sub>0</sub> &in; [0,1/2]</em>.
+Puisque <em class="EQ">f<sub>&mu;</sub>(x) = 2x(1-x) &gt; x</em>
+pour tout <em class="EQ">x &in; ]0,1/2[</em>, nous avons qu'un orbite
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec
+<em class="EQ">x<sub>0</sub> &in; ]0,1/2[</em> est une suite croissante
+bornée supérieurement par <em class="EQ">&mu; = 1/2</em>.  Donc
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+ converge
+vers <em class="EQ">q &le; 1/2</em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Supposons que
+<em class="EQ">q &lt; 1/2</em>.  Puisque la fonction
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+est continue, nous avons de
+<em class="EQ">x<sub>n</sub> &rarr; q</em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math> que
+<em class="EQ">x<sub>n+1</sub> = f<sub>&mu;</sub>(x<sub>n</sub>)
+ &rarr; f<sub>&mu;</sub>(q) &lt; q</em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.  Mais
+<em class="EQ">x<sub>n+1</sub> &rarr; q</em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.  Ceci est une contradiction.
+Donc <em class="EQ">q = &mu; = 1/2</em>.</p>
+
+<p>Finalement, supposons que <em class="EQ">2 &lt; &mu; &lt; 3</em>.
+Nous avons que <em class="EQ">f<sub>&mu;</sub>([p<sub>&mu;</sub>,1])
+&subset; [0,p<sub>&mu;</sub>]</em> car la fonction
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math> est décroissante sur
+<em class="EQ">[p<sub>&mu;</sub>,1] &subset; [1/2,1]</em>.</p>
+<div class="center">
+  <img src="logistic2.png" style="width: 350px"
+       alt="graphe de f_\mu" class="framed">
+</div>
+<p>De plus, si <em class="EQ">x<sub>0</sub> &in; ]0,1/2[</em>.
+alors il existe un entier <em class="EQ">N</em> tel que
+<em class="EQ">x<sub>N</sub> &in; [1/2,p<sub>&mu;</sub>]</em>.</p>
+<ol>
+<li>Puisque <em class="EQ">f<sub>&mu;</sub>(x) &gt; x</em> pour tout
+<em class="EQ">x &in; ]0,1/2[</em>. nous obtenons que la suite
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+ avec
+<em class="EQ">x<sub>0</sub> &in; ]0,1/2[</em> est croissante tant et
+aussi longtemps que <em class="EQ">x<sub>n</sub> &in; ]0,1/2[</em>.
+Soit <em class="EQ">q<sub>&mu;</sub> &in; ]0,1/2[</em> le seul point
+tel que <em class="EQ">f<sub>&mu;</sub>(q<sub>&mu;</sub>)
+= p<sub>&mu;</sub></em>.
+Nous procédons comme nous avons fait dans la démonstration que
+<em class="EQ">x<sub>n</sub>
+&rarr; p<sub>&mu;</sub></em> lorsque <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>
+avec <em class="EQ">&mu; = 2</em> pour démontrer qu'il existe
+un entier <em class="EQ">M</em> tel que
+<em class="EQ">x<sub>M</sub> &ge; q<sub>&mu;</sub></em>.
+Supposons que <em class="EQ">x<sub>n</sub> &lt; q<sub>&mu;</em>
+pour tout <em class="EQ">n</em>.  Puisque la suite
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+est une suite croissante bornée supérieurement par
+<em class="EQ">q<sub>&mu;</sub></em>, elle converge vers
+<em class="EQ">q &le; q<sub>&mu;</sub></em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Puisque la fonction <math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math> est continue,
+nous avons de <em class="EQ">x<sub>n</sub> &rarr; q</em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>
+que
+<em class="EQ">x<sub>n+1</sub> = f<sub>&mu;</sub>(x<sub>n</sub>)
+ &rarr; f<sub>&mu;</sub>(q) &lt; q</em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Mais
+<em class="EQ">x<sub>n+1</sub> &rarr; q</em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Ceci est une contradiction.
+Donc, il existe un entier <em class="EQ">M</em> tel que
+<em class="EQ">x<sub>M</sub> &ge; q<sub>&mu;</sub></em>.</li>
+<li>Puisque la fonction
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+est décroissante sur <em class="EQ">[p<sub>&mu;</sub>,&mu;/4]</em>, nous
+avons que <em class="EQ">f<sub>&mu;</sub>([p<sub>&mu;</sub>,&mu;/4])
+&subset;
+[f<sub>&mu;</sub>(&mu;/4),f<sub>&mu;</sub>(p<sub>&mu;</sub>)]
+&subset; [1/2,p<sub>&mu;</sub>]</em>.  De plus,
+puisque la fonction
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+est croissante sur <em class="EQ">[q<sub>&mu;</sub>,1/2]</em>, nous avons
+que 
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>&mu;</sub><sup>&compfn;2</sup>([q<sub>&mu;</sub>,1/2])
+= f<sub>&mu;</sub>(f<sub>&mu;</sub>([q<sub>&mu;</sub>,1/2])  
+&subset;
+f<sub>&mu;</sub>([f<sub>&mu;</sub>(q<sub>&mu;</sub>),f<sub>&mu;</sub>(1/2)]) <br>
+= f<sub>&mu;</sub>([p<sub>&mu;</sub>,&mu;/4])
+&subset; [1/2,p<sub>&mu;</sub>]</em> .
+</div>
+</li>
+<li>Notons que nous ne pouvons pas avoir
+<em class="EQ">x<sub>M</sub> &gt; p<sub>&mu;</em> sans avoir eu 
+<em class="EQ">x<sub>n</sub> &in;
+]q<sub>&mu;</sub>,p<sub>&mu;</sub>[</em>
+pour un entier <em class="EQ">n &lt; M</em>.  Donc, nous pouvons
+assumer que <em class="EQ">x<sub>M</sub> &in;
+[q<sub>&mu;</sub>,p<sub>&mu;</sub>]</em>.
+Si <em class="EQ">x<sub>M</sub> &in; [1/2,p<sub>&mu;</sub>]</em>, alors
+nous pouvons prendre <em class="EQ">N = M</em>.  Si
+<em class="EQ">x<sub>M</sub> &in; [q<sub>&mu;</sub>,1/2]</em>,
+alors nous obtenons de (ii) que
+<em class="EQ">x<sub>N</sub> &in; [1/2,p<sub>&mu;</sub>]</em>
+pour <em class="EQ">N = M+2</em>.</li>
+</ol>
+<p>Il découle de la discussion précédente que nous avons seulement à considérer
+les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec
+<em class="EQ">x<sub>0</sub> &in; [1/2,p<sub>&mu;</sub>]</em>.
+Comme nous avons fait en (ii) ci-dessus, nous pouvons démontrer que
+<em class="EQ">
+f<sub>&mu;</sub><sup>&compfn;2</sup>([1/2,p<sub>&mu;</sub>])
+&subset; [1/2,p<sub>&mu;</sub>]</em>.  De plus, puisque
+<em class="EQ">(f<sub>&mu;</sub><sup>&compfn;2</sup>)'</em> est
+croissante sur <em class="EQ">[1/2,p<sub>&mu;</sub>]</em> avec
+<em class="EQ">(f<sub>&mu;</sub><sup>&compfn;2</sup>)'(1/2) = 0</em>,
+nous obtenons que
+<div class="EQ_center">
+<em class="EQ_Display">
+|(f<sub>&mu;</sub><sup>&compfn;2</sup>)'(x)|
+&le;
+|(f<sub>&mu;</sub><sup>&compfn;2</sup>)'(p<sub>&mu;</sub>)|
+=
+|f<sub>&mu;</sub>'(f<sub>&mu;</sub>(p<sub>&mu;</sub>))|&thinsp;|f<sub>&mu;</sub>'(p<sub>&mu;</sub>)|
+<br>
+= |f<sub>&mu;</sub>'(p<sub>&mu;</sub>)|<sup>2</sup>
+= |2-&mu;|<sup>2</sup> &lt; 1
+</em>
+</div>
+<p>pour <em class="EQ">x &in; [1/2,p<sub>&mu;</sub>]</em>.
+Donc, nous obtenons du théorème des valeurs intermédiaires que
+<em class="EQ">
+|f<sub>&mu;</sub><sup>&compfn;2</sup>(x)-p<sub>&mu;</sub>|
+= |f<sub>&mu;</sub><sup>&compfn;2</sup>(x)-f<sub>&mu;</sub><sup>&compfn;2</sup>(p<sub>&mu;</sub>)|
+&le; |2-&mu;|&thinsp;|x-p<sub>&mu;</sub>|</em>
+pour <em class="EQ">x &in; [1/2,p<sub>&mu;</sub>]</em>.
+Il découle d'une procédure d'induction standard que
+<em class="EQ">
+|f<sub>&mu;</sub><sup>&compfn;2k</sup>(x<sub>0</sub>)-p<sub>&mu;</sub>| 
+&le; |2-&mu;|<sup>2k</sup> |x<sub>0</sub>-p<sub>&mu;</sub>|</em>
+pour <em class="EQ">k &gt; 0</em>.  Ainsi,
+<em class="EQ">x<sub>2k</sub> =
+f<sub>&mu;</sub><sup>&compfn;2k</sup>(x<sub>0</sub>) &rarr; 
+p<sub>&mu;</sub></em> lorsque <em class="EQ">k &rarr; &infin;</em>.
+Cependant, puisque
+<em class="EQ">|(f<sub>&mu;</sub>)'(p<sub>&mu;</sub>)|
+= |2- &mu;| &lt; 1</em>, nous obtenons de la proposition 
+précédente qu'il existe <em class="EQ">&delta; &gt; 0</em> tel que
+toute orbite <math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec
+<em class="EQ">x<sub>0</sub> &in;
+]p<sub>&mu;</sub>-&delta;,p<sub>&mu;</sub>+&delta;[</em>
+converge vers
+<em class="EQ">p<sub>&mu;</sub></em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Donc, pour un entier <em class="EQ">k</em> assez grand, nous avons que
+<em class="EQ">x<sub>2k</sub> &in;
+]p<sub>&mu;</sub>-&delta;,p<sub>&mu;</sub>+&delta;[</em>
+et ainsi <em class="EQ">{x<sub>n</sub>}<sub>n&ge;2k</sub></em>
+converge vers <em class="EQ">p<sub>&mu;</sub></em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof1A','proof1B','proof1C','fr')" class="mORl" id="proof1C">Lire plus</button>
+
+<p>Par exemple, si <em class="EQ">&mu; = 2</em>, l'application graphique
+ci-dessus montre que le graphe de
+<em class="EQ">f<sub>2</sub></em>
+coupe la droite <em class="EQ">y = x</em> en
+<em class="EQ">x = p<sub>2</sub> = 1/2</em> seulement.  C'est un point
+fixe de <em class="EQ">f<sub>2</sub></em> et toutes les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec <em class="EQ">x<sub>0</sub> &in; ]0,1[</em>
+convergent vers <em class="EQ">p<sub>2</sub></em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.</p>
+
+<p>Un phénomène très surprenant se produit quand
+<math display="inline"><mi>&mu;</mi></math>
+traverse la valeur <em class="EQ">3</em>.  Pour
+<math display="inline"><mi>&mu;</mi></math>
+légèrement plus petit que <em class="EQ">3</em>, la fonction
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+a un seul point fixe positif
+<em class="EQ">p<sub>&mu;</sub></em> comme nous avons vue précédemment
+et toutes les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec <em class="EQ">x<sub>0</sub> &in; ]0,1[</em> convergent vers
+<em class="EQ">p<sub>&mu;</sub></em>
+lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Cependant, pour
+<math display="inline"><mi>&mu;</mi></math> légèrement plus grand que
+<em class="EQ">3</em>,
+la fonction
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math> a toujours un seul point fixe
+positif <em class="EQ">p<sub>&mu;</sub></em> mais il y a aussi une
+orbite périodique <em class="EQ">{z<sub>n</sub>}<sub>n&ge;0</sub></em>
+de période <em class="EQ">2</em> telle que toutes orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec <em class="EQ">x<sub>0</sub> &in; ]0,1[</em> et
+<em class="EQ">x<sub>0</sub> &ne; p<sub>&mu;</sub></em>
+<q lang="en">convergent</q> vers cette orbite périodique lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.  Rappelons que
+<em class="EQ">z<sub>n+2</sub> = z<sub>n</sub></em> pour tout
+<em class="EQ">n</em> par définition d'une orbite périodique
+de période <em class="EQ">2</em>.  Le lecteur peut utiliser
+l'application graphique ci-dessus pour comparer le comportement des
+orbites lorsque
+<em class="EQ">&mu; = 2.9</em> et
+<em class="EQ">&mu; = 3.1</em>.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Soit
+<em class="EQ">f:&reals; &rarr; &reals;</em>.
+Nous disons qu'une orbite 
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+du SDD généré par
+<math display="inline"><mi>f</mi></math>
+<em>converge</em> vers une orbite
+périodique <em class="EQ">{z<sub>n</sub>}<sub>n&ge;0</sub></em>
+de période <em class="EQ">k</em> pour la fonction
+<math display="inline"><mi>f</mi></math>
+s'il existe un entier <em class="EQ">N</em> tel que
+<em class="EQ">f<sup>&compfn;km</sup>(x<sub>0</sub>)</em>
+converge vers <em class="EQ">z<sub>N</sub></em>
+lorsque <em class="EQ">m &rarr; &infin;</em>.</p>
+</div>
+
+<p>Dans la définition précédente, si
+<em class="EQ">f<sup>&compfn;km</sup>(x<sub>0</sub>)</em>
+converge vers <em class="EQ">z<sub>N</sub></em> pour une valeur fixe
+<em class="EQ">N</em> lorsque <em class="EQ">m &rarr; &infin;</em>,
+alors</p>
+<div class="EQ_center">
+<em class="EQ_Display">f<sup>&compfn;km</sup>(x<sub>j</sub>)
+= f<sup>&compfn;km</sup>(f<sup>&compfn;j</sup>(x<sub>0</sub>))
+= f<sup>&compfn;j</sup>(f<sup>&compfn;km</sup>(x<sub>0</sub>))
+&rarr; f<sup>&compfn;j</sup>(z<sub>N</sub>) = z<sub>N+j</em>
+</em>
+</div>
+<p>lorsque <em class="EQ">m &rarr; &infin;</em> pour tout
+<em class="EQ">j</em>.</p>
+
+<p>Pour <em class="EQ">&mu; = 3</em>, nous avons que
+<em class="EQ">(f<sub>&mu;</sub>)'(p<sub>&mu;</sub>) = -1</em>.
+Nous ne pouvons pas utiliser la <script language="javascript">
+buildLinK("#propI", "Proposition &#8544;", "MMathSStat", "propIId1", "_top");
+</script> pour conclure que les orbites qui débutent près de
+<em class="EQ">p<sub>&mu;</sub></em> convergent vers celui-ci.
+Néanmoins, la condition
+<em class="EQ">(f<sub>&mu;</sub>)'(p<sub>&mu;</sub>)</em>
+est très importante comme le théorème suivant va montrer.
+Mais, premièrement, nous avons besoin d'une petite proposition.</p>
+
+<div class="Theo" id="propII">
+<p><em>Proposition &#8545;</em>:
+Supposons que <em class="EQ">g:&reals;&times;&reals; &rarr; &reals;</em> est
+une fonction continûment différentiable.
+Soit <em class="EQ">g<sub>&lambda;</sub>(x) = g(x,&lambda;)</em>
+pour tout <em class="EQ">(x,&lambda;) &in; &reals;&times;&reals;</em>.  Si
+<em class="EQ">g<sub>&lambda;<sub>0</sub></sub>(0) = 0</em> pour
+<em class="EQ">&lambda;<sub>0</sub></em> et
+<em class="EQ">g<sub>&lambda;<sub>0</sub></sub>'(0) &ne; 1</em>,
+alors il existe deux intervalles ouverts <em class="EQ">I</em> et
+<em class="EQ">J</em> tels que
+<em class="EQ">&lambda;<sub>0</sub> &in; I</em> et
+<em class="EQ">0 &in; J</em>, et une fonction
+continûment différentiable <em class="EQ">p:I &rarr; J</em> telle que
+<em class="EQ">p(&lambda;<sub>0</sub>) = 0</em> et
+<em class="EQ">g<sub>&lambda;</sub>(p(&lambda;)) = g(p(&lambda;),&lambda;) =
+p(&lambda;)</em> pour <em class="EQ">&lambda; &in; I</em>.
+De plus, toutes les solutions de
+<em class="EQ">g<sub>&lambda;</sub>(x) = x</em>
+pour <em class="EQ">x &in; J</em> et <em class="EQ">&lambda; &in; I</em>
+sont données par <em class="EQ">(x,&lambda;) = (p(&lambda;),&lambda;)</em>. 
+</p>
+</div>
+
+<p><em>Démonstration</em>: Soit
+<em class="EQ">G:&reals;&times;&reals; &rarr; &reals;</em>
+la fonction définie par <em class="EQ">G(x,&lambda;) =
+g<sub>&lambda;</sub>(x) - x</em>.  Nous avons que
+<em class="EQ">
+G(0,&lambda;<sub>0</sub>) = g<sub>&lambda;<sub>0</sub></sub>(0) - 0 = 0</em>
+et
+<em class="EQ">
+<math><mfrac><mi>&part;G</mi><mi>&part;x</mi></mfrac></math>(0,&lambda;<sub>0</sub>)
+= g<sub>&lambda;<sub>0</sub></sub>'(0) - 1 &ne; 0</em>.
+Ainsi, la conclusion de la proposition découle du théorème des
+fonctions implicites.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+
+<div class="Theo">
+<p><em>Théorème (bifurcation par doublement de période)</em>:
+Supposons que <em class="EQ">g:&reals;&times;&reals; &rarr; &reals;</em>
+est une fonction trois fois continûment différentiable.
+Soit <em class="EQ">g<sub>&lambda;</sub>(x) = g(x,&lambda;)</em>,
+<em class="EQ">G(x,&lambda;) = g(g(x,&lambda;),&lambda;)</em>
+et</p>
+<div class="EQ_center">
+<em class="EQ_Display">Sg<sub>&lambda;</sub>(x) =
+<math><mfrac><mi>g<sub>&lambda;</sub>'''(x)</mi><mi>g<sub>&lambda;</sub>'(x)</mi></mfrac></math>
+- <math><mfrac><mi>3</mi><mi>2</mi></mfrac></math>
+(<math><mfrac><mi>g<sub>&lambda;</sub>''(x)</mi><mi>g<sub>&lambda;</sub>'(x)</mi></mfrac></math>)<sup>2</sup></em>
+</div>
+<p>pour tout <em class="EQ">(x,&lambda;) &in; &reals;&times;&reals;</em>.  Si
+<em class="EQ">g</em> satisfait
+<em class="EQ">g<sub>&lambda;</sub>(0) = g(0,&lambda;) = 0</em> pour tout
+<em class="EQ">&lambda;</em>,
+<em class="EQ">g<sub>&lambda;<sub>0</sub></sub>'(0)
+= <math><mfrac><mi>&part;g</mi><mi>&part;x</mi></mfrac></math>(0,&lambda;<sub>0</sub>)
+  = -1</em> pour une valeur
+<em class="EQ">&lambda;<sub>0</sub></em>, et
+<em class="EQ">
+Sg<sub>&lambda;<sub>0</sub></sub>(0) (<math><mfrac><mi>&part;<sup>2</sup>G</mi><mi>&part;x&part;&lambda;</mi></mfrac></math>(0,&lambda;<sub>0</sub>))
+&lt; 0</em>, alors il existe un intervalle ouvert <em class="EQ">I</em>
+qui contient l'origine et une fonction continue et convexe
+<em class="EQ">&Lambda;:I &rarr; &reals;</em> telle que
+<em class="EQ">&Lambda;(0) = &lambda<sub>0</sub></em>,
+<em class="EQ">g<sub>&Lambda;(x)</sub>(x) &ne; x</em> pour
+<em class="EQ">x &ne; 0</em> mais
+<em class="EQ">g<sub>&Lambda;(x)</sub><sup>&compfn;2</sup>(x) = x</em>.
+De plus, si nous avons plutôt
+<em class="EQ">
+Sg<sub>&lambda;<sub>0</sub></sub>(0) (<math><mfrac><mi>&part;<sup>2</sup>G</mi><mi>&part;x&part;&lambda;</mi></mfrac></math>(0,&lambda;<sub>0</sub>))
+&gt; 0</em>, alors <em class="EQ">&Lambda;</em> est concave.
+</p>
+</div>
+
+<p>L'expression <em class="EQ">Sg<sub>&lambda;</sub></em> est appelée la
+<em>dérivée Schwarzienne</em> de 
+<em class="EQ">g<sub>&lambda;</sub></em>.  Nous avons le <em>diagramme de
+bifurcation</em> suivant pour <em class="EQ">&Lambda;</em> convexe.</p>
+<div class="center">
+  <img src="logistic3_fr.png" style="width: 500px"
+       alt="Diagramme de bifurcation pour une bifurcation de doublement de période super-critique." class="framed">
+</div>
+<p>Nous disons que le SDD généré par
+<em class="EQ">g<sub>&lambda;</sub></em> a une
+<em>bifurcation</em> à <em class="EQ">&lambda; = &lambda;<sub>0</sub></em>
+car le nombre de points périodiques (incluant les points fixes) change
+et/ou le comportement qualitatif des orbites générées par
+<em class="EQ">f<sub>&lambda;</sub></em> change lorsque
+<em class="EQ">&lambda;</em> traverse
+<em class="EQ">&lambda;<sub>0</sub></em>.
+Nous disons que la bifurcation est <em>super-critique</em>
+quand <em class="EQ">&Lambda;</em> est convexe, et la bifurcation est 
+<em>sous-critique</em> quand <em class="EQ">&Lambda;</em> est concave.</p>
+
+<p><em>Démonstration</em>: Soit
+<em class="EQ">h:&reals;&times;&reals; &rarr; &reals;</em>
+la fonction définie par <em class="EQ">h(x,&lambda;) =
+g<sub>&lambda;</sub><sup>&compfn;2</sup>(x) - x</em>.
+Puisque <em class="EQ">h(0,&lambda;) = 0</em> pour tout
+<em class="EQ">&lambda; &in; &reals;</em>, nous avons que
+<span id="proof2A">&nbsp;...</span></p>
+<div id="proof2B" class="moreORless">
+<!-- Problem with the font size of the limits of integration
+<math><msubsup><mo>&int;</mo><mi>0</mi><mi>1</mi></msubsup></math>
+-->
+<div class="EQ_center">
+<em class="EQ_Display">
+h(x,&lambda;) = h(x,&lambda;) - h(0,&lambda;)
+= &int;<sub>0</sub><sup>1</sup><math><mfrac><mi>&part;h</mi><mi>&part;t</mi></mfrac></math>(tx,&lambda;) dt
+= &int;<sub>0</sub><sup>1</sup>x<math><mfrac><mi>&part;h</mi><mi>&part;x</mi></mfrac></math>(tx,&lambda;) dt
+= xF(x,&lambda;) </em>
+</div>
+<p>avec <em class="EQ">F(x,&lambda;)
+= &int;<sub>0</sub><sup>1</sup><math><mfrac><mi>&part;h</mi><mi>&part;x</mi></mfrac></math>(tx,&lambda;) dt</em>.
+La fonction <em class="EQ">F</em> est deux fois continûment
+différentiable car <em class="EQ">h</em> est trois fois continûment
+différentiable.</p>
+
+<p>Puisque</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<math><mfrac><mi>&part;h</mi><mi>&part;x</mi></mfrac></math>(x,&lambda;)
+= <math><mfrac><mi>&part;&thinsp;</mi><mi>&part;x</mi></mfrac></math>(xF(x,&lambda;))
+= F(x,&lambda;)
++ x<math><mfrac><mi>&part;F</mi><mi>&part;x</mi></mfrac></math>(x,&lambda;)
+</em> ,
+</div>
+<p>nous obtenons que <em class="EQ">
+<math><mfrac><mi>&part;h</mi><mi>&part;x</mi></mfrac></math>(0,&lambda;)
+= F(0,&lambda;)</em>.  Ainsi</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+F(0,&lambda;<sub>0</sub>) =
+<math><mfrac><mi>&part;&thinsp;</mi><mi>&part;x</mi></mfrac></math>(g<sub>&lambda;</sub><sup>&compfn;2</sup>(x) - x)|<sub>(x,&lambda;)=(0,&lambda;<sub>0</sub>)</sub>
+= g<sub>&lambda;<sub>0</sub></sub>'(g<sub>&lambda;<sub>0</sub></sub>(0))
+g<sub>&lambda;<sub>0</sub></sub>'(0) - 1 <br>
+= g<sub>&lambda;<sub>0</sub></sub>'(0)
+g<sub>&lambda;<sub>0</sub></sub>'(0) - 1
+= (-1)<sup>2</sup> - 1 = 0</em> .
+</div>
+<p>De plus,</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<math><mfrac><mi>&part;F</mi><mi>&part;&lambda;</mi></mfrac></math>(0,&lambda;<sub>0</sub>) =
+<math><mfrac><mi>&part;<sup>2</sup>&thinsp;</mi><mi>&part;&lambda;&part;x</mi></mfrac></math>(g<sub>&lambda;</sub><sup>&compfn;2</sup>(x) - x)|<sub>(x,&lambda;)=(0,&lambda;<sub>0</sub>)</sub>
+= <math><mfrac><mi>&part;<sup>2</sup>G</mi><mi>&part;x&part;&lambda;</mi></mfrac></math>(0,&lambda;<sub>0</sub>)
+&ne; 0 </em> .
+</div>
+<p>Il découle du théorème des fonctions implicites qu'il existe un
+intervalle ouvert <em class="EQ">J</em> qui contient l'origine et une
+seule fonction <em class="EQ">&Lambda;:J &rarr; &reals;</em> telle que
+<em class="EQ">&Lambda;(0) = &lambda;<sub>0</sub></em> et
+<em class="EQ">F(x,&Lambda;(x)) = 0</em> pour <em class="EQ">x &in; J</em>.
+Donc,</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+0 = xF(x,&Lambda;(x)) = h(x,&Lambda;(x))
+= g<sub>&Lambda;(x)</sub><sup>&compfn;2</sup>(x) - x</em> .
+</div>
+<p>pour <em class="EQ">x &in; J</em>.  Il découle de la
+<script language="javascript">
+buildLinK("#propII", "Proposition &#8545;", "MMathSStat", "propIIId1", "_top");
+</script> que
+<em class="EQ">g<sub>&Lambda;(x)</sub>(x) - x &ne; 0</em>
+pour tout <em class="EQ">x &in; J</em> si
+<em class="EQ">J</em> est assez petit car le seul point fixe de
+<em class="EQ">g<sub>&lambda;</sub></em> pour <em class="EQ">&lambda;</em>
+dans un petit voisinage de l'origine est <em class="EQ">x = 0</em>.<p>
+
+<p>Nous déterminons maintenant la courbure de <em class="EQ">&lambda;</em> sur
+<em class="EQ">J</em>.  Nous avons du théorème des fonctions
+implicites que</p>
+<div class="EQ_center">
+<em class="EQ_Display">&Lambda;'(x) = - 
+<math><mfrac><mi>&part;F</mi><mi>&part;x</mi></mfrac></math>(x,&Lambda;(x))(<math><mfrac><mi>&part;F</mi><mi>&part;&lambda;</mi></mfrac></math>(x,&Lambda;(x)))<sup>-1</sup></em>
+</div>
+<p>et</p>
+<div class="EQ_center">
+<em class="EQ_Display">&Lambda;''(x) =
+(-(<math><mfrac><mi>&part;<sup>2</sup>F</mi><mi>&part;x<sup>2</sup></mi></mfrac></math>(x,&Lambda;(x))
++ <math><mfrac><mi>&part;<sup>2</sup>F</mi><mi>&part;x&part;&lambda;</mi></mfrac></math>(x,&Lambda;(x))&Lambda;'(x))<math><mfrac><mi>&part;F</mi><mi>&part;&lambda;</mi></mfrac></math>(x,&Lambda;(x)) <br>
++ (<math><mfrac><mi>&part;<sup>2</sup>F</mi><mi>&part;&lambda;&part;x</mi></mfrac></math>(x,&Lambda;(x))
++ <math><mfrac><mi>&part;<sup>2</sup>F</mi><mi>&part;&lambda;<sup>2</sup></mi></mfrac></math>(x,&Lambda;(x))&Lambda;'(x))<math><mfrac><mi>&part;F</mi><mi>&part;x</mi></mfrac></math>(x,&Lambda;(x)))(<math><mfrac><mi>&part;F</mi><mi>&part;&lambda;</mi></mfrac></math>(x,&Lambda;(x)))<sup>-2</sup></em> .
+</div>
+<p>Nous obtenons de
+<em class="EQ">
+<math><mfrac><mi>&part;h</mi><mi>&part;x</mi></mfrac></math>(x,&lambda;)
+= F(x,&lambda;)
++ x<math><mfrac><mi>&part;F</mi><mi>&part;x</mi></mfrac></math>(x,&lambda;)
+</em> que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<math><mfrac><mi>&part;<sup>2</sup>h</mi><mi>&part;&lambda;&part;x</mi></mfrac></math>(x,&lambda;)
+= <math><mfrac><mi>&part;F</mi><mi>&part;&lambda;</mi></mfrac></math>(x,&lambda;)
++ x<math><mfrac><mi>&part;<sup>2</sup>F</mi><mi>&part;&lambda;&part;x</mi></mfrac></math>(x,&lambda;)
+</em>
+</div>
+<p>et</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<math><mfrac><mi>&part;<sup>2</sup>h</mi><mi>&part;x<sup>2</sup></mi></mfrac></math>(x,&lambda;)
+= 2<math><mfrac><mi>&part;F</mi><mi>&part;x</mi></mfrac></math>(x,&lambda;)
++ x<math><mfrac><mi>&part;<sup>2</sup>F</mi><mi>&part;x<sup>2</sup></mi></mfrac></math>(x,&lambda;)
+</em> .
+</div>
+<p>Ainsi</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<math><mfrac><mi>&part;F</mi><mi>&part;&lambda;</mi></mfrac></math>(0,&lambda;<sub>0</sub>)
+= <math><mfrac><mi>&part;<sup>2</sup>h</mi><mi>&part;&lambda;&part;x</mi></mfrac></math>(0,&lambda;<sub>0</sub>)
+= <math><mfrac><mi>&part;<sup>2</sup>&thinsp;</mi><mi>&part;&lambda;&part;x</mi></mfrac></math>(g<sub>&lambda;</sub><sup>&compfn;2</sup>(x) - x)|<sub>(x,&lambda;)=(0,,&lambda;<sub>0</sub>)</sub>
+= <math><mfrac><mi>&part;<sup>2</sup>G</mi><mi>&part;&lambda;&part;x</mi></mfrac></math>(0,&lambda;<sub>0</sub>)
+&ne; 0 </em>
+</div>
+<p>et</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<math><mfrac><mi>&part;F</mi><mi>&part;x</mi></mfrac></math>(0,&lambda;<sub>0</sub>)
+= <math><mfrac><mi>1</mi><mi>2</mi></mfrac></math>
+<math><mfrac><mi>&part;<sup>2</sup>h</mi><mi>&part;x<sup>2</sup></mi></mfrac></math>(0,&lambda;<sub>0</sub>)
+= <math><mfrac><mi>1</mi><mi>2</mi></mfrac></math>
+<math><mfrac><mi>&part;<sup>2</sup>&thinsp;</mi><mi>&part;x<sup>2</sup></mi></mfrac></math>(g<sub>&lambda;</sub><sup>&compfn;2</sup>(x) - x)|<sub>(x,&lambda;)=(0,,&lambda;<sub>0</sub>)</sub> <br>
+= <math><mfrac><mi>1</mi><mi>2</mi></mfrac></math>(
+g<sub>&lambda;</sub>''(g<sub>&lambda;</sub>(x))(g<sub>&lambda;</sub>'(x))<sup>2</sup>
++ g<sub>&lambda;</sub>'(g<sub>&lambda;</sub>(x))g<sub>&lambda;</sub>''(x))|<sub>(x,&lambda;)=(0,,&lambda;<sub>0</sub>)</sub> <br>
+= <math><mfrac><mi>1</mi><mi>2</mi></mfrac></math>(
+g<sub>&lambda;<sub>0</sub></sub>''(0)(-1)<sup>2</sup>
+- g<sub>&lambda;<sub>0</sub></sub>''(0)) = 0 </em> .
+</div>
+<p>Donc, <em class="EQ">&Lambda;'(0) = 0</em> et</p>
+<div class="EQ_center">
+<em class="EQ_Display">&Lambda;''(0) =
+-<math><mfrac><mi>&part;<sup>2</sup>F</mi><mi>&part;x<sup>2</sup></mi></mfrac></math>(0,&lambda;<sub>0</sub>)(<math><mfrac><mi>&part;<sup>2</sup>G</mi><mi>&part;&lambda;&part;x</mi></mfrac></math>(0,&lambda;<sub>0</sub>))<sup>-1</sup></em> .
+</div>
+<p>Puisque<p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<math><mfrac><mi>&part;<sup>3</sup>h</mi><mi>&part;x<sup>3</sup></mi></mfrac></math>(x,&lambda;)
+= 3<math><mfrac><mi>&part;<sup>2</sup>F</mi><mi>&part;x<sup>2</sup></mi></mfrac></math>(x,&lambda;)
++ x<math><mfrac><mi>&part;<sup>3</sup>F</mi><mi>&part;x<sup>3</sup></mi></mfrac></math>(x,&lambda;)
+</em> ,
+</div>
+<p>nous obtenons que<p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<math><mfrac><mi>&part;<sup>2</sup>F</mi><mi>&part;x<sup>2</sup></mi></mfrac></math>(0,&lambda;<sub>0</sub>)
+= <math><mfrac><mi>1</mi><mi>3</mi></mfrac></math>
+<math><mfrac><mi>&part;<sup>3</sup>h</mi><mi>&part;x<sup>3</sup></mi></mfrac></math>(0,&lambda;<sub>0</sub>)
+= <math><mfrac><mi>1</mi><mi>3</mi></mfrac></math>
+<math><mfrac><mi>&part;<sup>3</sup>&thinsp;</mi><mi>&part;x<sup>3</sup></mi></mfrac></math>(g<sub>&lambda;</sub><sup>&compfn;2</sup>(x) - x)|<sub>(x,&lambda;)=(0,,&lambda;<sub>0</sub>)</sub> <br>
+= <math><mfrac><mi>1</mi><mi>3</mi></mfrac></math>(g<sub>&lambda;</sub>'''(g<sub>&lambda;</sub>(x))(g<sub>&lambda;</sub>'(x))<sup>3</sup>
++ 3g<sub>&lambda;</sub>''(g<sub>&lambda;</sub>(x))g<sub>&lambda;</sub>''(x)
+g<sub>&lambda;</sub>'(x) <br>
++ g<sub>&lambda;</sub>'(x)g<sub>&lambda;</sub>'''(x))|<sub>(x,&lambda;)=(0,&lambda;<sub>0</sub>)</sub> <br>
+= <math><mfrac><mi>1</mi><mi>3</mi></mfrac></math>(
+-2g<sub>&lambda;<sub>0</sub></sub>'''(0)
+- 3g<sub>&lambda;<sub>0</sub></sub>''(0)) <br>
+= <math><mfrac><mi>2</mi><mi>3</mi></mfrac></math>(<math><mfrac><mi>g<sub>&lambda;</sub>'''(x)</mi><mi>g<sub>&lambda;</sub>'(x)</mi></mfrac></math>
+- <math><mfrac><mi>3</mi><mi>2</mi></mfrac></math>
+(<math><mfrac><mi>g<sub>&lambda;</sub>''(x)</mi><mi>g<sub>&lambda;</sub>'(x)</mi></mfrac></math>)<sup>2</sup>)|<sub>(x,&lambda;)=(0,&lambda;<sub>0</sub>)</sub>
+= <math><mfrac><mi>2</mi><mi>3</mi></mfrac></math> Sg<sub>&lambda;</sub>(0)
+</em> .
+</div>
+Donc,
+<em class="EQ">&Lambda;''(0) =
+- <math><mfrac><mi>2</mi><mi>3</mi></mfrac></math>
+Sg<sub>&lambda;<sub>0</sub></sub>(0) 
+(<math><mfrac><mi>&part;<sup>2</sup>G</mi><mi>&part;&lambda;&part;x</mi></mfrac></math>(0,&lambda;<sub>0</sub>))<sup>-1</sup> > 0</em>
+si <em class="EQ">
+Sg<sub>&lambda;<sub>0</sub></sub>(0) (<math><mfrac><mi>&part;<sup>2</sup>G</mi><mi>&part;x&part;&lambda;</mi></mfrac></math>(0,&lambda;<sub>0</sub>))
+&lt; 0</em>.  Ainsi
+<em class="EQ">&Lambda;</em> a un minimum à <em class="EQ">x = 0</em>
+et est convexe au voisinage de <em class="EQ">x = 0</em>.
+De façon semblable, <em class="EQ">&Lambda;''(0) < 0</em> si
+<em class="EQ">
+Sg<sub>&lambda;<sub>0</sub></sub>(0) (<math><mfrac><mi>&part;<sup>2</sup>G</mi><mi>&part;x&part;&lambda;</mi></mfrac></math>(0,&lambda;<sub>0</sub>))
+&gt; 0</em> et <em class="EQ">&Lambda;</em> est concave.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof2A','proof2B','proof2C','fr')" class="mORl" id="proof2C">Lire plus</button>
+
+<p>Pour utiliser le théorème précédent avec la fonction logistique
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>,
+nous devons considérer la
+fonction <em class="EQ">g(x,&mu;) =
+f(x + p<sub>&mu;</sub>,&mu;) - p<sub>&mu:</sub></em>
+où <em class="EQ">f(x,&mu;) = f<sub>&mu;</sub>(x)</em>.
+Nous avons que <em class="EQ">g<sub>&mu;</sub>(0) =
+f<sub>&mu;</sub>(p<sub>&mu;</sub>) - p<sub>&mu;</sub> = 0</em>
+pour tout <em class="EQ">&mu; &ge; 1</em>,
+<em class="EQ">g<sub>3</sub>'(0) =
+f<sub>3</sub>'(p<sub>3</sub>) = 3(1-2p<sub>3</sub>) = -1</em>, et</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+Sg<sub>3</sub>(0) (<math><mfrac><mi>&part;<sup>2</sup>&thinsp;</mi><mi>&part;x&part;&mu;</mi></mfrac></math>(g(g(x,&mu;),&mu;)|<sub>(x,&mu;)=(0,3)</sub>
+= (<math><mfrac><mi>f<sub>3</sub>'''(p<sub>3</sub>)</mi><mi>f<sub>3</sub>'(p<sub>3</sub>)</mi></mfrac></math>
+- <math><mfrac><mi>3</mi><mi>2</mi></mfrac></math>
+(<math><mfrac><mi>f<sub>3</sub>''(p<sub>3</sub>)</mi><mi>f<sub>3</sub>'(p<sub>3</sub>)</mi></mfrac></math>)<sup>2</sup>) <br>
+(<math><mfrac><mi>&part;<sup>2</sup>g</mi><mi>&part;<sup>2</sup>x</mi></mfrac></math>(g(x,&mu;),&mu;)<math><mfrac><mi>&part;g</mi><mi>&part;x</mi></mfrac></math>(x,&mu;)<math><mfrac><mi>&part;g</mi><mi>&part;&mu;</mi></mfrac></math>(x,&mu;)
++ <math><mfrac><mi>&part;<sup>2</sup>g</mi><mi>&part;x&part;&mu;</mi></mfrac></math>(g(x,&mu;),&mu;)<math><mfrac><mi>&part;g</mi><mi>&part;x</mi></mfrac></math>(x,&mu;) <br>
++ <math><mfrac><mi>&part;g</mi><mi>&part;x</mi></mfrac></math>(g(x,&mu;),&mu;)<math><mfrac><mi>&part;<sup>2</sup>g</mi><mi>&part;x&part;&mu;</mi></mfrac></math>(x,&mu;))|<sub>(x,&mu;)=(0,3)</sub>
+= -108 &lt; 0 </em> .
+</div>
+<p>Donc, le SDD généré par la fonction
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math> a une bifurcation super-critique
+de doublement de période à <em class="EQ">&mu; = b<sub>0</sub> = 3</em>.
+<p>
+
+<p>Pour <em class="EQ">&mu; &in; ]1,3[</em>, le SDD a seulement un
+point fixe positif <em class="EQ">p<sub>&mu;</sub></em> et toutes les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec
+<em class="EQ">x<sub>0</sub> &in; ]0,1[</em> convergent vers
+<em class="EQ">p<sub>&mu;</sub></em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.</p>
+
+<ol style="list-style-type: decimal;">
+<li> Pour
+<math display="inline"><mi>&mu;</mi></math>
+légèrement plus grand que
+<em class="EQ">b<sub>1</sub> = 3</em>, la fonction
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+a toujours le point fixe positif
+<em class="EQ">p<sub>&mu;</sub></em> mais les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec
+<em class="EQ">x<sub>0</sub> &in; ]0,1[&setminus;{p<sub>&mu;</sub>}</em>
+ne convergent plus vers celui-ci.  Plutôt, les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec
+<em class="EQ">x<sub>0</sub> &in; ]0,1[&setminus;{p<sub>&mu;</sub>}</em>
+convergent maintenant vers une nouvelle orbite périodique
+<em class="EQ">{p<sub>&mu;,0</sub><sup>[1]</sup>,p<sub>&mu;,1</sub><sup>[1]</sup>,...}</em>
+de période <em class="EQ">2</em> lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Par exemple, si <em class="EQ">&mu; = 3.4</em>, le point
+<em class="EQ">x<sub>0</sub> = 0.45195878844045...</em> est un point
+périodique de
+<em class="EQ">f<sub>3.4</sub></em> de période <em class="EQ">2</em>;
+L'orbite périodique
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+qui lui est associée est
+<div class="EQ_center">
+<em class="EQ_Display">
+{0.45195878844045, 0.84215476876273, 0.45195878844045, ...}
+</em>
+</div>
+où les valeurs ont été tronquées à <em class="EQ">14</em> chiffres
+après le point des décimales.  À l'aide de l'application graphique
+ci-dessus, Le lecteur devrait dessiner le graphe
+en forme de toile d'araignée du SDD généré par
+<em class="EQ">f<sub>3.4</sub></em> lorsque
+<em class="EQ">x<sub>0</sub> = 0.45195878844045</em>.</li>
+<li> Ce que nous avons décrit est seulement le début de l'histoire.
+Pour une valeur <em class="EQ">b<sub>2</sub></em> de
+<math display="inline"><mi>&mu;</mi></math> légèrement plus grande que 
+<em class="EQ">b<sub>1</sub></em>, le SDD généré par
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+a un autre bifurcation super-critique de doublement de période mais
+cette fois ci pour
+<em class="EQ">f<sub>&mu;</sub><sup>&compfn;2</sup></em>
+au lieu de
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>.
+Pour
+<math display="inline"><mi>&mu;</mi></math>
+légèrement plus grand que
+<em class="EQ">b<sub>2</sub></em>, la fonction
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+a toujours le point fixe
+<em class="EQ">p<sub>&mu;</sub></em> et une orbite périodique
+<em class="EQ">{p<sub>&mu;,0</sub><sup>[1]</sup>,p<sub>&mu;,1</sub><sup>[1]</sup>,...}</em>
+de période <em class="EQ">2</em> mais les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec
+<em class="EQ">x<sub>0</sub> &in;
+]0,1[&setminus;{p<sub>&mu;</sub>,p<sub>&mu;,0</sub><sup>[1]</sup>,p<sub>&mu;,1</sub><sup>[1]</sup>}</em>
+ne convergent plus vers ceux-ci.  Plutôt, les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec
+<em class="EQ">x<sub>0</sub> &in;
+]0,1[&setminus;{p<sub>&mu;</sub>,p<sub>&mu;,0</sub><sup>[1]</sup>,p<sub>&mu;,1</sub><sup>[1]</sup>}</em>
+convergent maintenant vers une nouvelle orbite périodique 
+<em class="EQ">
+{p<sub>&mu;,0</sub><sup>[2]</sup>,p<sub>&mu;,1</sub><sup>[2]</sup>,p<sub>&mu;,2</sub><sup>[2]</sup>,p<sub>&mu;,3</sub><sup>[2]</sup>,...}</em>
+de période <em class="EQ">2<sup>2</sup> = 4</em>
+lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Par exemple, si <em class="EQ">&mu; = 3.5</em>, le point
+<em class="EQ">x<sub>0</sub> = 0.87499726360246...</em> est un point
+périodique de <em class="EQ">f<sub>3.5</sub></em> de période
+<em class="EQ">4</em>.  L'orbite périodique
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>.
+qui lui est associée est
+<div class="EQ_center">
+<em class="EQ_Display">
+{0.87499726360246, 0.38281968301732, 0.82694070659144, <br>
+0.50088421030722, 0.87499726360246, ...}
+</em>
+</div>
+où les valeurs ont été tronquées à 14 chiffres après le point des
+décimales.  À l'aide de l'application graphique
+ci-dessus, Le lecteur devrait dessiner le graphe
+en forme de toile d'araignée du SDD généré par
+<em class="EQ">f<sub>3.5</sub></em> lorsque
+<em class="EQ">x<sub>0</sub> = 0.87499726360246</em>.</li>
+<li>Pour une valeur <em class="EQ">b<sub>3</sub></em> de
+<math display="inline"><mi>&mu;</mi></math>
+légèrement plus grande que 
+<em class="EQ">b<sub>2</sub></em>, le SDD généré par
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+a une autre bifurcation
+super-critique de doublement de période mais cette fois ci pour
+<em class="EQ">f<sub>&mu;</sub><sup>&compfn;4</sup></em>.
+Pour
+<math display="inline"><mi>&mu;</mi></math>
+légèrement plus grand que
+<em class="EQ">b<sub>3</sub></em>, la fonction
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+a toujours le point fixe
+<em class="EQ">p<sub>&mu;</sub></em> et les orbites périodiques
+<em class="EQ">{p<sub>&mu;,0</sub><sup>[1]</sup>,p<sub>&mu;,1</sub><sup>[1]</sup>,...}</em>
+et <em class="EQ">{p<sub>&mu;,0</sub><sup>[2]</sup>,p<sub>&mu;,1</sub><sup>[2]</sup>,p<sub>&mu;,2</sub><sup>[2]</sup>,p<sub>&mu;,3</sub><sup>[2]</sup>,...}</em>
+de périodes <em class="EQ">2</em> et <em class="EQ">4</em>
+respectivement, mais les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec
+<em class="EQ">x<sub>0</sub> &in;
+]0,1[&setminus;{p<sub>&mu;</sub>,p<sub>&mu;,0</sub><sup>[1]</sup>,p<sub>&mu;,1</sub><sup>[1]</sup>,p<sub>&mu;,0</sub><sup>[2]</sup>,p<sub>&mu;,1</sub><sup>[2]</sup>,p<sub>&mu;,2</sub><sup>[2]</sup>,p<sub>&mu;,3</sub><sup>[2]</sup>}</em>
+ne convergent plus vers ceux-ci.  Plutôt, les orbites
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+avec
+<em class="EQ">x<sub>0</sub> &in;
+]0,1[&setminus;{p<sub>&mu;</sub>,p<sub>&mu;,0</sub><sup>[1]</sup>,p<sub>&mu;,1</sub><sup>[1]</sup>,p<sub>&mu;,0</sub><sup>[2]</sup>,p<sub>&mu;,1</sub><sup>[2]</sup>,p<sub>&mu;,2</sub><sup>[2]</sup>,p<sub>&mu;,3</sub><sup>[2]</sup>}</em>
+convergent maintenant vers une nouvelle orbite périodique 
+<em class="EQ">
+{p<sub>&mu;,0</sub><sup>[3]</sup>,p<sub>&mu;,1</sub><sup>[3]</sup>,p<sub>&mu;,2</sub><sup>[3]</sup>,p<sub>&mu;,3</sub><sup>[3]</sup>,p<sub>&mu;,4</sub><sup>[3]</sup>,p<sub>&mu;,5</sub><sup>[3]</sup>,p<sub>&mu;,6</sub><sup>[3]</sup>,p<sub>&mu;,7</sub><sup>[3]</sup>,...}</em>
+de période <em class="EQ">2<sup>3</sup> = 8</em>
+lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.</li>
+<li>Et ainsi de suite.</li>
+</ol>
+<p>Cette <em>cascade de doublement de période</em> ce produit bien
+avant d'atteindre <em class="EQ">&mu; = 4</em>.  En fait, il est
+démontré que
+<em class="EQ">lim<sub>j&rarr;&infin;</sub> b<sub>j</sub> = 3.5699456...</em>.
+&nbsp; Cette valeur est connu sous le nom de <em>point de Feigenbaum</em>.
+De plus, si
+<em class="EQ">d<sub>j</sub> = b<sub>j+1</sub>−b<sub>j</sub></em> pour
+<em class="EQ">j &geq; 1</em>, alors
+<em class="EQ">lim<sub>j &rarr; &infin;</sub>
+d<sub>j</sub>/d<sub>j+1</sub> = 4.6692016091029...</em>
+&nbsp; Ce nombre est connu sous le nom de <em>constante de Feigenbaum</em>.
+Feigenbaum a découvert cette valeur en 1975.  Cette valeur est
+universelle dans le sens que c'est la même valeur pour une classe
+entière de SDD générés par des fonctions 
+<em class="EQ">g<sub>&mu;</sub></em> dont les graphes
+<q lang="en">ressembles</q> au graphe de la fonction logistique
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>.</p>
+
+<p>Le comportement qualitatif du SDD généré par
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+est loin d'être simple lorsque
+<math display="inline"><mi>&mu;</mi></math>
+augmente au-delà de <em class="EQ">3.5699456...</em>.  Nous avons dessiné
+dans la Figure A ci-dessous le
+<em>diagramme de bifurcation</em> du SDD généré par
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>.
+En particulier, nous avons
+dessiné les orbites périodiques attractives pour
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+en fonction de
+<math display="inline"><mi>&mu;</mi></math>.
+Essentiellement, pour chaque valeur de
+<math display="inline"><mi>&mu;</mi></math>,
+la droite verticale qui passe par
+<math display="inline"><mi>&mu;</mi></math> 
+représente l'intervalle <em class="EQ">[0,1]</em> où l'orbite
+périodique a été tracée.  Dans la Figure B, nous avons fait un gros
+plan de la région <em class="EQ">{(&mu;,x) : 3.5 &le; &mu; &le; 3.7 et
+0.7 &le; x &le; 0.95}</em>.  Dans la Figure C, nous avons fait un gros
+plan de la région <em class="EQ">{(&mu;,x) : 3.633 &le; &mu; &le; 3.635 et
+0.825 &le; x &le; 0.843}</em>.  Finalement, dans la Figure D, nous
+avons fait un gros plan de la région
+<em class="EQ">{(&mu;,x) : 3.6339 &le; &mu; &le; 3.6341 et
+0.825 &le; x &le; 0.843}</em>.</p>
+
+<div class="center">
+A) <img src="logistic4.png" style="width: 350px; vertical-align: top;"
+	alt="Diagramme de bifurcation pour 2.5 <= &mu; < 4" class="framed">
+  &nbsp;&nbsp;
+B) <img src="logistic5.png" style="width: 350px; vertical-align: top;"
+	alt="Diagramme de bifurcation pour 3.5 <= &mu; < 3.7 et 0.7 <= x <= 0.95 ."
+	class="framed">
+</div>
+<div class="center">
+C) <img src="logistic6.png" style="width: 350px; vertical-align: top;"
+	alt="Diagramme de bifurcation pour 3.633 <= &mu; < 3.635 et 0.825 <= x <= 0.843 ."
+	class="framed">
+  &nbsp;&nbsp;
+D) <img src="logistic7.png" style="width: 350px; vertical-align: top;"
+	alt="Diagramme de bifurcation pour 3.6339 <= &mu; < 3.6341 et 0.825 <= x <= 0.843 ."
+	class="framed">
+</div>
+
+<p>En raison des erreurs d'arrondi, il y a une borne inférieure sur
+les dimensions de la région du diagramme de bifurcation que nous
+pouvons dessiner.  Par exemple, la Figure D semble afficher 
+des orbites périodiques inattendues.  Le lecteur doit lire la fin de
+la Section 10.3 dans le livre de
+<script language="javascript">
+buildLinK("#PJS","H.-O. Peitgen, H. j&#252;rgens and D. Saupe","MMathSStat",
+ "PJSId4", "_top"); </script> (pp. 531-535).  Ils expliquent 
+les risques associés aux erreurs d'arrondi dans les calculs numériques
+des orbites périodiques.</p>
+
+<p>Nous pouvons déduire de la Figure A qu'il y a une orbite périodique
+de période <em class="EQ">3</em> pour
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+quand <em class="EQ">&mu; = 3.839...</em>.
+Cette orbite périodique est</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+{0.14988539433432, 0.48917380192271, 0.95930024021836,
+0.14988539433432, ...}
+</em> ,
+</div>
+<p>où les valeurs ont été tronquées à 14 chiffres après le point des
+décimales.  La période <em class="EQ">3</em> est particulièrement
+intéressante comme le démontre le théorème suivant par
+<script language="javascript">
+buildLinK("#LY", "T.-Y. Li and J. A. Yorke", "MMathSStat", "LYId1", "_top");
+</script>.</p>
+
+<div class="Theo">
+<p><em>Théorème</em>: Soit
+<em class="EQ">f:&reals; &rarr; &reals;</em> une fonction continue.
+Si
+<math display="inline"><mi>f</mi></math>
+a une orbite périodique de période
+<em class="EQ">3</em>, alors
+<math display="inline"><mi>f</mi></math>
+a une orbite périodique de période <em class="EQ">m</em> pour tout
+<em class="EQ">m &in; &naturals;</em>.</p>
+</div>
+
+<p>Il découle de ce théorème que
+<em class="EQ">f<sub>3.839...</sub></em> a des orbites périodiques de
+toutes les périodes possibles.  Aucune des orbites périodiques, sauf
+pour l'orbite périodique de période <em class="EQ">3</em>, est
+attractive.  Donc, sauf si une orbite débute avec un point appartenant
+à une des orbites périodiques non-attractives, elle converge vers
+l'orbite périodique de période <em class="EQ">3</em>.  En raison des
+erreurs d'arrondi, il est pratiquement impossible de dessiner le
+graphe en forme de toile d'araignée associé à une des orbites
+périodique non-attractives.</p>
+
+<p><em>Démonstration</em>:  Nous assumons les énoncés
+suivants. Ils ne sont pas difficiles à démontrer.
+<span id="proof3A">&nbsp;...</span></p>
+<div id="proof3B" class="moreORless">
+<ol style="list-style-type: decimal;">
+<li>Si <em class="EQ">I</em> et <em class="EQ">J</em> sont deux
+intervalles fermés tels que <em class="EQ">I &subset; J</em> et
+<em class="EQ">J &subset; f(I)</em>, alors
+<math display="inline"><mi>f</mi></math>
+a un point fixe dans <em class="EQ">I</em>.</li>
+<li>Si <em class="EQ">I</em> et <em class="EQ">J</em> sont deux
+intervalles fermés tels que <em class="EQ">J &subset; f(I)</em>, alors
+il existe un intervalle fermé <em class="EQ">K &subset; I</em> tel que
+<em class="EQ">f(K) = J</em>.</li>
+</ol>
+<p>Supposons que
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+est une orbite périodique de période <em class="EQ">3</em> telle que
+<em class="EQ">x<sub>0</sub> &lt; x<sub>1</sub> &lt; x<sub>2</sub></em>,
+<em class="EQ">f(x<sub>0</sub>) = x<sub>1</sub></em>,
+<em class="EQ">f(x<sub>1</sub>) = x<sub>2</sub></em> et
+<em class="EQ">f(x<sub>2</sub>) = x<sub>0</sub></em>.  La
+démonstration pour chacune des autres combinaisons possibles est
+semblable.  Soit
+<em class="EQ">I<sub>0</sub> = [x<sub>0</sub>,x<sub>1</sub>]</em> et
+<em class="EQ">I<sub>1</sub> = [x<sub>1</sub>,x<sub>2</sub>]</em>.
+Puisque <em class="EQ">I<sub>1</sub> &subset; f(I<sub>0</sub>)</em>,
+nous obtenons que
+<em class="EQ">I<sub>0</sub> &cup; I<sub>1</sub> &subset;
+f(I<sub>1</sub>) &subset; f<sup>&compfn;2</sup>(I<sub>0</sub>)</em>.
+Il découle donc de (1) que
+<math display="inline"><mi>f</mi></math> a un point fixe 
+dans <em class="EQ">I<sub>1</sub></em> et
+<em class="EQ">f<sup>&compfn;2</sup></em> a un point fixe 
+<em class="EQ">p &in; I<sub>0</sub></em>.  Ce point fixe pour 
+<em class="EQ">f<sup>&compfn;2</sup></em> est un point périodique de
+période <em class="EQ">2</em> pour
+<math display="inline"><mi>f</mi></math>
+car <em class="EQ">f(p) &in; I<sub>1</sub></em>.  Par hypothèse, nous
+avons une orbite périodique de période <em class="EQ">3</em>.</p>
+
+<p>Nous démontrons maintanant l'existence de points périodique de
+périodes plus grandes que <em class="EQ">3</em>.
+Soit <em class="EQ">A<sub>0</sub> = I<sub>1</sub></em>.
+Étant donné <em class="EQ">k &gt; 3</em>, nous démontrons par
+induction qu'il existe une suite d'intervalles fermés
+<em class="EQ">{A<sub>n</sub>}<sub>n&ge;0</sub></em> telle que
+<em class="EQ">A<sub>n</sub> &subset; A<sub>n-1</sub></em> et
+<em class="EQ">f(A<sub>n</sub>) = A<sub>n-1</sub></em> pour tout
+<em class="EQ">n &gt; 0</em>.  Puisque
+<em class="EQ">A<sub>0</sub> &subset; f(A<sub>0</sub>)</em>, il existe
+selon (2) un intervalle fermé
+<em class="EQ">A<sub>1</sub> &subset; A<sub>0</sub></em> tel que
+<em class="EQ">f(A<sub>1</sub>) = A<sub>0</sub></em>.
+Puisque <em class="EQ">A<sub>1</sub> &subset; f(A<sub>1</sub>)</em>,
+il existe selon (2) un intervalle fermé
+<em class="EQ">A<sub>2</sub> &subset; A<sub>1</sub></em> tel que
+<em class="EQ">f(A<sub>2</sub>) = A<sub>1</sub></em>.
+Supposons que <em class="EQ">A<sub>n-1</sub> &subset; A<sub>n-2</sub></em>
+est un intervalle fermé tel que
+<em class="EQ">f(A<sub>n-1</sub>) = A<sub>n-2</sub></em>.
+Puisque <em class="EQ">A<sub>n-1</sub> &subset; f(A<sub>n-1</sub>)</em>,
+il existe selon (2) un intervalle fermé
+<em class="EQ">A<sub>n</sub> &subset; A<sub>n-1</sub></em> tel que
+<em class="EQ">f(A<sub>n</sub>) = A<sub>n-1</sub></em>.
+Cela conclus la démonstration par induction.</p>
+
+<p>Nous avons du paragraphe précédent et par induction que
+<em class="EQ">f<sup>&compfn;(k-2)</sup>(A<sub>k-2</sub>) = A<sub>0</sub></em>.
+Puisque <em class="EQ">f<sup>&compfn;(k-1)</sup>(A<sub>k-2</sub>) =
+f(A<sub>0</sub>) &supset; I<sub>0</sub></em>, il existe selon 
+(2) un intervalle fermé
+<em class="EQ">K &subset; A<sub>k-2</sub> &subset; I<sub>1</sub></em>
+tel que <em class="EQ">f<sup>&compfn;(k-1)</sup>(K) = I<sub>0</sub></em>.
+Ainsi <em class="EQ">f<sup>&compfn;k</sup>(K) = f(I<sub>0</sub>) =
+I<sub>1</sub> &supset; K</em>.  Donc, il découle de (1) qu'il existe 
+un point fixe <em class="EQ">q &in; K</em> pour
+<em class="EQ">f<sup>&compfn;k</sup></em>.  Puisque
+<em class="EQ">f<sup>&compfn;n</sup>(q) &in; A<sub>0</sub> = I<sub>1</sub></em>
+pour <em class="EQ">0 &le; n &lt; k-1</em> et
+<em class="EQ">f<sup>&compfn;(k-1)</sup>(q) &in; I<sub>0</sub></em>,
+le point <em class="EQ">q &in; K</em> est un point périodique de
+période <em class="EQ">k</em> pour
+<math display="inline"><mi>f</mi></math>.
+Notons que <em class="EQ">q &ne; x<sub>i</sub></em> pour tout
+<em class="EQ">i</em> car la période <em class="EQ">k</em> de
+<em class="EQ">q</em> est plus grande que <em class="EQ">3</em>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof3A','proof3B','proof3C','fr')" class="mORl" id="proof3C">Lire plus</button>
+
+<p>Il y a un théorème beaucoup plus fort que le théorème précédent.</p>
+
+<div class="Theo">
+<p><em>Théorème (Sarkovskii)</em>:
+Nous considérons l'ordre des entiers positifs défini par</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+3 &#8827; 5 &#8827; 7 &#8827; ... &#8827; 3&times;2 &#8827;
+5&times;2 &#8827; ... &#8827; 3&times;2<sup>2</sup> &#8827;
+5&times;2<sup>2</sup> &#8827; ... <br>
+&#8827; 3&times;2<sup>3</sup>
+&#8827; 5&times;2<sup>3</sup> &#8827; ... &#8827; 2<sup>4</sup>
+&#8827; 2<sup>3</sup> &#8827; 2<sup>2</sup> &#8827; 2 &#8827; 1
+</em>.
+</div>
+<p>Soit <em class="EQ">f:&reals; &rarr; &reals;</em> une fonction
+continue et <em class="EQ">k</em> un entier positif.
+Si
+<math display="inline"><mi>f</mi></math>
+a une orbite périodique de période 
+<em class="EQ">k</em>, alors
+<math display="inline"><mi>f</mi></math>
+a une orbite périodique de période <em class="EQ">m</em> pour tout
+<em class="EQ">m &#8826; k</em>.</p>
+</div>
+
+<p><em>Démonstration</em>:  Une démonstration en détails est
+donnée dans le livre de <script language="javascript">
+buildLinK("#RID","R. I. Devaney","MMathSStat","RIDId4", "_top"); </script>.
+Une démonstration différente est donnée par <script language="javascript">
+buildLinK("#XCH","X.-C. Huang","MMathSStat","XCHId4", "_top"); </script>.
+Nous suivons (d'une certaine façon) les étapes principales
+de la démonstration donnée dans le livre de
+<script language="javascript">
+buildLinK("#RID","R. I. Devaney","MMathSStat","RIDId4","_top"); </script>.
+<span id="proof4A">&nbsp;...</span></p>
+<div id="proof4B" class="moreORless">
+<p>Nous assumons les énoncés suivants.  Deux de ces énoncés ont été
+utilisés dans la démonstration du théorème précédent.  Le troisième
+énoncé est une conséquence des deux premiers énoncés.  Nous le
+démontrons ci-dessous.</p>
+<ol style="list-style-type: decimal;">
+<li>Si <em class="EQ">I</em> et <em class="EQ">J</em> sont deux
+  intervalles fermés tels que <em class="EQ">I &subset; J</em> et
+<em class="EQ">J &subset; f(I)</em>, alors <math display="inline"><mi>f</mi></math> a un
+point fixe dans <em class="EQ">I</em>.</li>
+<li>Si <em class="EQ">I</em> et <em class="EQ">J</em> sont deux
+intervalles fermés tels que <em class="EQ">J &subset; f(I)</em>, alors
+il existe un intervalle fermé <em class="EQ">K &subset; I</em> tel que
+<em class="EQ">f(K) = J</em>.</li>
+<li>Si <em class="EQ">{A<sub>j</sub>}<sub>0&le;j&lt;m</sub></em> est
+  une collection d'ensembles fermés telle que
+<em class="EQ">A<sub>j+1</sub> &subset; f(A<sub>j</sub>)</em>
+pour <em class="EQ">0 &le; j &lt; m-1</em> et
+<em class="EQ">A<sub>0</sub> &subset; f(A<sub>m-1</sub>)</em>,
+alors il existe un point fixe <em class="EQ">p &in; A<sub>0</sub></em>
+pour <em class="EQ">f<sup>&compfn;m</sup></em> tel que
+<em class="EQ">f<sup>&compfn;j</sup>(p) &in; A<sub>j</sub></em>
+pour <em class="EQ">0 &le; j &lt; m</em>.</li>
+</ol>
+
+<p>La démonstration du troisième énoncé ci-dessus est très semblable à
+la démonstration par induction dans la démonstration du théorème
+précédent.  Nous démontrons par induction qu'il existe une suite
+d'intervalles fermés
+<em class="EQ">{K<sub>j</sub>}<sub>0&le;j&lt;m-1</sub></em> telle que
+<em class="EQ">K<sub>j</sub> &subset; A<sub>j</sub></em> pour
+<em class="EQ">0 &le; j &lt; m</em>,
+<em class="EQ">f(K<sub>j</sub>) = K<sub>j+1</sub></em> pour
+<em class="EQ">0 &le; j &lt; m-1</em>, et
+<em class="EQ">f(K<sub>m-1</sub>) = A<sub>0</sub></em>.  Puisque
+<em class="EQ">A<sub>0</sub> &subset; f(A<sub>m-1</sub>)</em>, il
+existe selon (2) un intervalle fermé
+<em class="EQ">K<sub>m-1</sub> &subset; A<sub>m-1</sub></em> tel que
+<em class="EQ">f(K<sub>m-1</sub>) = A<sub>0</sub></em>.
+Puisque <em class="EQ">K<sub>m-1</sub> &subset; A<sub>k-1</sub>
+&subset; f(A<sub>m-2</sub>)</em>, il existe
+<em class="EQ">K<sub>m-2</sub> &subset; A<sub>m-2</sub></em>
+tel que <em class="EQ">f(K<sub>m-2</sub>) = K<sub>m-1</sub></em>.
+Supposons que, pour une valeur <em class="EQ">0 &lt; j &lt; m-1</em>,
+nous avons que
+<em class="EQ">K<sub>j</sub> &subset; A<sub>j</sub></em>
+est un intervalle fermé tel que
+<em class="EQ">f(K<sub>j</sub>) = K<sub>j+1</sub></em>.
+Puisque <em class="EQ">K<sub>j</sub> &subset; A<sub>j</sub>
+&subset; f(A<sub>j-1</sub>)</em>, il existe selon (2) un intervalle
+fermé <em class="EQ">K<sub>j-1</sub> &subset; A<sub>j-1</sub></em>
+tel que <em class="EQ">f(K<sub>j-1</sub>) = K<sub>j</sub></em>.
+Cela complète la démonstration par induction.  Puisque 
+<em class="EQ">f<sup>&compfn;m</sup>(K<sub>0</sub>) = A<sub>0</sub></em>
+et <em class="EQ">K<sub>0</sub> &subset; A<sub>0</sub></em>, nous
+obtenons de (1) qu'il existe un point fixe
+<em class="EQ">p &in; K<sub>0</sub> &subset; A<sub>0</sub></em>
+pour <em class="EQ">f<sup>&compfn;m</sup></em>.  Par construction,
+<em class="EQ">f<sup>&compfn;j</sup>(p) &in; K<sub>j</sub> &subset;
+A<sub>j</sub></em> pour <em class="EQ">0 &le; j &lt; m</em>.</p>
+
+<p><em>Partie A</em>: Nous assumons en premier que <em class="EQ">p</em>
+est un point périodique pour <math display="inline"><mi>f</mi></math> de
+période <em class="EQ">k &gt; 1</em> avec <em class="EQ">k</em> un
+nombre impaire, et que <math display="inline"><mi>f</mi></math> n'a pas de point
+périodique de période impaire plus petite que <em class="EQ">k</em>.</p>
+
+<p>Supposons que <em class="EQ">y<sub>1</sub> &lt; y<sub>2</sub>
+&lt; ... &lt; y<sub>k</sub></em> sont les points distincts de l'orbite
+périodique qui contient <em class="EQ">p</em>.  Nous n'assumons pas 
+que <em class="EQ">y<sub>j+1</sub> = f(y<sub>j</sub>)</em>.
+Soit <em class="EQ">m</em> le plus grand index tel que
+<em class="EQ">f(y<sub>m</sub>) > y<sub>m</sub></em> et soit
+<em class="EQ">I<sub>1</sub> = [y<sub>m</sub>.y<sub>m+1</sub>]</em>.
+Puisque <em class="EQ">f(y<sub>m</sub>) &ge; y<sub>m+1</sub></em>
+et <em class="EQ">f(y<sub>m+1</sub>) &le; y<sub>m</sub></em>, nous
+avons que <em class="EQ">f(I<sub>1</sub>) &supset; I<sub>1</sub></em>.
+Puisque <em class="EQ">p</em> n'est pas de période <em class="EQ">2</em>,
+nous n'avons pas que <em class="EQ">f(y<sub>m</sub>) = y<sub>m+1</sub></em>
+et <em class="EQ">f(y<sub>m+1</sub>) = y<sub>m</sub></em>, et donc
+<em class="EQ">f(I<sub>1</sub>) = I<sub>1</sub></em>.  Ainsi,
+il existe un intervalle <em class="EQ">I<sub>2</sub>
+= [y<sub>j<sub>2</sub></sub>,y<sub>j<sub>2</sub>+1</sub>}</em>
+tel que 
+<em class="EQ">f(I<sub>1</sub>) &supset; I<sub>2</sub></em>
+et <em class="EQ">I<sub>1</sub> &cap; I<sub>2</sub></em> est au plus
+un seul point.  Nous illustrons le cas où l'intersection est un seul
+point ci-dessous; c'est-à-dire,
+<em class="EQ">I<sub>1</sub> &cap; I<sub>2</sub> = {y<sub>m</sub>}</em>
+(i.e. <em class="EQ">y<sub>j<sub>2</sub>+1</sub> = y<sub>m</sub></em>)
+ou <em class="EQ">I<sub>1</sub> &cap; I<sub>2</sub> = {y<sub>m+1</sub>}</em>
+(i.e. <em class="EQ">y<sub>j<sub>2</sub></sub> = y<sub>m+1</sub></em>).
+</p>
+<div class="center">
+  <img src="sarkovskii1.png" style="width: 400px"
+       alt="Les deux possibles options pour I_2" class="framed">
+</div>
+<p>De nouveau, puisque <em class="EQ">p</em> n'est pas de période
+<em class="EQ">2</em>, nous n'avons pas que
+<em class="EQ">f(y<sub>j<sub>2</sub></sub>)
+= y<sub>j<sub>2</sub>+1</sub></em>
+et <em class="EQ">f(y<sub>j<sub>2</sub>+1</sub>)
+= y<sub>j<sub>2</sub></sub></em>.
+Donc, il existe un intervalle
+<em class="EQ">I<sub>3</sub>
+= [y<sub>j<sub>3</sub></sub>,y<sub>j<sub>3</sub>+1</sub>}</em>
+tel que
+<em class="EQ">f(I<sub>2</sub>) &supset; I<sub>3</sub></em>
+et <em class="EQ">I<sub>2</sub> &cap; I<sub>3</sub></em> est au plus
+un seul point.  Et ainsi de suite.
+Puisque <em class="EQ">k</em> est impaire, il y a plus de
+<em class="EQ">y<sub>j</sub></em> d'un côté de
+<em class="EQ">I<sub>1</sub></em> que de l'autre.  Ainsi,
+il existe un intervalle
+<em class="EQ">I<sub>r</sub>
+= [y<sub>j<sub>r</sub></sub>,y<sub>j<sub>r</sub>+1</sub>}</em>
+tel que l'une des deux situations suivantes soit satisfaite.</p>
+<ul>
+<li><em class="EQ">y<sub>j<sub>r</sub></sub></em> et
+<em class="EQ">f(y<sub>j<sub>r</sub></sub>)</em> sont du même côté
+de <em class="EQ">I<sub>1</sub></em>, et
+<em class="EQ">y<sub>j<sub>r</sub>+1</sub></em> et
+<em class="EQ">f(y<sub>j<sub>r</sub>+1</sub>)</em> sont sur des côtés
+opposées de <em class="EQ">I<sub>1</sub></em>.</li>
+<li> <em class="EQ">y<sub>j<sub>r</sub></sub></em> et
+<em class="EQ">f(y<sub>j<sub>r</sub></sub>)</em> sont sur des côtés
+opposés de <em class="EQ">I<sub>1</sub></em>, et
+<em class="EQ">y<sub>j<sub>r</sub>+1</sub></em> et
+<em class="EQ">f(y<sub>j<sub>r</sub>+1</sub>)</em> sont sur le même
+côté de <em class="EQ">I<sub>1</sub></em>.</li>
+</ul>
+Ainsi, <em class="EQ">f(I<sub>r</sub>) &supset; I<sub>1</sub></em>.
+Soit <em class="EQ">r</em> le plus petit entier positif tel que
+<em class="EQ">f(I<sub>r</sub>) &supset; I<sub>1</sub></em>.  Nous
+avons le diagramme suivant où <em class="EQ">I &rarr; J</em> signifie
+que <em class="EQ">f(I) &supset; J</em>.</p>
+<div class="center">
+  <img src="sarkovskii2.png" style="width: 250px"
+       alt="Diagramme de la suite I_1 &rarr; I_2 &rarr; ... &rarr;
+	    I_r &rarr; I_1 &rarr; I_1." class="framed">
+</div>
+<p>Nous démontrons que <em class="EQ">r = k-1</em>.  Supposons que
+<em class="EQ">r &lt; k-1</em>.  À l'aide de (1), nous obtenons de
+<em class="EQ">I<sub>1</sub> &rarr; I<sub>2</sub> &rarr; ... &rarr;
+I<sub>r</sub> &rarr; I<sub>1</sub></em> et
+<em class="EQ">I<sub>1</sub> &rarr; I<sub>2</sub> &rarr; ... &rarr;
+I<sub>r</sub> &rarr; I<sub>1</sub> &rarr; I<sub>1</sub></em>
+que <em class="EQ">f<sup>&compfn;m</em> a un point fixe pour
+<em class="EQ">m = r</em> et <em class="EQ">m = r+1</em>.
+Donc, il existe un nombre impaire <em class="EQ">m < k</em> tel que
+<em class="EQ">f<sup>&compfn;m</em> a un point fixe.  Ainsi,
+<math display="inline"><mi>f</mi></math> a un point périodique de période impaire plus
+petite que <em class="EQ">k</em>.  Ce qui est une contradiction
+de notre supposition.</p>
+
+<p>Puisque <em class="EQ">r</em> est le plus petit entier tel que
+<em class="EQ">f(I<sub>r</sub>) &supset; I<sub>1</sub></em>, nous ne
+pouvons pas avoir que
+<em class="EQ">f(I<sub>i</sub>) &supset; I<sub>j</em></em>
+avec <em class="EQ">i+1 &lt; j &le; r</em>.  Donc, il y a
+seulement deux possibles scénarios illustrés ci-dessous.</p>
+<div class="center">
+  <img src="sarkovskii3_fr.png" style="width: 400px"
+       alt="Les deux scenarios pour I_1, I_2, ... , I_r." class="framed">
+</div>
+<p>Nous obtenons de ces deux scénarios que
+<em class="EQ">f(I<sub>k-1</sub>) &supset; I<sub>j</sub></em> for
+<em class="EQ">j = 1,3,5,...,k-2</em>.  Ainsi, nous pouvons étendre 
+le diagramme précédent pour obtenir le diagramme suivant, comme
+précédemment, 
+<em class="EQ">I &rarr; J</em> signifie que
+<em class="EQ">f(I) &supset; J</em>.</p>
+<div class="center">
+  <img src="sarkovskii4.png" style="width: 250px"
+       alt="Extended diagram of the sequence I_1 &rarr; I_2 &rarr; ... &rarr;
+	    I_r &rarr; I_1 &rarr; I_1." class="framed">
+</div>
+<p>Pour obtenir des point périodique de période <em class="EQ">n > k</em>,
+nous utilisons (3) avec
+<em class="EQ">I<sub>1</sub> &rarr; I<sub>2</sub> &rarr; ... &rarr;
+I<sub>k-1</sub> &rarr; I<sub>1</sub> &rarr; I<sub>1</sub> &rarr;
+... &rarr; I<sub>1</sub></em> où il y a <em class="EQ">n</em>
+flèches.  Plus précisément, nous obtenons de (3) qu'il existe un point
+fixe <em class="EQ">q &in; I<sub>1</sub></em> pour
+<em class="EQ">f<sup>&compfn;n</sup></em>.  Puisque
+<em class="EQ">f<sup>&compfn;j</sup>(q) &in; I<sub>j+1</sub></em>
+pour <em class="EQ">0 &le; j &lt; k-1</em> et
+<em class="EQ">f<sup>&compfn;j</sup>(q) &in; I<sub>1</sub></em>
+pour <em class="EQ">k-1 &le; j &le; n</em>, nous avons que
+<em class="EQ">q &in; I<sub>1</sub></em> est un point périodique
+de période <em class="EQ">n</em> pour
+<math display="inline"><mi>f</mi></math>.
+Notons que <em class="EQ">f<sup>&compfn;j</sup>(q) &ne; q</em>
+pour <em class="EQ">k-1 &le; j &lt; n</em> car
+<em class="EQ">f<sup>&compfn;j</sup>(q) = q</em>
+pour <em class="EQ">k-1 &le; j &lt; n</em> implique que
+<em class="EQ">f(q) = f<sup>&compfn;j+1</sup>(q) &in;
+I<sub>1</sub> &cap; I<sub>2</sub>
+&subset; {y<sub>1</sub>,y<sub>1</sub>,...,y<sub>k</sub>}</em>.
+Ainsi, <em class="EQ">f(q) = y<sub>m</em> dans le premier scénario
+ci-dessus et <em class="EQ">f(q) = y<sub>m+1</em> dans le deuxième
+scénario ci-dessus.  Dans les deux cas, nous obtenons que
+<em class="EQ">q</em> est sur l'orbite périodique de période
+<em class="EQ">k</em> qui contient <em class="EQ">p</em>.</p>
+
+<p>Les points périodiques de périodes paires inférieures à
+<em class="EQ">k</em> sont donnés par (3) avec
+<em class="EQ">I<sub>k-1</sub> &rarr; I<sub>k-2</sub> &rarr;
+I<sub>k-1</sub></em>,
+<em class="EQ">I<sub>k-1</sub> &rarr; I<sub>k-4</sub> &rarr;
+I<sub>k-3</sub> &rarr; I<sub>k-2</sub> &rarr; I<sub>k-1</sub></em>,
+<em class="EQ">I<sub>k-1</sub> &rarr; I<sub>k-6</sub> &rarr; 
+I<sub>k-5</sub> &rarr; ... &rarr;
+I<sub>k-2</sub> &rarr; I<sub>k-1</sub></em>, et ainsi de suite.</p>
+
+<p><em>Partie B</em>: Nous assumons que <em class="EQ">p</em> est un
+point périodique pour <math display="inline"><mi>f</mi></math> de
+période <em class="EQ">k &gt; 1</em> avec <em class="EQ">k</em> un
+nombre paire.  Comme à la Partie A, soit
+<em class="EQ">y<sub>1</sub> &lt; y<sub>2</sub>
+&lt; ... &lt; y<sub>k</sub></em> les points distincts de l'orbite
+périodique qui contient <em class="EQ">p</em>, et soit
+<em class="EQ">m</em> l'index le plus grand tel que
+<em class="EQ">f(y<sub>m</sub>) > y<sub>m</sub></em>.</p>
+
+<p>Avant de poursuivre avec la démonstration du théorème, nous devons
+démontrer que si une fonction <em class="EQ">g:&reals; &rarr; &reals;</em>
+a un point périodique de période paire, alors <em class="EQ">g</em> a
+un point périodique de période <em class="EQ">2</em>.  Supposons que
+<em class="EQ">p</em> est un point périodique pour <em class="EQ">g</em> de
+période <em class="EQ">k</em>.  Soit
+<em class="EQ">z<sub>1</sub> &lt; z<sub>2</sub> &lt; ... &lt;
+z<sub>k</sub></em> les points distincts de l'orbite périodique
+qui contient <em class="EQ">p</em> et soit
+<em class="EQ">m</em> l'index le plus grand tel que
+<em class="EQ">g(z<sub>m</sub>) &gt; z<sub>m</sub></em>.  De plus,
+soit <em class="EQ">A = {z<sub>j</sub>}<sub>1&le;&le;m</sub></em>
+et <em class="EQ">B = {z<sub>j</sub>}<sub>m+1&le;&le;k</sub></em>.
+Il y a deux cas à considérer.</p>
+<ul>
+<li>Si <em class="EQ">f(A) &subset; B</em> et
+<em class="EQ">f(B) &subset; A</em>, alors
+<em class="EQ">f([z<sub>1</sub>,z<sub>m</sub>]) &subset;
+[z<sub>m+1</sub>,z<sub>k</sub>]</em> et
+<em class="EQ">f([z<sub>m+1</sub>,z<sub>k</sub>]) &subset;
+[z<sub>1</sub>,z<sub>m</sub>]</em>.  Il découle de (3) que
+<em class="EQ">g</em> a un point périodique de période
+<em class="EQ">2</em>.</li>
+<li> Si <em class="EQ">f(A) &nsub; B</em> ou
+<em class="EQ">f(B) &nsub; A</em> (nous ne pouvons pas
+avoir <em class="EQ">f(A) &subset; A</em> et
+<em class="EQ">f(B) &subset; B</em>), alors nous pouvons
+procéder comme nous avons fait à la Partie A pour obtenir
+<em class="EQ">I<sub>1</sub> &rarr; I<sub>1</sub></em> et
+<em class="EQ">I<sub>1</sub> &rarr; I<sub>2</sub> &rarr; ... &rarr;
+I<sub>r-1</sub> &rarr; I<sub>1</sub></em> pour <em class="EQ">r &le; k</em>.
+Si <em class="EQ">k = 2</em>, alors <em class="EQ">m = 1</em> et
+<em class="EQ">{z<sub>1</sub>,z<sub>2</sub>,...}</em> est une orbite
+périodique de période <em class="EQ">2</em>.  Nous pouvons donc
+assumer que <em class="EQ">r &gt; 2</em>.  Il découle de (3) et
+<em class="EQ">I<sub>1</sub> &rarr; I<sub>2</sub> &rarr;
+... &rarr; I<sub>r-1</sub> &rarr; I<sub>1</sub></em>
+ou
+<em class="EQ">I<sub>1</sub> &rarr; I<sub>2</sub> &rarr;
+... &rarr; I<sub>r-1</sub> &rarr; I<sub>1</sub> &rarr; I<sub>1</sub></em>
+que <em class="EQ">g</em> a un point périodique de période impaire
+<em class="EQ">s &ge; r</em>.
+Ainsi, il découle de la Partie A que <em class="EQ">g</em> a un
+point périodique de période <em class="EQ">j</em> pour tout
+<em class="EQ">j &#8826; k &#8826; s</em>.
+En particulier, <em class="EQ">g</em> a un point périodique
+de période <em class="EQ">2</em>.</li>
+</ul>
+
+<p>Notons que le deuxième cas avec
+<math display="inline"><mi>f</mi></math>
+au lieu de <em class="EQ">g</em> démontres le théorème
+lorsque <em class="EQ">k</em> est pair et
+<math display="inline"><mi>f</mi></math>
+satisfait les conditions du deuxième cas.</p>
+
+<p>Supposons que <em class="EQ">k = 2<sup>n</sup></em>.  Nous
+démontrons que <math display="inline"><mi>f</mi></math> a un point périodique de période
+<em class="EQ">k = 2<sup>j</sup></em> pour <em class="EQ">1 &le; j &lt; n</em>.
+Si <em class="EQ">g = f<sup>&compfn;2<sup>j-1</sup></sup></em>, alors
+<em class="EQ">p</em> est un point périodique de période
+<em class="EQ"> 2<sup>n-j+1</sup></em> pour <em class="EQ">g</em>.
+Il découle du paragraphe précédent que
+<em class="EQ">g</em> a un point périodique <em class="EQ">q</em>
+de période <em class="EQ">2</em> puisque <em class="EQ">n-j+1 &gt; 1</em>
+et donc <em class="EQ"> 2<sup>n-j+1</sup></em> es pair.  Ainsi
+<em class="EQ">q = g<sup>2</sup>(q)
+= f<sup>&compfn;2<sup>j</sup></sup>(q)</em>.  Il en découle que
+<em class="EQ">q</em> est un point périodique de période
+<em class="EQ">2<sup>j</sup></em> pour <math display="inline"><mi>f</mi></math> car
+<em class="EQ">f<sup>&compfn;2<sup>j-1</sup></sup>(q) = g(q) &ne; q</em>.
+Notons qu'il découle aussi de (1) que <math display="inline"><mi>f</mi></math> a un point
+fixe car <math display="inline"><mi>f</mi></math> a un point périodique de période
+<em class="EQ">2</em>.</p>
+
+<p>Supposons que <em class="EQ">k = r 2<sup>n</sup></em>
+où <em class="EQ">r</em> est impaire.
+Si <em class="EQ">g = f<sup>&compfn;2<sup>j-1</sup></sup></em>
+pour <em class="EQ">1 &le; j &lt; n</em>, alors
+<em class="EQ">p</em> est un point périodique pour <em class="EQ">g</em>
+de période pair <em class="EQ">r 2<sup>n-j+1</sup></em> 
+car <em class="EQ">n-j+1 &gt; 1</em>.
+Comme nous avons au paragraphe précédent, cela implique que
+<em class="EQ">g</em> a un point périodique <em class="EQ">q</em>
+de période <em class="EQ">2</em>.  Il en découle que
+<em class="EQ">q</em> est un point périodique de période
+<em class="EQ">2<sup>j</sup></em>
+pour
+<math display="inline"><mi>f</mi></math> 
+car
+<em class="EQ">f<sup>&compfn;2<sup>j-1</sup></sup>(q) = g(q) &ne; q</em>.
+Comme nous avons remarqué précédemment, il découle de (1) que
+<math display="inline"><mi>f</mi></math> a un point fixe car
+<math display="inline"><mi>f</mi></math> 
+a un point périodique de période <em class="EQ">2</em>.</p>
+
+<p>Finalement, si <em class="EQ">g = f<sup>&compfn;2<sup>n</sup></sup></em>,
+alors <em class="EQ">p</em> est un point périodique de
+période impaire <em class="EQ">s &le; r</em>.  Ainsi, nous pouvons
+utiliser la Partie A pour conclure que
+<em class="EQ">g</em> a des points périodiques de périodes
+<em class="EQ">j &#8826; r &#8826; s</em>.
+Donc,
+<math display="inline"><mi>f</mi></math>
+a des point périodiques de périodes
+<em class="EQ">2<sup>n</sup> &#8826; j &#8826; k = r 2<sup>n</sup></em>.
+Combiné avec le résultat du paragraphe précédent, nous obtenons que
+<math display="inline"><mi>f</mi></math>
+a des points périodiques de périodes
+<em class="EQ">j &#8826; k</em>.</p>
+
+<p>La démonstration est complète.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof4A','proof4B','proof4C','fr')" class="mORl" id="proof4C">Lire plus</button>
+
+<p>Le théorème de Sarkovskii est <q lang="en">optimal</q>.  Il existe
+des fonctions qui ont des points périodique de période 
+<em class="EQ">k</em> et aucun point périodique de période plus grande
+selon l'ordre de Sarkovskii.
+Par exemple, <script language="javascript">
+buildLinK("#RID","R. I. Devaney","MMathSStat","RIDId44", "_top"); </script>
+donne l'exemple suivant d'une fonction qui a un point périodique de
+période <em class="EQ">5</em> et aucun point périodique de période
+<em class="EQ">3</em>.
+<div class="center">
+  <img src="sarkovskii5.png" style="width: 300px"
+       alt="graphe de f" class="framed">
+</div>
+<p>L'orbite périodique de période <em class="EQ">5</em> est
+<em class="EQ">{1,3,4,2,5,1,...}</em>.  Pour démontrer que
+<math display="inline"><mi>f</mi></math> n'a pas de point périodique de période
+<em class="EQ">3</em>, nous notons que
+<em class="EQ">f<sup>&compfn;3</sup>([1,2]) =[2,5]</em>,
+<em class="EQ">f<sup>&compfn;3</sup>([2,3]) =[3,4]</em> et
+<em class="EQ">f([4,5]) =[1,4]</em>.  Donc,
+<math display="inline"><mi>f</mi></math> ne peut avoir de point périodique de période
+<em class="EQ">3</em> dans les intervalles
+<em class="EQ">[1,3]</em> et <em class="EQ">[4,5]</em>.
+Puisque <em class="EQ">f:[3,4] &rarr; [2,4]</em>,
+<em class="EQ">f:[2,4] &rarr; [2,5]</em> et
+<em class="EQ">f:[2,5] &rarr; [1,5]</em> sont décroissantes, nous avons
+que <em class="EQ">f<sup>&compfn;3</sup>: [3,4] &rarr; [1,5]</em> est
+décroissante.  Donc <em class="EQ">f<sup>&compfn;3</sup></em> a un
+seul point fixe dans l'intervalle <em class="EQ">[3,4]</em>.  Mais ce
+point fixe est le point fixe de
+<math display="inline"><mi>f</mi></math>.
+Donc, il n'y a pas de point périodique de période <em class="EQ">3</em>.</p>
+
+<p>Le théorème de Sarkovskii est seulement vrai pour les fonctions
+continues <em class="EQ">f: &reals; &rarr; &reals;</em>.  Dans la
+section
+<script language="javascript">
+buildLinK(fractal1.url_fr+"#SS1", "Fonctions sur le cercle", "MMathSStat",
+fractal1.id+"CMId1", fractal1.target);
+</script> du document
+<script language="javascript">
+  buildLinK(fractal1.url_fr,fractal1.text_fr, "MMathSStat",fractal1.id,
+  fractal1.target);
+</script>, nous allons donner un exemple d'une fonction qui a des
+points périodiques de période <em class="EQ">3</em> et aucun autre
+point périodique.</p>
+
+<p>Si nous considérons le graphe en forme de toile d'araignée de
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+pour des valeurs 
+<em class="EQ">&mu; &lt; 4</em>, nous pouvons imaginer que le
+comportement du SDD généré par <math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+est chaotique car la période de l'orbite périodique attractive
+<em class="EQ">{x<sub>n</sub>}<sub>n&gt;0</sub></em> est très grande
+et les points de cette orbite semblent <q lang="fr">rebondir</q> 
+aléatoirement sur toute une région de l'intervalle 
+<em class="EQ">[0,1[</em>.  Par exemple, le lecteur devrait utiliser
+l'application graphique ci-dessus pour tracer le graphe en forme de
+toile d'araignée pour le SDD généré par
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math> avec
+<em class="EQ">&mu; = 3.9</em>.  Un très grand nombre d'itérations
+doivent être exécutées.  Ce que nous observons est très loin d'être 
+chaotique.  Nous avons une orbite périodique avec une très grande
+période, mais toutes les autres orbites non-périodiques convergent
+vers elle.  Nous avons besoin d'une définition précise du comportement
+chaotique d'un SDD.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="REF">Références</h3>
+
+<p>Le contenu de ce document est principalement basé sur les livres et
+articles suivants.</p>
+
+<ul>
+<li id="RID"> R. I. Devaney, <em>An Introduction to Chaotic Dynamical
+Ssystems</em>, The Benjamin/Cummings Publishing Co., Inc. (1986).</li>
+<li id="XCH"> X.-C. Huang, <em>From Intermediate Value Theorem to
+Chaos</em>, Mathematics Magazine, Vol. <em>65</em>, No. <em>2</em> (1992), 
+91-103.</li>
+<li id="LY"> T.-Y. Li and J. A. Yorke, <em>Period Three Implies Chaos</em>,
+The American Mathematical Monthly, <em>82</em>, (1975), 985-992.</li>
+<li id="PJS">H.-O. Peitgen, H. j&#252;rgens and D. Saupe, <em>Chaos
+and Fractals: New Frontiers of Science</em>, Springer-Verlag (1992).</li>
+</ul>
+
+<table class="noB">
+<tr> <td rowspan="1" colspan="1" class="left"> </td>
+<td rowspan="1" colspan="1" class="right">
+<a href="fractal1_fr.html"> Document suivant </a> </td>
+</tr>
+</table>
+
+<hr class="MMathSStat">
+
+</div>  <!-- The content ends here -->
+
+<script language="javascript">
+bottom_function(fractal0,"fr");
+</script>
+
+</body>
+</html>

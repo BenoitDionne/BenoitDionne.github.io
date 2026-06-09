@@ -39,382 +39,1533 @@ document.write("Include javascript file has failed")
 top_function(fractal1,"fr");
 </script>
 
+<script language="javascript"> 
+  topPage("TOP", "fr");
+</script>
+
 <div class="page_contents"> <!-- The contents starts here -->
 
 <script language="javascript">
 main_title( MStexte, "MMathSStat");
 </script>
 
-<script language="javascript">
-document.write("<img src=\""+construction.src+"\" class=\"MMathSStat\">");
-</script>
-
 <table class="noB">
-<tr> <td rowspan="1" colspan="1" class="left"> </td>
+<tr> <td rowspan="1" colspan="1" class="left">
+<a href="fractal0_fr.html"> Document précédent </a> </td>
 <td rowspan="1" colspan="1" class="right">
 <a href="fractal2_fr.html"> Document suivant </a> </td>
 </tr>
 </table>
 
-<h2> Systèmes dynamiques discrets </h2>
+<h2 id="TOP"> Comportement chaotique </h2>
 
-<p> Avant de définir ce qu'est une fractale, nous devons
-étudier les <em>systèmes dynamiques discrets</em> (SDD).  En fait, il
-est suffisant de considérer les SDD sur la droite réelle.
-Ils illustrent toute la complexité qui peut être exhibée par les SDD.</p>
-
-<p> Soit <em class="EQ">f</em> une fonction à valeurs
-réelles qui est définie sur la droite réelle.  La formule </p>
-
-<div class="EQ_center">
-  <em class="EQ_Display">
-    x<sub>n+1</sub> = f(x<sub>n</sub>), n = 0, 1, 2, ...
-  </em>
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Contenu</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#SS1", "Fonctions sur le cercle",
+      "MMathSStat", "SS1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS2", "Dynamique symbolique",
+      "MMathSStat", "SS2ID", "_top");
+    </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#SS3", "Fonction logistique",
+      "MMathSStat", "SS3ID", "_top");
+    </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#REF", "Références", "MMathSStat", "ReferencesID", "_top");
+    </script>
+  </li>
+</ul>
 </div>
 
-<p>définie un SDD.  Pour tous
-<em class="EQ">x<sub>0</sub></em> donné, nous pouvons
-générer la suite</p>
+<p>Pour motiver la définition de comportement chaotique pour un SDD,
+nous débutons avec une simple fonction du cercle unité sur lui-même.
+Après cela, nous considérons le SDD généré par la fonction logistique
+<em class="EQ">f<sub>&mu;</sub></em> avec
+<em class="EQ">&mu; &ge; 4</em>.</p>
 
-<div class="EQ_center">
-<em class="EQ_Display">
-x<sub>1</sub> = f(x<sub>0</sub>), x<sub>2</sub> = f(x<sub>1</sub>),
-x<sub>3</sub> = f(x<sub>2</sub>), ...
-</em>
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="SS1">Fonctions sur le cercle </h3>
+
+<p>Nous considérons le cercle unité dans le plan complexe défini par
+<em class="EQ">S<sup>1</sup> = {z &in; &complexes; : |z| = 1}</em>.
+La fonction
+<em class="EQ">&phi;: &reals;/&integers; &rarr; S<sup>1</sup></em>
+définie par <em class="EQ">&phi;(&theta;) = e<sup>2&pi;&theta;i</sup></em>
+est un isomorphisme entre <em class="EQ">&reals;/&integers;</em> et
+<em class="EQ">S<sup>1</sup></em>.
+Il est traditionnel de définir la distance 
+<em class="EQ">d(&theta;<sub>1</sub>,&theta;<sub>2</sub>)</em>
+entre <em class="EQ">&theta;<sub>1</sub>,&theta;<sub>1</sub> &in;
+&reals;/&integers;</em> comme étant
+<em class="EQ">d(&theta;<sub>1</sub>,&theta;<sub>2</sub>) =
+d(e<sup>2&pi;&theta;<sub>1</sub>i</sup>,e<sup>2&pi;&theta;<sub>2</sub>i</sup>)</em>,
+la plus petite distance entre
+<em class="EQ">e<sup>2&pi;&theta;<sub>1</sub>i</sup></em>
+et <em class="EQ">e<sup>2&pi;&theta;<sub>2</sub>i</sup></em>
+le long du cercle <em class="EQ">S<sup>1</sup></em>.
+Avec cette définition de distance sur <em class="EQ">&reals;/&integers;</em>,
+la fonction <em class="EQ">&phi;</em> est une isométrie.</p>
+
+<div class="Example">
+<p><em>Exemple</em>: à l'aide de l'isomorphisme
+<em class="EQ">&phi;</em> défini dans le paragraphe précédent, la
+fonction <em class="EQ">f:S<sup>1</sup> &rarr; S<sup>1</sup></em>
+définie par
+<em class="EQ">f(z) = z e<sup>4&pi;i/3</sup></em> correspond à la
+fonction
+<em class="EQ">f:&reals;/&integers; &rarr; &reals;/&integers;</em>
+définie par <em class="EQ">f(&theta;) = &theta; + 2/3</em>.  Tous les
+points sont des points périodiques de période
+<em class="EQ">3</em>.  Cela démontre que le théorème de
+Sarkovskii n'est pas valide sur <em class="EQ">S<sup>1</sup></em>.
+Ceci est l'exemple qui a été mentionné à la fin du
+<script language="javascript">
+buildLinK(fractal0.url_en,"document précédent", "MMathSStat",
+fractal1.id+"pdId", fractal1.target);
+</script>.</p>
 </div>
 
-<p>Elle est appelée une <em>orbite</em> du SDD.</p>
-
-<hr class="MMathSStat">
-
-<h3>Fonctions affines</h3>
-
-<p> Nous débutons avec l'étude des systèmes dynamiques
-discrets dont les <em>fonction génératrices</em>
-<em class="EQ">f</em> sont des fonctions affines.
-C'est-à-dire, des fonctions de la forme </p>
-
-<div class="EQ_center">
-  <em class="EQ_Display">f(x) = m x + b</em>
-</div>
-
-<p> Le paramètre <em class="EQ">m</em> est la pente de la
-droite qui représente l'image de la fonction <em class="EQ">f</em> et
-<em class="EQ">b</em> est l'abscisse à l'origine de cette
-droite.</p>
-
-<p> Qu'arrive-t-il aux orbites <em class="EQ">x<sub>0</sub>,
-x<sub>1</sub>, x<sub>2</sub>, ... </em> si nous varions les paramètres
-<em class="EQ">m</em> et <em class="EQ">b</em>? </p>
-
-<p> Le lecteur est invité à explorer à l'aide de l'application graphique
-ci-dessous le comportement des orbites <em class="EQ">x<sub>0</sub>,
-x<sub>1</sub>, x<sub>2</sub>, ... </em> pour différentes valeurs des
-paramètres <em class="EQ">m</em>
-et <em class="EQ">b</em>, et de la 
-condition initiale <em class="EQ">x<sub>0</sub></em>. </p>  
-
-<p>L'application graphique ci-dessus trace le
-<em>graphe en forme de toile d'araignée</em> 
-associé à la fonction <em class="EQ">f</em>
-et la condition initiale <em class="EQ">x<sub>0</sub></em>
-choisie.  Le graphe débute au point
-<em class="EQ">(x<sub>0</sub>,0)</em>.</p>
-<ol>
-<li> À partir de <em class="EQ">(x<sub>0</sub>,0)</em>, nous
-traçons une droite verticale qui coupe le graphe de <em class="EQ">f</em>
-au point <em class="EQ">(x<sub>0</sub>,x<sub>1</sub>)</em>. </li>
-<li> À partir de <em class="EQ">(x<sub>0</sub>,x<sub>1</sub>)</em>,
-nous traçons une droite horizontale qui coupe la droite
-<em class="EQ"> y = x</em> au point
-<em class="EQ">(x<sub>1</sub>,x<sub>1</sub>)</em>. </li>
-<li> À partir de <em class="EQ">(x<sub>1</sub>,x<sub>1</sub>)</em>,
-nous traçons une droite verticale qui coupe le graphe de
-<em class="EQ">f</em> au point
-<em class="EQ">(x<sub>1</sub>,x<sub>2</sub>)</em>. </li>
-<li> À partir de <em class="EQ">(x<sub>1</sub>,x<sub>2</sub>)</em>,
-nous traçons une droite horizontale qui coupe la droite
-<em class="EQ">y = x</em> au point
-<em class="EQ">(x<sub>2</sub>,x<sub>2</sub>)</em>.</li>
-<li> À partir de
-<em class="EQ">(x<sub>2</sub>,x<sub>2</sub>)</em>,
-nous traçons une droite verticale qui coupe le graphe de
-<em class="EQ">f</em> au point
-<em class="EQ">(x<sub>2</sub>,x<sub>3</sub>)</em>. </li>
-<li> Et ainsi de suite.</li>
+<p>À l'aide de l'isomorphisme <em class="EQ">&phi;</em> défini au
+début de cette section, la fonction
+<em class="EQ">g:S<sup>1</sup> &rarr; S<sup>1</sup></em> définie par
+<em class="EQ">g(z) = z<sup>2</sup></em> correspond à la fonction
+<em class="EQ">g:&reals;/&integers; &rarr; &reals;/&integers;</em>
+définie par
+<em class="EQ">g(&theta;) = 2&theta;</em>.
+Donc, le comportement du SDD généré par la
+fonction <em class="EQ">g</em> agissant sur 
+<em class="EQ">S<sup>1</sup></em> est identique au comportement du SDD
+généré par la fonction <em class="EQ">g</em> agissant sur
+<em class="EQ">&reals;/&integers;</em>.
+La fonction <em class="EQ">g</em> possède plusieurs propriétés.</p>
+<ol style="list-style-type: decimal;">
+<li>La fonction <em class="EQ">g</em> a des points périodiques de
+toutes les périodes, et les points périodiques pour <em class="EQ">g</em>
+sont dense sur <em class="EQ">S<sup>1</sup></em>.  Pour justifier cet
+énoncé, considérons <em class="EQ">n &in; &naturals;</em>.  Nous
+obtenons de <em class="EQ">g<sup>&compfn;n</sup>(&theta;) = &theta;</em> que
+<em class="EQ">2<sup>n</sup>&theta; = &theta; + k</em> pour
+<em class="EQ">k &in; &integers;</em>.  Donc
+<em class="EQ">&theta; = &theta;<sub>k</sub>
+= k/(2<sup>n</sup>-1) (mod 1)</em> pour
+<em class="EQ">0 &le; k &lt 2<sup>n</sup>-1</em>.  Par exemple, si
+<em class="EQ">n=3</em>, nous obtenons
+<em class="EQ">&theta; = &theta;<sub>k</sub>
+= k/7 (mod 1)</em> pour <em class="EQ">0 &le; k &lt 7</em>.  Nous
+obtenons deux orbites périodique de période <em class="EQ">3</em>;
+c'est-à-dire, <em class="EQ">{1/7,2/7,4/7,1/7,...}</em> et
+<em class="EQ">{3/7,6/7,5/7,3/7,...}</em>.  Nous avons évidemment le
+point fixe <em class="EQ">&theta;<sub>0</sub> = 0</em>.
+Ainsi, puisque <em class="EQ">n</em> est arbitraire, nous avons que
+<em class="EQ">g</em> a des points périodiques de toutes les périodes
+De plus, les points périodiques pour <em class="EQ">g</em>
+sont denses sur <em class="EQ">S<sup>1</sup></em> car les nombres
+rationnels sont dense sur <em class="EQ">&reals;</em>.</li>
+<li>Étant donné deux ensembles ouverts
+<em class="EQ">U,V &subset; S<sup>1</sup></em>.
+il existe un entier <em class="EQ">k &ge; 0</em> tel que
+<em class="EQ">g<sup>&compfn;k</sup>(U) &cap; V &ne; &emptyset;</em>.
+Ceci est évident car nous pouvons choisir <em class="EQ">k</em>
+suffisamment grand pour que
+<em class="EQ">g<sup>&compfn;k</sup>(U) &supset; S<sup>1</sup></em>.
+</li>
+<li>Il existe <em class="EQ">&delta; &gt; 0</em> tel que, pour tout
+<em class="EQ">z &in; S<sup>1</sup></em> et voisinage ouvert
+<em class="EQ">U &#8842; S<sup>1</sup></em> de <em class="EQ">z</em>,
+nous avons que
+<em class="EQ">d(g<sup>&compfn;k</sup>(z),g<sup>&compfn;k</sup>(w))
+&gt; &delta;</em> pour un point <em class="EQ">w &in; U</em> et un
+entier <em class="EQ">k &ge; 0</em>.  Ce résultat est facile à
+démontrer.  Supposons que
+<em class="EQ">&delta; &lt; &pi;</em> où <em class="EQ">2&pi;</em>
+est la circonférence du cercle unité.  Il existe
+<em class="EQ">k &ge; 0</em> tel que
+<em class="EQ">g<sup>&compfn;k</sup>(U) &supset; S<sup>1</sup></em>.
+Donc, il doit y avoir un point <em class="EQ">w &in; U</em> tel que
+<em class="EQ">d(g<sup>&compfn;k</sup>(z),g<sup>&compfn;k</sup>(w))
+&gt; &delta;</em>.</li>
 </ol>
 
-<p>Les points <em class="EQ">(x<sub>n</sub>,x<sub>n</sub>)</em>
-sur la droite <em class="EQ">y = x</em> peuvent être jumelés
-aux points <em class="EQ">(x<sub>n</sub>,0)</em>
-et décrivent donc les orbites du SDD.</p>
-
-<div class="center">
-  <canvas id="linearDDS" width="400" height="400">
-  </canvas>
+<div class="Theo">
+<p><em>Définition</em>: Supposons que <em class="EQ">E</em> est un
+espace topologique.  Une fonction <em class="EQ">f:E &rarr; E</em> est
+<em>topologiquement transitive</em> si, pour chaque paire d'ensembles
+<em class="EQ">U,V &subset; E</em>, il existe un entier
+<em class="EQ">k &ge; 0</em> tel que
+<em class="EQ">f<sup>&compfn;k</sup>(U) &cap; V &ne; &emptyset;</em>.</p>
 </div>
 
+<p>Il découle de (2) ci-dessus que
+<em class="EQ">g:S<sup>1</sup> &rarr; S<sup>1</sup></em>
+est topologiquement transitive.  Grossièrement, cela veut dire que le
+domaine du SDD généré par <em class="EQ">g</em> ne peut pas être
+décomposé en deux ensembles ouverts disjoints et invariant sous
+l'action de <em class="EQ">g</em>.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Supposons que <em class="EQ">E</em> est un
+espace topologique.  Une fonction <em class="EQ">f:E &rarr; E</em> a une
+<em>dépendance sensible aux conditions initiales</em> s'il
+existe <em class="EQ">&delta; &gt; 0</em> tel que, pour chaque point
+<em class="EQ">x &in; E</em> et voisinage ouvert
+<em class="EQ">U &subset; E</em> de <em class="EQ">x</em>, nous avons
+que <em class="EQ">d(f<sup>&compfn;k</sup>(x),f<sup>&compfn;k</sup>(y))
+&gt; &delta;</em> pour un point <em class="EQ">y &in; U</em> et un
+entier <em class="EQ">k</em>.</p>
+</div>
+
+<p>Il découle de (3) ci-dessus que
+<em class="EQ">g:S<sup>1</sup> &rarr; S<sup>1</sup></em>
+a une dépendance sensible aux conditions initiales.  Grossièrement,
+cela veut dire qu'il y a des points <em class="EQ">w &in; S<sup>1</sup></em>
+aussi près que nous voulons d'un point initial donné
+<em class="EQ">z &in; S<sup>1</sup></em> tels que
+<em class="EQ">f<sup>&compfn;k</sup>(w)</em> ne reste pas près de
+<em class="EQ">f<sup>&compfn;k</sup>(z)</em> pour tout
+<em class="EQ">k</em>.</p>
+
+<p>Les trois propriétés de
+<em class="EQ">g:S<sup>1</sup> &rarr; S<sup>1</sup></em>
+mentionnées ci-dessus sont celles qui sont requissent pour dire qu'une
+fonction a un comportement chaotique.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Supposons que <em class="EQ">E</em> est un
+espace métrique.  Une fonction <em class="EQ">f:E &rarr; E</em> a un
+<em>comportement chaotique</em> ou est <em>chaotique</em> sur
+<em class="EQ">E</em> si</p>
 <ul>
-  <li> <em class="EQ">m = </em>
-    <input type="text" value="0.5" id="linear_m"> </li>
-  <li> <em class="EQ">b = </em>
-    <input type="text" value="2" id="linear_b"> </li>
-  <li> <em class="EQ">x<sub>0</sub> = </em>
-    <input type="text" value="0.5" id="linear_x"> </li>
-  <li> Nombre d'itérations <input type="text" value="10" id="linear_nbr">
-  </li>
-  <li> <input type="button" value="Débuter" onclick="linearDDS()">
-  </li>
-  <li> <input type="button" value="Effacer" onclick="clearDDS('linearDDS')">
-  </li>
+<li><em class="EQ">f</em> a une dépendance sensible aux conditions
+initiales,</li> 
+<li><em class="EQ">f</em> est topologiquement transitive, et</li>
+<li>l'ensemble <em class="EQ">P<sub>f</sub></em> des points périodiques
+pour <em class="EQ">f</em> est dense dans <em class="EQ">E</em>.</li>
 </ul>
+</div>
 
-<p> La courbe en bleu dans la figure ci-dessus (après avoir cliqué sur
-le bouton <em>Débuter</em>) est le graphe de la fonction
-<em class="EQ">f</em> et la ligne diagonale en rouge est la
-droite <em class="EQ">y = x</em>. </p>
+<p>Nous avons que <em class="EQ">g: S<sup>1</sup> &rarr; S<sup>1</sup></em>
+définie ci-dessus est chaotique.</p>
 
-<p> Le point <em class="EQ">p</em> dans la figure ci-dessus
-satisfait <em class="EQ">f(p) = p</em>.  Pour cette raison, le point
-<em class="EQ">p</em> est appelé un <em>point fixe</em> de
-<em class="EQ">f</em>.  Pour quelles conditions a-t-on que les
-orbites <em class="EQ">x<sub>0</sub>, x<sub>1</sub>,
-x<sub>2</sub>, ... </em> convergent vers
-<em class="EQ">p</em>?   S'éloignent de
-<em class="EQ">p</em>? </p>
+<div class="Note">
+<p><em>Remarque</em>:  Supposons que <em class="EQ">f:E &rarr; E</em>
+est une fonction continue sur un espace métrique <em class="EQ">E</em>.
+Il a été démontré par
+<script language="javascript">
+buildLinK("#BBCDP", "J. Banks, J. Brooks, G. Cairns, G. Davis and P. Stacey",
+"MMathSStat", "BBCDPId3", "_top");
+</script>
+que topologiquement transitive et
+<em class="EQ">P<sub>f</sub></em> dense dans <em class="EQ">E</em>
+impliquent une dépendance sensible aux conditions initiales.
+Néanmoins, nous préservons la tradition d'utiliser la définition de
+comportement chaotique donnée ci-dessus car elle énumère les trois
+propriétés importante du comportement chaotique.  De plus, il a été
+démontré par
+<script language="javascript">
+buildLinK("#DASG", "D. Assaf, IV, and S. Gadbois","MMathSStat",
+"DASGId3", "_top");
+</script>
+qu'une dépendance sensible aux conditions initiales et
+<em class="EQ">P<sub>f</sub></em> dense
+dans <em class="EQ">E</em> n'impliquent pas topologiquement transitive, et
+une dépendance sensible aux conditions initiales et topologiquement
+transitive n'impliquent pas que
+<em class="EQ">P<sub>f</sub></em> est dense dans <em class="EQ">E</em>.</p>
+</div>
+
+<p>Nous considérons la fonction
+<em class="EQ">g<sub>q</sub>:S<sup>1</sup> &rarr; S<sup>1</sup></em>
+définie par
+<em class="EQ">g<sub>q</sub>(z) = z e<sup>2&pi;qi</sup></em> où
+<em class="EQ">q &in; &reals;</em>.  À l'aide de notre isomorphisme
+<em class="EQ">&phi;</em> entre
+<em class="EQ">&reals;/&integers;</em> et
+<em class="EQ">S<sup>1</sup></em>, la fonction
+<em class="EQ">g<sub>q</sub>S<sup>1</sup> &rarr; S<sup>1</sup></em> correspond
+à la fonction
+<em class="EQ">g<sub>q</sub>:&reals;/&integers; &rarr; &reals;/&integers;</em>
+définie par
+<em class="EQ">g<sub>q</sub>(&theta;) = &theta; + q</sup></em>
+for <em class="EQ">&theta; &in; &reals;/&integers;</em>.</p>
+
+<div class="Theo">
+<p><em>Théorème (Jacobi)</em>: Si <em class="EQ">q</em> est un nombre
+irrationnel, alors toutes les orbites générées par
+<em class="EQ">g<sub>q</sub></em> sont dense dans
+<em class="EQ">S<sup>1</sup></em>.</p>
+</div>
+
+<p><em>Démonstration</em>:  Étant donné
+<em class="EQ">&theta; &in; &reals;/&integers;</em>, nous devons
+démontrer que
+<em class="EQ">{g<sub>q</sub><sup>&compfn;j</sup>(&theta;)}<sub>j&ge;0</sub></em>
+est dense dans <em class="EQ">&theta; &in; &reals;/&integers;</em>.
+<span id="proof1A">&nbsp;...</span></p>
+<div id="proof1B" class="moreORless">
+<p>Nous démontrons en premier que les points de l'orbite
+<em class="EQ">{g<sub>q</sub><sup>&compfn;j</sup>(&theta;)}<sub>j&ge;0</sub></em>
+sont distincts.  Si <em class="EQ">g<sub>q</sub><sup>&compfn;n</sup>(&theta;) =
+g<sub>q</sub><sup>&compfn;m</sup>(&theta;)</em>, alors
+<em class="EQ">&theta; + nq = &theta; + mq (mod 1)</em>.  Ainsi, 
+<em class="EQ">(n-m)q = 0 (mod 1)</em>; c'est-à-dire,
+<em class="EQ">(n-m)q &in; &integers;</em>.
+Puisque <em class="EQ">q</em> est irrationnel, nous devons avoir que
+<em class="EQ">n = m</em>.</p>
+
+<p>Nous déduisons du paragraphe précédent que
+<em class="EQ">{g<sub>q</sub><sup>&compfn;j</sup>(&theta;)}<sub>j&ge;0</sub></em>
+est un sous-ensemble infini de l'ensemble compacte
+<em class="EQ">S<sup>1</sup></em>.  
+Donc, il existe une sous-suite convergente
+<em class="EQ">{g<sub>q</sub><sup>&compfn;j<sub>m</sub></sup>(&theta;)}<sub>m&ge;0</sub></em>.
+Soit <em class="EQ">&epsilon; &gt; 0</em>, il existe des entiers
+positifs <em class="EQ">m &lt; n</em> tels que
+<em class="EQ">
+<math><mover><mi>&epsilon;</mi><mo>&circ;</mo></mover></math>
+= d(g<sub>q</sub><sup>&compfn;j<sub>m</sub></sup>(&theta;),g<sub>q</sub><sup>&compfn;j<sub>n</sub></sup>(&theta;))
+&lt; &epsilon;</em>.  Puisque
+<em class="EQ">g<sub>q</sub></em> préserve la distance sur
+<em class="EQ">S<sup>1</sup></em> (c'est seulement une rotation par
+<em class="EQ">2&pi;q</em>), nous obtenons que
+<em class="EQ">d(&theta;,g<sub>q</sub><sup>&compfn;r</sup>(&theta;))
+= <math><mover><mi>&epsilon;</mi><mo>&circ;</mo></mover></math>
+&lt; &epsilon;</em> pour
+<em class="EQ">r = j<sub>n</sub>-j<sub>m</sub></em>.
+De même, puisque que <em class="EQ">g<sub>q</sub></em> préserve la
+distance sur <em class="EQ">S<sup>1</sup></em>, nous obtenons que
+<em class="EQ">d(g<sub>q</sub><sup>&compfn;(j-1)r</sup>(&theta;),g<sub>q</sub><sup>&compfn;jr</sup>(&theta;))
+= <math><mover><mi>&epsilon;</mi><mo>&circ;</mo></mover></math>
+&lt; &epsilon;</em> for <em class="EQ">j &gt; 0</em>.
+Ainsi, si
+<em class="EQ">[g<sub>q</sub><sup>&compfn;(j-1)r</sup>(&theta;),g<sub>q</sub><sup>&compfn;jr</sup>(&theta;)]</em>
+pour <em class="EQ">j &gt; 0</em> dénotent les arcs fermés de longueur
+<em class="EQ"><math><mover><mi>&epsilon;</mi><mo>&circ;</mo></mover></math>
+&lt; &epsilon;</em> sur <em class="EQ">S<sup>1</sup></em> qui sont
+bornés par
+<em class="EQ">g<sub>q</sub><sup>&compfn;(j-1)r</sup>(&theta;)</em> et
+<em class="EQ">g<sub>q</sub><sup>&compfn;jr</sup>(&theta;)</em>, alors
+un nombre fini de ceux-ci va éventuellement couvrir
+<em class="EQ">S<sup>1</sup></em>.  Ainsi, tous les points
+de <em class="EQ">S<sup>1</sup></em> sont à une distance inférieure à
+<em class="EQ">&epsilon;</em> d'un des points
+<em class="EQ">g<sub>q</sub><sup>&compfn;jr</sup>(&theta;)</em>
+for <em class="EQ">j &ge; 0</em>.</p>
+
+<p>Pour démontrer que
+<em class="EQ">{g<sub>q</sub><sup>&compfn;j</sup>(&theta;)}<sub>j&ge;0</sub></em>
+est dense dans <em class="EQ">S<sup>1</sup></em>, il suffit de montrer
+que, étant donné <em class="EQ">&psi; &in; S<sup>1</sup></em>
+et <em class="EQ">&epsilon; > 0</em>, il existe un
+<em class="EQ">j &ge; 0</em> tel que
+<em class="EQ">d(g<sub>q</sub><sup>&compfn;j</sup>(&theta;),&psi;)
+&lt; &epsilon;</em>.  Mais cela est une conséquence du résultat
+démontré au paragraphe précédent car
+<em class="EQ">&psi;</em> appartient à un des arcs
+<em class="EQ">[g<sub>q</sub><sup>&compfn;(j-1)r</sup>(&theta;),g<sub>q</sub><sup>&compfn;jr</sup>(&theta;)]</em>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof1A','proof1B','proof1C','fr')" class="mORl" id="proof1C">Lire plus</button>
+
+<p>Supposons que <em class="EQ">f:E &rarr; E</em> est
+une fonction continue sur un espace métrique <em class="EQ">E</em>.
+Il est facile de démontrer que s'il existe une orbite dense
+dans <em class="EQ">E</em> de la forme
+<em class="EQ">{f<sup>&compfn;n</sup>(x)}<sub>n&ge;0</sub></em>
+pour une point <em class="EQ">x &in; E</em>, alors
+<em class="EQ">f</em> est topologiquement transitive.  Donc, la
+fonction <em class="EQ">g<sub>q</sub></em> du théorème de
+Jacobi est topologiquement transitive.  Cependant,
+<em class="EQ">g<sub>q</sub></em> n'a pas une dépendance sensible
+aux conditions initiales car <em class="EQ">g<sub>q</sub></em>
+préserve la distance.  De plus, comme nous avons montré dans le
+premier paragraphe de la démonstration du théorème de
+Jacobi, <em class="EQ">g<sub>q</sub></em> n'a aucune point
+périodique.</p>
+
+<p>Nous pourrions en dire beaucoup plus au sujet des fonctions de
+<em class="EQ">S<sup>1</sup></em> dans lui-même mais cela nous
+détournerait du sujet principal de ce document.</p>
 
 <hr class="MMathSStat">
 
-<h3 id="logistic"> La fonction Logistique </h3>
+<h3 id="SS2">Dynamique symbolique</h3>
 
-<p> Le plus simple SDD non-affine est donné par
-<em>la fonction logistique</em>.  Par contre, nous montrons ci-dessous
-que le comportement des orbites générées par les itérations de cette fonction
-est loin d'être simple.  La fonction logistique est la
-fonction <em class="EQ">f<sub>&#120583;</sub></em> définie par</p>
+<p>Nous présentons brièvement un des outils qui sera utilisé pour
+l'étude du comportement qualitatif du SDD généré par la fonction
+logistique <em class="EQ">f<sub>&mu;</sub></em>
+pour <em class="EQ">&mu; &gt: 4</em>
 
-<div class="EQ_center">
-<em class="EQ_Display">
-f<sub>&#120583;</sub>(x) = &#120583; x(1-x) </em> ,
+<div class="Theo">
+<p><em>Définition</em>: L'ensemble
+<em class="EQ">&Sigma;<sub>2</sub> =
+{s=(s<sub>0</sub>,s<sub>1</sub>,s<sub>2</sub>,...) : s<sub>j</sub>
+&in; {0,1}}</em> est appelé <em>l'espace des suites</em> sur deux
+symboles.</p>
 </div>
 
-<p> où <em class="EQ">&#120583;</em> est un paramètre fixe mais
-arbitraire.  Nous avons une famille de fonctions, une fonction pour chaque
-valeur de <em class="EQ">&#120583;</em>. </p>
-
-<p> Le SDD associé à la fonction logistique est donné par la formule
-suivante. </p>
-
-<div class="EQ_center">
-<em class="EQ_Display">
-x<sub>n+1</sub> = f<sub>&#120583;</sub>(x<sub>n</sub>), n = 0, 1, 2, 3, ... </em>
+<div class="Theo">
+<p><em>Proposition</em>:  La fonction
+<em class="EQ">d:&Sigma;<sub>2</sub>&times;&Sigma;<sub>2</sub>
+&rarr; [0,&infin;[</em> définie par <em class="EQ">
+d(s,t) = &sum;<sub>j&ge;0</sub> |s<sub>j</sub>-t<sub>j</sub>|/2<sup>j</sup>
+</em>
+pour <em class="EQ">s = (s<sub>0</sub>,s<sub>1</sub>,s<sub>2</sub>,...)</em>
+et <em class="EQ">t = (t<sub>0</sub>,t<sub>1</sub>,t<sub>2</sub>,...)</em>
+dans <em class="EQ">&Sigma;<sub>2</sub></em> est une métrique sur
+<em class="EQ">&Sigma;<sub>2</sub></em>.</p>
 </div>
 
-<p> Le lecteur est invité à explorer à l'aide de l'application graphique
-suivante le comportement des orbites du SDD logistique pour
-différentes valeurs du paramètre <em class="EQ">&#120583;</em>
-(entre 1 et 4) et de la condition initiale
-<em class="EQ">x<sub>0</sub></em> (entre 0 et 1). </p>
+<p><em>Démonstration</em>:  Nous avons que <em class="EQ">d(s,t) &ge; 0</em>
+pour tout <em class="EQ">s,t &in; &Sigma;<sub>2</sub></em>, et
+<em class="EQ">d(s,t) = 0</em> si et seulement si
+<em class="EQ">s<sub>j</sub> = t<sub>j</sub></em> pour
+tout <em class="EQ">j</em>; C'est-à-dire, <em class="EQ">s = t</em>.
+Nous avons que <em class="EQ">d(s,t) = d(s,t)</em> car
+<em class="EQ">|s<sub>j</sub>-t<sub>j</sub>| =
+|t<sub>j</sub>-s<sub>j</sub>|</em> pour tout <em class="EQ">j</em>.
+Finalement, étant donné
+<em class="EQ">r,s,t &in; &Sigma;<sub>2</sub></em>, nous avons que
+<em class="EQ">d(r,t) &le; d(r,s)+d(s,t)</em> car
+<em class="EQ">|r<sub>j</sub>-t<sub>j</sub>| &le;
+|r<sub>j</sub>-s<sub>j</sub>|+|s<sub>j</sub>-t<sub>j</sub>|</em>
+pour tout <em class="EQ">j</em>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+
+<div class="Theo">
+<p><em>Proposition</em>: Soit
+<em class="EQ">s,t &in; &Sigma;<sub>2</sub></em>.
+Si <em class="EQ">r<sub>j</sub> = t<sub>j</sub></em>
+pour <em class="EQ">0 &le; j &le; m</em>, alors
+<em class="EQ">d(s,t) &le; 2<sup>-m</sup></em>.
+Si <em class="EQ">d(s,t) &lt; 2<sup>-m</sup></em>, alors
+<em class="EQ">r<sub>j</sub> = t<sub>j</sub></em>
+pour <em class="EQ">0 &le; j &le; m</em>.</p>
+</div>
+
+<p><em>Démonstration</em>: Si <em class="EQ">r<sub>j</sub> = t<sub>j</sub></em>
+pour <em class="EQ">0 &le; j &le; m</em>, alors
+<em class="EQ">d(s,t) = &sum;<sub>j&ge;m+1</sub> |s<sub>j</sub>-t<sub>j</sub>|/2<sup>j</sup>
+&le; 2<sup>-m-1</sup> &sum;<sub>j&ge;0</sub> 2<sup>-j</sup>
+  = 2<sup>-m</sup></em>.
+Si <em class="EQ">r<sub>j</sub> &ne; t<sub>j</sub></em>
+pour un <em class="EQ">j &le; m</em>, alors
+<em class="EQ">d(s,t) &ge; 2<sup>-j</sup> &ge; 2<sup>-m</sup></em>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+
+<div class="Theo">
+<p><em>Définition</em>: <em>L'application de décalage (sur deux symboles)</em>
+<em class="EQ">&sigma;:&Sigma;<sub>2</sub> &rarr; &Sigma;<sub>2</sub></em>
+est la fonction définie par
+<em class="EQ">&sigma;(s<sub>0</sub>,s<sub>1</sub>,s<sub>2</sub>,...)
+  = (s<sub>1</sub>,s<sub>2</sub>,s<sub>3</sub>,...)</em> pour tout
+<em class="EQ">(s<sub>0</sub>,s<sub>1</sub>,s<sub>2</sub>,...)
+  &in; &Sigma;<sub>2</sub></em>.</p>
+</div>
+
+<div class="Theo">
+<p><em>Proposition</em>: La fonction
+<em class="EQ">&sigma;:&Sigma;<sub>2</sub> &rarr; &Sigma;<sub>2</sub></em>
+est continue.</p>
+</div>
+
+<p><em>Démonstration</em>: Nous démontrons que
+<em class="EQ">&sigma;</em> est continue en un point arbitraire
+<em class="EQ">s = (s<sub>0</sub>,s<sub>1</sub>,s<sub>2</sub>,...) &in;
+&Sigma;<sub>2</sub></em>.</p>
+
+<p>Étant donné <em class="EQ">&epsilon; &gt; 0</em>, nous choisissons
+un entier positif <em class="EQ">m</em> tel que
+<em class="EQ">2<sup>-m</sup> &lt; &epsilon;</em> et posons
+<em class="EQ">&delta; = 2<sup>-m-1</sup></em>.  Si
+<em class="EQ">t &in; &Sigma;<sub>2</sub></em> est tel que
+<em class="EQ">d(t,s) &lt; &delta; = 2<sup>-m-1</sup></em>,
+alors <em class="EQ">s<sub>j</sub> = t<sub>j</sub></em> pour
+<em class="EQ">0 &le; j &le; m+1</em> selon la proposition précédente
+Soit
+<em class="EQ"><math><mover><mi>t</mi><mo>&circ;</mo></mover></math>
+  = &sigma;(t) = (t<sub>1</sub>,t<sub>2</sub>,...)</em> et
+<em class="EQ"><math><mover><mi>s</mi><mo>&circ;</mo></mover></math>
+  = &sigma;(s) = (s<sub>1</sub>,s<sub>2</sub>,...)</em>.  Puisque
+<em class="EQ"><math><mover><mi>s</mi><mo>&circ;</mo></mover></math><sub>j</sub>
+= s<sub>j+1</sub> = t<sub>j+1</sub>
+= <math><mover><mi>t</mi><mo>&circ;</mo></mover></math><sub>j</sub></em>
+pour <em class="EQ">0 &le; j &le; m</em>, nous obtenons de la
+proposition précédente que
+<em class="EQ">d(&sigma;(t),&sigma;(s)) =
+  d(<math><mover><mi>t</mi><mo>&circ;</mo></mover></math>,<math><mover><mi>s</mi><mo>&circ;</mo></mover></math>)
+&le; 2<sup>-m</sup> &lt; &epsilon;</em>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+
+<p>Il est généralement facile de démontrer les propriétés associé aux
+points périodiques pour <em class="EQ">&sigma;</em>.  Par exemple,
+l'ensemble <em class="EQ">P<sub>m</sub></em> des points
+<em class="EQ">s &in; &Sigma;<sub>2</sub></em> tels que
+<em class="EQ">&sigma;<sup>m</sup>(s) = s</em>
+est de cardinalité <em class="EQ">2<sup>m</sup></em>.
+Pour démontrer cet énoncé, il suffit de noter que les points
+<em class="EQ">s &in; &Sigma;<sub>2</sub></em> tels que
+<em class="EQ">&sigma;<sup>m</sup>(s) = s</em> sont de la forme
+<em class="EQ">(s<sub>0</sub>,s<sub>1</sub>,...,s<sub>m-1</sub>,s<sub>0</sub>,s<sub>1</sub>,...,s<sub>m-1</sub>,s<sub>0</sub>...)</em>.
+Il y a <em class="EQ">2<sup>m</sub></em> différente combinaisons de
+<em class="EQ">0</em> et <em class="EQ">1</em> de longueur
+<em class="EQ">m</em>.</p>
+
+<p>Le lecteur peut se douter que le résultat suivant jouera
+prochainement un rôle majeur dans l'étude du comportement qualitatif
+du SDD généré par <em class="EQ">f<sub>&mu;</sub></em>.</p> 
+
+<div class="Theo">
+<p><em>Proposition</em>: </p>
+<ol style="list-style-type: decimal">
+<li>L'ensemble <em class="EQ">P<sub>&sigma;</sub></em> des points
+périodiques pour <em class="EQ">&sigma;</em> est dense dans
+<em class="EQ">&Sigma;<sub>2</sub></em>.</li>
+<li>Il existe <em class="EQ">s &in; &Sigma;<sub>2</sub></em> tel que
+l'orbite <em class="EQ">{&sigma;<sup>j</sup>(s)}<sub>j&ge;0</sub></em>
+est dense dans <em class="EQ">&Sigma;<sub>2</sub></em>.</li>
+<li>La fonction
+<em class="EQ">&sigma;:&Sigma;<sub>2</sub> &rarr; &Sigma;<sub>2</sub></em>
+a une dépendance sensitive aux conditions initiales.</li>
+</ol>
+</div>
+
+<p><em>Démonstration</em>:
+<p>Étant donné <em class="EQ">s =
+(s<sub>0</sub>,s<sub>1</sub>,s<sub>2</sub>,...)</em>, nous avons que
+<em class="EQ">{(s<sub>0</sub>,s<sub>1</sub>,...,s<sub>m</sub>,s<sub>0</sub>,s<sub>1</sub>,...,s<sub>m</sub>,s<sub>0</sub>...)}<sub>m&ge;0</sub></em>
+est une suite de points périodiques qui converge vers <em class="EQ">s</em>
+lorsque <em class="EQ">m &rarr; &infin;</em> car
+<em class="EQ">d(s,(s<sub>0</sub>,s<sub>1</sub>,...,s<sub>m</sub>,s<sub>0</sub>,s<sub>1</sub>,...,s<sub>m</sub>,s<sub>0</sub>...))
+&le; 2<sup>-m</sup> &rarr; 0</em> lorsque <em class="EQ">m &rarr; &infin;</em>.
+Ceci démontre (1).
+<span id="proof2A">&nbsp;...</span></p>
+<div id="proof2B" class="moreORless">
+
+<p>Pour démontrer (2), soit</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+<math><mover><mi>s</mi><mo>&circ;</mo></mover></math>
+= (<math><munder><mrow>0 1</mrow><mrow><munder>
+	<mo accentunder="false">&#x23DF;</mo><mtext>1-blocs</mtext>
+    </munder></mrow></munder></math>
+<math><munder><mrow>00 01 10 11</mrow><mrow><munder>
+	<mo accentunder="false">&#x23DF;</mo><mtext>2-blocs</mtext>
+    </munder></mrow></munder></math>
+<math><munder><mrow>000 001 010 ...</mrow><mrow><munder>
+	<mo accentunder="false">&#x23DF;</mo><mtext>3-blocs</mtext>
+    </munder></mrow></munder></math> ...)
+</em>
+</div>
+Étant donné <em class="EQ">s &in; &Sigma;<sub>2</sub></em> et
+<em class="EQ">&epsilon; &gt; 0</em>, nous choisissons un entier
+positif <em class="EQ">m</em> tel que
+<em class="EQ">2<sup>-m</sup> &lt; &epsilon;</em>.
+Il existe un entier positif <em class="EQ">j<sub>m</sub></em> tel que
+la <em class="EQ">j</em><sup>e</sup> composante de
+<em class="EQ">&sigma;<sup>&compfn;j<sub>m</sub></sup>(<math><mover><mi>s</mi><mo>&circ;</mo></mover></math>)</em>
+égale la <em class="EQ">j</em><sup>e</sup> composante de
+<em class="EQ">s</em> pour <em class="EQ">0 &le; j &le; m</em>.
+Nous avons alors que
+<em class="EQ">d(s,&sigma;<sup>j<sub>m</sub></sup>(<math><mover><mi>s</mi><mo>&circ;</mo></mover></math>))
+&le; 2<sup>-m</sup> &lt; &epsilon;</em>.</p>
+
+<p>Pour démontrer que
+<em class="EQ">&sigma;:&Sigma;<sub>2</sub> &rarr; &Sigma;<sub>2</sub></em>
+a une dépendance sensible aux conditions initiales, nous choisissons
+<em class="EQ">&delta; &lt; 1</em> quelconque.  Étant donné
+<em class="EQ">s &in; &Sigma;<sub>2</sub></em> et
+<em class="EQ">U &subset; &Sigma;<sub>2</sub></em> un voisinage ouvert
+de <em class="EQ">s</em>, nous choisissons
+<em class="EQ">t &in; U</em> tel que <em class="EQ">t &ne; s</em>.
+Ainsi, il existe un entier <em class="EQ">m &ge; 0</em> tel que
+<em class="EQ">t<sub>m</sub> &ne; s<sub>m</sub></em>.  Donc,
+<em class="EQ">d(&sigma;<sup>&compfn;m</sup>(s),&sigma;<sup>&compfn;m</sup>(t))
+&ge; |t<sub>m</sub>-s<sub>m</sub>| = 1 &gt; &delta;</em>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof2A','proof2B','proof2C','fr')" class="mORl" id="proof2C">Lire plus</button>
+
+<p>La deuxième propriété de <em class="EQ">&sigma;</em> dans la
+proposition précédente implique que <em class="EQ">&sigma;</em> est
+topologiquement transitive.  Nous obtenons donc le résultat suivant.</p>
+
+<div class="Theo">
+<p><em>Corollaire</em>:   
+<em class="EQ">&sigma;:&Sigma;<sub>2</sub> &rarr; &Sigma;<sub>2</sub></em>
+a un comportement chaotique.</p>
+</div>
+
+<hr class="MMathSStat">
+
+<h3 id="SS3">Fonction logistique</h3>
+
+<p>Nous poursuivons notre étude du SDD généré par la fonction
+logistique <em class="EQ">f<sub>&mu;</sub></em> définie par
+<em class="EQ">f<sub>&mu;</sub>(x) = &mu;x(1-x)</em>.
+Dans cette section, nous assumons que
+<em class="EQ">&mu; &ge; 4</em>.
+Il est important de noter que nous n'avons plus
+<em class="EQ">f([0,1]) &subset; [0,1]</em>
+quand <em class="EQ">&mu; &gt; 4</em>.  Le lecteur peut utiliser
+l'application graphique pour la fonction logistique qui se trouve dans le
+<script language="javascript">
+buildLinK(fractal0.url_fr+"#DDS", "document précédent", "MMathSStat",
+fractal1.id+"DDSId1", fractal1.target);
+</script> pour observer que presque toutes les orbites générées
+par <em class="EQ">f<sub>&mu;</sub></em> avec
+<em class="EQ">&mu; &gt; 4</em> convergent très rapidement vers
+<em class="EQ">-&infin;</em>.  Pour obtenir un graphe en forme de
+toile d'araignée qui soit réaliste, le nombre
+d'itérations devraient être petit car la convergence vers
+<em class="EQ">-&infin;</em> est très rapide.</p>
+
+<p>Le concept suivant sera utilisé pour l'étude du comportement
+qualitatif du SDD généré par <em class="EQ">f<sub>&mu;</sub></em>.
+
+<div class="Theo">
+<p><em>Définition</em>:  Supposons que
+<em class="EQ">F</em> et <em class="EQ">G</em> sont deux espace
+métriques, et que
+<em class="EQ">f:F &rarr; F</em> et <em class="EQ">g:G &rarr; G</em>
+sont des fonctions continues.  Nous disons que
+<em class="EQ">f</em> et <em class="EQ">g</em> sont
+<em>topologiquement conjuguées</em> s'il existe un homéomorphisme
+<em class="EQ">h:F &rarr; G</em> tel que
+<em class="EQ">h&compfn;f = g&compfn;h</em>.  La fonction
+<em class="EQ">h</em> est appelée une <em>conjugaison topologique</em>
+entre <em class="EQ">f</em> et <em class="EQ">g</em>.</p>
+</div>
+
+<p>Les SDD générés par deux fonctions qui sont topologiquement
+conjuguées possèdent le même comportement qualitatif.  En particulier,
+si un de ceux-ci a un comportement chaotique, alors l'autre a aussi un
+comportement chaotique.  Pour étudier le comportement qualitatif du
+SDD généré par <em class="EQ">f<sub>&mu;</sub></em> avec
+<em class="EQ">&mu; &gt; 4</em>, nous montrons que la fonction
+<em class="EQ">f<sub>&mu;</sub></em> est topologiquement conjuguée
+à l'application de décalage sur deux symboles
+<em class="EQ">&sigma;:&Sigma;<sub>2</sub> &rarr; &Sigma;<sub>2</sub></em>
+définie à la section précédente.</p>
+
+<p>Si <em class="EQ">&mu; &gt; 4</em>, alors
+<em class="EQ">f<sub>&mu;</sub>(1/2) = &mu;/2 &gt; 1</em> comme nous
+pouvons constater dans la figure suivante.</p>
+<div class="center">
+  <img src="logistic8.png" style="width: 350px"
+       alt="Graphe de f_{4.3} qui inclus la représentation de A_1, B_0 et B_1."
+       class="framed">
+</div>
+<p>Soit
+<em class="EQ">A<sub>1</sub> = {x &in; [0,1] : f<sub>&mu;</sub>(x) &gt; 1}</em>.
+Nous avons que <em class="EQ">A<sub>1</sub></em> es un ensemble
+ouvert et
+<em class="EQ">f<sub>&mu;</sub><sup>&compfn;n</sup>(x) &rarr; -&infin;</em>
+lorsque <em class="EQ">n &rarr; &infin;</em> pour tout
+<em class="EQ">x &in; A<sub>1</sub></em>.</p>
+
+<p>Soit <em class="EQ">B<sub>0</sub> =
+f<sub>&mu;</sub><sup>-1</sup>([0,1]) &cap; [0,1/2]</em> et
+<em class="EQ">B<sub>1</sub> = f<sub>&mu;</sub><sup>-1</sup>([0,1])
+&cap; [1/2,1]</em>.
+Puisque la fonction <em class="EQ">f<sub>&mu;</sub></em> est croissante
+sur <em class="EQ">B<sub>0</sub></em> et
+<em class="EQ">f(B<sub>0</sub>) = [0,1]</em>, il existe un intervalle
+ouvert <em class="EQ">A<sub>2,0</sub> &subset; B<sub>0</sub></em> tel
+que <em class="EQ">f<sub>&mu;</sub>(A<sub>2,0</sub>) = A<sub>1</sub></em>.
+De même, puisque la fonction <em class="EQ">f<sub>&mu;</sub></em> est
+décroissante sur <em class="EQ">B<sub>1</sub></em> et
+<em class="EQ">f(B<sub>1</sub>) = [0,1]</em>, il existe un intervalle
+ouvert <em class="EQ">A<sub>2,1</sub> &subset; B<sub>1</sub></em> tel que
+<em class="EQ">f<sub>&mu;</sub>(A<sub>2,1</sub>) = A<sub>1</sub></em>.
+L'union de <em class="EQ">A<sub>2,0<sub></em>
+et <em class="EQ">A<sub>2,1<sub></em> est l'ensemble
+<em class="EQ">A<sub>2</sub> = {x &in; [0,1] :
+f<sub>&mu;</sub><sup>&compfn;2</sup>(x) &gt; 1 mais f<sub>&mu;</sub> &in;
+[0,1]}</em>.</p>
 
 <div class="center">
-<canvas id="DDS" width="400" height="400">
-</canvas>
+  <img src="logistic9.png" style="width: 350px"
+       alt="Graphe de f_{4.3} qui inclus la représentation de A_2, B_{2,0}, B_{2,1}, ..." class="framed">
 </div>
+
+<p>L'ensemble <em class="EQ">[0,1] &setminus;
+(A<sub>1</sub> &cup; A<sub>2</sub>)</em> est l'union de quatre
+intervalles fermés: <em class="EQ">B<sub>0,0</sub>
+= f<sub>&mu;</sub><sup>-1</sup>(B<sub>0</sub>) &cap; B<sub>0</sub></em>,
+<em class="EQ">B<sub>0,1</sub>
+= f<sub>&mu;</sub><sup>-1</sup>(B<sub>1</sub>) &cap; B<sub>0</sub></em>,
+<em class="EQ">B<sub>1,0</sub>
+= f<sub>&mu;</sub><sup>-1</sup>(B<sub>0</sub>) &cap; B<sub>1</sub></em>
+et
+<em class="EQ">B<sub>1,1</sub>
+= f<sub>&mu;</sub><sup>-1</sup>(B<sub>1</sub>) &cap; B<sub>1</sub></em>
+comme il est illustré dans la figure ci-dessus.
+Puisque la fonction <em class="EQ">f<sub>&mu;</sub></em> est
+croissante sur <em class="EQ">B<sub>0,0</sub></em> et
+<em class="EQ">f(B<sub>0,0</sub>) = B<sub>0</sub></em>, il existe un
+intervalle ouvert
+<em class="EQ">A<sub>3,0,0</sub> &subset; B<sub>0,0</sub></em> tel que
+<em class="EQ">f<sub>&mu;</sub>(A<sub>3,0,0</sub>) = A<sub>2,0</sub></em>.
+Puisque la fonction <em class="EQ">f<sub>&mu;</sub></em> est
+croissante sur <em class="EQ">B<sub>0,1</sub></em> et
+<em class="EQ">f(B<sub>0,1</sub>) = B<sub>1</sub></em>, il existe un
+intervalle ouvert
+<em class="EQ">A<sub>3,0,1</sub> &subset; B<sub>0,1</sub></em> tel que
+<em class="EQ">f<sub>&mu;</sub>(A<sub>3,0,1</sub>) = A<sub>2,1</sub></em>.
+De même, nous obtenons
+<em class="EQ">A<sub>3,1,0</sub> &subset; B<sub>1,0</sub></em> tel que
+<em class="EQ">f<sub>&mu;</sub>(A<sub>3,1,0</sub>) = A<sub>2,0</sub></em>
+et
+<em class="EQ">A<sub>3,1,1</sub> &subset; B<sub>1,1</sub></em> tel que
+<em class="EQ">f<sub>&mu;</sub>(A<sub>3,1,1</sub>) = A<sub>2,1</sub></em>.
+L'union des quatre intervalles <em class="EQ">A<sub>3,i,j<sub></em>
+avec <em class="EQ">0 &le; i,j &le; 1</em> est l'ensemble
+<em class="EQ">A<sub>3</sub> = {x &in; [0,1] :
+f<sub>&mu;</sub><sup>&compfn;3</sup>(x) &gt; 1 mais
+f<sub>&mu;</sub><sup>&compfn;j</sup> &in; [0,1] pour
+1 &le; j &lt; 3  }</em>.</p>
+
+<p>En procédant de façon inductive, nous obtenons les ensembles ouverts</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+A<sub>n</sub> = {x &in; [0,1] : 
+f<sub>&mu;</sub><sup>&compfn;n</sup>(x) &gt; 1 mais
+f<sub>&mu;</sub><sup>&compfn;j</sup>  &in; [0,1] pour
+1 &le; j &lt; n}</em>
+</em>
+</div>
+<p>et les intervalles fermés</em>
+<div class="EQ_center">
+<em class="EQ_Display">
+B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n-1</sub></sub> =
+f<sub>&mu;</sub><sup>-1</sup>(B<sub>s<sub>1</sub>,s<sub>2</sub>,...,s<sub>n-1</sub></sub>)
+&cap; B<sub>s<sub>0</sub></sub></em> ,
+</div>
+où <em class="EQ">s<sub>j</sub> &in; {0,1}</em> pour tout
+<em class="EQ">j</em>.  Nous démontrons par induction que
+<div class="EQ_center">
+<em class="EQ_Display">
+B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n</sub></sub> =
+{x &in; [0,1] : f<sub>&mu;</sub><sup>j</sup>(x) &in; B<sub>s<sub>j</sub></sub>
+for 0 &le; j &le; n}</em> .
+</div>
+<p>Le résultat est trivial pour <em class="EQ">n = 0</em>.
+Pour <em class="EQ">n=1</em>, nous avons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+x &in; B<sub>s<sub>0</sub>,s<sub>1</sub></sub>
+= f<sub>&mu;</sub><sup>-1</sup>(B<sub>s<sub>1</sub></sub>) &cap;
+B<sub>s<sub>0</sub></sub>
+&iff; x &in; B<sub>s<sub>0</sub></sub> et f<sub>&mu;</sub>(x) &in;
+B<sub>s<sub>1</sub></sub></em> .
+</div>
+<p>Ainsi, le résultat est vrai pour <em class="EQ">n=1</em>.  Nous
+  assumons que le résultat est vrai pour <em class="EQ">n</em>.  Alors
+<div class="EQ_center">
+<em class="EQ_Display">
+x &in; B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n+1</sub></sub>
+= f<sub>&mu;</sub><sup>-1</sup>(B<sub>s<sub>1</sub>,s<sub>2</sub>,...,s<sub>n+1</sub></sub>) &cap; B<sub>s<sub>0</sub></sub>
+&iff; x &in; B<sub>s<sub>0</sub></sub> et f<sub>&mu;</sub>(x) &in;
+B<sub>s<sub>1</sub>,s<sub>2</sub>,...,s<sub>n+1</sub></sub> <br>
+&iff; x &in; B<sub>s<sub>0</sub></sub> et
+f<sub>&mu;</sub><sup>&compfn;j+1</sup>(x) &in;
+B<sub>s<sub>1+j</sub></sub> pour 0 &le; j &le; n <br>
+&iff; f<sub>&mu;</sub><sup>&compfn;j</sup>(x)
+&in; B<sub>s<sub>0j</sub></sub> pour 0 &le; j &le; n+1 </em> ,
+</div>
+<p>où le deuxième <em class="EQ">&iff;</em> provient de l'hypothèse
+d'induction.  Ceci complète la démonstration par induction.</p>
+
+<p>L'ensemble <em class="EQ">A<sub>n</sub></em> est l'union de
+<em class="EQ">2<sup>n-1</sup></em> intervalles ouverts disjoints.
+L'ensemble <em class="EQ">[0,1] &setminus;
+&cup;<sub>1&le;j&le;n</sub> A<sub>j</sub></em>
+est l'union de <em class="EQ">2<sup>n</sup></em> intervalles fermés
+car <em class="EQ">&cup;<sub>1&le;j&le;n</sub> A<sub>j</sub></em>
+est l'union de
+<em class="EQ">1+2+2<sup>2</sup>+...+2<sup>n-1</sup> = 2<sup>n</sup> -1</em>
+intervalles ouverts.  En fait,  <em class="EQ">[0,1] &setminus;
+&cup;<sub>1&le;j&le;n</sub> A<sub>j</sub> =
+&cup;<sub>s<sub>j</sub>&in;{0,1}</sub>
+B<sub>s<sub>0</sub>,s<sub>1</sub>,...s<sub>n-1</sub></sub></em>. </p>
+
+<p>Nous avons que
+<em class="EQ">f<sup>&compfn;n</sup>(B<sub>s<sub>0</sub>,s<sub>1</sub>,...s<sub>n-1</sub></sub>) = [0,1]</em>
+pour tout <em class="EQ">s<sub>j</sub> &in; {0,1}</em>
+et <em class="EQ">n &gt; 0</em>.  De plus,
+<em class="EQ">f<sup>&compfn;n</sup><sub>&mu;</sub></em> alterne entre
+croissante sur un intervalle de la forme
+<em class="EQ">B<sub>s<sub>0</sub>,s<sub>1</sub>,...s<sub>n-1</sub></sub></em>
+et décroissante sur l'intervalle de la forme
+<em class="EQ">B<sub>s<sub>0</sub>,s<sub>1</sub>,...s<sub>n-1</sub></sub></em>
+adjacent.
+Ainsi <em class="EQ">f<sup>&compfn;n</sup><sub>&mu;</sub></em> a
+<em class="EQ">2<sup>n-1</sup></em> bosses et donc
+<em class="EQ">2<sup>n</sup></em> point fixes.</p>
+
+<div class="center">
+  <img src="logistic10a.png" style="width: 350px"
+       alt="Graphe de f_{4.3}" class="framed">
+  <img src="logistic10b.png" style="width: 350px"
+       alt="Graphe de f_{4.3}^2" class="framed">
+  <img src="logistic10c.png" style="width: 350px"
+       alt="Graphe de f_{4.3}^3" class="framed">
+  <img src="logistic10d.png" style="width: 350px"
+       alt="Graphe de f_{4.3}^4" class="framed">
+</div>
+
+<p>Soit <em class="EQ">&Delta; = [0,1] &setminus;
+&cup;<sub>j&ge;1</sub> A<sub>j</sub></em>.
+Nous avons aussi que
+<em class="EQ">&Delta; = &cup;<sub>s&in;&Sigma;<sub>2</sub></sub>
+B<sub>s</sub></em> où
+<em class="EQ">B<sub>s</sub> = B<sub>s<sub>0</sub>,s<sub>1</sub>,...</sub>
+= &cap;<sub>m&ge;0</sub>
+B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>m</sub></sub></em>.
+Puisque <em class="EQ">&Delta;</em> est un sous-ensemble fermé de
+l'ensemble compacte <em class="EQ">[0,1]</em>, nous avons que
+<em class="EQ">&Delta;</em> est compacte.
+Si <em class="EQ">s,t</em> sont deux éléments distincts de
+<em class="EQ">&Sigma;<sub>2</sub></em>, alors le plus petit entier
+<em class="EQ">J</em> tel que
+<em class="EQ">t<sub>J</sub> &ne; s<sub>J</sub></em> est positive.
+Ainsi, <em class="EQ">B<sub>s</sub> &cap; B<sub>t</sub> = &emptyset;</em>
+car
+<em class="EQ">B<sub>s</sub> &subset;
+B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>J</sub></sub></em>,
+<em class="EQ">B<sub>t</sub> &subset;
+B<sub>t<sub>0</sub>,t<sub>1</sub>,...,t<sub>J</sub></sub></em>
+et
+<em class="EQ">B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>J</sub></sub>
+&cap; B<sub>t<sub>0</sub>,t<sub>1</sub>,...,t<sub>J</sub></sub>
+= &emptyset;</em>.</p>
+
+<p>Puisque</p>
+<div class="EQ_center">
+<em class="EQ_Display">  
+f<sub>&mu;</sub>(B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n</sub></sub>)
+= f<sub>&mu;</sub>({x &in; [0,1] : f<sub>&mu;</sub><sup>j</sup>(x) &in; B<sub>s<sub>j</sub></sub>
+for 0 &le; j &le; n}) <br>
+&subset; {x &in; [0,1] : f<sub>&mu;</sub><sup>j</sup>(x) &in; B<sub>s<sub>j+1</sub></sub>
+for 1 &le; j &le; n-1}
+= B<sub>s<sub>1</sub>,s<sub>2</sub>,...,s<sub>n</sub></sub>
+</em> ,
+</div>
+<p>nous avons que <em class="EQ">&Delta;</em> est <em>invariant sous
+l'action de <em class="EQ">f<sub>&mu;</sub></em></em>; c'est-à-dire,
+<em class="EQ">f<sub>&mu;</sub>(&Delta;) &subset; &Delta;</em>.
+Puisque <em class="EQ">f<sub>&mu;</sub><sup>&compfn;n</sup>(x)
+&rarr; -&infin;</em> lorsque <em class="EQ">n &rarr; &infin;</em> pour
+<em class="EQ">x &in; [0,1] &setminus; &Delta;</em>, nous avons que
+<em class="EQ">&Delta;</em> est le plus grand ensemble invariant sous
+l'action de <em class="EQ">f<sub>&mu;</sub></em>.</p>
+
+<p>Notre but est de démontrer que <em class="EQ">&Delta;</em>
+satisfait la définition ci-dessous et 
+<em class="EQ">f<sub>&mu;</sub>: &Delta; &rarr; &Delta;</em> est
+chaotique.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Un sous-ensemble <em class="EQ">S</em>
+de <em class="EQ">&reals;</em> est un <em>ensemble de Cantor</em> si
+<em class="EQ">S</em> est fermé,
+<em class="EQ">S</em> est <em>totalement déconnecté</em>
+(i.e. <em class="EQ">S</em> ne contient pas d'intervalles ouverts),
+et <em class="EQ">S</em> est <em>parfait</em> (i.e. chaque point de
+<em class="EQ">S</em> est la limite d'autres points de
+<em class="EQ">S</em>).</p>
+</div>
+
+<p>L'exemple le plus connu d'ensemble de Cantor est <em>l'ensemble
+triadique de Cantor</em> défini par
+<em class="EQ">[0,1] &setminus; (]1/3,2/3[
+&cup; ]1/9,2/9[ &cup; ]7/9,8/9[ &cup; ]1/27,2/27[ &cup; ...)</em>.</p>
+
+<p>Nous suivons essentiellement la présentation qui a été adoptée
+dans l'article de
+<script language="javascript">
+buildLinK("#BABK", "B. Aulbach and B. Kieninger",
+"MMathSStat", "BABKId3", "_top");
+</script>.  Nous débutons avec une définition et quelques résultats
+préliminaires.</p>
+
+<div class="Theo">
+<p><em>Définition</em>:  Soit
+<em class="EQ">f:&reals; &rarr; &reals;</em>
+une fonction continûment différentiable.  Un ensemble
+<em class="EQ">S &subset; &reals;</em> est <em>hyperbolique par
+rapport à <em class="EQ">f</em></em> s'il existe <em class="EQ">C &gt; 0</em>
+et <em class="EQ">r &gt; 1</em> tels que
+<em class="EQ">|(f<sup>&compfn;n</sup>)'(x)| &ge; Cr<sup>n</sup></em>
+pour tout <em class="EQ">x &in; S</em> et <em class="EQ">n &gt; 0</em>.</p>
+</div>
+
+<div class="Theo" id="lemmaI">
+<p><em>Lemme &#8544;</em>: Soit
+<em class="EQ">f:&reals; &rarr; &reals;</em>
+une fonction continûment différentiable, et
+<em class="EQ">S &subset; &reals;</em> un ensemble compact invariant
+sous l'action de <em class="EQ">f</em>.  Si
+<em class="EQ">f'(x) &ne; 0</em> pour tout <em class="EQ">x &in; S</em>,
+alors <em class="EQ">S</em> est <em>hyperbolique par rapport à
+<em class="EQ">f</em></em> si et seulement si, pour chaque
+<em class="EQ">x &in; S</em>, il existe
+<em class="EQ">m<sub>x</sub> &in; &naturals;</em> tel que
+<em class="EQ">|(f<sup>&compfn;m<sub>x</sub></sup>)'(x)| &gt; 1</em>.</p>
+</div>
+
+<p><em>Démonstration</em>: La partie <q lang="en">seulement si</q> de
+la démonstration est évidente.  Il suffit de
+choisir <em class="EQ">n</em> assez grand dans la définition
+d'ensembles hyperboliques par rapport à <em class="EQ">f</em>.
+<span id="proof3A">&nbsp;...</span></p>
+<div id="proof3B" class="moreORless">
+<p>La partie <q lang="EQ">si</q> de la démonstration est plus
+exigeante.  Elle est basée sur la relation
+<em class="EQ"> (f<sup>&compfn;n</sup>)'(x) = &prod;<sub>1&le;j&le;n</sub>
+f'(f<sup>&compfn;j-1</sup>(x))</em>
+pour <em class="EQ">n &gt; 0</em>.
+Si <em class="EQ">p = min<sub>x&in;S</sub>|f'(x)| &gt; 1</em>,
+alors <em class="EQ">S</em> satisfait la définition d'ensembles
+hyperboliques par rapport à <em class="EQ">f</em> avec <em class="EQ">C = 1</em>
+et <em class="EQ">r = p</em>.  Nous pouvons donc assumer que
+<em class="EQ">p = min<sub>x&in;S</sub>|f'(x)| &le; 1</em>.
+Nous notons que <em class="EQ">p &gt; 0</em> car
+<em class="EQ">f</em> est continue sur l'ensemble compact
+<em class="EQ">S</em> et <em class="EQ">f'(x) &ne; 0</em> pour tout
+<em class="EQ">x &in; S</em>.
+Pour chaque <em class="EQ">x &in; S</em>, nous choisissons
+<em class="EQ">c<sub>x</sub> &in;
+]1,|(f<sup>&compfn;m<sub>x</sub></sup>)'(x)|[</em>
+et posons
+<em class="EQ">U<sub>x</sub>
+= {y &in; S : |(f<sup>&compfn;m<sub>x</sub></sup>)'(y)| &gt; c<sub>x</sub>}</em>
+La collection <em class="EQ">{U<sub>x</sub>}<sub>x&in;S</sub></em> est
+un recouvrement d'ouverts de l'ensemble compact <em class="EQ">S</em>.
+Donc il existe une sous-recouvrement fini
+<em class="EQ">{U<sub>x<sub>j</sub></sub>}<sub>0&le;j&le;J</sub></em>.
+Soit <em class="EQ">m<sub>j</sub> = m<sub>x<sub>j</sub></sub></em>
+et <em class="EQ">c<sub>j</sub> = c<sub>x<sub>j</sub></sub></em>
+pour <em class="EQ">0 &le; j &le; J</em>.  Alors
+<em class="EQ">U<sub>x<sub>j</sub></sub>
+= {y &in; S : |(f<sup>&compfn;m<sub>j</sub></sup>)'(y)| &gt; c<sub>j</sub>}</em>
+pour <em class="EQ">0 &le; j &le; J</em>.</p>
+
+<p>Soit <em class="EQ">m = max<sub>0&le;j&le;J</sub> m<sub>j</sub></em>,
+<em class="EQ">r = (min<sub>0&le;j&le;J</sub> c<sub>j</sub>)<sup>1/m</sup></em>
+et <em class="EQ">C = (p/r)<sup>m</sup></em>.  Nous avons par
+construction que
+<em class="EQ">r &gt; 1</em> and <em class="EQ">C &gt; 0</em>.  Le
+reste de la démonstration est pour montrer que
+<em class="EQ">|(f<sup>&compfn;n</sup>)'(x)| &ge; Cr<sup>n</sup></em>
+pour tout <em class="EQ">x &in; S</em> and <em class="EQ">n &gt; 0</em>.
+Ceci est démontré par judicieusement diviser le produit dans
+l'expression pour
+<em class="EQ">(f<sup>&compfn;n</sup>)'(x)</em> ci-dessus.
+Étant donné <em class="EQ">x &in; S</em> et <em class="EQ">n &gt; 0</em>,
+<ol style="list-style-type: decimal;">
+<li>Posons <em class="EQ">y<sub>1</sub> = x</em> et choisissons
+<em class="EQ">j(1) &in; {0,1,2,...,J}</em> tel que
+<em class="EQ">y<sub>1</sub> &in; U<sub>x<sub>j(1)</sub></sub></em>,</li>
+<li>Posons <em class="EQ">y<sub>2</sub>
+= f<sup>&compfn;m<sub>j(1)</sub></sup>(y<sub>1</sub>)</em> et
+choisissons <em class="EQ">j(2) &in; {0,1,2,...,J}</em> tel que
+<em class="EQ">y<sub>2</sub> &in; U<sub>x<sub>j(2)</sub></sub></em>,</li>
+<li>Posons <em class="EQ">y<sub>3</sub>
+= f<sup>&compfn;m<sub>j(2)</sub></sup>(y<sub>2</sub>)</em> et
+choisissons <em class="EQ">j(3) &in; {0,1,2,...,J}</em> tel que
+<em class="EQ">y<sub>3</sub> &in; U<sub>x<sub>j(3)</sub></sub></em>,</li>
+<li style="list-style-type: none;"> &nbsp; &vellip; </li>
+<li style="list-style-type: 'k. '">Posons <em class="EQ">y<sub>k</sub>
+= f<sup>&compfn;m<sub>j(k-1)</sub></sup>(y<sub>k-1</sub>)</em> et
+choisissons <em class="EQ">j(k) &in; {0,1,2,...,J}</em> tel que
+<em class="EQ">y<sub>k</sub> &in; U<sub>x<sub>j(k)</sub></sub></em>,</li>
+<li style="list-style-type: none;">  &nbsp; &vellip; </li>
+</ol>
+<p>Finalement, nous choisissons le plus grand entier
+<em class="EQ">q &ge; 0</em> tel que
+<em class="EQ">&sum;<sub>1&le;k&le;q</sub> m<sub>j(k)</sub>
+&le; n</em> et posons
+<em class="EQ">s = &sum;<sub>1&le;k&le;q</sub> m<sub>j(k)</sub></em>
+avec la convention que
+<em class="EQ">&sum;<sub>1&le;k&le;q</sub> ... = 0</em>
+pour <em class="EQ">q = 0</em>.
+Nous avons que <em class="EQ">n-s &lt; m</em> et
+<em class="EQ">n-m &lt; qm</em>.  Puisque
+<em class="EQ">f<sup>&compfn;s</sup>(x)
+= f<sup>&compfn;m<sub>j(q)</sub></sup>(f<sup>&compfn;m<sub>j(q-1)</sub></sup>(...(f<sup>&compfn;m<sub>j(1)</sub></sup>(x))))</em>
+et
+<em class="EQ">
+f<sup>&compfn;(m<sub>j(1)</sub>+...+m<sub>j(k)</sub>)</sup>(x)
+= y<sub>k+1</sub></em> pour tout <em class="EQ">k</em>, nous obtenons
+que <em class="EQ"> (f<sup>&compfn;s</sup>)'(x)
+= &prod;<sub>1&le;k&le;q</sub>
+(f<sup>&compfn;m<sub>j(k)</sub></sup>)'(y<sub>k</sub>)</em>.
+Ainsi,
+<div class="EQ_center">
+<em class="EQ_Display">
+|(f<sup>&compfn;n</sup>)'(x)|
+= |(f<sup>&compfn;n-s</sup>)'(f<sup>&compfn;s</sup>(x))|
+|(f<sup>&compfn;s</sup>)'(x)| <br>
+= &prod;<sub>1&le;j&le;n-s</sub>
+|f'(f<sup>&compfn;j-1</sup>(f<sup>&compfn;s</sup>(x)))|
+&prod;<sub>1&le;k&le;q</sub>
+|(f<sup>&compfn;m<sub>j(k)</sub></sup>)'(y<sub>k</sub>)| <br>
+&gt; p<sup>n-s</sup>
+&prod;<sub>1&le;k&le;q</sub> c<sub>j(k)</sub>
+&ge; p<sup>n-s</sup> r<sup>qm</sup>
+&ge; p<sup>m</sup> r<sup>n-m</sup> <br>
+= (p/r)<sup>m</sup> r<sup>n</sup> = C r<sup>n</sup> ,
+</em>
+</div>
+avec la convention que
+<em class="EQ">&prod;<sub>1&le;k&le;q</sub>... = 1</em>
+pour <em class="EQ">q = 0</em>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof3A','proof3B','proof3C','fr')" class="mORl" id="proof3C">Lire plus</button>
+
+<div class="Theo" id="lemmaII">
+<p><em>Lemme &#8545;</em>: L'ensemble <em class="EQ">&Delta;</em> est
+un ensemble hyperbolique par rapport à <em class="EQ">f<sub>&mu;</sub></em>
+pour <em class="EQ">&mu; &gt; 4</em>.</p>
+</div>
+
+<p><em>Démonstration</em>: Selon le
+<script language="javascript">
+buildLinK("#lemmaI","lemme &#8544;", "MMathSStat","lemmaIId", "_top");
+</script>, il suffit de démontrer que, pour chaque
+<em class="EQ">x &in; &Delta;</em>, il existe
+<em class="EQ">m<sub>x</sub> &in; &naturals;</em> tel que
+<em class="EQ">|(f<sub>&mu;</sub><sup>&compfn;m<sub>x</sub></sup>)'(x)|
+&gt; 1</em>.
+Nous notons que <em class="EQ">f<sub>&mu;</sub>'(x) &ne; 0</em> pour tout
+<em class="EQ">x &in; &Delta;</em> car
+<em class="EQ">1/2 &notin; &Delta;</em>.
+<span id="proof5A">&nbsp;...</span></p>
+<div id="proof5B" class="moreORless">
+<p> Nous obtenons de <em class="EQ">f<sub>&mu;</sub>(x) = 1</em> que
+<em class="EQ">x<sub>&plusmn;</sub>
+= (1&plusmn;(1-4/&mu;)<sup>1/2</sup>)/2</em>.  Nous obtenons de
+<em class="EQ">|f<sub>&mu;</sub>'(u)| = 1</em> que
+<em class="EQ">u<sub>&plusmn;</sub> = (1&plusmn;1/&mu;)/2</em>.
+Nous avons que <em class="EQ">x<sub>&plusmn;</sub> = u<sub>&plusmn;</sub></em>
+pour <em class="EQ">&mu; = 2 + 5<sup>1/2</sup></em>.  Il y a deux cas
+à considérer.  Si <em class="EQ">&mu; &gt; 2 + 5<sup>1/2</sup></em>,
+alors <em class="EQ">|f<sub>&mu;</sub>'(x)| > 1</em> pour tout
+<em class="EQ">x &in; &Delta; &subset; [0,x<sub>-</sub>] &cup;
+[x<sub>+</sub>,1]</em>.  Donc, nous pouvons choisir
+<em class="EQ">m<sub>x</sub> = 1</em> pour tout
+<em class="EQ">x &in; &Delta;</em> au
+<script language="javascript">
+buildLinK("#lemmaI","lemme &#8544;", "MMathSStat","lemmaIId", "_top");
+</script> pour conclure que
+<em class="EQ">&Delta;</em> est un ensemble hyperbolique par rapport à
+<em class="EQ">f<sub>&mu;</sub></em>.</p>
+
+<div class="center">
+  <img src="logistic11.png" style="width: 550px"
+       alt="Graphe de f_mu pour mu > 2 + 5^(1/2), mu = 2 + 5^(1/2) et 4 < mu < 2 + 5^(1/2), incluant les points x_{+/-} et u_{+/-}"
+       class="framed">
+</div>
+
+<p>Le cas <em class="EQ">4 &lt; &mu; &le; 2 + 5<sup>1/2</sup></em>
+demande plus de travail.  Si <em class="EQ">x &in; &Delta; &setminus;
+[u<sub>-</sub>,u<sub>+</sub>]</em>, alors
+<em class="EQ">|f<sub>&mu;</sub>'(x)| > 1</em>.  Donc, nous pouvons
+choisir <em class="EQ">m<sub>x</sub> = 1</em> au <script language="javascript">
+buildLinK("#lemmaI","lemme &#8544;", "MMathSStat","lemmaIId", "_top");
+</script> pour ce point <em class="EQ">x</em>.</p>
+
+<p>Nous assumons à partir de maintenant que <em class="EQ">x &in; &Delta; &cap;
+[u<sub>-</sub>,u<sub>+</sub>]</em>.  Nous avons que
+<em class="EQ">|f<sub>&mu;</sub>'(x)| &le; 1</em>.  Donc, nous devons
+trouver <em class="EQ">m<sub>x</sub> &gt; 1</em> qui satisfait la
+condition
+<em class="EQ">|(f<sup>&compfn;m<sub>x</sub></sup>)'(x)| &gt; 1</em> au
+<script language="javascript">
+buildLinK("#lemmaI","lemme &#8544;", "MMathSStat","lemmaIId", "_top");
+</script>.  Comme pour la démonstration du <script language="javascript">
+buildLinK("#lemmaI","lemme &#8544;", "MMathSStat","lemmaIId", "_top");
+</script>, la formule
+<em class="EQ"> (f<sub>&mu;</sub><sup>&compfn;n</sup>)'(x)
+= &prod;<sub>1&le;j&le;n</sub>
+f<sub>&mu;</sub>'(f<sub>&mu;</sub><sup>&compfn;(j-1)</sup>(x))
+</em> est au coeur de la démonstration présente.  Le reste de la
+démonstration est technique mais élémentaire.</p>
+<ol style="list-style-type: decimal;">
+<li>Il découle de <em class="EQ">f<sub>&mu;</sub>'(x) = &mu;-2&mu;x</em>
+que <em class="EQ">x = 1/2 - f<sub>&mu;</sub>'(x)/(2&mu;)</em>.  Si
+nous substituons cette formule dans
+<em class="EQ">f<sub>&mu;</sub>(x) = &mu;x(1-x)</em>, nous obtenons que
+<em class="EQ">f<sub>&mu;</sub>(x) = &mu;/4 -
+(f<sub>&mu;</sub>'(x))<sup>2</sup>/(4&mu;)</em>.</li>
+<li>Puisque <em class="EQ">0 < (f<sub>&mu;</sub>'(x))<sup>2</sup> &leq; 1</em>
+et <em class="EQ">1-&mu;/4 &lt; 0</em>, nous obtenons de (1) que
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>&mu;</sub><sup>&compfn;2</sup>(x)
+= f<sub>&mu;</sub>(f<sub>&mu;</sub>(x))
+= &mu;f<sub>&mu;</sub>(x)(1-f<sub>&mu;</sub>(x)) <br>
+= &mu;(&mu;/4 - (f<sub>&mu;</sub>'(x))<sup>2</sup>/(4&mu;))(1 - 
+&mu;/4 + (f<sub>&mu;</sub>'(x))<sup>2</sup>/(4&mu;)) <br>
+&lt; &mu;(&mu;/4)((f<sub>&mu;</sub>'(x))<sup>2</sup>/(4&mu;))
+= &mu; (f<sub>&mu;</sub>'(x))<sup>2</sup>/16 <br>
+&le; 5/16 &lt; 3/8 &lt; u<sub>-</sub>.
+</em>
+</div>
+</li>
+<li>Soit <em class="EQ">v = (f<sub>&mu;</sub>'(x))<sup>2</sup>/16</em>.
+Nous avons vu en (2) que <em class="EQ">&mu;v &lt; u<sub>-</sub></em>.
+Ainsi, puisque <em class="EQ">{&mu;<sup>n</sup>}<sub>n&gt;0</sub></em>
+est une suite croissante qui converge vers <em class="EQ">&infin;</em>
+lorsque <em class="EQ">n &rarr; &infin;</em>, il existe un seul entier
+<em class="EQ">N &gt; 1</em> tel que
+<em class="EQ">&mu;<sup>n</sup>v &le; u<sub>-</sub></em>
+pour <em class="EQ">n &lt; N</em> et
+<em class="EQ">&mu;<sup>N</sup>v &gt; u<sub>-</sub></em>.
+</li>
+<li>Il découle de (3) que
+<em class="EQ">(1-1/&mu;)/2 = u<sub>-</sub> &lt;
+&mu;<sup>N</sup>(f<sub>&mu;</sub>'(x))<sup>2</sup>/16</em> et ainsi
+<em class="EQ">24 &lt; 8(&mu;-1) &lt;
+&mu;<sup>N+1</sup>(f<sub>&mu;</sub>'(x))<sup>2</sup></em>.  Donc
+<em class="EQ">|f<sub>&mu;</sub>'(x)| &gt;
+(24/&mu;<sup>N+1</sup>)<sup>1/2</sup></em>.</li>
+<li>Puisque <em class="EQ">1/&mu; &lt; 1/4</em> et
+<em class="EQ">(f<sub>&mu;</sub>'(x))<sup>2</sup>/(2&mu;<sup>2</sup>)
+&le; 1/(2&mu;<sup>2</sup>) &lt; 1/16</em>, nous obtenons de (1) que
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>&mu;</sub>'(f<sub>&mu;</sub>(x)) = &mu; -2&mu;f<sub>&mu;</sub>(x)
+= &mu; - 2&mu;(&mu;/4 - (f<sub>&mu;</sub>'(x))<sup>2</sup>/(4&mu;)) <br>
+= &mu;<sup>2</sup>(1/&mu; - 1/2 +
+(f<sub>&mu;</sub>'(x))<sup>2</sup>/(2&mu;<sup>2</sup>)) <br>
+&lt; &mu;<sup>2</sup>(1/4 - 1/2 + 1/32)
+= -7&mu;<sup>2</sup>/32 &lt; -&mu;<sup>2</sup>/5
+</em> .
+</div>
+Donc <em class="EQ">|f<sub>&mu;</sub>'(f<sub>&mu;</sub>(x))| &gt;
+&mu;<sup>2</sup>/5</em>.
+</li>
+<li>Nous démontrons par induction que
+<em class="EQ">f<sub>&mu;</sub><sup>&compfn;n</sup>(x) &lt
+&mu;<sup>n-1</sup>(f<sub>&mu;</sub>'(x))<sup>2</sup>/16 &lt; u<sub>-</sub></em>
+pour <em class="EQ">1 &lt; n &le; N</em> où <em class="EQ">N</em>
+est défini en (3).  Il découle de (2) que le résultat est vrai
+pour <em class="EQ">n = 2</em>.  Nous assumons que
+<em class="EQ">f<sub>&mu;</sub><sup>&compfn;n</sup>(x) &lt
+&mu;<sup>n-1</sup>(f<sub>&mu;</sub>'(x))<sup>2</sup>/16 &lt; u<sub>-</sub></em>
+est vrai pour un entier <em class="EQ">1 &lt; n &lt; N</em>.  Puisque
+<em class="EQ">f<sub>&mu;</sub>'(x) = &mu;(1-2x) &le; &mu;</em>
+pour <em class="EQ">x &in; [0,u<sub>-</sub>] &subset; [0,1/2]</em>,
+nous obtenons que
+<div class="EQ_center">
+<em class="EQ_Display">f<sub>&mu;</sub><sup>n+1</sup>(x)
+= f<sub>&mu;</sub>(f<sub>&mu;</sub><sup>n</sup>(x))
+&le; &mu;f<sub>&mu;</sub><sup>n</sup>(x) <br>
+&lt; &mu;(&mu;<sup>n-1</sup>(f<sub>&mu;</sub>'(x))<sup>2</sup>/16)
+= &mu;<sup>n</sup>(f<sub>&mu;</sub>'(x))<sup>2</sup>/16 &lt;
+u<sub>-</sub> </em> ,
+</div>
+où l'avant dernière inégalité provient de l'hypothèse d'induction et la
+dernière inégalité provient de (3).  Nous notons que, selon le
+théorème des valeurs moyennes, il existe
+<em class="EQ">&xi; &in; ]0,z[</em> tel que
+<em class="EQ">f<sub>&mu;</sub>(z)
+= f<sub>&mu;</sub>(z)-f<sub>&mu;</sub>(0)
+= f<sub>&mu;</sub>'(&xi;)(z-0) &le; &mu;z</em> pour tout
+<em class="EQ">z &in; [0,1/2]</em>.  Ceci justifie la première
+inégalité ci-dessus.
+</li>
+<li>Si <em class="EQ">N = 2</em>, alors il découle de (4) et (5)
+que
+<div class="EQ_center">
+<em class="EQ_Display">|(f<sub>&mu;</sub><sup>2</sup>)'(x)|
+= |f<sub>&mu;</sub>'(f<sub>&mu;</sub>(x))| |f<sub>&mu;</sub>'(x)| <br>
+&gt; &mu;<sup>2</sup>/5 (24/&mu;<sup>3</sup>)<sup>1/2</sup>
+= (24&mu;/25)<sup>1/2</sup> &gt; (96/25)<sup>1/2</sup> &gt; 1</em> .
+</div>
+Donc <em class="EQ">|(f<sub>&mu;</sub><sup>&compfn;m<sub>x</sub></sup>)'(x)|
+&gt; 1</em> au <script language="javascript">
+buildLinK("#lemma1","lemme &#8544;", "MMathSStat","lemmaIId", "_top");
+</script> est satisfait avec <em class="EQ">m<sub>x</sub> = 2</em>.</li>
+<li>Si <em class="EQ">N &gt; 2</em>, soit
+<em class="EQ">w<sub>-</sub></em> la solution de
+<em class="EQ">f<sub>&mu;</sub>(w) = u<sub>-</sub></em> avec
+<em class="EQ">w<sub>-</sub> &le; u<sub>-</sub></em>.  Cette solution
+est <em class="EQ">w<sub>-</sub>
+= (1-(&mu;<sup>2</sup>-2&mu;+2)<sup>1/2</sup>/&mu;)/2</em>.
+Nous avons que
+<em class="EQ">&mu;<sup>N-2</sup>(f<sub>&mu;</sub>'(x))<sup>2</sup>/16 
+&le; w<sub>-</sub></em> car
+<em class="EQ">&mu;<sup>N-2</sup>(f<sub>&mu;</sub>'(x))<sup>2</sup>/16 
+&gt; w<sub>-</sub></em> donne
+<em class="EQ">u<sub>-</sub> = f<sub>&mu;</sub>(w<sub>-</sub>)
+= &mu;w<sub>-</sub>(1-w<sub>-</sub>) &lt; &mu;w<sub>-</sub>
+&lt; &mu;<sup>N-1</sup>(f<sub>&mu;</sub>'(x))<sup>2</sup>/16</em>
+qui contredit la propriété de minimum dans le choix de
+<em class="EQ">N</em>.  Donc, il découle de (6) que
+<em class="EQ">f<sub>&mu;</sub><sup>&compfn;n</sup>(x) &lt w<sub>-</sub></em>
+pour <em class="EQ">1 &lt; n &lt; N</em>.  Puisque la fonction
+<em class="EQ">f<sub>&mu;</sub>'</em> est décroissante
+sur <em class="EQ">[0,w<sub>-</sub>]</em>, nous obtenons que
+<em class="EQ">|f<sub>&mu;</sub>'(f<sub>&mu;</sub><sup>&compfn;n</sup>(x))|
+&ge; f<sub>&mu;</sub>'(w<sub>-</sub>) =
+(&mu;<sup>2</sup>-2&mu;+2)<sup>1/2</sup> &gt; 10<sup>1/2</sup></em>  
+pour <em class="EQ">1 &lt; n &lt; N</em>.  Finalement, en combinant
+ces inégalités avec la relation
+<em class="EQ">|f<sub>&mu;</sub>'(f<sub>&mu;</sub>(x))|
+|f<sub>&mu;</sub>'(x)|  &gt; 1</em> obtenue en (7), nous obtenons que
+<em class="EQ"> |(f<sub>&mu;</sub><sup>&compfn;N</sup>)'(x)|
+= &prod;<sub>1&le;n&le;N</sub>
+|f<sub>&mu;</sub>'(f<sub>&mu;</sub><sup>&compfn;(n-1)</sup>(x))|
+&gt; 10<sup>(N-2)/2</sup> &gt; 1</em>.
+Donc, <em class="EQ">|(f<sub>&mu;</sub><sup>&compfn;m<sub>x</sub></sup>)'(x)|
+&gt; 1</em> au <script language="javascript">
+buildLinK("#lemmaI","lemme &#8544;", "MMathSStat","lemmaIId", "_top");
+</script> est satisfait avec <em class="EQ">m<sub>x</sub> = N</em>.</li>
+</ol>
+<p>Ceci conclus la démonstration.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof5A','proof5B','proof5C','fr')" class="mORl" id="proof5C">Lire plus</button>
+
+<div class="Theo">
+<p><em>Théorème</em>: Pour <em class="EQ">&mu; &gt; 4</em>, l'ensemble
+<em class="EQ">&Delta;</em> est un ensemble de Cantor et la fonction
+<em class="EQ">f<sub>&mu;</sub>:&Delta; &rarr; &Delta;</em> est
+chaotique.</p>
+</div>
+
+<p><em>Démonstration</em>:<br>
+<em>Partie A</em>: Nous démontrons
+que <em class="EQ">f<sub>&mu;</sub>:&Delta; &rarr; &Delta;</em> est
+chaotique.</p>
+  
+<p>Nous démontrons en premier que
+<em class="EQ">B<sub>s</sub></em> contient un seul point pour chaque
+<em class="EQ">s &in; &Sigma;<sub>2</sub></em>.  il suffit
+de démontrer qe <em class="EQ">B<sub>s</sub></em> n'est pas un
+intervalle fermé de longueur plus grande que <em class="EQ">0</em>.
+Il découle du
+<script language="javascript">
+buildLinK("#lemmaII","lemme &#8545;", "MMathSStat","lemmaIIId", "_top");
+</script>
+qu'il existe <em class="EQ">C &gt; 0</em> et
+<em class="EQ">r &gt; 1</em>
+tels que <em class="EQ">|(f<sub>&mu;</sub><sup>&compfn;n</sup>)'(x)|
+&ge; Cr<sup>n</sup></em> pour tout <em class="EQ">x &in; &Delta;</em>
+et <em class="EQ">n &gt; 0</em>.  Étant donné
+<em class="EQ">s &in; &Sigma;<sub>2</sub></em>, supposons que
+<em class="EQ">B<sub>s</sub> = [a,b] &subset; &Delta;</em>
+avec <em class="EQ">a &lt; b</em>.
+Par le théorème des valeurs
+moyennes, il existe <em class="EQ">&xi;<sub>n</sub> &in; ]a,b[</em>
+tel que <span id="proof4A">&nbsp;...</span></p>
+<div id="proof4B" class="moreORless">
+<div class="EQ_center">
+<em class="EQ_Display">
+|f<sub>&mu;</sub><sup>&compfn;n</sup>(a)-f<sub>&mu;</sub><sup>&compfn;n</sup>(b)|
+= |(f<sub>&mu;</sub><sup>&compfn;n</sup>)'(&xi;<sub>n</sub>)| |a-b|
+&ge; Cr<sup>n</sup>|a-b|
+</em>
+</div>
+<p>pour tout <em class="EQ">n &in; &naturals;</em>.  Il en découle
+que 
+<em class="EQ">|f<sub>&mu;</sub><sup>&compfn;n</sup>(a)-f<sub>&mu;</sub><sup>&compfn;n</sup>(b)|
+&rarr; &infin;</em> lorsque <em class="EQ">n &rarr; &infin;</em>.
+C'est une contradiction que <em class="EQ">&Delta;</em> est invariant
+sous l'action de <em class="EQ">f<sub>&mu;</sub></em> et que
+<em class="EQ">&Delta;</em> est borné.</p>
+
+<p>Il découle du paragraphe précédent que la fonction
+<em class="EQ">H:&Delta; &rarr; &Sigma;<sub>2</sub></em> définie par
+<em class="EQ">H(x) = s</em> for <em class="EQ">B<sub>s</sub> = {x}</em>  
+est bien définie.  C'est aussi une bijection entre
+<em class="EQ">&Delta;</em> et <em class="EQ">&Sigma;<sub>2</sub></em>.
+Pour démontrer que <em class="EQ">H</em> est une fonction continue,
+nous démontrons que <em class="EQ">H</em> est continue en un point
+arbitraire <em class="EQ">x &in; &Delta;</em>.  Supposons que
+<em class="EQ">H(x) = s</em>.  Étant donné
+<em class="EQ">&epsilon; &gt; 0</em>, nous choisissons
+<em class="EQ">n &in; &naturals;</em> tel que
+<em class="EQ">2<sup>-n</sup> &lt; &epsilon;</em>, et
+<em class="EQ">&delta; &gt; 0</em> tel que
+<em class="EQ">&Delta; &cap; ]x-&delta;,x+&delta;[ &subset;
+B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n</sub></sub></em>.
+Ainsi, si <em class="EQ">y &in; ]x-&delta;,x+&delta;[ &cap; &Delta;</em>,
+alors <em class="EQ">H(y) =
+(s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n</sub>,...)</em>.  Donc,
+<em class="EQ">d(H(y),s) &le; 2<sup>-m</sup> &lt; &epsilon;</em>.
+Pour démontrer que <em class="EQ">H<sup>-1</sup></em> est une fonction
+continue, nous prouvons que <em class="EQ">H<sup>-1</sup></em> est
+continue en un point arbitraire <em class="EQ">s &in; &Sigma;<sub>2</sup></em>.
+Supposons que <em class="EQ">H<sup>-1</sup>(s) = x</em>; c'est-à-dire,
+<em class="EQ">H(x) = s</em>.  Étant donné
+<em class="EQ">&epsilon; &gt; 0</em>, nous choisissons
+<em class="EQ">n &in; &naturals;</em> tel que
+<em class="EQ">diam(B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n</sub></sub>)
+&lt; &epsilon;</em>.  Cela est possible car
+<em class="EQ">B<sub>s<sub>0</sub></sub>
+&supset; B<sub>s<sub>0</sub>,s<sub>1</sub></sub>
+&supset; B<sub>s<sub>0</sub>,s<sub>1</sub>,s<sub>2</sub></sub>
+&supset; ...</em> avec
+<em class="EQ">{x} = B<sub>s</sub> = &cap;<sub>m&ge;0</sub>
+B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>m</sub></sub></em>.
+Soit <em class="EQ">&delta; = 2<sup>-m</sup></em>.
+Si <em class="EQ">t &in; &Sigma;<sub>2</sub></em> et
+<em class="EQ">d(t,s) &lt; &delta;</em>, alors
+<em class="EQ">t<sub>j</sub> = s<sub>j</sub></em> pour
+<em class="EQ">0 &le; j &le; n</em>.  Donc,
+<em class="EQ">H<sup>-1</sup>(t) &in;
+B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n</sub></sub></em> et
+ainsi <em class="EQ">|H<sup>-1</sup>(y)-x| &lt; &epsilon;</em>.</p>
+
+<p>Nous démontrons maintenant que <em class="EQ">&sigma;&compfn;H =
+H&compfn;f<sub>&mu;</sub></em> on <em class="EQ">&Delta;</em>.
+Nous considérons un point arbitraire  <em class="EQ">x &in; &Delta;</em> et
+assumons que <em class="EQ">H(x) = s</em>.  Puisque
+<em class="EQ">{x} = B<sub>s</sub> =
+&cap;<sub>n&ge;0</sub>B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n</sub></sub></em>,
+nous obtenons que</p>
+<div class="EQ_center">
+<em class="EQ_Display">{f<sub>&mu;</sub>(x)} = f<sub>&mu;</sub>({x}) =
+f<sub>&mu;</sub>(&cap;<sub>n&ge;0</sub>B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n</sub></sub>) </br>
+&subset; &cap;<sub>n&ge;0</sub> f<sub>&mu;</sub>(B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n</sub></sub>)
+&subset; &cap;<sub>n&ge;0</sub> B<sub>s<sub>1</sub>,s<sub>2</sub>,...,s<sub>n</sub></sub>
+= B<sub>s<sub>1</sub>,s<sub>1</sub>,...</sub> = {y}
+</em>
+</div>
+<p>pour un point <em class="EQ">y &in; &Delta;</em>, où la deuxième
+inclusion provient de
+<em class="EQ">
+f<sub>&mu;</sub>(B<sub>s<sub>0</sub>,s<sub>1</sub>,...,s<sub>n</sub></sub>)
+&subset; B<sub>s<sub>1</sub>,s<sub>2</sub>,...,s<sub>n</sub></sub>
+</em>
+comme nous avons observé précédemment.
+Donc <em class="EQ">H(f<sub>&mu;</sub>(x)) = H(y) = 
+(s<sub>1</sub>,s<sub>2</sub>,...) = &sigma;(s) = &sigma;(H(x)</em>.</p>
+
+<p>Puisque la fonction
+<em class="EQ">f<sub>&mu;</sub>:&Delta; &rarr; &Delta;</em>
+est topologiquement conjuguée à
+<em class="EQ">&sigma;:&Sigma;<sub>2</sub> &rarr; &Sigma;<sub>2</sub></em>,
+une fonction avec un comportement chaotique sur
+<em class="EQ">&Sigma;<sub>2</sub></em>, nous avons que
+<em class="EQ">f<sub>&mu;</sub></em> a un comportement chaotique
+sur <em class="EQ">&Delta;</em>.</p>
+
+<em>Partie B</em>: Nous démontrons que <em class="EQ">&Delta;</em> est
+un ensemble de Cantor.</p>
+
+<p>Nous avons que <em class="EQ">&Delta;</em> est compact et donc
+fermé.  Le premier paragraphe de cette démonstration peut être
+facilement adapté pour démontrer que
+<em class="EQ">&Delta;</em> est aussi totalement déconnecté.
+Il découle aussi de la conjugaison topologique entre
+<em class="EQ">&Delta;</em> et <em class="EQ">&Sigma;<sub>2</sub></em>
+qu'il existe 
+<em class="EQ">x &in; &Delta;</em> tel que
+<em class="EQ">{f<sub>&mu;</sub><sup>j</sup>(x)}<sub>j&ge;0</sub></em>
+est une orbite dense dans <em class="EQ">&Delta;</em>.  Cela implique 
+que <em class="EQ">&Delta;</em> est parfait.  Cela complète la
+démonstration que <em class="EQ">&Delta;</em> est un ensemble de
+Cantor.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof4A','proof4B','proof4C','fr')" class="mORl" id="proof4C">Lire plus</button>
+
+<p>Le SDD généré par la fonction logistique
+<em class="EQ">f<sub>&mu;</sub></em> pour
+<em class="EQ">&mu; = 4</em> exhibe aussi un comportement chaotique.
+Plus précisément, nous avons le résultat suivant.</p>
+
+<div class="Theo">
+<p><em>Théorème</em>: Pour <em class="EQ">&mu; = 4</em>, le SDD généré
+par <em class="EQ">f<sub>&mu;</sub>:[0,1] &rarr; [0,1]</em> est
+chaotique.</p>
+</div>
+
+<p>L'ensemble invariant sur lequel <em class="EQ">f<sub>4</sub></em>
+est chaotique n'est pas un ensemble de Cantor.  La technique
+utilisée pour l'étude du comportement qualitatif du SDD généré
+par <em class="EQ">f<sub>&mu;</sub></em> pour
+<em class="EQ">&mu; &gt; 4</em> ne peut pas être utilisé pour l'étude
+du comportement qualitatif du SDD généré par
+<em class="EQ">f<sub>4</sub></em>.</p>
+
+<p><em>Démonstration</em>:  Nous démontrons en premier que la fonction
+<em class="EQ">f<sub>4</sub>:[0,1] &rarr; [0,1]</em> est
+<em>semi-conjuguée</em> à la fonction
+<em class="EQ">g:S<sup>1</sup> &rarr; S<sup>1</sup></em> définie à la
+section <script language="javascript">
+buildLinK("#SS1","Fonctions sur le cercle", "MMathSStat", "SS1Id0", "_top");
+</script> ci-dessus.  C'est-à-dire, nous définissons une fonction
+<em class="EQ">H:S<sup>1</sup> &rarr; [0,1]</em> telle que
+<em class="EQ">H&compfn;g = f<sub>4</sub>&compfn;H</em> mais
+<em class="EQ">H</em> n'est pas un isomorphisme.
+<span id="proof6A">&nbsp;...</span></p>
+<div id="proof6B" class="moreORless">
+<p>Soit <em class="EQ">H<sub>1</sub>:S<sup>1</sup> &rarr; [-1,1]</em>
+la fonction définie par
+<em class="EQ">H<sub>1</sub>(&theta;) = cos(&theta;)</em>, et
+<em class="EQ">H<sub>2</sub>:[-1,1] &rarr; [0,1]</em>
+la fonction définie par
+<em class="EQ">H<sub>2</sub>(x) = (1-x)/2</em>.  Si
+<em class="EQ">h:[-1,1] &rarr; [-1,1]</em> est la fonction définie
+par <em class="EQ">h(x) = 2x<sup>2</sup>-1</em>, alors</p>
+<div class="EQ_center">
+<em class="EQ_Display">H<sub>1</sub>(g(&theta;)) = H<sub>1</sub>(2&theta;)
+= cos(2&theta;) = 2 cos<sup>2</sup>(&theta;) - 1 <br>
+= h(cos(&theta;)) = h(H<sub>1</sub>(&theta;)</em>
+</div>
+<p>et</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>4</sub>(H<sub>2</sub>(x))
+= f<sub>4</sub>((1-x)/2) = 4((1-x)/2)(1-(1-x)/2) <br>
+= 1-x<sup>2</sup>
+= (1-(2x<sup>2</sup>-1))/2 = (1-h(x))/2 = H<sub>2</sub>(h(x))
+</em> .
+</div>
+<p>Ainsi, si <em class="EQ">H = H<sub>2</sub>&compfn;H<sub>1</sub></em>,
+alors</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+H(g(&theta;)) = H<sub>2</sub>(H<sub>1</sub>(g(&theta;)))
+= H<sub>2</sub>(h(H<sub>1</sub>(&theta;))) <br>
+= f<sub>4</sub>(H<sub>2</sub>(H<sub>1</sub>(&theta;)))
+= f<sub>4</sub>(H(&theta;))</em> .
+</div>
+<p>Nous notons que <em class="EQ">H:S<sup>1</sup> &rarr; [0,1]</em>
+est une fonction deux pour un car
+<em class="EQ">H(&theta;) = H(2&pi;-&theta;)</em>.
+Nous avons cependant que la fonction
+<em class="EQ">H:S<sup>1</sup> &rarr; [0,1]</em> est surjective.
+Puisque <em class="EQ">H</em> ne définit par une conjugaison
+topologique entre <em class="EQ">f<sub>4</sub></em> et <em class="EQ">g</em>,
+Nous ne pouvons pas conclure automatiquement que
+<em class="EQ">f<sub>4</sub></em> est chaotique sur <em class="EQ">[0,1]</em>
+car <em class="EQ">g</em> est chaotique sur
+<em class="EQ">S<sup>1</sup></em>.</p>
+
+<p>Pour démontrer que la fonction
+<em class="EQ">f<sub>4</sub>:[0,1] &rarr; [0,1]</em> 
+est topologiquement transitive, soit <em class="EQ">U,V</em> deux
+ensembles ouverts dans <em class="EQ">[0,1]</em>.  Nous choisissons
+deux ensembles ouverts (deux arcs ouverts)
+<em class="EQ"><math><mover><mi>U</mi><mo>&circ;</mo></mover></math>,<math><mover><mi>V</mi><mo>&circ;</mo></mover></math></em>
+sur <em class="EQ">S<sup>1</sup></em> tel que
+<em class="EQ">H(<math><mover><mi>U</mi><mo>&circ;</mo></mover></math>)
+&subset; U</em> et
+<em class="EQ">H(<math><mover><mi>V</mi><mo>&circ;</mo></mover></math>)
+&subset; V</em>.  Puisque
+<em class="EQ">g:S<sup>1</sup> &rarr; S<sup>1</sup></em> est
+topologiquement transitive, il existe un entier 
+<em class="EQ">n &ge; 0</em> tel que
+<em class="EQ">g<sup>&compfn;n</sup>(<math><mover><mi>U</mi><mo>&circ;</mo></mover></math>)
+&cap; <math><mover><mi>V</mi><mo>&circ;</mo></mover></math> &ne;
+&emptyset;</em>.  Ainsi,</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>4</sub><sup>&compfn;n</sup>(U) &cap; V
+&supset;
+f<sub>4</sub><sup>&compfn;n</sup>(H(<math><mover><mi>U</mi><mo>&circ;</mo></mover></math>))
+&cap; H(<math><mover><mi>V</mi><mo>&circ;</mo></mover></math>)
+= H(g<sup>&compfn;n</sup>(<math><mover><mi>U</mi><mo>&circ;</mo></mover></math>))
+&cap; H(<math><mover><mi>V</mi><mo>&circ;</mo></mover></math>)
+&supset;
+H(g<sup>&compfn;n</sup>(<math><mover><mi>U</mi><mo>&circ;</mo></mover></math>)
+&cap; <math><mover><mi>V</mi><mo>&circ;</mo></mover></math>)
+&ne; &emptyset;
+</em> .
+</div>
+
+<p>Pour démontrer que la fonction
+<em class="EQ">f<sub>4</sub>:[0,1] &rarr; [0,1]</em>
+a une dépendance sensible aux conditions initiales, nous choisissons
+<em class="EQ">&delta; &in; ]0,1/2[</em>.  Supposons que
+<em class="EQ">x &in; [0,1]</em> et que <em class="EQ">U &subset; [0,1]</em>
+est un intervalle ouvert qui contient <em class="EQ">x</em>.  Notons
+que la topologie sur <em class="EQ">[0,1]</em> est la topologie
+héritée de <em class="EQ">&reals;</em>.  Nous choisissons un arc
+ouvert
+<em class="EQ"><math><mover><mi>U</mi><mo>&circ;</mo></mover></math></em>
+sur <em class="EQ">S<sup>1</sup></em> tel que
+<em class="EQ">H(<math><mover><mi>U</mi><mo>&circ;</mo></mover></math>)
+&subset; U</em>.  Il existe <em class="EQ">n &gt; 0</em> tel que
+<em class="EQ">g<sup>&compfn;n</sup>(<math><mover><mi>U</mi><mo>&circ;</mo></mover></math>)
+&supset; S<sup>1</sup></em></em>.  Ainsi,</p>
+<div class="EQ_center">
+<em class="EQ_Display">
+f<sub>4</sub><sup>&compfn;n</sup>(U)
+&supset;
+f<sub>4</sub><sup>&compfn;n</sup>(H(<math><mover><mi>U</mi><mo>&circ;</mo></mover></math>))
+= H(g<sup>&compfn;n</sup>(<math><mover><mi>U</mi><mo>&circ;</mo></mover></math>))
+&supset;
+H(S<sup>1</sup>) = [0,1]</em> .
+</div>
+<p>Donc, il existe <em class="EQ">y &in; [0,1]</em> tel que
+<em class="EQ">|f<sub>4</sub><sup>&compfn;n</sup>(x)-f<sup>&compfn;n</sup>(y)|
+&gt; &delta;</em>.</p>
+
+<p>Finalement, pour démontrer que l'ensemble
+<em class="EQ">P<sub>f<sub>4</sub></sub></em>
+des points périodiques pour <em class="EQ">f<sub>4</sub>:[0,1] &rarr; [0,1]</em>
+est dense dans <em class="EQ">[0,1]</em>, soit <em class="EQ">x</em>
+un point arbitraire de <em class="EQ">[0,1]</em> et 
+<em class="EQ">U &subset; [0,1]</em> un intervalle ouvert qui contient
+<em class="EQ">x</em>.
+Nous choisissons un arc ouvert
+<em class="EQ"><math><mover><mi>U</mi><mo>&circ;</mo></mover></math></em>
+sur <em class="EQ">S<sup>1</sup></em> tel que
+<em class="EQ">H(<math><mover><mi>U</mi><mo>&circ;</mo></mover></math>)
+&subset; U</em>.  Puisque l'ensemble <em class="EQ">P<sub>g</sub></em>
+des points périodiques pour
+<em class="EQ">g:S<sup>1</sup> &rarr; S<sup>1</sup></em>
+est dense sur <em class="EQ">S<sup>1</sup></em>, il existe 
+<em class="EQ">&theta; &in; P<sub>g</sub> &cap;
+<math><mover><mi>U</mi><mo>&circ;</mo></mover></math></em>.  Ainsi,
+<em class="EQ">H(&theta;) &in; P<sub>f<sub>4</sub></sub> &cap; U</em>.
+&nbsp;<span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof6A','proof6B','proof6C','fr')" class="mORl" id="proof6C">Lire plus</button>
+
+<hr class="MMathSStat">
+
+<h3 id="REF">Références</h3>
+
+<p>Le contenu de ce document est principalement basé sur les livres et
+articles suivants.</p>
 
 <ul>
-  <li> <em class="EQ">&#120583; =</em>
-    <input type="text" value="3.5" id="logistic_mu">
-    (valeurs entre 1 et 4) </li>
-  <li> <em class="EQ">x<sub>o</sub> = </em>
-    <input type="text" value="0.2" id="logistic_x">
-    (valeurs entre 0 et 1) </li>
-  <li> Nombre d'itérations <input type="text" value="10" id="logistic_nbr">
-  </li>
-  <li> <input type="button" value="Débuter" onclick="logisticDDS('French')">
-  </li>
-  <li> <input type="button" value="Effacer" onclick="clearDDS('DDS')"> </li>
+<li id="DASG">D. Assaf, IV, and S. Gadbois, <em>Definitions of Chaos</em>,
+The American Mathematical Monthly, <em>99</em>, No. <em>9</em> (1992), 865.</li>
+<li id="BABK">B. Aulbach and B. Kieninger, <em>An Elementary Proof for
+Hyperbolicity and Chaos of the Logistics Maps</em>, Journal of
+Difference Equations and Applications, Vol. <em>10</em>, No. <em>13-15</em>
+(2004), 1243-1250.</li>
+<li id="BBCDP">J. Banks, J. Brooks, G. Cairns, G. Davis and P. Stacey,
+<em>On Devaney’s Definition of Chaos</em>, The American Mathematical
+Monthly, <em>99</em>, No. <em>4</em> (1992), 332-334.</li>
+<li id="RID"> R. I. Devaney, <em>An Introduction to Chaotic Dynamical
+Ssystems</em>, The Benjamin/Cummings Publishing Co., Inc. (1986).</li>
+<li id="XCH"> X.-C. Huang, <em>From Intermediate Value Theorem to
+Chaos</em>, Mathematics Magazine, Vol. <em>65</em>, No. <em>2</em> (1992), 
+91-103.</li>
+<li id="PJS">H.-O. Peitgen, H. j&#252;rgens and D. Saupe, <em>Chaos
+and Fractals: New Frontiers of Science</em>, Springer-Verlag (1992).</li>
 </ul>
 
-<p> La courbe en bleu dans la figure ci-dessus (après avoir cliqué sur
-le bouton <em>Débuter</em>) est le graphe de
-<em class="EQ">f<sub>&#120583;</sub></em> et la ligne diagonale
-en rouge est la droite <em class="EQ">y = x</em>. </p>
-
-<p> Pour chaque valeur fixe de <em class="EQ">&#120583;</em>
-entre 1 et 3, les orbites <em class="EQ">x<sub>0</sub>, x<sub>1</sub>,
-x<sub>2</sub>, ... </em> convergent vers un point unique
-<em class="EQ">p<sub>&#120583;</sub></em> entre 0 et 1.  Le 
-point <em class="EQ">p<sub>&#120583;</sub></em> satisfait
-<em class="EQ">f<sub>&#120583;</sub>(p<sub>&#120583;</sub>)
-= p<sub>&#120583;</sub></em>.  Donc, c'est un
-point fixe de <em class="EQ">f<sub>&#120583;</sub></em>. </p>
-
-<div class="Note">
-<p> Le <em>Théorème du point fixe</em> affirme que si
-<em class="EQ">f: [a,b] &rarr; [a,b]</em>
-est une fonction continûment différentiable et s'il existe une
-constante positive <em class="EQ">K <1</em> telle que
-<em class="EQ">|f'(x)| &leq; K</em> pour tout
-<em class="EQ">x &in; [a,b]</em>, alors toutes les orbites
-avec <em class="EQ">x<sub>0</sub> &in; [a,b]</em> convergent
-vers un point fixe unique <em class="EQ"> p &in; [a,b]</em>. </p>
-</div>
-
-<p> La fonction
-<em class="EQ">f<sub>&#120583;</sub>:[0,1] &rarr; [0,1]</em>
-possède toujours un point fixe à l'origine.  Pour
-<em class="EQ">&#120583; > 1</em>, elle possède un autre
-point fixe <em class="EQ">p<sub>&#120583;</sub>>0</em>.  En fait, si nous
-résolvons <em class="EQ">f<sub>&#120583;</sub>(p) = p</em> pour
-<em class="EQ">p</em>, nous trouvons que ce point fixe est
-<em class="EQ">p<sub>&#120583;</sub> = (&#120583;-1)/&#120583;</em>.
-Pour chaque valeur de <em class="EQ">&#120583;</em> avec
-<em class="EQ">1 < &#120583; < 3</em>, il est possible
-de trouver un petit intervalle <em class="EQ">[a,b]</em> contenant le
-point fixe <em class="EQ">p<sub>&#120583;</sub>>0</em> où le
-Théorème du Point Fixe peut être utilisé pour conclure que toute orbite avec
-<em class="EQ">x<sub>0</sub> &in; [a,b]</em>
-convergent vers <em class="EQ"> p<sub>&#120583;</sub></em> lorsque
-<em class="EQ">n &rarr; &infin;</em>.
-Par exemple, si <em class="EQ">&#120583; = 2</em>, l'application
-graphique ci-dessus montre que le graphe de
-<em class="EQ">f<sub>2</sub></em>
-coupe la droite <em class="EQ">y = x</em> au point positif 
-<em class="EQ">p<sub>2</sub> = 1/2</em> seulement.  C'est un
-point fixe de <em class="EQ">f<sub>2</sub></em> et toutes les orbites
-avec <em class="EQ">x<sub>0</sub></em> suffisamment près de
-<em class="EQ"> p<sub>2</sub></em> convergent vers
-<em class="EQ"> p<sub>2</sub></em>. </p>
-
-<p> Pour certaines valeurs de <em class="EQ">&#120583;</em> (les
-valeurs entre 3 et 4 sont vraiment intéressantes), les orbites
-<em class="EQ">x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub>, ... </em>
-ne convergent pas vers un seul point mais elles <q lang="fr"> convergent </q>
-vers un ensemble plus complexe.</p>
-
-<p>Pour <em class="EQ">&#120583; = 3.4</em>, le point
-<em class="EQ">x<sub>0</sub> = 0.45195878844045...</em> est un
-<em>point périodique</em> de
-<em class="EQ">f<sub>3.4</sub></em> de période 2;
-c'est-à-dire,
-<em class="EQ">x<sub>1</sub> = f<sub>3.4</sub>(x<sub>0</sub>)</em>
-et
-<em class="EQ">x<sub>2</sub> = f<sub>3.4</sub>(x<sub>1</sub>)
-= x<sub>0</sub></em>.  On écrit
-<em class="EQ">x<sub>2</sub>
-= f<sub>3.4</sub><sup>2</sup>(x<sub>0</sub>)
-= x<sub>0</sub></em>.  L'orbite <em class="EQ">x<sub>0</sub>,
-x<sub>1</sub>, x<sub>2</sub>, ... </em> est</p>
-
-<div class="EQ_center">
-<em class="EQ_Display">
-0.45195878844045, 0.84215476876273, 0.45195878844045, 0.84215476876273, ...
-</em>
-</div>
-
-<p> où les valeurs ont été tronquées à 14 chiffres décimaux.  Le
-lecteur devrait tracer le graphe en forme de toile d'araignée de
-l'orbite de <em class="EQ">f<sub>3.4</sub></em> qui débute avec
-<em class="EQ">x<sub>0</sub> = 0.45195878844045</em> à l'aide
-de l'application graphique ci-dessus.</p>
-
-<p>Pour <em class="EQ">&#120583; = 3.5</em>, le point
-<em class="EQ">x<sub>0</sub> = 0.87499726360246...</em> est un
-<em>point périodique</em> de
-<em class="EQ">f<sub>3.5</sub></em> de période 4;
-c'est-à-dire, <em class="EQ">x<sub>4</sub>
-= f<sub>3.4</sub><sup>4</sup>(x<sub>0</sub>)
-= x<sub>0</sub></em>.  L'orbite <em class="EQ">x<sub>0</sub>,
-x<sub>1</sub>, x<sub>2</sub>, ... </em> est</p>
-
-<div class="EQ_center">
-<em class="EQ_Display">
-0.87499726360246, 0.38281968301732, 0.82694070659144,
-0.50088421030722, 0.87499726360246, ...
-</em>
-</div>
-
-<p> où les valeurs ont été tronquées à 14 chiffres décimaux.  Le
-lecteur devrait tracer le graphe en forme de toile d'araignée de 
-l'orbite de <em class="EQ">f<sub>3.5</sub></em> qui débute avec
-<em class="EQ">x<sub>0</sub> = 0.87499726360246</em>
-à l'aide de l'application graphique ci-dessus.</p>
-
-<p>Quand <em class="EQ">&#120583;</em> passe au-dessus de
-<em class="EQ">3</em>, le point fixe
-<em class="EQ">p<sub>&#120583;</sub></em> n'est plus
-un <em>attracteur</em> et nous obtenons une orbite périodique 
-de période 2 qui est un attracteur comme nous avons vu
-ci-dessus.  Quand <em class="EQ">&#120583;</em> passe au-dessus de
-<em class="EQ">3.236...</em>, l'orbite périodique de période 2
-n'est plus un attracteur et nous obtenons une orbite périodique 
-de période 4 qui est un attracteur.
-Pour <em class="EQ">&#120583;</em> encore un petit peu plus
-grand, l'orbite périodique de période 4
-n'est plus un attracteur et nous obtenons une orbite périodique 
-de période 8 qui est un attracteur.
-Et ainsi de suite. C'est l'exemple la plus connue d'une
-<em>cascade de doublement de période</em>.</p>
-
-<p> La cascade de doublement de période converge vers
-<em class="EQ">&#120583; = 3.5699456...</em>&nbsp;
-Ce nombre est connu sous le nom de <em>point de Feigenbaum</em>.
-De plus, soit
-<em class="EQ">&#120583;<sub>0</sub> = 3</em>,
-<em class="EQ">&#120583;<sub>1</sub> = 3.236...</em>,
-<em class="EQ">&#120583;<sub>2</sub> = ...</em> et ainsi de suite,
-les valeurs de <em class="EQ">&#120583;</em> pour lesquelles la
-fonction logistique subit un doublement de période, et soit
-<em class="EQ">d<sub>j</sub> =
-&#120583;<sub>j+1</sub>−&#120583;<sub>j</sub></em> pour
-<em class="EQ"> j &geq; 0</em>.
-Il a été démontré que
-<em class="EQ">lim<sub>j &rarr; &infin;</sub>
-d<sub>j</sub>/d<sub>j+1</sub> = 4.6692016091029...</em>
-&nbsp; Ce nombre est appelé la <em>constante de Feigenbaum</em>.
-Feigenbaum a découvert ce nombre en 1975.  Cette constante est
-universelle dans le sens qu'elle est la même pour une grande famille
-de SDD de la forme
-<em class="EQ">x<sub>n+1</sub> = g<sub>&#120583;</sub>(x<sub>n</sub>)</em>
-où le graphe de <em class="EQ">g<sub>&#120583;</sub></em> 
-<q lang="fr">ressemble</q> au graphe de la fonction logistique
-<em class="EQ">f<sub>&#120583;</sub></em>.</p>
-
-<p> Pour <em class="EQ">&#120583; = 3.839...</em>, nous avons que</p>
-
-<div class="EQ_center">
-<em class="EQ_Display">
-0.14988539433432, 0.48917380192271, 0.95930024021836,
-0.14988539433432, ...
-</em>
-</div>
-<p>est une orbite périodique de période 3 de
-<em class="EQ">f<sub>3.839...</sub></em> qui est un attracteur.
-Les valeurs ci-dessus ont été tronquées à 14 chiffres décimaux.
-Il découle du fameux théorème de <em>Sarkovskii</em> que
-<em class="EQ">f<sub>3.839...</sub></em> possède des orbites
-périodiques de toutes les périodes.  Aucune des orbites périodiques,
-sauf pour l'orbite de période 3 ci-dessus, est un attracteur.
-Donc, sauf si une orbite débute avec un point exactement sur une des
-orbites qui n'est pas un attracteur, elle va <q lang="fr">converger</q>
-vers l'orbite périodique de période 3.  Notons que'en raison des
-erreurs de troncature, il est pratiquement impossible de tracer le
-graphe en forme de toile d'araignée d'une des orbites périodiques qui
-n'est pas un attracteur.</p>
-
-<p>Qu'arrive-t-il quand <em class="EQ">&#120583;</em> est plus
-grand ou égale à 4?  Nous avons que les orbites de
-<em class="EQ">f<sub>4</sub></em> 
-sont <em>Chaotiques</em>.</p>
-
-<p>À suivre ...<p>
-
-<p>Une bonne référence pour continuer l'étude des systèmes dynamiques
-discrets est <em>An Introduction to Chaotic Dynamical Ssystems</em> par
-Robert I. Devaney (The Benjamin/Cummings Publishing Co., Inc., 1986).</p>
-
 <table class="noB">
-<tr> <td rowspan="1" colspan="1" class="left"> </td>
+<tr> <td rowspan="1" colspan="1" class="left">
+<a href="fractal0_fr.html"> Document précédent </a> </td>
 <td rowspan="1" colspan="1" class="right">
 <a href="fractal2_fr.html"> Document suivant </a> </td>
 </tr>

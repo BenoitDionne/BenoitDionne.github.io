@@ -94,12 +94,12 @@ main_title( MStext, "MMathSStat");
 </div>
 
 <p> In a previous document, we have presented some properties of the
-logistic map.  More precisely, we have looked at the iterations
-of the real valued function <em class="EQ"> f<sub>&#120583;</sub></em>
+logistic function.  More precisely, we have looked at the iterations
+of the real valued function <em class="EQ"> f<sub>&mu;</sub></em>
 defined by
-<em class="EQ"> f<sub>&#120583;</sub>(x) = &#120583;x(1-x)</em>
+<em class="EQ"> f<sub>&mu;</sub>(x) = &mu;x(1-x)</em>
 for <em class="EQ">x &in; &reals;</em> and various values of
-<em class="EQ">&#120583;</em>.</p>
+<em class="EQ">&mu;</em>.</p>
 
 <p>The logical next step is to consider the iterations of complex
 valued functions defined on the complex plane. </p>
@@ -137,16 +137,16 @@ there does not exist any connected subset <em class="EQ">W</em>
 of <em class="EQ">U</em> with <em class="EQ">V &#10955; W</em>.</p>
 
 <p>We consider holomorphic functions <em class="EQ">
-R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> where
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>
+R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> where
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is the Riemann sphere (a complex manifold).  Using a stereographic
 projection, we can define a one-to-one conformal map from
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 onto <em class="EQ">&complexes; &cup; {&infin;}</em>,
 the compactification of the complexes plane.  The holomorphic functions
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 are therefore rational functions <em class="EQ">R = P/Q</em> where
 <em class="EQ">P</em> and <em class="EQ">Q</em> are two
 polynomials.  We may assume that
@@ -155,21 +155,21 @@ namely, <em class="EQ">P</em> and <em class="EQ">Q</em>
 do not have common factors.</p>
 
 <p>The <em>degree</em> of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>, denoted
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>, denoted
 <em class="EQ">deg(R)</em>, is the largest
 value between the degree of <em class="EQ">P</em> and the degree of
 <em class="EQ">Q</em>.  We say that
-<em class="EQ">v &in; <span class="EQ_Over">&complexes;</span></em> is
+<em class="EQ">v &in; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> is
 a <em>preimage</em> of
-<em class="EQ">w &in; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">w &in; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 of <em>multiplicity</em> <em class="EQ">m</em> if
 <em class="EQ">m</em> is the largest positive integer such that
 <em class="EQ"> d<sup>i</sup>(R(z)-w)/dz<sup>i</sup>|<sub>z=v</sub> = 0</em>
 for <em class="EQ">0 &le; i &lt; m</em>.
 If <em class="EQ">R</em> is a rational function of
 degree <em class="EQ">k</em> and
-<em class="EQ">w &in; <span class="EQ_Over">&complexes;</span></em>,
+<em class="EQ">w &in; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>,
 then the number of elements in the set of all the preimages
 of <em class="EQ">w</em> counted with multiplicity is <em class="EQ">k</em>.
 In this document, we will only consider rational functions that are
@@ -177,14 +177,14 @@ of degree greater or equal to <em class="EQ">2</em>.</p>
 
 <div class="Theo">
 <p><em>Definition</em>: We say that two rational functions
-<em class="EQ">R<sub>1</sub>:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> and
-<em class="EQ">R<sub>2</sub>:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R<sub>1</sub>:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> and
+<em class="EQ">R<sub>2</sub>:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 are <em>conformally conjugate</em> if there exists a
 <em>M&ouml;bius transformation</em>
-<em class="EQ">H:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> such that
+<em class="EQ">H:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> such that
 <em class="EQ">H&#8728;R<sub>1</sub> = R<sub>2</sub>&#8728;H</em>.</p>
 </div>
 
@@ -207,17 +207,17 @@ Let <em class="EQ">H(z) = &alpha;z+&beta;/2</em>.  Then
 &rArr; c = &alpha;&gamma;+&beta;/2-&beta;<sup>2</sup>/4</em> .
 </div>
 <p>In the particular case where <em class="EQ">&alpha; = -&beta;
-= -&#120583;</em> and <em class="EQ">&gamma; = 0</em>, we get
+= -&mu;</em> and <em class="EQ">&gamma; = 0</em>, we get
 that the logistic function 
-<em class="EQ">f<sub>&#120583;</sub></em> is conformally
+<em class="EQ">f<sub>&mu;</sub></em> is conformally
 conjugate to the function <em class="EQ">P<sub>c</sub></em> where
 <em class="EQ">c = &#120583/2-&#120583<sup>2</sup>/4</em>.
-When <em class="EQ">&#120583; &ge; 4</em>, we have seen that
-<em class="EQ">f<sub>&#120583;</sub>:&#120549;<sub>&#120583;</sub>
-&rarr; &#120549;<sub>&#120583;</sub></em>
+When <em class="EQ">&mu; &ge; 4</em>, we have seen that the DDS
+generated by <em class="EQ">f<sub>&mu;</sub>:&#120549;<sub>&mu;</sub>
+&rarr; &#120549;<sub>&mu;</sub></em>
 is chaotic.  We may therefore expect that
-<em class="EQ">P<sub>c</sub>:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">P<sub>c</sub>:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 will have a strange behaviour for <em class="EQ">c &leq; -2</em>.
 Moreover, when <em class="EQ">c &in; &reals;</em> goes from
 <em class="EQ">0</em> to <em class="EQ">-2</em>, we observe a period
@@ -233,8 +233,8 @@ application in the document
   fractal5.id+"PDC", fractal5.target);
 </script> similar to the graphical application in the document
 <script language="javascript">
-  buildLinK(fractal1.url_en, fractal1.text_en,"MMathSStat",
-  fractal1.id+"PDC", fractal1.target);
+  buildLinK(fractal0.url_en, fractal0.text_en,"MMathSStat",
+  fractal0.id+"PDC", fractal0.target);
 </script> to explore this period doubling cascade.  The reader should read
 the <script language="javascript">
   buildLinK(fractal5.url_en, "Remark in the document "
@@ -247,16 +247,15 @@ the <script language="javascript">
 = {z &in; &complexes; : |z-w| &lt; &epsilon;}</em>.  It follows from the
 Riemann Mapping theorem that any simply connected Riemann surface
 <em class="EQ">U &subset;
-<span class="EQ_Over">&complexes;</span></em>
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is conformally equivalent to one of <em class="EQ">B<sub>1</sub>(0)</em>,
 <em class="EQ">&complexes;</em>
-or <em class="EQ"><span class="EQ_Over">&complexes;<span></em>;
+or <em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>;
 namely, there exists an analytic bijection <em class="EQ">f</em>
 between <em class="EQ">U</em> and one of
 <em class="EQ">B<sub>1</sub>(0)</em>,
 <em class="EQ">&complexes;</em>
-or <em class="EQ"><span class="EQ_Over">
-&complexes;</span></em>.</p>
+or <em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.</p>
 
 <div class="Note">
 <p><em>Remark</em>: For the reader who may not have seen Riemann
@@ -290,8 +289,8 @@ for <em class="EQ">j = 0,1</em>.
 The origin is called a <em>branch point</em> because it belongs to
 <em class="EQ">S<sub>0</sub></em> and
 <em class="EQ">S<sub>1</sub></em>.  If we consider
-<em class="EQ">f:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>, then
+<em class="EQ">f:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>, then
 <em class="EQ">&infin;</em> is also a branch point.
 The reader should try to visualize the Riemann surface associated to the
 function 
@@ -307,7 +306,7 @@ sufficient to understand the behaviour of rational functions later.</p>
 <p><em>Definition</em>: A family <em class="EQ"> &#120021;</em> of
 holomorphic functions defined on an open set
 <em class="EQ">V &subset;
-<span class="EQ_Over">&complexes;</span></em>
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is <em>normal</em>
 on <em class="EQ">V</em> if every sequence of functions
 <em class="EQ"> {f<sub>n</sub>}<sub>n&gt;0</sub></em> from 
@@ -319,12 +318,12 @@ that converges uniformly on compact subsets of
 
 <p>The Arzela-Ascoli theorem states that a family of
 holomorphic functions defined on an open set
-<em class="EQ">V &subset; <span class="EQ_Over">&complexes;</span></em> is
+<em class="EQ">V &subset; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> is
 normal if and only if it is equicontinuous on every compact subset of
 <em class="EQ">V</em>.  Moreover, it can be
 proved that a family <em class="EQ"> &#120021;</em>
 of holomorphic functions defined on an open set
-<em class="EQ">V &subset; <span class="EQ_Over">&complexes;</span></em> is
+<em class="EQ">V &subset; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> is
 normal if it is <em>locally uniformly bounded</em>; namely, for every compact
 set <em class="EQ">K &subset; V</em>, there exists a constant
 <em class="EQ">C<sub>K</sub></em> such that
@@ -337,10 +336,10 @@ due to Montel as is the following theorem.</p>
 <em class="EQ"> &#120021; = {f<sub>n</sub>}<sub>n&gt;0</sub></em>
 be a family of holomorphic functions defined on an open set
 <em class="EQ"> V &subset;
-<span class="EQ_Over">&complexes;</span></em>.
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.
 If there exists three distinct points
 <em class="EQ">z<sub>1</sub>,z<sub>2</sub>,z<sub>3</sub> &in;
-<span class="EQ_Over">&complexes;</span></em> such
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> such
 that <em class="EQ">f<sub>n</sub>(z) &ne;
 z<sub>1</sub>,z<sub>2</sub>,z<sub>2</sub></em> for all
 <em class="EQ">z &in; V</em> and
@@ -350,8 +349,8 @@ is normal on <em class="EQ">V</em>.</p>
 
 <p>The following theorem is very useful in the study of
 rational functions <em class="EQ">
-R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>.</p>  
+R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.</p>  
 
 <div class="Theo" id="Schwarz">
 <p><em>Theorem (Schwarz)</em>: Suppose that
@@ -374,16 +373,16 @@ for some <em class="EQ">&theta; &in; &#8477;</em>.</p>
 <p>Our main goal is to study the families of holomorphic
 functions defined by
 <em class="EQ"> &#120021; = {R<sup>&#8728;n</sup>}<sub>n&gt;0</sub></em> where
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> is a
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> is a
 rational function.</p>
 
 <div class="Theo">
 <p><em>Definition</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a rational function.  A point
-<em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">z &in; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a <em>stable point</em> of <em class="EQ">R</em> if there exists an
 open neighbourhood <em class="EQ">V</em> of
 <em class="EQ">z</em> such that the family
@@ -393,7 +392,7 @@ points of <em class="EQ">R</em> is denoted
 <em class="EQ">S<sub>R</sub></em>.  The <em>Julia set</em> of
 <em class="EQ">R</em> is the set
 <em class="EQ">J<sub>R</sub> =
-<span class="EQ_Over">&complexes;</span> &setminus;
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math> &setminus;
 S<sub>R</sub></em>.</p>
 </div>
 
@@ -425,8 +424,8 @@ monodromy theorem in complex analysis.</p>
 
 <div class="Theo">
 <p><em>Theorem</em>: If
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a rational function, then
 <em class="EQ">J<sub>R</sub> &ne; &emptyset;</em>.</p>
 </div>
@@ -435,16 +434,16 @@ is a rational function, then
 <em class="EQ">J<sub>R</sub> = &emptyset;</em>, then
 <em class="EQ"> &#120021; = {R<sup>&#8728;n</sup>}<sub>n&gt;0</sub></em>
 is normal on
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>.
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.
 Therefore, there exists a subsequence
 <em class="EQ">{R<sup>&#8728;n<sub>k</sub></sup>}<sub>k&gt;0</sub></em>
 that converges uniformly on compact subsets of
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>.
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.
 Since the space of holomorphic function on
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 (i.e. rational functions) is closed in this topology, the limit of
 this subsequence is a holomorphic function <em class="EQ">T</em> on
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 (i.e. a rational functions) of finite degree.  However,
 <em class="EQ">deg(R<sup>&#8728;n<sub>k</sub></sup>) &rarr; &infin;</em>
 as <em class="EQ">k &rarr; &infin;</em> instead of converging
@@ -453,8 +452,8 @@ to <em class="EQ">deg(T) &lt; &infin;</em> as it should.
 
 <div class="Example">
 <p><em>Example</em>:
-Let <em class="EQ">P<sub>c</sub>:<span class="EQ_Over">&complexes;</span> &rarr;
-<span class="EQ_Over">&complexes;</span></em>
+Let <em class="EQ">P<sub>c</sub>:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math> &rarr;
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be the function defined by
 <em class="EQ">P<sub>c</sub>(x) = z<sup>2</sup>+c</em>
 for <em class="EQ">c &in; &complexes;</em> arbitrary but
@@ -469,8 +468,8 @@ converges uniformly on compact subsets of
 <em class="EQ">f &equiv; 0</em>.  Likewise,
 <em class="EQ">{P<sub>0</sub><sup>&#8728;n</sup>}<sub>n>0</sub></em>
 converges uniformly on compact subsets of
-<em class="EQ"><span class="EQ_Over">&complexes;</span>
-&setminus; <span class="EQ_Over">B<sub>1</sub>(0)</span></em> to the
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&setminus; <math><mover><mi>B<sub>1</sub>(0)</mi><mo strectchy="true"; accent="true">&horbar;&horbar;</mo></mover></math></em> to the
 constant function <em class="EQ">f &equiv; &infin;</em>.  Hence,
 it follows from
 <script language="javascript">
@@ -486,8 +485,8 @@ no subsequence of
 can converge uniformly on a compact subset
 <em class="EQ">K</em> of <em class="EQ">V</em> such that
 <em class="EQ">K &cap; B<sub>1</sub>(0) &ne; &emptyset;</em>
-and <em class="EQ">K &cap; <span class="EQ_Over">&complexes;</span> &setminus;
-<span class="EQ_Over">B<sub>1</sub>(0)</span> &ne; &emptyset;</em>
+and <em class="EQ">K &cap; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math> &setminus;
+ <math><mover><mi>B<sub>1</sub>(0)</mi><mo strectchy="true"; accent="true">&horbar;&horbar;</mo></mover></math> &ne; &emptyset;</em>
 because the limit of this
 subsequence would have to be a continuous function
 <em class="EQ">T</em> with <em class="EQ">T(z) = 0</em> for
@@ -498,16 +497,17 @@ Thus <em class="EQ">J<sub>R</sub> = S<sup>1</sup></em>.</p>
 
 <p>Since <em class="EQ">P<sub>0</sub>|<sub>S<sup>1</sup></sub> = T</em>
 where the function <em class="EQ">T:S<sup>1</sup> &rarr; S<sup>1</sup></em> 
-is defined by <em class="EQ">T(z) = z<sup>2</sup></em> and since
-<em class="EQ">T</em> is chaotic on <em class="EQ">S<sup>1</sup></em>,
+is defined by <em class="EQ">T(z) = z<sup>2</sup></em> and since the
+DDS generated by <em class="EQ">T</em> has a chaotic behaviour
 as we have seen in the document
 <script language="javascript"> 
 buildLinK(fractal1.url_en,fractal1.text_en,"MMathSStat",
 fractal1.id,fractal1.target);
-</script>, we can conclude that
-<em class="EQ">P<sub>0</sub></em> is chaotic
-on <em class="EQ">J<sub>R</sub></em>.  We will see later that
-this is typical of Julia sets.</p>
+</script>, we can conclude that the DDS generated by
+<em class="EQ">P<sub>0</sub></em> has a chaotic behaviour
+on <em class="EQ">J<sub>R</sub></em>.  We will see later that this is
+typical of the DDS generated by <em class="EQ">P<sub>c</sub></em>
+on <em class="EQ">J<sub>R</sub></em>.</p>
 </div>
 
 <p>As we will see, Julia sets are not usually simple curves as in the
@@ -516,11 +516,11 @@ contrary to the previous example.  Recall that the interior of a set
 <em class="EQ">K</em> is the largest open subset contained in
 <em class="EQ">K</em>.  For instance, we will prove later that the
 Julia set of the rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 defined by
 <em class="EQ">R(z) = (z-1)<sup>2</sup>/z<sup>2</sup></em> is
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>.
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.
 </p>
 
 <p>By definition of Julia sets, if
@@ -528,7 +528,7 @@ defined by
 <em class="EQ">V</em> is an open neighbourhood of
 <em class="EQ">u</em>, then the set
 <em class="EQ">E<sub>V</sub> =
-<span class="EQ_Over">&complexes;</span> &setminus;
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math> &setminus;
 &#8899;<sub>n&gt;0</sub> R<sup>&#8728;n</sup>(V)</em>
 has at most two elements.  The elements of
 <em class="EQ">E<sub>V</sub></em>
@@ -542,8 +542,8 @@ elements (the proof is left to the reader.)</p>
 
 <div class="Theo">
 <p><em>Proposition</em>: If
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a rational function and <em class="EQ">u &in; J<sub>R</sub></em>,
 then <em class="EQ">E<sub>u</sub></em> is completely invariant.</p>
 </div>
@@ -554,7 +554,7 @@ is <em>backward invariant</em> (namely,
 Let <em class="EQ">V</em> be an open neighbourhood of
 <em class="EQ">u</em> and
 <em class="EQ">E<sub>V</sub> =
-<span class="EQ_Over">&complexes;</span> &setminus; W<sub>V</sub></em> where
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math> &setminus; W<sub>V</sub></em> where
 <em class="EQ"> W<sub>V</sub> = &#8899;<sub>n&gt;0</sub>
 R<sup>&#8728;n</sup>(V)</em>.
 We have that</p>
@@ -661,12 +661,12 @@ the following result.</p>
 
 <div class="Theo" id="propI">
 <p><em>Proposition &#8544;</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> be a
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> be a
 rational function.
 If <em class="EQ">z &in; J<sub>R</sub></em>
 and <em class="EQ">w &in;
-<span class="EQ_Over">&complexes;</span> &setminus; &#120020;<sub>R</sub></em>,
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math> &setminus; &#120020;<sub>R</sub></em>,
 then <em class="EQ">J<sub>R</sub></em> is a subset of the
 accumulation points of
 <em class="EQ">&#8899;<sub>n&gt;0</sub> R<sup>&#8728;(-n)</sup>({w})</em>.
@@ -683,7 +683,7 @@ not a stable point, there exists a positive integer
 <em class="EQ">n</em> such that
 <em class="EQ">w &in; R<sup>&#8728;n</sup>(V)</em> because
 <em class="EQ">w &in;
-<span class="EQ_Over">&complexes;</span> &setminus; &#120020;<sub>R</sub></em>.
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math> &setminus; &#120020;<sub>R</sub></em>.
 Thus <em class="EQ">R<sup>&#8728;(-n)</sup>({w}) &cap; V &ne; &emptyset;</em>.
 Since this is true for all open neighbourhoods
 <em class="EQ">V</em> of <em class="EQ">v</em>, we have
@@ -697,9 +697,9 @@ action of <em class="EQ">R</em>.  <span class="EQ_Right">&#8718;</span></p>
 
 <div class="Theo">
 <p><em>Definition</em>: A <em>critical point</em> of a rational
-function <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> is a point
-<em class="EQ">w &in; <span class="EQ_Over">&complexes;</span> </em>
+function <em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> is a point
+<em class="EQ">w &in; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math> </em>
 where <em class="EQ">R</em> fails to be a local homeomorphism.
 A <em>critical value</em> of <em class="EQ">R</em>
 is the image by <em class="EQ">R</em> of a critical point of
@@ -712,24 +712,24 @@ critical point if <em class="EQ">R'(w) = 0</em>.</p>
 
 <div class="Theo">
 <p><em>Definition</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> be a rational
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> be a rational
 function of degree <em class="EQ">d</em>.  The <em>deficiency</em> of
-<em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">z &in; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is the value <em class="EQ">d - |R<sup>-1</sup>({z})|</em>, where
 <em class="EQ">|R<sup>-1</sup>({z})|</em> is the number of elements in
 the set <em class="EQ">R<sup>-1</sup>({z})</em>.
 The <em>total deficiency</em> of <em class="EQ">R</em> is the sum
 of the deficiency of <em class="EQ">z</em> for all
-<em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>.</p>
+<em class="EQ">z &in; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.</p>
 </div>
 
 <p>The deficiency of
-<em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">z &in; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is non-null if and only if <em class="EQ">z</em> is a critical point
 of the rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>.  Moreover, the
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.  Moreover, the
 total deficiency of a rational function <em class="EQ">R</em>
 of degree <em class="EQ">d</em> is <em class="EQ">2d-2</em>.
 This implies in particular that the number of critical points of
@@ -741,8 +741,8 @@ The reader should consult <script language="javascript">
 <div class="Theo" id="propII">
 <p><em>Proposition &#8545;</em>: If <em class="EQ">J</em> is a
 completely invariant set under the action of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>,
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>,
 then <em class="EQ">J</em> contains one point, two points or
 infinitely many points.</p>
 </div>
@@ -766,8 +766,8 @@ because the total deficiency (i.e. the sum of all deficiencies) is
 
 <div class="Theo" id="propIII">
 <p><em>Proposition &#8546;</em>: If
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a rational function, then
 <em class="EQ">J<sub>R</sub></em> is an infinite set.</p>
 </div>
@@ -820,8 +820,8 @@ and
 
 <div class="Theo">
 <p><em>Proposition</em>: If
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a rational function, then
 <em class="EQ">J<sub>R</sub></em> is a perfect set.</p>
 </div>
@@ -831,8 +831,8 @@ below.  More fascinating properties will be given later. </p>
 
 <div class="Theo" id="propIV">
 <p><em>Proposition &#8547;</em>: If
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a rational function, then there is no closed and completely invariant
 proper subset of <em class="EQ">J<sub>R</sub></em>.</p>
 </div>
@@ -850,20 +850,20 @@ R<sup>&#8728;(-n)</sup>({w}) &subset; S &subset; J<sub>R</sub></em>.  Since
   "MMathSStat", "propIID2", "_top");
 </script>
 that <em class="EQ"> J<sub>R</sub> &supset;
-S = <span class="EQ_Over">S</span>
+S = <math><mover><mi>S</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
 &supset; <span class="EQ_Over">&#8899;<sub>n&gt;0</sub>
 R<sup>&#8728;(-n)</sup>({w})</span> = J<sub>R</sub></em>.
 <span class="EQ_Right">&#8718;</span></p>
 
 <div class="Theo">
 <p><em>Proposition</em>: If
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a rational function and <em class="EQ">J<sub>R</sub></em>
 has a non-empty interior in
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>,
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>,
 then <em class="EQ">J<sub>R</sub> =
-<span class="EQ_Over">&complexes;</span></em>.</p>
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.</p>
 </div>
 
 <p><em>Proof</em>: Suppose that <em class="EQ">V &subset; J<sub>R</sub></em>
@@ -874,18 +874,19 @@ is an open set.  Since all points of
   "MMathSStat", "MontelID3", "_top");
 </script>
 that <em class="EQ">&#8899;<sub>n&gt;0</sub> R<sup>&#8728;n</sup>(V)
-= <span class="EQ_Over">&complexes;</span> &setminus; E</em>
+= <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math> &setminus; E</em>
 where the set <em class="EQ">E</em> has at most two elements.
 Since <em class="EQ">J<sub>R</sub></em> is completely invariant, we
 have that <em class="EQ">J<sub>R</sub> &supset;
 &#8899;<sub>n&gt;0</sub> R<sup>&#8728;n</sup>(V)
-= <span class="EQ_Over">&complexes;</span> &setminus; E</em>.
+= <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math> &setminus; E</em>.
 Finally, since <em class="EQ">J<sub>R</sub></em> is closed, we get that
 <em class="EQ">J<sub>R</sub>
 = <span class="EQ_Over">J<sub>R</sub></span>
 &supset; <span class="EQ_OverOver">
-<span class="EQ_Over"> &complexes;</span> &setminus; E</span>
-  = <span class="EQ_Over">&complexes;</span></em>.
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&setminus; E</span>
+= <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.
 <span class="EQ_Right">&#8718;</span></p>
 
 <hr class="MMathSStat">
@@ -893,10 +894,10 @@ Finally, since <em class="EQ">J<sub>R</sub></em> is closed, we get that
 <h3 id="SS3">An Equivalent Definition of Julia Sets</h3>
 
 <p>As we have done so far, we assume that
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a rational function.  Recall that a point
-<em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">z &in; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a <em>periodic point</em> of <em>period</em> <em class="EQ">n</em> of
 <em class="EQ">R</em> if <em class="EQ">n</em> is the
 smallest positive integer such that
@@ -915,7 +916,7 @@ is satisfied, then
 a periodic orbit of period <em class="EQ">k = n-m</em>.</p>
 
 <p>Suppose that
-<em class="EQ">z &in; <span class="EQ_Over">&complexes;</span></em>.  The
+<em class="EQ">z &in; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.  The
 <em>(positive) orbit associated</em> to <em class="EQ">z</em> is the sequence
 <em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>
 where <em class="EQ"> z<sub>0</sub> = z</em> and
@@ -930,8 +931,8 @@ is a <em>periodic orbit</em> because
 <div class="Theo">
 <p><em>Definition</em>: Suppose that <em class="EQ">z</em> is a
 periodic point of period <em class="EQ">n</em> of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> and that
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> and that
 <em class="EQ">&lambda; = (R<sup>&#8728;n</sup>)'(z)</em>.  We say that
 <em class="EQ">z</em> (or the periodic
 orbit <em class="EQ">{z<sub>j</sub>}<sub>j&geq;0</sub></em>
@@ -956,8 +957,8 @@ associated to <em class="EQ">z</em>.</p>
 <div class="Theo">
 <p><em>Definition</em>: Suppose that <em class="EQ">w</em>
 is a fixed point of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>.
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.
 We say that
 <em class="EQ">R</em> can be <em>linearized</em> at
 <em class="EQ">w</em> if there exist</p>
@@ -980,8 +981,8 @@ We say that
 <p><em>Proposition</em>: If
 <em class="EQ">w</em> is an attracting fixed point
 of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>, then
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>, then
 <em class="EQ">R</em> can be linearized at
 <em class="EQ">w</em>.  In the definition of linearization above,
 we may select <em class="EQ">V</em> and
@@ -994,8 +995,8 @@ we may select <em class="EQ">V</em> and
 <p><em>Proposition</em>: If
 <em class="EQ">w</em> is a repelling fixed point
 of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>, then
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>, then
 <em class="EQ">R</em> can be linearized at
 <em class="EQ">w</em>.  We have that
 <em class="EQ">|&lambda;|&gt;1</em> in the definition of
@@ -1010,8 +1011,8 @@ attracting fixed point.</p>
 <div class="Theo">
 <p><em>Proposition</em>: Suppose that <em class="EQ">w</em>
 is a super-attracting fixed point of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 and that <em class="EQ">k>0</em> is the smallest positive integer such that
 <em class="EQ">R<sup>(k)</sup>(w) &ne; 0</em>.  Then
 there exist</p>
@@ -1033,8 +1034,8 @@ propositions. </p>
 <div class="Theo" id="propV">
 <p><em>Proposition &#8548;</em>: A fixed point
 <em class="EQ">w</em> of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a stable point if
 <em class="EQ">w</em> is an attracting or super-attracting
 fixed point.  The fixed point <em class="EQ">w</em> is not stable if
@@ -1043,8 +1044,8 @@ it is a repelling fixed point.</p>
 
 <p>There is no clear results associated to neutral fixed points of a
 rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>.
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.
 Suppose that <em class="EQ">w</em>
 is a neutral fixed point of a rational function <em class="EQ">R</em>
 and that <em class="EQ">R'(w) = &lambda;</em>.
@@ -1078,8 +1079,8 @@ condition is equal to the measure of the unit circle.</p>
 <p>It follows from the previous proposition that the set
 <em class="EQ">&#120033;<sub>R</sub></em> of repelling periodic
 points of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a subset of <em class="EQ">J<sub>R</sub></em>.  Since
 <em class="EQ">J<sub>R</sub></em> is closed, we have that
 <em class="EQ"><span class="EQ_Over">&#120033;<sub>R</sub></span>
@@ -1087,8 +1088,8 @@ is a subset of <em class="EQ">J<sub>R</sub></em>.  Since
 
 <div class="Theo" id="theoVI">
 <p><em>Theorem &#8549;</em>: If
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a rational function, then
 <em class="EQ"><span class="EQ_Over">&#120033;<sub>R</sub></span>
 = J<sub>R</sub></em>.</p>
@@ -1104,8 +1105,8 @@ can be found in <script language="javascript">
 <p><em>Definition</em>: The <em>basin of attraction</em> of a
 super-attracting or attracting fixed point
 <em class="EQ">z</em> of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is the set <em class="EQ">W<sup>s</sup>(z,R) =
 {v : R<sup>&#8728;n</sup>(v) &rarr; z as n &rarr; &infin;}</em>.
 The <em>immediate basin of attraction</em>
@@ -1137,8 +1138,8 @@ the super-attacting or attracting fixed point <em class="EQ">z</em> and on which
 
 <div class="Theo" id="theoV">
 <p><em>Proposition</em>: If
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is rational function and <em class="EQ">z</em> is a super-attracting
 or attracting fixed point of <em class="EQ">R</em>, then
 <em class="EQ">&part;W<sup>s</sup>(z,R) = J<sub>R</sub></em>,
@@ -1155,7 +1156,8 @@ follows from <script language="javascript">
   buildLinK("#propIV", "Proposition &#8547;",
   "MMathSStat", "propIVID5", "_top");
 </script> that
-<em class="EQ">&part;W<sup>s</sup>(z,R) = J<sub>R</sub></em>.</p>
+<em class="EQ">&part;W<sup>s</sup>(z,R) = J<sub>R</sub></em>.
+<span class="EQ_Right">&#8718;</span></p>
 
 <div class="Example">
 <p><em>Example</em>: If we use Newton's method to approximate the
@@ -1181,8 +1183,8 @@ set <em class="EQ">J<sub>R</sub></em> of <em class="EQ">R</em> inside
 
 <div class="Theo" id="propVII">
 <p><em>Proposition &#8550;</em>: If
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a rational function, and <em class="EQ">z</em> is a
 super-attracting or attracting fixed point, then
 <em class="EQ">W<sup>i</sup>(z,R)</em>
@@ -1253,8 +1255,8 @@ instead of the function <em class="EQ">R</em>.</p>
   buildLinK("#theoVI", "Theorem &#8549;",
   "MMathSStat", "theoVIID1", "_top");
 </script> (sketch)</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> be a
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> be a
 rational function of degree <em class="EQ">d</em>.
 Moreover, let <em class="EQ">&#120018;<sub>R</sub></em> be the
 set of critical points of <em class="EQ">R</em>,
@@ -1308,10 +1310,10 @@ But, we have seen earlier that
 
 <div class="Theo">
 <p><em>Corollary</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> be a
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> be a
 rational function, and <em class="EQ">K</em> be a closed subset of
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 such that <em class="EQ">K &cap; &#120020;<sub>R</sub> = &emptyset;</em>.
 If <em class="EQ">V</em> is an open neighbourhood of a point
 <em class="EQ">z &in; J<sub>R</sub></em>, then there exists an
@@ -1337,7 +1339,7 @@ R<sup>&#8728;mn</sup>(U)</em>.  Moreover, since
 R<sup>&#8728;(m+1)n</sup>(U)</em>
 for <em class="EQ">m &gt; 0</em> and
 <em class="EQ">K</em> is a compact subset of
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>,
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>,
 there exists an integer <em class="EQ">m>0</em> such that
 <em class="EQ">K &subset; R<sup>&#8728;mn</sup>(U)
 &subset; R<sup&#8728;>mn</sup>(V)</em>.  We get the conclusion for the first
@@ -1370,7 +1372,8 @@ on initial conditions.  Since the repelling periodic points are dense in
 <script language="javascript">
   buildLinK("#theoVI", "Theorem &#8549;",
   "MMathSStat", "theoVIID2", "_top");
-</script>, we can conclude that <em class="EQ">R</em> is <em>chaotic</em> on
+</script>, we can conclude that the DDS generated by
+<em class="EQ">R</em> is <em>chaotic</em> on
 <em class="EQ">J<sub>R</sub></em>.</p>
 
 <p>The last part of the previous corollary can be considered as a form
@@ -1384,8 +1387,8 @@ buildLinK("#REF", "references","MMathSStat", "REDid2", "_top");
 
 <div class="Theo">
 <p><em>Definition</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a rational function, 
 <em class="EQ">&#120018;<sub>R</sub></em> be the set of
 all critical points of <em class="EQ">R</em>, and
@@ -1403,12 +1406,12 @@ the next proposition supports the possibility that the structure of
 <div class="Theo" id="propVIII">
 <p><em>Proposition &#8551;</em>: If <em class="EQ">z</em> is an attracting
 fixed point of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>,
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>,
 then <em class="EQ">W<sup>i</sup>(z,R)</em> is either a simply
 connected set or a connected sets with
 infinitely many <q lang="en">holds</q> (represented by closed
-connected components in <em class="EQ"><span class="EQ_Over">&complexes;</span>
+connected components in <em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
 &setminus; W<sup>i</sup>(z,R)</em></em>).</p>
 </div>
 
@@ -1422,8 +1425,8 @@ infinitely many closed connected components.</p>
 
 <p>To better understand the structure of the Julia set
 <em class="EQ">J<sub>R</sub></em> of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>,
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>,
 it is useful to study the action of <em class="EQ">R</em> on the
 connected components of the set of stable points
 <em class="EQ">S<sub>R</sub></em> of <em class="EQ">R</em>.
@@ -1452,8 +1455,8 @@ The following theorem describes the orbits in
 
 <div class="Theo">
 <p><em>Theorem (Sullivan)</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a rational function.  Every connected component
 <em class="EQ">D</em> of the set of stable points
 <em class="EQ">S<sub>R</sub></em> of
@@ -1480,8 +1483,8 @@ relation of <em class="EQ">S<sub>R</sub></em>.</p>
 
 <div class="Theo">
 <p><em>Theorem (Shishikura)</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a rational function of degree <em class="EQ">d</em>.  There are
 at most <em class="EQ">2d-2</em> equivalent classes of
 connected components in <em class="EQ">S<sub>R</sub>/&sim;</em>.</p>
@@ -1493,8 +1496,8 @@ connected components in <em class="EQ">S<sub>R</sub>/&sim;</em>.</p>
 
 <div class="Theo">
 <p><em>Definition</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a rational function.  A <em>Sullivan domain</em> is a connected component
 of <em class="EQ">S<sub>R</sub></em> that belongs to a periodic
 orbit in <em class="EQ">S<sub>R</sub></em>.</p>
@@ -1552,8 +1555,8 @@ this category.  We have the following result.</p>
 
 <div class="Theo">
 <p><em>Theorem</em>: If
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a rational function, then all the connected components of a periodic orbit
 in <em class="EQ">S<sub>R</sub></em> belong to one of the five
 categories of Sullivan domains listed above.</p>
@@ -1564,10 +1567,10 @@ categories of Sullivan domains listed above.</p>
 <script language="javascript">
   buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid3", "_top");
 </script> states that the
-rational functions <em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+rational functions <em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 of the form <em class="EQ">R(z) =
-(e<sup>2&pi;i&alpha;</sup>(z-a)<sup>2</sup>)/(z(1-<span class="EQ_Over">a</span>z)<sup>2</sup>)</em>
+  (e<sup>2&pi;i&alpha;</sup>(z-a)<sup>2</sup>)/(z(1-<math><mover><mi>a</mi><mo strectchy="true"; accent="true">-</mo></mover></math>z)<sup>2</sup>)</em>
 for some values of <em class="EQ">&alpha;</em>
 and <em class="EQ">a</em> have a set of stable points
 <em class="EQ">S<sub>R</sub></em> that contains an Herman ring
@@ -1588,18 +1591,18 @@ a periodic critical point.</p>
 
 <div class="Theo" id="corIX">
 <p><em>Corollary &#8552;</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a rational function.  If all the critical points of
 <em class="EQ">R</em> are eventually periodic, and no critical
 point is periodic, then <em class="EQ">J<sub>R</sub> =
-<span class="EQ_Over">&complexes;</span></em>.</p>
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.</p>
 </div>
 
 <p>We can use this corollary to prove our previous claim that the
 Julia set of
 <em class="EQ">R(z) = (z-1)<sup>2</sup>/z<sup>2</sup></em> is
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>.
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.
 The critical points of <em class="EQ">R</em> are
 <em class="EQ">2</em> and <em class="EQ">&infin;</em>,
 and they are all eventually periodic and not periodic.  More
@@ -1609,8 +1612,8 @@ precisely, for <em class="EQ">z<sub>0</sub> = 2</em>, we get the orbit
 
 <div class="Theo">
 <p><em>Proposition</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a rational function.  If <em class="EQ">S</em> is a completely
 invariant connected component of <em class="EQ">S<sub>R</sub></em>, then
 <em class="EQ">J<sub>R</sub> = &part;S</em>, the boundary of
@@ -1634,8 +1637,8 @@ that <em class="EQ">&part;S = J<sub>R</sub></em>.
 
 <div class="Theo" id="propX">
 <p><em>Proposition &#8553;</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a rational function of degree <em class="EQ">d</em>.</p>
 <ol style="list-style-type: decimal;">
 <li> There are at most two distinct completely invariant and
@@ -1661,8 +1664,8 @@ one of them is not simply connected.  Let <em class="EQ">A</em>
 be a connected component of <em class="EQ">S<sub>R</sub></em>
 that is not simply connected, and <em class="EQ">B</em> be any
 other connected component of <em class="EQ">S<sub>R</sub></em>.
-If <em class="EQ">H:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> is the
+If <em class="EQ">H:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> is the
 M&ouml;bius transformation defined by
 <em class="EQ">H(z) = 1/(z-v)</em> where
 <em class="EQ">v &in; B</em>, then
@@ -1801,8 +1804,8 @@ yields the following result.</p>
 
 <div class="Theo" id="propXI">
 <p><em>Proposition &#8554;</em>: Let
-<em class="EQ">P:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">P:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a polynomial function.  All bounded connected components of the set
 of stable points <em class="EQ">S<sub>P</sub></em> are simply
 connected.</p>
@@ -1827,8 +1830,8 @@ Thus <em class="EQ">S<sub>P</sub> &ne; &emptyset;</em>.</p>
 
 <div class="Theo">
 <p><em>Proposition</em>: If
-<em class="EQ">P:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">P:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is a polynomial function, then none of the Sullivan domains of
 <em class="EQ">P</em> is an Herman ring.</p>
 </div>
@@ -1849,7 +1852,7 @@ and the set of exceptional points is
 = &complexes;</em>.  But this is a contradiction of the maximum
 principal for analytic functions which says that the maximum of
 <em class="EQ">|P<sup>&#8728;n</sup>|</em> on
-<em class="EQ"><span class="EQ_Over">U</span></em> is reached on the
+<em class="EQ"><math><mover><mi>U</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> is reached on the
 boundary <em class="EQ">&gamma;</em> and therefore
 <em class="EQ">sup<sub>z&in;U</sub> |P<sup>&#8728;n</sup>(z)|
 &le; sup<sub>z&in;&gamma;</sub> |P<sup>&#8728;n</sup>(z)|
@@ -1868,13 +1871,13 @@ with a similar proof for polynomial functions.</p>
 
 <div class="Theo" id="propXII">
 <p><em>Proposition &#8555;</em>: Let
-<em class="EQ">P:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">P:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a polynomial function.  If all the critical points of
 <em class="EQ">P</em> except for <em class="EQ">&infin;</em>
 are eventually periodic, and none of the finite periodic points
 is a critical point, then <em class="EQ">
-<span class="EQ_Over">&complexes;</span>
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
 = J<sub>R</sub> &cup; W<sup>i</sup>(&infin;,P)</em>.</p>
 </div>
 
@@ -1883,12 +1886,12 @@ proposition have a special name.</p>
 
 <div class="Theo">
 <p><em>Definition</em>: Let
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a rational function.  If the stable set
 <em class="EQ">S<sub>R</sub></em> is composed of only one connected and
 simply connected component in
-<em class="EQ"><span class="EQ_Over">&complexes;</span></em>,
+<em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>,
 and the Julia set
 <em class="EQ">J<sub>R</sub></em> is locally connected, then 
 <em class="EQ">J<sub>R</sub></em> is called
@@ -1896,7 +1899,7 @@ a <em>dendrite</em>.</p>
 </div>
 
 <p>We recall that a set <em class="EQ">A &subset;
-<span class="EQ_Over">&complexes;</span></em> is
+<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> is
 <em>locally connected</em> if, for every <em class="EQ">z &in; A</em>,
 there exists an open neighbourhood <em class="EQ">U</em> of
 <em class="EQ">z</em> such that
@@ -1917,8 +1920,8 @@ the figure below.  We have that
 
 <div class="Theo" id="propXIII">
 <p><em>Proposition &#8553;&#8546;</em>: Let
-<em class="EQ">P:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">P:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a polynomial function.  The following statements are equivalent.</p>
 <ul>
 <li> <em class="EQ">P|<sub>W<sup>i</sup>(&infin;,P)</sub></em> is
@@ -1926,7 +1929,7 @@ conformally conjugate to the function
 <em class="EQ">T</em> defined by <em class="EQ">T(z) = z<sup>d</sup></em>
 on the exterior of a circle centred at the origin.</li>
 <li> <em class="EQ">W<sup>i</sup>(&infin;,P)</em> is simply connected
-in <em class="EQ"><span class="EQ_Over">&complexes;</span></em>.</li>
+in <em class="EQ"><math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>.</li>
 <li> <em class="EQ">J<sub>R</sub></em> is connected.</li>
 <li> <em class="EQ">W<sup>i</sup>(&infin;,P) &cap;
     &#120018;<sub>P</sub> = {&infin;}</em>.</li>
@@ -1964,13 +1967,13 @@ defined by
 </div>
 
 <p>The next Theorem states that, under some conditions, the chaotic
-behaviour of a polynomial function <em class="EQ">P</em>
+behaviour of the DDS generated by a polynomial function <em class="EQ">P</em>
 on <em class="EQ">J<sub>P</sub></em> can be described by a shift map .</p>
 
 <div class="Theo" id="propXIV">
 <p><em>Proposition &#8553;&#8547;</em>: Let
-<em class="EQ">P:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">P:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 be a polynomial function of degree <em class="EQ">d</em>.
 If <em class="EQ">&#120018;<sub>P</sub>
 &subset; W<sup>i</sup>(&infin;,P)</em>, then
@@ -2063,8 +2066,8 @@ if <em class="EQ">k<sub>1</sub></em> is the number of super-attracting
 or attracting periodic orbits, and
 <em class="EQ">k<sub>2</sub></em> is the number of neutral periodic
 orbits of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>, then
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>, then
 <em class="EQ">k<sub>1</sub> + k<sub>2</sub>/2 &le; 2d-2</em>.  In
 fact, <script language="javascript">
   buildLinK("AD", "Douady and Hubbard", "MMathSStat", "ADid", "_top");
@@ -2076,8 +2079,8 @@ concept of <em>polynomial-like</em> functions.</p>
 <p><em>Proposition &#8553;&#8548;</em>: The total number of
 super-attracting, attracting or neutral periodic orbits of a
 polynomial function
-<em class="EQ">P:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em> of
+<em class="EQ">P:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em> of
 degree <em class="EQ">d</em> is at most <em class="EQ">d-1</em>.</p>
 </div>
 
@@ -2090,8 +2093,8 @@ unanswered.</p>
 <h3 id="JuliaFig">Graphical Representation of Julia Sets</h3>
 
 <p>The best method to draw the Julia set of a rational function
-<em class="EQ">R:<span class="EQ_Over">&complexes;</span>
-&rarr; <span class="EQ_Over">&complexes;</span></em>
+<em class="EQ">R:<math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>
+&rarr; <math><mover><mi>&complexes;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
 is based on
 <script language="javascript">
   buildLinK("#propI", "Proposition &#8544;",

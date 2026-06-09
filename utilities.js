@@ -256,6 +256,50 @@ function switch_language(lang) {
 */
 
 /**********************************************************************
+ * Functions to add less/more option.
+ * This code was taken from W3 school website 
+ * https://www.w3schools.com/howto/howto_js_read_more.asp
+ * and slightly modified to handle multiple used in the same site
+ * and bilingual content.
+ * Must add
+ *   .moreORless {display: none;}
+ * to the style file style.css.
+ ^ Example of format for a single paragraph.
+ *   <p> text ... <span id="id1" class="moreORless">&nbsp;...</span>
+ *   <span id="id2">hidden text</span></p>
+ *   <button onclick="moreORless('id1','id2','id3',lang)" id="id3">
+ *      Read more</button>
+ * Example of format for a long proof (with proper splitting).
+ *   <p> text ... <span id="id1" class="moreORless">&nbsp;...</span></p>
+ *   <div id="id2">hidden text</div>
+ *   <button onclick="moreORless('id1','id2','id3',lang)" id="id3">
+ *      Read more</button>
+ * In the previous examples, lang is either 'en' or 'fr'.
+ **********************************************************************/
+function moreORless(IDdots,IDtext,IDbnt,lang) {
+  var dotsText = document.getElementById(IDdots);
+  var moreText = document.getElementById(IDtext);
+  var btnText = document.getElementById(IDbnt);
+
+  var textRM = "Read more";
+  var textRL = "Read less";
+  if (lang == "fr") {
+      textRM = "Lire plus";
+      textRL = "Lire moins";
+  }
+  
+  if (dotsText.style.display === "none") {
+    dotsText.style.display = "inline";
+    btnText.innerHTML = textRM;
+    moreText.style.display = "none";
+  } else {
+    dotsText.style.display = "none";
+    btnText.innerHTML = textRL;
+    moreText.style.display = "inline";
+  }
+}
+
+/**********************************************************************
  * Structures for the images
  **********************************************************************/
 

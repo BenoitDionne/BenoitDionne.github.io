@@ -27,6 +27,11 @@ strong { color: inherit; font-weight: bold; }
 /* Images */
 img { border: 0px; padding: 0px; margin: 0px; }
 
+/* For the read more and read less option */
+.moreORless {display: none;}
+button.mORl { background-color: #DFE8FE;
+  border: 1px black solid; padding-right: 1em; padding-left: 1em; }
+
 /* Headers */
 h1 { text-decoration: none; text-align: center; color: black;
   font-weight: bold; font-size: 150%; font-style: normal; }
@@ -48,7 +53,7 @@ address { vertical-align: baseline; text-align: left; }
    displayed as if there was a clear:both added to its style and
    therefore may not appear where expected if there is a floating
    component. */
-hr.MMathSStat { height: 2px; background-color: #8F001A;
+hr.MMathSStat {height: 2px; background-color: #8F001A;
   border: 0px; color: #8F001A; margin-top: 1em; margin-bottom: 1em;
   margin-right: 3em; margin-left:3em; }
 
@@ -158,6 +163,7 @@ table.header td.activeM ul { padding: 0px; margin: 0px;
   border: 0px; list-style-type: disc; }
 table.header td.activeM ul li { padding: 0px;
   margin: 0px; border: 0px; }
+table.header td.activeM ul li::marker { color: white; }
 
 /********************************************************************/
 /*                 Home Page                                        */
@@ -223,24 +229,55 @@ span.small { font-size: 80%; }
 /********************************************************************/
 /*      For the equations and definition in mathematics             */
 /********************************************************************/
-em.EQ { color: #8F001A; font-family: "Courier", monospace;
-  font-size: 110%; font-weight: normal; white-space: nowrap;}
+/*
+em.EQ { color: #8F001A; font-family: math; font-weight: normal;
+  white-space: nowrap;}
+em.EQ_Display { color: #8F001A; font-family: math;
+  padding: 5px; font-weight: normal;  white-space: nowrap;}
+*/
+/*
+em.EQ { color: #8F001A; font-family: "Courier", monospace; font-weight: normal;
+  font-size: 110%;  white-space: nowrap;}
 em.EQ_Display { color: #8F001A; font-family: "Courier", monospace;
-  font-size: 110%; padding: 5px; font-weight: normal;  white-space: nowrap;}
-   /* background-color: white; border: 1px solid black; */
+  font-size: 110%; padding: 5px; font-weight: normal; white-space: nowrap;}
+*/
+em.EQ { color: #8F001A; font-family: "Latin Modern Math"; font-weight: normal;
+  font-size: 100%;  white-space: nowrap;}
+em.EQ_Display { color: #8F001A; font-family: "Latin Modern Math";
+  font-size: 100%; padding: 5px; font-weight: normal; white-space: nowrap;}
 span.EQ_Over { color: inherit; font-family: inherit;
-  font-size: inherit; border-top: 1px #8F001A solid; padding-top: 2px }
+  font-size: inherit; border-top: 1px #8F001A solid;}
 span.EQ_OverOver { color: inherit; font-family: inherit;
-  font-size: inherit; border-top: 1px #8F001A solid; padding-top: 4px }
-span.EQ_OverDot { color: inherit; font-family: inherit;
-  font-size: inherit; border-top: 2px #8F001A dotted; padding-top: 2px }
+  font-size: inherit; border-top: 1px #8F001A solid;}
 span.EQ_Larger { color: inherit; font-family: inherit;
   font-size: 150%;}
-span.EQ_Right { float: right; }
-div.EQ_center { text-align: center; margin: 10px; overflow-x: scroll;
+div.EQ_center { text-align: center; padding: 10px; overflow-x: scroll;
 overflow-y: scroll;}
-math * { color: #8F001A; font-family: "Courier", monospace;
+span.EQ_Right { float: right; }
+
+/*
+math * { color: #8F001A; font-family: math;
+  font-weight: normal; white-space: nowrap;}
+*/
+/*
+math { color: #8F001A; font-family: "Courier", monospace; font-style: normal;
   font-size: 100%; font-weight: normal; white-space: nowrap;}
+math * { color: #8F001A; font-family: "Courier", monospace;  font-style: normal;
+  font-size: 100%; font-weight: normal; white-space: nowrap;}
+*/
+math { color: #8F001A; font-family: "Latin Modern Math";
+  font-size: 100%; font-weight: normal; white-space: nowrap;}
+math * { color: #8F001A; font-family: "Latin Modern Math";
+  font-size: 100%; font-weight: normal; white-space: nowrap;}
+math mn.ss1 {font-size: 80%;}
+math mn.ss2 {font-size: 60%;}
+math mi.ss1 {font-size: 80%;}
+math mi.ss2 {font-size: 60%;}
+math mo.ss1 {font-size: 80%;}
+math mo.ss2 {font-size: 60%;}
+
+span.Proof_Right { float: right; }
+
 span.math_smaller { font-size: 90%;}
 
 canvas { background-color: white; border: 1px solid #8F001A; }
@@ -281,25 +318,28 @@ ol.Code > li { border-top: 2px solid #8F001A; }
 /*               To produce a light printout                        */
 /********************************************************************/
 @media print {
-       body { margin: 0cm; background-color: #FFFFFF;
-       font-size: 8pt; font-weight: normal; color: black;
-       font-style: normal; font-family: "Times New Roman", serif; }
+body { margin: 0cm; background-color: #FFFFFF;
+font-size: 8pt; font-weight: normal; color: black;
+font-style: normal; font-family: "Times New Roman", serif; }
 
-       /* Change the font of the text to something easier to read */
-       font.page_contents { font-weight: normal; font-size: 100%;
-       color: black; font-style: normal;
-       font-family: "Times New Roman", serif; }
+/* Change the font of the text to something easier to read */
+font.page_contents { font-weight: normal; font-size: 100%;
+color: black; font-style: normal;
+font-family: "Times New Roman", serif; }
 
-       /* Remove the static position of the contents of the page */
-       div.page_contents { position: relative; left:0px; top: 0px; 
-       page-break-inside: auto; }
+/* Remove the static position of the contents of the page */
+div.page_contents { position: relative; left:0px; top: 0px; 
+page-break-inside: auto; }
 
-       /* Hide the menu */
-       div#header { display: none; }
+/* Hide the menu */
+div#header { display: none; }
 
-       /* Hide the "Back to the top" fixed box */
-       div.topPAGE { display: none; }
-       img.topPAGE { display: none; }
+/* Hide the "Back to the top" fixed box */
+div.topPAGE { display: none; }
+img.topPAGE { display: none; }
+
+/* Display the full proofs */
+.moreORless {display: block;}
 }
 
 /********************************************************************/
@@ -307,6 +347,6 @@ ol.Code > li { border-top: 2px solid #8F001A; }
 /********************************************************************/
 q:lang(en) { quotes: '"' '"' "'" "'"; font: inherit; color: inherit; }
 q:lang(fr) { quotes: "\00AB" "\00BB" "\2039" "\203A"; font: inherit;
-color: inherit; }
+ color: inherit; }
 q:before { content: open-quote }
 q:after  { content: close-quote }

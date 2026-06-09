@@ -171,7 +171,8 @@ function logisticDDS(lang) {
     var nbr = Number( document.getElementById("logistic_nbr").value );
 
     ctx.clearRect(0,0, cnvs.width, cnvs.height);
-	
+
+    /*
     if ( (mu <= 1) || (4 <= mu) ) {
 	ctx.beginPath();
 	var u = "You must have 1 < mu < 4.";
@@ -183,6 +184,7 @@ function logisticDDS(lang) {
 	ctx.closePath();
 	exit;
     }
+    */
     if ( (x <= 0) || (1 <= x) ) {
 	ctx.beginPath();
 	var u = "You must have 0 < x < 1";

@@ -367,10 +367,17 @@ websites[websites_nbr++] = Mbs_math_app;
  *  under math_chaos
  ******************************************************************/
 
-/* Fractal Geometry */
+/* Chaos and Fractal */
+
+var fractal0 = new item
+    ("Syst&egrave;mes dynamiques discrets", "Discrete Dynamical Ssystems",
+     location_bd+"math_stat/fractal/fractal0_fr.html",
+     location_bd+"math_stat/fractal/fractal0_en.html",
+     null, null, null, "fractal0", "_top", "fractal0");
+websites[websites_nbr++] = fractal0;
 
 var fractal1 = new item
-    ("Syst&egrave;mes dynamiques discrets", "Discrete Dynamical Ssystems",
+    ("Comportement chaotique", "Chaotic behaviour",
      location_bd+"math_stat/fractal/fractal1_fr.html",
      location_bd+"math_stat/fractal/fractal1_en.html",
      null, null, null, "fractal1", "_top", "fractal1");
@@ -790,6 +797,8 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 	    (math_chaos, welcomeLinks[welcome_nbr], mathLinks, applyLinks);
 	{
 	    var apply_nbr = 0;
+	    applyLinks[apply_nbr++]
+		= initItem(fractal0, mathLinks[math_nbr], applyLinks, null); 
 	    applyLinks[apply_nbr++]
 		= initItem(fractal1, mathLinks[math_nbr], applyLinks, null); 
 	    applyLinks[apply_nbr++]
