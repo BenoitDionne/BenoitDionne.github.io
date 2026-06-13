@@ -1114,8 +1114,6 @@ because <span id="proof1A">&nbsp;...</span></p>
        alt="graph of f_\mu" class="framed">
 </div>
 
-<!-- HERE mathml -->
-
 <p>We get from Taylor's expansion theorem that</p>
 
 <math display="block" style="display:block math;">
@@ -1298,11 +1296,11 @@ Since
 <math display="inline"><mrow><msub><mi>f</mi><mi class="ss1">&mu;</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
-<mn>1</mn><mi>/</mi><mn>2,1</mn>
+<mn>1</mn><mi>/</mi><mn>2,</mn><mo separator="true">,</mo><mn>1</mn>
 <mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
 <mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
-<mn>0,1</mn><mi>/</mi><mn>2</mn>
+<mn>0</mn><mo separator="true">,</mo><mn>1</mn><mi>/</mi><mn>2</mn>
 <mo fence="true" form="postfix" stretchy="false">]</mo></mrow></mrow></math>,
 it is enough to assume that
 <math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">0</mn></msub>
@@ -1361,10 +1359,6 @@ Since the function
 is continuous, we have from
 <math display="inline"><mrow><msub><mi>x</mi><mi class="ss1">n</mi></msub>
 <mo>&rarr;</mo><mi>q</mi></mrow></math>
-
-<!-- HERE mathml -->
-
-<em class="EQ">x<sub>n</sub> &rarr; q</em>
 as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
 </math>
@@ -1378,7 +1372,7 @@ that
 <mo>&rarr;</mo><msub><mi>f</mi><mi class="ss1">&mu;</mi></msub>
 <mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mi>q</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-<mo>&lt;</mo><mi>q</mi></mrow></math>
+<mo>&gt;</mo><mi>q</mi></mrow></math>
 as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
 </math>.
@@ -1489,18 +1483,31 @@ be the unique point such that
 <mo fence="true" form="postfix" stretchy="false">)</mo>
 </mrow><mo>=</mo><msub><mi>p</mi><mi class="ss1">&mu;</mi></msub></mrow>
 </math>.
-
-<!-- HERE mathml -->
-
-We proceed as we have done to prove that <em class="EQ">x<sub>n</sub>
-&rarr; p<sub>&mu;</sub></em> as
+We proceed as we have done to prove that
+<math display="inline"><mrow>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo>&rarr;</mo><msub><mi>p</mi><mi class="ss1">&mu;</mi></msub></mrow>
+</math>
+as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
 </math>
-for <em class="EQ">&mu; = 2</em> to prove that there
-exists an integer <em class="EQ">M</em> such that
-<em class="EQ">x<sub>M</sub> &ge; q<sub>&mu;</sub></em>.
-Suppose that <em class="EQ">x<sub>n</sub> &lt; q<sub>&mu;</em>
-for all <em class="EQ">n</em>.  Since the sequence
+for
+<math display="inline"><mrow><mi>&mu;</mi><mo>=</mo><mn>2</mn></mrow></math>
+to prove that there exists an integer
+<math display="inline"><mi>M</mi></math>
+such that
+<math display="inline"><mrow>
+<msub><mi>x</mi><mi class="ss1">M</mi></msub>
+<mo>&ge;</mo><msub><mi>q</mi><mi class="ss1">&mu;</mi></msub></mrow>
+</math>.
+Suppose that
+<math display="inline"><mrow>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo>&lt;</mo><msub><mi>q</mi><mi class="ss1">&mu;</mi></msub></mrow>
+</math>
+for all
+<em class="EQ">n</em>.
+Since the sequence
 <math display="inline"><mrow><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
 <msub><mi>x</mi><mi class="ss1">n</mi></msub>
@@ -1508,144 +1515,467 @@ for all <em class="EQ">n</em>.  Since the sequence
 <mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
 <mn class="ss1">0</mn></mrow></msub></mrow></math>
 is an increasing sequence bounded above by
-<em class="EQ">q<sub>&mu;</sub></em>, it converges
-to <em class="EQ">q &le; q<sub>&mu;</sub></em> as
+<math display="inline"><mrow>
+<msub><mi>q</mi><mi class="ss1">&mu;</mi></msub></mrow>
+</math>,
+it converges to
+<math display="inline"><mrow><mi>q</mi>
+<mo>&le;</mo><msub><mi>q</mi><mi class="ss1">&mu;</mi></msub></mrow>
+</math>
+as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
 </math>.
 Since the function
-<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math> is continuous, we have from
-<em class="EQ">x<sub>n</sub> &rarr; q</em> as
+<math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
+is continuous, we have from
+<math display="inline"><mrow><msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo>&rarr;</mo><mi>q</mi></mrow></math>
+as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
-</math> that
-<em class="EQ">x<sub>n+1</sub> = f<sub>&mu;</sub>(x<sub>n</sub>)
-  &rarr; f<sub>&mu;</sub>(q) &lt; q</em>
+</math>
+that
+<math display="inline"><mrow><msub><mi>x</mi><mrow><mi class="ss1">n</mi>
+<mo class="ss1">+</mo><mn class="ss1">1</mn></mrow></msub>
+<mo>=</mo><msub><mi>f</mi><mi class="ss1">&mu;</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&rarr;</mo><msub><mi>f</mi><mi class="ss1">&mu;</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>q</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&gt;</mo><mi>q</mi></mrow></math>
 as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
 </math>.
 But
-<em class="EQ">x<sub>n+1</sub> &rarr; q</em> as
+<math display="inline"><mrow>
+<msub><mi>x</mi><mrow><mi class="ss1">n</mi>
+<mo class="ss1">+</mo><mn class="ss1">1</mn></mrow></msub>
+<mo>&rarr;</mo><mi>q</mi></mrow>
+</math>
+as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
 </math>.
-This is a contradiction.
-Therefore, there exists an integer <em class="EQ">M</em> such that
-<em class="EQ">x<sub>M</sub> &ge; q<sub>&mu;</sub></em>.</li>
+This is a contradiction.  Therefore, there exists an integer
+<math display="inline"><mi>M</mi></math>
+such that
+<math display="inline"><mrow>
+<msub><mi>x</mi><mi class="ss1">M</mi></msub>
+<mo>&ge;</mo><msub><mi>q</mi><mi class="ss1">&mu;</mi></msub></mrow>
+</math>.
+</li>
 <li>Since the function
 <math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
-is decreasing
-on <em class="EQ">[p<sub>&mu;</sub>,&mu;/4]</em>, we have
-that <em class="EQ">f<sub>&mu;</sub>([p<sub>&mu;</sub>,&mu;/4])
-&subset;
-[f<sub>&mu;</sub>(&mu;/4),f<sub>&mu;</sub>(p<sub>&mu;</sub>)]
-&subset; [1/2,p<sub>&mu;</sub>]</em>.  Moreover,
-since the function
+is decreasing on
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo>
+<msub><mi>p</mi><mi class="ss1">&mu;</mi></msub>
+<mo separator="true">,</mo><mi>&mu;</mi><mi>/</mi><mn>4</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow></math>,
+we have that
+<math display="inline"><mrow><msub><mi>f</mi><mi class="ss1">&mu;</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<msub><mi>p</mi><mi class="ss1">&mu;</mi></msub>
+<mo separator="true">,</mo><mi>&mu;</mi><mi>/</mi><mn>4</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&subset;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<msub><mi>f</mi><mi class="ss1">&mu;</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&mu;</mi><mi>/</mi><mn>4</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo>
+<msub><mi>f</mi><mi class="ss1">&mu;</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mi class="ss1">&mu;</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo>&subset;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn><mo separator="true">,</mo>
+<msub><mi>p</mi><mi class="ss1">&mu;</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+</mrow></math>.
+Moreover, since the function
 <math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
-is increasing
-on <em class="EQ">[q<sub>&mu;</sub>,1/2]</em>, we have
-that
-<div class="EQ_center">
-<em class="EQ_Display">
-f<sub>&mu;</sub><sup>&compfn;2</sup>([q<sub>&mu;</sub>,1/2])
-= f<sub>&mu;</sub>(f<sub>&mu;</sub>([q<sub>&mu;</sub>,1/2])  
-&subset;
-f<sub>&mu;</sub>([f<sub>&mu;</sub>(q<sub>&mu;</sub>),f<sub>&mu;</sub>(1/2)]) <br>
-= f<sub>&mu;</sub>([p<sub>&mu;</sub>,&mu;/4])
-&subset; [1/2,p<sub>&mu;</sub>]</em> .
-</div>
+is increasing on
+<math display="inline">
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<msub><mi>q</mi><mi class="ss1">&mu;</mi></msub>
+<mo separator="true">,</mo><mn>1</mn><mi>/</mi><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow></math>,
+we have that
+
+<math display="block" style="display:block math;">
+<mrow><msubsup><mi>f</mi><mi class="ss1">μ</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<msub><mi>q</mi><mi>μ</mi></msub><mo separator="true">,</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo>
+<msub><mi>f</mi><mi class="ss1">μ</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>f</mi><mi class="ss1">μ</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<msub><mi>q</mi><mi class="ss1">μ</mi></msub>
+<mo separator="true">,</mo><mn>1</mn><mi>/</mi><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&subset;</mo><msub><mi>f</mi><mi class="ss1">μ</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mi>f</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>q</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><msub><mi>f</mi><mi class="ss1">μ</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+
+<math display="block" style="display:block math;"><mrow>
+<mo>=</mo><msub><mi>f</mi><mi class="ss1">μ</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo separator="true">,</mo><mi>μ</mi><mi>/</mi><mn>4</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&subset;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn><mo separator="true">,</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+</mrow></math>
 </li>
 <li>Note that we cannot get
-<em class="EQ">x<sub>M</sub> &gt; p<sub>&mu;</em> without
-having had
-<em class="EQ">x<sub>n</sub> &in;
-]q<sub>&mu;</sub>,p<sub>&mu;</sub>[</em>
-for some integer <em class="EQ">n &lt; M</em>.  Thus, we may assume that
-<em class="EQ">x<sub>M</sub> &in;
-[q<sub>&mu;</sub>,p<sub>&mu;</sub>]</em>.
-If <em class="EQ">x<sub>M</sub> &in; [1/2,p<sub>&mu;</sub>]</em>, then
-we can take <em class="EQ">N = M</em>.  if
-<em class="EQ">x<sub>M</sub> &in; [q<sub>&mu;</sub>,1/2]</em>,
+<math display="inline"><mrow>
+<msub><mi>x</mi><mi class="ss1">M</mi></msub>
+<mo>&gt;</mo><msub><mi>p</mi><mi class="ss1">&mu;</mi></msub></mrow>
+</math>
+without having had
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">n</mn></msub>
+<mo>&in;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo>
+<msub><mi>q</mi><mn class="ss1">&mu;</mn></msub><mo separator="true">,</mo>
+<msub><mi>p</mi><mn class="ss1">&mu;</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow></mrow></math>.
+for some integer
+<math display="inline"><mrow><mi>n</mi><mo>&lt;</mo><mi>M</mi></mrow>
+</math>.
+Thus, we may assume that
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">M</mn></msub>
+<mo>&in;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo>
+<msub><mi>q</mi><mn class="ss1">&mu;</mn></msub><mo separator="true">,</mo>
+<msub><mi>p</mi><mn class="ss1">&mu;</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+</mrow></math>.
+If
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">M</mn></msub>
+<mo>&in;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn><mo separator="true">,</mo>
+<msub><mi>p</mi><mn class="ss1">&mu;</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+</mrow></math>,
+then we can take
+<math display="inline"><mrow><mi>N</mi><mo>=</mo><mi>M</mi></mrow>
+</math>.
+if
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">M</mn></msub>
+<mo>&in;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo>
+<msub><mi>q</mi><mn class="ss1">&mu;</mn></msub>
+<mo separator="true">,</mo><mn>1</mn><mi>/</mi><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+</mrow></math>,
 then we get from (ii) that
-<em class="EQ">x<sub>N</sub> &in; [1/2,p<sub>&mu;</sub>]</em>
-for <em class="EQ">N = M+2</em>.</li>
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">M</mn></msub>
+<mo>&in;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn><mo separator="true">,</mo>
+<msub><mi>p</mi><mn class="ss1">&mu;</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+</mrow></math>
+for
+<math display="inline"><mrow><mi>N</mi><mo>=</mo><mi>M</mi>
+<mo>+</mo><mn>2</mn></mrow></math>.
+</li>
 </ol>
 <p>If follows from the previous discussion that we only have to consider
-orbits <math display="inline"><mrow><msub><mrow>
+orbits
+<math display="inline"><mrow><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
 <msub><mi>x</mi><mi class="ss1">n</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
 <mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
 <mn class="ss1">0</mn></mrow></msub></mrow></math>.
- with
-<em class="EQ">x<sub>0</sub> &in; [1/2,p<sub>&mu;</sub>]</em>.
+with
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo>&in;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn><mo separator="true">,</mo>
+<msub><mi>p</mi><mn class="ss1">&mu;</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+</mrow></math>.
 As we have done in (ii) above, we can show that
-<em class="EQ">
-f<sub>&mu;</sub><sup>&compfn;2</sup>([1/2,p<sub>&mu;</sub>])
-&subset; [1/2,p<sub>&mu;</sub>]</em>.  Moreover, since
-<em class="EQ">(f<sub>&mu;</sub><sup>&compfn;2</sup>)'</em> is
-increasing on <em class="EQ">[1/2,p<sub>&mu;</sub>]</em> with
-<em class="EQ">(f<sub>&mu;</sub><sup>&compfn;2</sup>)'(1/2) = 0</em>,
-we get that
-<div class="EQ_center">
-<em class="EQ_Display">
-|(f<sub>&mu;</sub><sup>&compfn;2</sup>)'(x)|
-&le;
-|(f<sub>&mu;</sub><sup>&compfn;2</sup>)'(p<sub>&mu;</sub>)|
-=
-|f<sub>&mu;</sub>'(f<sub>&mu;</sub>(p<sub>&mu;</sub>))|&thinsp;|f<sub>&mu;</sub>'(p<sub>&mu;</sub>)|
-<br>
-= |f<sub>&mu;</sub>'(p<sub>&mu;</sub>)|<sup>2</sup>
-= |2-&mu;|<sup>2</sup> &lt; 1
-</em>
-</div>
-<p>for <em class="EQ">x &in; [1/2,p<sub>&mu;</sub>]</em>.
+<math display="inline"><mrow><msubsup><mi>f</mi><mi class="ss1">μ</mi>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn><mo separator="true">,</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&subset;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn><mo separator="true">,</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow></mrow>
+</math>.
+Moreover, since
+<math display="inline"><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msubsup><mi>f</mi><mi class="ss1">μ</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msup>
+</math>
+is increasing on
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn><mo separator="true">,</mo>
+<msub><mi>p</mi><mn class="ss1">&mu;</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow></math>.
+with
+<math display="inline"><mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msubsup><mi>f</mi><mi class="ss1">μ</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mn>0</mn></mrow></math>,
+we get that</p>
+
+<math display="block" style="display:block math;">
+<mrow><mi>|</mi><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msubsup><mi>f</mi><mi class="ss1">&mu;</mi>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mi>|</mi><mo>&le;</mo>
+<mi>|</mi><msup>
+<mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msubsup><mi>f</mi><mi class="ss1">μ</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mi class="ss1">&mu;</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi>|</mi><mo>=</mo>
+<mi>|</mi><msubsup><mi>f</mi><mi class="ss1">μ</mi>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>f</mi><mi class="ss1">&mu;</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi>|</mi><mi>|</mi><msubsup><mi>f</mi><mi class="ss1">μ</mi>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>|</mi>
+</mrow></math>
+
+<math display="block" style="display:block math;"><mrow>
+<mo>=</mo><mi>|</mi><msubsup><mi>f</mi><mi class="ss1">μ</mi>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<msup><mi>|</mi><mn class="ss1">2</mn></msup>
+<mo>=</mo><mi>|</mi><mn>2</mn><mo>−</mo><mi>μ</mi><msup>
+<mi>|</mi><mn class="ss1">2</mn></msup><mo>&lt;</mo>
+<mn>1</mn></mrow></math>
+<p>for
+<math display="inline"><mrow><mi>x</mi><mo>&in;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn><mo separator="true">,</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow></mrow>
+</math>.
 Thus, we get from the Mean Value Theorem that
-<em class="EQ">
-|f<sub>&mu;</sub><sup>&compfn;2</sup>(x)-p<sub>&mu;</sub>|
-= |f<sub>&mu;</sub><sup>&compfn;2</sup>(x)-f<sub>&mu;</sub><sup>&compfn;2</sup>(p<sub>&mu;</sub>)|
-&le; |2-&mu;|&thinsp;|x-p<sub>&mu;</sub>|</em>
-for <em class="EQ">x &in; [1/2,p<sub>&mu;</sub>]</em>.
+<math display="inline"><mrow><mi>|</mi><msubsup><mi>f</mi>
+<mi class="ss1">&mu;</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>−</mo>
+<msub><mi>p</mi><mi class="ss1">&mu;</mi></msub><mi>|</mi>
+<mo>=</mo><mi>|</mi><msubsup><mi>f</mi><mi class="ss1">&mu;</mi>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>−</mo><msubsup><mi>f</mi><mi class="ss1">μ</mi>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mi>|</mi>
+<mo>&le;</mo><mi>|</mi><mn>2</mn><mo>−</mo><mi>μ</mi><msup>
+<mi>|</mi><mn class="ss1">2</mn></msup><mi>|</mi>
+<mi>x</mi><mo>−</mo><msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mi>|</mi></mrow></math>
+for
+<math display="inline"><mrow><mi>x</mi><mo>&in;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn><mo separator="true">,</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow></mrow>
+</math>.
 It follows by a standard induction procedure that
-<em class="EQ">
-|f<sub>&mu;</sub><sup>&compfn;2k</sup>(x<sub>0</sub>)-p<sub>&mu;</sub>| 
-&le; |2-&mu;|<sup>2k</sup> |x<sub>0</sub>-p<sub>&mu;</sub>|</em>
-for <em class="EQ">k &gt; 0</em>.  Hence,
-<em class="EQ">x<sub>2k</sub> =
-f<sub>&mu;</sub><sup>&compfn;2k</sup>(x<sub>0</sub>) &rarr; 
-p<sub>&mu;</sub></em> as <em class="EQ">k &rarr; &infin;</em>.
-However,
-since <em class="EQ">|(f<sub>&mu;</sub>)'(p<sub>&mu;</sub>)|
-= |2- &mu;| &lt; 1</em>, we get from the previous proposition
-that there exists <em class="EQ">&delta; &gt; 0</em> such that any
-orbit <math display="inline"><mrow><msub><mrow>
+<math display="inline"><mrow><mi>|</mi><msubsup><mi>f</mi>
+<mi class="ss1">μ</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>−</mo><msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mi>|</mi><mo>&le;</mo><mi>|</mi><mn>2</mn>
+<mo>−</mo><mi>μ</mi><msup><mi>|</mi><mrow>
+<mn class="ss1">2</mn><mi class="ss1">k</mi></mrow></msup>
+<mi>|</mi><msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo>−</mo><msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mi>|</mi></mrow></math>
+for
+<math display="inline"><mrow><mi>k</mi><mo>&gt;</mo>
+<mn>0</mn></mrow></math>.
+Hence,
+<math display="inline"><mrow><msub><mi>x</mi><mrow>
+<mn class="ss1">2</mn><mi class="ss1">k</mi></mrow></msub>
+<mo>=</mo><msubsup><mi>f</mi><mi class="ss1">μ</mi>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn><mi class="ss1">k</mi></mrow></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>→</mo><msub><mi>p</mi><m class="ss1"i>μ</mi></msub></mrow>
+</math>
+as
+<math display="inline"><mrow><mi>k</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+However, since
+<math display="inline"><mrow><mi>|</mi><msubsup><mi>f</mi>
+<mi class="ss1">μ</mi>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi>|</mi><mo>=</mo><mi>|</mi><mn>2</mn><mo>−</mo><mi>μ</mi>
+<mi>|</mi><mo>&lt;</mo><mn>1</mn></mrow></math>,
+we get from the previous proposition that there exists
+<math display="inline"><mrow><mi>&delta;</mi><mo>&gt;</mo>
+<mn>0</mn></mrow></math>
+such that any orbit
+<math display="inline"><mrow><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
 <msub><mi>x</mi><mi class="ss1">n</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
 <mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
 <mn class="ss1">0</mn></mrow></msub></mrow></math>
 with
-<em class="EQ">x<sub>0</sub> &in;
-]p<sub>&mu;</sub>-&delta;,p<sub>&mu;</sub>+&delta;[</em>
-converges to 
-<em class="EQ">p<sub>&mu;</sub></em> as
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo>&in;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">]</mo>
+<msub><mi>p</mi><mn class="ss1">&mu;</mn></msub><mo>-</mo><mi>&delta;</mi>
+<mo separator="true">,</mo>
+<msub><mi>p</mi><mn class="ss1">&mu;</mn></msub><mo>+</mo><mi>&delta;</mi>
+<mo fence="true" form="postfix" stretchy="false">[</mo></mrow>
+</mrow></math>
+converges to
+<math display="inline"><mrow><msub><mi>p</mi>
+<mn class="ss1">&mu;</mn></msub></mrow></math>
+as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
 </math>.
-Therefore, for a large enough integer <em class="EQ">k</em>, we have that
-<em class="EQ">x<sub>2k</sub> &in;
-]p<sub>&mu;</sub>-&delta;,p<sub>&mu;</sub>+&delta;[</em>
+Therefore, for a large enough integer
+<math display="inline"><mi>k</mi></math>,
+we have that
+<math display="inline"><mrow><msub><mi>x</mi><mrow><mn class="ss1">2</mn>
+<mi class="ss1">k</mi></mrow></msub><mo>&in;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">]</mo>
+<msub><mi>p</mi><mn class="ss1">&mu;</mn></msub><mo>-</mo><mi>&delta;</mi>
+<mo separator="true">,</mo>
+<msub><mi>p</mi><mn class="ss1">&mu;</mn></msub><mo>+</mo><mi>&delta;</mi>
+<mo fence="true" form="postfix" stretchy="false">[</mo></mrow>
+</mrow></math>
 and so
-<em class="EQ">{x<sub>n</sub>}<sub>n&ge;2k</sub></em>
-converges to <em class="EQ">p<sub>&mu;</sub></em> as
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">2</mn><mi class="ss1">k</mi></mrow>
+</msub></mrow></math>
+converges to
+<math display="inline"><mrow><msub><mi>p</mi>
+<mn class="ss1">&mu;</mn></msub></mrow></math>
+as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
 </math>.
 &nbsp;<span class="Proof_Right">&#8718;</span></p>
 </div>
 <button onclick="moreORless('proof1A','proof1B','proof1C','en')" class="mORl" id="proof1C">Read more</button>
 
-<p>For instance, if <em class="EQ">&mu; = 2</em>, the
-graphical application above shows that the graph of
-<em class="EQ">f<sub>2</sub></em>
-intersects the line <em class="EQ">y = x</em> at
-<em class="EQ">x = p<sub>2</sub> = 1/2</em> only.  It is a
-fixed point of <em class="EQ">f<sub>2</sub></em> and all orbits
+<p>For instance, if
+<math display="inline"><mrow><mi>&mu;</mi><mo>=</mo><mn>2</mn></mrow></math>,
+the graphical application above shows that the graph of
+<math display="inline"><mrow><msub><mi>f</mi><mn class="ss1">2</mn>
+</mrow></math> 
+intersects the line
+<math display="inline"><mrow><mi>y</mi><mo>=</mo><mi>x</mi></mrow></math>
+at
+<math display="inline"><mrow><mi>x</mi><mo>=</mo>
+<msub><mi>p</mi><mn class="ss1">2</mn></msub><mo>=</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn></mrow></math>
+only.  It is a fixed point of
+<math display="inline"><mrow><msub><mi>f</mi><mn class="ss1">2</mn>
+</mrow></math> 
+and all orbits
 <math display="inline"><mrow><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
 <msub><mi>x</mi><mi class="ss1">n</mi></msub>
@@ -1653,63 +1983,104 @@ fixed point of <em class="EQ">f<sub>2</sub></em> and all orbits
 <mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
 <mn class="ss1">0</mn></mrow></msub></mrow></math>
 with
-<em class="EQ">x<sub>0</sub> &in; ]0,1[</em>
-converge to <em class="EQ">p<sub>2</sub></em> as
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">0</mn>
+</msub><mo>&in;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">]</mo>
+<mn>0</mn><mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">[</mo></mrow></mrow></math>
+converge to
+<math display="inline"><mrow><msub><mi>p</mi><mn class="ss1">2</mn>
+</mrow></math> 
+as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
 </math>.</p>
 
 <p>A very surprising phenomenon happens when
 <math display="inline"><mi>&mu;</mi></math>
-goes through <em class="EQ">3</em>.  For
+goes through
+<math display="inline"><mn>3</mn></math>.
+For
 <math display="inline"><mi>&mu;</mi></math>
-slightly smaller than <em class="EQ">3</em>, the function
+slightly smaller than
+<math display="inline"><mn>3</mn></math>,
+the function
 <math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
 has a unique positive fixed point
-<em class="EQ">p<sub>&mu;</sub></em> as we have shown above and
-all orbits
+<math display="inline"><msub><mi>p</mi><mi class="ss1">μ</mi></msub></math>
+as we have shown above and all orbits
 <math display="inline"><mrow><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
 <msub><mi>x</mi><mi class="ss1">n</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
 <mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
 <mn class="ss1">0</mn></mrow></msub></mrow></math>
-with <em class="EQ">x<sub>0</sub> &in; ]0,1[</em> converge to
-<em class="EQ">p<sub>&mu;</sub></em>
+with
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">0</mn>
+</msub><mo>&in;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">]</mo>
+<mn>0</mn><mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">[</mo></mrow></mrow></math>
+converge to
+<math display="inline"><msub><mi>p</mi><mi class="ss1">μ</mi></msub></math>
 as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
 </math>.
 However, for
-<math display="inline"><mi>&mu;</mi></math> slightly larger than
-<em class="EQ">3</em>, the function
+<math display="inline"><mi>&mu;</mi></math>
+slightly larger than
+<math display="inline"><mn>3</mn></math>,
+the function
 <math display="inline"><msub><mi>f</mi><mi class="ss1">μ</mi></msub></math>
-still has a unique positive fixed
-point <em class="EQ">p<sub>&mu;</sub></em> but it also has
-a period orbit <em class="EQ">{z<sub>n</sub>}<sub>n&ge;0</sub></em>
-of period <em class="EQ">2</em> such that
-all orbits
+still has a unique positive fixed point
+<math display="inline"><msub><mi>p</mi><mi class="ss1">μ</mi></msub></math>
+but it also has a period orbit
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>z</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+of period
+<math display="inline"><mn>2</mn></math>,
+such that all orbits
 <math display="inline"><mrow><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
 <msub><mi>x</mi><mi class="ss1">n</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
 <mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
 <mn class="ss1">0</mn></mrow></msub></mrow></math>
-with <em class="EQ">x<sub>0</sub> &in; ]0,1[</em> and
-<em class="EQ">x<sub>0</sub> &ne; p<sub>&mu;</sub></em>
-<q lang="en">converge</q> to this periodic orbit
-as
+with
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">0</mn>
+</msub><mo>&in;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">]</mo>
+<mn>0</mn><mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">[</mo></mrow></mrow></math>
+and
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo>&ne;</mo><msub><mi>p</mi><mi class="ss1">&mu;</mi></msub></mrow></math>
+<q lang="en">converge</q> to this periodic orbit as
 <math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
 </math>.
 Recall that
-<em class="EQ">z<sub>n+2</sub> = z<sub>n</sub></em> for all
-<em class="EQ">n</em> by definition of a periodic orbit of
-period <em class="EQ">2</em>.  The reader may use the graphical
-application above to compare the behaviour of the orbits when
-<em class="EQ">&mu; = 2.9</em> and
-<em class="EQ">&mu; = 3.1</em>.</p>
+<math display="inline"><mrow><msub><mi>z</mi>
+<mrow><mi class="ss1">n</mi><mo class="ss1">+</mo><mn class="ss1">2</mn></msub>
+<mo>=</mo><msub><mi>z</mi><mi class="ss1">n</mi></msub></mrow></math>
+for all
+<math display="inline"><mi>n</mi></math>
+by definition of a periodic orbit of period
+<math display="inline"><mn>2</mn></math>.
+The reader may use the graphical application above to compare the
+behaviour of the orbits when
+<math display="inline"><mrow><mi>&mu;</mi><mo>=</mo><mn>2.9</mn></mrow></math>
+and
+<math display="inline"><mrow><mi>&mu;</mi><mo>=</mo><mn>3.1</mn></mrow></math>.
+</p>
 
 <div class="Theo">
 <p><em>Definition</em>: Suppose that
-<em class="EQ">f:&reals; &rarr; &reals;</em>.
+<math display="inline">
+<mrow><mi>f</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>&reals;</mi><mo>&rarr;</mo><mi>&reals;</mi></mrow></math>.
 We say that an orbit
 <math display="inline"><mrow><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
@@ -1719,114 +2090,441 @@ We say that an orbit
 <mn class="ss1">0</mn></mrow></msub></mrow></math>
 of the DDS generated by
 <math display="inline"><mi>f</mi></math>
-<em>converges</em> to a
-periodic orbit <em class="EQ">{z<sub>n</sub>}<sub>n&ge;0</sub></em>
-of period <em class="EQ">k</em> for the function
+<em>converges</em> to a periodic orbit
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>z</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+of period
+<math display="inline"><mi>k</mi></math>
+for the function
 <math display="inline"><mi>f</mi></math>
-if there exists an integer <em class="EQ">N</em> such that
-<em class="EQ">f<sup>&compfn;km</sup>(x<sub>0</sub>)</em>
-converges to <em class="EQ">z<sub>N</sub></em>
-as <em class="EQ">m &rarr; &infin;</em>.</p>
+if there exists an integer
+<math display="inline"><mi>N</mi></math>
+such that
+<math display="inline"><mrow><msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">k</mi><mi class="ss1">m</mi></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&rarr;</mo><msub><mi>z</mi><mi class="ss1">N</mi></msub></mrow></math>
+as
+<math display="inline"><mrow><mi>m</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+</p>
 </div>
 
 <p>In the previous definition, if
-<em class="EQ">f<sup>&compfn;km</sup>(x<sub>0</sub>)</em>
-converges to <em class="EQ">z<sub>N</sub></em> for some fixed value
-<em class="EQ">N</em> as <em class="EQ">m &rarr; &infin;</em>, then</p>
-<div class="EQ_center">
-<em class="EQ_Display">f<sup>&compfn;km</sup>(x<sub>j</sub>)
-= f<sup>&compfn;km</sup>(f<sup>&compfn;j</sup>(x<sub>0</sub>))
-= f<sup>&compfn;j</sup>(f<sup>&compfn;km</sup>(x<sub>0</sub>))
-&rarr; f<sup>&compfn;j</sup>(z<sub>N</sub>) = z<sub>N+j</em>
-</em>
-</div>
-<p>as <em class="EQ">m &rarr; &infin;</em> for all <em class="EQ">j</em>.</p>
+<math display="inline"><mrow><msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">k</mi><mi class="ss1">m</mi></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&rarr;</mo><msub><mi>z</mi><mi class="ss1">N</mi></msub></mrow></math>
+for some fixed value
+<math display="inline"><mi>N</mi></math>
+as
+<math display="inline"><mrow><mi>m</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>,
+then</p>
 
-<p>For <em class="EQ">&mu; = 3</em>, we have that
-<em class="EQ">(f<sub>&mu;</sub>)'(p<sub>&mu;</sub>) = -1</em>.
+<math display="block" style="display:block math;"><mrow>
+<msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">k</mi><mi class="ss1">m</mi></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>x</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo>
+<msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">k</mi><mi class="ss1">m</mi></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">j</mi></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">j</mi></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">k</mi><mi class="ss1">m</mi></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>x</mi><mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&rarr;</mo><msup>
+<mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">j</mi></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>z</mi><mi class="ss1">N</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><msub><mi>z</mi>
+<mrow><mi class="ss1">N</mi><mo class="ss1">+</mo><mi class="ss1">j</mi>
+</mrow></msub></mrow></math>
+
+<p>as
+<math display="inline"><mrow><mi>m</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>
+for all
+<math display="inline"><mi>j</mi></math>.
+</p>
+
+<p>For
+<math display="inline"><mrow><mi>&mu;</mi><mo>=</mo><mn>3</mn></mrow></math>,
+we have that
+<math display="inline"><mrow><msubsup><mi>f</mi>
+<mi class="ss1">&mu;</mi><mo lspace="0em" rspace="0em" class="ss1">'</mo>
+</msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mo form="prefix" stretchy="false">−</mo><mn>1</mn></mrow>
+</math>.
 We cannot use <script language="javascript">
 buildLinK("#propI", "Proposition &#8544;", "MMathSStat", "propIId1", "_top");
-</script> to conclude that all orbits starting closed to 
-<em class="EQ">p<sub>&mu;</sub></em> converge to it.
-Nevertheless, this condition on
-<em class="EQ">(f<sub>&mu;</sub>)'(p<sub>&mu;</sub>)</em>
+</script> to conclude that all orbits starting closed to
+<math display="inline"><mrow><msub><mi>p</mi><mi class="ss1">&mu;</mi></msub>
+</mrow></math>
+converge to it.  Nevertheless, the condition
+<math display="inline"><mrow><msubsup><mi>f</mi>
+<mi class="ss1">&mu;</mi><mo lspace="0em" rspace="0em" class="ss1">'</mo>
+</msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mi class="ss1">μ</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mo form="prefix" stretchy="false">−</mo><mn>1</mn></mrow>
+</math>
 is very important as the next theorem will show.  But first, we need
 a little proposition.</p>
 
 <div class="Theo" id="propII">
 <p><em>Proposition &#8545;</em>:
-Suppose that <em class="EQ">g:&reals;&times;&reals; &rarr; &reals;</em> is
-a continuously differentiable function.
-Let <em class="EQ">g<sub>&lambda;</sub>(x) = g(x,&lambda;)</em>
-for all <em class="EQ">(x,&lambda;) &in; &reals;&times;&reals;</em>.  If
-<em class="EQ">g<sub>&lambda;<sub>0</sub></sub>(0) = 0</em> for some
-<em class="EQ">&lambda;<sub>0</sub></em> and
-<em class="EQ">g<sub>&lambda;<sub>0</sub></sub>'(0) &ne; 1</em>,
-then there exist two open intervals <em class="EQ">I</em> and
-<em class="EQ">J</em> such that 
-<em class="EQ">&lambda;<sub>0</sub> &in; I</em> and
-<em class="EQ">0 &in; J</em>, and a continuously
-differentiable function <em class="EQ">p:I &rarr; J</em> such that
-<em class="EQ">p(&lambda;<sub>0</sub>) = 0</em> and
-<em class="EQ">g<sub>&lambda;</sub>(p(&lambda;)) = g(p(&lambda;),&lambda;) =
-p(&lambda;)</em> for <em class="EQ">&lambda; &in; I</em>.
-Moreover, all solutions of 
-<em class="EQ">g<sub>&lambda;</sub>(x) = x</em>
-for <em class="EQ">x &in; J</em> and <em class="EQ">&lambda; &in; I</em>
-are given by <em class="EQ">(x,&lambda;) = (p(&lambda;),&lambda;)</em>. 
+Suppose that
+<math display="inline">
+<mrow><mi>g</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>&reals;</mi><op>&times;</op><mi>&reals;</mi>
+<mo>&rarr;</mo><mi>&reals;</mi></mrow></math>
+is a continuously differentiable function.  Let
+<math display="inline"><mrow><msub><mi>g</mi><mi class="ss1">&lambda;</mi>
+</msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>g</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo separator="true">,</mo><mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+for all
+<math display="inline"><mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&in;</mo><mi>&reals;</mi><mo>&times;</mo><mi>&reals;</mi></mrow>
+</math>.
+If
+<math display="inline"><mrow><msub><mi>g</mi><mrow>
+<msub><mi class="ss1">&lambda;</mi><mn class="ss2">0</mn></msub></mrow>
+</msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mn>0</mn></mrow></math>
+for some
+<math display="inline"><mrow><msub><mi>&lambda;</mi><mn class="ss1">0</mn>
+</msub></mrow></math>
+and
+<math display="inline"><mrow><msubsup><mi>g</mi>
+<msub><mi class="ss1">&lambda;</mi><mn class="ss2">0</mn></msub>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&ne;</mo><mn>1</mn></mrow></math>,
+then there exist two open intervals
+<math display="inline"><mi>I</mi></math>
+and
+<math display="inline"><mi>J</mi></math>
+such that 
+<math display="inline"><mrow><msub><mi>&lambda;</mi><mn class="ss1">0</mn>
+</msub><op>&in;</op><mi>I</mi></mrow></math>
+and
+<math display="inline"><mrow><mn>0</mn><op>&in;</op><mi>J</mi></mrow></math>,
+and a continuously differentiable function
+<math display="inline"><mrow><mi>p</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>I</mi><mo>&rarr;</mo><mi>J</mi></mrow></math>
+such that
+<math display="inline"><mrow><mi>p</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>&lambda;</mi><mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mn>0</mn></mrow></math>
+and
+<math display="inline"><mrow><msub><mi>g</mi><mi class="ss1">&lambda;</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&lambda;</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo>
+<mi>g</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&lambda;</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo separator="true">,</mo><mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo>
+<mi>p</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</math>
+for
+<math display="inline"><mrow><mi>&lambda;</mi><op>&in;</op>
+<mi>I</mi></mrow></math>.
+Moreover, all solutions of
+<math display="inline"><mrow><mi>g</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo separator="true">,</mo><mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>x</mi></mrow></math>
+for
+<math display="inline"><mrow><mi>x</mi><op>&in;</op>
+<mi>J</mi></mrow></math>
+and
+<math display="inline"><mrow><mi>&lambda;</mi><op>&in;</op>
+<mi>I</mi></mrow></math>
+are given by
+<math display="inline"><mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo separator="true">,</mo><mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&lambda;</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo separator="true">,</mo><mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</math>.
 </p>
 </div>
 
 <p><em>Proof </em>: Let
-<em class="EQ">G:&reals;&times;&reals; &rarr; &reals;</em>
-be the function defined by <em class="EQ">G(x,&lambda;) =
-g<sub>&lambda;</sub>(x) - x</em>.  We have that
-<em class="EQ">
-G(0,&lambda;<sub>0</sub>) = g<sub>&lambda;<sub>0</sub></sub>(0) - 0 = 0</em>
+<math display="inline">
+<mrow><mi>G</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>&reals;</mi><op>&times;</op><mi>&reals;</mi>
+<mo>&rarr;</mo><mi>&reals;</mi></mrow></math>
+be the function defined by
+<math display="inline"><mrow><mi>G</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo separator="true">,</mo><mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo>
+<msub><mi>g</mi><mi class="ss1">&lambda;</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>-</mo><mi>x</mi></mrow></math>.
+We have that
+<math display="inline"><mrow><mi>G</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>0</mn><mo separator="true">,</mo>
+<mrow><msub><mi>&lambda;</mi><mn>0</mn></msub></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo>
+<msub><mi>g</mi><mrow><msub><mi class="ss1">&lambda;</mi>
+<mn class="ss2">0</mn></mrow></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>-</mo><mn>0</mn><mo>=</mo><mn>0</mn></mrow></math>.
 and
-<em class="EQ">
-<math><mfrac><mi>&part;G</mi><mi>&part;x</mi></mfrac></math>(0,&lambda;<sub>0</sub>)
-= g<sub>&lambda;<sub>0</sub></sub>'(0) - 1 &ne; 0</em>.
-Hence, the conclusion of the proposition follows from the
-Implicit Function Theorem.
+<math display="inline"><mrow><mfrac>
+<mrow><mi>&part;</mi><mi>G</mi></mrow>
+<mrow><mi>&part;</mi><mi>x</mi></mrow></mfrac><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>0</mn><mo separator="true">,</mo><msub><mi class="ss1">λ</mi>
+<mn class="ss2">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo>
+<msubsup><mi>g</mi><msub><mi class="ss1">&lambda;</mi><mn class="ss2">0</mn>
+</msub><mo lspace="0em" rspace="0em" class="ss1">'</mo></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>−</mo><mn>1</mn><mo>&ne;</mo><mn>0</mn></mrow></math>.
+Hence, the conclusion of the proposition follows from the Implicit
+Function Theorem.
 &nbsp;<span class="Proof_Right">&#8718;</span></p>
 
 <div class="Theo">
 <p><em>Theorem (Period-Doubling Bifurcation)</em>:
-Suppose that <em class="EQ">g:&reals;&times;&reals; &rarr; &reals;</em> is
-a three-time continuously differentiable functions.
-Let <em class="EQ">g<sub>&lambda;</sub>(x) = g(x,&lambda;)</em>,
-<em class="EQ">G(x,&lambda;) = g(g(x,&lambda;),&lambda;)</em>
+Suppose that
+<math display="inline">
+<mrow><mi>g</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>&reals;</mi><op>&times;</op><mi>&reals;</mi>
+<mo>&rarr;</mo><mi>&reals;</mi></mrow></math>
+is a three-time continuously differentiable functions.  Let
+<math display="inline"><mrow><msub><mi>g</mi><mi class="ss1">&lambda;</mi>
+</msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>g</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo separator="true">,</mo><mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>,
+<math display="inline"><mrow><mi>G</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo separator="true">,</mo><mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo>
+<msubsup><mi>g</mi><mi class="ss1">&lambda;</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>g</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo separator="true">,</mo>
+<mi>&lambda;</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo separator="true">,</mo>
+<mi>&lambda;</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>
 and</p>
-<div class="EQ_center">
-<em class="EQ_Display">Sg<sub>&lambda;</sub>(x) =
-<math><mfrac><mi>g<sub>&lambda;</sub>'''(x)</mi><mi>g<sub>&lambda;</sub>'(x)</mi></mfrac></math>
-- <math><mfrac><mi>3</mi><mi>2</mi></mfrac></math>
-(<math><mfrac><mi>g<sub>&lambda;</sub>''(x)</mi><mi>g<sub>&lambda;</sub>'(x)</mi></mfrac></math>)<sup>2</sup></em>
-</div>
-<p>for all <em class="EQ">(x,&lambda;) &in; &reals;&times;&reals;</em>.  If
-<em class="EQ">g</em> satisfies
-<em class="EQ">g<sub>&lambda;</sub>(0) = g(0,&lambda;) = 0</em> for all
-<em class="EQ">&lambda;</em>,
-<em class="EQ">g<sub>&lambda;<sub>0</sub></sub>'(0)
-= <math><mfrac><mi>&part;g</mi><mi>&part;x</mi></mfrac></math>(0,&lambda;<sub>0</sub>) = -1</em> for some
-<em class="EQ">&lambda;<sub>0</sub></em>, and
-<em class="EQ">
-Sg<sub>&lambda;<sub>0</sub></sub>(0) (<math><mfrac><mi>&part;<sup>2</sup>G</mi><mi>&part;x&part;&lambda;</mi></mfrac></math>(0,&lambda;<sub>0</sub>))
-&lt; 0</em>, then there exist an open interval <em class="EQ">I</em>
+
+<math display="block" style="display:block math;"><mrow><mi>S</mi><msub>
+<mi>G</mi><mi class="ss1">λ</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mfrac><mrow>
+<msubsup><mi>g</mi><mi class="ss1">&lambda;</mi><mrow>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo>
+<mo class="ss1">'</mo><mo lspace="0em" rspace="0em" class="ss1">'</mo>
+</mrow></msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow><mrow><msubsup>
+<mi>g</mi><mi class="ss1">&lambda;</mi>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac><mo>−</mo><mfrac>
+<mn>3</mn><mn>2</mn></mfrac>
+<msup><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo>
+<mfrac><mrow><msubsup><mi>g</mi><mi class="ss1">&lambda;</mi>
+<mrow><mo lspace="0em" rspace="0em" class="ss1">'</mo>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></mrow></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+<mrow><msubsup><mi>g</mi><mi class="ss1">&lambda;</mi>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac><mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
+<mn class="ss1">2</mn></msup></mrow></math>
+
+<p>for all
+<math display="inline"><mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&in;</mo><mi>&reals;</mi><mo>&times;</mo><mi>&reals;</mi></mrow>
+</math>.
+If
+<math display="inline"><mi>g</mi></math>
+satisfies
+<math display="inline"><mrow><msub><mi>g</mi><mi class="ss1">&lambda;</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo separator="true">,</mo><mi>&lambda;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mn>0</mn></mrow></math>
+for all
+<math display="inline"><mi>&lambda;</mi></math>,
+<math display="inline"><mrow><msubsup><mi>g</mi>
+<msub><mi class="ss1">&lambda;</mi><mn class="ss2">0</mn></msub>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mfrac><mrow><mi>&part;</mi><mi>g</mi></mrow>
+<mrow><mi>&part;</mi><mi>x</mi></mrow></mfrac>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>0</mn><mo separator="true">,</mo><msub><mi>λ</mi><mn class="ss1">0</mn>
+</msub><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mo form="prefix" stretchy="false">−</mo><mn>1</mn></mrow>
+</math>
+for some
+<math display="inline"><mrow><msub><mi>&lambda;</mi><mn class="ss1">0</mn>
+</msub></mrow></math>,
+and
+<math display="inline"><mrow><mi>S</mi><msub>
+<mi>g</mi><msub><mi class="ss1">&lambda;</mi><mn class="ss2">0</mn></msub>
+</msub>
+<mspace width="0.1667em"></mspace><mfrac><mrow>
+<msup><mi>&part;</mi><mn class="ss1">2</mn></msup><mi>G</mi></mrow>
+<mrow><mi>&part;</mi><mi>x</mi><mi>&part;</mi><mi>&lambda;</mi></mrow></mfrac>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>0</mn><mo separator="true">,</mo><msub><mi>&lambda;</mi>
+<mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&lt;</mo><mn>0</mn></mrow></math>,
+then there exist an open interval
+<math display="inline"><mi>I</mi></math>
 containing the origin and a continuous concave up function
-<em class="EQ">&Lambda;:I &rarr; &reals;</em> such that
-<em class="EQ">&Lambda;(0) = &lambda<sub>0</sub></em>,
-<em class="EQ">g<sub>&Lambda;(x)</sub>(x) &ne; x</em> for
-<em class="EQ">x &ne; 0</em> but
-<em class="EQ">g<sub>&Lambda;(x)</sub><sup>&compfn;2</sup>(x) = x</em>.
+<math display="inline">
+<mrow><mi>&Lambda;</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>I</mi><mo>&rarr;</mo><mi>&reals;</mi></mrow></math>
+such that
+<math display="inline"><mrow><mi>&Lambda;</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><msub><mi>&lambda;</mi><mn>0</mn></msub></mrow></math>,
+<math display="inline"><mrow>
+<msub><mi>g</mi><mrow><mi class="ss1">&Lambda;</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn class="ss1">x</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></msub>
+</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>x</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&ne;</mo><mi>x</mi></mrow></math>
+for
+<math display="inline"><mrow><mi>x</mi><mo>&ne;</mo><mn>0</mn></mrow></math>
+but
+<math display="inline"><mrow><msubsup><mi>g</mi><mrow>
+<mi class="ss1">&Lambda;</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi class="ss1">x</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow><mrow><mi class="ss1">&compfn;</mi><mn class="ss1">2</mn>
+</mrow></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>x</mi></mrow></math>.
 Moreover, if instead we have that
-<em class="EQ">
-Sg<sub>&lambda;<sub>0</sub></sub>(0) (<math><mfrac><mi>&part;<sup>2</sup>G</mi><mi>&part;x&part;&lambda;</mi></mfrac></math>(0,&lambda;<sub>0</sub>))
-&gt; 0</em>, then <em class="EQ">&Lambda;</em> is concave down.
+<math display="inline"><mrow><mi>S</mi><msub>
+<mi>g</mi><msub><mi class="ss1">&lambda;</mi><mn class="ss2">0</mn></msub>
+</msub>
+<mspace width="0.1667em"></mspace><mfrac><mrow>
+<msup><mi>&part;</mi><mn class="ss1">2</mn></msup><mi>G</mi></mrow>
+<mrow><mi>&part;</mi><mi>x</mi><mi>&part;</mi><mi>&lambda;</mi></mrow></mfrac>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mn>0</mn><mo separator="true">,</mo><msub><mi>&lambda;</mi>
+<mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&gt;</mo><mn>0</mn></mrow></math>,
+then
+<math><mrow><mi>&Lambda;</mi></mrow></math>
+is concave down.
 </p>
 </div>
 
+<!-- HERE mathml -->
 <p>The expression <em class="EQ">Sg<sub>&lambda;</sub></em> is called
 the <em>Schwarzian derivative</em> of 
 <em class="EQ">g<sub>&lambda;</sub></em>.  We have the following
