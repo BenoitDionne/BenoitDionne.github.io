@@ -275,6 +275,7 @@ math mi.ss1 {font-size: 80%;}
 math mi.ss2 {font-size: 60%;}
 math mo.ss1 {font-size: 80%;}
 math mo.ss2 {font-size: 60%;}
+math mo.ss3 {font-size: 80%;}  /* for the prime symbol for derivatives */
 
 span.Proof_Right { float: right;}
 
