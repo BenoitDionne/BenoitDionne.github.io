@@ -3526,7 +3526,7 @@ itérations à partir du point
 <mn>0.5284</mn><mo separator="true">,</mo><mn>0.1211</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
 qui est un point de
-<em class="EQ">K</em>,
+<math display="inline"><mi>K</mi></math>,
 alors nous obtenons la figure à gauche ci-dessous.</li>
 <li>Si nous utilisons la Méthode A décrite ci-dessous avec
 <math display="inline"><mrow><mi>&delta;</mi><mo>=</mo><mn>0.01</mn>
@@ -3955,7 +3955,7 @@ et
 </li>
 <li> Nous lançons le dé une deuxième fois.  Supposons que nous
 obtenons un
-<em class="EQ">C</em>.
+<math display="inline"><mi>C</mi></math>.
 </li> 
 <li> Le point
 <math display="inline"><msub><mover><mi>x</mi>
@@ -5166,8 +5166,6 @@ calcul sur un ordinateur, nous pouvons créer des vidéos d'animation qui
 utilisent des fractales.  Par exemple, une feuille soufflée par le
 vente.</p>
 
-<!-- HERE mathml -->
-
 <hr class="MMathSStat">
 
 <h3 id="SS7">Réseaux de systèmes itératifs de fonctions</h3>
@@ -5176,138 +5174,586 @@ vente.</p>
 <math display="inline"><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
 <mo separator="true">,</mo><mi>d</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math> est un espace métrique complet.
-Une métrique possible
-<em class="EQ"><span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span></em>
-sur l'espace produit <em class="EQ">E&times;E</em> est définie par
-<em class="EQ"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math>((x,y),(u,v))
-= max{d(x,u).d(y,v)}</em> pour tout
-<em class="EQ">(x,y),(u,v) &in; E&times;E</em>.
-Nous avons que
-<em class="EQ">(E&times;E,<math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math>)</em>
-est un espace métrique complet.  De même. une métrique possible
-<em class="EQ"><span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup></em>
-sur l'espace produit <em class="EQ">E<sup>c</sup>&times;E<sup>c</sup></em>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+est un espace métrique complet.  Une métrique possible
+<math display="inline"><mover><mi>d</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover></math>
+sur l'espace produit
+<math display="inline"><mrow><mi>E</mi><mo>&times;</mo><mi>E</mi>
+<mrow></math>
 est définie par
-<em class="EQ"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math><sup>c</sup>((A&times;B,U&times;V)
-= max{d<sup>c</sup>(A,U).d<sup>c</sup>(B,V)}</em>
+<math display="inline"><mrow><mover><mi>d</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>u</mi>
+<mo separator="true">,</mo><mi>v</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mrow><mi>max</mi><mo>⁡</mo></mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>d</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo separator="true">,</mo><mi>u</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>y</mi>
+<mo separator="true">,</mo><mi>v</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+</mrow></math>
 pour tout
-<em class="EQ">A&times;B,U&times;V &in; E<sup>c</sup>&times;E<sup>c</sup></em>.
-Nous avons aussi que <em class="EQ">(E<sup>c</sup>&times;E<sup>c</sup>,<math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math><sup>c</sup>)</em>
+<math display="inline"><mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>u</mi>
+<mo separator="true">,</mo><mi>v</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&in;</mo>
+<mi>E</mi><mo>&times;</mo><mi>E</mi></mrow></math>.
+Nous avons que
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
+<mo>&times;</mo><mi>E</mi><mo separator="true">,</mo><mover>
+<mi>d</mi><mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></math>
+est un espace métrique complet.  Puisque
+<math display="inline"><mrow><mover><mi>d</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><mi>A</mi><mo>&times;</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mrow><mi>max</mi></mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>d</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>y</mi>
+<mo separator="true">,</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+</mrow></math>
+pour tout
+<math display="inline"><mrow><mi>x</mi><mo separator="true">,</mo>
+<mi>y</mi><mo>&in;</mo><mi>E</mi></mrow></math>
+et
+<math display="inline"><mrow><mi>A</mi><mo separator="true">,</mo>
+<mi>B</mi><mo>&in;</mo><msup><mi>E</mi><mi class="ss1">c</mi></msup>
+</mrow></math>,
+et
+<math display="inline"><mrow><mover><mi>d</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>X</mi><mo>&times;</mo><mi>Y</mi><mo separator="true">,</mo>
+<mi>A</mi><mo>&times;</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mrow><mi>max</mi></mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>X</mi>
+<mo separator="true">,</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>Y</mi>
+<mo separator="true">,</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+</mrow></math>
+pour tout
+<math display="inlie"><mrow><mi>X</mi><mo separator="true">,</mo><mi>Y</mi>
+<mo separator="true">,</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi>
+<mo>&in;</mo><msup><mi>E</mi><mi class="ss1">c</mi></msup></mrow></math>,
+nous obtenons que
+<math display="inline"><mrow><msup><mover><mi>d</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mi class="ss1">c</mi></msup>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&times;</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&rarr;</mo>
+<mo form="prefix" stretchy="false">[</mo><mn>0</mn>
+<mo separator="true">,</mo><mi>&infin;</mi>
+<mo form="prefix" stretchy="false">[</mo></mrow></math>
+est définie par
+<math display="inline"><mrow><msup><mover><mi>d</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mi class="ss1">c</mi></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>X</mi>
+<mo>&times;</mo><mi>Y</mi><mo separator="true">,</mo><mi>A</mi>
+<mo>&times;</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>max</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup>
+<mi>d</mi><mi class="ss1">c</mi></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>X</mi>
+<mo separator="true">,</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><msup><mi>d</mi><mi class="ss1">c</mi>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>Y</mi><mo separator="true">,</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+</mrow></math>
+pour tout
+<math display="inlie"><mrow><mi>X</mi><mo separator="true">,</mo><mi>Y</mi>
+<mo separator="true">,</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi>
+<mo>&in;</mo><msup><mi>E</mi><mi class="ss1">c</mi></msup></mrow></math>.
+Nous avons aussi que
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msup><mi>E</mi><mi class="ss1">c</mi></msup><mo>&times;</mo>
+<msup><mi>E</mi><mi class="ss1">c</mi></msup><mo separator="true">,</mo>
+<msup><mover><mi>d</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mi class="ss1">c</mi></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
 est un espace métrique complet.</p>
 
 <p>Supposons que
-<em class="EQ">
-{f<sub>j</sub><sup>[1]</sup>}<sub>1&leq;j&leq;J<sup>[1]</sup></sub></em>
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msubsup>
+<mi>f</mi><mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo>
+<msup><mi class="ss1">J</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">[</mo>
+<mn class="ss2">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">]</mo>
+</mrow></msup></mrow></msub></math>
 et
-<em class="EQ">
-{f<sub>j</sub><sup>[2]</sup>}<sub>1&leq;j&leq;J<sup>[2]</sup></sub></em>
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msubsup>
+<mi>f</mi><mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo>
+<msup><mi class="ss1">J</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">[</mo>
+<mn class="ss2">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">]</mo>
+</mrow></msup></mrow></msub></math>
 sont deux SIF où les fonctions
-<em class="EQ">f<sub>j</sub><sup>[k]</sup>:E &rarr; E</em>
+<math display="inline"><mrow><msubsup><mi>f</mi><mi class="ss1">j</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">k</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup><mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>E</mi>
+<mo>&rarr;</mo><mi>E</mi></mrow></math>
 sont des contractions avec des facteurs de contractions 
-<em class="EQ">0 &le; C<sub>j</sub><sup>[k]</sup> &lt; 1</em>
-pour <em class="EQ">k = 1,2</em> et tout <em class="EQ">j</em>.
-Pour <em class="EQ">k = 1,2</em>, supposons que
-<em class="EQ">S<sub>1</sub><sup>[k]</sup>,S<sub>2</sub><sup>[k]</sup>
-  &subset; {1,2,...,J<sup>[k]</sup>}</em> sont deux sous-ensembles 
-tels que
-<em class="EQ">S<sub>1</sub><sup>[k]</sup> &cap; S<sub>2</sub><sup>[k]</sup>
-= &emptyset;</em> et <em class="EQ">
-S<sub>1</sub><sup>[k]</sup> &cup; S<sub>2</sub><sup>[k]</sup>
-= {1,2,...,J<sup>[k]</sup>}</em>.  Nous définissons une fonction
-<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup>
-= <span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>1</sub><sup>c</sup>&times;<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>2</sub><sup>c</sup>
-: E<sup>c</sup>&times;E<sup>c</sup>
-&rarr; E<sup>c</sup>&times;E<sup>c</sup></em> comme il suit.</p>
+<math display="inline"><mrow><mn>0</mn><mo>&le;</mo><msubsup><mi>C</mi>
+<mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">k</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mo>&lt;</mo><mn>1</mn></mrow></math>
+pour
+<math display="inline"><mrow><mi>k</mi><mo>=</mo><mn>1</mn>
+<mo separator="true">,</mo><mn>2</mn></mrow></math>
+et tout
+<math display="inline"><mi>j</mi></math>.
+Pour
+<math display="inline"><mrow><mi>k</mi><mo>=</mo><mn>1</mn>
+<mo separator="true">,</mo><mn>2</mn></mrow></math>,
+supposons que
+<math display="inline"><mrow><msubsup><mi>S</mi><mn class="ss1">1</mn>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">k</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mo separator="true">,</mo><msubsup><mi>S</mi>
+<mn class="ss1">2</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">k</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mo>&subset;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mn>1</mn>
+<mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><msup><mi>J</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">k</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msup><mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow></mrow></math>
+sont deux sous-ensembles tels que
+<math display="inline"><mrow><msubsup><mi>S</mi><mn class="ss1">1</mn>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">k</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mo>&cap;</mo><msubsup><mi>S</mi><mn class="ss1">2</mn>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">k</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mo>=</mo><mi>&emptyset;</mi></mrow></math>
+et
+<math display="inline"><mrow><msubsup><mi>S</mi><mn class="ss1">1</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">k</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mo>&cup;</mo><msubsup><mi>S</mi><mn class="ss1">2</mn>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">k</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mn>1</mn>
+<mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><msup>
+<mi>J</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">k</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msup><mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow></mrow></math>.
+Nous définissons une fonction
+<math display="inline"><mrow><msup><mover><mi>f</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mi class="ss1">c</mi></msup>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&times;</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&rarr;</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&times;</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup></mrow></math>
+comme il suit.</p>
+
 <div class="EQ_center">
-<em class="EQ_Display">
-<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>1</sub><sup>c</sup>(A&times;B)
-= &cup;<sub>j&in;S<sub>1</sub><sup>[1]</sup></sub>
-f<sub>j</sub><sup>[1]</sup>(A) &cup;
-&cup;<sub>j&in;S<sub>2</sub><sup>[1]</sup></sub>
-f<sub>j</sub><sup>[1]</sup>(B) <br>
-<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>2</sub><sup>c</sup>(A&times;B)
-= &cup;<sub>j&in;S<sub>1</sub><sup>[2]</sup></sub>
-f<sub>j</sub><sup>[2]</sup>(A) &cup;
-&cup;<sub>j&in;S<sub>2</sub><sup>[2]</sup></sub>
-f<sub>j</sub><sup>[2]</sup>(B)</em>
-</div>
+<math display="block" style="display:block math;"><mrow><msup>
+<mover><mi>f</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mi class="ss1">c</mi></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo>&times;</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="true">{</mo><mtable>
+<mtr><mtd style="padding-left:0em;padding-right:0em;text-align:left;">
+<mrow><msub><mo movablelimits="false">&cup;</mo><mrow>
+<mi class="ss1">j</mi><mo class="ss1">&in;</mo><msubsup>
+<mi class="ss1">S</mi><mn class="ss2">1</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">[</mo>
+<mn class="ss2">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">]</mo>
+</mrow></msubsup></mrow></msub><msubsup><mi>f</mi><mi class="ss1">j</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="1ex"></mspace><mo>&cup;</mo><mspace width="1ex"></mspace>
+<msub><mo movablelimits="false">&cup;</mo><mrow>
+<mi class="ss1">j</mi><mo class="ss1">&in;</mo><msubsup>
+<mi class="ss1">S</mi><mn class="ss2">2</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">[</mo>
+<mn class="ss2">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">]</mo>
+</mrow></msubsup></mrow></msub><msubsup><mi>f</mi><mi class="ss1">j</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></mtd></mtr><mtr>
+<mtd style="padding-left:0em;padding-right:0em;text-align:left;"><mrow>
+<msub><mo movablelimits="false">&cup;</mo><mrow><mi class="ss1">j</mi>
+<mo>&in;</mo><msubsup><mi class="ss1">S</mi><mn class="ss2">1</mn>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup></mrow></msub><msubsup><mi>f</mi><mi class="ss1">j</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="1ex"></mspace><mo>&cup;</mo><mspace width="1ex"></mspace>
+<msub><mo movablelimits="false">&cup;</mo>
+<mrow><mi class="ss1">j</mi><mo class="ss1">&in;</mo><msubsup>
+<mi class="ss1">S</mi><mn class="ss1">2</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup></mrow></msub><msubsup><mi>f</mi><mi class="ss1">j</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></mtd></mtr></mtable>
+<mo fence="true" form="postfix" stretchy="true"></mo></mrow>
+</mrow></math></div>
+
 <p>pour tout
-<em class="EQ">A&times;B &in; E<sup>c</sup>&times;E<sup>c</sup></em>.
+<math display="inline"><mrow><mi>A</mi><mo>&times;</mo><mi>B</mi>
+<mo>&in;</mo><msup><mi>E</mi><mi class="ss1">c</mi></msup>
+<mo>&times;</mo><msup><mi>E</mi><mi class="ss1">c</mi></msup>
+</mrow></math>.
 Il est possible de démontrer que
-<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup></em>
+<math display="inline"><msup><mover><mi>f</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mi class="ss1">c</mi></msup></math>
 satisfait le Théorème de contraction.  Donc, nous avons un théorème
 semblable au <script language="javascript">
 buildLinK("#theoIII", "theorem &#8546;","MMathSStat","theoIIIIz","_top");
 </script>.</p>
 
 <div class="Theo">
-<p><em>Théorème</em>: Si <math display="inline"><mrow>
+<p><em>Théorème</em>: Si
+<math display="inline"><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
 <mo separator="true">,</mo><mi>d</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math> est un espace
-métrique complet, et
-<em class="EQ">
-{f<sub>j</sub><sup>[1]</sup>}<sub>1&leq;j&leq;J<sup>[1]</sup></sub></em>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+est un espace métrique complet, et
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msubsup>
+<mi>f</mi><mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo>
+<msup><mi class="ss1">J</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">[</mo>
+<mn class="ss2">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">]</mo>
+</mrow></msup></mrow></msub></math>
 et
-<em class="EQ">
-{f<sub>j</sub><sup>[2]</sup>}<sub>1&leq;j&leq;J<sup>[2]</sup></sub></em>
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msubsup>
+<mi>f</mi><mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo>
+<msup><mi class="ss1">J</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">[</mo>
+<mn class="ss2">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">]</mo>
+</mrow></msup></mrow></msub></math>
 sont deux SIF (hyperboliques), alors
-<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup>:
-E<sup>c</sup>&times;E<sup>c</sup> &rarr;
-E<sup>c</sup>&times;E<sup>c</sup></em> a un <em>point fixe</em>
-unique; c'est-à-dire, il existe un seul ensemble 
-<em class="EQ">K&times;<span class="math_smaller"><math> <mover> <mi>K</mi> <mo>&sim;</mo> </mover> </math></span>
-&in; E<sup>c</sup>&times;E<sup>c</sup></em> tel que
-<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup>(K&times;<span class="math_smaller"><math> <mover> <mi>K</mi> <mo>&sim;</mo> </mover> </math></span>)
-= K&times;<span class="math_smaller"><math> <mover> <mi>K</mi> <mo>&sim;</mo> </mover> </math></span></em>.
+<math display="inline"><mrow><msup><mover><mi>f</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mi class="ss1">c</mi></msup>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&times;</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&rarr;</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&times;</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup></mrow></math>
+a un <em>point fixe</em> unique; c'est-à-dire, il existe un seul ensemble 
+<math display="inline"><mrow><mi>K</mi><mo>&times;</mo>
+<mover><mi>K</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&breve;</mo>
+</mover><mo>&in;</mo><msup><mi>E</mi><mi class="ss1">c</mi></msup>
+<mo>&times;</mo><msup><mi>E</mi><mi class="ss1">c</mi></msup>
+</mrow></math>
+tel que
+<math display="inline"><mrow><msup><mover><mi>f</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mi class="ss1">c</mi></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>K</mi><mo>&times;</mo><mover><mi>K</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&breve;</mo></mover>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>K</mi><mo>&times;</mo><mover><mi>K</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&breve;</mo></mover>
+</mrow></math>.
 De plus, pour tout ensemble
-<em class="EQ">A<sub>0</sub>&times;B<sub>0</sub> &in;
-E<sup>c</sup>&times;E<sup>c</sup></em>, la suite d'ensembles
-<em class="EQ">{A<sub>i</sub>&times;B<sub>i</sub>}<sub>i&geq;0</sub></em>
+<math display="inline"><mrow><msub><mi>A</mi><mn class="ss1">0</mn>
+</msub><mo>&times;</mo><msub><mi>B</mi><mn class="ss1">0</mn></msub>
+<mo>&in;</mo><msup><mi>E</mi><mi class="ss1">c</mi></msup>
+<mo>&times;</mo><msup><mi>E</mi><mi class="ss1">c</mi></msup>
+</mrow></math>,
+la suite d'ensembles
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>A</mi>
+<mi class="ss1">n</mi></msub><mo>&times;</mo><msub><mi>B</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
 définie par
-<em class="EQ">A<sub>i+1</sub>&times;B<sub>i+1</sub>
-= <span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup>(A<sub>i</sub>&times;B<sub>i</sub>)</em>
+<math display="inline"><mrow><msub><mi>A</mi><mrow><mi class="ss1">n</mi>
+<mo class="ss1">+</mo><mn class="ss1">1</mn></mrow></msub><mo>&times;</mo>
+<msub><mi>B</mi><mrow><mi class="ss1">n</mi><mo class="ss1">+</mo>
+<mn class="ss1">1</mn></mrow></msub><mo>=</mo><msup><mover>
+<mi>f</mi><mo stretchy="false" class="ss4" style="math-depth:0;">&breve;</mo>
+</mover><mi class="ss1">c</mi></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>A</mi>
+<mi class="ss1">n</mi></msub><mo>&times;</mo><msub><mi>B</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+pour
+<math display="inline"><mrow><mi>n</mi><mo>&ge;</mo><mn>0</mn></mrow></math>
 converge vers
-<em class="EQ">K&times;<span class="math_smaller"><math> <mover> <mi>K</mi> <mo>&sim;</mo> </mover> </math></span></em>
+<math display="inline"><mrow><mi>K</mi><mo>&times;</mo>
+<mover><mi>K</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&breve;</mo>
+</mover></mrow></math>
 par rapport à la métrique de Hausdorff
-<em class="EQ"><span class="math_smaller"><math> <mover> <mi>d</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup></em>
-lorsque <em class="EQ">i &rarr; &infin;</em>.</p>
+<math display="inline"><msup><mover><mi>d</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mi class="ss1">c</mi></msup></math>
+lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi>
+</mrow></math>.
+</p>
 </div>
 
 <div class="Example">
-<p><em>Exemple</em>: Supposons que
-<em class="EQ">
-{f<sub>j</sub><sup>[1]</sup>}<sub>1&leq;j&leq;4</sup></sub></em>
+<p><em>Exemple</em>:
+Supposons que
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msubsup>
+<mi>f</mi><mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo>
+<mn class="ss1">4</mn></mrow></msub></math>
 et
-<em class="EQ">
-{f<sub>j</sub><sup>[2]</sup>}<sub>1&leq;j&leq;3</sup></sub></em>
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msubsup>
+<mi>f</mi><mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo>
+<mn class="ss1">3</mn></mrow></msub></math>
 sont deux SIF.  De plus, supposons que
-<em class="EQ">S<sub>1</sub><sup>[1]</sup> = {1,2}</em>,
-<em class="EQ">S<sub>2</sub><sup>[1]</sup> = {3,4}</em>,
-<em class="EQ">S<sub>1</sub><sup>[2]</sup> = {2,3}</em> et
-<em class="EQ">S<sub>2</sub><sup>[2]</sup> = {1}</em>.
+<math display="inline"><mrow><msubsup><mi>S</mi><mn class="ss1">1</mn>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mo fence="true" form="postfix" stretchy="false">]</mo>
+</mrow></msubsup><mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mn>1</mn>
+<mo separator="true">,</mo><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>,
+
+<math display="inline"><mrow><msubsup><mi>S</mi><mn class="ss1">2</mn>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>1</mn><mo fence="true" form="postfix" stretchy="false">]</mo>
+</mrow></msubsup><mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mn>3</mn>
+<mo separator="true">,</mo><mn>4</mn>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>,
+
+<math display="inline"><mrow><msubsup><mi>S</mi><mn class="ss1">1</mn>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>2</mn><mo fence="true" form="postfix" stretchy="false">]</mo>
+</mrow></msubsup><mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mn>2</mn>
+<mo separator="true">,</mo><mn>3</mn>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
+et
+<math display="inline"><mrow><msubsup><mi>S</mi><mn class="ss1">2</mn>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>2</mn><mo fence="true" form="postfix" stretchy="false">]</mo>
+</mrow></msubsup><mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>.
 Nous obtenons la fonction
-<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup>
-= <span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>1</sub><sup>c</sup>&times;<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>2</sub><sup>c</sup>
-: E<sup>c</sup>&times;E<sup>c</sup>
-&rarr; E<sup>c</sup>&times;E<sup>c</sup></em>
+<math display="inline"><mrow><msup><mover><mi>f</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mi class="ss1">c</mi></msup>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&times;</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&rarr;</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&times;</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup></mrow></math>
 définie par</p>
+
 <div class="EQ_center">
-<em class="EQ_Display">
-<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>1</sub><sup>c</sup>(A&times;B)
-= f<sub>1</sub><sup>[1]</sup>(A) &cup; f<sub>2</sub><sup>[1]</sup>(A)
-&cup; f<sub>3</sub><sup>[1]</sup>(B) &cup; f<sub>4</sub><sup>[1]</sup>(B) 
-<br>
-<span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sub>2</sub><sup>c</sup>(A&times;B)
-= f<sub>2</sub><sup>[2]</sup>(A) &cup; f<sub>3</sub><sup>[2]</sup>(A) &cup;
-f<sub>1</sub><sup>[2]</sup>(B)</em>
+<math display="block" style="display:block math;"><mrow><msup><mover>
+<mi>f</mi><mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mi class="ss1">c</mi></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo>&times;</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mtable>
+<mtr><mtd style="padding-left:0em;padding-right:0em;"><mrow><msubsup>
+<mi>f</mi><mn class="ss1">1</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&cup;</mo><msubsup><mi>f</mi><mn class="ss1">2</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&cup;</mo><msubsup><mi>f</mi><mn class="ss1">3</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&cup;</mo><msubsup><mi>f</mi><mn class="ss1">4</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></mtd></mtr><mtr><mtd style="padding-left:0em;padding-right:0em;">
+<mrow><msubsup><mi>f</mi><mn class="ss1">2</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&cup;</mo><msubsup><mi>f</mi><mn class="ss1">3</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&cup;</mo><msubsup><mi>f</mi><mn class="ss1">1</mn><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></mtd></mtr></mtable>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow></mrow></math>
 </div>
+
 <p>pour tout
-<em class="EQ">A&times;B &in; E<sup>c</sup>&times;E<sup>c</sup></em>.
+<math display="inline"><mrow><mi>A</mi><mo>&times;</mo><mi>B</mi>
+<mo>&in;</mo><msup><mi>E</mi><mi class="ss1">c</mi></msup>
+<mo>&times;</mo><msup><mi>E</mi><mi class="ss1">c</mi></msup>
+</mrow></math>.
 Cette fonction
-<em class="EQ"><span class="math_smaller"><math> <mover> <mi>f</mi> <mo>&circ;</mo> </mover> </math></span><sup>c</sup></em>
+<math display="inline"><msup><mover><mi>f</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo>
+</mover><mi class="ss1">c</mi></msup></math>
 est représentée par le graphe suivant.</p>
+
 <div class="center">
   <img src="network1.png" style="width: 300px"
        alt="Graphe representant la fonction \hat{f}^c" class="framed">
@@ -5315,8 +5761,10 @@ est représentée par le graphe suivant.</p>
 </div>
 
 <p>Évidemment, ce que nous avons décrit pur l'espace produit
-<em class="EQ">E&times;E</em> peut être généralisé à un espace produit 
-avec plus de copies de <math display="inline"><mi>E</mi></math>.</p>
+<math display="inline"><mrow><mi>E</mi><mo>&times;</mo><mi>E</mi></mrow></math>
+peut être généralisé à un espace produit avec plus de copies de
+<math display="inline"><mi>E</mi></math>.
+</p>
 
 <hr class="MMathSStat">
 
@@ -5331,51 +5779,114 @@ buildLinK("#REF", "références", "MMathSStat", "REFId3", "_top");
 pour produire des figures comme le triangle de Sierpinski.  Mais
 comment pouvons-nous trouver un SIF pour produire une fleur par
 exemple?  Supposons qu'un ensemble compact
-<em class="EQ">L &subset; &reals;<sup>2</sup></em>
+<math display="inline"><mrow><mi>L</mi><mo>&subset;</mo>
+<msup><mi>&reals;</mi><mn class="ss1">2</mn></msup></mrow></math>
 représente une figure quelconque que nous aimerions produire
 avec un SIF.  Le théorème suivant donne une borne supérieure
-sur la distance de Hausdorff entre l'ensemble <em class="EQ">L</em>
-et le point fixe <em class="EQ">K</em> de la fonction
-<math display="inline"><msup><mi>f</mi><mi class="ss1">c</mi></msup></math> induite par un SIF.
-Ce théorème ne donne pas un SIF pour produire l'ensemble
-<em class="EQ">L</em> mais il nous permet au moins de vérifier
-si un SIF produit un ensemble <em class="EQ">K</em> près de l'ensemble
-<em class="EQ">L</em>.</p>
+sur la distance de Hausdorff entre l'ensemble
+<math display="inline"><mi>L</mi></math>
+et le point fixe
+<math display="inline"><mi>K</mi></math>
+de la fonction
+<math display="inline"><msup><mi>f</mi><mi class="ss1">c</mi></msup></math>
+induite par un SIF.  Ce théorème ne donne pas un SIF pour produire l'ensemble
+<math display="inline"><mi>L</mi></math>
+mais il nous permet au moins de vérifier si un SIF produit un ensemble
+<math display="inline"><mi>K</mi></math>
+près de l'ensemble
+<math display="inline"><mi>L</mi></math>.
+</p>
 
 <div class="Theo">
-<p><em>Théorème (Collage)</em>: Supposons que <math display="inline"><mrow>
+<p><em>Théorème (Collage)</em>: Supposons que
+<math display="inline"><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
 <mo separator="true">,</mo><mi>d</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
-est un espace métrique complet et que <em class="EQ">L &in; E<sup>c</sup></em>.
-Si <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em> est un
-SIF avec un facteur de contraction <em class="EQ">C &lt; 1</em> tel que
-<em class="EQ">d<sup>c</sup>(L,f<sup>c</sup>(L)) &le; &epsilon;</em>, alors
-<em class="EQ">d<sup>c</sup>(L,K) &le; &epsilon;/(1-C)</em> où
-<em class="EQ">K</em> est le point fixe de la fonction
-<math display="inline"><msup><mi>f</mi><mi class="ss1">c</mi></msup></math> induite par le SIF.</p>
+est un espace métrique complet et que
+<math display="inline"><mrow><mi>L</mi><mo>&in;</mo>
+<msup><mi>E</mi><mn class="ss1">c</mn></msup></mrow></math>.
+De plus, supposons que
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub></math>
+est un SIF et que
+<math display="inline"><mrow><mi>C</mi><mo>&lt;</mo><mn>1</mn></mrow></math>
+est un facteur de contraction pour la fonction induite
+<math display="inline"><mrow><msup><mi>f</mi><mi class="ss1">c</mi>
+</msup><mo lspace="0.2222em" rspace="0.2222em">:</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup><mo>&rarr;</mo><msup><mi>E</mi>
+<mi class="ss1">c</mi></msup></mrow></math>
+par ce SIF.  Si
+<math display="inline"><mrow><msup><mi>d</mi><mi class="ss1">c</mi></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>L</mi>
+<msup><mi>f</mi><mi class="ss1">c</mi></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>L</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&lt;</mo><mi>&epsilon;</mi></mrow></math>,
+alors
+<math display="inline"><mrow><msup><mi>d</mi><mi class="ss1">c</mi></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>L</mi>
+<o separator="true">,</mo>
+<mi>K</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&lt;</mo><mfrac><mi>&epsilon;</mi><mrow><mn>1</mn><mo>-</mo>
+<mi>C</mi></mrow></mfrac></mrow></math>
+où
+<math display="inline"><mi>K</mi></math>
+est le point fixe de la fonction
+<math display="inline"><msup><mi>f</mi><mi class="ss1">c</mi></msup></math>.
+</p>
 </div>
 
 <p>Ce théorème n'est rien d'autre qu'une reformulation d'un résultat
 bien connu au sujet des contractions sur un espace métrique complet.</p>
 
 <div class="Theo">
-<p><em>Proposition</em>; Supposons que <math display="inline"><mrow>
+<p><em>Proposition</em>; Supposons que
+<math display="inline"><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
 <mo separator="true">,</mo><mi>d</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math> 
-est un espace métrique complet et que <em class="EQ">f:E &rarr; E</em>
+est un espace métrique complet et que
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>E</mi><mo>&rarr;</mo>
+<mi>E</mi></mrow></math>
 est une contraction avec un facteur de contraction
-<em class="EQ">C &in; ]0,1[</em>.
-Si <em class="EQ">p &in; E</em> est un point fixe de <em class="EQ">f</em>,
-alors <em class="EQ">d(x,p) &le; (1-C)<sup>-1</sup> d(x,f(x))</em>
-pour tout <em class="EQ">x &in; E</em>.</p>
+<math display="inlie"><mrow><mi>C</mi><mo>&in;</mo>
+<mo form="prefix" stretchy="false">]</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn>
+<mo form="postfix" stretchy="false">[</mo></mrow></math>.
+Si
+<math display="inlie"><mrow><mi>p</mi><mo>&in;</mo><mi>E</mi></mrow></math>
+est un point fixe de
+<math display="inline"><mi>f</mi></math>,
+alors
+<math display="inline"><mrow><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&le;</mo>
+<mfrac><mrow><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>f</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+<mrow><mn>1</mn><mo>-</mo><mi>C</mi></mrow></mfrac></mrow></math>
+pour tout
+<math display="inlie"><mrow><mi>x</mi><mo>&in;</mo><mi>E</mi></mrow></math>.
+</p>
 </div>
 
 <p>Le problème de trouver un SIF qui génère un ensemble compact
-<em class="EQ">L &subset; &reals;<sup>n</sup></em> donné est connu
-sous le nom de <em>problème inverse pour les SIF</em>.  Ce n'est pas
-un problème facile à résoudre.  L'utilisation des SIF
+<math display="inline"><mrow><mi>L</mi><mo>&subset;</mo>
+<msup><mi>&reals;</mi><mn class="ss1">2</mn></msup></mrow></math>
+donné est connu sous le nom de <em>problème inverse pour les SIF</em>.
+Ce n'est pas un problème facile à résoudre.  L'utilisation des SIF
 pour la <em>compression d'images</em> est une des principales
 motivations pour développer des algorithmes efficaces pour résoudre
 le problème inverse pour les SIF.  Une introduction claire de ce sujet
@@ -5395,13 +5906,21 @@ l'utilisation des SIF pour les réseaux neuronaux, la compression
 d'images, etc.</p>
 
 <div class="Theo">
-<p><em>Définition</em>: Supposons que <em class="EQ">&mu;</em> est
-une mesure de Borel sur l'espace métrique compacte 
+<p><em>Définition</em>: Supposons que
+<math display="inline"><mi>&mu;</mi></math>
+est une mesure de Borel sur l'espace métrique compacte 
 <math display="inline"><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
 <mo separator="true">,</mo><mi>d</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>.  La mesure <em class="EQ">&mu;</em> est
-dite <em>normalisée</em> si <em class="EQ">&mu;(E) = 1</em>.</p>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>.
+La mesure
+<math display="inline"><mi>&mu;</mi></math>
+est dite <em>normalisée</em> si
+<math display="inline"><mrow><mi>&mu;</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>1</mn></mrow></math>.
+</p>
 </div>
 
 <p>Le lecteur peut trouver un peut d'information sur
@@ -5416,159 +5935,511 @@ fractal3.id, fractal3.target);
 </script>.</p>
 
 <div class="Theo">
-<p><em>Proposition</em>: Supposons que <math display="inline"><mrow>
+<p><em>Proposition</em>: Supposons que
+<math display="inline"><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
 <mo separator="true">,</mo><mi>d</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math> est
-un espace métrique compact.  Soit <em class="EQ">&#120017;</em> la
-collection de toutes les mesures de Borel normalisées sur
-<math display="inline"><mi>E</mi></math>.
-La fonction
-<em class="EQ">d<sub>&#120017;</sub> : &#120017;&times;&#120017; &rarr;
-[0,&infin;[</em> définie par</p>
-<div class="EQ_center">
-<em class="EQ_Display">
-d<sub>&#120017;</sub>(&mu;,&nu;)
-= sup{|&int;<sub>E</sub>g d&mu; - &int;<sub>E</sub>g d&nu;| :
-g:E &rarr; &reals; satisfait <br>
-|g(x)-g(y)| &le; d(x,y) pour tout x,y &in; E}
-</em>
-</div>
-<p>pour tout <em class="EQ">&mu;,&nu; &in; &#120017;</em> est une
-métrique sur <em class="EQ">&#120017;</em>.  Elle est appelée la
-<em>métrique de Hutchinson</em>.  De plus,
-<em class="EQ">(&#120017;,d<sub>&#120017;</sub>)</em> est un espace
-métrique compact.</p>
-</div>
-
-<div class="Theo">
-<p><em>Définition</em>: Supposons que <math display="inline"><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
-<mo separator="true">,</mo><mi>d</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math> est
-un espace métrique compact et que <em class="EQ">&#120017;</em> est
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+est un espace métrique compact.  Soit
+<math display="inline"><mi>&#x212C;</mi></math>
 la collection de toutes les mesures de Borel normalisées sur
 <math display="inline"><mi>E</mi></math>.
+La fonction
+<math display="inline"><mrow><msub><mi>d</mi><mi class="ss1">&#x212C;</mi>
+</msub><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>&#x212C;</mi><mo>&times;</mo><mrow><mi>&#x212C;</mi><mo>&rarr;</mo>
+<mo form="prefix" stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo>
+<mi>&infin;</mi>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em">[</mo></mrow>
+</mrow></math>
+définie par</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msub><mi>d</mi>
+<mi>&#x212C;</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&mu;</mi>
+<mo separator="true">,</mo><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>sup</mi><mrow>
+<mo fence="false" symmetric="true" minsize="2.4em" maxsize="2.4em">{</mo>  
+<mrow><mo fence="true" form="prefix" stretchy="true">|</mo><msub>
+<mo movablelimits="false">&int;</mo><mi class="ss1">E</mi></msub>
+<mi>g</mi><mtext>d</mtext><mi>&mu;</mi><mo>-</mo><msub>
+<mo movablelimits="false">&int;</mo><mi class="ss1">E</mi></msub>
+<mi>g</mi><mtext>d</mtext><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="true">|</mo></mrow>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>g</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>E</mi><mo>&rarr;</mo>
+<mi>&reals;</mi><mspace width="1ex"></mspace>
+<mtext>est une fonction qui satisfait</mtext></mrow></math>
+
+<math display="block" style="display:block math;">
+<mrow><mspace width="1ex"></mspace><mi>|</mi><mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>g</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>y</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mi>|</mi><mo>&le;</mo><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="1ex"></mspace><mtext>pour tout</mtext>
+<mspace width="1ex"></mspace><mi>x</mi><mo separator="true">,</mo>
+<mi>y</mi><mo>&in;</mo><mi>E</mi>
+<mo fence="false" symmetric="true" minsize="2.4em" maxsize="2.4em">}</mo>
+</mrow></mrow></math></div>
+
+<p>pour tout
+<math display="inline"><mrow><mi>&mu;</mi><mo separator="true">,</mo>
+<mi>&nu;</mi><mo>&in;</mo><mi>&#x212C;</mi></mrow></math>
+est une métrique sur
+<math display="inline"><mi>&#x212C;</mi></math>.
+Elle est appelée la <em>métrique de Hutchinson</em>.  De plus,
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&#x212C;</mi>
+<mo separator="true">,</mo><msub><mi>d</mi><mi class="ss1">&#x212C;</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></math>
+est un espace métrique compact.</p>
+</div>
+
+<p>Nous notons que les fonctions continues
+<math display="inline"><mrow><mi>g</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>E</mi><mo>&rarr;</mo>
+<mi>&reals;</mi></mrow></math>
+sont des fonctions mesurables au sens de Borel.  Donc, les intégrales
+dans la définition de la métrique de Hutchinson sont biens définies.</p>
+
+<div class="Theo">
+<p><em>Définition</em>: Supposons que
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
+<mo separator="true">,</mo><mi>d</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+est un espace métrique compact et que
+<math display="inline"><mi>&#x212C;</mi></math>
+est la collection de toutes les mesures de Borel normalisées sur
+<math display="inline"><mi>E</mi></math>.
 L'<em>opérateur de Markov</em> associé à un SIF avec probabilités
-<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>
-est la fonction <em class="EQ">M: &#120017; &rarr; &#120017;</em>
-définie par <em class="EQ_Display">
-  M(&mu;) = sum<sub>1&le;j&le;J</sub> p<sub>j</sub>
-&mu;&compfn;f<sub>j</sub><sup>-1</sup> 
-</em>
-pour <em class="EQ">&mu; &in; &#120017;</em>.</p>
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo separator="true">,</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>p</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo fence="true" form="postfix" stretchy="true">)</mo></mrow></math>
+est la fonction
+<math display="inline"><mrow><mi>M</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mrow>
+<mi>&#x212C;</mi><mo>&rarr;</mo><mi>&#x212C;</mi></mrow></mrow></math>
+définie par
+<math display="inline"><mrow><mi>M</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&mu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mrow><munderover><mo movablelimits="false">&sum;</mo><mrow>
+<mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">1</mn>
+</mrow><mi class="ss1">J</mi></munderover></mrow><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub><mi>&mu;</mi><mo>&compfn;</mo><msubsup>
+<mi>f</mi><mi class="ss1">j</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msubsup></mrow></math>
+pour
+<math display="inline"><mrow><mi>&mu;</mi><mo>&in;</mo><mi>&#x212C;</mi>
+</mrow></math>.
+</p>
 </div>
 
 <div class="Theo">
-<p><em>Proposition</em>: Supposons que <math display="inline"><mrow>
+<p><em>Proposition</em>: Supposons que
+<math display="inline"><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
 <mo separator="true">,</mo><mi>d</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math> est
-un espace métrique compact, que <em class="EQ">&#120017;</em> est la
-collection de toutes les mesures de Borel normalisées sur
-<math display="inline"><mi>E</mi></math>, et que
-<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>
-est un SIF avec probabilités.
-Si <em class="EQ">M: &#120017; &rarr; &#120017;</em> est l'opérateur 
-de Markov associé à ce SIF avec probabilités et
-<em class="EQ">C = max<sub>1&le;j&le;J</sub> C<sub>j</sub></em>, où
-<em class="EQ">C<sub>j</sub></em> est un facteur de contraction pour
-<em class="EQ">f<sub>j</sub></em>, alors
-<em class="EQ">M: &#120017; &rarr; &#120017;</em> est une contraction 
-avec un facteur de contraction <em class="EQ">C</em> par rapport à la
-métrique de Hutchinson <em class="EQ">d<sub>&#120017;</sub></em>;
-c'est-à-dire, <em class="EQ">d<sub>&#120017;</sub>(M(&mu;),M(&nu;))
-  &le; C d<sub>&#120017;</sub>(&mu;,&nu;)</em> pour tout
-<em class="EQ">&mu;,&nu; &in; &#120017;</em>.</p>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+est un espace métrique compact, que
+<math display="inline"><mi>&#x212C;</mi></math>
+est la collection de toutes les mesures de Borel normalisées sur
+<math display="inline"><mi>E</mi></math>,
+et que
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo separator="true">,</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>p</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo fence="true" form="postfix" stretchy="true">)</mo></mrow></math>
+est un SIF avec probabilités.  Si
+<math display="inline"><mrow><mi>M</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mrow>
+<mi>&#x212C;</mi><mo>&rarr;</mo><mi>&#x212C;</mi></mrow></mrow></math>
+est l'opérateur de Markov associé à ce SIF avec probabilités et
+<math display="inline"><mrow><mi>C</mi><mo>=</mo><munder><mi>max</mi>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo><mi class="ss1">j</mi>
+<mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow></munder>
+<mspace width="0.1667em"></mspace><msub><mi>C</mi><mi class="ss1">j</mi>
+</msub></mrow></math>
+où
+<math display="inline"><mrow><msub><mi>C</mi><mi class="ss1">j</mi>
+</msub></mrow></math>
+est un facteur de contraction pour
+<math display="inline"><mrow><msub><mi>f</mi><mi class="ss1">j</mi>
+</msub></mrow></math>,
+alors
+<math display="inline"><mrow><mi>M</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mrow>
+<mi>&#x212C;</mi><mo>&rarr;</mo><mi>&#x212C;</mi></mrow></mrow></math>
+est une contraction avec un facteur de contraction
+<math display="inline"><mi>C</mi></math>
+par rapport à la métrique de Hutchinson
+<math display="inline"><mrow><msub><mi>d</mi><mi class="ss1">&#x212C;</mi>
+</msub></mrow></math>;
+c'est-à-dire,
+<math display="inline"><mrow><msub><mi>d</mi><mi class="ss1">&#x212C;</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>M</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&mu;</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo separator="true">,</mo><mi>M</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&le;</mo><mi>C</mi><msub><mi>d</mi><mi class="ss1">&#x212C;</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&mu;</mi><mo separator="true">,</mo><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+pour tout
+<math display="inline"><mrow><mi>&mu;</mi><mo separator="true">,</mo>
+<mi>&nu;</mi><mo>&in;</mo><mi>&#x212C;</mi></mrow></math>.
+</p>
 </div>
 
 <p><em>Démonstration (ébauche)</em>: Soit
-<em class="EQ">G = {g:E &rarr; &reals; : |g(x)-g(y)| &le;
-d(x,y) pour tout x,y &in; E}</em>.  Nous démontrons en premier que
+<math display="inline"><mrow><mi>G</mi><mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>g</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>E</mi><mo>&rarr;</mo>
+<mi>ℝ</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>|</mi><mi>g</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>g</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>y</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&le;</mo><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="1ex"></mspace><mtext>for all</mtext>
+<mspace width="1ex"></mspace><mi>x</mi><mo separator="true">,</mo>
+<mi>y</mi><mo>&in;</mo><mi>E</mi>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>.
+Nous démontrons en premier que
 <span id="proof5A">&nbsp;...</span></p>
 <div id="proof5B" class="moreORless">
 
 <div class="EQ_center">
-<em class="EQ_Display">
-&int;<sub>E</sub> g d(M(&nu;)) =
-&sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> &int;<sub>E</sub>
-g&compfn;f<sub>j</sub> d&nu; </em>
+<math display="block" style="display:block math;"><mrow><msub>
+<mo movablelimits="false">&int;</mo><mi class="ss1">E</mi></msub>
+<mi>g</mi><mspace width="0.2em"></mspace><mtext>d</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>M</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mrow><munderover><mo movablelimits="false">&sum;</mo><mrow>
+<mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">1</mn>
+</mrow><mi class="ss1">J</mi></munderover></mrow><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub><msub><mo movablelimits="false">&int;</mo>
+<mi class="ss1">E</mi></msub><mi>g</mi><mo>&compfn;</mo><msub><mi>f</mi>
+<mi class="ss1">j</mi></msub><mspace width="0.2em"></mspace>
+<mtext>d</mtext><mi>&nu;</mi></mrow></math>
 </div>
-<p>pour tout <em class="EQ">g &in; G</em>.
-Puisque <math display="inline"><mi>E</mi></math> est un ensemble compacte, il existe une
-suite de fonctions en escalier
-<em class="EQ">{s<sub>i</sub>}<sub>i&ge;1</sub></em>
-qui converge uniformément vers <em class="EQ">g</em>
-sur <math display="inline"><mi>E</mi></math>.  Il est facile de vérifier que
-<div class="EQ_center">
-<em class="EQ_Display">
-&int;<sub>E</sub> s<sub>i</sub> d(M(&nu;))
-= &sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> &int;<sub>E</sub>
-s<sub>i</sub> d(&nu;&compfn;f<sub>j</sub><sup>-1</sup>) <br>
-= &sum;<sub>1&le;j&le;J</sub> p<sub>j</sub>
-&int;<sub>f<sub>j</sub>(E)</sub> s<sub>i</sub> d&nu;
-= &sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> &int;<sub>E</sub>
-s<sub>i</sub>&compfn;f<sub>j</sub> d&nu;</em>
-</div>
-<p>pour tout <em class="EQ">i</em>.  Puisque
-<em class="EQ">S<sub>i</sub> &rarr; g</em> uniformément sur l'ensemble
-compacte <math display="inline"><mi>E</mi></math> lorsque <em class="EQ">i &rarr; &infin;</em>,
-nous obtenons que
-<em class="EQ">&int;<sub>E</sub> s<sub>i</sub> d(M(&nu;)) &rarr;
-&int;<sub>E</sub> g d(M(&nu;))</em> et
-<em class="EQ">&int;<sub>E</sub>  s<sub>i</sub>&compfn;f<sub>j</sub> d&nu;
-&rarr; &int;<sub>E</sub> g&compfn;f<sub>j</sub> d&nu;</em>
-lorsque <em class="EQ">i &rarr; &infin;</em>.  Cela démontre
-l'énoncé au début du paragraphe.</p>
 
-<p>Soit <em class="EQ">
-<span class="math_smaller"><math> <mover> <mi>G</mi> <mo>&circ;</mo> </mover> </math></span>
-= {C<sup>-1</sup> &sum;<sub>1&le;j&le;J</sub>
-p<sub>j</sub> g&compfn;f<sub>j</sub> : g &in; G}</em>.  Nous avons que</p>
+<p>pour tout
+<math display="inline"><mrow><mi>g</mi><mo>&in;</mo><mi>G</mi>
+</mrow></math>.
+Étant donné
+<math display="inline"><mrow><mi>g</mi><mo>&in;</mo><mi>G</mi></mrow></math>,
+puisque
+<math display="inline"><mi>E</mi></math>
+est un ensemble compacte, il existe une suite de fonctions en escalier
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>s</mi>
+<mi class="ss1">i</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">i</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
+qui converge uniformément vers
+<math display="inline"><mi>g</mi></math>
+sur
+<math display="inline"><mi>E</mi></math>.
+Il est facile de vérifier que </p>
+
 <div class="EQ_center">
-<em class="EQ_Display">
-|C<sup>-1</sup> &sum;<sub>1&le;j&le;J</sub>
-p<sub>j</sub> g&compfn;f<sub>j</sub>(x) - 
-C<sup>-1</sup> &sum;<sub>1&le;j&le;J</sub>
-p<sub>j</sub> g&compfn;f<sub>j</sub>(y)|
-&le; C<sup>-1</sup> &sum;<sub>1&le;j&le;J</sub>
-p<sub>j</sub> |g&compfn;f<sub>j</sub>(x)-g&compfn;f<sub>j</sub>(y)| <br>
-&le; C<sup>-1</sup> &sum;<sub>1&le;j&le;J</sub>
-p<sub>j</sub> d(f<sub>j</sub>(x),f<sub>j</sub>(y))
-&le; &sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> d(x,y)
-= d(x,y)
-</em>
+<math display="block" style="display:block math;"><mrow><msub>
+<mo movablelimits="false">&int;</mo><mi class="ss1">E</mi></msub>
+<msub><mi>s</mi><mi class="ss1">i</mi></msub>
+<mspace width="0.2em"></mspace><mtext>d</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>M</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&nu;</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mrow><munderover><mo movablelimits="false">&sum;</mo>
+<mrow><mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">1</mn>
+</mrow><mi class="ss1">J</mi></munderover></mrow><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub><msub><mo movablelimits="false">&int;</mo>
+<mi class="ss1">E</mi></msub><msub><mi>s</mi><mi class="ss1">i</mi>
+</msub><mspace width="0.2em"></mspace><mtext>d</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&nu;</mi>
+<mo>&compfn;</mo><msubsup><mi>f</mi><mi class="ss1">j</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mrow><munderover><mo movablelimits="false">&sum;</mo><mrow>
+<mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">1</mn>
+</mrow><mi class="ss1">J</mi></munderover></mrow><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub><msub><mo movablelimits="false">&int;</mo>
+<mi class="ss1">E</mi></msub><msub><mi>s</mi><mi class="ss1">i</mi>
+</msub><mo>&compfn;</mo><msub><mi>f</mi><mi class="ss1">j</mi></msub>
+<mspace width="0.2em"></mspace><mtext>d</mtext><mi>&nu;</mi></mrow></math>
 </div>
-<p>pour tout <em class="EQ">x,y &in; E</em> et
-<em class="EQ">g &in; G</em>.  Donc
-<em class="EQ">
-<span class="math_smaller"><math> <mover> <mi>G</mi> <mo>&circ;</mo> </mover> </math></span>
-&subset; G</em>.  Ainsi,
+
+<p>pour tout
+<math display="inline"><mi>i</mi></math>.
+Puisque
+<math display="inline"><mrow><msub><mi>s</mi><mi class="ss1">i</mi></msub>
+<mo>&rarr;</mo><mi>g</mi></mrow></math>
+uniformément sur l'ensemble compacte
+<math display="inline"><mi>E</mi></math>
+lorsque
+<math display="inline"><mrow><mi>i</mi>
+<mo>&rarr;</mo><mi>&infin;</mi></mrow></math>,
+nous obtenons que
+<math display="inline"><mrow><msub><mo movablelimits="false">&int;</mo>
+<mi class="ss1">E</mi></msub><msub><mi>s</mi><mi class="ss1">i</mi>
+</msub><mspace width="0.2em"></mspace><mtext>d</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>M</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&rarr;</mo>
+<msub><mo movablelimits="false">&int;</mo><mi class="ss1">E</mi></msub>
+<mi>g</mi><mspace width="0.2em"></mspace>
+<mtext>d</mtext><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>M</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&nu;</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>
+et
+<math display="inline"><mrow><msub><mo movablelimits="false">&int;</mo>
+<mi class="ss1">E</mi></msub><msub><mi>s</mi><mi class="ss1">i</mi>
+</msub><mo>&compfn;</mo><msub><mi>f</mi><mi class="ss1">j</mi>
+</msub><mspace width="0.2em"></mspace>
+<mtext>d</mtext><mi>&nu;</mi><mo>&rarr;</mo><msub>
+<mo movablelimits="false">&int;</mo><mi class="ss1">E</mi></msub><mi>g</mi>
+<mo>&compfn;</mo><msub><mi>f</mi><mi class="ss1">j</mi></msub>
+<mspace width="0.2em"></mspace><mtext>d</mtext><mi>&nu;</mi></mrow></math>
+lorsque
+<math display="inline"><mrow><mi>i</mi><mo>&rarr;</mo><mi>&infin;</mi>
+</mrow></math>.
+Cela démontre l'énoncé au début du la démonstration.</p>
+
+<p>Soit
+<math display="inline"><mrow><mover><mi>G</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&circ;</mo></mover>
+<mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="true">{</mo>
+<msup><mi>C</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow><munderover>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow>
+<mi class="ss1">J</mi></munderover></mrow><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub><mi>g</mi><mo>&compfn;</mo><msub><mi>f</mi>
+<mi class="ss1">j</mi></msub><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>g</mi><mo>&in;</mo><mi>G</mi>
+<mo fence="true" form="postfix" stretchy="true">}</mo></mrow>
+</mrow></math>.
+Nous avons que</p>
+
 <div class="EQ_center">
-<em class="EQ_Display">
-d<sub>&#120017;</sub>(M(&mu;),M(&nu;))
-= sup{|&int;<sub>E</sub>g d(M(&mu;)) - &int;<sub>E</sub>g d(M(&nu;))|
-: g &in; G} <br>
-= sup{|&sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> &int;<sub>E</sub>
-g&compfn;f<sub>j</sub> d&mu; -
-&sum;<sub>1&le;j&le;J</sub> p<sub>j</sub> &int;<sub>E</sub>
-g&compfn;f<sub>j</sub> d&nu;| : g &in; G} <br>
-= sup{|C &int;<sub>E</sub>
-<math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math> d&mu; -
-C &int;<sub>E</sub>
-<math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math> d&nu;|
-: <math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math>
-&in; <span class="math_smaller">
-<math> <mover> <mi>G</mi> <mo>&circ;</mo> </mover> </math></span>} <br>
-&le; C sup{|&int;<sub>E</sub>
-<math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math> d&mu; -
-&int;<sub>E</sub>
-<math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math> d&nu;|
-: <math> <mover> <mi>g</mi> <mo>&circ;</mo> </mover> </math> &in; G}
-= C d<sub>&#120017;</sub>(&mu;,&nu;)
-</em>
+<math display="block" style="display:block math;"><mrow><mrow>
+<mo fence="true" form="prefix" stretchy="true">|</mo><msup><mi>C</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow><munderover>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><mi class="ss1">J</mi>
+</munderover></mrow><msub><mi>p</mi><mi class="ss1">j</mi></msub>
+<mi>g</mi><mo>&compfn;</mo><msub><mi>f</mi><mi class="ss1">j</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<msup><mi>C</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow><munderover>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><mi class="ss1">J</mi>
+</munderover></mrow><msub><mi>p</mi><mi class="ss1">j</mi></msub>
+<mi>g</mi><mo>&compfn;</mo><msub><mi>f</mi><mi class="ss1">j</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="true">|</mo></mrow><mo>&le;</mo>
+<msup><mi>C</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow><munderover>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><mi class="ss1">J</mi>
+</munderover></mrow><msub><mi>p</mi><mi class="ss1">j</mi></msub>
+<mi>|</mi><mi class="ss1">g</mi><mo>&compfn;</mo><msub><mi>f</mi>
+<mi class="ss1">j</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>-</mo><mi>g</mi><mo>&compfn;</mo><msub><mi>f</mi><mi class="ss1">j</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>y</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mi>|</mi></mrow></math>
+
+<math display="block" style="display:block math;"><mrow><mo>&le;</mo>
+<msup><mi>C</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow><munderover>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><mi class="ss1">J</mi>
+</munderover></mrow><msub><mi>p</mi><mi class="ss1">j</mi></msub><mi>d</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><msub><mi>f</mi><mi class="ss1">j</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&le;</mo><mrow><munderover><mo movablelimits="false">&sum;</mo>
+<mrow><mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">1</mn>
+</mrow><mi class="ss1">J</mi></munderover></mrow><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
 </div>
-<p>pour tout <em class="EQ">&mu;,&nu; &in; &#120017;</em>.
+
+<p>pour tout
+<math display="inline"><mrow><mi>x</mi><mo separator="true">,</mo>
+<mi>y</mi><mo>&in;</mo><mi>E</mi></mrow></math>
+et
+<math display="inline"><mrow><mi>g</mi><mo>&in;</mo><mi>G</mi>
+</mrow></math>.
+Donc
+<math display="inline"><mrow><mover><mi>G</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&circ;</mo>
+</mover><mo>&subset;</mo><mi>G</mi></mrow></math>.
+Ainsi,</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msub><mi>d</mi>
+<mi class="ss1">&#x212C;</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>M</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&mu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><mi>M</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>sup</mi><mrow><mo fence="true" form="prefix" stretchy="true">{</mo>
+<mrow><mo fence="true" form="prefix" stretchy="true">|</mo><msub>
+<mo movablelimits="false">&int;</mo><mi class="ss1">E</mi></msub>
+<mi>g</mi><mspace width="0.2em"></mspace><mtext>d</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>M</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>&mu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>-</mo><msub><mo movablelimits="false">&int;</mo>
+<mi class="ss1">E</mi></msub><mi>g</mi><mspace width="0.2em"></mspace>
+<mtext>d</mtext><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>M</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&nu;</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="true">|</mo>
+</mrow><mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>g</mi><mo>&in;</mo>
+<mi>G</mi><mo fence="true" form="postfix" stretchy="true">}</mo></mrow>
+</mrow></math>
+
+<math display="block" style="display:block math;"><mrow><mo>=</mo>
+<mi>sup</mi><mrow><mo fence="true" form="prefix" stretchy="true">{</mo>
+<mrow><mo fence="true" form="prefix" stretchy="true">|</mo><mrow>
+<munderover><mo movablelimits="false">&sum;</mo><mrow>
+<mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">1</mn>
+</mrow><mi class="ss1">J</mi></munderover></mrow><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub><msub><mo movablelimits="false">&int;</mo>
+<mi class="ss1">E</mi></msub><mi>g</mi><mo>&compfn;</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub><mspace width="0.2em"></mspace>
+<mtext>d</mtext><mi>&mu;</mi><mo>-</mo><mrow><munderover>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><mi class="ss1">J</mi>
+</munderover></mrow><msub><mi>p</mi><mi class="ss1">j</mi></msub>
+<msub><mo movablelimits="false">&int;</mo><mi class="ss1">E</mi>
+</msub><mi>g</mi><mo>&compfn;</mo><msub><mi>f</mi><mi class="ss1">j</mi>
+</msub><mspace width="0.2em"></mspace><mtext>d</mtext><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="true">|</mo></mrow>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>g</mi><mo>&in;</mo>
+<mi>G</mi><mo fence="true" form="postfix" stretchy="true">}</mo>
+</mrow></mrow></math>
+
+<math display="block" style="display:block math;"><mrow><mo>=</mo>
+<mi>sup</mi><mrow><mo fence="true" form="prefix" stretchy="true">{</mo>
+<mrow><mo fence="true" form="prefix" stretchy="true">|</mo><mi>C</mi>
+<msub><mo movablelimits="false">&int;</mo><mi class="ss1">E</mi>
+</msub><mover><mi>g</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&circ;</mo>
+</mover><mspace width="0.2em"></mspace><mtext>d</mtext><mi>&mu;</mi>
+<mo>-</mo><mi>C</mi><msub><mo movablelimits="false">&int;</mo>
+<mi class="ss1">E</mi></msub><mover><mi>g</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&circ;</mo></mover>
+<mspace width="0.2em"></mspace><mtext>d</mtext><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="true">|</mo></mrow>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mover><mi>g</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&circ;</mo>
+</mover><mo>&in;</mo><mover><mi>G</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&circ;</mo>
+</mover><mo fence="true" form="postfix" stretchy="true">}</mo>
+</mrow></mrow></math>
+
+<math display="block" style="display:block math;"><mrow><mo>&le;</mo>
+<mi>C</mi><mrow><mspace width="0.1667em"></mspace><mi>sup</mi>
+</mrow><mrow><mo fence="true" form="prefix" stretchy="true">{</mo>
+<mrow><mo fence="true" form="prefix" stretchy="true">|</mo><msub>
+<mo movablelimits="false">&int;</mo><mi class="ss1">E</mi></msub>
+<mover><mi>g</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&circ;</mo>
+</mover><mspace width="0.2em"></mspace><mtext>d</mtext><mi>&mu;</mi>
+<mo>-</mo><msub><mo movablelimits="false">&int;</mo><mi class="ss1">E</mi>
+</msub><mover><mi>g</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&circ;</mo></mover>
+<mspace width="0.2em"></mspace><mtext>d</mtext><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="true">|</mo></mrow>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mover><mi>g</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&circ;</mo></mover>
+<mo>&in;</mo><mi>G</mi><mo fence="true" form="postfix" stretchy="true">}</mo>
+</mrow><mo>=</mo><mi>C</mi><msub><mi>d</mi><mi class="ss1">&#x212C;</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&mu;</mi><mo separator="true">,</mo><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+</div>
+
+<p>pour tout
+<math display="inline"><mrow><mi>&mu;</mi><mo separator="true">,</mo>
+<mi>&nu;</mi><mo>&in;</mo><mi>&#x212C;</mi></mrow></math>.
 &nbsp;<span class="Proof_Right">&#8718;</span></p>
 </div>
 <button onclick="moreORless('proof5A','proof5B','proof5C','fr')"
@@ -5578,84 +6449,242 @@ class="mORl" id="proof5C">Lire plus</button>
 et du Théorème de contraction.</p>
 
 <div class="Theo">
-<p><em>Théorème</em>: Supposons que <math display="inline"><mrow>
+<p><em>Théorème</em>: Supposons que
+<math display="inline"><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
 <mo separator="true">,</mo><mi>d</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math> est un
-espace métrique compact, que <em class="EQ">&#120017;</em> est la
-collection de toutes les mesures de Borel normalisées sur
-<math display="inline"><mi>E</mi></math>, et que
-<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>
-est un SIF avec probabilités.
-Si <em class="EQ">M: &#120017; &rarr; &#120017;</em> est l'opérateur
-de Markov associé à ce SIF avec probabilités, alors il existe un
-ensemble unique <em class="EQ">&mu; &in; &#120017;</em> tel que
-<em class="EQ">M<sub>&#120017;</sub>(&mu;) = &mu;</em>.  De plus, pour
-toute mesure <em class="EQ">&nu;<sub>0</sub> &in; &#120017;</em>, la suite
-de mesures <em class="EQ">{&nu;<sub>i</sub>}<sub>i&geq;0</sub></em>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+est un espace métrique compact, que
+<math display="inline"><mi>&#x212C;</mi></math>
+est la collection de toutes les mesures de Borel normalisées sur
+<math display="inline"><mi>E</mi></math>,
+et que
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo separator="true">,</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>p</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo fence="true" form="postfix" stretchy="true">)</mo></mrow></math>
+est un SIF avec probabilités.  Si
+<math display="inline"><mrow><mi>M</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mrow>
+<mi>&#x212C;</mi><mo>&rarr;</mo><mi>&#x212C;</mi></mrow></mrow></math>
+est l'opérateur de Markov associé à ce SIF avec probabilités, alors il
+existe une mesure unique
+<math display="inline"><mrow><mi>&mu;</mi><mo>&in;</mo>
+<mi>&#x212C;</mi></mrow></math>
+telle que
+<math display="inline"><mrow><mi>M</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&mu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>&mu;</mi></mrow></math>.
+De plus, pour toute mesure
+<math display="inline"><mrow><msub><mi>&mu;</mi><mn class="ss1">0</mn>
+</msub><mo>&in;</mo><mi>&#x212C;</mi></mrow></math>,
+la suite de mesures
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>&mu;</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
+<mn class="ss1">0</mn></mrow></msub></math>
 définie par
-<em class="EQ">&nu;<sub>i+1</sub> = M<sub>&#120017;</sub>(&nu;<sub>i</sub>)</em>
-converge vers <em class="EQ">&mu;</em> par rapport à la métrique de
-Hutchinson <em class="EQ">d<sub>&#120017;</sub></em> lorsque
-<em class="EQ">i &rarr; &infin;</em>.</p>
+<math display="inline"><mrow><msub><mi>&mu;</mi><mrow>
+<mi class="ss1">n</mi><mo class="ss1">+</mo><mn class="ss1">1</mn>
+</mrow></msub><mo>=</mo><mi>M</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>&mu;</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>
+converge vers
+<math display="inline"><mi>&mu;</mi></math>
+par rapport à la métrique de Hutchinson
+<math display="inline"><mrow><msub><mi>d</mi><mi class="ss1">&#x212C;</mi>
+</msub></mrow></math>
+lorsque
+<math display="inline"><mrow><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi>
+</mrow></math>.
+</p>
 </div>
 
 <div class="Theo">
-<p><em>Définition</em>: Au théorème précédent, la
-mesure <em class="EQ">&mu;</em> telle que
-<em class="EQ">M<sub>&#120017;</sub>(&mu;) = &mu;</em>
+<p><em>Définition</em>: Au théorème précédent, la mesure
+<math display="inline"><mi>&mu;</mi></math>
+telle que
+<math display="inline"><mrow><mi>M</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&mu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>&mu;</mi></mrow></math>
 est appelé la <em>mesure invariante</em> du SIF avec probabilités.</p>
 </div>
 
 <div class="Theo">
-<p><em>Proposition</em>: Supposons que <math display="inline"><mrow>
+<p><em>Proposition</em>: Supposons que
+<math display="inline"><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
 <mo separator="true">,</mo><mi>d</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math> est
-un espace métrique compact, que <em class="EQ">&#120017;</em> est la
-collection de toutes les mesures de Borel normalisées sur
-<math display="inline"><mi>E</mi></math>, et que
-<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>
-est un SIF avec probabilités.  Alors,
-le support <em class="EQ">K &subset; E</em> de la mesure invariante
-<em class="EQ">&mu; &in; &#120017;</em> de ce SIF avec probabilités
-est le point fixe de la fonction <em class="EQ">f<sup>c<sup></em>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+est un espace métrique compact, que
+<math display="inline"><mi>&#x212C;</mi></math>
+est la collection de toutes les mesures de Borel normalisées sur
+<math display="inline"><mi>E</mi></math>,
+et que
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo separator="true">,</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>p</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo fence="true" form="postfix" stretchy="true">)</mo></mrow></math>
+est un SIF avec probabilités.  Alors, le support
+<math display="inline"><mrow><mi>K</mi><mo>&subset;</mo>
+<mi>E</mi></mrow></math>
+de la mesure invariante
+<math display="inline"><mrow><mi>&mu;</mi><mo>&in;</mo>
+<mi>&#x212C;</mi></mrow></math>
+de ce SIF avec probabilités est le point fixe de la fonction
+<math display="inline"><msup><mi>f</mi><mi class="ss1">c</mi></msup></math>
 induite par le SIF
-<em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.</p>
+<math display="inline"><mrow>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub></mrow></math>.
+</p>
 </div>
 
-<p><em>Démonstration (ébauche)</em>:  Soit <em class="EQ">K</em> le
-point fixe de la fonction <math display="inline"><msup><mi>f</mi><mi class="ss1">c</mi></msup></math> induite du
-SIF  <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.
-L'ensemble <em class="EQ">K</em> est invariant sous l'action du SIF
-avec probabilités
-<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>.
-Donc, il existe une mesure invariante <em class="EQ">&nu;</em>
-pour le SIF avec probabilités
-<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>
-restreint à <em class="EQ">K</em>.
-Si nous assumons que <em class="EQ">&nu;(A) = 0</em> pour tous les
-ensembles de Borel <em class="EQ">A &subset; E &setminus; K</em>, alors
-<em class="EQ">&nu;</em> définit une mesure de Borel normalisées
-sur <math display="inline"><mi>E</mi></math>.  Par unicité de la mesure invariante,
-nous avons que <em class="EQ">&nu; = &mu;</em>.  Ceci implique que
-le support de <em class="EQ">&nu;</em> est un sous ensemble de
-<em class="EQ">K</em>.</p>
+<p><em>Démonstration (ébauche)</em>:  Soit
+<math display="inline"><mi>K</mi></math>
+le point fixe de la fonction
+<math display="inline"><msup><mi>f</mi><mi class="ss1">c</mi></msup></math>
+induite du SIF
+<math display="inline"><mrow>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub></mrow></math>.
+<span id="proof6A">&nbsp;...</span></p>
+<div id="proof6B" class="moreORless">
 
-<p>Une démonstration que le support de <em class="EQ">&nu;</em> est
-égale à <em class="EQ">K</em> utilise l'isométrie entre l'ensemble
-<em class="EQ">&Sigma;<sub>J</sub> =
-{(s<sub>0</sub>s<sub>1</sub>s<sub>2</sub>...) :
-s<sub>k</sub> &in; {1,2,...,J} pour tout k &ge; 0}</em>
-et l'ensemble <em class="EQ">K</em>, et l'application de
-décalage sur <em class="EQ">J</em> symboles agissant sur
-<em class="EQ">&Sigma;<sub>J</sub></em>.  C'est un sujet que nous
-n'avons pas abordé.  C'est semblable à ce qui a été faite
-dans le document <script language="javascript">
+<p>L'ensemble
+<math display="inline"><mi>K</mi></math>
+est invariant sous l'action du SIF avec probabilités
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo separator="true">,</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>p</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo fence="true" form="postfix" stretchy="true">)</mo></mrow></math>.
+Donc, il existe une mesure invariante
+<math display="inline"><mi>&nu;</mi></math>
+pour le SIF avec probabilités
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo separator="true">,</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>p</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo fence="true" form="postfix" stretchy="true">)</mo></mrow></math>.
+restreint à
+<math display="inline"><mi>K</mi></math>.
+Si nous posons
+<math display="inline"><mrow><mi>&nu;</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>0</mn></mrow></math>
+pour tous les ensembles de Borel
+<math display="inline"><mrow><mi>A</mi><mo>&subset;</mo><mi>E</mi>
+<mo>&setminus;</mo><mi>K</mi></mrow></math>,
+alors
+<math display="inline"><mi>&nu;</mi></math>
+définit une mesure de Borel normalisées sur
+<math display="inline"><mi>E</mi></math>
+telle que
+<math display="inline"><mrow><mi>M</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>ν</mi></mrow></math>.
+Par unicité de la mesure invariante, nous avons que
+<math display="inline"><mrow><mi>&nu;</mi><mo>=</mo><mi>&mu;</mi></mrow></math>.
+Ceci implique que le support de
+<math display="inline"><mi>&mu;</mi></math>
+est un sous ensemble de
+<math display="inline"><mi>K</mi></math>.
+</p>
+
+<p>Une démonstration que le support de
+<math display="inline"><mi>&mu;</mi></math>
+est égale à
+<math display="inline"><mi>K</mi></math>
+utilise l'isométrie entre l'ensemble
+<math display="inline"><mrow><msub><mi>&Sigma;</mi><mi class="ss1">J</mi>
+</msub><mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>s</mi>
+<mn class="ss1">0</mn></msub><mo separator="true">,</mo><msub>
+<mi>s</mi><mn class="ss1">1</mn></msub><mo separator="true">,</mo>
+<msub><mi>s</mi><mn class="ss1">2</mn></msub><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo lspace="0.2222em" rspace="0.2222em">:</mo><msub>
+<mi>s</mi><mi class="ss1">k</mi></msub><mo>&in;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mn>1</mn>
+<mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><mi>J</mi>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mspace width="1ex"></mspace><mtext>pour tout</mtext>
+<mspace width="1ex"></mspace><mi>k</mi><mo>&ge;</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+</mrow></math>
+et l'ensemble
+<math display="inline"><mi>K</mi></math>,
+et l'application de décalage sur
+<math display="inline"><mi>J</mi></math>
+symboles agissant sur
+<math display="inline"><mrow><msub><mi>&Sigma;</mi><mi class="ss1">J</mi>
+</msub><mrow></math>.
+C'est un sujet que nous n'avons pas abordé.  C'est semblable à ce qui
+a été faite dans le document
+<script language="javascript">
   buildLinK(fractal1.url_fr, fractal1.text_fr,
   "MMathSStat", fractal1.id, fractal1.target);
 </script>.
 &nbsp;<span class="Proof_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof6A','proof6B','proof6C','fr')" class="mORl" id="proof6C">Lire plus</button>
 
 <p>Il existe un théorème de collage pour les mesures semblable au
 théorème de collage pour les SIF dans la section précédente.
@@ -5666,34 +6695,77 @@ C'est aussi un corollaire de la
 </script>.</p>
 
 <div class="Theo">
-<p><em>Théorème (Collage)</em>:  Supposons que <math display="inline"><mrow>
+<p><em>Théorème (Collage)</em>:  Supposons que
+<math display="inline"><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
 <mo separator="true">,</mo><mi>d</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math> est
-un espace métrique compact et que <em class="EQ">&#120017;</em> est la
-collection de toutes les mesures de Borel normalisées
-sur <math display="inline"><mi>E</mi></math>.
-De plus, supposons que <em class="EQ">M: &#120017; &rarr; &#120017;</em>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+est un espace métrique compact et que
+<math display="inline"><mi>&#x212C;</mi></math>
+est la collection de toutes les mesures de Borel normalisées sur
+<math display="inline"><mi>E</mi></math>.
+De plus, supposons que
+<math display="inline"><mrow><mi>M</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mrow>
+<mi>&#x212C;</mi><mo>&rarr;</mo><mi>&#x212C;</mi></mrow></math>
 est l'opérateur de Markov associé au SIF avec probabilités
-<em class="EQ">({f<sub>j</sub>}<sub>1&leq;j&leq;J</sub>,{p<sub>j</sub>}<sub>1&leq;j&leq;J</sub>)</em>.
-Finalement, supposons que <em class="EQ">C</em> est un facteur de
-contraction pour la fonction <math display="inline"><msup><mi>f</mi><mi class="ss1">c</mi></msup></math>
-induite par le SIF <em class="EQ">{f<sub>j</sub>}<sub>1&leq;j&leq;J</sub></em>.
-Si <em class="EQ">d<sub>&#120017;</sub>(&nu;,M(&nu;)) &le; &epsilon;</em>, alors
-<em class="EQ">d<sub>&#120017;</sub>(&nu;,&mu;) &le; &epsilon;/(1-C)</em> où
-<em class="EQ">&mu;</em> est la mesure invariante du SIF avec
-probabilités.</p>
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo separator="true">,</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>p</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub><mo fence="true" form="postfix" stretchy="true">)</mo></mrow></math>.
+Finalement, supposons que
+<math display="inline"><mi>C</mi></math>
+est un facteur de contraction pour la fonction
+<math display="inline"><msup><mi>f</mi><mi class="ss1">c</mi></msup></math>
+induite par le SIF
+<math display="inline"><mrow>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>f</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mn class="ss1">1</mn><mo class="ss1">&le;</mo>
+<mi class="ss1">j</mi><mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow>
+</msub></mrow></math>.
+Si
+<math display="inline"><mrow><msub><mi>d</mi><mi class="ss1">&#x212C;</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&nu;</mi><mo separator="true">,</mo><mi>M</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&nu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&le;</mo><mi>&epsilon;</mi></mrow></math>,
+alors
+<math display="inline"><mrow><msub><mi>d</mi><mi class="ss1">&#x212C;</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&nu;</mi><mo separator="true">,</mo><mi>&mu;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&le;</mo><mfrac><mi>&epsilon;</mi><mrow><mn>1</mn><mo>-</mo><mi>C</mi>
+</mrow></mfrac></mrow></math>
+où
+<math display="inline"><mi>&mu;</mi></math>
+est la mesure invariante du SIF avec probabilités.</p>
 </div>
 
 <p>Comme pour les SIF dans la section précédent, nous avons un
 problème inverse pour les SIF avec probabilités.  Le problème est
 maintenant de trouver un SIF avec probabilités dont la mesure
 invariante qui lui est associée est une mesure de Borel donnée.
-Soit <em class="EQ">K</em> le support de cette mesure.
-Idéalement, la distribution de densité sur <em class="EQ">K</em>
+Soit
+<math display="inline"><mi>K</mi></math>
+le support de cette mesure.  Idéalement, la distribution de densité sur
+<math display="inline"><mi>K</mi></math>
 des points produits par le jeux du chaos pour le SIF avec probabilités
 doit représenter la distribution de densité de la mesure invariante sur
-<em class="EQ">K</em>.
+<math display="inline"><mi>K</mi></math>
 C'est un domaine difficile de recherche constante.  Le lecteur pour
 consulter l'article par <script language="javascript">
 buildLinK("#BS", "P. C. Bressloff and J. Stark", "MMathSStat", "BSId3", "_top");
