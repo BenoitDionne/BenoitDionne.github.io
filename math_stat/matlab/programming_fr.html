@@ -778,7 +778,7 @@ bifurcation qui peut être dessiné avec <q lang="en">précision</q>.</p>
 <ol>
 <li><p><em>Triangle de Sierpinski</em>: Cet ensemble est le
 <q lang="fr">point fixe</q> de la fonction \(f^c\)
-définie par le SIF \( \{ f_j\}_{j=1}^3 \) où</p>
+induite par le SIF \( \{ f_j\}_{j=1}^3 \) où</p>
 \[
 \begin{split}
 &f_1(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x} +
@@ -793,7 +793,7 @@ f_3(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix}\vec{x} \ .
 \(X \in (\mathbb{R}^2)^c\).</p>
 </li>
 <li><p><em>Fougère</em>: Cet ensemble est le
-<q lang="fr">point fixe</q> de la fonction \(f^c\) définie par le
+<q lang="fr">point fixe</q> de la fonction \(f^c\) induite par le
 SIF \( \{ f_j\}_{j=1}^4 \) où</p>
 \[
 \begin{split}
@@ -811,7 +811,7 @@ f_4(\vec{x}) = \begin{pmatrix} -0.15 & 0.28 \\ 0.26 & 0.24 \end{pmatrix}
 \(X \in (\mathbb{R}^2)^c\).</p> 
 </li>
 <li><p><em>Feuille</em>: Cet ensemble est le
-<q lang="fr">point fixe</q> de la fonction \(f^c\) définie par le
+<q lang="fr">point fixe</q> de la fonction \(f^c\) induite par le
 SIF \( \{ f_j\}_{j=1}^4 \) où</p>
 \[
 \begin{split}
@@ -837,7 +837,7 @@ f_4(\vec{x}) = \begin{pmatrix} 0.4 & -0.3 \\ 0.3 & 0.4 \end{pmatrix}
 
 <p>Nous fournissons deux fonctions dans <em>Matlab</em> pour
 approximer le <q lang="en">point fixe</q> de la fonction \(f^c\)
-définie par un SIF.  La première fonction décrite ci-dessous applique
+induite par un SIF.  La première fonction décrite ci-dessous applique
 strictement la procédure itérative au SIF donné.  Les seules inexactitudes
 sont dues aux calculs numériques.  Cependant, cette fonction
 ne peut pas effectuer beaucoup d'itérations avant d'épuiser
@@ -928,7 +928,7 @@ dans le <em>fichier m</em> <script language="javascript">
 courbe polynomiale fermée initiale que nous choisissons est définie
 par le triangle avec les sommets aux
 points \( (0,0), (1,0) \) et \( (0,1) \).  Nous calculons 6 itérations
-de la fonction \(f^c\) définie par le SIF associé au triangle de
+de la fonction \(f^c\) induite par le SIF associé au triangle de
 Sierpinski.  Ce SIF est définie dans le
 <em>fichier m</em> <script language="javascript"> 
 buildLinK("ifs_systems.m", "ifs_systems.m", "MMathSStat",
@@ -1131,7 +1131,7 @@ paramètre \(M\) pour redimensionner le système.</p>
 
 <div class="Example">
 <p><em>Exemple</em>: Nous dessinons la fougère représentée par le
-point fixe de la fonction \(f^c\) définie par le SIF donné au début
+point fixe de la fonction \(f^c\) induite par le SIF donné au début
 de cette section.  La définition de ce SIF est aussi incluse dans le
 <em>fichier m</em> <script language="javascript"> 
   buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
@@ -1154,7 +1154,7 @@ The figure has been drawn
 </div>
 
 <p>Nous dessinons la feuille représentée par le
-point fixe de la fonction \(f^c\) définie par le SIF donné au début
+point fixe de la fonction \(f^c\) induite par le SIF donné au début
 de cette section.  La définition de ce SIF est aussi incluse dans le
 <em>fichier m</em> <script language="javascript"> 
   buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
@@ -1288,7 +1288,7 @@ FM = { [0,0;0,0.16],[0.85,0.04;-0.04,0.85],[0.20,-0.26;0.23,0.22], ...
 <p><em>Exemple</em>: Nous utilisons la fonction de <em>Matlab</em>
 <em class="matlab">ifs_adaptive</em> pour dessiner la fougère.  Le
 point \((1,0)\) appartient au point fixe \(K\) de la fonction
-\(f^c\) définie par le SIF pour la fougère.</p>
+\(f^c\) induite par le SIF pour la fougère.</p>
 
 <pre class="matlab">
 >> <font class="matlab">ifs_systems;</font>
@@ -1314,7 +1314,7 @@ l'ordinateur.</p>
 <em class="matlab">ifs</em> et
 <em class="matlab">ifs2</em> n'est pas la seule méthode
 utilisée pour dessiner le point fixe \(K\) de la fonction
-\(f^c\) définie par un SIF \(\{f_j\}_{j=1}^J\).
+\(f^c\) induite par un SIF \(\{f_j\}_{j=1}^J\).
 Le <em>jeux du chaos</em> est souvent utilisé pour dessiner le point
 fixe \(K\).  Cette méthode requière très peu d'espace mémoire sur un
 ordinateur.  Elle peut par contre nécessité une période importante de
@@ -1355,7 +1355,7 @@ buildLinK("ifs2_systems.m", "ifs2_systems.m","MMathSStat", "idifsp4", "_blank");
 <p>Les fonctions de <em>Matlab</em> <em class="matlab">ifs</em>
 et <em class="matlab">ifs</em> peuvent
 être utilisées pour dessiner le point fixe de la fonction \(f^c\)
-définie par un SIF avec condensation.  Un exemple de SIF
+induite par un SIF avec condensation.  Un exemple de SIF
 avec condensation est fourni par la collection de fonctions
 \( \{ f_j\}_{j=0}^3 \) où</p>
 \[
@@ -1398,7 +1398,7 @@ Rappelons que \(\displaystyle f^c(X) = \bigcup_{j=0}^3 f_j(X)\) pour
 \(X \in (\mathbb{R}^2)^c\).
 L'ensemble de condensation est
 \( \{\vec{x} : x_1 = 1/2 \ \text{et} \ 0 \leq x_2 \leq 1/2 \}\).
-Le point fixe de la fonction \(f^c\) définie par ce SIF avec
+Le point fixe de la fonction \(f^c\) induite par ce SIF avec
 condensation représente un arbre comme cela est illustré dans le
 prochain exemple.</p>
 
@@ -1435,7 +1435,7 @@ TC = {TC0, TC1, TC2, TC3};</font>
 
 <div class="Example">
 <p><em>Exemple</em>: Le dessin du point fixe de la fonction \(f^c\)
-définie par le SIF avec condensation ci-dessus est produit par les
+induite par le SIF avec condensation ci-dessus est produit par les
 commandes de <em>Matlab</em> suivantes.
 L'ensemble initial que nous choisissons est la courbe polygonale fermée
 définie par le triangle avec les sommets aux points \( (0,0), (1,0) \) et
@@ -1466,8 +1466,8 @@ buildLinK("ifs_systems.m", "ifs_systems.m","MMathSStat", "ifsId4", "_blank");
 de <em>Matlab</em> <em class="matlab">ifs</em> génère des meilleures
 images que la fonction de <em>Matlab</em> <em class="matlab">ifs2</em>
 si l'ordinateur utilisé a suffisamment d'espace mémoire pour calculer
-plusieurs itérations de la fonction \(f^c\) définie par un SIF.
-Par exemple, 10 itérations de la fonction \(f^c\) définie par le SIF
+plusieurs itérations de la fonction \(f^c\) induite par un SIF.
+Par exemple, 10 itérations de la fonction \(f^c\) induite par le SIF
 avec condensation ci-dessus donne l'image suivante.</p>
 <div class="center">
 <img src="Matlab_fractal5.png" style="width: 300px" alt="Un arbre">

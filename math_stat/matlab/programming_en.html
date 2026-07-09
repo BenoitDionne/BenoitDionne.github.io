@@ -767,7 +767,7 @@ reader may consult the document <script language="javascript">
 <ol>
 <li><p><em>Sierpinski triangle</em>: This set is
 the <q lang="en">fixed point</q> of the function \(f^c\)
-defined by the IFS \( \{ f_j\}_{j=1}^3 \) where</p>
+induced by the IFS \( \{ f_j\}_{j=1}^3 \) where</p>
 \[
 \begin{split}
 &f_1(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix} \vec{x} +
@@ -782,7 +782,7 @@ f_3(\vec{x}) = \begin{pmatrix} 1/2 & 0 \\ 0 & 1/2 \end{pmatrix}\vec{x} \ .
 \(X \in (\mathbb{R}^2)^c\). </p>
 </li>
 <li><p><em>Fern</em>: This set is the <q lang="en">fixed point</q>
-of the function \(f^c\) defined by the IFS \( \{ f_j\}_{j=1}^4 \) where</p> 
+of the function \(f^c\) induced by the IFS \( \{ f_j\}_{j=1}^4 \) where</p> 
 \[
 \begin{split}
 &f_1(\vec{x}) = \begin{pmatrix} 0 & 0 \\ 0 & 0.16 \end{pmatrix} \vec{x}
@@ -799,7 +799,7 @@ f_4(\vec{x}) = \begin{pmatrix} -0.15 & 0.28 \\ 0.26 & 0.24 \end{pmatrix}
 \(X \in (\mathbb{R}^2)^c\).</p>
 </li>
 <li><p><em>Leaf</em>: This set is the <q lang="en">fixed point</q>
-of the function \(f^c\) defined by the IFS \( \{ f_j\}_{j=1}^4 \) where</p> 
+of the function \(f^c\) induced by the IFS \( \{ f_j\}_{j=1}^4 \) where</p> 
 \[
 \begin{split}
 &f_1(\vec{x}) = \begin{pmatrix} 0.6 & 0 \\ 0 & 0.6 \end{pmatrix}
@@ -823,7 +823,7 @@ f_4(\vec{x}) = \begin{pmatrix} 0.4 & -0.3 \\ 0.3 & 0.4 \end{pmatrix}
 </script>.</p>
 
 <p>We provide two functions in <em>Matlab</em> to approximate the
-<q lang="en">fixed point</q> of the function \(f^c\) defined by an IFS.
+<q lang="en">fixed point</q> of the function \(f^c\) induced by an IFS.
 The first function described below applies strictly
 the iterative procedure to the given IFS.  The only
 inaccuracies are due to numerical computations.  However, this
@@ -913,7 +913,7 @@ the <em>m-file</em> <script language="javascript">
 The initial closed polygonal curve that we choose is
 defined by the triangle with vertices at \( (0,0), (1,0) \) and
  \( (0,1) \).  We compute 6 iterations of the function \(f^c\)
-defined by the IFS associated to the Sierpinski triangle.
+induced by the IFS associated to the Sierpinski triangle.
 This IFS is defined in the <em>m-file</em> <script language="javascript"> 
   buildLinK("ifs_systems.m", "ifs_systems.m", "MMathSStat",
   "ifsstmmId","_blank");
@@ -1111,7 +1111,7 @@ addition of the parameter \(M\) for the rescaling of the system.</p>
 
 <div class="Example">
 <p><em>Example</em>: We draw the fern obtained as the fixed point of
-the function \(f^c\) defined by the IFS given at the beginning of this
+the function \(f^c\) induced by the IFS given at the beginning of this
 section.  The definition of this IFS is also included in the 
 <em>m-file</em> <script language="javascript"> 
   buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
@@ -1133,7 +1133,7 @@ The figure has been drawn
 </div>
 
 <p>We draw the leaf obtained as the fixed point of the function
-\(f^c\) defined by the IFS given at the beginning of this 
+\(f^c\) induced by the IFS given at the beginning of this 
 section.  The definition of the IFS is also included in the 
 <em>m-file</em> <script language="javascript"> 
   buildLinK("ifs2.m", "ifs2.m", "MMathSStat", "ifs2mId", "_blank");
@@ -1267,7 +1267,7 @@ FM = { [0,0;0,0.16],[0.85,0.04;-0.04,0.85],[0.20,-0.26;0.23,0.22], ...
 <p><em>Example</em>: We use the <em>Matlab</em> function
 <em class="matlab">ifs_adaptive</em> to draw the fern.  The
 point \((1,0)\) belongs to the fixed point \(K\) of the fonction
-\(f^c\) defined by the IFS for the fern.</p>
+\(f^c\) induced by the IFS for the fern.</p>
 
 <pre class="matlab">
 >> <font class="matlab">ifs_systems;</font>
@@ -1292,7 +1292,7 @@ but it is still demanding on the graphic card of the computer.</p>
 <em class="matlab">ifs</em> and
 <em class="matlab">ifs2</em> is not the only method used to draw
 the fixed point \(K\) of the
-function \(f^c\) defined by an IFS \(\{f_j\}_{j=1}^J\).
+function \(f^c\) induced by an IFS \(\{f_j\}_{j=1}^J\).
 The <em>chaos game</em> is often used to draw the fixed
 point \(K\).  This method requires very little computer memory.  It
 may however requires a significant amount of computation time to
@@ -1331,7 +1331,7 @@ buildLinK("ifs2_systems.m", "ifs2_systems.m","MMathSStat", "idifsp4", "_blank");
 
 <p>The <em>Matlab</em> functions <em class="matlab">ifs</em> and
 <em class="matlab">ifs2</em> can be used
-to draw the fixed point of the function \(f^c\) defined by an IFS
+to draw the fixed point of the function \(f^c\) induced by an IFS
 with condensation.  An example of IFS with condensation is provided by
 the collection of functions \( \{ f_j\}_{j=0}^3 \) where</p>
 \[
@@ -1372,7 +1372,7 @@ f_3(\vec{x}) &=  0.4 \begin{pmatrix} \cos(\pi/10) & -\sin(\pi/10) \\
 Recall that \(\displaystyle f^c(X) = \bigcup_{j=0}^3 f_j(X)\) for
 \(X \in (\mathbb{R}^2)^c\).  The condensation set is
 \( \{\vec{x} : x_1 = 1/2 \ \text{and} \ 0 \leq x_2 \leq 1/2 \}\).
-The fixed point of the function \(f^c\) defined by this IFS with
+The fixed point of the function \(f^c\) induced by this IFS with
 condensation represents a tree as it shows in the next example.</p>
 
 <p>The IFS with condensation above if defined
@@ -1408,7 +1408,7 @@ TC = {TC0, TC1, TC2, TC3};</font>
 
 <div class="Example">
 <p><em>Example</em>: The drawing of the fixed point of the function
-\(f^c\) defined by the IFS with condensation above is produced by
+\(f^c\) induced by the IFS with condensation above is produced by
 the <em>Matlab</em> commands below. 
 The initial set that we choose is the closed polygonal curve  
 defined by the triangle with vertices at \( (0,0), (1,0) \) and
@@ -1439,8 +1439,8 @@ buildLinK("ifs_systems.m", "ifs_systems.m","MMathSStat", "ifsId4", "_blank");
 function <em class="matlab">ifs</em>
 generates better images than the <em>Matlab</em> function
 <em class="matlab">ifs2</em> if the computer used has enough memory to
-compute many iterations of the function \(f^c\) defined by an IFS.
-For instance, 10 iterations of the function \(f^c\) defined by the IFS
+compute many iterations of the function \(f^c\) induced by an IFS.
+For instance, 10 iterations of the function \(f^c\) induced by the IFS
 with condensation above yields the following image.</p>
 <div class="center">
 <img src="Matlab_fractal5.png" style="width: 300px" alt="Un arbre">
