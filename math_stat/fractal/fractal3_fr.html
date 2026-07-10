@@ -107,58 +107,158 @@ types de dimensions.</p>
 
 <h3 id="SS1"> Dimension de Hausdorff </h3>
 
-<p>Supposons que <math display="inline"><mrow>
+<p>Supposons que
+<math display="inline"><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
 <mo separator="true">,</mo><mi>d</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
- est un espace métrique
-complet.  Un <em>recouvrement dénombrable</em>
-<math display="inline"><mi>&#119964;</mi></math> d'un ensemble
+est un espace métrique complet. Un <em>recouvrement dénombrable</em>
+<math display="inline"><mi>&#119964;</mi></math>
+d'un ensemble
 <math display="inline"><mrow><mi>A</mi><mo>&subset;</mo><mi>E</mi>
-</mrow></math> est une collection dénombrable
-d'ensembles ouverts dans <math display="inline"><mi>E</mi></math> telle que
-<em class="EQ">A &subset; &cup;<sub>U&in;&#120016;</sub> U</em>.
-Un <em>recouvrement <em class="EQ">&epsilon;</em> dénombrable</em>
-<math display="inline"><mi>&#119964;</mi></math> d'un ensemble
-<math display="inline"><mi>A</mi></math> est un recouvrement dénombrable de <math display="inline"><mi>A</mi></math>
-tel que <em class="EQ">diam(U) = sup{d(x,y) : x,y &in; U}
-&lt; &epsilon;</em> pour tout
-<em class="EQ">U &in; &#120016;</em>.  Soit</p>
+</mrow></math>
+est une collection dénombrable d'ensembles ouverts dans
+<math display="inline"><mi>E</mi></math>
+telle que
+<math display="inline"><mrow><mi>A</mi><mo>&subset;</mo><mrow><munder>
+<mo movablelimits="false">&cup;</mo><mrow><mi class="ss1">U</mi>
+<mo class="ss1">&in;</mo><mi class="ss1">&#x1D49C;</mi></mrow></munder>
+</mrow><mi>U</mi></mrow></math>.
+Un <em>recouvrement
+<math display="inline"><mi>&epsilon;</mi></math>
+dénombrable</em>
+<math display="inline"><mi>&#119964;</mi></math>
+d'un ensemble
+<math display="inline"><mi>A</mi></math>
+est un recouvrement dénombrable de
+<math display="inline"><mi>A</mi></math>
+tel que
+<math display="inline"><mrow><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>sup</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>y</mi><mo>&in;</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mo>&lt;</mo><mi>&epsilon;</mi></mrow></math>
+pour tout
+<math display="inline"><mrow><mi>U</mi><mo>&in;</mo><mi>&#x1D49C;</mi>
+</mrow></math>.
+Soit</p>
+
 <div class="EQ_center">
-<em class="EQ_Display">
-<math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A,&epsilon;) =
-inf{&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup> :
-&#120016; est un recouvrement &epsilon; dénombrable de A}</em>
+<math display="block" style="display:block math;"><mrow><msubsup>
+<mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>inf</mi><mrow>
+<mo fence="true" form="prefix" stretchy="true">{</mo><mrow>
+<munder><mo movablelimits="false">&sum;</mo><mrow>
+<mi class="ss1">U</mi><mo class="ss1">&in;</mo><mi class="ss1">&#x1D49C;</mi>
+</mrow></munder></mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mrow><mi>&#x1D49C;</mi><mspace width="1ex"></mspace>
+<mtext>est un recouvrement</mtext><mspace width="0.2em"></mspace>
+<mi>&epsilon;</mi><mspace width="0.2em"></mspace>
+<mtext>dénombrable de</mtext><mspace width="1ex"></mspace><mi>A</mi></mrow>
+<mo fence="true" form="postfix" stretchy="true">}</mo></mrow></mrow></math>
 </div>
+
 <p>et</p>
+
 <div class="EQ_center">
-<em class="EQ_Display"><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A) =
-sup<sub>&epsilon;&gt;0</sub>
-<math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A,&epsilon;)</em>
-</div>
-<p>pour <em class="EQ">s &ge; 0</em>.  La valeur
-<em class="EQ"><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A)</em>
+<math display="block" style="display:block math;"><mrow><msubsup>
+<mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><munder><mi>sup</mi><mrow><mi class="ss1">&epsilon;</mi>
+<mo class="ss1">&gt;</mo><mn class="ss1">0</mn></mrow>
+</munder><mspace width="0.1667em"></mspace><msubsup><mi>H</mi>
+<mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math></div>
+
+<p>pour
+<math display="inline"><mrow><mi>s</mi><mo>&ge;</mo><mn>0</mn></mrow></math>.
+La valeur
+<math display="inline"><mrow><msubsup>
+<mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
 est appelée la <em>mesure externe de Hausdorff de dimension
-<em class="EQ">s</em></em> de <math display="inline"><mi>A</mi></math>.  Puisque
-<em class="EQ">
-<math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A,&epsilon;<sub>1</sub>)
-&ge; <math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A,&epsilon;<sub>2</sub>)</em>
-pour <em class="EQ">&epsilon;<sub>1</sub> &le; &epsilon;<sub>2</sub></em>,
+<math display="inline"><mi>s</mi></math>
+de
+<math display="inline"><mi>A</mi></math>.
+Puisque
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo separator="true">,</mo><msub><mi>&epsilon;</mi>
+<mn class="ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&geq;</mo><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo separator="true">,</mo><msub><mi>&epsilon;</mi>
+<mn class="ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+pour
+<math display="inline"><mrow><msub><mi>&epsilon;</mi>
+<mn class="ss1">1</mn></msub><mo>&le;</mo><msub>
+<mi>&epsilon;</mi><mn class="ss1">2</mn></msub></mrow></math>
 nous avons que</p>
+
 <div class="EQ_center">
-<em class="EQ_Display"><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A) =
-lim<sub>&epsilon;&rarr;0</sub>
-<math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A,&epsilon;)</em> .
+<math display="block" style="display:block math;"><mrow><msubsup>
+<mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><munder><mi>lim</mi><mrow>
+<mi class="ss1">&epsilon;</mi><mo class="ss1">&rarr;</mo>
+<mn class="ss1">0</mn></mrow></munder><mspace width="0.1667em"></mspace>
+<msubsup><mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi>
+</msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
 </div>
 
 <div class="Theo">
-<p><em>Définition</em>: Un ensemble <math display="inline"><mrow><mi>A</mi><mo>&subset;</mo><mi>E</mi>
-</mrow></math> est
-<em>mesurable</em> dans le sens de Carathéodory si et seulement si
-<em class="EQ"><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A)
-= <math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A &cap; B)
-+ <math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(B &setminus; A)</em>
-pour tout ensemble <em class="EQ">B &subset; E</em>.</p>
+<p><em>Définition</em>: Un ensemble
+<math display="inline"><mrow><mi>A</mi><mo>&subset;</mo><mi>E</mi>
+</mrow></math>
+est <em>mesurable</em> dans le sens de Carathéodory si et seulement si
+<math display="inline"><mrow><msubsup><mi>H</mi>
+<mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo>&cap;</mo><mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>+</mo><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo>&setminus;</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+pour tout ensemble
+<math display="inline"><mrow><mi>B</mi><mo>&subset;</mo><mi>E</mi>
+</mrow></math>.
+</p>
 </div>
 
 <p>Lebesgue a donné une définition équivalente d'ensembles mesurables à
@@ -170,177 +270,555 @@ et l'intégration, nous ne donnons pas cette définition.  La
 définition Carathéodory est suffisante pour nos besoins.</p>
 
 <div class="Theo">
-<p><em>Théorème</em>: La collection <em class="EQ">&#120028;</em>
+<p><em>Théorème</em>: La collection
+<math display="inline"><mi>&#x2133;</mi></math>
 de tous les ensembles mesurables par rapport à la mesure externe de
-Hausdorff de dimension <em class="EQ">s</em> est une
-<em class="EQ">&sigma;</em>-algèbre et
-<em class="EQ"><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup></em>
-restreint à <em class="EQ">&#120028;</em> définit une mesure sur
-<em class="EQ">&#120028;</em>.  Cette mesure est appelée la <em>mesure
-de Hausdorff de dimension <em class="EQ">s</em></em>.
-Nous écrivons <em class="EQ">&#119919;<sup>s</sup>(A)
-= <math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A)</em>
-pour <em class="EQ">A &in; &#120028;</em>.</p>
+Hausdorff de dimension
+<math display="inline"><mi>s</mi></math>
+est une
+<math display="inline"><mi>&sigma;</mi></math>-algèbre
+et
+<math display="inline"><mrow><msubsup><mi>H</mi>
+<mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup></mrow></math>
+restreint à
+<math display="inline"><mi>&#x2133;</mi></math>
+définit une mesure sur
+<math display="inline"><mi>&#x2133;</mi></math>
+Cette mesure est appelée la <em>mesure de Hausdorff de dimension
+<math display="inline"><mi>s</mi></math>.
+Nous écrivons
+<math display="inline"><mrow><msup><mi>H</mi><mi class="ss1">s</mi>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+pour
+<math display="inline"><mrow><mi>A</mi><mo>&in;</mo><mi>&#x2133;</mi>
+</mrow></math>.
+</p>
 </div>
 
-<p>La plus petite <em class="EQ">&sigma;</em>-algèbre qui contient les
-ensembles ouverts est appelée <em>l'algèbre de Borel</em> et est
-dénotée <em class="EQ">&#120017;</em>.  Les éléments de
-<em class="EQ">&#120017;</em> sont appelés des <em>ensembles de Borel</em>.
-Puisque
-<em class="EQ"><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A &cups; B)
-= <math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A)
-+ <math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(B)</em> pour tout
-ensemble <em class="EQ">A,B</em> tels que
-<em class="EQ">dist(A,B) = inf{d(x,y) : x &in; A and y &in; B} &gt; 0</em>,
+<p>La plus petite
+<math display="inline"><mi>&sigma;</mi></math>-algèbre
+qui contient les ensembles ouverts est appelée <em>l'algèbre de
+Borel</em> et est dénotée
+<math display="inline"><mi>&#x212C;</mi></math>.
+Les éléments de
+<math display="inline"><mi>&#x212C;</mi></math>
+sont appelés des <em>ensembles de Borel</em>.  Puisque
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo>&cup;</mo><mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>+</mo>
+<msubsup><mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi>
+</msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>
+pour tout ensemble
+<math display="inline"><mrow><mi>A</mi><mo separator="true">,</mo>
+<mi>B</mi></mrow></math>
+tels que
+<math display="inline"><mrow><mtext>dist</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo separator="true">,</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>inf</mi><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<mi>d</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo separator="true">,</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>x</mi><mo>&in;</mo>
+<mi>A</mi><mspace width="1ex"></mspace><mtext>et</mtext>
+<mspace width="1ex"></mspace><mi>y</mi><mo>&in;</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mo>&gt;</mo><mn>0</mn></mrow></math>,
 il est possible de démontrer que les ensembles de Borel sont des
 ensembles mesurables selon la définition ci-dessus (voir
 <script language="javascript">
 buildLinK("#GAE", "G. A. Edgar","MMathSStat", "GAEID3", "_top");
 </script>).  Nous considérons principalement les ensembles de 
 Borel dans ce document.  Cela est suffisant pour définir la
-<q lang="en">dimension</q> d'une <q lang="en">fractale</q>.</p>
+<q lang="fr">dimension</q> d'une <q lang="fr">fractale</q>.</p>
 
 <div class="Theo">
-<p><em>Proposition</em>: Supposons que <math display="inline"><mi>A</mi></math> est un
-ensemble de Borel et que <em class="EQ">0 &lt; s &lt; t</em>.  Si
-<em class="EQ">&#119919;<sup>s</sup>(A) &lt; &infin;</em>, alors
-<em class="EQ">&#119919;<sup>t</sup>(A) = 0</em>.  Si
-<em class="EQ">&#119919;<sup>t</sup>(A) &gt; 0 </em>, alors
-<em class="EQ">&#119919;<sup>s</sup>(A) = &infin;</em>.</p>
+<p><em>Proposition</em>: Supposons que
+<math display="inline"><mi>A</mi></math>
+est un ensemble de Borel et que
+<math display="inline"><mrow><mn>0</mn><mo>&lt;</mo><mi>s</mi><mo>&lt;</mo>
+<mi>t</mi></mrow></math>.
+Si
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&lt;</mo><mi>&infin;</mi></mrow></math>,
+alors
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">t</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mn>0</mn></mrow></math>.
+Si
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">t</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&gt;</mo><mn>0</mn></mrow></math>,
+alors
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mi>&infin;</mi></mrow></math>.
+</p>
 </div>
 
 <p><em>Démonstration (ébauche)</em>: Nous avons que
-<em class="EQ"><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>t</sup>(U,&epsilon;)
-&le; (diam(U))<sup>t</sup> 
-&le; &epsilon;<sup>t-s</sup>(diam(U))<sup>s</sup></em> pour
-tout ensemble ouvert <em class="EQ">U</em> tel que
-<em class="EQ">diam(U) &le; &epsilon;</em>.  Donc</p>
-<div class="EQ_center">
-<em class="EQ_Display">
-&epsilon;<sup>s-t</sup><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>t</sup>(U,&epsilon;)
-&le; (diam(U))<sup>s</sup></em>
-</div>
-<p>pour tous les ensembles ouverts <em class="EQ">U</em> tels que
-<em class="EQ">diam(U) &le; &epsilon;</em>.
-Puisque toute mesure externe
-<em class="EQ"><math><mover><mi>M</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math></em>
-qui satisfait
-<em class="EQ"><math><mover><mi>M</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>(U) &le; (diam(U))<sup>s</sup></em>
-pour tous les ensembles ouverts <em class="EQ">U</em> tels que
-<em class="EQ">diam(U) &le; &epsilon;</em> doit satisfaire
-<em class="EQ"> <math><mover><mi>M</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math>(A) &le;
-<math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A,&epsilon;)</em>
-pour tous les ensembles de Borel <math display="inline"><mi>A</mi></math>, nous obtenons que</p>
-<div class="EQ_center">
-<em class="EQ_Display">
-&epsilon;<sup>s-t</sup><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>t</sup>(A,&epsilon;)
-&le; <math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A,&epsilon;)</em>
-</div>
-<p>pour tous les ensembles de Borel <math display="inline"><mi>A</mi></math>.  Ainsi, si
-<em class="EQ"><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A) &lt;
-&infin;</em>, alors</p>
-<div class="EQ_center">
-<em class="EQ_Display">
-<math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>t</sup>(A)
-= lim<sub>&epsilon;&rarr;0</sub>
-<math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>t</sup>(A,&epsilon;)
-&le; lim<sub>&epsilon;&rarr;0</sub>
-&epsilon;<sup>t-s</sup><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A,&epsilon;)
-= 0 </em> .
-</div>
-<p>Si <em class="EQ"><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>t</sup>(A)
-&gt; 0</em>, alors</p>
-<div class="EQ_center">
-<em class="EQ_Display">
-<math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A)
-= lim<sub>&epsilon;&rarr;0</sub>
-<math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A,&epsilon;)
-&ge; lim<sub>&epsilon;&rarr;0</sub>
-&epsilon;<sup>s-t</sup><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>t</sup>(A,&epsilon;)
-= &infin; </em> .  <span class="EQ_Right">&#8718;</span>
-</div>
-<!-- <p>&nbsp;<span class="EQ_Right">&#8718;</span></p> -->
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">t</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&le;</mo>
+<msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mtext>diam</mtext><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>U</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mi class="ss1">t</mi></msup><mo>&le;</mo><msup><mi>&epsilon;</mi><mrow>
+<mi class="ss1">t</mi><mo class="ss1">-</mo><mi class="ss1">s</mi>
+</mrow></msup><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup></mrow></math>
+pour tout ensemble ouvert
+<math display="inline"><mi>U</mi></math>
+tel que
+<math display="inline"><mrow><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&le;</mo>
+<mi>&epsilon;</mi></mrow></math>.
+<span id="proof1A">&nbsp;...</span></p>
+<div id="proof1B" class="moreORless">
 
-<p>Il découle de la proposition précédente qu'il existe une valeur
-unique <em class="EQ">d &in; [0,&infin;]</em> telle que
-<em class="EQ">&#119919;<sup>s</sup>(A) = 0</em> pour
-<em class="EQ">s &gt; d</em> et
-<em class="EQ">&#119919;<sup>s</sup>(A) = &infin;</em> pour
-<em class="EQ">s &lt; d</em>.</p>
+<p>Donc
+<math display="inline"><mrow><msup><mi>&epsilon;</mi><mrow>
+<mi class="ss1">s</mi><mo class="ss1">-</mo><mi class="ss1">t</mi>
+</mrow></msup><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">t</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&le;</mo><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>U</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mi class="ss1">s</mi></msup></mrow></math>
+pour tous les ensembles ouverts
+<math display="inline"><mi>U</mi></math>
+tels que
+<math display="inline"><mrow><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&le;</mo>
+<mi>&epsilon;</mi></mrow></math>.
+Puisque toute mesure externe
+<math display="inlie"><msub><mi>M</mi><mi class="ss1">o</mi></msub></math>
+qui satisfait
+<math display="inline"><mrow><msub><mi>M</mi><mi class="ss1">o</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>U</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&le;</mo><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup><mo>=</mo>
+<msubsup><mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>U</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+pour tous les ensembles ouverts
+<math display="inline"><mi>U</mi></math>
+tels que
+<math display="inline"><mrow><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&le;</mo>
+<mi>&epsilon;</mi></mrow></math>
+doit satisfaire
+<math display="inline"><mrow><msub><mi>M</mi><mi class="ss1">o</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&le;</mo><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+pour tous les ensembles de Borel
+<math display="inline"><mi>A</mi></math>,
+nous obtenons que
+<math display="inline"><mrow><msup><mi>&epsilon;</mi><mrow>
+<mi class="ss1">s</mi><mo class="ss1">-</mo><mi>t</mi></mrow></msup>
+<msubsup><mi>H</mi><mi class="ss1">o</mi><mi class="ss1">t</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&le;</mo>
+<msubsup><mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi>
+</msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+pour tous les ensembles de Borel
+<math display="inline"><mi>A</mi></math>.
+Ainsi, si
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&lt;</mo><mi>&infin;</mi></mrow></math>,
+alors</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msubsup><mi>H</mi>
+<mi class="ss1">o</mi><mi class="ss1">t</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><munder><mi>lim</mi><mrow><mi class="ss1">&epsilon;</mi>
+<mo class="ss1">&rarr;</mo><mn class="ss1">0</mn></mrow></munder>
+<mspace width="0.1667em"></mspace><msubsup><mi>H</mi>
+<mi class="ss1">o</mi><mi class="ss1">t</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&le;</mo>
+<munder><mi>lim</mi><mrow><mi class="ss1">&epsilon;</mi>
+<mo class="ss1">&rarr;</mo><mn class="ss1">0</mn></mrow>
+</munder><mspace width="0.1667em"></mspace><msup><mi>&epsilon;</mi>
+<mrow><mi class="ss1">t</mi><mo class="ss1">-</mo><mi class="ss1">s</mi>
+</mrow></msup><msubsup><mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi>
+</msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>0</mn><mspace width="1em"></mspace><mtext>.</mtext></mrow></math>
+</div>
+
+<p>Si
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">t</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&gt;</mo><mn>0</mn></mrow></math>,
+alors</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msubsup>
+<mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><munder><mi>lim</mi><mrow><mi class="ss1">&epsilon;</mi>
+<mo class="ss1">&rarr;</mo><mn class="ss1">0</mn></mrow></munder>
+<mspace width="0.1667em"></mspace><msubsup><mi>H</mi>
+<mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&geq;</mo>
+<munder><mi>lim</mi><mrow><mi class="ss1">&epsilon;</mi>
+<mo class="ss1">&rarr;</mo><mn class="ss1">0</mn></mrow></munder>
+<mspace width="0.1667em"></mspace><msup><mi>&epsilon;</mi><mrow>
+<mi class="ss1">s</mi><mo class="ss1">-</mo><mi class="ss1">t</mi>
+</mrow></msup><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">t</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>&infin;</mi><mspace width="1em"></mspace><mtext>.</mtext></mrow></math>
+</div>
+
+<p>Ceci complète l'ébauche de la démonstration.
+&nbsp;<span class="Proof_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof1A','proof1B','proof1C','fr')" class="mORl" id="proof1C">Lire plus</button>
+
+<p>Il découle de la proposition précédente qu'il existe une valeur unique
+<math display="inline"><mrow><mi>d</mi><mo>&in;<mrow></mo>
+<mo form="prefix" stretchy="false">]</mo><mn>0</mn><mo separator="true">,</mo>
+<mi>&infin;</mi><mo form="postfix" stretchy="false">[</mo></mrow></mrow></math>
+telle que
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mn>0</mn></mrow></math>
+pour
+<math display="inline"><mrow><mi>s</mi><mo>&gt;</mo>
+<mi>d</mi></mrow></math>,
+et
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mi>&infin;</mi></mrow></math>,
+pour
+<math display="inline"><mrow><mi>s</mi><mo>&lt;</mo>
+<mi>d</mi></mrow></math>.
+</p>
 
 <div class="Theo">
-<p><em>Définition</em>: Supposons que <math display="inline"><mi>A</mi></math> est un
-ensemble de Borel.  La valeur <em class="EQ">d</em> définie
-ci-dessus est la <em>dimension de Hausdorff</em> de l'ensemble
-<math display="inline"><mi>A</mi></math>.  Nous écrivons
-<em class="EQ">dim<sub>&#119919;</sub>(A) = d</em>.</p>
+<p><em>Définition</em>: Supposons que
+<math display="inline"><mi>A</mi></math>
+est un ensemble de Borel.  La valeur
+<math display="inline"><mi>d</mi></math>
+définie ci-dessus est la <em>dimension de Hausdorff</em> de l'ensemble
+<math display="inline"><mi>A</mi></math>.
+Nous écrivons
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mi>d</mi></mrow></math>.
+</p>
 </div>
 
 <p>La dimension de Hausdorff satisfait des propriétés qu'une dimension
 devrait satisfaire.</p>
 
 <div class="Theo">
-<p><em>Proposition</em>: Supposons que <math display="inline"><mi>A</mi></math> et
-<em class="EQ">B</em> sont des ensembles de Borel.  Si
-<em class="EQ">A &subset; B</em>, alors
-<em class="EQ">dim<sub>&#119919;</sub>(A) &le;
-dim<sub>&#119919;</sub>(B)</em>.</p>
+<p><em>Proposition</em>: Supposons que
+<math display="inline"><mi>A</mi></math>
+et
+<math display="inline"><mi>B</mi></math>
+sont des ensembles de Borel.  Si
+<math display="inline"><mrow><mi>A</mi><mo>&subset;</mo>
+<mi>B</mi></mrow></math>,
+alors
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&le;</mo><msub><mi>dim</mi><mi class="ss1">H</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>.
+</p>
 </div>
 
 <p><em>Démonstration</em>: Pour tout
-<em class="EQ">s &gt; dim<sub>&#119919;</sub>(B)</em>,
+<math display="inline"><mrow><mi>s</mi>
+<mo>&ge;</mo><msub><mi>dim</mi><mi class="ss1">H</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>,
 nous avons que
-<em class="EQ">&#119919;<sup>s</sup>(A) &le; &#119919;<sup>s</sup>(B) = 0</em>.
-Donc <em class="EQ">dim<sub>&#119919;</sub>(A) &lt; s</em> pour tout
-<em class="EQ">s &gt; dim<sub>&#119919;</sub>(B)</em>.  Ainsi
-<em class="EQ">dim<sub>&#119919;</sub>(A) &le; dim<sub>&#119919;</sub>(B)</em>.
+<math display="inline"><mrow><msubsup><mi class="ss1">H</mi>
+<mi class="ss1">o</mi><mi class="ss1">s</m></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&le;</mo><msubsup><mi class="ss1">H</mi>
+<mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mn>0</mn></mrow></math>.
+Donc
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&lt;</mo><mi>s</mi></mrow></math>.
+pour tout
+<math display="inline"><mrow><mi>s</mi>
+<mo>&gt;</mo><msub><mi>dim</mi><mi class="ss1">H</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>.
+Ainsi
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&le;</mo><msub><mi>dim</mi><mi class="ss1">H</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>.
 <span class="EQ_Right">&#8718;</span></p>
 
 <div class="Theo">
-<p><em>Proposition</em>: Supposons que <math display="inline"><mi>A</mi></math> et
-<em class="EQ">B</em> sont des ensembles de Borel.  Alors
-<em class="EQ">dim<sub>&#119919;</sub>(A &cup; B) =
-max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.</p>
+<p><em>Proposition</em>: Supposons que
+<math display="inline"><mi>A</mi></math>
+et
+<math display="inline"><mi>B</mi></math>
+sont des ensembles de Borel.  Alors
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo>&cup;</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>max</mi><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>dim</mi><mi class="ss1">H</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow></mrow></math>.
+</p>
 </div>
 
-<p><em>Démonstration</em>: Nous avons que</p>
+<p><em>Démonstration</em>: Nous avons que
+<span id="proof2A">&nbsp;...</span></p>
+<div id="proof2B" class="moreORless">
+
 <div class="EQ_center">
-<em class="EQ_Display">
-s &gt; max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))
-&rArr; s &gt;
-dim<sub>&#119919;</sub>(A) &rArr; &#119919;<sup>s</sup>(A) = 0</em>
+<math display="block" style="display:block math;"><mrow><mi>s</mi>
+<mo>&gt;</mo><mi>max</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>dim</mi><mi class="ss1">H</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow><mo stretchy="false">&rArr;</mo><mi>s</mi><mo>&gt;</mo>
+<msub><mi>dim</mi><mi class="ss1">H</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo stretchy="false">&rArr;</mo><msubsup><mi>H</mi>
+<mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mn>0</mn></mrow></math>
 </div>
+
 <p>et</p>
+
 <div class="EQ_center">
-<em class="EQ_Display">
-s &gt; max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))
-&rArr; s &gt;
-dim<sub>&#119919;</sub>(B) &rArr; &#119919;<sup>s</sup>(B) = 0</em>
+<math display="block" style="display:block math;"><mrow><mi>s</mi>
+<mo>&gt;</mo><mi>max</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>dim</mi><mi class="ss1">H</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow><mo stretchy="false">&rArr;</mo><mi>s</mi><mo>&gt;</mo>
+<msub><mi>dim</mi><mi class="ss1">H</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo stretchy="false">&rArr;</mo><msubsup><mi>H</mi>
+<mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mn>0</mn><mspace width="1ex"></mspace><mtext>.</mtext>
+</mrow></math>
 </div>
-<p>Donc <em class="EQ">&#119919;<sup>s</sup>(A &cup; B) &le;
-&#119919;<sup>s</sup>(A)+&#119919;<sup>s</sup>(B) = 0</em> pour
-<em class="EQ">s &gt;
-max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.
-Ainsi <em class="EQ">dim<sub>&#119919;</sub>(A &cup; B) &lt; s</em>
-pour tout <em class="EQ">s &gt;
-max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.
-Il en découle que <em class="EQ">dim<sub>&#119919;</sub>(A &cup; B) &le;
-max(dim<sub>&#119919;</sub>(A),dim<sub>&#119919;</sub>(B))</em>.
+
+<p>Donc
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo>&cup;</mo><mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&le;</mo><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>+</mo>
+<msubsup><mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi>
+</msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mn>0</mn></mrow></math>
+pour
+<math display="inline"><mrow><mi>s</mi><mo>&gt;</mo><mi>max</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>dim</mi><mi class="ss1">H</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow></mrow></math>.
+Ainsi
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo>&cup;</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&lt;</mo><mi>s</mi></mrow></math>
+pour tout
+<math display="inline"><mrow><mi>s</mi><mo>&gt;</mo><mi>max</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub>
+<mi>dim</mi><mi class="ss1">H</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow></mrow></math>.
+Il en découle que
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo>&cup;</mo><mi>B</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&le;</mo>
+<mi>max</mi><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>dim</mi><mi class="ss1">H</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>B</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow></mrow></math>.
 Nous obtenons l'inégalité inverse à partir de la proposition
-précédente car <em class="EQ">A &subset; A &cups; B</em> et
-<em class="EQ">B &subset; A &cups; B</em>.
+précédente car
+<math display="inline"><mrow><mi>A</mi><mo>&subset;</mo><mi>A</mi>
+<mo>&cup;</mo><mi>B</mi></mrow></math>
+et
+<math display="inline"><mrow><mi>B</mi><mo>&subset;</mo><mi>A</mi>
+<mo>&cup;</mo><mi>B</mi></mrow></math>.
 <span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof2A','proof2B','proof2C','en')" class="mORl" id="proof2C">Lire plus</button>
 
 <div class="Theo">
 <p><em>Définition</em>: Une fonction
-<em class="EQ">f: E<sub>1</sub> &rarr; E<sub>2</sub></em> entre deux
-espaces métriques <em class="EQ">(E<sub>1</sub>,d<sub>1</sub>)</em>
-et <em class="EQ">(E<sub>2</sub>,d<sub>2</sub>)</em> est une
-<em>fonction de similarité</em> avec un <em>rapport de similarité</em>
-<em class="EQ">C &gt; 0</em> si
-<em class="EQ">d<sub>2</sub>(f(x),f(y)) = C d<sub>1</sub>(x,y)</em>
-pour tout <em class="EQ">x,y &in; E<sub>1</sub></em>.</p> 
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>E</mi>
+<mn class="ss1">1</mn></msub><mo>&rarr;</mo><msub><mi>E</mi>
+<mn class="ss1">2</mn></msub></mrow></math>
+entre deux espaces métriques
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>E</mi>
+<mn class="ss1">1</mn></msub><mo separator="true">,</mo><msub>
+<mi>d</mi><mn class="ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+et
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>E</mi>
+<mn class="ss1">2</mn></msub><mo separator="true">,</mo><msub>
+<mi>d</mi><mn class="ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+est une <em>fonction de similarité</em> avec un <em>rapport de similarité</em>
+<math display="inline"><mrow><mi>C</mi><mo>&gt;</mo><mn>0</mn>
+</mrow></math>
+si
+<math display="inline"><mrow><msub><mi>d</mi><mn class="ss1">2</mn>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>f</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo separator="true">,</mo><mi>f</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>C</mi><msub><mi>d</mi><mn class="ss1">1</mn></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo separator="true">,</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+pour tout
+<math display="inline"><mrow><mi>x</mi><mo separator="true">,</mo>
+<mi>y</mi><mo>&in;</mo><msub><mi>E</mi><mn class="ss1">1</mn></msub>
+</mrow></math>.
+</p>
 </div>
 
 <p>Notons que les fonctions de similarité sont des fonctions continues
@@ -348,81 +826,318 @@ et injective.</p>
 
 <div class="Theo">
 <p><em>Proposition</em>: Supposons que
-<em class="EQ">f: E<sub>1</sub> &rarr; E<sub>2</sub></em> est
-une fonction de similarité avec un rapport de similarité
-<em class="EQ">C &gt; 0</em>.
-De plus, supposons que <em class="EQ">A &subset; E<sub>1</sub></em>
-est un ensemble de Borel et <em class="EQ">s &gt; 0</em>.  Alors
-<em class="EQ">&#119919;<sup>s</sup>(f(A))
-= C<sup>s</sup> &#119919;<sup>s</sup>(A)</em>.  En particulier,
-<em class="EQ">dim<sub>&#119919;</sub>(f(A))
-= dim<sub>&#119919;</sub>(A)</em>.</p>
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>E</mi>
+<mn class="ss1">1</mn></msub><mo>&rarr;</mo><msub><mi>E</mi>
+<mn class="ss1">2</mn></msub></mrow></math>
+est une fonction de similarité avec un rapport de similarité
+<math display="inline"><mrow><mi>C</mi><mo>&gt;</mo><mn>0</mn>
+</mrow></math>.
+De plus, supposons que
+<math display="inline"><mrow><mi>A</mi><mo>&subset;</mo>
+<msub><mi>E</mi><mn class="ss1">1</mn></msub></mrow></math>
+est un ensemble de Borel et
+<math display="inline"><mrow><mi>s</mi><mo>&gt;</mo><mn>0</mn></mrow></math>.
+Alors
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>f</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><msup><mi>C</mi><mi class="ss1">s</mi></msup><msubsup>
+<mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>.
+En particulier,
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>f</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><msub><mi>dim</mi><mi class="ss1">H</mi></msub>
+<mo>⁡</mo><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>.
+</p>
 </div>
 
 <p><em>Démonstration</em>:  Sans perte de généralité, nous pouvons
-assumer que <em class="EQ">E<sub>2</sub> = f(E<sub>1</sub>)</em>.  Ainsi,
-<em class="EQ">f<sup>-1</sup>: E<sub>2</sub> &rarr; E<sub>1</sub></em>
+assumer que
+<math display="inline"><mrow><msub><mi>E</mi><mn class="ss1">2</mn>
+</msub><mo>=</mo><mi>f</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>E</mi>
+<mn class="ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>.
+<span id="proof3A">&nbsp;...</span></p>
+<div id="proof3B" class="moreORless">
+  
+<p>Ainsi,
+<math display="inline"><mrow><msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>E</mi>
+<mn class="ss1">2</mn></msub><mo>&rarr;</mo><msub><mi>E</mi>
+<mn class="ss1">1</mn></msub></mrow></math>
 est bien définie.  De plus, nous avons que
-<em class="EQ">d<sub>1</sub>(f<sup>-1</sup>(x),f<sup>-1</sup>(y))
-= C<sup>-1</sup> d<sub>2</sub>(x,y)</em>
-pour tout <em class="EQ">x,y &in; E<sub>2</sub></em>.  Donc
-<em class="EQ">f<sup>-1</sup></em> est une fonction continue.
-Puisque <em class="EQ">f: E<sub>1</sub> &rarr; E<sub>2</sub></em>
-est un homéomorphisme, nous avons que <em class="EQ">f</em> définit une
-bijection entre l'algèbre de Borel sur
-<em class="EQ">E<sub>1</sub></em> et l'algèbre de Borel sur
-<em class="EQ">E<sub>2</sub></em>.</p>
+<math display="inline"><mrow><msub><mi>d</mi><mn class="ss1">1</mn>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><msup><mi>C</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><msub><mi>d</mi><mn class="ss1">2</mn>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>x</mi><mo separator="true">,</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>
+pour tout
+<math display="inline"><mrow><mi>x</mi><mo separator="true">,</mo>
+<mi>y</mi><mo>&in;</mo><msub><mi>E</mi><mn class="ss1">2</mn></msub>
+</mrow></math>.
+Donc
+<math display="inline"><mrow><msup><mi>f</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup></mrow></math>
+est une fonction continue.  Puisque
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>E</mi>
+<mn class="ss1">1</mn></msub><mo>&rarr;</mo><msub><mi>E</mi>
+<mn class="ss1">2</mn></msub></mrow></math>
+est un homéomorphisme, nous avons que
+<math display="inline"><mi>f</mi></math>
+définit une bijection entre l'algèbre de Borel sur
+<math display="inline"><mrow><msub><mi>E</mi><mn class="ss1">1</mn>
+</msub></mrow></math>
+et l'algèbre de Borel sur
+<math display="inline"><mrow><msub><mi>E</mi><mn class="ss1">2</mn>
+</msub></mrow></math>.
+</p>
 
-<p>Puisque <em class="EQ">diam(f(U)) = C diam(U)</em> pour tout
-ensemble <em class="EQ">U &subset; E<sub>1</sub></em>, nous obtenons que</p>
+<p>Puisque
+<math display="inline"><mi>f</mi></math>
+est une fonction de similarité avec un rapport de similarité
+<math display="inline"><mi>C</mi></math>,
+Nous avons que
+<math display="inline"><mrow><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>f</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>C</mi><mtext style="color:#b22222;">\diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+pour tout ensemble
+<math display="inline"><mrow><mi>U</mi><mo>&subset;</mo>
+<msub><mi>E</mi><mn class="ss1">1</mn></msub></mrow></math>.
+De plus, pusique
+<math display="inline"><mi>f</mi></math>
+est un homéomorphisme, nous avons aussi que</p>
+
 <div class="EQ_center">
-<em class="EQ_Display">diam(f(U))<sup>s</sup> = C<sup>s</sup>
-  diam(U)<sup>s</sup></em>
+<math display="block" style="display:block math;"><mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>U</mi>
+<mo>&subset;</mo><msub><mi>E</mi><mn class="ss1">2</mn></msub>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>U</mi>
+<mspace width="1ex"></mspace><mtext>is open and</mtext>
+<mspace width="1ex"></mspace><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&lt;</mo><mi>C</mi><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<mi>f</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>U</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>U</mi>
+<mo>&subset;</mo><msub><mi>E</mi><mn class="ss1">1</mn></msub>
+<mspace width="1ex"></mspace><mtext>is open and</mtext>
+<mspace width="1ex"></mspace><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&lt;</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
 </div>
-<p>pour tout ensemble 
-<em class="EQ">U &subset; E<sub>1</sub></em>.  De plus, puisque
-<em class="EQ">f</em> est un homéomorphisme, nous avons aussi que</p>
-<div class="EQ_center">
-<em class="EQ_Display">
-{U &subset; E<sub>2</sub> : U est ouvert et diam(U) &lt; C&epsilon;}
-= {f(U) : U &subset; E<sub>1</sub> est ouvert et diam(U) &lt; &epsilon;}</em> .
-</div>
+
 <p>Ainsi</p>
+
 <div class="EQ_center">
-<em class="EQ_Display">
-<math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(f(A),C&epsilon;)
-= inf{&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup> :
-&#120016; est un recouvrement C&epsilon; dénombrable de f(A)} <br>
-= inf{&sum;<sub>U&in;&#120016;</sub> (diam(f(U)))<sup>s</sup> :
-&#120016; est un recouvrement &epsilon; dénombrable de A} <br>
-= C<sup>s</sup> inf{&sum;<sub>U&in;&#120016;</sub> (diam(U))<sup>s</sup> :
-&#120016; est un recouvrement &epsilon; dénombrable de A}
-= C<sup>s</sup>
-<math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A,&epsilon;)</em>
+<math display="block" style="display:block math;"><mrow><msubsup>
+<mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>f</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo separator="true">,</mo><mi>C</mi><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>inf</mi><mrow>
+<mo fence="true" form="prefix" stretchy="true">{</mo><mrow><munder>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">U</mi>
+<mo class="ss1">&in;</mo><mi class="ss1">&#x1D49C;</mi></mrow>
+</munder></mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mrow><mi>&#x1D49C;</mi>
+<mspace width="1ex"></mspace><mtext>is a countable</mtext>
+<mspace width="0.2em"></mspace><mi>C</mi>
+<mi>&epsilon;</mi><mspace width="0.2em"></mspace>
+<mtext>cover of</mtext><mspace width="1ex"></mspace><mi>f</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow><mo fence="true" form="postfix" stretchy="true">}</mo>
+</mrow></mrow></math>
+
+<math display="block" style="display:block math;"><mrow><mo>=</mo>
+<mi>inf</mi><mrow><mo fence="true" form="prefix" stretchy="true">{</mo>
+<mrow><munder><mo movablelimits="false">&sum;</mo><mrow>
+<mi class="ss1">U</mi><mo class="ss1">&in;</mo><mi class="ss1">&#x1D49C;</mi>
+</mrow></munder></mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>f</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>U</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mi class="ss1">s</mi></msup>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mrow><mi>&#x1D49C;</mi>
+<mspace width="1ex"></mspace><mtext>is a countable</mtext>
+<mspace width="0.2em"></mspace><mi>&epsilon;</mi>
+<mspace width="0.2em"></mspace><mtext>cover of</mtext>
+<mspace width="1ex"></mspace><mi>A</mi></mrow>
+<mo fence="true" form="postfix" stretchy="true">}</mo></mrow></mrow></math>
+
+<math display="block" style="display:block math;"><mrow><mo>=</mo>
+<msup><mi>C</mi><mi class="ss1">s</mi></msup><mi>inf</mi><mrow>
+<mo fence="true" form="prefix" stretchy="true">{</mo><mrow>
+<munder><mo movablelimits="false">&sum;</mo><mrow>
+<mi class="ss1">U</mi><mo class="ss1">&in;</mo><mi class="ss1">&#x1D49C;</mi>
+</mrow></munder></mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>U</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mi class="ss1">s</mi></msup>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mrow><mi>&#x1D49C;</mi>
+<mspace width="1ex"></mspace><mtext>ia a countable</mtext>
+<mspace width="0.2em"></mspace><mi>&epsilon;</mi>
+<mspace width="0.2em"></mspace><mtext>cover of</mtext>
+<mspace width="1ex"></mspace><mi>A</mi></mrow>
+<mo fence="true" form="postfix" stretchy="true">}</mo></mrow>
+<mo>=</mo><msup><mi>C</mi><mi class="ss1">s</mi></msup><msubsup>
+<mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
 </div>
-<p>pour tout ensemble <em class="EQ">A &subset; E<sub>1</sub></em>.
+
+<p>pour tout ensemble
+<math display="inline"><mrow><mi>A</mi><mo>&subset;</mo>
+<msub><mi>E</mi><mn class="ss1">1</mn></msub></mrow></math>.
 Donc, si nous prenons la limite des deux côtés de l'égalité
-précédente lorsque <em class="EQ">&epsilon;</em> converge vers
-<em class="EQ">0</em>, nous obtenons que
-<em class="EQ"> <math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(f(A))
-= C<sup>s</sup> <math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(A)</em>.
-Puisque <em class="EQ">C &gt; 0</em>, nous obtenons de cette relation que
-<em class="EQ"> &#119919;<sup>s</sup>(f(A)) = 0</em>
-(resp. <em class="EQ">&infin;</em>)
-si et seulement si <em class="EQ"> &#119919;<sup>s</sup>(A) = 0</em>
-(resp. <em class="EQ">&infin;</em>).  Ainsi
-<em class="EQ">dim<sub>&#119919;</sub>(f(A))
-= dim<sub>&#119919;</sub>(A)</em> pour tout ensemble de Borel
-<em class="EQ">A &subset; E<sub>1</sub></em>.
+précédente lorsque
+<math display="inline"><mrow><mi>&epsilon;</mi><mo>&rarr;</mo><mn>0</mn>
+</mrow></math>,
+nous obtenons que
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>f</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><msup><mi>C</mi><mi class="ss1">s</mi></msup>
+<msubsup><mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi>
+</msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>.
+Puisque
+<math display="inline"><mrow><mi>C</mi><mo>&gt;</mo><mn>0</mn>
+</mrow></math>,
+nous obtenons de cette relation que
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>f</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mn>0</mn></mrow></math>
+(resp.
+<math display="inline"><mi>&infin;</mi></math>)
+si et seulement si
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>A</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mn>0</mn></mrow></math>
+(resp.
+<math display="inline"><mi>&infin;</mi></math>).
+Ainsi
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>f</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><msub><mi>dim</mi><mi class="ss1">H</mi></msub>
+<mo>⁡</mo><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>A</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>
+pour tout ensemble de Borel
+<math display="inline"><mrow><mi>A</mi><mo>&subset;</mo>
+<msub><mi>E</mi><mn class="ss1">1</mn></msub></mrow></math>.
 <span class="EQ_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof3A','proof3B','proof3C','en')" class="mORl" id="proof3C">Lire plus</button>
 
 <p>Nous calculons de la dimension de 
 Hausdorff du fameux ensemble triadique de Cantor.  Rappelons que
 l'ensemble triadique de Cantor est l'ensemble
-<em class="EQ">K = &cap;<sub>k&gt;0</sub>K<sub>k</sub></em> où
-<em class="EQ">K<sub>1</sub> = [0,1/3] &cup; [2/3,1]</em>,
-<em class="EQ">K<sub>2</sub> = [0,1/9] &cup; [2/9,1/3] &cup;
-[2/3,7/9] &cup; [8/9,1]</em>, etc.</p>
+<math display="inline"><mrow><mi>K</mi><mo>=</mo><mrow><munder>
+<mo movablelimits="false">&cap;</mo><mrow><mi class="ss1">k</mi>
+<mo class="ss1">&gt;</mo><mn class="ss1">0</mn></mrow>
+</munder></mrow><msub><mi>K</mi><mi class="ss1">k</mi></msub>
+</mrow></math>
+où
+<math display="inline"><mrow><msub><mi>K</mi><mn class="ss1">1</mn>
+</msub><mo>=</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>0</mn><mo separator="true">,</mo><mn>1</mn><mi>/</mi><mn>3</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo>&cup;</mo><mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>2</mn><mi>/</mi><mn>3</mn><mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+</mrow></math>,
+<math display="inline"><mrow><msub><mi>K</mi><mn class="ss1">2</mn></msub>
+<mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>0</mn><mo separator="true">,</mo><mn>1</mn><mi>/</mi><mn>9</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo>&cup;</mo><mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>2</mn><mi>/</mi><mn>9</mn><mo separator="true">,</mo>
+<mn>1</mn><mi>/</mi><mn>3</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow><mo>&cup;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo>
+<mn>2</mn><mi>/</mi><mn>3</mn><mo separator="true">,</mo><mn>7</mn>
+<mi>/</mi><mn>9</mn><mo fence="true" form="postfix" stretchy="false">]</mo>
+</mrow><mo>&cup;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo><mn>8</mn>
+<mi>/</mi><mn>9</mn><mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+</mrow></math>,
+etc.</p>
+
 <div class="center">
   <img src="dim0.png" style="width: 400px"
     alt="Les ensembles K_1, K_2. K_3, ... utilisés pour définir l'ensemble triadique de Cantor."
@@ -430,194 +1145,670 @@ l'ensemble triadique de Cantor est l'ensemble
 </div>
 
 <div class="Theo">
-<p><em>Proposition</em>: Soit <math display="inline"><mi>K</mi></math> l'ensemble
-triadique de Cantor.  Alors
-<em class="EQ">dim<sub>&#119919;</sub>(K) = ln(2)/ln(3)</em>
-où la mesure de Hausdorff <em class="EQ">&#119919;<sup>s</sup>(K)</em>
+<p><em>Proposition</em>: Soit
+<math display="inline"><mi>K</mi></math>
+l'ensemble triadique de Cantor.  Alors
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>K</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mfrac><mrow><mi>ln</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow><mrow><mi>ln</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>3</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac></mrow></math>
+où la mesure externe de Hausdorff de dimension
+<math display="inline"><mi>s</mi></math>,
+<em class="EQ">&#119919;<sup>s</sup>(K)</em>,
 utilisée pour calculer la dimension de Hausdorff est générée à partir
 de l'espace métrique complet
-<em class="EQ">(E,d) = (&reals;,|&middot;|)</em>.</p>
+<math display="inline"><mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
+<mo separator="true">,</mo><mi>d</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&reals;</mi><mo separator="true">,</mo><mi>|</mi>
+<mo>&middot</mo><mi>|</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>.
+</p>
 </div>
 
-<p><em>Démonstration</em>: Posons <em class="EQ">s = ln(2)/ln(3)</em>.
-Nous démontrons que <em class="EQ">&#119919;<sup>s</sup>(K) = 1</em>.
-<span id="proof1A">&nbsp;...</span></p>
-<div id="proof1B" class="moreORless">
+<p><em>Démonstration</em>: Posons
+<math display="inline"><mrow><mi>s</mi><mo>=</mo>
+<mfrac><mrow><mi>ln</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow><mrow><mi>ln</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>3</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac></mrow></math>.
+Nous démontrons que
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>K</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mn>1</mn></mrow></math>.
+<span id="proof4A">&nbsp;...</span></p>
+<div id="proof4B" class="moreORless">
+  
 <p>Premièrement, nous démontrons que
-<em class="EQ">&#119919;<sup>s</sup>(K) &le; 1</em>.
-Soit <em class="EQ">&epsilon; &gt; 0</em>.  Nous choisissons un entier
-positif <em class="EQ">k</em> tel que
-<em class="EQ">3<sup>-k</sup> &lt; &epsilon;/2</em>.  Il découle
-naturellement de la procédure pour définir <math display="inline"><mi>K</mi></math> que
-nous pouvons recouvrir
-<math display="inline"><mi>K</mi></math> avec <em class="EQ">2<sup>k</sup></em>
-intervalles fermés <em class="EQ">K<sub>k,j</sub></em> pour
-<em class="EQ">1 &le; j &le; 2<sup>k</sup></em> tels que
-<em class="EQ">diam(K<sub>k,j</sub>) = 3<sup>-k</sup></em>
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>K</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&le;</mo><mn>1</mn></mrow></math>.
+Soit
+<math display="inline"><mrow><mi>&epsilon;</mi><mo>&gt;</mo><mn>0</mn>
+</mrow></math>,
+Nous choisissons un entier positif
+<math display="inline"><mi>k</mi></math>
+tel que
+<math display="inline"><mrow><msup><mn>3</mn><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">k</mi></mrow></msup><mo>&lt;</mo><mi>&epsilon;</mi>
+<mi>/</mi><mn>2</mn></mrow></math>.
+Il découle naturellement de la procédure pour définir
+<math display="inline"><mi>K</mi></math>
+que nous pouvons recouvrir
+<math display="inline"><mi>K</mi></math>
+avec
+<math display="inline"><mrow><msup><mn>2</mn>
+<mi class="ss1">k</mi></msup></mrow></math>
+intervalles fermés
+<math display="inline"><msub><mi>K</mi><mrow><mi class="ss1">k</mi>
+<mo separator="true" class="ss1">,</mo><mi class="ss1">j</mi>
+</mrow></msub></math>
+pour
+<math display="inline"><mrow><mn>1</mn><mo>&le;</mo><mi>j</mi><mo>&le;</mo>
+<msup><mn>2</mn><mi class="ss1">k</mi></msup></mrow></math>
+tels que
+<math display="inline"><mrow><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>K</mi>
+<mrow><mi class="ss1">k</mi><mo separator="true" class="ss1">,</mo>
+<mi class="ss1">j</mi></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><msup><mn>3</mn><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">k</mi></mrow></msup></mrow></math>
 et
-<em class="EQ">dist(K<sub>k,j<sub>1</sub></sub>,K<sub>k,j<sub>2</sub></sub>)
-&ge; 3<sup>-k</sup></em> pour
-<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.</p>
+<math display="inline"><mrow><mtext>dist</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>K</mi>
+<mrow><mi class="ss1">k</mi><mo separator="true" class="ss1">,</mo>
+<msub><mi class="ss1">j</mi><mn class="ss2">1</mn></msub></mrow>
+</msub><mo separator="true">,</mo><msub><mi>K</mi><mrow>
+<mi class="ss1">k</mi><mo separator="true" class="ss1">,</mo>
+<msub><mi class="ss1">j</mi><mn class="ss2">2</mn></msub></mrow>
+</msub><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&ge;</mo><msup><mn>3</mn><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">k</mi></mrow></msup></mrow></math>
+pour
+<math display="inline"><mrow><msub><mi>j</mi><mn class="ss1">1</mn>
+</msub><mo>&ne;</mo><msub><mi>j</mi><mn class="ss1">2</mn></msub>
+</mrow></math>.
+</p>
+
 <div class="center">
   <img src="dim1.png" style="width: 300px"
        alt="L'ensemble K_2 utilisé pour définir l'ensemble triadique de Cantor.  Les intervalles K_{2,j} et I_j sont aussi inclus dans la figure."
        class="framed">
 </div>
-<p>Étant donné <em class="EQ">r &gt; 1</em> assez près de
-<em class="EQ">1</em>, nous pouvons étendre légèrement chacun des
-ensembles fermés <em class="EQ">K<sub>k,j</sub></em> pour obtenir un
-intervalle ouvert <em class="EQ">I<sub>j</sub></em> tel que
-<em class="EQ">diam(I<sub>j</sub>) = 3<sup>-k</sup>r &lt; &epsilon;</em>,
-<em class="EQ">K<sub>k,j</sub> &subset; I<sub>j</sub></em> et
-<em class="EQ">I<sub>j<sub>1</sub></sub> &cap; I<sub>j<sub>2</sub></sub>
-= &emptyset;</em> pour
-<em class="EQ">j<sub>1</sub> &ne; j<sub>2</sub></em>.  Ainsi</p>
-<div class="EQ_center">
-<em class="EQ_Display"><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(K,&epsilon;)
-= inf{&sum;<sub>U&in;&#120026;</sub> (diam(U))<sup>s</sup> :
-&#120026; est un recouvrement &epsilon; dénombrable de K}
-&le; 2<sup>k</sup> (3<sup>-k</sup>r)<sup>s</sup>
-= r<sup>s</sup></em>
+
+<p>Étant donné
+<math display="inline"><mrow><mi>r</mi><mo>&gt;</mo><mn>1</mn>
+</mrow></math>
+assez près de
+<math display="inline"><mn>1</mr></math>
+(e.g.
+<math display="inlie"><mrow><mi>r</mi><mo>&lt;</mo>
+<mn>2</mn><mrow></math>),
+nous pouvons étendre légèrement chacun des ensembles fermés
+<math display="inline"><msub><mi>K</mi><mrow><mi class="ss1">k</mi>
+<mo separator="true" class="ss1">,</mo><mi class="ss1">j</mi>
+</mrow></msub></math>
+pour obtenir un intervalle ouvert
+<math display="inline"><msub><mi>I</mi><mrow><mi class="ss1">k</mi>
+<mo separator="true" class="ss1">,</mo><mi class="ss1">j</mi>
+</mrow></msub></math>
+tel que
+<math display="inline"><mrow><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>I</mi>
+<mrow><mi class="ss1">k</mi><mo separator="true" class="ss1">,</mo>
+<mi class="ss1">j</mi></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><msup><mn>3</mn><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">k</mi></mrow></msup><mi>r</mi></mrow></math>,
+<math display="inline"><mrow><msub><mi>K</mi><mrow><mi class="ss1">k</mi>
+<mo separator="true" class="ss1">,</mo><mi class="ss1">j</mi>
+</mrow></msub><mo>&subset;</mo><msub><mi>I</mi><mrow>
+<mi class="ss1">k</mi><mo separator="true" class="ss1">,</mo>
+<mi class="ss1">j</mi></mrow></msub></mrow></math>
+et
+<math display="inline"><mrow><msub><mi>K</mi><mrow><mi class="ss1">k</mi>
+<mo separator="true" class="ss1">,</mo><msub><mi class="ss1">j</mi>
+<mn class="ss2">1</mn></msub></mrow></msub><mo>&cap;</mo><msub>
+<mi>I</mi><mrow><mi class="ss1">k</mi>
+<mo separator="true" class="ss1">,</mo><msub><mi class="ss1">j</mi>
+<mn class="ss2">2</mn></msub></mrow></msub><mo>=</mo>
+<mi>&emptyset;</mi></mrow></math>
+pour
+<math display="inline"><mrow><msub><mi>j</mi><mn class="ss1">1</mn>
+</msub><mo>&ne;</mo><msub><mi>j</mi><mn class="ss1">2</mn></msub>
+</mrow></math>.
+Ainsi</p>
+
+<div class="EQ_center">  
+<math display="block" style="display:block math;"><mrow><msubsup>
+<mi>H</mi><mi class="ss1">o</mi><mi class="ss1">s</mi></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>K</mi><mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>=</mo><mi>inf</mi><mrow>
+<mo fence="true" form="prefix" stretchy="true">{</mo><mrow><munder>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">U</mi>
+<mo class="ss1">&in;</mo><mi class="ss1">&#x1D4A6;</mi>
+</mrow></munder></mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>U</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mrow><mi>&#x1D4A6;</mi><mspace width="1ex"></mspace>
+<mtext>est un recouvrement</mtext><mspace width="0.2em"></mspace>
+<mi>&epsilon;</mi><mspace width="0.2em"></mspace><mtext>dénombrable de</mtext>
+<mspace width="1ex"></mspace><mi>K</mi></mrow>
+<mo fence="true" form="postfix" stretchy="true">}</mo></mrow><mo>&le;</mo>
+<msup><mn>2</mn><mi class="ss1">k</mi></msup><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msup>
+<mn>3</mn><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">k</mi></mrow></msup><mi>r</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mn class="ss1">s</mn></msup><mo>=</mo><msup><mi>r</mi><mn class="ss1">s</mn>
+</msup></mrow></math>
 </div>
-<p>car <em class="EQ">(3<sup>-k</sup>)<sup>s</sup>
-= (3<sup>s</sup>)<sup>-k</sup> = 2<sup>-k</sup></em>.
-Puisque cela es vrai pour tout <em class="EQ">r &gt; 1</em>, nous
-obtenons que
-<em class="EQ"><math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(K,&epsilon;)
-&le; 1</em> pour tout <em class="EQ">&epsilon; &gt; 0</em>.
-Donc, <em class="EQ">&#119919;<sup>s</sup>(K)
-= <math><mover><mi>&#119919;</mi><mo strectchy="true"; accent="true">&horbar;</mo></mover></math><sup>s</sup>(K) &le; 1</em>.</p>
+
+<p>car
+<math display="inline"><mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msup><mn>3</mn><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">k</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup><mo>=</mo><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msup><mn>3</mn>
+<mi class="ss1">s</mi></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em">-</mo>
+<mi class="ss1">k</mi></mrow></msup><mo>=</mo><msup><mn>2</mn><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">k</mi></mrow></msup></mrow></math>.
+Puisque cela es vrai pour tout
+<math display="inline"><mrow><mi>r</mi><mo>&gt;</mo><mn>1</mn>
+</mrow></math>,
+nous obtenons que
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>K</mi>
+<mo separator="true">,</mo><mi>&epsilon;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&le;</mo><mn>1</mn></mrow></math>
+pour tout
+<math display="inline"><mrow><mi>&epsilon;</mi><mo>&gt;</mo><mn>0</mn>
+</mrow></math>.
+Donc,
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>K</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&le;</mo><mn>1</mn></mrow></math>.
+</p>
 
 <p>Nous démontrons maintenant que
-<em class="EQ">&#119919;<sup>s</sup>(K) &ge; 1</em>.  Il suffit de
-démontrer que
-<em class="EQ">&sum;<sub>U&in;&#120026;</sub> (diam(U))<sup>s</sup>
-&ge; 1</em> pour tout recouvrement <em class="EQ">&epsilon;</em>
-dénombrable <em class="EQ">&#120026;</em> de <math display="inline"><mi>K</mi></math>.
-Puisque <math display="inline"><mi>K</mi></math> est compact, nous pouvons assumer que 
-<em class="EQ">&#120026;</em> est fini.  Notons que tout ensemble
-ouvert <em class="EQ">U &in; &#120026;</em> peut être exprimé sous la
-forme
-<em class="EQ">U = V<sub>1</sub> &cup; R &cup; V<sub>2</sub></em> où</p>
+<math display="inline"><mrow><msubsup><mi>H</mi><mi class="ss1">o</mi>
+<mi class="ss1">s</mi></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>K</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&ge;</mo><mn>1</mn></mrow></math>.
+Il suffit de démontrer que
+<math display="inline"><mrow><mrow><munder><mo movablelimits="false">&sum;</mo>
+<mrow><mi class="ss1">U</mi><mo class="ss1">&in;</mo>
+<mi class="ss1">&#x1D4A6;</mi></mrow></munder></mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup><mo>&ge;</mo><mn>1</mn></mrow></math>
+pour tout recouvrement
+<math display="inline"><mi>&epsilon;</mi></math>
+dénombrable
+<math display="inline"><mi>&#x1D4A6;</mi></math>
+de
+<math display="inline"><mi>K</mi></math>.
+Puisque
+<math display="inline"><mi>K</mi></math>
+est compact, nous pouvons assumer que 
+<math display="inline"><mi>&#x1D4A6;</mi></math>
+est fini.  Notons que tout ensemble ouvert
+<math display="inline"><mrow><mi>U</mi><mo>&in;</mo>
+<mi>&#x1D4A6;</mi></mrow></math>
+peut être exprimé sous la forme
+<math display="inline"><mrow><mi>U</mi><mo>=</mo><msub><mi>V</mi>
+<mn class="ss1">1</mn></msub><mo>&cup;</mo><mi>R</mi><mo>&cup;</mo><msub>
+<mi>V</mi><mn class="ss1">2</mn></msub></mrow></math>
+où</p>
+
 <ul>
-<li><em class="EQ">R</em> est un intervalle fermé avec ses extrémités
-dans <math display="inline"><mi>K</mi></math>,</li>
-<li> <em class="EQ">V<sub>i</sub></em> est un ensemble ouvert tel que
-<em class="EQ">K &cap; V<sub>i</sub> = &emptyset;</em>
-pour <em class="EQ">i = 1,2</em>, et</li>
-<li> <em class="EQ">v<sub>1</sub> &lt; r &lt; v<sub>2</sub></em> pour
-tout <em class="EQ">r &in; R</em> et
-<em class="EQ">v<sub>i</sub> &in; V<sub>i</sub></em>
-pour <em class="EQ">i = 1,2</em>.</li>
+<li>
+<math display="inline"><mi>R</mi></math>
+est un intervalle fermé avec ses extrémités dans
+<math display="inline"><mi>K</mi></math>,
+</li>
+<li>
+<math display="inline"><mrow><msub><mi>V</mi><mi class="ss1">i</mi></msub>
+</mrow></math>
+est un ensemble ouvert tel que
+<math display="inline"><mrow><mi>K</mi><mo>&cap;</mo><msub><mi>V</mi>
+<mi class="ss1">i</mi></msub><mo>=</mo><mi>&emptyset;</mi></mrow></math>
+pour
+<math display="inline"><mrow><mi>i</mi><mo>=</mo><mn>1</mn>
+<mo separator="true">,</mo><mn>2</mn></mrow></math>,
+et</li>
+<li>
+<math display="inline"><mrow><msub><mi>v</mi><mn class="ss1">1</mn></msub>
+<mo>&lt;</mo><mi>r</mi><mo>&lt;</mo><msub><mi>v</mi>
+<mn class="ss1">2</mn></msub></mrow></math>
+pour tout
+<math display="inline"><mrow><mi>r</mi><mo>&in;</mo><mi>R</mi>
+</mrow></math>,
+<math display="inline"><mrow><msub><mi>v</mi><mn class="ss1">1</mn></msub>
+<mo>&in;</mo><msub><mi>V</mi><mn class="ss1">1</mn></msub></mrow></math>.
+et
+<math display="inline"><mrow><msub><mi>v</mi><mn class="ss1">2</mn></msub>
+<mo>&in;</mo><msub><mi>V</mi><mn class="ss1">2</mn></msub></mrow></math>.
+</li>
 </ul>
+
 <div class="center">
   <img src="dim7.png" style="width: 350px"
        alt="Une représemtation de R et U." class="framed">
 </div>
-<p>Puisque <em class="EQ">diam(U) &gt; diam(R)</em>, nous pouvons
-remplacer les éléments de <em class="EQ">&#120026;</em> par des
-les intervalles fermés avec leurs extrémités dans
-<math display="inline"><mi>K</mi></math>.  Soit <em class="EQ">&#120026;'</em>
-la collections de ces intervalles fermés.
-Chaque intervalle fermé <em class="EQ">R &in; &#120026;'</em> peut être
-exprimé sous la forme
-<em class="EQ">R = R<sub>1</sub> &cup; V &cup; R<sub>2</sub></em> où</p>
+
+<p>Puisque
+<math display="inline"><mrow><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>U</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&gt;</mo><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>R</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>,
+nous pouvons remplacer les éléments de
+<math display="inline"><mi>&#x1D4A6;</mi></math>
+par des les intervalles fermés avec leurs extrémités dans
+<math display="inline"><mi>K</mi></math>.
+Soit
+<math display="inline"><msup><mi>&#x1D4A6;</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup></math>
+la collections de ces intervalles fermés.  Chaque intervalle fermé
+<math display="inline"><mrow><mi>R</mi><mo>&in;</mo><msup><mi>&#x1D4A6;</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup></mrow></math>
+peut être exprimé sous la forme
+<math display="inline"><mrow><mi>R</mi><mo>=</mo><msub><mi>R</mi>
+<mn class="ss1">1</mn></msub><mo>&cup;</mo><mi>V</mi><mo>&cup;</mo><msub>
+<mi>R</mi><mn class="ss1">2</mn></msub></mrow></math>
+où</p>
+
 <ul>
-<li><em class="EQ">R<sub>1</sub></em> et <em class="EQ">R<sub>2</sub></em>
-sont des intervalles fermés avec leurs extrémités dans <math display="inline"><mi>K</mi></math>,</li>
-<li> <em class="EQ">V &subset; R</em> est un intervalle ouvert avec le
-plus grand diamètre possible tel que
-<em class="EQ">K &cap; V = &emptyset;</em>, et </li>
-<li> <em class="EQ">r<sub>1</sub> &lt; v &lt; r<sub>2</sub></em> pour tout
-<em class="EQ">r<sub>1</sub> &in; R<sub>1</sub></em>,
-<em class="EQ">r<sub>2</sub> &in; R<sub>2</sub></em> et
-<em class="EQ">v &in; V</em>.</li>
+<li>
+<math display="inline"><mrow><msub><mi>R</mi><mn class="ss1">1</mn></msub>
+</mrow></math>
+et
+<math display="inline"><mrow><msub><mi>R</mi><mn class="ss1">2</mn></msub>
+</mrow></math>
+sont des intervalles fermés avec leurs extrémités dans
+<math display="inline"><mi>K</mi></math>,
+</li>
+<li>
+<math display="inline"><mrow><mi>V</mi><mo>&subset;</mo><mi>R</mi></mrow>
+</math>
+est un intervalle ouvert avec le plus grand diamètre possible tel que
+<math display="inline"><mrow><mi>K</mi><mo>&cap;</mo><mi>V</mi>
+<mo>=</mo><mi>&emptyset;</mi></mrow></math>,
+et </li>
+<li>
+<math display="inline"><mrow><msub><mi>r</mi><mn class="ss1">1</mn></msub>
+<mo>&lt;</mo><mi>v</mi><mo>&lt;</mo><msub><mi>r</mi>
+<mn class="ss1">2</mn></msub></mrow></math>
+pour tout
+<math display="inline"><mrow><mi>v</mi><mo>&in;</mo><mi>V</mi>
+</mrow></math>,
+<math display="inline"><mrow><msub><mi>r</mi><mn class="ss1">1</mn></msub>
+<mo>&in;</mo><msub><mi>R</mi><mn class="ss1">1</mn></msub></mrow></math>.
+et
+<math display="inline"><mrow><msub><mi>r</mi><mn class="ss1">2</mn></msub>
+<mo>&in;</mo><msub><mi>R</mi><mn class="ss1">2</mn></msub></mrow></math>.
+</li>
 </ul>
+
 <div class="center">
   <img src="dim2.png" style="width: 350px"
        alt="Un exemple du format de l'intervalle fermé R." class="framed">
 </div>
+
 <p>Nous avons par construction que
-<em class="EQ">diam(R<sub>i</sub>) &le; diam(V)</em>
-pour <em class="EQ">i = 1,2</em>.  Nous obtenons alors de
-<em class="EQ">(diam(K<sub>1</sub>) + diam(K<sub>2</sub>))/2 &le; diam(V)</em>
+<math display="inline"><mrow><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>R</mi>
+<mi class="ss1">i</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&le;</mo>
+<mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+pour
+<math display="inline"><mrow><mi>i</mi><mo>=</mo><mn>1</mn>
+<mo separator="true">,</mo><mn>2</mn></mrow></math>.
+Nous obtenons alors de
+<math display="inline"><mrow><mfrac><mrow><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>R</mi>
+<mn class="ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>+</mo>
+<mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>R</mi>
+<mn class="ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+<mn>2</mn></mfrac><mo>&le;</mo><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
 que</p>
+
 <div class="EQ_center">
-<em class="EQ_Display">
-(diam(R))<sup>s</sup> = (diam(K<sub>1</sub>)
-+ diam(V) + diam(K<sub>2</sub>))<sup>s</sup> <br>
-&ge; (3/2)<sup>s</sup>(diam(K<sub>1</sub>)
-+ diam(K<sub>2</sub>))<sup>s</sup> <br>
-= 2((1/2)diam(K<sub>1</sub>)
-+ (1/2)diam(K<sub>2</sub>)<sup>s</sup> <br>
-&ge; 2((1/2)diam(K<sub>1</sub>)<sup>s</sup>
-+ (1/2)diam(K<sub>2</sub>)<sup>s</sup>) <br>
-= diam(K<sub>1</sub>)<sup>s</sup>
-+ diam(K<sub>2</sub>)<sup>s</sup> </em> ,
+<math display="block" style="display:block math;"><mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>R</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class+"ss1">s</mi></msup><mo>=</mo><msup><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>R</mi><mn class+"ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>+</mo>
+<mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>+</mo>
+<mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>R</mi>
+<mn class+"ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mi>s</mi>
+</msup></mrow></math>
+
+<math display="block" style="display:block math;"><mrow><mo>&ge;</mo>
+<msup><mrow><mo fence="true" form="prefix" stretchy="true">(</mo>
+<mfrac><mn>3</mn><mn>2</mn></mfrac>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
+<mi class+"ss1">s</mi></msup><msup><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>R</mi><mn class+"ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>+</mo>
+<mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>R</mi>
+<mn class+"ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
+<mi class+"ss1">s</mi></msup><mo>=</mo><mn>2</mn><msup><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo><mfrac><mn>1</mn>
+<mn>2</mn></mfrac><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>R</mi>
+<mn class+"ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>+</mo>
+<mfrac><mn>1</mn><mn>2</mn></mfrac><mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>R</mi>
+<mn class+"ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
+<mi class+"ss1">s</mi></msup>
+</mrow></math>
+
+<math display="block" style="display:block math;"><mrow><mo>&ge;</mo>
+<mn>2</mn><mrow><mo fence="true" form="prefix" stretchy="true">(</mo>
+<mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>R</mi><mn class+"ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class+"ss1">s</mi></msup><mo>+</mo><mfrac><mn>1</mn><mn>2</mn>
+</mfrac><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>R</mi><mn class+"ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class+"ss1">s</mi></msup>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
+<mo>=</mo><msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>R</mi>
+<mn class+"ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class+"ss1">s</mi></msup><mo>+</mo><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>R</mi><mn class+"ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class+"ss1">s</mi></msup></mrow>
+<mspace width="1ex"></mspace><mtext>,</mtext></math>
 </div>
-<p>où la deuxième égalité provient de <em class="EQ">3<sup>s</sup> = 2</em>
-car <em class="EQ">s = ln(2)/ln(3)</em>, et la deuxième inégalité
-provient du fait que 
-<em class="EQ">(&lambda;a + (1-&lambda;)b)<sup>s</sup> &ge;
-&lambda;a<sup>s</sup> + (1-&lambda;)b<sup>s</sup></em> car
-<em class="EQ">t &mapsto; t<sup>s</sup></em> est concave sur
-l'intervalle <em class="EQ">]0,&infin;[</em> pour <em class="EQ">s &lt; 1</em>.
-Si <em class="EQ">R<sub>i</sub> &ne; K<sub>k,j</sub></em> pour
-certaines valeurs de <em class="EQ">k</em> et
-<em class="EQ">1 &le; j &le; 2<sup>k</sup></em>,
-nous répétons la procédure précédente avec <em class="EQ">R</em>
-remplacé par <em class="EQ">R<sub>i</sub></em>.  Après un nombre fini
-de répétitions, nous obtenons que
-<em class="EQ">diam(R)<sup>s</sup> &ge; &sum;
-diam(K<sub>k<sub>m</sub>,j<sub>m</sub></sub>)<sup>s</sup></em>
+
+<p>où la deuxième égalité provient de
+<math display="inline"><mrow><msup><mn>3</mn>
+<mi class="ss1">s</mi></msup><mo>=</mo><mn>2</mn></mrow></math>
+car
+<math display="inline"><mrow><mi>s</mi><mo>=</mo>
+<mfrac><mrow><mi>ln</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow><mrow><mi>ln</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>3</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac></mrow></math>,
+et la deuxième inégalité provient du fait que 
+<math display="inline"><mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&lambda;</mi>
+<mi>a</mi><mo>+</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>1</mn><mo>-</mo>
+<mi>&lambda;</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mi>b</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mi class="ss1">s</mi></msup><mo>&ge;</mo><mi>&lambda;</mi>
+<msup><mi>a</mi><mi class="ss1">s</mi></msup><mo>+</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>1</mn><mo>-</mo>
+<mi>&lambda;</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><msup><mi>b</mi><mi class="ss1">s</mi></msup></mrow></math>
+car
+<math display="inline"><mrow><mi>t</mi><mo>&mapsto;</mo><msup><mi>t</mi>
+<mi class="ss1">s</mi></msup></mrow></math>
+est concave sur l'intervalle
+<math display="inline"><mrow><mo form="prefix" stretchy="false">]</mo>
+<mn>0</mn><mo separator="true">,</mo><mi>&infin;</mi>
+<mo form="postfix" stretchy="false">[</mo></mrow></math>
+pour
+<math display="inline"><mrow><mn>0</mn><mo>&lt;</mo><mi>s</mi>
+<mo>&lt;</mo><mn>1</mn></mrow></math>.
+Si
+<math display="inline"><mrow><msub><mi>R</mi><mi class="ss1">i</mi>
+</msub><mo>&ne;</mo><msub><mi>K</mi><mrow><mi class="ss1">k</mi>
+<mo separator="true" class="ss1">,</mo><mi class="ss1">j</mi>
+</mrow></msub></mrow></math>
+pour certaines valeurs de
+<math display="inline"><mi>k</mi></math>
+et
+<math display="inline"><mrow><mn>1</mn><mo>&le;</mo><mi>j</mi><mo>&le;</mo>
+<msup><mn>2</mn><mi class="ss1">k</mi></msup></mrow></math>,
+nous répétons la procédure précédente avec
+<math display="inline"><mi>R</mi></math>
+remplacé par
+<math display="inline"><mrow><msub><mi>R</mi><mi class="ss1">i</mi>
+</msub></mrow></math>.
+Après un nombre fini de répétitions, nous obtenons que
+<math display="inlie"><mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>R</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup><mo>&ge;</mo><mo movablelimits="false">&sum;</mo>
+<msup><mrow><mo fence="true" form="prefix" stretchy="true">(</mo>
+<mtext>diam</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>K</mi>
+<mrow><msub><mi class="ss1">k</mi><mi class="ss2">m</mi></msub>
+<mo separator="true">,</mo><msub><mi class="ss1">j</mi><mi class="ss2">m</mi>
+</msub></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
+<mi class="ss1">s</mi></msup></mrow></math>,
 où la somme est sur tous les intervalles fermés
-<em class="EQ">K<sub>k<sub>m</sub>,j<sub>m</sub></sub>
-&subset; R</em> de diamètre le plus grand possible.  Par exemple, dans
+<math display="inlie"><mrow><msub><mi>K</mi>
+<mrow><msub><mi class="ss1">k</mi><mi class="ss2">m</mi></msub>
+<mo separator="true" class="ss1">,</mo><msub><mi class="ss1">j</mi>
+<mi class="ss2">m</mi></msub></mrow></msub><mo>&subset;</mo>
+<mi>R</mi></mrow></math>
+de diamètre le plus grand possible.  Par exemple, dans
 la figure ci-dessus, nous obtenons que
-<em class="EQ">diam(R)<sup>s</sup> &ge; &sum;
-diam(K<sub>3,4</sub>)<sup>s</sup> + diam(K<sub>2,3</sub>)<sup>s</sup>
-+ diam(K<sub>3,7</sub>)<sup>s</sup></em>.</p>
+<math display="inline"><mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>R</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup><mo>&ge;</mo><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>K</mi><mrow><mn class="ss1">3</mn><mo separator="true" class="ss1">,</mo>
+<mn class="ss1">4</mn></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>s</mi>
+</msup><mo>+</mo><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>K</mi><mrow><mn class="ss1">2</mn><mo separator="true" class="ss1">,</mo>
+<mn class="ss1">3</mn></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>s</mi>
+</msup><mo>+</mo><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>K</mi>
+<mrow><mn class="ss1">3</mn><mo separator="true" class="ss1">,</mo>
+<mn class="ss1">7</mn></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi>s</mi></msup></mrow></math>.
+</p>
 
 <p>Nous répétons la procédure ci-dessus pour chacun des intervalles
-fermés <em class="EQ">R &in; &#120026;'</em>.  En fait, nous répétons
-la procédure de façon récursive sur tous les intervalles fermée
-<em class="EQ">R &in; &#120026;'</em> en même temps et arrêtons
-seulement quand nous avons obtenu tous les ensembles fermés
-<em class="EQ">K<sub>k,j<sub></em> où le nombre entier
-<em class="EQ">k</em> est le plus grand des indices
-<em class="EQ">k<sub>m<sub></em> que l'on obtient de la procédure
-précédente appliquée à tous les intervalles fermés
-<em class="EQ">R &in; &#120026;'</em>.  En particulier,
-nous appliquons aussi la procédure précédente de façon récursive aux
-intervalles fermés de la forme
-<em class="EQ">K<sub>k<sub>m</sub>,j<sub>m</sub></sub></em>
-quand <em class="EQ">k<sub>m</sub> &lt; k</em>.  Nous obtenons que</p>
+fermés
+<math display="inline"><mrow><mi>R</mi><mo>&in;</mo><msup><mi>&#x1D4A6;</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup></mrow></math>.
+En fait, nous répétons la procédure de façon récursive sur tous les
+intervalles fermée
+<math display="inline"><mrow><mi>R</mi><mo>&in;</mo><msup><mi>&#x1D4A6;</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup></mrow></math>
+en même temps et arrêtons seulement quand nous avons obtenu tous les
+ensembles fermés
+<math display="inlie"><mrow><msub><mi>K</mi><mrow>
+<mi class="ss1">k</mi><mo separator="true" class="ss1">,</mo>
+<mi class="ss1">j</mi></mrow></msub><mrow></math>
+où le nombre entier
+<math display="inline"><mi>k</mi></math>
+est le plus grand des indices
+<math display="inlie"><mrow><msub><mi>k</mi>
+<mi class="ss1">m</mi></msub><mrow></math>
+que l'on obtient de la procédure précédente appliquée à tous les
+intervalles fermés
+<math display="inline"><mrow><mi>R</mi><mo>&in;</mo><msup><mi>&#x1D4A6;</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup></mrow></math>.
+En d'autres mots. nous continous à appliquer la procédure précédente de façon
+récursive aux intervalles fermés de la forme
+<math display="inlie"><mrow><msub><mi>K</mi>
+<mrow><msub><mi class="ss1">k</mi><mi class="ss2">m</mi></msub>
+<mo separator="true" class="ss1">,</mo><msub><mi class="ss1">j</mi>
+<mi class="ss2">m</mi></msub></mrow></msub><mo>&subset;</mo>
+<mi>R</mi></mrow></math>
+où
+<math display="inline"><mrow><msub><mi>k</mi><mi class="ss1">m</mi>
+</msub><mo>&lt;</mo><mi>k</mi></mrow></math>.
+Nous obtenons que</p>
+
 <div class="EQ_center">
-<em class="EQ_Display">
-&sum;<sub>V&in;&#120026;</sub> (diam(V))<sup>s</sup>
-&ge; &sum;<sub>R&in;&#120026;'</sub> (diam(R))<sup>s</sup> 
-&ge; &sum;<sub>1&le;i&le;2<sup>k</sup></sub>
-(diam(K<sub>k,i</sub>))<sup>s</sup> <br>
-= &sum;<sub>1&le;i&le;2<sup>k</sup></sub>
-(1/(3<sup>k</sup>))<sup>s</sup>
-= &sum;<sub>1&le;i&le;2<sup>k</sup></sub>
-(1/3<sup>s</sup>)<sup>k</sup>
-= &sum;<sub>1&le;i&le;2<sup>k</sup></sub> 1/2<sup>k</sup> = 1</em> .
-</div>
+<math display="block" style="display:block math;"><mrow><mrow><munder>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">V</mi>
+<mo class="ss1">&in;</mo><mi class="ss1">&#x1D4A6;</mi></mrow>
+</munder></mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup><mo>&ge;</mo><mrow><munder>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">R</mi>
+<mo class="ss1">&in;</mo><msup><mi class="ss1">&#x1D4A6;</mi>
+<mo lspace="0em" rspace="0em">'</mo></msup></mrow></munder></mrow>
+<msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mtext>diam</mtext><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>R</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup><mo>&ge;</mo>
+<mrow><munderover><mo movablelimits="false">&sum;</mo><mrow>
+<mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">1</mn>
+</mrow><msup><mn class="ss1">2</mn><mi class="ss2">k</mi></msup>
+</munderover></mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mtext>diam</mtext>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>K</mi><mrow><mi class="ss1">k</mi><mo separator="true" class="ss1">,</mo>
+<mi class="ss1">j</mi></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">s</mi></msup></mrow></math>
+
+<math display="block" style="display:block math;"><mrow><mo>=</mo><mrow>
+<munderover><mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><msup>
+<mn class="ss1">2</mn><mi class="ss2">k</mi></msup></munderover></mrow>
+<msup><mrow><mo fence="true" form="prefix" stretchy="true">(</mo>
+<mfrac><mn>1</mn><msup><mn>3</mn><mi class="ss1">k</mi></msup></mfrac>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
+<mi class="ss1">s</mi></msup><mo>=</mo><mrow><munderover>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><msup>
+<mn class="ss1">2</mn><mi class="ss2">k</mi></msup></munderover>
+</mrow><msup><mrow><mo fence="true" form="prefix" stretchy="true">(</mo>
+<mfrac><mn>1</mn><msup><mn>3</mn><mi class="ss1">s</mi></msup>
+</mfrac><mo fence="true" form="postfix" stretchy="true">)</mo>
+</mrow><mi class="ss1">k</mi></msup><mo>=</mo><mrow><munderover>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><msup>
+<mn class="ss1">2</mn><mi class="ss2">k</mi></msup></munderover></mrow>
+<msup><mrow><mo fence="true" form="prefix" stretchy="true">(</mo>
+<mfrac><mn>1</mn><mn>2</mn></mfrac>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
+<mi class="ss1">k</mi></msup><mo>=</mo><mn>1</mn><mspace width="1em"></mspace>
+<mtext>.</mtext></mrow></math></div>
+
 <p>Tous les intervalles fermés de
-<em class="EQ">K<sub>k<sub></em> sont inclus dans la somme car nous
-avons préservé le fait que <math display="inline"><mi>K</mi></math> est un sous ensemble
-de notre décomposition récursive.
+<math display="inline"><mrow><msub><mi>K</mi><mi class="ss1">k</mi>
+</msub></mrow></math> 
+sont inclus dans la somme car nous avons préservé le fait que
+<math display="inline"><mi>K</mi></math>
+est un sous ensemble de notre décomposition récursive.
 <span class="EQ_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof1A','proof1B','proof1C','fr')"
-class="mORl" id="proof1C">Lire plus</button>
+<button onclick="moreORless('proof4A','proof4B','proof4C','fr')" class="mORl" id="proof4C">Lire plus</button>
 
 <p>En général, il n'est pas facile de calculer la dimension de
 Hausdorff d'un ensemble comme l'exemple suivant illustre.</p>
 
-<div class="Example" id="egB">
-<p><em>Exemple B</em>: Une version du <em>baderne d'Apollonius</em>
+<div class="Example" id="egA">
+<p><em>Exemple A</em>: Une version du <em>baderne d'Apollonius</em>
 est construite de la façon suivante.  Nous débutons avec un triangle
 curviligne produit par l'intersection tangentielle externe de trois
 cercles comme à l'étape 0 de la figure ci-dessous.</p>
@@ -625,35 +1816,52 @@ cercles comme à l'étape 0 de la figure ci-dessous.</p>
 <li>La première étape consiste à retirer le plus grand disque inscrit dans
 le triangle curviligne comme cela est fait dans la figure ci-dessous.</li> 
 <li>La deuxième étape consiste à retirer le plus grand disque inscrit
-dans chacun des <em class="EQ">3</em> triangles curvilignes obtenus à
-l'étape 1 comme cela est fait dans la figure ci-dessous.</li>
+dans chacun des
+<math display="inline"><mn>3</mn></math>
+triangles curvilignes obtenus à l'étape 1 comme cela est fait dans la
+figure ci-dessous.</li>
 <li>La troisième étape consiste à retirer le plus grand disque inscrit dans
-chacun des <em class="EQ">9</em> triangles curvilignes obtenus à l'étape 2
-comme cela est fait dans la figure ci-dessous.</li>
+chacun des
+<math display="inline"><mn>9</mn></math>
+triangles curvilignes obtenus à l'étape 2 comme cela est fait dans la
+figure ci-dessous.</li>
 <li style="list-style-type: none;">...</li>
 <li style="list-style-type: 'k. '">La k<sup>e</sup> étape consiste à
 retirer le plus grand disque inscrit dans chacun des
-<em class="EQ">3<sup>k-1</sup></em> triangles
-curvilignes obtenus à l'étape précédente.</li>
+<math display="inline"><mrow><msup><mn>3</mn><mrow><mi class="ss1">k</mi>
+<mo class="ss1">-</mo><mn class="ss1">1</mn></mrow></msub></mrow></math>
+triangles curvilignes obtenus à l'étape précédente.</li>
 <li style="list-style-type: none;">...</li>
 </ol>
+
 <div class="center">
   <img src="dim3_fr.png" style="width: 400px"
        alt="Les premières étapes pour construire le triangle d'Apollonius."
   class="framed">
 </div>
+
 <p>La valeur exacte de la dimension de Hausdorff du baderne
-d'Apollonius n'est pas connu.  Elle a été estimée à plus de 100
+d'Apollonius n'est pas connu.  Elle a été estimée à plus de
+<math display="inline"><mn>100</mn></math>
 chiffres décimaux.  Elle est approximativement 
-<em class+"EQ">1.305...</em>.  Le lecteur peut trouver dans le livre
-de <script language="javascript">
+<math display="inline"><mrow><mn>1.305</mn><mo>&hellip;</mo></mrow></math>.
+Le lecteur peut trouver dans le livre de <script language="javascript">
 buildLinK("#KJF", "K. J. Falconer","MMathSStat", "KJFID1", "_top");
 </script> une démonstration que la dimension de Hausdorff du baderne
-d'Apollonius est entre <em class="EQ">1</em> et 
-<em class="EQ">1</em>ln(3)/ln(1+2&times;3<sup>-1/2</sup>)
-&approx; 1.43...</em> inclusivement.  Il y a plusieurs versions du
-baderne d'Apollonius. Nous allons en dire plus sur cette
-fractale à la fin de ce document.</p>
+d'Apollonius est entre
+<math display="inline"><mn>1</mn></math>
+et 
+<math display="inline"><mrow><mi>ln</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>3</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>/</mi>
+<mrow><mspace width="0.1667em"></mspace><mi>ln</mi></mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>1</mn><mo>+</mo>
+<mn>2</mn><mi>/</mi><msqrt><mn>3</mn></msqrt>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&approx;</mo><mn>1.43</mn><mo>&hellip;</mo></mrow></math>
+inclusivement.  Il y a plusieurs versions du baderne
+d'Apollonius. Nous allons en dire plus sur cette fractale à la fin de
+ce document.</p>
 
 <p>Une petite note historique: Apollonius de Perga (240 à 190 av. J.-C.
 approximativement) était un mathématicien Grecque.  Un de ses
@@ -673,14 +1881,20 @@ buildLinK("#GAE", "G. A. Edgar", "MMathSStat", "GAEID1", "_top");
 </script>.  Il dévoue un chapitre complet sur le sujet de dimension
 topologique.  Pour la présente présentation, une définition
 intuitive de la dimension topologique est suffisante.  Par exemple,
-une surface différentiable dans <em class="EQ">&reals;<sup>3</sup></em>
-est de dimension topologique <em class="EQ">2</em>.  De même, une
-courbe différentiable est de dimension topologique <em class="EQ">1</em>.
+une surface différentiable dans
+<math display="inline"><mrow><msup><mi>&reals;</mi><mn class="ss1">3</mn>
+</msub></mrow></math>
+est de dimension topologique
+<math display="inline"><mn>2</mn></math>.
+De même, une courbe différentiable est de dimension topologique
+<math display="inline"><mn>1</mn></math>.
 Le mot <q lang="en">différentiable</em> dans les énoncés précédents
 est très important.   Une courbe qui est simplement continue peut ne
-pas être de dimension topologique <em class="EQ">1</em> comme cela est
-illustré par la courbe de remplissage d'espace de Peano qui est
-de dimension topologique <em class="EQ">2</em>.
+pas être de dimension topologique
+<math display="inline"><mn>1</mn></math>
+comme cela est illustré par la courbe de remplissage d'espace de Peano qui est
+de dimension topologique
+<math display="inline"><mn>2</mn></math>.
 La dimension topologique est préservée par les homéomorphismes.
 Cependant, nous allons voir prochainement que la dimension de 
 Hausdorff n'est généralement pas préservée par les homéomorphismes.
@@ -688,39 +1902,161 @@ La dimension topologique est beaucoup plus générale que
 la dimension en algèbre linéaire.</p>
 
 <p>Comme on s'y attend,
-<em class="EQ">dim<sub>&#119919;</sub>(&reals;<sup>n</sup>) = n</em>
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msup><mi>&reals;</mi><mi class="ss1">n</mi></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>n</mi></mrow></math>
 si la mesure de Hausdorff est déduite de l'espace métrique
-<em class="EQ">(&reals;<sup>n</sup>,d)</em> où <em class="EQ">d</em> 
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msup><mi>&reals;</mi>
+<mi class="ss1">n</mi></msup><mo separator="true">,</mo><mi>d</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+où
+<math display="inline"><mi>d</mi></math>
 est la distance euclidienne.  En particulier, nous pouvons démontrer que si
-l'ensemble <em class="EQ">K &subset; &reals;<sup>n</sup></em> contient
-un ensemble ouvert, alors
-<em class="EQ">dim<sub>&#119919;</sub>(K) = n</em>.</p>
+l'ensemble
+<math display="inline"><mrow><mi>K</mi><mo>&subset;</mo><msup>
+<mi>&reals;</mi><mi class="ss1">n</mi></msup></mrow></math>
+contient un ensemble ouvert, alors
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>K</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>n</mi></mrow></math>.
+</p>
 
-<p>Soit <em class="EQ">&#120027;</em> la collection de tous les
-ensembles 
-<em class="EQ">{x<sub>j</sub>}<sub>1&le;j&le;J</sub> &subset; [0,1]</em>
-tels que <em class="EQ">x<sub>1</sub> &lt; x<sub>2</sub> &lt; ... &lt;
-x<sub>J</sub></em> and <em class="EQ">J &gt; 1</em>.
-Un fonction continue <em class="EQ">g:[0,1] &rarr; E</em> est dite
-de <em>variation bornée</em> s'il existe une constante
-<em class="EQ">C</em> telle que
-<em class="EQ">&sum;<sub>1&le;j&lt;J</sub>
-d(g(x<sub>j</sub>),g(x<sub>j+1</sub>)) &le; C</em> pour tout
-<em class="EQ">{x<sub>j</sub>}<sub>1&le;j&le;J</sub> &in; &#120027;</em>.
+<p>Soit
+<math display="inline"><mi>&#x2112;</mi></math>
+la collection de tous les ensembles 
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>x</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mn class="ss1">1</mn><mo class="ss1">&le;</mo><mi class="ss1">j</mi>
+<mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow></msub><mo>&subset;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo>
+</mrow></mrow></math>
+tels que
+<math display="inline"><mrow><msub><mi>x</mi><mn class="ss1">1</mn></msub>
+<mo>&lt;</mo><msub><mi>x</mi><mn class="ss1">2</mn></msub><mo>&lt;</mo>
+<mo>&hellip;</mo><mo>&lt;</mo><msub><mi>x</mi><mi class="ss1">J</mi>
+</msub></mrow></math>
+and
+<math display="inline"><mrow><mi>J</mi><mo>&gt;</mo><mn>1</mn></mrow></math>.
+Soit
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>E</mi>
+<mo separator="true">,</mo><mi>d</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></math>
+un espace métrique.  Une fonction continue
+<math display="inline"><mrow><mi>g</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo>
+</mrow><mo>&rarr;</mo><mi>E</mi></mrow></math>
+est dite de <em>variation bornée</em> s'il existe une constante
+<math display="inline"><mi>C</mi></math>
+telle que
+<math display="inline"><mrow><mrow><munderover>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><mrow>
+<mi class="ss1">J</mi><mo class="ss1">-</mo><mn class="ss1">1</mn>
+</mrow></munderover></mrow><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>x</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>g</mi>
+<mrow><mi class="ss1">j</mi><mo class="ss1">+</mo><mn class="ss1">1</mn>
+</mrow></msub><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&le;</mo><mi>C</mi></mrow></math>
+pour tout
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>x</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mn class="ss1">1</mn><mo class="ss1">&le;</mo><mi class="ss1">j</mi>
+<mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow></msub>
+<mo>&in;</mo><mi>&#x2112;</mi></mrow></math>.
 Nous pouvons alors définir la longueur de la courbe
-<em class="EQ">L = g([0,1])</em> comme étant la valeur
-<em class="EQ">length(L)
-= sup<sub>{x<sub>j</sub>}<sub>1&le;j&le;J</sub>&in;&#120027;</sub>
-&sum;<sub>1&le;j&lt;J</sub> d(g(x<sub>j</sub>),g(x<sub>j+1</sub>))</em>.</p>
+<math display="inline"><mrow><mi>L</mi><mo>=</mo><mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+comme étant la valeur
+<math display="inline"><mrow><mtext>length</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>L</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<munder><mi>sup</mi><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msub><mi>x</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mn class="ss1">1</mn><mo class="ss1">&le;</mo><mi class="ss1">j</mi>
+<mo class="ss1">&le;</mo><mi class="ss1">J</mi></mrow></msub>
+<mo class="ss1">&in;</mo><mi class="ss1">&#x2112;</mi></mrow></munder>
+<mspace width="0.1667em"></mspace><mrow><munderover>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><mrow>
+<mi class="ss1">J</mi><mo class="ss1">-</mo><mn class="ss1">1</mn>
+</mrow></munderover></mrow><mi>d</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>x</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>g</mi>
+<mrow><mi class="ss1">j</mi><mo class="ss1">+</mo><mn class="ss1">1</mn>
+</mrow></msub><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow></mrow></math>.
+</p>
 
 <div class="Theo">
 <p><em>Proposition</em>: Supposons que
-<em class="EQ">g:[0,1] &rarr; E</em> est une fonction de variation
-bornée et que <em class="EQ">L = g([0,1])</em>, alors
-<em class="EQ">length(L) &ge; &#119919;<sup>1</sup>(L)</em>.  En
-particulier, si <em class="EQ">g</em> est injective, alors
-<em class="EQ">length(L) = &#119919;<sup>1</sup>(L)</em> et donc
-<em class="EQ">dim<sub>&#119919;</sub>(L) = 1</em>.</p>
+<math display="inline"><mrow><mi>g</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo>
+</mrow><mo>&rarr;</mo><mi>E</mi></mrow></math>
+est une fonction de variation bornée et que
+<math display="inline"><mrow><mi>L</mi><mo>=</mo><mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">[</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>,
+alors
+<math display="inline"><mrow><mtext>length</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>L</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&ge;</mo>
+<msubsup><mi>H</mi><mi class="ss1">o</mi><mn class="ss1">1</mn></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>L</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>.
+En particulier, si
+<math display="inline"><mi>g</mi></math>
+est injective, alors
+<math display="inline"><mrow><mtext>length</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>L</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msubsup><mi>H</mi><mi class="ss1">o</mi><mn class="ss1">1</mn></msubsup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>L</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+et donc
+<math display="inline"><mrow><msub><mi>dim</mi><mi class="ss1">H</mi>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>L</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mn>1</mn></mrow></math>.
+</p>
 </div>
 
 <p>Une démonstration de cette proposition se trouve dans le livre de
@@ -729,30 +2065,69 @@ buildLinK("#GAE", "G. A. Edgar", "MMathSStat", "GAEID1", "_top");
 </script>.  La démonstration n'est pas difficile mais assez longue.
 La première question qui vient à l'esprit est s'il existe des courbes
 qui ne sont pas de variation bornée et qui ont une dimension de
-Hausdorff supérieur à <em class="EQ">1</em>.  La réponse est
-affirmative.</p>
+Hausdorff supérieur à
+<math display="inline"><mn>1</mn></math>.
+La réponse est affirmative.</p>
 
 <div class="Example" id="egA">
 <p><em>Exemple A</em>: La figure suivante illustre comment
 la <em>courbe (ou flocon) de Kock</em> est produite.
 La dimension de Hausdorff de cette courbe est 
-<em class="EQ">ln(4)/ln(3) &gt; 1</em>.
+<math display="inline"><mrow><mi>ln</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>4</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>/</mi>
+<mrow><mspace width="0.1667em"></mspace><mi>ln</mi></mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>3</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&gt;</mo>
+<mn>1</mn></mrow></math>.
 Nous n'expliquons pas maintenant comme nous pouvons facilement
 calculer sa dimension de Hausdorff mais nous allons le faire après
 avoir introduit la <q lang="en">dimension de similarité</q>.</p>
+
 <div class="center">
   <img src="dim4.png" style="width: 350px"
     alt="Premières étapes pour construire la courbe de Kock." class="framed">
 </div>
 </div>
 
-<p>Une fonction <em class="EQ">f: [0,1] &rarr; &reals;<sup>n</sup></em> est
-<em>continue de classe <em class="EQ">s</em> au sens de H&ouml;lder</em>
-avec <em class="EQ">0 &lt; s &le; 1</em> s'il existe deux constantes
-positives <em class="EQ">&delta;</em> et <em class="EQ">C</em> telles que
-<em class="EQ">&parallel;f(x) - f(y)&parallel; &le; C|x - y|</em> pour
-tout <em class="EQ">x,y &in; [0,1]</em> qui satisfont
-<em class="EQ">|x - y| &le; &delta;</em>.</p>
+<p>Une fonction
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo>
+</mrow><mo>&rarr;</mo><msup><mi>&reals;</mi><mi class="ss1">n</mi>
+</msup></mrow></math>
+est <em>continue de classe
+<math display="inline"><mi>s</mi></math>
+au sens de H&ouml;lder</em> avec
+<math display="inline"><mrow><mn>0</mn><mo>&lt;</mo><mi>s</mi><mo>&le;</mo>
+<mn>1</mn></mrow></math>
+s'il existe deux constantes positives
+<math display="inline"><mi>&delta;</mi></math>
+et
+<math display="inline"><mi>C</mi></math>
+telles que
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="true">&parallel;</mo>
+<mi>f</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>f</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>y</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow>
+<mo fence="true" form="postfix" stretchy="true">&parallel;</mo>
+<mo>&le;</mo><mi>C</mi><mi>|</mi><mi>x</mi>
+<mo>-</mo><mi>y</mi><mi>|</mi></mrow></math>
+pour tout
+<math display="inline"><mrow><mi>x</mi><mo separator="true">,</mo>
+<mi>y</mi><mo>&in;</mo><mrow>
+<mo form="prefix" stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo>
+<mn>1</mn><mo form="postfix" stretchy="false">]</mo></mrow></mrow></math>
+qui satisfont
+<math display="inline"><mrow><mi>|</mi><mi>x</mi><mo>-</mo>
+<mi>y</mi><mi>|</mi><mo>&le;</mo><mi>&delta;</mi></mrow></math>.
+</p>
 
 <p><script language="javascript">
 buildLinK("#BU", "A. S. Besicovitch and H. D. Ursell", "MMathSStat",
@@ -760,11 +2135,35 @@ buildLinK("#BU", "A. S. Besicovitch and H. D. Ursell", "MMathSStat",
 </script> ont démontré le résultat suivant.</p>
 
 <div class="Theo">
-<p><em>Proposition</em>: si <em class="EQ">f: [0,1] &rarr; &reals;</em>
-est une fonction continue de classe <em class="EQ">s</em> au
-sens de H&ouml;lder, alors la courbe
-<em class="EQ">L = {(x,f(x)) : x &in; [0,1]}</em>
-satisfait <em class="EQ">1 &le; dim<sub>&#119919;</sub>(L) &le; 2 - s</em>.</p>
+<p><em>Proposition</em>: si
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo>
+</mrow><mo>&rarr;</mo><mi>&reals;</mi></mrow></math>
+est une fonction continue de classe
+<math display="inline"><mi>s</mi></math>
+au sens de H&ouml;lder, alors la courbe
+<math display="inline"><mrow><mi>L</mi><mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo separator="true">,</mo><mi>f</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>x</mi><mo>&in;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">[</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">]</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
+satisfait
+<math display="inline"><mrow><mn>1</mn><mo>&le;</mo><msub><mi>dim</mi>
+<mi class="ss1">H</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>L</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&le;</mo>
+<mn>2</mn><mo>-</mo><mi>s</mi></mrow></math>.
+</p>
 </div>
 
 <p>Malheureusement, il n'y a pas de façon facile de calculer la
@@ -772,6 +2171,8 @@ dimension de Hausdorff d'une ensemble en général.  Nous présentons
 plus bas deux autres types de dimensions qui sont relativement plus simples
 à calculer.  Nous expliquons aussi de quelle façon elles sont reliées
 à la dimension de Hausdorff.</p>
+
+<!-- HERE mathml -->
 
 <hr class="MMathSStat">
 
