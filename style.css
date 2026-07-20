@@ -277,6 +277,8 @@ math mo.ss1 {font-size: 80%;}
 math mo.ss2 {font-size: 60%;}
 math mo.ss3 {font-size: 100%;}  /* for the prime symbol for derivatives */
 math mo.ss4 {font-size: 120%;}  /* for the tilde symbol */
+math mo.ss5 {font-size: 150%;}  /* for the integral sign, ... */
+
 math mtext.ss1 {font-size: 80%;}
 math mtable mtr.ss1 {line-height: 80%;}
 

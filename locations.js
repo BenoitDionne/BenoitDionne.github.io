@@ -377,7 +377,7 @@ var fractal0 = new item
 websites[websites_nbr++] = fractal0;
 
 var fractal1 = new item
-    ("Comportement chaotique", "Chaotic behaviour",
+    ("Comportement chaotique", "Chaotic Behaviour",
      location_bd+"math_stat/fractal/fractal1_fr.html",
      location_bd+"math_stat/fractal/fractal1_en.html",
      null, null, null, "fractal1", "_top", "fractal1");
