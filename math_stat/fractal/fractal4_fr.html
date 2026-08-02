@@ -311,7 +311,7 @@ Soit
 </mfrac></mrow></math>.
 On a que
 <math display="inline"><mrow><mi>H</mi><mo>&compfn;</mo><mi>P</mi><mo>=</mo>
-<msub><mi>P</mi><mi class+"ss1">c</mi></msub><mo>&compfn;</mo><mi>H</mi>
+<msub><mi>P</mi><mi class="ss1">c</mi></msub><mo>&compfn;</mo><mi>H</mi>
 </mrow></math>
 donne</p>
 
@@ -320,7 +320,7 @@ donne</p>
 <mn class="ss1">2</mn></msup><msup><mi>z</mi><mn class="ss1">2</mn></msup>
 <mo>+</mo><mi>&alpha;</mi><mi>&beta;</mi><mi>z</mi><mo>+</mo><mrow>
 <mo fence="true" form="prefix" stretchy="true">(</mo><mi>&alpha;</mi>
-<mi>&gamma;</mi><mo>+</mo><mfrac><mi>&beta;</mi><mn class="ss1">2</mn>
+<mi>&gamma;</mi><mo>+</mo><mfrac><mi>&beta;</mi><mn>2</mn>
 </mfrac><mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
 <mo>=</mo><msup><mi>&alpha;</mi><mn class="ss1">2</mn></msup><msup>
 <mi>z</mi><mn class="ss2">2</mn></msup><mo>+</mo><mi>&alpha;</mi>
@@ -333,9 +333,8 @@ donne</p>
 </div>
 
 <p>Dans le cas particulier où
-<math display="inline"><mrow><mi>&alpha;</mi><mo>=</mo>
-<mo form="prefix" stretchy="false">-</mo><mi>&beta;</mi><mo>=</mo>
-<mi>&mu;</mi></mrow></math>
+<math display="inline"><mrow><mo form="prefix" stretchy="false">-</mo>
+<mi>&alpha;</mi><mo>=</mo><mi>&beta;</mi><mo>=</mo><mi>&mu;</mi></mrow></math>
 et
 <math display="inline"><mrow><mi>&gamma;</mi><mo>=</mo><mn>0</mn>
 </mrow></math>,
@@ -422,8 +421,12 @@ Il y a une application graphique dans le document
 </script> pour explorer cette cascade de dédoublement de périodes.
 Le lecteur devrait lire la
 <script language="javascript">
-  buildLinK(fractal5.url_fr, "Remarque dans le decoment "
-  +fractal5.text_fr,"MMathSStat", fractal5.id+"PDC", fractal5.target);
+  buildLinK(fractal5.url_fr+"#rmkPDC","Remarque","MMathSStat",
+  fractal5.id+"PDCrmk", fractal5.target);
+</script>
+dans le document <script language="javascript">
+  buildLinK(fractal5.url_fr, fractal5.text_fr,"MMathSStat",
+  fractal5.id+"PDC", fractal5.target);
 </script> pour plus d'information.</p>
 
 <p>Donc, l'étude des ensemble de Julia promet d'être excitante..</p>
@@ -1958,7 +1961,7 @@ est un point critique si
 <mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-<mo>&ne;</mo><mn>0</mn></mrow></math>.
+<mo>=</mo><mn>0</mn></mrow></math>.
 </p>
 
 <div class="Theo">
@@ -3894,18 +3897,6 @@ de
 est éventuellement périodique.</p>
 </div>
 
-<div class="Note">
-<p><em>Remarque</em>: Les composantes connexes et bornées de
-<math display="inline"><msub><mi>S</mi><mi class="ss1">R</mi></msub></math>
-sont souvent appelées <em>pétales</em> car elles semblent former les
-pétales d'une fleure quand nous regardons un
-<q class="fr">ensemble de Julia plein</q> comme cela est défini à la section
-<script language="javascript">
-  buildLinK("#JuliaFig", "Représentation graphique des ensembles de Julia",
-  "MMathSStat", "JuliaFigID5", "_top");
-</script> ci-dessous.</p>
-</div>
-
 <p>Étant donné deux composantes connexes
 <math display="inline"><msub><mi>D</mi><mn class="ss1">1</mn></msub></math>
 et
@@ -5394,8 +5385,7 @@ l'aide du concept de fonctions de <em>type polynomiale</em>.</p>
 super-attractives, attractives ou neutres d'une fonction polynomiale
 <math display="inline"><mrow><mi>P</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+<mi>&complexes;</mi><mo>&rarr;</mo><mi>&complexes;</mi></mrow></math>
 de degré
 <math display="inline"><mi>d</mi></math>
 est au plus
@@ -5524,8 +5514,8 @@ de
 <math display="inline"><msub><mi>P</mi><mi class="ss1">c</mi></msub></math>.
 </p>
 
-<div class="Theo">
-<p><em>Proposition</em>: Si
+<div class="Theo" id="propXVI">
+<p><em>Proposition &#8553;&#8549;</em>: Si
 <math display="inline"><mrow><mi>|</mi><mi>z</mi><mi>|</mi><mo>&gt;</mo>
 <mi>C</mi><mo>=</mo><mi>max</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
@@ -5738,7 +5728,7 @@ Ainsi, nous avons que</p>
 choisissons un grand nombre
 <math display="inline"><mi>N</mi></math>,
 disons
-<em class="EQ">N</em>,
+<math display="inline"><mrow><mi>N</mi><mo>=</mo><mn>50</mn></mrow></math>,
 et nous déclarons que
 <math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>K</mi><msub>
 <mi class="ss1">P</mi><mi class="ss2">c</mi></msub></msub></mrow></math>

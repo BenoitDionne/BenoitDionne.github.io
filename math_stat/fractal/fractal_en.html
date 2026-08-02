@@ -50,7 +50,7 @@ document.write("<img src=\""+construction.src+"\" class=\"MMathSStat\">");
 <p> The words <q lang="en">chaos</q> and <q lang="en">fractal</q> are
 now part of our ordinary vocabulary just as are the words
 <q lang="en">table</q> and <q lang="en">chair</q>.
-The words <q lang="en">chaos</q> and <q lang="en">fractal</q> can been
+The words <q lang="en">chaos</q> and <q lang="en">fractal</q> can be
 found in the script of many films and television series produced since
 the 1980s.  But beyond entertainment,
 there are beautiful and profound mathematical results associated to
@@ -61,6 +61,52 @@ fractal1.target);
 </script>
 introduces some of the important ideas and results associated to these
 two mathematical concepts.</p>
+
+<p>Many of the mathematical results stated in this website are
+accompanied by a proof or a sketch of the proof.  References are given
+for the proofs of the results that are stated without proofs.
+Many of the sketch of proofs are in fact full proofs.  They have been
+identified as <q lang="en">sketch</q> because they use mathematical
+results that are not included in this website.</p>
+
+<div class="Note">
+<p><em>Remark</em>: The online LaTeX to mathml converter
+<script language="javascript">
+buildLinK("https://temml.org/",
+"T<sub style=\"font-size:100%\">E</sub>X<sup style=\"font-size:100%\">M</sup>L",
+"MMathSStat", "IDmathml", "_blank"); 
+</script> has been of enormous help to write the mathematical
+expression in mathml.  However, we have not adopted their style files
+and scripts.  Therefore, we are the only one to be blamed if the display
+of our mathematical expressions is not perfect.  We have noted some
+little issues with the LaTeX to mathml converter above.</p>
+<ul>
+<li> If the command <span style="color:navy;">\cal{}</span> is used in
+a formula to produce a calligraphic letter, then all the following letters
+in the formula are also calligraphic.  The command
+<span style="color:navy;">{\cal  }</span> must be used instead.</li>
+<li>An expression of the form <span style="color:navy;">A^(2)</span>
+is converted to
+<math display="inline"><msup><mi>A</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">)</mo>
+</mrow></msup></math>
+instead of
+<math display="inline"><msup><mi>A</mi>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+</msup><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></math>
+as it is expected in LaTeX.</li>
+<li>The converter does not always handle correctly the commas when only
+integers are used.  The comma in a vector like
+<span style="color:navy;">(1,2)</span> is not converted to the expressions
+<span style="color:navy;">&lt;mo separator="true"&gt;,&lt;/mo&gt;</span>
+but instead we get the expression
+<span style="color:navy;">&lt;mn&gt;1,2&lt;/mn&gt;</span>.</li>
+<li>&hellip;</li>
+</ul>
+</div>
 
 <hr class="MMathSStat">
 

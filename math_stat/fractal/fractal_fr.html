@@ -62,6 +62,57 @@ fractale.  Le site Internet qui débute avec la document
 introduit certaines des idées et résultats importants associés à ces
 deux concepts mathématiques.</p>
 
+<p>Plusieurs des résultats mathématiques énoncés dans ce site Internet
+sont accompagnés d'une démonstration ou d'une ébauche de la
+démonstration.  Des références sont fournies pour les démonstrations
+des résultats qui sont énoncés sans être accompagnés d'une démonstration.
+Plusieurs des ébauches de démonstrations sont en fait des
+démonstrations complètes.  Elles ont été identifiées comme
+<q lang="en">ébauches</q> parce que elles utilisent des résultats
+mathématiques qui ne sont pas inclus dans ce site Internet.</p>
+
+<div class="Note">
+<p><em>Remarque</em>: Le convertisseur de LaTeX à mathml
+<script language="javascript">
+buildLinK("https://temml.org/",
+"T<sub style=\"font-size:100%\">E</sub>X<sup style=\"font-size:100%\">M</sup>L",
+"MMathSStat", "IDmathml", "_blank"); 
+</script> a été d'une énorme utilité pour écrire les expressions
+mathématiques en mathml.  Cependant, nous n'avons pas adopté leurs
+fichiers de style et codes.  Donc, nous sommes les seuls à être blâmés
+si l'affichage de nos expressions mathématiques n'est pas parfait.
+Nous avons remarquer quelques problèmes avec le convertisseur de LaTeX à
+mathml ci-dessus.</p>
+<ul>
+<li> Si la commande <span style="color:navy;">\cal{}</span> est
+utilisée dans une formule pour produire une lettre en format
+calligraphique, alors toutes les lettres qui suivent sont produites en
+format calligraphique.  La commande
+<span style="color:navy;">{\cal  }</span> doit plutôt être utilisée.</li>
+<li>Une expression de la forme <span style="color:navy;">A^(2)</span>
+est convertie à
+<math display="inline"><msup><mi>A</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+<mn class="ss1">2</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">)</mo>
+</mrow></msup></math>
+au lieu de
+<math display="inline"><msup><mi>A</mi>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+</msup><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></math>
+comme cela est normal dans LaTeX.</li>
+<li>Le convertisseur ne gère pas toujours correctement les virgules
+quand seulement des entiers sont utilisés.  La virgule dans un vecteur
+comme <span style="color:navy;">(1,2)</span> n'est pas convertie à
+l'expression
+<span style="color:navy;">&lt;mo separator="true"&gt;,&lt;/mo&gt;</span>
+mais nous obtenons plutôt l'expression
+<span style="color:navy;">&lt;mn&gt;1,2&lt;/mn&gt;</span>.</li>
+<li>&hellip;</li>
+</ul>
+</div>
+
 <hr class="MMathSStat">
 
 </div>  <!-- The content ends here -->

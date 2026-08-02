@@ -306,7 +306,7 @@ Let
 </mfrac></mrow></math>.
 Then
 <math display="inline"><mrow><mi>H</mi><mo>&compfn;</mo><mi>P</mi><mo>=</mo>
-<msub><mi>P</mi><mi class+"ss1">c</mi></msub><mo>&compfn;</mo><mi>H</mi>
+<msub><mi>P</mi><mi class="ss1">c</mi></msub><mo>&compfn;</mo><mi>H</mi>
 </mrow></math>
 yields</p>
 
@@ -315,7 +315,7 @@ yields</p>
 <mn class="ss1">2</mn></msup><msup><mi>z</mi><mn class="ss1">2</mn></msup>
 <mo>+</mo><mi>&alpha;</mi><mi>&beta;</mi><mi>z</mi><mo>+</mo><mrow>
 <mo fence="true" form="prefix" stretchy="true">(</mo><mi>&alpha;</mi>
-<mi>&gamma;</mi><mo>+</mo><mfrac><mi>&beta;</mi><mn class="ss1">2</mn>
+<mi>&gamma;</mi><mo>+</mo><mfrac><mi>&beta;</mi><mn>2</mn>
 </mfrac><mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
 <mo>=</mo><msup><mi>&alpha;</mi><mn class="ss1">2</mn></msup><msup>
 <mi>z</mi><mn class="ss2">2</mn></msup><mo>+</mo><mi>&alpha;</mi>
@@ -328,9 +328,8 @@ yields</p>
 </div>
 
 <p>In the particular case where
-<math display="inline"><mrow><mi>&alpha;</mi><mo>=</mo>
-<mo form="prefix" stretchy="false">-</mo><mi>&beta;</mi><mo>=</mo>
-<mi>&mu;</mi></mrow></math>
+<math display="inline"><mrow><mo form="prefix" stretchy="false">-</mo>
+<mi>&alpha;</mi><mo>=</mo><mi>&beta;</mi><mo>=</mo><mi>&mu;</mi></mrow></math>
 and
 <math display="inline"><mrow><mi>&gamma;</mi><mo>=</mo><mn>0</mn>
 </mrow></math>,
@@ -416,8 +415,12 @@ There is a graphical application in the document
   fractal0.id+"PDC", fractal0.target);
 </script> to explore this period doubling cascade.  The reader should read
 the <script language="javascript">
-  buildLinK(fractal5.url_en, "Remark in the document "
-  +fractal5.text_en,"MMathSStat",fractal5.id+"PDC", fractal5.target);
+  buildLinK(fractal5.url_en+"#rmkPDC","Remark","MMathSStat",
+  fractal5.id+"PDCrmk", fractal5.target);
+</script>
+in the document <script language="javascript">
+  buildLinK(fractal5.url_en, fractal5.text_en,"MMathSStat",
+  fractal5.id+"PDC", fractal5.target);
 </script> for more information.</p>
 
 <p>Therefore, the study of the Julia sets is promising to be exciting.</p>
@@ -1939,7 +1942,7 @@ is a critical point if
 <mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-<mo>&ne;</mo><mn>0</mn></mrow></math>
+<mo>=</mo><mn>0</mn></mrow></math>
 </p>
 
 <div class="Theo">
@@ -3870,18 +3873,6 @@ of
 is eventually periodic.</p>
 </div>
 
-<div class="Note">
-<p><em>Remark</em>: The bounded connected components of
-<math display="inline"><msub><mi>S</mi><mi class="ss1">R</mi></msub></math>
-are often called <em>petals</em> because they appear to form the
-petals of a flower when we look at a
-<q class="en">filled Julia set</q> as defined in Section
-<script language="javascript">
-  buildLinK("#JuliaFig", "Graphical Representation of Julia Sets",
-  "MMathSStat", "JuliaFigID5", "_top");
-</script> below.</p>
-</div>
-
 <p>Given two connected components
 <math display="inline"><msub><mi>D</mi><mn class="ss1">1</mn></msub></math>
 and
@@ -5370,8 +5361,7 @@ super-attracting, attracting or neutral periodic orbits of a
 polynomial function
 <math display="inline"><mrow><mi>P</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+<mi>&complexes;</mi><mo>&rarr;</mo><mi>&complexes;</mi></mrow></math>
 of degree
 <math display="inline"><mi>d</mi></math>
 is at most
@@ -5499,8 +5489,8 @@ of
 <math display="inline"><msub><mi>P</mi><mi class="ss1">c</mi></msub></math>.
 </p>
 
-<div class="Theo">
-<p><em>Proposition</em>: If
+<div class="Theo" id="propXVI">
+<p><em>Proposition &#8553;&#8549;</em>: If
 <math display="inline"><mrow><mi>|</mi><mi>z</mi><mi>|</mi><mo>&gt;</mo>
 <mi>C</mi><mo>=</mo><mi>max</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>

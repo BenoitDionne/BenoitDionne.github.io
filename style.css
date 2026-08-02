@@ -223,47 +223,23 @@ div.center { text-align: center; margin: 10px; }
 /* images */
 img.framed { border: 1px solid #8F001A; }
 
+/* figures */
+figure.center { text-align: center; margin: 10px; }
+
 /* Smaller text */
 span.small { font-size: 80%; }
 
 /********************************************************************/
 /*      For the equations and definition in mathematics             */
 /********************************************************************/
-/*
-em.EQ { color: #8F001A; font-family: math; font-weight: normal;
-  white-space: nowrap;}
-em.EQ_Display { color: #8F001A; font-family: math;
-  padding: 5px; font-weight: normal;  white-space: nowrap;}
-*/
-/*
-em.EQ { color: #8F001A; font-family: "Courier", monospace; font-weight: normal;
-  font-size: 110%;  white-space: nowrap;}
-em.EQ_Display { color: #8F001A; font-family: "Courier", monospace;
-  font-size: 110%; padding: 5px; font-weight: normal; white-space: nowrap;}
-*/
-em.EQ { color: #8F001A; font-family: "Latin Modern Math"; font-weight: normal;
-  font-size: 100%;  white-space: nowrap;}
-em.EQ_Display { color: #8F001A; font-family: "Latin Modern Math";
-  font-size: 100%; padding: 5px; font-weight: normal; white-space: nowrap;}
-span.EQ_Over { color: inherit; font-family: inherit;
-  font-size: inherit; border-top: 1px #8F001A solid;}
-span.EQ_OverOver { color: inherit; font-family: inherit;
-  font-size: inherit; border-top: 1px #8F001A solid;}
-span.EQ_Larger { color: inherit; font-family: inherit;
-  font-size: 150%;}
+
 div.EQ_center { text-align: center; padding: 10px; overflow-x: scroll;
 overflow-y: scroll;}
-span.EQ_Right { float: right; }
 
 /*
-math * { color: #8F001A; font-family: math;
-  font-weight: normal; white-space: nowrap;}
-*/
-/*
-math { color: #8F001A; font-family: "Courier", monospace; font-style: normal;
-  font-size: 100%; font-weight: normal; white-space: nowrap;}
-math * { color: #8F001A; font-family: "Courier", monospace;  font-style: normal;
-  font-size: 100%; font-weight: normal; white-space: nowrap;}
+font-family: "Latin Modern Math";
+font-family: math;
+font-family: "Courier", monospace;  font-style: normal;
 */
 math { color: #8F001A; font-family: "Latin Modern Math";
   font-size: 100%; font-weight: normal; white-space: nowrap;}
