@@ -321,7 +321,8 @@ div.topPAGE { display: none; }
 img.topPAGE { display: none; }
 
 /* Display the full proofs */
-.moreORless {display: block;}
+div.moreORless {display: block;}
+button.mORl {display: none;}
 }
 
 /********************************************************************/
