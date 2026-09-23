@@ -956,13 +956,11 @@ est un ensemble ouvert, nous avons que
 est un ensemble fermé.  Puisque
 <math display="inline"><mi>R</mi></math>
 est une application ouverte, il n'est pas difficile de démontrer que 
-<math display="inline"><mrow><msup><mi>R</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mn class="ss1">1</mn></mrow></msup><mrow>
+<math display="inline"><mrow><mi>R</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>S</mi>
 <mi class="ss1">R</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
-<msub><mi>S</mi><mi class="ss1">R</mi></msub></mrow></math>;
+<msub><mi>S</mi><mi class="ss1">R</mi></msub></mrow></math>
 et
 <math display="inline"><mrow><msup><mi>R</mi><mrow>
 <mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
@@ -1009,7 +1007,7 @@ monodromie en analyse complexe.</p>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-est fonction rationnelle, alors
+est une fonction rationnelle, alors
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi>
 </msub><mo>&ne;</mo><mi>&emptyset;</mi></mrow></math>.
 </p>
@@ -1023,7 +1021,14 @@ contradiction.
 <p>Si
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">r</mi>
 </msub><mo>=</mo><mi>&emptyset;</mi></mrow></math>,
-alors
+alors il existe pour tout
+<math display="inline"><mrow><mi>z</mi><mo>&isin;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+un voisinage ouvert
+<math display="inline"><mi>U</mi></math>
+de
+<math display="inline"><mi>z</mi></math>
+tel que
 <math display="inline"><mrow><mi>&#x2131;</mi><mo>=</mo><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
 <msup><mi>R</mi><mrow>
@@ -1033,8 +1038,7 @@ alors
 <mrow><mi class="ss1">n</mi><mo class="ss1">&gt;</mo>
 <mn class="ss1">0</mn></mrow></msub></mrow></math>
 est normale sur
-<math display="inline"><mrow><msub><mi>&complexes;</mi>
-<mi class="ss1">&infin;</mi></msub></mrow></math>.
+<math display="inline"><mi>U</mi></math>.
 Donc, il existe une sous-suite
 <math display="inline"><mrow><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
@@ -1045,22 +1049,25 @@ Donc, il existe une sous-suite
 <mrow><mi class="ss1">k</mi><mo class="ss1">&gt;</mo>
 <mn class="ss1">0</mn></mrow></msub></mrow></math>
 qui converge uniformément sur les sous-ensembles compacts de
-<math display="inline"><mrow><msub><mi>&complexes;</mi>
-<mi class="ss1">&infin;</mi></msub></mrow></math>,
-incluant
-<math display="inline"><mrow>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-lui-même pusique c'est un ensemble compact.  Puisque l'espace des
-fonctions holomorphes sur
-<math display="inline"><mrow><msub><mi>&complexes;</mi>
-<mi class="ss1">&infin;</mi></msub></mrow></math>
-(i.e. les fonctions rationnelles) est fermé dans cette topologie, la
-limite de cette sous-suite est une fonction holomorphe
-<math display="inline"><mi>T</mi></math>
-sur
-<math display="inline"><mrow><msub><mi>&complexes;</mi>
-<mi class="ss1">&infin;</mi></msub></mrow></math>
-(i.e. une fonction rationnelle) de degré fini.  Cependant,
+<math display="inline"><mi>U</mi></math>
+vers une fonction holomorphique
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>V</mi><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
+À l'aide du théorème de monodromie, la fonction
+<math display="inline"><mi>f</mi></math>
+peut être étendue à une fonction holomorphique (du même nom)
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub>
+<mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
+Donc
+<math display="inline"><mi>f</mi></math>
+est une fonction rationnelle.  En particulier, le degré de
+<math display="inline"><mi>f</mi></math>
+est fini.  Cependant,
 <math display="inline"><mrow><mi>deg</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><msup><mi>R</mi><mrow>
 <mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
@@ -1072,7 +1079,7 @@ lorsque
 <mi>&infin;</mi></mrow></math>
 au lieu de converger vers
 <math display="inline"><mrow><mi>deg</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>T</mi>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>f</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&lt;</mo>
 <mi>&infin;</mi></mrow></math>
 comme cela devrait être le cas.
@@ -1390,7 +1397,7 @@ et
 <mi class="ss1">R</mi>
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
 </msubsup>
-<mo>=</mo><msub><mi>&complexes;</mi><mi>&infin;</mi></msub>
+<mo>=</mo><msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub>
 <mo>&setminus;</mo><msub><mi>W</mi><mi class="ss1">V</mi></msub></mrow></math>
 où
 <math display="inline"><mrow><msub><mi>W</mi><mi class="ss1">V</mi></msub>
@@ -1871,7 +1878,7 @@ pour tout
 Nous verrons prochainement que les points exceptionnels sont soit
 <q lang="fr">des points fixes super-attractifs</q> ou
 <q lang="fr">des orbites périodiques super-attractives</q>.
-Nous rappelons le lecteur que nous considérons seulement les
+Rappelons que nous considérons seulement les
 fonctions rationnelles de degré plus grand ou égale à
 <math display="inline"><mn>2</mn></math>.
 </p>
@@ -2108,7 +2115,7 @@ une fonction rationnelle de degré
 <math display="inline"><mi>d</mi></math>.
 La <em>déficience</em> de
 <math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub>
-<mi>&complexes;</mi><mi>&infin;</mi></msub></mrow></math>
+<mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 est la valeur
 <math display="inline"><mrow><mi>d</mi><mo>-</mo><mi>|</mi>
 <msup><mi>R</mi><mrow>
@@ -2149,7 +2156,7 @@ pour tout
 
 <p>La déficience de
 <math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub>
-<mi>&complexes;</mi><mi>&infin;</mi></msub></mrow></math>
+<mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 est non-nulle si et seulement si
 <math display="inline"><mi>z</mi></math>
 est un point critique de la fonction rationnelle
@@ -2912,14 +2919,21 @@ Pour linéariser
 <math display="inline"><mi>R</mi></math>
 au point
 <math display="inline"><mi>w</mi></math>,
-nous devons trouver un homéomorphisme conforme
-<math display="inline"><mi>H</mi></math>,
-et deux ensembles ouverts
-<math display="inline"><mrow><mi>W</mi><mo>&subset;</mo><mi>V</mi></mrow>
-</math>
-avec
-<math display="inline"><mrow><mi>w</mi><mo>&in;</mo><mi>W</mi></mrow></math>
+nous devons trouver deux ensembles ouverts
+<math display="inline"><mrow><mi>W</mi><mo>&subset;</mo><mi>V</mi>
+</mrow></math>
+et un homéomorphisme conforme
+<math display="inline"><mrow><mi>H</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>V</mi><mo>&rarr;</mo>
+<msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
 tels que
+<math display="inline"><mrow><mi>w</mi><mo>&isin;</mo><mi>W</mi></mrow></math>,
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>W</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<mi>V</mi></mrow></math>,
 <math display="inline"><mrow><mi>H</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
@@ -2935,12 +2949,30 @@ démontré que s'il existe une fonction
 <math display="inline"><mi>H</mi></math>
 qui satisfait l'équation fonctionnelle de Schr&ouml;der, alors
 <math display="inline"><mi>w</mi></math>
-est un point stable.  L'inverse est aussi vrai.  Il a été aussi
-démontré qu'aucune fonction
+est un point stable.  L'inverse est aussi vrai.
+Il a été démontré qu'aucune fonction
 <math display="inline"><mi>H</mi></math>
 satisfait l'équation fonctionnelle de Schr&ouml;der si
 <math display="inline"><mi>&lambda;</mi></math>
-est une racine de l'unité.  Même quand
+est une racine de l'unité.  Donc, si
+<math display="inline"><mi>w</mi></math>
+est un point fixe neutre d'une fonction rationnelle
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
+et que
+<math display="inline"><mrow><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>&lambda;</mi></mrow></math>
+est une racine de l'unité, alors
+<math display="inline"><mrow><mi>w</mi><mo>&isin;</mo>
+<msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
+</p>
+
+<p>Même quand
 <math display="inline"><mi>&lambda;</mi></math>
 n'est pas une racine de l'unité et
 <math display="inline"><mrow><mi>|</mi><mi>&lambda;</mi>
@@ -3098,7 +3130,7 @@ est l'ensemble
 </p>
 </div>
 
-<p>Il découle du
+<p>Le basin d'attraction est un ensemble ouvert.  Il découle du
 <script language="javascript">
   buildLinK("#Montel", "théorème de Montel",
   "MMathSStat", "MontelID10", "_top");

@@ -989,7 +989,7 @@ It is easy to prove that
 for
 <math display="inline"><mrow><mi>n</mi><mo>&gt;</mo><mn>1</mn></mrow></math>.
 The following result is a consequence of the
-monodromy theorem in complex analysis.</p>
+<em>monodromy theorem</em> in complex analysis.</p>
 
 <div class="Theo">
 <p><em>Theorem</em>: If
@@ -1010,7 +1010,14 @@ is a rational function, then
 <p>If
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">r</mi>
 </msub><mo>=</mo><mi>&emptyset;</mi></mrow></math>,
-then
+then there exists for every
+<math display="inline"><mrow><mi>z</mi><mo>&isin;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+an open neighbourhood
+<math display="inline"><mi>U</mi></math>
+of
+<math display="inline"><mi>z</mi></math>
+such that
 <math display="inline"><mrow><mi>&#x2131;</mi><mo>=</mo><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
 <msup><mi>R</mi><mrow>
@@ -1020,8 +1027,7 @@ then
 <mrow><mi class="ss1">n</mi><mo class="ss1">&gt;</mo>
 <mn class="ss1">0</mn></mrow></msub></mrow></math>
 is normal on
-<math display="inline"><mrow>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
+<math display="inline"><mi>U</mi></math>.
 Therefore, there exists a subsequence
 <math display="inline"><mrow><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
@@ -1032,21 +1038,25 @@ Therefore, there exists a subsequence
 <mrow><mi class="ss1">k</mi><mo class="ss1">&gt;</mo>
 <mn class="ss1">0</mn></mrow></msub></mrow></math>
 that converges uniformly on compact subsets of
-<math display="inline"><mrow>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>,
-including on
-<math display="inline"><mrow>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-itself since it is a compact set.  Since the space of holomorphic function on
-<math display="inline"><mrow>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-(i.e. rational functions) is closed in this topology, the limit of
-this subsequence is a holomorphic function
-<math display="inline"><mi>T</mi></math>
-on
-<math display="inline"><mrow>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-(i.e. a rational functions) of finite degree.  However,
+<math display="inline"><mi>U</mi></math>
+to a holomorphic function
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>V</mi><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
+Using the monodromy theorem, the function
+<math display="inline"><mi>f</mi></math>
+can be extended to a holomorphic function (of the same name)
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub>
+<mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
+Thus
+<math display="inline"><mi>f</mi></math>
+is a rational functions.  In particular, the degree of
+<math display="inline"><mi>f</mi></math>
+is finite.  However,
 <math display="inline"><mrow><mi>deg</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><msup><mi>R</mi><mrow>
 <mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
@@ -1058,7 +1068,7 @@ as
 <mi>&infin;</mi></mrow></math>
 instead of converging to
 <math display="inline"><mrow><mi>deg</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>T</mi>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>f</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&lt;</mo>
 <mi>&infin;</mi></mrow></math>
 as it should.
@@ -1371,7 +1381,7 @@ and
 <mi class="ss1">R</mi>
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
 </msubsup>
-<mo>=</mo><msub><mi>&complexes;</mi><mi>&infin;</mi></msub>
+<mo>=</mo><msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub>
 <mo>&setminus;</mo><msub><mi>W</mi><mi class="ss1">V</mi></msub></mrow></math>
 where
 <math display="inline"><mrow><msub><mi>W</mi><mi class="ss1">V</mi></msub>
@@ -2089,7 +2099,7 @@ be a rational function of degree
 <math display="inline"><mi>d</mi></math>.
 The <em>deficiency</em> of
 <math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub>
-<mi>&complexes;</mi><mi>&infin;</mi></msub></mrow></math>
+<mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 is the value
 <math display="inline"><mrow><mi>d</mi><mo>-</mo><mi>|</mi>
 <msup><mi>R</mi><mrow>
@@ -2130,7 +2140,7 @@ for all
 
 <p>The deficiency of
 <math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub>
-<mi>&complexes;</mi><mi>&infin;</mi></msub></mrow></math>
+<mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 is non-null if and only if
 <math display="inline"><mi>z</mi></math>
 is a critical point of the rational function
@@ -2889,14 +2899,21 @@ To linearize
 <math display="inline"><mi>R</mi></math>
 at
 <math display="inline"><mi>w</mi></math>,
-we need to find a conformal homeomorphism
-<math display="inline"><mi>H</mi></math>,
-and two open set
-<math display="inline"><mrow><mi>W</mi><mo>&subset;</mo><mi>V</mi></mrow>
-</math>
-with
-<math display="inline"><mrow><mi>w</mi><mo>&in;</mo><mi>W</mi></mrow></math>
+we need to find two open sets
+<math display="inline"><mrow><mi>W</mi><mo>&subset;</mo><mi>V</mi>
+</mrow></math>
+and a conformal homeomorphism
+<math display="inline"><mrow><mi>H</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>V</mi><mo>&rarr;</mo>
+<msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
 such that
+<math display="inline"><mrow><mi>w</mi><mo>&isin;</mo><mi>W</mi></mrow></math>,
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>W</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<mi>V</mi></mrow></math>,
 <math display="inline"><mrow><mi>H</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
@@ -2911,13 +2928,30 @@ equation</em>.  It has been proved that if there exists a function
 <math display="inline"><mi>H</mi></math>
 satisfying the Schr&ouml;der functional equation, then
 <math display="inline"><mi>w</mi></math>
-is a stable point.  The converse is also true.  It has also been
-proved that there is no function
+is a stable point.  The converse is also true.
+It has been proved that there is no function
 <math display="inline"><mi>H</mi></math>
 satisfying the Schr&ouml;der functional equation if
 <math display="inline"><mi>&lambda;</mi></math>
-is a root of unity.  Even when
-<math display="inline"><mi>&lambda;</mi></math>
+is a root of unity.  Thus, if
+<math display="inline"><mi>w</mi></math>
+is a neutral fixed point of a rational function
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
+and that
+<math display="inline"><mrow><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>&lambda;</mi></mrow></math>
+is a root of unity, then
+<math display="inline"><mrow><mi>w</mi><mo>&isin;</mo>
+<msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
+</p>
+
+<p>Even when <math display="inline"><mi>&lambda;</mi></math>
 is a not root of unity but
 <math display="inline"><mrow><mi>|</mi><mi>&lambda;</mi>
 <mi>|</mi><mo>=</mo><mn>1</mn></mrow></math>,
@@ -3076,7 +3110,7 @@ is the set
 </p>
 </div>
 
-<p>It follows from
+<p>The basin of attraction is an open set.  It follows from
 <script language="javascript">
   buildLinK("#Montel", "Montel's theorem",
   "MMathSStat", "MontelID10", "_top");
