@@ -78,8 +78,7 @@ function getStyleObject(id) {
     return null;
 }
 
-/* Set the style attribute of an element with the given ID .
-   Doesn't seem to work. */
+/* Get the style attribute of an element with the given ID */
 function getElementAttribute(id, attributE) {
     var elm = null;
     if (document.getElementById) {
@@ -93,8 +92,7 @@ function getElementAttribute(id, attributE) {
     return null;
 }
 
-/* Set the style attribute of an element with the given ID .
-   Doesn't seem to work. */
+/* Set the style attribute of an element with the given ID */
 function setElementAttribute(id, attributE, valuE) {
     var elm = null;
     if (document.getElementById) {
@@ -106,8 +104,7 @@ function setElementAttribute(id, attributE, valuE) {
     return;
 }
 
-/* Remove the style attribute of an element with the given ID .
-   Doesn't seem to work. */
+/* Remove the style attribute of an element with the given ID */
 function removeElementAttribute(id, attributE) {
     var elm = null;
     if (document.getElementById) {
@@ -284,8 +281,8 @@ function moreORless(IDdots,IDtext,IDbnt,lang) {
   var textRM = "Read more";
   var textRL = "Read less";
   if (lang == "fr") {
-      textRM = "Lire plus";
-      textRL = "Lire moins";
+      textRM = "Pour en savoir plus";
+      textRL = "Cacher le texte";
   }
   
   if (dotsText.style.display === "none") {
@@ -297,6 +294,55 @@ function moreORless(IDdots,IDtext,IDbnt,lang) {
     btnText.innerHTML = textRL;
     moreText.style.display = "inline";
   }
+}
+
+/**********************************************************************
+ * Numbering theorems, propositions, ...
+ **********************************************************************/
+var NUMBERS = new Array();
+var numbers = 0;
+
+/* Function to create the mumber of a theorem, a proposition, ...*/
+function nbrItem(Number, Type, Label, Name) {
+    this.nbr = Number;
+    this.tp = Type;
+    this.lbl = Label;
+    this.nm = Name;
+}
+
+function divNumbers(Type, Label, Name) {
+    NUMBERS[numbers] = new nbrItem(++numbers, Type, Label, Name);
+    document.write("<div class=\"Theo\" id=\""+Label
+		   +"\"><em class=\"Theo\">"+Type
+		   +" <font class=\"Theo\">"+numbers+"</font>");
+	if ( Name.length > 0 ) {
+	    document.write(" ("+Name+")");
+	}
+    document.write("</em>:");
+}
+
+function refNumbers(Label, URL, Text) {
+    var text1 = "";
+    var text2 = "";
+    if ( URL != null ) {
+	text1 = URL+"#"+Label;
+	if ( Text != null )
+	    text2 = Text;
+	else
+	    text2 = "Result / R&eacute;sultat";
+	buildLinK(text1,text2,"MMathSStat","ID"+Label,"_blank");
+    } else {
+	for ( let i = 0 ; i < numbers; i++ ) {
+	    if ( NUMBERS[i].lbl === Label ) {
+		text1 = "#"+NUMBERS[i].lbl;
+		text2 = NUMBERS[i].tp+" "+NUMBERS[i].nbr;
+		if ( NUMBERS[i].nm.length > 0 )
+		    text2 = text2 + " ("+NUMBERS[i].nm + ")";
+		buildLinK(text1,text2,"MMathSStat",
+			  "ID"+NUMBERS[i].lbl+NUMBERS[i].nbr,"_top");
+	    }
+	}
+    }
 }
 
 /**********************************************************************

@@ -125,14 +125,12 @@ different points of the Mandelbrot set.</p>
 The main reason for this choice is that they are not easy and therefore
 inappropriate for a website.  The reader who want to study the proofs
 may consult the list of <script language="javascript">
-  buildLinK("#REF", "references",
-  "MMathSStat", "refID", "_top");
+buildLinK("#REF", "references","MMathSStat", "refID", "_top");
 </script> at the bottom of this document.</p>
 
 <p>We have seen in <script language="javascript">
-  buildLinK(fractal4.url_en+"#egA",
-  "Example A of the document "+fractal4.text_en,
-  "MMathSStat", fractal4.id+"egAID", fractal4.target); 
+buildLinK(fractal4.url_en+"#egA","Example A of the document "+fractal4.text_en,
+"MMathSStat", fractal4.id+"egAID", fractal4.target); 
 </script> that every polynomial function of degree
 <math display="inline"><mn>2</mn></math>
 is conformally conjugate to a polynomial function
@@ -157,8 +155,10 @@ for which the Julia sets of
 <math display="inline"><msub><mi>P</mi><mi class="ss1">c</mi></msub></math>
 is connected.</p>
 
-<div class="Theo">
-<p><em>Definition</em>: The <em>Mandelbrot set</em> is the set
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">The <em>Mandelbrot set</em> is the set
 <math display="inline"><mi>M</mi></math>
 defined by</p> 
 
@@ -202,11 +202,13 @@ defined by</p>
 </div>
 </div>
 
-<p>It follows from
+<p>It follows from the
+<script language="javascript">refNumbers("propXIII",fractal4.url_en,
+"following proposition")</script>
+in the document
 <script language="javascript">
-  buildLinK(fractal4.url_en+"#propXIII",
-  "Proposition &#8553;&#8546; of the document "+fractal4.text_en,
-  "MMathSStat", fractal4.id+"propXIII", fractal4.target); 
+buildLinK(fractal4.url_en,fractal4.text_en,
+"MMathSStat", fractal4.id, fractal4.target); 
 </script> that</p>
 
 <div class="EQ_center">
@@ -254,8 +256,10 @@ computations and the resolution of the computer screen.  It is
 therefore not surprising that some minuscule details may be missing
 in the figure.</p>
 
-<div class="Theo">
-<p><em>Theorem</em>: The Mandelbrot set is connected and simply connected.</p>
+<script language="javascript">
+divNumbers("Theorem","","");
+</script>
+<p class="Theo">The Mandelbrot set is connected and simply connected.</p>
 </div>
 
 <p>The Mandelbrot set is bounded.  More precisely, we have that
@@ -263,20 +267,18 @@ in the figure.</p>
 <msub><mi>B</mi><mn class="ss1">2</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+<mo strectchy="true">&macr;</mo>
 </mover></mrow></math>.
 To prove this claim, we note that if
 <math display="inline"><mrow><mi>|</mi><mi>c</mi><mi>|</mi><mo>&gt;</mo>
 <mn>2</mn></mrow></math>,
-then the proof of
-<script language="javascript">
-buildLinK(fractal4.url_en+"#propXVI", "Proposition &#8553;&#8549;",
-"MMathSStat",fractal4.id+"propXVIId1", fractal4.target);
-</script>
+then the proof of the
+<script language="javascript">refNumbers("propXVI",fractal4.url_en,
+"following proposition");</script>
 in the document
 <script language="javascript">
 buildLinK(fractal4.url_en, fractal4.text_en, "MMathSStat",
-fractal4.id+"0", fractal4.target);
+fractal4.id, fractal4.target);
 </script>
 can be slightly modified to conclude that
 <math display="inline"><mrow><mi>|</mi><msubsup><mi>P</mi>
@@ -327,7 +329,7 @@ The ball
 <msub><mi>B</mi><mn class="ss1">2</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+<mo strectchy="true">&macr;</mo>
 </mover></math>
 is the smallest ball centred at the origin that contains the
 Mandelbrot set.  We leave it to the reader to rigorously prove that
@@ -414,9 +416,9 @@ is not interpreted as a number.</p>
 <div class="Note" id="rmkPDC">
 <p><em>Remark</em>: We mentioned in the
 <script language="javascript">
-  buildLinK(fractal4.url_en+"#egA",
-  "Example A of the document "+fractal4.text_en,
-  "MMathSStat", fractal4.id+"egAID2", fractal4.target); 
+buildLinK(fractal4.url_en+"#egA",
+"Example A of the document "+fractal4.text_en,
+"MMathSStat", fractal4.id+"egAID2", fractal4.target); 
 </script> that when
 <math display="inline"><mrow><mi>c</mi><mo>&in;</mo><mi>&reals;</mi>
 </mrow></math>
@@ -449,11 +451,13 @@ value of
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
 </div>
 
-<p>It follows from
+<p>It follows from the
+<script language="javascript">refNumbers("propVII",fractal4.url_en,
+"following proposition");</script>
+in the document
 <script language="javascript">
-  buildLinK(fractal4.url_en+"#propVII",
-  "Proposition &#8550; of the document "+fractal4.text_en, "MMathSStat",
-  fractal4.id+"PVII", fractal4.target); 
+buildLinK(fractal4.url_en,fractal4.text_en, "MMathSStat",
+fractal4.id, fractal4.target); 
 </script> that
 <math display="inline"><mrow><mi>H</mi><mo>&subset;</mo><mi>M</mi></mrow></math>
 because
@@ -466,8 +470,10 @@ has a bounded super-attracting or attracting orbit, then
 <math display="inline"><mn>0</mn></math>
 is in the basin of attraction of this periodic orbit.</p>
 
-<div class="Theo">
-<p><em>Proposition</em>:  The set
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">The set
 <math display="inline"><mi>H</mi></math>
 is open.</p>
 </div>
@@ -513,7 +519,7 @@ and
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
 <mo separator="true">,</mo><mi>a</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<mfrac><mi>∂</mi><mrow><mi>∂</mi><mi>z</mi></mrow></mfrac><msubsup>
+<mfrac><mi>&part;</mi><mrow><mi>&part;</mi><mi>z</mi></mrow></mfrac><msubsup>
 <mi>P</mi><mi>a</mi><mrow>
 <mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
 <mi class="ss1">k</mi></mrow></msubsup><mrow>
@@ -614,8 +620,10 @@ is a subset of the interior of
 <math display="inline"><mi>M</mi></math>.
 </p>
 
-<div class="Theo">
-<p><em>Definition</em>: A connected component
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">A connected component
 <math display="inline"><mi>W</mi></math>
 of the interior of
 <math display="inline"><mi>M</mi></math>
@@ -625,11 +633,13 @@ is called <em>hyperbolic</em> if
 </p>
 </div>
 
-<p>It follows from
+<p>It follows from the
+<script language="javascript">refNumbers("propXV",fractal4.url_en,
+"following proposition");</script>
+in the document
 <script language="javascript">
-  buildLinK(fractal4.url_en+"#propXV",
-  "Proposition &#8553;&#8548; of the document "+fractal4.text_en,
-  "MMathSStat", fractal4.id+"propXV", fractal4.target);
+buildLinK(fractal4.url_en,fractal4.text_en,
+"MMathSStat", fractal4.id, fractal4.target);
 </script>
 that
 <math display="inline"><msub><mi>P</mi><mi class="ss1">c</mi></msub></math>
@@ -638,8 +648,10 @@ for each value of
 <math display="inline"><mi>c</mi></math>.
 </p>
 
-<div class="Theo">
-<p><em>Proposition</em>: The hyperbolic components
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">The hyperbolic components
 <math display="inline"><mi>W</mi></math>
 are open sets.  Moreover, the period of the super-attracting or
 attracting periodic orbit of
@@ -676,11 +688,13 @@ Let</p>
 <math display="inline"><msub><mi>W</mi><mi class="ss1">k</mi></msub></math>
 is an open subset of
 <math display="inline"><mi>H</mi></math>.
-It follows from
+It follows from the
+<script language="javascript">refNumbers("propXV",fractal4.url_en,
+"following proposition");</script>
+in the document
 <script language="javascript">
-  buildLinK(fractal4.url_en+"#propXV",
-  "Proposition &#8553;&#8548; of the document "+fractal4.text_en,
-  "MMathSStat", fractal4.id+"egAID", fractal4.target); 
+buildLinK(fractal4.url_en,fractal4.text_en,
+"MMathSStat", fractal4.id, fractal4.target); 
 </script>
 that
 <math display="inline"><mrow><msub><mi>W</mi><msub><mi class="ss1">k</mi>
@@ -708,8 +722,10 @@ for a unique integer value
 <p>A. Douardy, J. Hubbard and D. Sullivan have proved the following
 result.</p> 
 
-<div class="Theo">
-<p><em>Theorem</em>: If
+<script language="javascript">
+divNumbers("Theorem","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mi>W</mi></math>
 is an hyperbolic component of
 <math display="inline"><mi>M</mi></math>
@@ -759,20 +775,22 @@ can be extended to a continuous function from
 <math display="inline"><mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover></math>
 onto
 <math display="inline"><mover><mi>W</mi>
-<mo strectchy="true"; accent="true">&horbar;</mo></mover></math>.
+<mo strectchy="true";>&macr;</mo></mover></math>.
 </p>
 </div>
 
 <p>This theorem requires some clarifications.  First, as we have said
-before, it follows from
+before, it follows from the
+<script language="javascript">refNumbers("propXV",fractal4.url_en,
+"following proposition");</script>
+in the document
 <script language="javascript">
-  buildLinK(fractal4.url_en+"#propXV",
-  "Proposition &#8553;&#8548; of the document "+fractal4.text_en,
-  "MMathSStat", fractal4.id+"propXV", fractal4.target);
+buildLinK(fractal4.url_en,fractal4.text_en,
+"MMathSStat", fractal4.id, fractal4.target);
 </script>
 that
 <math display="inline"><msub><mi>P</mi><mi class="ss1">c</mi></msub></math>
@@ -815,7 +833,7 @@ As we have mentioned in the section
 <script language="javascript">
   buildLinK(fractal4.url_en+"#SS3",
   "An Equivalent Definition of Julia Sets of the document "
-  +fractal4.text_en,"MMathSStat", fractal4.id+"propXV", fractal4.target);
+  +fractal4.text_en,"MMathSStat", fractal4.id+"Sect3ID", fractal4.target);
 </script>,
 it follows from the chain rule that
 <math display="inline"><mrow><mfrac><mtext>d</mtext><mrow><mtext>d</mtext>
@@ -853,8 +871,10 @@ theorem is given in
 <p>As we will see shortly, the next definition plays a major role
 in the study of the Mandelbrot set.</p>
 
-<div class="Theo">
-<p><em>Definition</em>: Let
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mi>W</mi></math>
 be an hyperbolic component of
 <math display="inline"><mi>M</mi></math>,
@@ -864,9 +884,9 @@ and
 <mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover><mo>&rarr;</mo><mover><mi>W</mi>
-<mo strectchy="true"; accent="true">&horbar;</mo></mover><mrow></math>.
+<mo strectchy="true";>&macr;</mo></mover><mrow></math>.
 be the function defined in the previous theorem.  The <em>centre</em> of
 <math display="inline"><mi>W</mi></math>
 is the point
@@ -943,8 +963,10 @@ has a super-attractive fixed point at the origin.</p>
 
 <p>We also have the following result.</p>
 
-<div class="Theo" id="propI">
-<p><em>Proposition &#8544;</em>: For every
+<script language="javascript">
+divNumbers("Proposition","propI","");
+</script>
+<p class="Theo">For every
 <math display="inline"><mrow><mfrac><mi>p</mi><mi>q</mi></mfrac><mo>&in;</mo>
 <mi>&rationals;</mi><mo>&cap;</mo><mrow>
 <mo fence="true" form="prefix" stretchy="false">]</mo><mn>0</mn>
@@ -969,10 +991,10 @@ of the Mandelbrot set such that</p>
 
 <p>and
 <math display="inline"><mrow><mover><msub><mi>W</mi><mn class="ss1">0</mn>
-</msub><mo strectchy="true" accent="true">&horbar;&horbar;</mo>
+</msub><mo strectchy="true">&macr;</mo>
 </mover><mo>&cap;</mo><mover><msub><mi>W</mi><mrow>
 <mi class="ss1">p</mi><mi class="ss1">/</mi><mi class="ss1">q</mi></mrow>
-</msub><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</msub><mo strectchy="true">&macr;</mo>
 </mover><mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="true">{</mo>
 <msub><mi>&gamma;</mi><msub><mi class="ss1">W</mi><mn class="ss2">0</mn>
 </msub></msub><mrow><mo fence="true" form="prefix" stretchy="true">(</mo>
@@ -991,9 +1013,9 @@ of the Mandelbrot set such that</p>
 <mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover><mo>&rarr;</mo>
+<mo strectchy="true">&macr;</mo></mover><mo>&rarr;</mo>
 <mover><msub><mi>W</mi><mn class="ss1">0</mn></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover></mrow></math>,
+<mo strectchy="true">&macr;</mo></mover></mrow></math>,
 we consider the logistic function
 <math display="inline"><mrow><msub><mi>f</mi><mi class="ss1">&mu;</mi></msub>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>&complexes;</mi>
@@ -1081,7 +1103,7 @@ for
 <mi>B</mi><mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>.
 </p>
 
@@ -1098,9 +1120,9 @@ proposition and even more.</p>
 We have that
 <math display="inline"><mrow><mover><msub><mi>W</mi><mrow>
 <mn class="ss1">1</mn><mi class="ss1">/</mi><mn class="ss1">2</mn>
-</mrow></msub><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow></msub><mo strectchy="true">&macr;</mo>
 </mover><mo>&cap;</mo><mover><msub><mi>W</mi><mn class="ss1">0</mn></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover><mo>=</mo>
+<mo strectchy="true">&macr;</mo></mover><mo>=</mo>
 <mrow><mo form="prefix" stretchy="false">{</mo><msub><mi>&gamma;</mi><msub>
 <mi class="ss1">W</mi><mn class="ss2">0</mn></msub></msub>
 <mrow><mo form="prefix" stretchy="false">(</mo><msup><mi>e</mi><mrow>
@@ -1128,9 +1150,9 @@ and
 We have that
 <math display="inline"><mrow><mover><msub><mi>W</mi><mrow>
 <mi class="ss1">k</mi><mi class="ss1">/</mi><mn class="ss1">3</mn>
-</mrow></msub><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow></msub><mo strectchy="true">&macr;</mo>
 </mover><mo>&cap;</mo><mover><msub><mi>W</mi><mn class="ss1">0</mn></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover><mo>=</mo>
+<mo strectchy="true">&macr;</mo></mover><mo>=</mo>
 <mrow><mo form="prefix" stretchy="false">{</mo><msub><mi>&gamma;</mi><msub>
 <mi class="ss1">W</mi><mn class="ss2">0</mn></msub></msub>
 <mrow><mo form="prefix" stretchy="false">(</mo><msup><mi>e</mi><mrow>
@@ -1152,9 +1174,9 @@ and
 We have that
 <math display="inline"><mrow><mover><msub><mi>W</mi><mrow>
 <mi class="ss1">k</mi><mi class="ss1">/</mi><mn class="ss1">4</mn>
-</mrow></msub><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow></msub><mo strectchy="true">&macr;</mo>
 </mover><mo>&cap;</mo><mover><msub><mi>W</mi><mn class="ss1">0</mn></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover><mo>=</mo>
+<mo strectchy="true">&macr;</mo></mover><mo>=</mo>
 <mrow><mo form="prefix" stretchy="false">{</mo><msub><mi>&gamma;</mi><msub>
 <mi class="ss1">W</mi><mn class="ss2">0</mn></msub></msub>
 <mrow><mo form="prefix" stretchy="false">(</mo><msup><mi>e</mi><mrow>
@@ -1178,10 +1200,10 @@ in the figure. The reader should use a little bit of imagination.</p>
 
 <p>The points of the form
 <math display="inline"><mrow><mover><msub><mi>W</mi><mn class="ss1">0</mn>
-</msub><mo strectchy="true" accent="true">&horbar;&horbar;</mo>
+</msub><mo strectchy="true">&macr;</mo>
 </mover><mo>&cap;</mo><mover><msub><mi>W</mi><mrow>
 <mi class="ss1">p</mi><mi class="ss1">/</mi><mi class="ss1">q</mi></mrow>
-</msub><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</msub><mo strectchy="true">&macr;</mo>
 </mover><mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="true">{</mo>
 <msub><mi>&gamma;</mi><msub><mi class="ss1">W</mi><mn class="ss2">0</mn>
 </msub></msub><mrow><mo fence="true" form="prefix" stretchy="true">(</mo>
@@ -1190,10 +1212,8 @@ in the figure. The reader should use a little bit of imagination.</p>
 <mi class="ss1">q</mi></mrow></msup>
 <mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
 <mo fence="true" form="postfix" stretchy="true">}</mo></mrow></mrow></math>
-mentioned in <script language="javascript">
-  buildLinK("#propI", "Proposition &#8544;",
-  "MMathSStat", "propIID1", "_top");
-</script>
+mentioned in
+<script language="javascript">refNumbers("propI");</script>
 are <em>bifurcation points</em> because, when
 <math display="inline"><mi>c</mi></math>
 goes from
@@ -1355,11 +1375,11 @@ We have that
 <mo separator="true" class="ss1">,</mo>
 <mn class="ss1">1</mn><mi class="ss1">/</mi><mn class="ss1">4</mn>
 </mrow></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;&horbar;</mo>
+<mo strectchy="true">&macr;</mo>
 </mover><mo>&cap;</mo><mover>
 <msub><mi>W</mi><mrow><mn class="ss1">1</mn><mi class="ss1">/</mi>
 <mn class="ss1">2</mn></mrow></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
 <msub><mi>c</mi><mn class="ss1">1</mn></msub>
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
@@ -1414,13 +1434,13 @@ This time, we have that
 <mo separator="true" class="ss1">,</mo>
 <mn class="ss1">1</mn><mi class="ss1">/</mi><mn class="ss1">8</mn>
 </mrow></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;&horbar;&horbar;</mo>
+<mo strectchy="true">&macr;</mo>
 </mover><mo>&cap;</mo><mover>
 <msub><mi>W</mi><mrow><mn class="ss1">1</mn><mi class="ss1">/</mi>
 <mn class="ss1">2</mn><mo separator="true" class="ss1">,</mo>
 <mn class="ss1">1</mn><mi class="ss1">/</mi><mn class="ss1">4</mn>
 </mrow></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
 <msub><mi>c</mi><mn class="ss1">2</mn></msub>
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
@@ -1472,10 +1492,10 @@ In particular, we can explicitly define the function
 <mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>&rarr;</mo><mover><msub><mi>W</mi><mrow><mn class="ss1">1</mn>
 <mi class="ss1">/</mi><mn class="ss1">2</mn></mrow></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+<mo strectchy="true">&macr;</mo>
 </mover></mrow></math>
 such that
 <math display="inline"><mrow><mi>c</mi><mo>=</mo><msub><mi>&gamma;</mi>
@@ -1502,10 +1522,10 @@ in reduced form.  To define
 <mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>&rarr;</mo><mover><msub><mi>W</mi><mrow><mn class="ss1">1</mn>
 <mi class="ss1">/</mi><mn class="ss1">2</mn></mrow></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+<mo strectchy="true">&macr;</mo>
 </mover></mrow></math>,
 we consider
 <math display="inline"><mrow><msubsup><mi>P</mi><mi class="ss1">c</mi><mrow>
@@ -1635,7 +1655,7 @@ for
 <mi>B</mi><mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+<mo strectchy="true">&macr;</mo>
 </mover></mrow></math>.
 </p>
 
@@ -1796,7 +1816,7 @@ central Mandelbrot set.</p>
 <p>This section could have been included in the
 <script language="javascript">
   buildLinK(fractal4.url_en, "previous document","MMathSStat",
-  fractal4.id+"ID1",fractal4.tager);
+  fractal4.id,fractal4.tager);
 </script> about Julia sets.  However, since this section is
 specifically about the polynomial function
 <math display="inline"><msub><mi>P</mi><mi class="ss1">c</mi></msub></math>
@@ -1808,15 +1828,19 @@ the results stated in this section are given in
   "DH1ID1","_top");
 </script>.</p>
 
-<p><script language="javascript">
-    buildLinK(fractal4.url_en+"#propXIII",
-    "Proposition &#8553;&#8546; of the document "+fractal4.text_en,
-    "MMathSStat",fractal4.id+"propXIII2", fractal4.target);
-</script> and <script language="javascript">
-buildLinK(fractal4.url_en+"#propXIV",
-"Proposition &#8553;&#8547; of the document "+fractal4.text_en,"MMathSStat",
-fractal4.id+"propXIV", fractal4.target);
-</script> are valid if the Julia set
+<p>The
+<script language="javascript">refNumbers("propXIII",fractal4.url_en,
+"following proposition");</script>
+and the
+<script language="javascript">refNumbers("propXIV",fractal4.url_en,
+"following proposition");</script>
+in the document
+<script language="javascript">
+buildLinK(fractal4.url_en,fractal4.text_en,
+"MMathSStat",fractal4.id, fractal4.target);
+</script>
+are valid (except for the part about conjugacy to a shift map)
+if the Julia set
 <math display="inline"><msub><mi>J</mi><mi class="ss1">P</mi></msub></math>
 is replaced by the filled Julia set
 <math display="inline"><msub><mi>K</mi><mi class="ss1">P</mi></msub></math>.
@@ -1830,8 +1854,10 @@ is connected if and only if
 <mi class="ss1">P</mi><mi class="ss2">c</mi></msub></msub></mrow></math>.
 </p>
 
-<div class="Theo">
-<p><em>Proposition</em>: If the filled Julia set
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">If the filled Julia set
 <math display="inline"><msub><mi>K</mi><msub><mi class="ss1">P</mi>
 <mi class="ss2">c</mi></msub></msub></math>
 of
@@ -1844,7 +1870,7 @@ is connected, then there exists a unique conformal homeomorphism
 <mo>&setminus;</mo><mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover></mrow></math>
 such that
 <math display="inline"><mrow><mfrac><mrow><msub><mi>&phi;</mi>
@@ -1873,8 +1899,10 @@ it for this section because we consider only connected and even
 locally connect Julia sets.  However, this result is useful for the
 study of the Mandelbrot set in the next section.</p>
 
-<div class="Theo" id="propII">
-<p><em>Proposition &#8545;</em>: Let
+<script language="javascript">
+divNumbers("Proposition","propII","");
+</script>
+<p class="Theo">Let
 <math display="inline"><msub><mi>K</mi><msub><mi class="ss1">P</mi>
 <mi class="ss2">c</mi></msub></msub></math>
 be the filled Julia set of
@@ -1888,12 +1916,12 @@ and a conformal homeomorphism
 <mo>&setminus;</mo><mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover><mo>&rarr;</mo><mi>&complexes;</mi>
 <mo>&setminus;</mo><mover><mrow><msub><mi>B</mi><mi class="ss1">b</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover></mrow></math>
 such that</p>
 <ul>
@@ -1911,13 +1939,13 @@ such that</p>
 <mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover><mo fence="true" form="postfix" stretchy="false">)</mo>
 </mrow><mo>&subset;</mo><mi>&complexes;</mi><mo>&setminus;</mo>
 <mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover></mrow></math>,
 </li>
 <li>
@@ -1927,13 +1955,13 @@ such that</p>
 <mover><mrow><msub><mi>B</mi><mi class="ss1">b</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover><mo fence="true" form="postfix" stretchy="false">)</mo>
 </mrow><mo>&subset;</mo><mi>&complexes;</mi><mo>&setminus;</mo>
 <mover><mrow><msub><mi>B</mi><mi class="ss1">b</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover></mrow></math>,
 </li>
 <li>
@@ -2004,7 +2032,7 @@ for
 <mo>&setminus;</mo><mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover></mrow></math>,
 where the principal branch (the first branch) of the roots of degree
 <math display="inline"><msup><mn>2</mn><mi class="ss1">k</mi></msup></math>
@@ -2205,7 +2233,7 @@ as it follows.</p>
 <mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></mtd></mtr><mtr>
 <mtd style="padding-left:0em;padding-right:0em;text-align:left;"><mfrac>
 <mrow><msub><mi>G</mi><mi class="ss1">c</mi></msub><mrow>
@@ -2222,7 +2250,7 @@ as it follows.</p>
 <mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>&setminus;</mo><msub><mi>K</mi><msub><mi class="ss1">P</mi>
 <mi class="ss2">c</mi></msub></msub><mspace width="1ex"></mspace>
 <mtext>where</mtext><mspace width="1ex"></mspace><mi>n</mi>
@@ -2240,13 +2268,15 @@ as it follows.</p>
 <mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></mtd></mtr></mtable>
 <mo fence="true" form="postfix" stretchy="true"></mo></mrow></mrow></math>
 </div>
 
-<div class="Theo">
-<p><em>Proposition</em>:
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">
 <math display="inline"><msub><mi>G</mi><mi class="ss1">c</mi></msub></math>
 is well defined.  Moreover,
 <math display="inline"><mrow><msub><mi>G</mi><mi class="ss1">c</mi></msub>
@@ -2277,7 +2307,7 @@ for
 <mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>&setminus;</mo><msub><mi>K</mi><msub><mi class="ss1">P</mi>
 <mi class="ss2">c</mi></msub></msub></mrow></math>
 is independent of the choice of
@@ -2341,7 +2371,7 @@ is independent of the choice of
 <mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>
 that</p>
 
@@ -2389,7 +2419,7 @@ that</p>
 <mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>.
 By induction, we get that</p>
 
@@ -2418,14 +2448,14 @@ and
 <mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>.
 Suppose that
 <math display="inline"><mrow><mi>z</mi><mo>&in;</mo>
 <mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>&setminus;</mo><msub><mi>K</mi><msub><mi class="ss1">P</mi>
 <mi class="ss2">c</mi></msub></msub></mrow></math>
 and that
@@ -2444,7 +2474,7 @@ large enough to have
 <mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>.
 Then</p>
 
@@ -2505,7 +2535,7 @@ for
 <mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>&setminus;</mo><msub><mi>K</mi><msub><mi class="ss1">P</mi>
 <mi class="ss2">c</mi></msub></msub></mrow></math>
 is independent of the choice of
@@ -2515,7 +2545,7 @@ Moreover, if
 <mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>&setminus;</mo><msub><mi>K</mi><msub><mi class="ss1">P</mi>
 <mi class="ss2">c</mi></msub></msub></mrow></math>
 and
@@ -2533,7 +2563,7 @@ large enough to have
 <mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>,
 then</p>
 
@@ -2616,8 +2646,10 @@ for all
 </p>
 </div>
 
-<div class="Theo">
-<p><em>Proposition</em>:  We have that
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">We have that
 <math display="inline"><msub><mi>G</mi><mi class="ss1">c</mi></msub></math>
 is harmonic,
 <math display="inline"><mrow><msub><mi>G</mi><mi class="ss1">c</mi></msub>
@@ -2666,7 +2698,7 @@ for
 <mo>&setminus;</mo><mover><mrow><msub><mi>B</mi><mi class="ss1">b</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover><mo>&rarr;</mo><mi>&complexes;</mi></mrow></math>
 is (locally) analytic.</p>
 
@@ -2712,7 +2744,7 @@ as
 <mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>&setminus;</mo><msub><mi>K</mi><msub><mi class="ss1">P</mi>
 <mi class="ss2">c</mi></msub></msub></mrow></math>
 that
@@ -2741,7 +2773,7 @@ is the smallest values such that
 <mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>.
 We have that
 <math display="inline"><mrow><mi>m</mi><mo>&rarr;</mo><mi>&infin;</mi>
@@ -2767,7 +2799,7 @@ of
 <mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>
 such that
 <math display="inline"><mrow><mrow><munder><mo movablelimits="false">&cup;</mo>
@@ -2781,7 +2813,7 @@ such that
 <mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>&setminus;</mo><msub><mi>K</mi><msub><mi class="ss1">P</mi>
 <mi class="ss2">c</mi></msub></msub></mrow></math>.
 Thus
@@ -2921,7 +2953,7 @@ is the smallest values such that
 <mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>.</p>
 
 <p>Similarly, we have that</p>
@@ -2974,7 +3006,7 @@ and
 <mi class="ss1">a</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>.</p>
 
 <p>Since
@@ -3358,7 +3390,7 @@ Therefore,</p>
 <mover><mrow><msub><mi>B</mi><msup><mi class="ss1">e</mi><mn class="ss2">8</mn>
 </msup></msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover></mrow></math>
 </div>
 
@@ -3395,7 +3427,7 @@ Therefore,</p>
 <mrow><msub><mi>B</mi><msup><mi class="ss1">e</mi><mn class="ss2">8</mn>
 </msup></msub><mo form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo form="postfix" stretchy="false" lspace="0em" rspace="0em">)</mo></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+<mo strectchy="true">&macr;</mo>
 </mover><mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
 <mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
 </mrow></math>
@@ -3536,7 +3568,7 @@ Carathéodory that holomorphic function
 <mo>&setminus;</mo><mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover><mo>&rarr;</mo><mi>&complexes;</mi><mo>&setminus;</mo><msub>
 <mi>K</mi><msub><mi class="ss1">P</mi><mi class="ss2">c</mi></msub>
 </msub></mrow></math>
@@ -3956,8 +3988,10 @@ section.</p>
 <p>The following points play an important rule in the study of
 the Julia sets and the Mandelbrot set.</p>
 
-<div class="Theo">
-<p><em>Definition</em>: A point
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">A point
 <math display="inline"><mrow><mi>c</mi><mo>&in;</mo><mi>&complexes;</mi>
 </mrow></math>
 is a <em>Misiurewicz point</em> if
@@ -3967,11 +4001,13 @@ is an eventually periodic but not a periodic point for
 </p>
 </div>
 
-<p>If follows from
+<p>If follows from the
+<script language="javascript">refNumbers("propXII",fractal4.url_en,
+"following proposition");</script>
+in the document
 <script language="javascript">
-  buildLinK(fractal4.url_en+"#propXII",
-  "Proposition &#8555; of the document "+fractal4.text_en,
-  "MMathSStat", fractal4.id+"propXII2", fractal4.target); 
+buildLinK(fractal4.url_en,fractal4.text_en,
+"MMathSStat", fractal4.id, fractal4.target); 
 </script>
 that
 <math display="inline"><mrow><msub><mi>J</mi><msub><mi class="ss1">P</mi>
@@ -3981,8 +4017,10 @@ when
 <math display="inline"><mi>c</mi></math>
 is a Misiurewicz point.</p>
 
-<div class="Theo">
-<p><em>Proposition</em>: If
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mi>c</mi></math>
 is a point belonging to an hyperbolic component of the Mandelbrot set or
 a Misiurewicz point, then the filled Julia set
@@ -4074,7 +4112,7 @@ can be extended to a continuous function on
 <math display="inline"><mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover></math>
 with
 <math display="inline"><mrow><msub><mi>&mu;</mi><mi clss="ss1">c</mi>
@@ -4406,20 +4444,23 @@ are the connected components of
 <math display="inline"><mrow><msub><mi>K</mi><msub><mi class="ss1">P</mi>
 <mi class="ss2">c</mi></msub></msub><mo>&setminus;</mo><msub><mi>J</mi><msub>
 <mi class="ss1">P</mi><mi class="ss2">c</mi></msub></msub></mrow></math>.
-We have from <script language="javascript">
-  buildLinK(fractal4.url_en+"#propXI", "Proposition &#8554; of the document "+
-  fractal4.text_en, "MMathSStat", "propXIID1", "_top");
+We have from the
+<script language="javascript">refNumbers("propXI",fractal4.url_en,
+"following proposition");</script>
+in the document
+<script language="javascript">
+buildLinK(fractal4.url_en,fractal4.text_en, "MMathSStat", fractal4.id, "_top");
 </script> that
 <math display="inline"><msub><mi>D</mi><mi class="ss1">j</mi></msub></math>
 is simply connected.  We can define an homeomorphism
 <math display="inline"><mrow><msub><mi>&rho;</mi><mi class="ss1">j</mi>
 </msub><mo lspace="0.2222em" rspace="0.2222em">:</mo><mover><msub>
 <mi>D</mi><mi class="ss1">j</mi></msub>
-<mo strectchy="true" accent="true">&horbar;</mo></mover><mo>&rarr;</mo>
+<mo strectchy="true">&macr;</mo></mover><mo>&rarr;</mo>
 <mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>
 for each
 <math display="inline"><mi>j</mi></math>.
@@ -4430,14 +4471,14 @@ is a <em>regular arc</em> if
 <math display="inline"><mrow><msub><mi>&rho;</mi><mi class="ss1">j</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="true">(</mo><mi>L</mi>
 <mo>&cap;</mo><mover><msub><mi>D</mi><mi class="ss1">j</mi></msub>
-<mo strectchy="true" accent="true">&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo fence="true" form="postfix" stretchy="true">)</mo></mrow></mrow></math>
 is a subset of two radius in
 <math display="inline">
 <mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </math>
 for all
 <math display="inline"><mi>j</mi></math>.
@@ -4523,8 +4564,10 @@ This regular arc is unique.</p>
 </div>
 </div>
 
-<div class="Theo">
-<p><em>Definition</em>; Let
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><msub><mi>A</mi><mi class="ss1">c</mi></msub>
 <mo>=</mo><msub><mrow><mo fence="true" form="prefix" stretchy="true">{</mo>
 <msubsup><mi>P</mi><mi class="ss1">c</mi><mrow>
@@ -4652,9 +4695,10 @@ is a repulsive fixed point becasue
 </mrow></math>.
 </p>
 
-<div class="Theo" id="propIII">
-<p><em>Proposition &#8546;</em>:
-Let
+<script language="javascript">
+divNumbers("Proposition","propIII","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><msub><mover><mi>A</mi>
 <mo stretchy="false" style="math-depth:0;">&circ;</mo></mover>
 <mi class="ss1">c</mi></msub><mo>=</mo><msub><mi>A</mi><mi class="ss1">c</mi>
@@ -4840,8 +4884,10 @@ the regions denoted by I, II and III.</p>
        alt="Illustration of a point with three accesses." class="framed">
 </div>
 
-<div class="Theo">
-<p><em>Proposition</em>: We assume that
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">We assume that
 <math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>H</mi>
 <mi class="ss1">c</mi></msub><mo>&cap;</mo><mi>&part;</mi><msub><mi>K</mi>
 <msub><mi class="ss1">P</mi><mi class="ss2">c</mi></msub></msub></mrow></math>
@@ -4884,8 +4930,10 @@ and
 <mo>=</mo><mn>1</mn></mrow></math>
 otherwise.</p>
 
-<div class="Theo">
-<p><em>Proposition</em>: If
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><msub><mi>A</mi><mi class="ss1">c</mi></msub>
 <mo>=</mo><msub><mrow><mo fence="true" form="prefix" stretchy="true">{</mo>
 <msubsup><mi>P</mi><mi class="ss1">c</mi><mrow>
@@ -5116,8 +5164,10 @@ for
 <mo form="postfix" stretchy="false">}</mo></mrow></mrow></math>.
 </p>
 
-<div class="Theo" id="theoIV">
-<p><em>Theorem &#8547;</em>: Suppose that
+<script language="javascript">
+divNumbers("Theorem","theoIV","");
+</script>
+<p class="Theo">Suppose that
 <math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>A</mi>
 <mi class="ss1">c</mi></msub></mrow></math>
 and that
@@ -5294,17 +5344,18 @@ closed enough to
 
 <p>Therefore, to determine the value of
 <math display="inline"><mi>t</mi></math>
-in <script language="javascript">
-buildLinK("#theoIV","Theorem &#8547;","MMathSStat","theoIVId2","_top"); 
-</script>, we only have to keep track of the iterations of the
+in <script language="javascript">refNumbers("theoIV");</script>,
+we only have to keep track of the iterations of the
 accesses relative to
 <math display="inline"><msub><mi>T</mi><mi class="ss1">c</mi></msub></math>
 under the action of
 <math display="inline"><msub><mi>P</mi><mi class="ss1">c</mi></msub></math>.
 We will illustrate this statement in the examples below.</p>
 
-<div class="Theo">
-<p><em>Corollary</em>: There is one and only one external ray ending at
+<script language="javascript">
+divNumbers("Corollary","","");
+</script>
+<p class="Theo">There is one and only one external ray ending at
 <math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>A</mi>
 <mi class="ss1">c</mi></msub></mrow></math>
 per access at 
@@ -5434,7 +5485,7 @@ for
 odd as we can observe in the figure below.  Thus, we have that
 <math display="inline"><mrow><mi>t</mi><mo>=</mo><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0.0</mn><mover>
-<mn>01</mn><mo strectchy="true" accent="true">&horbar;</mo></mover>
+<mn>01</mn><mo strectchy="true">&macr;</mo></mover>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
 <mn class="ss1">2</mn></msub><mo>=</mo><mn>1</mn><mi>/</mi><mn>6</mn>
 </mrow></math>
@@ -5459,7 +5510,7 @@ when the iteration is in the region in white and
 when the iteration is in the region in pink.  Hence, we have that
 <math display="inline"><mrow><mi>t</mi><mo>=</mo><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0.</mn><mover>
-<mn>01</mn><mo strectchy="true" accent="true">&horbar;</mo></mover>
+<mn>01</mn><mo strectchy="true">&macr;</mo></mover>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
 <mn class="ss1">2</mn></msub><mo>=</mo><mn>1</mn><mi>/</mi><mn>3</mn>
 </mrow></math>
@@ -5516,9 +5567,9 @@ when they are multiplied by
 <math display="inline"><mn>2</mn></math>.
 Note that there are two accesses at
 <math display="inline"><msub><mi>z</mi><mn class="ss1">0</mn></msub></math>.
-The reader is invited to verify that <script language="javascript">
-buildLinK("#theoIV","Theorem &#8547;","MMathSStat","theoIVId2","_top"); 
-</script> yields these values of
+The reader is invited to verify that
+<script language="javascript">refNumbers("theoIV");</script>
+yields these values of
 <math display="inline"><mi>t</mi></math>
 as we have done in the previous paragraph.
 </p>
@@ -5683,7 +5734,7 @@ for
 as it can be observed in the figure below.  Thus, we have that
 <math display="inline"><mrow><mi>t</mi><mo>=</mo><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0.0010</mn>
-<mover><mn>100</mn><mo strectchy="true" accent="true">&horbar;&horbar;</mo>
+<mover><mn>100</mn><mo strectchy="true">&macr;</mo>
 </mover><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
 <mn class="ss1">2</mn></msub><mo>=</mo><mn>9</mn><mi>/</mi><mn>56</mn>
 </mrow></math>
@@ -5732,16 +5783,15 @@ in the figure below) is
 <mspace width="0.2em"></mspace><mn>1</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
 If we use
-<script language="javascript">
-buildLinK("#theoIV","Theorem &#8547;","MMathSStat","theoIVId2","_top"); 
-</script> to find the value of
+<script language="javascript">refNumbers("theoIV");</script>
+to find the value of
 <math display="inline"><mi>t</mi></math>
 for the first external ray ending at 
 <math display="inline"><msub><mi>z</mi><mn class="ss1">4</mn></msub></math>,
 we find that
 <math display="inline"><mrow><mi>t</mi><mo>=</mo><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0.</mn><mover>
-<mn>001</mn><mo strectchy="true" accent="true">&horbar;&horbar;</mo>
+<mn>001</mn><mo strectchy="true">&macr;</mo>
 </mover><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
 <mn class="ss1">2</mn></msub><mo>=</mo><mn>1</mn><mi>/</mi><mn>7</mn>
 </mrow></math>
@@ -5854,9 +5904,7 @@ We have that
 <mi class="ss1">c</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
 As in
-<script language="javascript">
-buildLinK("#propIII","Proposition &#8546;","MMathSStat","propIIIId2","_top"); 
-</script>,
+<script language="javascript">refNumbers("propIII");</script>,
 we can express
 <math display="inline"><msubsup><mi>H</mi><mi class="ss1">c</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
@@ -6053,23 +6101,25 @@ for
 
 <h3 id="SS4">Equipotential Lines and external rays of the Mandelbrot Set</h3>
 
-<div class="Theo">
-<p><em>Proposition</em>: The function
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">The function
 <math display="inline"><mrow><msub><mi>&phi;</mi><mi class="ss1">c</mi></msub>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>&complexes;</mi>
 <mo>&setminus;</mo><mover><mrow><msub><mi>B</mi><mi class="ss1">a</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover><mo>&rarr;</mo><mi>&complexes;</mi>
 <mo>&setminus;</mo><mover><mrow><msub><mi>B</mi><mi class="ss1">b</mi>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover></mrow></math>
-defined in <script language="javascript">
-  buildLinK("#propII","Proposition &#8545;","MMathSStat","propIIID1","_top");
-</script> can be extended to a conform homeomorphism
+defined in
+<script language="javascript">refNumbers("propII");</script>
+can be extended to a conform homeomorphism
 <math display="inline"><mrow><msub><mi>&phi;</mi><mi class="ss1">c</mi>
 </msub><mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>&complexes;</mi>
 <mo>&setminus;</mo><msubsup><mi>G</mi><mi class="ss1">c</mi><mrow>
@@ -6083,7 +6133,7 @@ defined in <script language="javascript">
 <mi class="ss1">e</mi><mi class="ss2">h</mi></msup></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>
 where
 <math display="inline"><mrow><mi>h</mi><mo>=</mo><msub><mi>G</mi>
@@ -6169,7 +6219,7 @@ We have that
 <mo>&setminus;</mo><mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover></mrow></math>
 because
 <math display="inline"><mrow><mi>ln</mi><mrow>
@@ -6195,7 +6245,7 @@ In fact, we have that
 <mo>&setminus;</mo><mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn>
 </msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
 <mn>0</mn><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow><mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo>
+</mrow><mo strectchy="true">&macr;</mo>
 </mover></mrow></math>
 is an isomorphism.  We define the function
 <math display="inline"><mrow><msub><mi>G</mi><mi class="ss1">M</mi></msub>
@@ -6490,7 +6540,7 @@ we do not know if the function
 <mo>&setminus;</mo><mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn></msub>
 <mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>&rarr;</mo><mi>&complexes;</mi><mo>&setminus;</mo><mi>M</mi></mrow></math>
 can be extended to a continuous function on a domain that includes the
 boundary of
@@ -6508,8 +6558,10 @@ end on the boundary of
 <math display="inline"><mi>M</mi></math>.
 We summarize below what is known about this topic.</p>
 
-<div class="Theo">
-<p><em>Proposition</em>: Suppose that
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">Suppose that
 <math display="inline"><mrow><mi>t</mi><mo>&in;</mo>
 <mi>&rationals;</mi><mi>/</mi><mi>&integers;</mi></mrow></math>.
 Then, the external ray

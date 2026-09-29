@@ -272,9 +272,13 @@ font.matlab { color: blue; font-size: 100%; }
 img.MobiusFig { border: 1px #004870 solid; margin: 0px; padding: 0px;}
 
 div.Theo { border-left: 4px solid #4655D8; border-top: 1px dashed #4655D8;
-border-bottom: 1px dashed #4655D8; border-right: 1px dashed #4655D8;
-padding-left: 1em; padding-right: 1em; margin-top: 1em;
-background-color: #F1F1F1;}
+  border-bottom: 1px dashed #4655D8; border-right: 1px dashed #4655D8;
+  padding-left: 1em; padding-right: 1em; margin-top: 1em;
+  background-color: #F1F1F1;}
+p.Theo { margin-top: 0em;}
+em.Theo { font-weight: bold; border-bottom: 1px solid black;}
+font.Theo { font-weight: bold; font-family: "Time New Toman", Times, serif;
+  font-size: 130%; }
 
 div.Note { border-left: 4px solid black; border-top: 1px dashed black;
 border-bottom: 1px dashed black; border-right: 1px dashed black;

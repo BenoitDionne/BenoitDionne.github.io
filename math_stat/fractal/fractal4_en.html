@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-  
+
 <head>
 <title>
 Math. and Stat. -- Benoit Dionne
@@ -263,7 +263,7 @@ replaced by
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>,
 defined by
 <math display="inline"><mrow><mover><mi>R</mi>
-<mo stretchy="false" style="math-depth:0;">ˆ</mo></mover><mrow>
+<mo stretchy="false" style="math-depth:0;">&circ;</mo></mover><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
 <mi>R</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
@@ -327,7 +327,7 @@ replaced by
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>,
 defined by
 <math display="inline"><mrow><mover><mi>R</mi>
-<mo stretchy="false" style="math-depth:0;">ˆ</mo></mover><mrow>
+<mo stretchy="false" style="math-depth:0;">&circ;</mo></mover><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
 <mn>1</mn><mi>/</mi><mi>R</mi><mrow>
@@ -362,8 +362,10 @@ of degree greater or equal to
 <math display="inline"><mn>2</mn></math>.
 </p>
 
-<div class="Theo">
-<p><em>Definition</em>: We say that two rational functions
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">We say that two rational functions
 <math display="inline"><mrow><msub><mi>R</mi><mn class="ss1">1</mn></msub>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -454,7 +456,8 @@ yields</p>
 <mi style="padding-left:0.2em; padding-right:0.2em;">&rArr;</mi><mi>c</mi>
 <mo>=</mo><mi>&alpha;</mi><mi>&gamma;</mi><mo>+</mo><mfrac><mi>&beta;</mi>
 <mn>2</mn></mfrac><mo>-</mo><mfrac><msup><mi>&beta;</mi><mn class="ss1">2</mn>
-</msup><mn>4</mn></mfrac></mrow></math>
+</msup><mn>4</mn></mfrac>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
 </div>
 
 <p>In the particular case where
@@ -572,7 +575,7 @@ Riemann surface
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 is conformally conjugate to one of
 <math display="inline"><mrow><msub><mi>B</mi>
-<mi class="ss1">&epsilon;</mi></msub><mrow>
+<mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>,
 <math display="inline"><mi>&complexes;</mi></math>
@@ -583,7 +586,7 @@ namely, there exists a conformal homeomorphism between
 <math display="inline"><mi>U</mi></math>
 and one of the following sets:
 <math display="inline"><mrow><msub><mi>B</mi>
-<mi class="ss1">&epsilon;</mi></msub><mrow>
+<mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>,
 <math display="inline"><mi>&complexes;</mi></math>
@@ -707,8 +710,10 @@ book by <script language="javascript">
 </script>.</p>
 </div>
 
-<div class="Theo">
-<p><em>Definition</em>: A family
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">A family
 <math display="inline"><mi>&#x2131;</mi></math>
 of holomorphic functions defined on an open set
 <math display="inline"><mrow><mi>V</mi><mo>&subset;</mo>
@@ -735,13 +740,18 @@ that converges uniformly on compact subsets of
 <math display="inline"><mi>V</mi></math>.
 </div>
 
-<p>The Arzela-Ascoli theorem states that a family of
+<p>The well known Arzela-Ascoli theorem states that a family of
 holomorphic functions defined on an open set
 <math display="inline"><mrow><mi>V</mi><mo>&subset;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 is normal if and only if it is equicontinuous on every compact subset of
 <math display="inline"><mi>V</mi></math>.
-Moreover, it can be proved that a family
+The following result is also very useful.</p>
+
+<script language="javascript">
+divNumbers("Theorem","Montel0","Montel");
+</script>
+<p class="Theo">A family
 <math display="inline"><mi>&#x2131;</mi></math>
 of holomorphic functions defined on an open set
 <math display="inline"><mrow><mi>V</mi><mo>&subset;</mo>
@@ -761,11 +771,15 @@ such that
 <mo>&le;</mo><msub><mi>C</mi><mi class="ss1">K</mi></msub></mrow></math>
 for all
 <math display="inline"><mrow><mi>f</mi><mo>&in;</mo><mi>&#x2131;</mi>
-</mrow></math>.
-This result is due to Montel as is the following theorem.</p>
+</mrow></math>.</p>
+</div>
 
-<div class="Theo" id="Montel">
-<p><em>Theorem (Montel)</em>: Let
+<p>The following result is also due to Montel.</p>
+
+<script language="javascript">
+divNumbers("Theorem","Montel","Montel");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>&#x2131;</mi><mo>=</mo><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo><msub>
 <mi>f</mi><mi class="ss1">n</mi></msub>
@@ -808,8 +822,10 @@ functions
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
 </p>  
 
-<div class="Theo" id="Schwarz">
-<p><em>Theorem (Schwarz)</em>: Suppose that
+<script language="javascript">
+divNumbers("Theorem","Schwarz","Schwarz");
+</script>
+<p class="Theo">Suppose that
 <math display="inline"><mrow><mi>f</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>B</mi>
 <mn class="ss1">1</mn></msub><mrow>
@@ -893,8 +909,10 @@ where
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 is a rational function.</p>
 
-<div class="Theo">
-<p><em>Definition</em>: Let
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -923,6 +941,11 @@ The set of all stable points of
 <math display="inline"><mi>R</mi></math>
 is denoted
 <math display="inline"><msub><mi>S</mi><mi class="ss1">R</mi></msub></math>.
+The <em>Fatou set</em> of
+<math display="inline"><mi>R</mi></math>
+is the set
+<math display="inline"><mrow><msub><mi>S</mi><mi class="ss1">R</mi></msub>
+</mrow></math>.
 The <em>Julia set</em> of
 <math display="inline"><mi>R</mi></math>
 is the set
@@ -991,8 +1014,10 @@ for
 The following result is a consequence of the
 <em>monodromy theorem</em> in complex analysis.</p>
 
-<div class="Theo">
-<p><em>Theorem</em>: If
+<script language="javascript">
+divNumbers("Theorem","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -1042,7 +1067,7 @@ that converges uniformly on compact subsets of
 to a holomorphic function
 <math display="inline"><mrow><mi>f</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
-<mi>V</mi><mo>&rarr;</mo>
+<mi>U</mi><mo>&rarr;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
 Using the monodromy theorem, the function
 <math display="inline"><mi>f</mi></math>
@@ -1075,6 +1100,9 @@ as it should.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
 <button onclick="moreORless('proof1A','proof1B','proof1C','en')" class="mORl" id="proof1C">Read more</button>
+
+<p>We will give a more elementary proof of the previous theorem in the next
+section.</p>
 
 <div class="Example">
 <p><em>Example</em>:  Let
@@ -1135,15 +1163,12 @@ converges uniformly on compact subsets of
 <mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover></mrow></math>
+<mo strectchy="true">&macr;</mo></mover></mrow></math>
 to the constant function
 <math display="inline"><mrow><mi>f</mi><mo>&equiv;</mo><mn>&infin;</mn>
 </mrow></math>.
 Hence, it follows from
-<script language="javascript">
-  buildLinK("#Montel", "Montel's theorem",
-  "MMathSStat", "MontelID1", "_top");
-</script> that
+<script language="javascript">refNumbers("Montel");</script> that
 <math display="inline"><mrow><msub><mi>J</mi>
 <mrow><msub><mi class="ss1">P</mi><mn class="ss2">0</mn></msub></mrow>
 </msub><mo>&subset;</mo><msup><mi>S</mi><mn class="ss1">1</mn></msup>
@@ -1178,7 +1203,7 @@ and
 <mover><mrow><msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 <mo>&ne;</mo><mi>&emptyset;</mi></mrow></math>
 because the limit of this subsequence would have to be a continuous function
 <math display="inline"><mi>T</mi></math>
@@ -1279,9 +1304,7 @@ and
 is an open neighbourhood of
 <math display="inline"><mi>u</mi></math>,
 then it follows from
-<script language="javascript">
-  buildLinK("#Montel", "Montel's theorem","MMathSStat", "Montid1", "_top");
-</script>
+<script language="javascript">refNumbers("Montel");</script>
 that the set
 <math display="inline"><mrow><msubsup><mi>E</mi><mi class="ss1">V</mi>
 <mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
@@ -1327,8 +1350,10 @@ The set
 </msubsup></math>
 has also at most two elements (the proof is left to the reader.)</p>
 
-<div class="Theo">
-<p><em>Proposition</em>: If
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -1932,8 +1957,10 @@ is not a stable point of
 <math display="inline"><mi>R</mi></math>.
 More precisely, we have the following result.</p>
 
-<div class="Theo" id="propI">
-<p><em>Proposition &#8544;</em>: Let
+<script language="javascript">
+divNumbers("Proposition","propI","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -2055,8 +2082,10 @@ is completely invariant under the action of
 </div>
 <button onclick="moreORless('proof3A','proof3B','proof3C','en')" class="mORl" id="proof3C">Read more</button>
 
-<div class="Theo">
-<p><em>Definition</em>: A <em>critical point</em> of a rational
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">A <em>critical point</em> of a rational
 function
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
@@ -2077,8 +2106,8 @@ of a critical point for
 </p>
 </div>
 
-<p>From the definition of the derivative of a function in complex
-analysis, we have that a point
+<p>We get from the definition of the derivative of a function in complex
+analysis that a point
 <math display="inline"><mrow><mi>w</mi><mo>&ne;</mo><mi>&infin;</mi>
 </mrow></math>
 is a critical point if
@@ -2089,8 +2118,10 @@ is a critical point if
 <mo>=</mo><mn>0</mn></mrow></math>
 </p>
 
-<div class="Theo">
-<p><em>Definition</em>: Let
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -2164,8 +2195,10 @@ The reader should consult <script language="javascript">
   buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid1", "_top");
 </script> for the proofs of the properties of the deficiency.</p>
 
-<div class="Theo" id="propII">
-<p><em>Proposition &#8545;</em>: If
+<script language="javascript">
+divNumbers("Proposition","propII","");
+</script>
+<p class="Theo">If
 <math display="inline"><mi>J</mi></math>
 is a completely invariant set under the action of a rational function
 <math display="inline"><mrow><mi>R</mi>
@@ -2236,8 +2269,10 @@ because the total deficiency (i.e. the sum of all deficiencies) is
 
 <p>The next result follows from the previous proposition.</p>
 
-<div class="Theo" id="propIII">
-<p><em>Proposition &#8546;</em>: If
+<script language="javascript">
+divNumbers("Proposition","propIII","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -2249,10 +2284,7 @@ is an infinite set.</p>
 
 <p><em>Proof (sketch)</em>:
 We have from
-<script language="javascript">
-  buildLinK("#propII", "Propositions &#8545;",
-  "MMathSStat", "propIIID1", "_top");
-</script>
+<script language="javascript">refNumbers("propII");</script>
 that
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
 contains either one point, two points or infinitely many points because
@@ -2333,18 +2365,14 @@ are stable points.  This again contradicts the definition of
 <button onclick="moreORless('proof5A','proof5B','proof5C','en')" class="mORl" id="proof5C">Read more</button>
 
 <p>The next result follows from
-<script language="javascript">
-  buildLinK("#propI", "Proposition &#8544;",
-  "MMathSStat", "propIID1", "_top");
-</script>
+<script language="javascript">refNumbers("propI");</script>
 and
-<script language="javascript">
-  buildLinK("#propIII", "Proposition &#8546;",
-  "MMathSStat", "propIIIID1", "_top");
-</script>.</p>
+<script language="javascript">refNumbers("propIII");</script>.</p>
 
-<div class="Theo">
-<p><em>Proposition</em>: If
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -2357,8 +2385,10 @@ is a perfect set.</p>
 <p>The Julia sets have more interesting properties.  We list a couple
 below.  More fascinating properties will be given later. </p>
 
-<div class="Theo" id="propIV">
-<p><em>Proposition &#8547;</em>: If
+<script language="javascript">
+divNumbers("Proposition","propIV","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -2400,14 +2430,11 @@ is closed and
 <math display="inline"><mrow><mi>w</mi><mo>&in;</mo><msub><mi>J</mi>
 <mi class="ss1">R</mi></msub></mrow></math>,
 we get from
-<script language="javascript">
-  buildLinK("#propI", "Proposition &#8544;",
-  "MMathSStat", "propIID2", "_top");
-</script>
+<script language="javascript">refNumbers("propI");</script>
 that
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
 <mo>&supset;</mo><mi>S</mi><mo>=</mo><mover><mi>S</mi>
-<mo strectchy="true" accent="true">&horbar;</mo></mover><mo>&supset;</mo>
+<mo strectchy="true">&macr;</mo></mover><mo>&supset;</mo>
 <mover><mrow><mrow><munder><mo movablelimits="false">&cup;</mo>
 <mrow><mi class="ss1">n</mi><mo class="ss1">&gt;</mo><mn class="ss1">0</mn>
 </mrow></munder></mrow><msup><mi>R</mi><mrow>
@@ -2421,15 +2448,16 @@ that
 <mo fence="true" form="prefix" stretchy="false">{</mo><mi>w</mi>
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
-<mo strectchy="true" accent="true">
-&horbar;&horbar;&horbar;&horbar;&horbar;&horbar;&horbar;&horbar;</mo>
+<mo strectchy="true">&macr;</mo>
 </mover><mo>=</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
 <button onclick="moreORless('proof6A','proof6B','proof6C','en')" class="mORl" id="proof6C">Read more</button>
 
-<div class="Theo">
-<p><em>Proposition</em>: If
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -2456,11 +2484,7 @@ is an open set.
 <p>Since all points of
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
 are not stable, we get from
-<script language="javascript">
-  buildLinK("#Montel", "Montel's theorem",
-  "MMathSStat", "MontelID3", "_top");
-</script>
-that
+<script language="javascript">refNumbers("Montel");</script> that
 <math display="inline"><mrow><mrow><munder><mo movablelimits="false">&cup;</mo>
 <mrow><mi class="ss1">n</mi><mo class="ss1">&gt;</mo><mn class="ss1">0</mn>
 </mrow></munder></mrow><msup><mi>R</mi><mrow>
@@ -2491,10 +2515,10 @@ Finally, since
 is closed, we get that
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
 <mo>=</mo><mover><msub><mi>J</mi><mi class="ss1">R</mi></msub>
-<mo strectchy="true" accent="true">&horbar;</mo></mover><mo>&supset;</mo>
+<mo strectchy="true">&macr;</mo></mover><mo>&supset;</mo>
 <mover><mrow><msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi>
 </msub><mo>&setminus;</mo><mi>E</mi></mrow>
-<mo strectchy="true" accent="true">&horbar;&horbar;&horbar;&horbar;</mo>
+<mo strectchy="true">&macr;</mo>
 </mover><mo>=</mo><msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi>
 </msub></mrow></math>.
 <span class="Proof_Right">&#8718;</span></p>
@@ -2618,8 +2642,10 @@ is a <em>periodic orbit</em> because
 <mo>=</mo><msub><mi>z</mi><mn class="ss1">0</mn></msub></mrow></math>.
 </p>
 
-<div class="Theo">
-<p><em>Definition</em>: Suppose that
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">Suppose that
 <math display="inline"><mi>z</mi></math>
 is a periodic point of period
 <math display="inline"><mi>n</mi></math>
@@ -2693,8 +2719,10 @@ associated to
 <math display="inline"><mi>z</mi></math>.
 </p>
 
-<div class="Theo">
-<p><em>Definition</em>: Suppose that
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">Suppose that
 <math display="inline"><mi>w</mi></math>
 is a fixed point of a rational function
 <math display="inline"><mrow><mi>R</mi>
@@ -2752,8 +2780,10 @@ on
 </p>
 </div>
 
-<div class="Theo">
-<p><em>Proposition</em>: If
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mi>w</mi></math>
 is an attracting fixed point of a rational function
 <math display="inline"><mrow><mi>R</mi>
@@ -2776,8 +2806,10 @@ Moreover,
 </p>
 </div>
 
-<div class="Theo">
-<p><em>Proposition</em>: If
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mi>w</mi></math>
 is a repelling fixed point of a rational function
 <math display="inline"><mrow><mi>R</mi>
@@ -2791,7 +2823,7 @@ can be linearized at
 We have that
 <math display="inline"><mrow><mi>|</mi><mi>&lambda;</mi>
 <mi>|</mi><mo>&gt;</mo><mn>1</mn></mrow></math>
-in the definition of linearization.</p>
+in the definition of linearization above.</p>
 </div>
 
 <p>In the previous proposition, there is no open set
@@ -2803,8 +2835,10 @@ such that
 <mi>W</mi></mrow></math>
 as we can have for an attracting fixed point.</p>
 
-<div class="Theo">
-<p><em>Proposition</em>: Suppose that
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">Suppose that
 <math display="inline"><mi>w</mi></math>
 is a super-attracting fixed point of a rational function
 <math display="inline"><mrow><mi>R</mi>
@@ -2864,8 +2898,10 @@ for all
 <p>The following proposition is a consequence of the previous three
 propositions. </p>
 
-<div class="Theo" id="propV">
-<p><em>Proposition &#8548;</em>: A fixed point
+<script language="javascript">
+divNumbers("Proposition","propV","");
+</script>
+<p class="Theo">A fixed point
 <math display="inline"><mi>w</mi></math>
 of a rational function
 <math display="inline"><mrow><mi>R</mi>
@@ -2876,8 +2912,110 @@ is a stable point if
 <math display="inline"><mi>w</mi></math>
 is an attracting or super-attracting fixed point.  The fixed point
 <math display="inline"><mi>w</mi></math>
-is not stable if it is a repelling fixed point.</p>
+is not a stable point if it is a repelling fixed point.</p>
 </div>
+
+<p><em>Proof</em>: We prove that a repelling fixed point 
+<math display="inline"><mi>w</mi></math>
+is not a stable point and leave the proof that an attracting or
+super-attracting fixed point is a stable point to the reader.
+<span id="proof16A">&nbsp;...</span></p>
+<div id="proof16B" class="moreORless">
+
+<p>The proof is by contradiction.  Suppose that
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&gt;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+is normal on an open neighbourhood
+<math display="inline"><mi>U</mi></math>
+of
+<math display="inline"><mi>w</mi></math>.
+Therefore, there exists a subsequence
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">n</mi><mi class="ss2">k</mi></msub></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">k</mi><mo class="ss1">&gt;</mo>
+<mn class="ss1">0</mn></mrow></msub></mrow></math>
+that converges uniformly on compact subsets of
+<math display="inline"><mi>U</mi></math>
+to a holomorphic function
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>U</mi><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+with
+<math display="inline"><mrow><mi>f</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>w</mi></mrow></math>
+because
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>w</mi></mrow></math>
+for all
+<math display="inline"><mi>n</mi></math>.
+Since
+<math display="inline"><mi>f</mi></math>
+is holomorphic, we have that
+<math display="inline"><mrow><mi>|</mi><msup><mi>f</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi>|</mi><mo>&lt;</mo><mi>&infin;</mi></mrow></math>.
+Howvwer,
+<math display="inline"><mrow><mi>|</mi><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>|</mi>
+<mo>&gt;</mo><mn>1</mn></mrow></math>
+implies that
+<math display="inline"><mrow><mi>|</mi><msup><mi>f</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup>
+<mo form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo form="postfix" stretchy="false">)</mo><mi>|</mi><mo>=</mo><munder>
+<mi>lim</mi><mrow><mi class="ss1">n</mi><mo class="ss1">&rarr;</mo>
+<mi class="ss1">&infin;</mi></mrow></munder><mi>|</mi>
+<mo form="prefix" stretchy="false">(</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><msup>
+<mo form="postfix" stretchy="false">)</mo>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup>
+<mo form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo form="postfix" stretchy="false">)</mo><mi>|</mi><mo>=</mo><munder>
+<mi>lim</mi><mrow><mi class="ss1">n</mi><mo class="ss1">&rarr;</mo>
+<mi class="ss1">&infin;</mi></mrow></munder><mi>|</mi>
+<msup><mrow><mo form="prefix" stretchy="false">(</mo><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup>
+<mo form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo form="postfix" stretchy="false">)</mo>
+<mo form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">n</mi></msup><mi>|</mi><mo>=</mo><mi>&infin;</mi></mrow></math>.
+This is a contradiction.
+<span class="Proof_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof16A','proof16B','proof16C','en')" class="mORl" id="proof16C">Read more</button>
+
+<p>The previous proposition is also true for periodic points.  It
+suffices to apply the previous proposition to
+<math display="inline"><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">k</mi></mrow></msup></math>
+instead of
+<math display="inline"><mi>R</mi></math>
+where
+<math display="inline"><mi>k</mi></math>
+is the period of the periodic point.</p>
 
 <p>There is no clear results associated to neutral fixed points of a
 rational function
@@ -2885,7 +3023,184 @@ rational function
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
-Suppose that
+</p>
+
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">If
+<math display="inline"><mi>w</mi></math>
+is a neutral fixed point of a rational function
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+with
+<math display="inline"><mrow><mi>&lambda;</mi><mo>=</mo><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+a root of unity, then
+<math display="inline"><mi>w</mi></math>
+is not a stable point for
+<math display="inline"><mi>R</mi></math>
+</div>
+
+<p><em>Proof</em>:  Suppose that
+<math display="inline"><mi>w</mi></math>
+is a neutral fixed point of
+<math display="inline"><mi>R</mi></math>
+such that
+<math display="inline"><mrow><mi>&lambda;</mi><mo>=</mo><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+is a 
+<math display="inline"><msup><mi>k</mi><mrow><mtext class="ss1"i>th</mext>
+</mrow></msup></math>
+root of unity.
+<span id="proof18A">&nbsp;...</span></p>
+<div id="proof18B" class="moreORless">
+
+<p>We have that
+<math display="inline"><mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">k</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msup>
+<mi>R</mi><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">k</mi></msup><mo>=</mo><msup><mi>&lambda;</mi>
+<mi class="ss1">k</mi></msup><mo>=</mo><mn>1</mn></mrow></math>.
+Hence
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">k</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>w</mi><mo>+</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi><mo>-</mo>
+<mi>w</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>+</mo><msub><mi>c</mi><mi class="ss1">q</mi></msub><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo>-</mo><mi>w</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mi class="ss1">q</mi></msup><mo>+</mo><mtext>h.o.t.</mtext>
+</mrow></math>
+with
+<math display="inline"><mrow><msub><mi>c</mi><mi class="ss1">q</mi></msub>
+<mo>&ne;</mo><mn>0</mn></mrow></math>
+and
+<math display="inline"><mrow><mi>q</mi><mo>&ge;</mo><mn>2</mn></mrow></math>.
+We also have that
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi><mi class="ss1">k</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>w</mi><mo>+</mo><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>z</mi><mo>-</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>+</mo>
+<mi>n</mi><msub><mi>c</mi><mi class="ss1">q</mi></msub><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi><mo>-</mo>
+<mi>w</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi class="ss1">q</mi></msup><mo>+</mo><mtext>h.o.t.</mtext></mrow></math>
+for
+<math display="inline"><mrow><mi>n</mi><mo>&ge;</mo><mn>0</mn>
+</mrow></math>.
+Suppose that there exists an open neighbourhood of
+<math display="inline"><mi>U</mi></math>
+of
+<math display="inline"><mi>w</mi></math>
+such that
+<math display="inline">
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class+"ss1">&compfn;</mo>
+<mi class="ss1">n</mi><mi class="ss1">k</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
+is normal on
+<math display="inline"><mi>U</mi></math>.
+Therefore, there exists a subsequence
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">n</mi><mi class="ss2">j</mi></msub>
+<mi class="ss1">k</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">j</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
+that converges uniformly on compact subsets of
+<math display="inline"><mi>U</mi></math>
+to a holomorphic function
+<math display="inline"><mrow><mi>f</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>U</mi><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
+Since
+<math display="inline"><mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi><mi class="ss1">k</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+<mi class="ss1">q</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">)</mo></mrow>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>n</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>q</mi><mo form="postfix" stretchy="false">!</mo>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><msub><mi>c</mi>
+<mi class="ss1">q</mi></msub></mrow></math>,
+we get that</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><munder><mi>lim</mi>
+<mrow><mi class="ss1">j</mi><mo class="ss1">&rarr;</mo>
+<mi class="ss1">&infin;</mi></mrow></munder><mi>|</mi><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">n</mi><mi class="ss2">j</mi></msub>
+<mi class="ss1">k</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+<mi class="ss1">q</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">)</mo></mrow>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>|</mi>
+<mo>=</mo><munder><mi>lim</mi><mrow><mi class="ss1">j</mi><mo>&rarr;</mo>
+<mi>&infin;</mi></mrow></munder><mspace width="0.1667em"></mspace><msub>
+<mi>n</mi><mi class="ss1">j</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>q</mi>
+<mo form="postfix" stretchy="false">!</mo>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>|</mi>
+<msub><mi>c</mi><mi class="ss1">q</mi></msub><mi>|</mi><mo>=</mo>
+<mi>&infin;</mi><mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
+</div>
+
+<p>This is a contradiction of the fact that the limit should be
+<math display="inline"><mrow><mi>|</mi><msup><mi>f</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+<mi class="ss1">q</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">)</mo></mrow>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>|</mi>
+<mo>&lt;</mo><mi>&infin;</mi></mrow></math>.
+Thus
+<math display="inline"><mi>w</mi></math>
+cannot be a stable point of
+<math display="inline"><mi>R</mi></math>.
+<span class="Proof_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof18A','proof18B','proof18C','en')" class="mORl" id="proof18C">Read more</button>
+
+<p>Suppose that
 <math display="inline"><mi>w</mi></math>
 is a neutral fixed point of a rational function
 <math display="inline"><mi>R</mi></math>
@@ -2899,21 +3214,21 @@ To linearize
 <math display="inline"><mi>R</mi></math>
 at
 <math display="inline"><mi>w</mi></math>,
-we need to find two open sets
-<math display="inline"><mrow><mi>W</mi><mo>&subset;</mo><mi>V</mi>
-</mrow></math>
+we seek an open neighbourhood
+<math display="inline"><mi>W</mi></math>
+of
+<math display="inline"><mi>w</mi></math>
 and a conformal homeomorphism
 <math display="inline"><mrow><mi>H</mi>
-<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>V</mi><mo>&rarr;</mo>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>W</mi><mo>&rarr;</mo>
 <msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
 such that
-<math display="inline"><mrow><mi>w</mi><mo>&isin;</mo><mi>W</mi></mrow></math>,
 <math display="inline"><mrow><mi>R</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>W</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
-<mi>V</mi></mrow></math>,
+<mi>W</mi></mrow></math>,
 <math display="inline"><mrow><mi>H</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
@@ -2924,34 +3239,1014 @@ and
 on
 <math display="inline"><mi>W</mi></math>.
 This last equation is called the <em>Schr&ouml;der functional
-equation</em>.  It has been proved that if there exists a function
-<math display="inline"><mi>H</mi></math>
-satisfying the Schr&ouml;der functional equation, then
+equation</em>.  We have the following result.</p>
+
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">A neutral fixed point
 <math display="inline"><mi>w</mi></math>
-is a stable point.  The converse is also true.
-It has been proved that there is no function
+of a rational function
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+is a stable point if and only if there exists a function
 <math display="inline"><mi>H</mi></math>
-satisfying the Schr&ouml;der functional equation if
-<math display="inline"><mi>&lambda;</mi></math>
-is a root of unity.  Thus, if
+satisfying the Schr&ouml;der functional equation.
+</div>
+
+<p><em>Proof</em>:  We first proof the necessary part of the
+proposition. <span id="proof19A">&nbsp;...</span></p>
+<div id="proof19B" class="moreORless">
+
+<p>Let
+<math display="inline"><mi>w</mi></math>
+be a neutral fixed point of
+<math display="inline"><mi>R</mi></math>,
+and
+<math display="inline"><mrow><mi>T</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>&complexes;</mi>
+<mo>&rarr;</mo><mi>&complexes;</mi></mrow></math>
+be the function defined by
+<math display="inline"><mrow><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>&lambda;</mi><mi>z</mi></mrow></math>
+for all
+<math display="inline"><mrow><mi>z</mi><mo>&isin;</mo><mi>&complexes;</mi>
+</mrow></math>,
+where
+<math display="inline"><mrow><mi>λ</mi><mo>=</mo><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+We suppose that there exist an open neighbourhood
+<math display="inline"><mi>W</mi></math>
+of
+<math display="inline"><mi>w</mi></math>
+and a conformal homeomorphism
+<math display="inline"><mrow><mi>H</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>W</mi><mo>&rarr;</mo>
+<msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+such that
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>W</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<mi>W</mi></mrow></math>,
+<math display="inline"><mrow><mi>H</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>0</mn></mrow></math>
+and
+<math display="inline"><mrow><mi>H</mi><mo>&compfn;</mo><mi>R</mi><mo>=</mo>
+<mi>T</mi><mo>&compfn;</mo><mi>H</mi></mrow></math>
+on
+<math display="inline"><mi>W</mi></math>.
+We then have that
+<math display="inline"><mrow><mi>H</mi><mo>&compfn;</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mo>&compfn;</mo><msup><mi>H</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mo>=</mo><msup><mi>T</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup></mrow></math>
+for
+<math display="inline"><mrow><mi>n</mi><mo>&ge;</mo><mn>0</mn></mrow></math>.
+Since the family of functions
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>T</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn></mrow>
+</msub></math>
+is locally uniformly bounded on
+<math display="inline"><mrow><msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>,
+it is normal on
+<math display="inline"><mrow><msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+according to the
+<script language="javascript">refNumbers("Montel0");</script>.
+Therefore,
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn></mrow>
+</msub></math>
+is normal on
+<math display="inline"><mi>W</mi></math>.
+Hence,
+<math display="inline"><mi>w</mi></math>
+is a stable point of
+<math display="inline"><mi>R</mi></math>.
+
+<p>We now proof the sufficiency part of the proposition.  We assume
+that
+<math display="inline"><mi>w</mi></math>
+is a neutral fixed point of
+<math display="inline"><mi>R</mi></math>
+and that
+<math display="inline"><mi>w</mi></math>
+is also a stable point of
+<math display="inline"><mi>R</mi></math>.
+Let
+<math display="inline"><mi>W</mi></math>
+be the connected component of the Fatou set
+<math display="inline"><msub><mi>S</mi><mi class="ss1">R</mi></msub></math>
+containing
+<math display="inline"><mi>w</mi></math>.
+Since
+<math display="inline"><msub><mi>S</mi><mi class="ss1">R</mi></msub></math>
+is
+<math display="inline"><mi>R</mi></math>
+invariant and
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>w</mi></mrow></math>,
+we have that
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>W</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+is a connected subset of
+<math display="inline"><msub><mi>S</mi><mi class="ss1">R</mi></msub></math>
+containing
+<math display="inline"><mi>w</mi></math>,
+thus
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>W</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>⊂</mo>
+<mi>W</mi></mrow></math>.
+Since
+<math display="inline"><mrow><mi>U</mi><mo>&cap;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub><mo>=</mo><mi>&emptyset;</mi></mrow></math>
+and
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
+contains more than two points, we can use the Riemann Mapping Theorem
+to conclude that there exists a conformal homeomorphism
+<math display="inline"><mrow><mi>H</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>W</mi><mo>&rarr;</mo>
+<msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+Hence
+<math display="inline"><mrow><mi>T</mi><mo>=</mo><mi>H</mi><mo>&compfn;</mo>
+<mi>R</mi><mo>&compfn;</mo><msup><mi>H</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>B</mi>
+<mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&rarr;</mo>
+<msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+Since
+<math display="inline"><mrow><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>0</mn></mrow></math>
+and
+<math display="inline"><mrow><mi>|</mi><msup><mi>T</mi>
+<mo lspace="0em" rspace="0em" class="ss2">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>|</mi>
+<mo>=</mo><mi>|</mi><msup><mi>H</mi>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msup><mi>H</mi>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mi>|</mi><mo>=</mo><mi>|</mi><msup>
+<mi>R</mi><mo lspace="0em" rspace="0em" class="ss1">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>|</mi>
+<mo>=</mo><mn>1</mn></mrow></math>,
+we get from 
+<script language="javascript">refNumbers("Schwarz");</script>
+that
+<math display="inline"><mrow><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>&lambda;</mi><mi>z</mi></mrow></math>
+with
+<math display="inline"><mrow><mi>|</mi><mi>&lambda;</mi><mi>|</mi><mo>=</mo>
+<mn>1</mn></mrow></math>.
+We note that
+<math display="inline"><mrow><mi>&lambda;</mi><mo>=</mo><msup><mi>T</mi>
+<mo lspace="0em" rspace="0em" class="ss1">'</mo></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msup><mi>R</mi><mo lspace="0em" rspace="0em" class="ss1">'</mo></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+Hence, the function
+<math display="inline"><mi>H</mi></math>
+satisfying the Schr&ouml;der functional equation.</p>
+</div>
+<button onclick="moreORless('proof19A','proof19B','proof19C','en')" class="mORl" id="proof19C">Read more</button>
+
+<p>If
 <math display="inline"><mi>w</mi></math>
 is a neutral fixed point of a rational function
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
-and that
+such that
 <math display="inline"><mrow><msup><mi>R</mi>
 <mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
 <mi>&lambda;</mi></mrow></math>
-is a root of unity, then
-<math display="inline"><mrow><mi>w</mi><mo>&isin;</mo>
-<msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
+is a root of unity, then it follows from the previous two propositions that
+there is no function
+<math display="inline"><mi>H</mi></math>
+satisfying the Schr&ouml;der functional equation.</p>
+
+<div class="Note">
+<p><em>Remark</em>: We can now give a more elementary proof that 
+<math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+<mo>&ne;</mo><mi>&emptyset;</mi></mrow></math>.
+There are several steps to this proof.<span id="proof17A">&nbsp;...</span></p>
+<div id="proof17B" class="moreORless">
+
+<p>We assume that
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+is a rational function of degree
+<math display="inline"><mrow><mi>d</mi><mo>&geq;</mo><mn>2</mn></mrow></math>.
+
+<ol style="list-style-type: decimal;">
+<li><p><em>Claim</em>: If
+<math display="inline"><mrow><mi>R</mi><mo>&ne;</mo><mtext>Id</mtext>
+</mrow></math>,
+then
+<math display="inline"><mi>R</mi></math>
+has
+<math display="inline"><mrow><mi>d</mi><mo>+</mo><mn>1</mn></mrow></math>
+fixed points counted with multiplicity, where
+<math display="inline"><mi>&infin;</mi></math>
+may be a fixed point.</p>
+
+<p>If
+<math display="inline"><mi>&infin;</mi></math>
+is a fixed point of
+<math display="inline"><mi>R</mi></math>,
+then we may use a Möbius transformation to conformally conjugate
+the function
+<math display="inline"><mi>R</mi></math>
+to a rational function such that
+<math display="inline"><mi>&infin;</mi></math>
+is not a fixed point of this function.  Therefore, without lost of
+generality, we may assume that
+<math display="inline"><mi>&infin;</mi></math>
+is not a fixed point of
+<math display="inline"><mi>R</mi></math>.
+Hence
+<math display="inline"><mrow><mi>R</mi><mo>=</mo><mi>P</mi><mi>/</mi><mi>Q</mi>
+</mrow></math>,
+where the degree
+<math display="inline"><mi>d</mi></math>
+of
+<math display="inline"><mi>Q</mi></math>
+is greater or equal to the degree of
+<math display="inline"><mi>P</mi></math>.
+The fixed points of
+<math display="inline"><mi>R</mi></math>
+are the roots of the polynomial of degree
+<math display="inline"><mrow><mi>d</mi><mo>+</mo><mn>1</mn></mrow></math>
+in the numerator of
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mfrac><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+<mrow><mi>Q</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>z</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></mfrac><mo>-</mo><mi>z</mi><mo>=</mo><mfrac><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>z</mi><mi>Q</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow><mrow>
+<mi>Q</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>z</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></mfrac></mrow></math>.
+It follows from the fundamental theorem of algebra that there are
+<math display="inline"><mrow><mi>d</mi><mo>+</mo><mn>1</mn></mrow></math>
+fixed points counted with multiplicity.</p>
+</li>
+<li><p>let
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mn class="ss1">1</mn><mo class="ss1">&leq;</mo><mi class="ss1">j</mi>
+<mo class="ss1">&leq;</mo><mi class="ss1">J</mi></mrow></msub></math>
+be the distinct fixed points of
+<math display="inline"><mi>R</mi></math>.
+The poles of the function
+<math display="inline"><mi>g</mi></math>
+defined by
+<math display="inline"><mrow><mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mfrac><mn>1</mn><mrow><mi>z</mi><mo>-</mo><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac></mrow></math>
+are the points
+<math display="inline"><msub><mi>p</mi><mi class="ss1">j</mi></msub></math>,
+and the residue of
+<math display="inline"><mi>g</mi></math>
+at
+<math display="inline"><msub><mi>p</mi><mi class="ss1">j</mi></msub></math>
+is
+<math display="inline"><mfrac><mn>1</mn><mrow><mn>1</mn><mo>-</mo><msup>
+<mi>R</mi><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup>
+<mo form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mfrac></math>
+if we assume that
+<math display="inline"><mrow><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&ne;</mo>
+<mn>1</mn></mrow></math>
+for all
+<math display="inline"><mi>j</mi></math>.
+Hence, if
+<math display="inline"><msub><mi>&gamma;</mi><mi class="ss1">j</mi>
+</msub></math>
+is a paremtric representation of a small enough circle centred at
+<math display="inline"><msub><mi>p</mi><mi class="ss1">j</mi></msub></math>,
+we have that</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><mi>m</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>R</mi>
+<mo separator="true">,</mo><msub><mi>p</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mfrac><mn>1</mn><mrow><mn>2</mn><mi>&pi;</mi><mi>i</mi></mrow></mfrac>
+<msub><mo movablelimits="false" class="ss5">∫</mo><msub><mi class="ss1">γ</mi>
+<mi class="ss2">j</mi></msub></msub><mfrac><mn>1</mn><mrow><mi>z</mi>
+<mo>-</mo><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac><mtext>d</mtext><mi>z</mi><mo>=</mo><mfrac><mn>1</mn><mrow>
+<mn>1</mn><mo>-</mo><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></mfrac>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
+</div>
+
+<p>Moreover, as we did for the proof of the previous claim, we may assume
+that
+<math display="inline"><mi>&infin;</mi></math>
+is not a fixed point of
+<math display="inline"><mi>R</mi></math>.
+If
+<math display="inline"><msub><mi>&gamma;</mi><mi class="ss1">r</mi>
+</msub></math>
+is the parametric representation of a circle of radius
+<math display="inline"><mi>r</mi></math>
+centred at the origin, then for
+<math display="inline"><mi>r</mi></math>
+large enough the region bounded by this circle contains all the fixed
+points of
+<math display="inline"><mi>R</mi></math>.
+Hence, we get from the residue theorem that</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><mfrac><mn>1</mn>
+<mrow><mn>2</mn><mi>&pi;</mi><mi>i</mi></mrow></mfrac><msub>
+<mo movablelimits="false" class="ss5">∫</mo>
+<msub><mi class="ss1">&gamma;</mi><mi class="ss2">r</mi></msub>
+</msub><mfrac><mn>1</mn><mrow><mi>z</mi><mo>-</mo><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></mfrac>
+<mtext>d</mtext><mi>z</mi><mo>=</mo><mrow><munderover>
+<mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><mi class="ss1">J</mi>
+</munderover></mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>-</mo><msup>
+<mi>R</mi><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></mfrac>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
+</div>
+
+<p>Since</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><mrow>
+<mo fence="true" form="prefix" stretchy="true">|</mo><mfrac><mn>1</mn>
+<mrow><mi>z</mi><mo>-</mo><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></mfrac>
+<mo>-</mo><mfrac><mn>1</mn><mi>z</mi></mfrac>
+<mo fence="true" form="postfix" stretchy="true">|</mo></mrow><mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="true">|</mo><mfrac><mrow><mi>R</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow><mrow>
+<mi>z</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>z</mi><mo>-</mo><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></mfrac>
+<mo fence="true" form="postfix" stretchy="true">|</mo></mrow><mo>&le;</mo>
+<mi>M</mi><mfrac><mn>1</mn><mrow><mi>|</mi><mi>z</mi><mi>|</mi></mrow></mfrac>
+<mo>&rarr;</mo><mn>0</mn></mrow></math>
+</div>
+
+<p>as
+<math display="inline"><mrow><mi>|</mi><mi>z</mi><mi>|</mi><mo>&rarr;</mo>
+<mi>&infin;</mi></mrow></math>
+for some constant
+<math display="inline"><mi>M</mi></math>,
+we get that</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><munder><mi>lim</mi>
+<mrow><mi class="ss1">r</mi><mo class="ss1">&rarr;</mo>
+<mi class="ss1">&infin;</mi></mrow></munder><mspace width="0.1667em"></mspace>
+<mfrac><mn>1</mn><mrow><mn>2</mn><mi>&pi;</mi><mi>i</mi></mrow></mfrac><msub>
+<mo movablelimits="false" class="ss5">∫</mo><msub><mi class="ss1">γ</mi>
+<mi class="ss2">r</mi></msub></msub><mfrac><mn>1</mn><mrow><mi>z</mi><mo>-</mo>
+<mi>R</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>z</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></mfrac><mtext>d</mtext><mi>z</mi><mo>=</mo><munder><mi>lim</mi>
+<mrow><mi class="ss1">r</mi><mo class="ss1">&rarr;</mo>
+<mi class="ss1">&infin;</mi></mrow></munder><mspace width="0.1667em"></mspace>
+<mfrac><mn>1</mn><mrow><mn>2</mn><mi>&pi;</mi><mi>i</mi></mrow></mfrac><msub>
+<mo movablelimits="false" class="ss5">∫</mo><msub><mi class="ss1">γ</mi>
+<mi class="ss2">r</mi></msub></msub><mfrac><mn>1</mn><mi>z</mi></mfrac>
+<mtext>d</mtext><mi>z</mi><mo>=</mo><munder><mi>lim</mi><mrow>
+<mi class="ss1">r</mi><mo class="ss1">&rarr;</mo><mi class="ss1">&infin;</mi>
+</mrow></munder><mspace width="0.1667em"></mspace><mn>1</mn><mo>=</mo>
+<mn>1</mn><mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
+</div>
+
+<p>Therefore</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><mrow>
+<munderover><mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow><mi class="ss1">J</mi>
+</munderover></mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>-</mo><msup>
+<mi>R</mi><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac><mo>=</mo><mrow><munderover><mo movablelimits="false">∑</mo>
+<mrow><mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">1</mn>
+</mrow><mi class="ss1">J</mi></munderover></mrow><msub>
+<mo movablelimits="false" class="ss5">∫</mo><msub><mi class="ss1">γ</mi>
+<mi class="ss2">j</mi></msub></msub><mfrac><mn>1</mn><mrow><mi>z</mi>
+<mo>-</mo><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac><mtext>d</mtext><mi>z</mi><mo>=</mo><mn>1</mn>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
+</div>
+</p>
+</li>
+<li><p><em>Claim</em>: The point
+<math display="inline"><msub><mi>p</mi><mi class="ss1">j</mi></msub></math>
+defined in (2) is an attracting or super-attracting fixed point of
+<math display="inline"><mi>R</mi></math>
+if and only if
+<math display="inline"><mrow><mtext>Real</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>m</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>R</mi><mo separator="true">,</mo><msub><mi>p</mi><mi class="ss1">j</mi>
+</msub><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&gt;</mo><mn>1</mn><mo>/</mo><mn>2</mn></mrow></math>.</p>
+
+<p>We have that</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub><mspace width="1ex"></mspace>
+<mtext>is an attracting or super-attracting fixed point of</mtext>
+<mspace width="1ex"></mspace><mi>R</mi></mrow></math>
+
+<math display="block" style="display:block math;"><mrow>
+<mo stretchy="false">&hArr;</mo>
+<mspace width="0.2778em"></mspace><mn>1</mn><mo>-</mo><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&isin;</mo>
+<mn>1</mn><mo>+</mo><msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="0.2778em"></mspace><mo stretchy="false">&hArr;</mo>
+<mspace width="0.2778em"></mspace><mtext>Real</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo><mfrac><mn>1</mn>
+<mrow><mn>1</mn><mo>-</mo><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></mfrac>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>&gt;</mo>
+<mfrac><mn>1</mn><mn>2</mn></mfrac>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
+</div>
+
+<p>The last <q lang="en">if and only if</q> comes from the fact that
+the Möbius transformation 
+<math display="inline"><mrow><mi>h</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+defined by
+<math display="inline"><mrow><mi>h</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>1</mn><mi>/</mi><mi>z</mi></mrow></math>
+is a bijection from
+<math display="inline"><mrow><mn>1</mn><mo>+</mo><msub><mi>B</mi>
+<mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+onto
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>z</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mtext>Real</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&gt;</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></math>.
+</p>
+</li>
+<li><p><em>Claim</em>: The point
+<math display="inline"><msub><mrow><mi>p</mi><mi class="ss1">j</mi></msub>
+</mo>&ne;</mo><mn>1<?mn></mrow></math>
+defined in (2) is a neutral fixed point of
+<math display="inline"><mi>R</mi></math>
+if and only if
+<math display="inline"><mrow><mtext>Real</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>m</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>R</mi><mo separator="true">,</mo><msub><mi>p</mi><mi class="ss1">j</mi>
+</msub><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mn>1</mn><mo>/</mo><mn>2</mn></mrow></math>.</p>
+
+<p>Similarly to the claim in (3), we have that </p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub><mo>&ne;</mo><mn>1</mn>
+<mspace width="1ex"></mspace><mtext>is a neutral fixed point of</mtext>
+<mspace width="1ex"></mspace><mi>R</mi></mrow></math>
+
+<math display="block" style="display:block math;"><mrow>
+<mo stretchy="false">&hArr;</mo>
+<mspace width="0.2778em"></mspace><mn>1</mn><mo>-</mo><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&isin;</mo>
+<mn>1</mn><mo>+</mo><mi>&part;</mi>
+<msub><mi>B</mi><mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="0.2778em"></mspace><mo stretchy="false">&hArr;</mo>
+<mspace width="0.2778em"></mspace><mtext>Real</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo><mfrac><mn>1</mn>
+<mrow><mn>1</mn><mo>-</mo><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></mfrac>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow><mo>=</mo>
+<mfrac><mn>1</mn><mn>2</mn></mfrac>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
+</div>
+
+<p>The last <q lang="en">if and only if</q> comes from the fact that
+the Möbius transformation 
+<math display="inline"><mrow><mi>h</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+defined by
+<math display="inline"><mrow><mi>h</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>1</mn><mi>/</mi><mi>z</mi></mrow></math>
+is a bijection from
+<math display="inline"><mrow><mn>1</mn><mo>+</mo><mi>&part;</mi><msub><mi>B</mi>
+<mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+onto
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>z</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mtext>Real</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>1</mn><mi>/</mi><mn>2</mn>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></math>.
+</p>
+</li>
+<li><p><em>Claim</em>: A rational function
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+of degree
+<math display="inline"><mrow><mi>d</mi><mo>&geq;</mo><mn>2</mn></mrow></math>
+has at least one repelling fixed point or a neutral fixel point
+<math display="inline"><mi>p</mi></math>
+with
+<math display="inline"><mrow><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>1</mn></mrow></math>.
 </p>
 
-<p>Even when <math display="inline"><mi>&lambda;</mi></math>
+<p>As we did in (1), if
+<math display="inline"><mi>&infin;</mi></math>
+is a fixed point of
+<math display="inline"><mi>R</mi></math>,
+then we may use a Möbius transformation to conformally conjugate 
+<math display="inline"><mi>R</mi></math>
+to a rational function such that
+<math display="inline"><mi>&infin;</mi></math>
+is not a fixed point.  Therefore, without lost of generality, we may
+assume that
+<math display="inline"><mi>&infin;</mi></math>
+is not a fixed point of
+<math display="inline"><mi>R</mi></math>.
+Hence
+<math display="inline"><mrow><mi>R</mi><mo>=</mo><mi>P</mi><mi>/</mi><mi>Q</mi>
+</mrow></math>,
+where the degree
+<math display="inline"><mi>d</mi></math>
+of
+<math display="inline"><mi>Q</mi></math>
+is greater or equal to the degree of
+<math display="inline"><mi>P</mi></math>.
+As we have seen in the proof of the claim in (1), the fixed points of
+<math display="inline"><mi>R</mi></math>
+are the roots of the polynomial
+<math display="inline"><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>z</mi><mi>Q</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+of degree
+<math display="inline"><mrow><mi>d</mi><mo>+</mo><mn>1</mn></mrow></math>.</p>
+
+<p>Suppose that
+<math display="inline"><mi>p</mi></math>
+is a root of
+<math display="inline"><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>z</mi><mi>Q</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+of multiplicity greater or equal to
+<math display="inline"><mn>2</mn></math>.
+Then, we have that
+<math display="inline"><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>-</mo><mi>z</mi><mi>Q</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo>-</mo><mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mn class="ss1">2</mn></msup><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+where
+<math display="inline"><mi>T</mi></math>
+is a polynomial of degree
+<math display="inline"><mrow><mi>d</mi><mo>-</mo><mn>1</mn></mrow></math>.
+If we differentiate both sides of this equality, then we get</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msup><mi>P</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>Q</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>z</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>-</mo><mi>z</mi><msup><mi>Q</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>2</mn><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>z</mi><mo>-</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>T</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>+</mo>
+<msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>z</mi><mo>-</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mn>2</mn>
+</msup><msup><mi>T</mi><mo lspace="0em" rspace="0em" class="ss3">'</mo>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
+</div>
+
+<p>We deduce from this equality that
+<math display="inline"><mrow><mi>p</mi><msup><mi>Q</mi>
+<mo lspace="0em" rspace="0em" class="tml-prime tml-med-pad">′</mo></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><msup><mi>P</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>Q</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>.
+Hence, if we use this relation and
+<math display="inline"><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>p</mi><mi>Q</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>0</mn></mrow></math>,
+we get that</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><mi>p</mi><msup>
+<mi>R</mi><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mfrac><mrow><mi>p</mi><msup><mi>P</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>Q</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>p</mi><mi>P</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><msup><mi>Q</mi><mo lspace="0em" rspace="0em" class="ss3">'</mo>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow><mrow><msup><mi>Q</mi><mn class="ss1">2</mn></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac><mo>=</mo><mfrac><mrow><mi>p</mi><msup><mi>P</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>Q</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>P</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<msup><mi>P</mi><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>+</mo>
+<mi>P</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi>Q</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow><mrow><msup><mi>Q</mi><mn class="ss1">2</mn></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac></mrow></math>
+
+<math display="block" style="display:block math;"><mrow><mo>=</mo><mfrac>
+<mrow><msup><mi>P</mi><mo lspace="0em" rspace="0em" class="ss2">′</mo>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mi>Q</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>-</mo><mi>P</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>+</mo>
+<mi>P</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi>Q</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow><mrow><msup><mi>Q</mi><mn class="ss2">2</mn></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></mfrac>
+<mo>=</mo><mfrac><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+<mrow><mi>Q</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></mfrac><mo>=</mo><mi>p</mi>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
+</div>
+
+<p> If
+<math display="inline"><mrow><mi>p</mi><mo>&ne;</mo><mn>0</mn></mrow></math>,
+then
+<math display="inline"><mrow><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>1</mn></mrow></math>.
+If
+<math display="inline"><mrow><mi>p</mi><mo>=</mo><mn>0</mn></mrow></math>,
+then we get from
+<math display="inline"><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>p</mi><mi>Q</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>0</mn></mrow></math>
+that
+<math display="inline"><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>0</mn></mrow></math>,
+and we get from
+<math display="inline"><mrow><mi>p</mi><msup><mi>Q</mi>
+<mo lspace="0em" rspace="0em" class="tml-prime tml-med-pad">′</mo></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><msup><mi>P</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>Q</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+that
+<math display="inline"><mrow><msup><mi>P</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>Q</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>.
+Hence</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mfrac><mrow><msup><mi>P</mi><mo lspace="0em" rspace="0em" class="ss3">'</mo>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi>Q</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>-</mo><mi>P</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>p</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<msup><mi>Q</mi><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+<mrow><msup><mi>Q</mi><mn class="ss1">2</mn></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></mfrac>
+<mo>=</mo><mfrac><mrow><msup><mi>Q</mi><mn class="ss1">2</mn></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow><mrow>
+<msup><mi>Q</mi><mn class="ss1">2</mn></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac><mo>=</mo><mn>1</mn><mspace width="1ex"></mspace><mtext>.</mtext>
+</mrow></math>
+</div>
+
+<p>Therefore, if 
+<math display="inline"><mi>R</mi></math>
+does not have a neutral fixed point
+<math display="inline"><mi>p</mi></math>
+with
+<math display="inline"><mrow><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>1</mn></mrow></math>,
+then
+<math display="inline"><mi>R</mi></math>
+must have
+<math display="inline"><mrow><mi>d</mi><mo>+</mo><mn>1</mn></mrow></math>
+distinct fixed points according to the claim proves in (1).
+One of these fixed points must be a repelling fixed point.  If none of
+the distinct fixed point
+<math display="inline"><msub><mi>p</mi><mi class="ss1">j</mi></msub></math>
+with
+<math display="inline"><mrow><mn>1</mn><mo>&le;</mo><mi>j</mi><mo>&le;</mo>
+<mi>d</mi><mo>+</mo><mn>1</mn></mrow></math>
+of
+<math display="inline"><mi>R</mi></math>
+is a repelling fixed point, then we get from the claims in (3) and (4)
+that
+<math display="inline"><mrow><mtext>Real</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="true">(</mo><mfrac><mn>1</mn>
+<mrow><mn>1</mn><mo>-</mo><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac><mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
+<mo>&ge;</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow></math>
+for
+<math display="inline"><mrow><mn>1</mn><mo>&le;</mo><mi>j</mi><mo>&le;</mo>
+<mi>d</mi><mo>+</mo><mn>1</mn></mrow></math>.
+Hence
+<math display="inline"><mrow><mrow>
+<munderover><mo movablelimits="false">&sum;</mo><mrow><mi class="ss1">j</mi>
+<mo class="ss1">=</mo><mn class="ss1">1</mn></mrow>
+<mrow><mi class="ss1">d</mi><mo class="ss1">+</mo><mn class="ss1">1</mn></mrow>
+</munderover></mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>-</mo><msup>
+<mi>R</mi><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</mfrac><mo>&ge;</mo><mfrac><mrow><mi>d</mi><mo>+</mo><mn>1</mn></mrow>
+<mn>2</mn></mfrac><mo>&gt;</mo><mn>1</mn></mrow></math>.
+This is a contradiction of the result in (2).</p>
+</li>
+<li><p><em>Claim</em>: The Julia set of a rational function
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+of degree
+<math display="inline"><mrow><mi>d</mi><mo>&geq;</mo><mn>2</mn></mrow></math>
+is non-empty.</p>
+
+<p>This result follows from the claim in (5).  If
+<math display="inline"><mi>p</mi></math>
+is a neutral fixel point with
+<math display="inline"><mrow><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>1</mn></mrow></math>,
+then
+<math display="inline"><mi>p</mi></math>
+is not a stable point of
+<math display="inline"><mi>R</mi></math>.  Thus
+<math display="inline"><mrow><mi>p</mi><mo>&isin;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub></mrow></math>.
+If
+<math display="inline"><mi>R</mi></math>
+does not have any neutral fixel point
+<math display="inline"><mi>p</mi></math>
+with
+<math display="inline"><mrow><msup><mi>R</mi>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>p</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>1</mn></mrow></math>,
+then it follow from the claim in (5) that 
+<math display="inline"><mi>R</mi></math>
+has at least one repelling fixed point
+<math display="inline"><mi>p</mi></math>.
+Thus
+<math display="inline"><mrow><mi>p</mi><mo>&isin;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub></mrow></math>
+according to
+<script language="javascript">refNumbers("propV");</script>.
+</li>
+</ol>
+</div>
+<button onclick="moreORless('proof17A','proof17B','proof17C','en')" class="mORl" id="proof17C">Read more</button>
+</div>
+
+<!--
+<p><em>HERE More stuff on neutral fixed point with a root of unity
+    nmultiplier.</em></p>
+-->
+
+<p>Even when
+<math display="inline"><mi>&lambda;</mi></math>
 is a not root of unity but
 <math display="inline"><mrow><mi>|</mi><mi>&lambda;</mi>
 <mi>|</mi><mo>=</mo><mn>1</mn></mrow></math>,
@@ -2985,8 +4280,9 @@ The measure of the set of
 that satisfy the previous condition is equal to the measure of the
 unit circle.</p>
 
-<p>It follows from the previous proposition that the <em>set
-of repelling periodic points</em>
+<p>It follows from the
+<script language="javascript">refNumbers("propV");</script> that the
+<em>set of repelling periodic points</em>
 <math display="inline"><msub><mi>&#x211B</mi><mi>R</mi></msub></math>
 of a rational function
 <math display="inline"><mrow><mi>R</mi>
@@ -2999,19 +4295,21 @@ Since
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
 is closed, we have that
 <math display="inline"><mrow><mover><msub><mi>&#x211B;</mi><mi>R</mi>
-</msub><mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover>
+</msub><mo strectchy="true">&macr;</mo></mover>
 <mo>&subset;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
 In fact, we have a stronger result.</p>
 
-<div class="Theo" id="theoVI">
-<p><em>Theorem &#8549;</em>: If
+<script language="javascript">
+divNumbers("Theorem","theoVI","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 is a rational function, then
 <math display="inline"><mrow><mover><msub><mi>&#x211B;</mi><mi>R</mi>
-</msub><mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover>
+</msub><mo strectchy="true">&macr;</mo></mover>
 <mo>=</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
 </p>
 </div>
@@ -3023,8 +4321,10 @@ buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid2", "_top");
 </script>.  We first need to introduce a definition and several
 preliminary results..</p>
 
-<div class="Theo">
-<p><em>Definition</em>: The <em>basin of attraction</em> of a
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">The <em>basin of attraction</em> of a
 super-attracting or attracting fixed point
 <math display="inline"><mi>z</mi></math>
 of a rational function
@@ -3111,10 +4411,7 @@ is the set
 </div>
 
 <p>The basin of attraction is an open set.  It follows from
-<script language="javascript">
-  buildLinK("#Montel", "Montel's theorem",
-  "MMathSStat", "MontelID10", "_top");
-</script> that
+<script language="javascript">refNumbers("Montel");</script> that
 <math display="inline"><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
 <mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
@@ -3145,8 +4442,10 @@ and on which
 </mrow></msub></math>
 is normal.</p>
 
-<div class="Theo" id="theoV">
-<p><em>Proposition</em>: If
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -3200,10 +4499,8 @@ is a closed subset of
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
 and is completely invariant under the action of
 <math display="inline"><mi>R</mi></math>.
-It follows from <script language="javascript">
-  buildLinK("#propIV", "Proposition &#8547;",
-  "MMathSStat", "propIVID5", "_top");
-</script> that
+It follows from
+<script language="javascript">refNumbers("propIV");</script> that
 <math display="inline"><mrow><mi>&part;</mi><msup><mi>W</mi>
 <mi class="ss1">s</mi></msup><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
@@ -3281,8 +4578,10 @@ inside
 </div>
 </div>
 
-<div class="Theo" id="propVII">
-<p><em>Proposition &#8550;</em>: If
+<script language="javascript">
+divNumbers("Proposition","propVII","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -3477,10 +4776,8 @@ We now have
 </div>
 
 <p>It follows from
-<script language="javascript">
-  buildLinK("#Montel", "Montel's theorem",
-  "MMathSStat", "MontelID1", "_top");
-</script> that the family of holomorphic functions
+<script language="javascript">refNumbers("Montel");</script>
+that the family of holomorphic functions
 <math display="inline"><mrow><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
 <msup><mi>T</mi><mrow>
@@ -3505,10 +4802,7 @@ is normal because
 for all
 <math display="inline"><mi>j</mi></math>.
 This is a contradiction of
-<script language="javascript">
-  buildLinK("#propV", "Proposition &#8548;",
-  "MMathSStat", "propVID1", "_top");
-</script>
+<script language="javascript">refNumbers("propV");</script>
 because
 <math display="inline"><mi>z</mi></math>
 is a repelling fixed point for
@@ -3529,16 +4823,11 @@ instead of the function
 </p>
 
 <p>We are now in position to sketch the proof of
-<script language="javascript">
-  buildLinK("#theoVI", "Theorem &#8549;",
-  "MMathSStat", "theoVIID1", "_top");
-</script>.</p>
+<script language="javascript">refNumbers("theoVI");</script>.</p>
 
 <p><em>Proof of
-<script language="javascript">
-  buildLinK("#theoVI", "Theorem &#8549;",
-  "MMathSStat", "theoVIID1", "_top");
-</script> (sketch)</em>: Let
+<script language="javascript">refNumbers("theoVI");</script>
+(sketch)</em>: Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -3576,7 +4865,7 @@ elements.</li>
 <li>We have that
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
 <mo>&subset;</mo><mover><msub><mi>&#x1D4AB;</mi><mi class="ss1">R</mi></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover><mrow></math>.
+<mo strectchy="true">&macr;</mo></mover><mrow></math>.
 To proof this result, we prove that
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
 <mo>&setminus;</mo><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
@@ -3588,7 +4877,7 @@ To proof this result, we prove that
 <msub><mi>&#x1D4AC;</mi><mi class="ss1">R</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
 <mover><msub><mi>&#x1D4AB;</mi><mi class="ss1">R</mi></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover></mrow></math>.
+<mo strectchy="true">&macr;</mo></mover></mrow></math>.
 Since
 <math display="inline"><mrow>
 <mrow><mo fence="true" form="prefix" stretchy="false">{</mo><mi>&infin;</mi>
@@ -3602,7 +4891,7 @@ is a finite set and
 is closed and perfect, we get that
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
 <mo>&subset;</mo><mover><msub><mi>&#x1D4AB;</mi><mi class="ss1">R</mi></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover></mrow></math>.
+<mo strectchy="true">&macr;</mo></mover></mrow></math>.
 </li>
 <li>The number of super-attracting and attracting periodic orbits of
 <math display="inline"><mi>R</mi></math>
@@ -3610,10 +4899,8 @@ is at most
 <math display="inline"><mrow><mn>2</mn><mi>d</mi><mo>-</mo><mn>2</mn>
 </mrow></math>.
 This result is a corollary of
-<script language="javascript">
-  buildLinK("#propVII", "Proposition &#8550;",
-  "MMathSStat", "propVIIID9", "_top");
-</script> since there are at must
+<script language="javascript">refNumbers("propVII");</script>
+since there are at must
 <math display="inline"><mrow><mn>2</mn><mi>d</mi><mo>-</mo><mn>2</mn>
 </mrow></math>
 critical points.</li>
@@ -3635,7 +4922,7 @@ of the attracting periodic orbits are
 according to (4), it follows from (2) that
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
 <mo>&subset;</mo><mover><msub><mi>&#x211B</mi><mi class="ss1">R</mi></msub>
-<mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover>
+<mo strectchy="true">&macr;</mo></mover>
 </mrow></math>,
 where
 <math display="inline"><msub><mi>&#x211B</mi><mi>R</mi></msub></math>
@@ -3643,7 +4930,7 @@ is the set of repelling periodic points, because
 <math display="inline"><msub><mi>J</mi><mi>R</mi></msub></math>
 is closed and perfect.  But, we have seen earlier that
 <math display="inline"><mrow><mover><msub><mi>&#x211B</mi><mi class="ss1">R</mi>
-</msub><mo strectchy="true" accent="true">&horbar;&horbar;</mo></mover>
+</msub><mo strectchy="true">&macr;</mo></mover>
 <mo>&subset;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
 </ol>
 <p>This concludes the sketch of the proof.
@@ -3653,8 +4940,10 @@ is closed and perfect.  But, we have seen earlier that
 
 <p>There is an interesting corollary to the previous theorem.</p>
 
-<div class="Theo">
-<p><em>Corollary</em>: Let
+<script language="javascript">
+divNumbers("Corollary","","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -3823,20 +5112,15 @@ is <em>topologically transitive</em> on
 Since
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
 is completely invariant, the second statement of
-<script language="javascript">
-  buildLinK("#propI", "Proposition &#8544;",
-  "MMathSStat", "propIID3", "_top");
-</script>
+<script language="javascript">refNumbers("propI");</script>
 implies that
 <math display="inline"><mi>R</mi></math>
 has <em>sensitive dependence</em> on initial conditions.  Since the
 repelling periodic points are dense in
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
 according to
-<script language="javascript">
-  buildLinK("#theoVI", "Theorem &#8549;",
-  "MMathSStat", "theoVIID2", "_top");
-</script>, we can conclude that the DDS generated by
+<script language="javascript">refNumbers("theoVI");</script>,
+we can conclude that the DDS generated by
 <math display="inline"><mi>R</mi></math>
 is <em>chaotic</em> on
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
@@ -3851,8 +5135,10 @@ consult the <script language="javascript">
 buildLinK("#REF", "references","MMathSStat", "REDid2", "_top");
 </script> at the end of this document for more information.</p>
 
-<div class="Theo">
-<p><em>Definition</em>: Let
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -3896,8 +5182,10 @@ the next proposition supports the possibility that the structure of
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
 could be quite complex.</em>
 
-<div class="Theo" id="propVIII">
-<p><em>Proposition &#8551;</em>: If
+<script language="javascript">
+divNumbers("Proposition","propVIII","");
+</script>
+<p class="Theo">If
 <math display="inline"><mi>z</mi></math>
 is an attracting fixed point of a rational function
 <math display="inline"><mrow><mi>R</mi>
@@ -4026,8 +5314,10 @@ The following theorem describes the orbits in
 </msubsup></math>.
 </p>
 
-<div class="Theo">
-<p><em>Theorem (Sullivan)</em>: Let
+<script language="javascript">
+divNumbers("Theorem","","Sullivan");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -4060,8 +5350,10 @@ equivalence relation on
 </msubsup></math>.
 </p>
 
-<div class="Theo">
-<p><em>Theorem (Shishikura)</em>: Let
+<script language="javascript">
+divNumbers("Theorem","","Shishikura");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -4091,8 +5383,10 @@ periodic orbits in
 </msubsup></math>.
 </p>
 
-<div class="Theo">
-<p><em>Definition</em>: Let
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -4287,8 +5581,10 @@ above, then obviously all the other elements of this
 periodic orbit also belong to this category.  We have the following
 result.</p>
 
-<div class="Theo">
-<p><em>Theorem</em>: If
+<script language="javascript">
+divNumbers("Theorem","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -4322,7 +5618,7 @@ of the form
 <mi>a</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
 <mn class="ss1">2</mn></msup></mrow><mrow><mi>z</mi><msup><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>1</mn><mo>-</mo>
-<mover><mi>a</mi><mo strectchy="true" accent="true">&horbar;</mo>
+<mover><mi>a</mi><mo strectchy="true">&macr;</mo>
 </mover><mi>z</mi><mo fence="true" form="postfix" stretchy="false">)</mo>
 </mrow><mn class="ss1">2</mn></msup></mrow></mfrac></mrow></math>
 for some values of
@@ -4348,8 +5644,10 @@ require the presence of the orbit of a critical point which is not
 eventually periodic.  Moreover, the super-attracting domain contains
 a periodic critical point.</p>
 
-<div class="Theo" id="corIX">
-<p><em>Corollary &#8552;</em>: Let
+<script language="javascript">
+divNumbers("Corollary","corIX","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -4415,8 +5713,10 @@ we get the orbit
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>.
 </p>
 
-<div class="Theo">
-<p><em>Proposition</em>: Let
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -4450,10 +5750,7 @@ by definition of Julia sets.  Thus
 is a closed and completely invariant subset of
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
 It follows from
-<script language="javascript">
-  buildLinK("#propIV", "Proposition &#8547;",
-  "MMathSStat", "propIVID1", "_top");
-</script>
+<script language="javascript">refNumbers("propIV");</script>
 that
 <math display="inline"><mrow><mi>&part;</mi><mi>D</mi><mo>=</mo>
 <msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
@@ -4461,8 +5758,10 @@ that
 </div>
 <button onclick="moreORless('proof12A','proof12B','proof12C','en')" class="mORl" id="proof12C">Read more</button>
 
-<div class="Theo" id="propX">
-<p><em>Proposition &#8553;</em>: Let
+<script language="javascript">
+divNumbers("Proposition","propX","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -4922,14 +6221,13 @@ set in the <script language="javascript">
 
 <p>The next propositions will be useful to draw Julia sets for
 polynomial functions.  A proof similar to the proof of
-<script language="javascript">
-  buildLinK("#propX", "Proposition &#8553;",
-  "MMathSStat", "propXID1", "_top");
-</script>
+<script language="javascript">refNumbers("propX");</script>
 yields the following result.</p>
 
-<div class="Theo" id="propXI">
-<p><em>Proposition &#8554;</em>: Let
+<script language="javascript">
+divNumbers("Proposition","propXI","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>P</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -4983,8 +6281,10 @@ Thus
 </msub><mo>&ne;</mo><mi>&emptyset;</mi></mrow></math>.
 </p>
 
-<div class="Theo">
-<p><em>Proposition</em>: If
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>P</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -5063,7 +6363,7 @@ functions which says that the maximum of
 <mi class="ss1">j</mi></mrow></msup><mi>|</mi></mrow></math>
 on
 <math display="inline"><mover><mi>U</mi>
-<mo strectchy="true" accent="true">&horbar;</mo>
+<mo strectchy="true">&macr;</mo>
 </mover></math>
 is reached on the boundary
 <math display="inline"><mrow><mi>&part;</mi><mi>U</mi><mo>=</mo>
@@ -5108,14 +6408,13 @@ of degree greater than
 </p>
 
 <p>There is a similar result to
-<script language="javascript">
-  buildLinK("#corIX", "Corollary &#8552;",
-  "MMathSStat", "corIXID1", "_top");
-</script>
+<script language="javascript">refNumbers("corIX");</script>
 with a similar proof for polynomial functions.</p>
 
-<div class="Theo" id="propXII">
-<p><em>Proposition &#8555;</em>: Let
+<script language="javascript">
+divNumbers("Proposition","propXII","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>P</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -5139,8 +6438,10 @@ is a critical point, then
 <p>The Julia sets that satisfy the conclusion of the previous
 proposition have a special name.</p>
 
-<div class="Theo">
-<p><em>Definition</em>: Let
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -5190,8 +6491,10 @@ is a dendrite.</p>
 </div>
 </div>
 
-<div class="Theo" id="propXIII">
-<p><em>Proposition &#8553;&#8546;</em>: Let
+<script language="javascript">
+divNumbers("Proposition","propXIII","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>P</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -5262,8 +6565,10 @@ are bounded.</p>
 </script>.
 This concept can be generalized to more symbols.</p>
 
-<div class="Theo">
-<p><em>Definition</em>: Let
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><msub><mi>&Sigma;</mi><mn class="ss1">2</mn>
 </msub><mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
 <mi>s</mi><mo>=</mo><mrow>
@@ -5325,8 +6630,10 @@ on
 <math display="inline"><msub><mi>J</mi><mi class="ss1">P</mi></msub></math>
 can be described by a shift map.</p>
 
-<div class="Theo" id="propXIV">
-<p><em>Proposition &#8553;&#8547;</em>: Let
+<script language="javascript">
+divNumbers("Propostion","propXIV","");
+</script>
+<p class="Theo">Let
 <math display="inline"><mrow><mi>P</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
@@ -5377,10 +6684,8 @@ and
 approximately as
 <math display="inline"><mrow><mi>j</mi><mo>&rarr;</mo><mi>&infin;</mi>
 </mrow></math>.
-It follows from <script language="javascript">
-buildLinK("#propXIII", "Proposition &#8553;&#8546;",
-  "MMathSStat", "propXIIIID7", "_top");
-</script>
+It follows from
+<script language="javascript">refNumbers("propXIII");</script>
 that
 <math display="inline"><msub><mi>J</mi><msub><mi class="ss1">P</mi><mrow>
 <mi class="ss2">i</mi><mi class="ss2">/</mi><mn class="ss2">2</mn>
@@ -5403,24 +6708,16 @@ However,
 as
 <math display="inline"><mrow><mi>j</mi><mo>&rarr;</mo><mi>&infin;</mi>
 </mrow></math>.
-It follows from <script language="javascript">
-  buildLinK("#propVIII", "Proposition &#8551;",
-  "MMathSStat", "propVIIIID2", "_top");
-</script>
+It follows from
+<script language="javascript">refNumbers("propVIII");</script>
 and
-<script language="javascript">
-  buildLinK("#propXIV", "Proposition &#8553;&#8547;",
-  "MMathSStat", "propXIVID1", "_top");
-</script>
+<script language="javascript">refNumbers("propXIV");</script>
 that
 <math display="inline"><msub><mi>J</mi><msub><mi class="ss1">P</mi>
 <mn class="ss2">0.3</mn></msub></msub></math>
 is the union of infinitely many closed connected components.
 Moreover, we get from
-<script language="javascript">
-  buildLinK("#propXIV", "Proposition &#8553;&#8547;",
-  "MMathSStat", "propXIVID2", "_top");
-</script>
+<script language="javascript">refNumbers("propXIV");</script>
 that
 <math display="inline"><msub><mi>J</mi><msub><mi class="ss1">P</mi>
 <mn class="ss2">0.3</mn></msub></msub></math>
@@ -5468,10 +6765,8 @@ is bounded because it <q lang="en">converges</q> to the periodic orbit</p>
 
 <p>of period
 <math display="inline"><mn>3</mn></math>.
-It follows from <script language="javascript">
-  buildLinK("#propXIII", "Proposition &#8553;&#8546;",
-  "MMathSStat", "propXIIIID7", "_top");
-</script> that
+It follows from
+<script language="javascript">refNumbers("propXIII");</script> that
 <math display="inline"><msub><mi>J</mi><msub><mi class="ss1">P</mi>
 <mi class="ss2">c</mi></msub></msub></math>
 is connected.</p>
@@ -5482,18 +6777,9 @@ is connected.</p>
 is a polynomial function of degree
 <math display="inline"><mn>2</mn></math>,
 then we get from
-<script language="javascript">
-  buildLinK("#propVIII", "Proposition &#8551;",
-  "MMathSStat", "propVIIIID2", "_top");
-</script>,
-<script language="javascript">
-  buildLinK("#propXIII", "Proposition &#8553;&#8546;",
-  "MMathSStat", "propXIIIID1", "_top");
-</script> and
-<script language="javascript">
-  buildLinK("#propXIV", "Proposition &#8553;&#8547;",
-  "MMathSStat", "propXIVID1", "_top");
-</script>
+<script language="javascript">refNumbers("propVIII");</script>,
+<script language="javascript">refNumbers("propXIII");</script> and
+<script language="javascript">refNumbers("propXIV");</script>
 that
 <math display="inline"><msub><mi>J</mi><mi class="ss1">P</mi></msub></math>
 is a connected set if the orbit of its finite critical point is
@@ -5523,8 +6809,10 @@ In fact, <script language="javascript">
 have proved a stronger result for polynomial functions using the
 concept of <em>polynomial-like</em> functions.</p>
 
-<div class="Theo" id="propXV">
-<p><em>Proposition &#8553;&#8548;</em>: The total number of
+<script language="javascript">
+divNumbers("Proposition","propXV","");
+</script>
+<p class="Theo">The total number of
 super-attracting, attracting or neutral periodic orbits of a
 polynomial function
 <math display="inline"><mrow><mi>P</mi>
@@ -5551,10 +6839,8 @@ unanswered.</p>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 is based on
-<script language="javascript">
-  buildLinK("#propI", "Proposition &#8544;",
-  "MMathSStat", "propIID5", "_top");
-</script>.  In particular, if we can find a point
+<script language="javascript">refNumbers("propI");</script>.
+In particular, if we can find a point
 <math display="inline"><mrow><mi>w</mi><mo>&in;</mo><msub>
 <mi>J</mi><mi class="ss1">P</mi></msub></mrow></math>,
 then
@@ -5657,8 +6943,10 @@ of
 <math display="inline"><msub><mi>P</mi><mi class="ss1">c</mi></msub></math>.
 </p>
 
-<div class="Theo" id="propXVI">
-<p><em>Proposition &#8553;&#8549;</em>: If
+<script language="javascript">
+divNumbers("Proposition","propXVI","");
+</script>
+<p class="Theo">If
 <math display="inline"><mrow><mi>|</mi><mi>z</mi><mi>|</mi><mo>&gt;</mo>
 <mi>C</mi><mo>=</mo><mi>max</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
@@ -5798,7 +7086,7 @@ that</p>
 <mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mn>1</mn>
 <mo>+</mo><mi>&delta;</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow></math>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
 </div>
 
 <p>It now follows from our assumption that the claim is true for
@@ -5821,7 +7109,8 @@ that</p>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
 <mrow><mi class="ss1">j</mi><mo class="ss1">+</mo>
 <mn class="ss1">1</mn></mrow></msup><mo>&gt;</mo><mi>|</mi>
-<mi>z</mi><mi>|</mi><mo>&gt;</mo><mi>C</mi></mrow></math>
+<mi>z</mi><mi>|</mi><mo>&gt;</mo><mi>C</mi>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
 </div>
 
 <p>This concludes the proof by induction of our initial claim.
