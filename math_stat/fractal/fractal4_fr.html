@@ -1314,13 +1314,14 @@ est
 <math display="inline"><mrow><mi>u</mi><mo>&in;</mo><msub><mi>J</mi>
 <mi class="ss1">R</mi></msub></mrow></math>
 et
-<math display="inline"><mi>V</mi></math>
+<math display="inline"><msub><mi>V</mi><mi class="ss1">u</mi></msub></math>
 est un voisinage ouvert de
 <math display="inline"><mi>u</mi></math>,
 alors il découle du
 <script language="javascript">refNumbers("Montel");</script>
 que l'ensemble
-<math display="inline"><mrow><msubsup><mi>E</mi><mi class="ss1">V</mi>
+<math display="inline"><mrow><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</mi></msub></mrow>
 <mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
 <mi class="ss1">R</mi>
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
@@ -1331,15 +1332,292 @@ que l'ensemble
 </mrow></munder></mrow><msup><mi>R</mi><mrow>
 <mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
 <mi class="ss1">n</mi></mrow></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>V</mi><mi class="ss1">u</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
 contient au plus deux éléments.  Les éléments de
-<math display="inline"><msubsup><mi>E</mi><mi class="ss1">V</mi>
+<math display="inline"><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</mi></msub></mrow>
 <mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
 <mi class="ss1">R</mi>
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
 </msubsup></math>
-sont appelés des <em>points exceptionnels</em>. Soit
+sont appelés des <em>points exceptionnels</em>.  Nous démontrons
+maintenant que
+<math display="inline"><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</mi></msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></math>
+est indépendant de
+<math display="inline"><mrow><mi>u</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub></mrow></math>
+et du voisinage ouvert
+<math display="inline"><msub><mi>V</mi><mi class="ss1">u</mi></msub></math>
+qui a été choisi.  Nous avons premièrement besoin de prouver une
+petit lemme</p>
+
+<script language="javascript">
+divNumbers("Lemme","","");
+</script>
+<p class="Theo">Si
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+est une fonction rationnelle et
+<math display="inline"><mrow><mi>u</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub></mrow></math>,
+alors
+<math display="inline"><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></math>
+est complètement invariant.</p>
+</div>
+
+<p><em>Démonstration</em>: Nous démontrons en premier que
+<math display="inline"><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></math>
+est <em>inverse invariant</em>; c'est-à-dire,
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<msubsup><mi>E</mi><mi class="ss1">u</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></mrow></math>.
+<span id="proof2A">&nbsp;...</span></p>
+<div id="proof2B" class="moreORless">
+
+<p>Soit
+<math display="inline"><mrow>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup>
+<mo>=</mo><msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub>
+<mo>&setminus;</mo><msub><mi>W</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+</msub></mrow></math>
+où
+<math display="inline"><mrow><msub><mi>W</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow></msub>
+<mo>=</mo><mrow><munder><mo movablelimits="false">&cup;</mo>
+<mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
+</mrow></munder></mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<mrow><msub><mi>V</mi><mi class="ss1">u</msub></mrow>  
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+Nous avons que</p>
+
+<div class="EQ_center">
+<math display="inline" style="display:block math;"><mrow><mi>w</mi>
+<mo>&in;</mo><msub><mi>W</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow></msub>
+<mo stretchy="false">&rArr;</mo><mi>w</mi><mo>=</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">m</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>v</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="1ex"></mspace><mtext>pour un</mtext>
+<mspace width="1ex"></mspace><mi>m</mi><mo>&ge;</mo><mn>0</mn>
+<mspace width="1ex"></mspace><mtext>et</mtext><mspace width="1ex"></mspace>
+<mi>v</mi><mo>&in;</mo><msub><mi>V</mi><mi class="ss1">u</msub>
+</mrow></math>
+
+<math display="inline" style="display:block math;"><mrow>
+<mo stretchy="false">&rArr;</mo><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+<mi class="ss1">m</mi><mo class="ss1">+</mo><mn class="ss1">1</mn>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">)</mo></mrow>
+</mrow></msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>v</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="1ex"></mspace><mtext>pour un</mtext>
+<mspace width="1ex"></mspace><mi>m</mi><mo>&ge;</mo><mn>0</mn>
+<mspace width="1ex"></mspace><mtext>et</mtext><mspace width="1ex"></mspace>
+<mi>v</mi><mo>&in;</mo><msub><mi>V</mi><mi class="ss1">u</msub>
+<mo stretchy="false">&rArr;</mo>
+<mi>R</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>w</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&in;</mo><msub><mi>W</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow></msub>
+<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
+</div>
+
+<p>Donc
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&notin;</mo>
+<msub><mi>W</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+</msub><mo stretchy="false">&rArr;</mo>
+<mi>w</mi><mo>&notin;</mo><msub><mi>W</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow></msub>
+</mrow></math>.
+Ainsi
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&in;</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup>
+<mo stretchy="false">&rArr;</mo>
+<mi>w</mi><mo>&in;</mo><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></mrow></math>;
+c'est-à-dire,
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></mrow></math>.</p>
+
+<p>Pour démontrer que
+<math display="inline"><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></math>
+est aussi <em>positivement invariant</em> (c'est-à-dire,
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></mrow></math>),
+nous utilisons le fait que
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+est un sous-ensemble fini de l'ensemble fini
+<math display="inline"><mrow><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></mrow></math>,
+et
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+est envoyé sur
+<math display="inline"><mrow><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></mrow></math>.
+Donc, ils doivent avoir le même nombre fini d'éléments.  Ainsi
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></mrow></math>
+et
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></mrow></math>.
+<span class="Proof_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof2A','proof2B','proof2C','fr')" class="mORl" id="proof2C">Pour en savoir plus</button>
+
+<!--
+Soit
 <math display="inline"><mi>&#x1D4B1;</mi></math>
 la collection des voisinages ouverts de
 <math display="inline"><mi>u</mi></math>
@@ -1363,10 +1641,11 @@ L'ensemble
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
 </msubsup></math>
 contient aussi au plus deux éléments (la démonstration est laissée au
-lecteur).</p>
+lecteur).
+-->
 
 <script language="javascript">
-divNumbers("Proposition","","");
+divNumbers("Proposition","propSEP","");
 </script>
 <p class="Theo">Si
 <math display="inline"><mrow><mi>R</mi>
@@ -1377,285 +1656,47 @@ est une fonction rationnelle et
 <math display="inline"><mrow><mi>u</mi><mo>&in;</mo><msub><mi>J</mi>
 <mi class="ss1">R</mi></msub></mrow></math>,
 alors
-<math display="inline"><msubsup><mi>E</mi><mi class="ss1">u</mi>
+<math display="inline"><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
 <mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
 <mi class="ss1">R</mi>
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
 </msubsup></math>
-est complètement invariant.</p>
-</div>
-
-<p><em>Démonstration</em>: Nous démontrons en premier que
-<math display="inline"><msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></math>
-est <em>inverse invariant</em>; c'est-à-dire,
-<math display="inline"><mrow><msup><mi>R</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mn class="ss1">1</mn></mrow></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></mrow></math>.
-<span id="proof2A">&nbsp;...</span></p>
-<div id="proof2B" class="moreORless">
-
-Soit
-<math display="inline"><mi>V</mi></math>
-un voisinage ouvert de
-<math display="inline"><mi>u</mi></math>
-et
-<math display="inline"><mrow>
-<msubsup><mi>E</mi><mi class="ss1">V</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo>=</mo><msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub>
-<mo>&setminus;</mo><msub><mi>W</mi><mi class="ss1">V</mi></msub></mrow></math>
-où
-<math display="inline"><mrow><msub><mi>W</mi><mi class="ss1">V</mi></msub>
-<mo>=</mo><mrow><munder><mo movablelimits="false">&cup;</mo>
-<mrow><mi class="ss1">n</mi><mo class="ss1">&gt;</mo><mn class="ss1">0</mn>
-</mrow></munder></mrow><msup><mi>R</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
-<mi class="ss1">n</mi></mrow></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
-Nous avons que</p>
-
-<div class="EQ_center">
-<math display="inline" style="display:block math;"><mrow><mi>w</mi>
-<mo>&in;</mo><msub><mi>W</mi><mi class="ss1">V</mi></msub>
-<mo stretchy="false">&rArr;</mo><mi>w</mi><mo>=</mo><msup><mi>R</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
-<mi class="ss1">m</mi></mrow></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>v</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-<mspace width="1ex"></mspace><mtext>for some</mtext>
-<mspace width="1ex"></mspace><mi>m</mi><mo>&gt;</mo><mn>0</mn>
-<mspace width="1ex"></mspace><mtext>and</mtext><mspace width="1ex"></mspace>
-<mi>v</mi><mo>&in;</mo><mi>V</mi></mrow></math>
-
-<math display="inline" style="display:block math;"><mrow>
-<mo stretchy="false">&rArr;</mo><mi>R</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<msup><mi>R</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
-<mi class="ss1">m</mi><mo class="ss1">+</mo><mn class="ss1">1</mn>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">)</mo></mrow>
-</mrow></msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
-<mi>v</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-<mspace width="1ex"></mspace><mtext>for some</mtext>
-<mspace width="1ex"></mspace><mi>m</mi><mo>&gt;</mo><mn>0</mn>
-<mspace width="1ex"></mspace><mtext>and</mtext><mspace width="1ex"></mspace>
-<mi>v</mi><mo>&in;</mo><mi>V</mi><mo stretchy="false">&rArr;</mo>
-<mi>R</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
-<mi>w</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-<mo>&in;</mo><msub><mi>W</mi><mi class="ss1">v</mi></msub>
-<mspace width="1ex"></mspace><mtext>.</mtext></mrow></math>
-</div>
-
-<p>Donc
-<math display="inline"><mrow><mi>R</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&notin;</mo>
-<msub><mi>W</mi><mi class="ss1">V</mi></msub><mo stretchy="false">&rArr;</mo>
-<mi>w</mi><mo>&notin;</mo><msub><mi>W</mi><mi class="ss1">V</mi></msub>
-</mrow></math>.
-Ainsi,
-<math display="inline"><mrow><mi>R</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&in;</mo>
-<msubsup><mi>E</mi><mi class="ss1">V</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo stretchy="false">&rArr;</mo>
-<mi>w</mi><mo>&in;</mo><msubsup><mi>E</mi><mi class="ss1">V</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></mrow></math>;
-c'est-à-dire,
-<math display="inline"><mrow><msup><mi>R</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mn class="ss1">1</mn></mrow></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo>
-<msubsup><mi>E</mi><mi class="ss1">V</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
-<msubsup><mi>E</mi><mi class="ss1">V</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></mrow></math>.
-Puisque cela est vrai pour tout voisinage ouvert
-<math display="inline"><mi>V</mi></math>
-de
-<math display="inline"><mi>u</mi></math>,
-nous avons que
-<math display="inline"><mrow><msup><mi>R</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mn class="ss1">1</mn></mrow></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></mrow></math>.
-Pour démontrer que
+est indépendant de
+<math display="inline"><mrow><mi>u</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub></mrow></math>
+et du voisinage ouvert
+<math display="inline"><msub><mi>V</mi><mi class="ss1">u</mi></msub></math>
+qui a été choisi.  Donc, nous pouvons définir
+l'<em>ensemble des points exceptionnels</em>
+<math display="inline"><msub><mi>&#x2130;</mi><mi class="ss1">R</mi>
+</msub></math>
+associé à la fonction rationnelle
 <math display="inline"><mi>R</mi></math>
-est aussi <em>positivement invariant</em> (c'est-à-dire,
-<math display="inline"><mrow><mi>R</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
+comme étant
+<math display="inline"><mrow><msub><mi>&#x2130;</mi><mi class="ss1">R</mi>
+</msub><mo>=</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
 <mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
 <mi class="ss1">R</mi>
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></mrow></math>),
-Nous utilisons le fait que
-<math display="inline"><mrow><msup><mi>R</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mn class="ss1">1</mn></mrow></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow></math>
-est un sous-ensemble de l'ensemble fini
-<math display="inline"><mrow><msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></mrow></math>,
-et
-<math display="inline"><mrow><msup><mi>R</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mn class="ss1">1</mn></mrow></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-</mrow></math>
-est envoyé sur
-<math display="inline"><mrow><msubsup><mi>E</mi><mi class="ss1">V</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></mrow></math>.
-Donc, ils doivent avoir le même nombre d'éléments.  Ainsi
-<math display="inline"><mrow><msup><mi>R</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mn class="ss1">1</mn></mrow></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></mrow></math>
-et
-<math display="inline"><mrow><mi>R</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></mrow></math>.
-<span class="Proof_Right">&#8718;</span></p>
+</msubsup></mrow></math>.</p>
 </div>
-<button onclick="moreORless('proof2A','proof2B','proof2C','fr')" class="mORl" id="proof2C">Pour en savoir plus</button>
 
-<ol style="list-style-type: decimal;">
-<li><p>Si
-<math display="inline"><mrow>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
-<mi>&infin;</mi><mo fence="true" form="postfix" stretchy="false">}</mo>
-</mrow></mrow></math>,
-alors
-<math display="inline"><mi>R</mi></math>
-est une fonction polynomiale.  Si
-<math display="inline"><mrow>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
+<p><em>Démonstration</em>:  Il y a deux cas à considérer:
+<math display="inline"><mrow><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
 <mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
 <mi class="ss1">R</mi>
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
 </msubsup>
 <mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
 <mi>w</mi><mo fence="true" form="postfix" stretchy="false">}</mo>
-</mrow><mo>&subset;</mo><mi>&complexes;</mi></mrow></math>,
-alors
-<math display="inline"><mi>R</mi></math>
-est conformément conjuguée à une fonction polynomiale.  Plus précisément, si
-<math display="inline"><mrow><mi>H</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<mfrac><mn>1</mn><mrow><mi>z</mi><mo>-</mo><mi>w</mi></mrow></mfrac>
-</mrow></math>,
-alors
-<math display="inline"><mrow><mi>T</mi><mo>=</mo><mi>H</mi><mo>&compfn;</mo>
-<mi>R</mi><mo>&compfn;</mo><msup><mi>H</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mn class="ss1">1</mn></mrow></msup></mrow></math>
-est une fonction polynomiale car
-<math display="inline"><mi>&infin;</mi></math>
-est maintenant un point exceptionnel de
-<math display="inline"><mi>T</mi></math>.
-</p></li>
-<li><p>Si
-<math display="inline"><mrow>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
+</mrow></mrow></math>
+et
+<math display="inline"><mrow><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
 <mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
 <mi class="ss1">R</mi>
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
@@ -1663,30 +1704,157 @@ est maintenant un point exceptionnel de
 <mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
 <mi>v</mi><mo separator="true">,</mo><mi>w</mi>
 <mo fence="true" form="postfix" stretchy="false">}</mo>
-</mrow><mo>&subset;</mo><mi>&complexes;</mi></mrow></math>
-et
+</mrow></mrow></math>
+avec
+<math display="inline"><mrow><mi>v</mi><mo>&ne;</mo><mi>w</mi></mrow></math>.
+<span id="proof20A">&nbsp;...</span></p>
+<div id="proof20B" class="moreORless">
+
+<ol style="list-style-type: decimal;">
+<li>Si
+<math display="inline"><mrow><mi>w</mi><mo>=</mo><mi>&infin;</mi></mrow>
+</math>,
+nous posons
+<math display="inline"><mrow><mi>H</mi><mo>=</mo><mtext>Id</mtext>
+</mrow></math>.
+Si
+<math display="inline"><mrow><mi>w</mi><mo>&ne;</mo><mi>&infin;</mi>
+</mrow></math>,
+nous posons
 <math display="inline"><mrow><mi>H</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<mfrac><mrow><mi>z</mi><mo>-</mo><mi>v</mi></mrow><mrow><mi>z</mi>
-<mo>-</mo><mi>w</mi></mrow></mfrac></mrow></math>,
-alors
-<math display="inline"><mrow><mi>G</mi><mo>=</mo><mi>H</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
+<mfrac><mn>1</mn><mrow><mi>z</mi><mo>-</mo><mi>w</mi></mrow></mfrac>
+</mrow></math>.
+Si nous définissons
+<math display="inline"><mrow><mi>T</mi><mo>=</mo><mi>H</mi><mo>&compfn;</mo>
+<mi>R</mi><mo>&compfn;</mo><msup><mi>H</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup></mrow></math>,
+<math display="inline"><mrow><mi>x</mi><mo>=</mo><mi>H</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>u</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+et
+<math display=""><mrow><msub><mi>W</mi><mi class="ss1">x</mi></msub><mo>=</mo>
+<mi>H</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>V</mi><mi class="ss1">u</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>,
+alors nous obtenons que
+<math display="inline"><mrow><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">W</mi><mi class="ss2">x</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">T</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup><mo>=</mo><mi>H</mi>
+<mrow><mo fence="true" form="prefix" stretchy="true">(</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
 <mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
 <mi class="ss1">R</mi>
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
 </msubsup>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<mrow><mo fence="true" form="prefix" stretchy="false">{</mo><mn>0</mn>
-<mo separator="true">,</mo><mi>&infin;</mi>
-<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
+<mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<mi>&infin;</mi><mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow></mrow></math>.
+Puisque
+<math display="inline"><mrow><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">W</mi><mi class="ss2">x</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">T</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></mrow></math>
 est complètement invariant sous l'action de
+<math display="inline"><mi>T</mi></math>,
+nous avons que
+<math display="inline"><mrow><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&infin;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>&infin;</mi></mrow></math>.
+Ainsi
+<math display="inline"><mi>T</mi></math>
+est un polynôme.
+</li>
+<li>Si
+<math display="inline"><mrow><mi>v</mi><mo>=</mo><mn>0</mn></mrow></math>
+et
+<math display="inline"><mrow><mi>v</mi><mo>=</mo><mn>&infin;</mn>
+</mrow></math>,
+nous posons
+<math display="inline"><mrow><mi>H</mi><mo>=</mo><mtext>Id</mtext>
+</mrow></math>.
+Si
+<math display="inline"><mrow><mi>v</mi><mo separator="true">,</mo>
+<mi>w</mi><mo>&in;</mo><mi>&complexes;</mi></mrow></math>,
+nous posons
+<math display="inline"><mrow><mi>H</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mfrac><mrow><mi>z</mi><mo>-</mo><mi>v</mi></mrow><mrow><mi>z</mi>
+<mo>-</mo><mi>w</mi></mrow></mfrac></mrow></math>.
+Si
+<math display="inline"><mrow><mi>v</mi><mo>&in;</mo>
+<mi>&complexes;</mi></mrow></math>
+et
+<math display="inline"><mrow><mi>w</mi><mo>=</mo><mi>&infin;</mi></mrow>
+</math>,
+nous posons
+<math display="inline"><mrow><mi>H</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>z</mi><mo>-</mo><mi>v</mi></mrow></math>.
+Finalement, si
+<math display="inline"><mrow><mi>v</mi><mo>=</mo><mi>0</mi></mrow></math>
+et
+<math display="inline"><mrow><mi>w</mi><mo>&in;</mo>
+<mi>&complexes;</mi></mrow></math>,
+nous posons
+<math display="inline"><mrow><mi>H</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mfrac><mrow><mi>w</mi><mo>-</mo><mi>z</mi></mrow><mi>z</mi></mfrac>
+</mrow></math>.
+Si nous définissons
 <math display="inline"><mrow><mi>T</mi><mo>=</mo><mi>H</mi><mo>&compfn;</mo>
 <mi>R</mi><mo>&compfn;</mo><msup><mi>H</mi><mrow>
 <mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mn class="ss1">1</mn></mrow></msup></mrow></math>.
+<mn class="ss1">1</mn></mrow></msup></mrow></math>,
+<math display="inline"><mrow><mi>x</mi><mo>=</mo><mi>H</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>u</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+et
+<math display=""><mrow><msub><mi>W</mi><mi class="ss1">x</mi></msub><mo>=</mo>
+<mi>H</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>V</mi><mi class="ss1">u</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>,
+alors nous obtenons que
+<math display="inline"><mrow><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">W</mi><mi class="ss2">x</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">T</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup><mo>=</mo><mi>H</mi>
+<mrow><mo fence="true" form="prefix" stretchy="true">(</mo>
+<msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">R</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup>
+<mo fence="true" form="postfix" stretchy="true">)</mo></mrow>
+<mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<mn>0</mn><mo separator="true">,</mo>
+<mi>&infin;</mi><mo fence="true" form="postfix" stretchy="false">}</mo>
+</mrow></mrow></math>.
+Puisque
+<math display="inline"><mrow><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">W</mi><mi class="ss2">x</msub></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">T</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></mrow></math>
+est complètement invariant sous l'action de
+<math display="inline"><mi>T</mi></math>,
 Nous avons que
 <math display="inline"><mrow><mi>T</mi><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
@@ -1715,14 +1883,14 @@ Dans le premier cas,
 où
 <math display="inline"><mi>d</mi></math>
 est le degré de la fonction rationnelle
-<math display="inline"><mi>R</mi></math>
-(et
-<math display="inline"><mi>T</mi></math>)
-car la seule préimgae de
+<math display="inline"><mi>T</mi></math>
+(est aussi de
+<math display="inline"><mi>R</mi></math>)
+car le seul préimage de
 <math display="inline"><mn>0</mn></math>
 est
 <math display="inline"><mn>0</mn></math>
-avec une multiplicité de 
+de multiplicité
 <math display="inline"><mi>d</mi></math>.
 Dans le deuxième cas,
 <math display="inline"><mrow><mi>T</mi><mrow>
@@ -1735,177 +1903,44 @@ car le seul préimage de
 <math display="inline"><mi>&infin;</mi></math>
 est
 <math display="inline"><mn>0</mn></math>
-avec une multiplicité de
+de multiplicité
 <math display="inline"><mi>d</mi></math>.
-En conclusion,
-<math display="inline"><mi>R</mi></math>
-est conformément conjuguée à
-<math display="inline"><mi>T</mi></math>
-définie par
-<math display="inline"><mrow><mi>T</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<msup><mi>z</mi><mi class="ss1">d</mi></msup></mrow></math>
-ou
-<math display="inline"><mrow><mi>T</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<msup><mi>z</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mi class="ss1">d</mi></mrow></msup></mrow></math>.
-Si
-<math display="inline"><mrow>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
-<mi>v</mi><mo separator="true">,</mo><mi>&infin;</mi>
-<mo fence="true" form="postfix" stretchy="false">}</mo>
-</mrow></mrow></math>
-et
-<math display="inline"><mrow><mi>H</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<mi>z</mi><mo>-</mo><mi>v</mi></mrow></math>,
-alors
-<math display="inline"><mrow><mi>G</mi><mo>=</mo><mi>H</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<mrow><mo fence="true" form="prefix" stretchy="false">{</mo><mn>0</mn>
-<mo separator="true">,</mo><mi>&infin;</mi>
-<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
-est complètement invariant sous l'action de
-<math display="inline"><mrow><mi>T</mi><mo>=</mo><mi>H</mi><mo>&compfn;</mo>
-<mi>R</mi><mo>&compfn;</mo><msup><mi>H</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mn class="ss1">1</mn></mrow></msup></mrow></math>.
-Nous pouvons alors utiliser le raisonnement précédent.</p></li>
+</li>
 </ol>
 
-<p>Dans le cas (1) ci-dessus,
-<math display="inline"><mrow><mi>&infin;</mi><mo>&notin;</mo><msub><mi>J</mi>
-<mi class="ss1">T</mi></msub></mrow></math>
-car
-<math display="inline"><mi>&infin;</mi></math>
-est un point stable de
+<p>Pour le polynôme
 <math display="inline"><mi>T</mi></math>
-puisque c'est un point attractif.  De même.
-<math display="inline"><mrow><mn>0</mn><mo separator="true">,</mo>
-<mi>&infin;</mi><mo>&notin;</mo><msub><mi>J</mi>
-<mi class="ss1">T</mi></msub></mrow></math>
-car
-<math display="inline"><mrow><mn>0</mn><mo separator="true">,</mo>
-<mi>&infin;</mi></mrow></math>
-sont des points stables de
-<math display="inline"><mi>T</mi></math>
-puisque
-<math display="inline"><mrow><mn>0</mn><mo separator="true">,</mo>
-<mi>&infin;</mi></mrow></math>
-sont des points attractifs pour
-<math display="inline"><mrow><mi>T</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<msup><mi>z</mi><mi class="ss1">d</mi></msup></mrow></math>
-et
-<math display="inline"></mrow>
-<mo fence="true" form="prefix" stretchy="false">{</mo>
-<mn>0</mn><mo separator="true">,</mo><mi>&infin;</mi>
-<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></math>
-est une orbite attractive périodique de période
-<math display="inline"><mn>2</mn></math>
-pour
-<math display="inline"><mrow><mi>T</mi><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
-<msup><mi>z</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
-<mi class="ss1">d</mi></mrow></msup></mrow></math>.
-Si nous choisissons
-<math display="inline"><mrow><mi>V</mi><mo>=</mo><mi>&complexes;</mi>
-</mrow></math>
-en (1) et
-<math display="inline"><mrow><mi>V</mi><mo>=</mo><mi>&complexes;</mi>
-<mo>&setminus;</mo><mrow>
-<mo fence="true" form="prefix" stretchy="false">{</mo><mn>0</mn>
-<mo separator="true">,</mo><mi>&infin;</mi>
-<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
-en (2) ci-dessus, nous avons que
-<math display="inline"><mrow>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">T</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup>
-<mo>=</mo><msubsup><mi>E</mi><mi class="ss1">V</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">T</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></mrow></math>
-pour tout
-<math display="inline"><mrow><mi>u</mi><mo>&in;</mo><msub><mi>J</mi>
-<mi class="ss1">T</mi></msub></mrow></math>,
-Donc
-<math display="inline">
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
+obtenu en (1) et (2), nous avons que
+<math display="inline"><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">W</mi><mi class="ss2">x</msub></mrow>
 <mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
 <mi class="ss1">T</mi>
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
 </msubsup></math>
 est indépendant de
-<math display="inline"><mrow><mi>u</mi><mo>&in;</mo><msub><mi>J</mi>
-<mi class="ss1">T</mi></msub></mrow></math>.
-Nous obtenons à partir de la conjugaison conforme entre
-<math display="inline"><mi>R</mi></math>
-et
-<math display="inline"><mi>T</mi></math>
-que
-<math display="inline">
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
+<math display="inline"><mrow><mi>x</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">T</mi></msub></mrow></math>
+et du voisinage ouvert
+<math display="inline"><msub><mi>W</mi><mi class="ss1">x</mi></msub></math>
+de
+<math display="inline"><mi>x</mi></math>
+qui a été choisi.  Il découle de la conjugaison conforme que
+<math display="inline"><msubsup><mi>E</mi>
+<mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
 <mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
 <mi class="ss1">R</mi>
 <mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
 </msubsup></math>
-est indépendant de
+est aussi indépendant de
 <math display="inline"><mrow><mi>u</mi><mo>&in;</mo><msub><mi>J</mi>
-<mi class="ss1">R</mi></msub></mrow></math>.
-Nous obtenons aussi que
-<math display="inline"><mrow>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup><mo>&cap;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub>
-<mo>=</mo><mi>&emptyset;</mi></mrow></math>.
-Nous pouvons donc définir l'<em>ensemble des points exceptionnels</em>
-<math display="inline"><msub><mi>&#x2130;</mi><mi class="ss1">R</mi>
-</msub></math>
-associé à la fonction rationnelle
-<math display="inline"><mi>R</mi></math>
-comme étant
-<math display="inline"><mrow><msub><mi>&#x2130;</mi><mi class="ss1">R</mi>
-</msub><mo>=</mo>
-<msubsup><mi>E</mi><mi class="ss1">u</mi>
-<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
-<mi class="ss1">R</mi>
-<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
-</msubsup></mrow></math>
-pour tout
-<math display="inline"><mrow><mi>u</mi><mo>&in;</mo><msub><mi>J</mi>
-<mi class="ss1">R</mi></msub></mrow></math>.
-Nous verrons prochainement que les points exceptionnels sont soit
-<q lang="fr">des points fixes super-attractifs</q> ou
-<q lang="fr">des orbites périodiques super-attractives</q>.
-Rappelons que nous considérons seulement les
-fonctions rationnelles de degré plus grand ou égale à
-<math display="inline"><mn>2</mn></math>.
+<mi class="ss1">R</mi></msub></mrow></math>
+et du voisinage ouvert
+<math display="inline"><msub><mi>V</mi><mi class="ss1">u</mi></msub></math>
+de
+<math display="inline"><mi>u</mi></math>.
 </p>
+</div>
+<button onclick="moreORless('proof20A','proof20B','proof20C','en')" class="mORl" id="proof20C">Pour en savoir plus</button>
 
 <p>Le comportement de
 <math display="inline"><mi>R</mi></math>
@@ -3037,6 +3072,82 @@ au lieu de
 où
 <math display="inline"><mi>k</mi></math>
 est la période du point périodique.</p>
+
+<script language="javascript">
+divNumbers("Proposition","","");
+</script>
+<p class="Theo">Si
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+est une fonction rationnelle, alors l'ensemble des points exceptionnels
+<math display="inline"><msub><mi>&#x2130;</mi><mi class="ss1">R</mi>
+</msub></math>
+est un sous-ensemble de l'ensemble de Fatou
+<math display="inline"><msub><mi>S</mi><mi class="ss1">R</mi>
+</msub></math>.</p>
+</div>
+
+<p><em>Démonstration</em>: Dans le cas (1) de la démonstration de la
+<script language="javascript">refNumbers("propSEP");</script>,
+nous avons que
+<math display="inline"><mi>&infin;</mi></math>
+est un point stable de
+<math display="inline"><mi>T</mi></math>
+car c'est un point fixe attractif.
+<span id="proof21A">&nbsp;...</span></p>
+<div id="proof21B" class="moreORless">
+
+<p>Dans le cas (2) de la démonstration de la
+<script language="javascript">refNumbers("propSEP");</script>,
+si
+<math display="inline"><mrow><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>0</mn></mrow></math>
+et
+<math display="inline"><mrow><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&infin;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>&infin;</mi></mrow></math>,
+alors
+<math display="inline"><mn>0</mn></math>
+et
+<math display="inline"><mi>&infin;</mi></math>
+sont des points fixes super-attractifs.  Donc, ce sont des points
+stables de
+<math display="inline"><mi>T</mi></math>.
+Si
+<math display="inline"><mrow><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>&infin;</mi></mrow></math>
+et
+<math display="inline"><mrow><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&infin;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mn>0</mn></mrow></math>,
+alors
+<math display="inline"></mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<mn>0</mn><mo separator="true">,</mo><mi>&infin;</mi>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></math>
+est une orbite périodique super-attractif de période
+<math display="inline"><mn>2</mn></math>
+pour
+<math display="inline"><mi>T</mi></math>.
+Donc, ce sont des points stables de
+<math display="inline"><mi>T</mi></math>.
+</p>
+
+<p>Il découle de la conjugaison conforme que le même résultat est 
+est valide pour les éléments de
+<math display="inline"><msub><mi>&#x2130;</mi><mi class="ss1">R</mi>
+</msub></math>.
+</p>
+</div>
+<button onclick="moreORless('proof21A','proof21B','proof21C','fr')" class="mORl" id="proof21C">Pour en savoir plus</button>
 
 <p>Il n'y a pas de résultats claires associés aux points fixes neutres
 d'une fonction rationnelle
@@ -7339,6 +7450,8 @@ Séminaire Bourbaki, 35<sup>e</sup> année, <em>599</em>, Astérisque
 <em>Chaos and Fractals: The Mathematics Behind the Computer Graphics</em>,
 R. L. Devaney and L. Keen, Editors, Proceeding of symposia in applied
 mathematics, AMS short course lecture notes (1989), 57-74.</li>
+<li id="LTM">L. T. Magalhães, <em>Complex Analysis and Dynamics in One
+Variable with Applications</em>, Springer-Verlag (2025).</li>
 <li id="PJS">H.-O. Peitgen, H. j&#252;rgens and D. Saupe, <em>Chaos
 and Fractals: New Frontiers of Science</em>, Springer-Verlag (1992).</li>
 </ul>
