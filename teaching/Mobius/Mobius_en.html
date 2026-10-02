@@ -117,12 +117,20 @@ document.write("Include javascript file has failed")
     account. </p>
   -->
   <li> <script language="javascript"> 
-      buildLinK("#Quest3", "What should I do if I always get the Möbius login page when I click on a link for an assignment in BrightSpace?",
+      buildLinK("#Quest3", "What should I do if I always get the Möbius login page when I click on a link to an assignment?",
       "MMathSStat", "idQuest3", "_top");
   </script> </li>
   <li> <script language="javascript"> 
-      buildLinK("#Quest3a", "Are my operating system and browser supported by Möbius?  How to Troubleshoot my browser issues.",
-      "MMathSStat", "idQuest3a", "_top");
+      buildLinK("#Quest18", "Are my operating system and browser supported by Möbius?",
+      "MMathSStat", "idQuest18", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Quest6", "What should I do when I get a message telling me that I do not have the authorisation to start an assignment despite the fact it is still available?",
+      "MMathSStat", "idQuest6", "_top");
+  </script> </li>
+  <li> <script language="javascript"> 
+      buildLinK("#Quest20", "What can I do when an assignment or a question refuses to load?",
+      "MMathSStat", "idQuest20", "_top");
   </script> </li>
   <li> <script language="javascript"> 
       buildLinK("#Quest4", "What should I do if all the instructions in Möbius are in a language other than English (the language that I want)?",
@@ -131,10 +139,6 @@ document.write("Include javascript file has failed")
   <li> <script language="javascript"> 
       buildLinK("#Quest5", "What should I do when my grades are not recorded on BrightSpace?",
       "MMathSStat", "idQuest5", "_top");
-  </script> </li>
-  <li> <script language="javascript"> 
-      buildLinK("#Quest6", "What do I do when I get an authorization error or other similar errors?",
-      "MMathSStat", "idQuest6", "_top");
   </script> </li>
   <li><script language="javascript"> 
       buildLinK("#Quest7", "Where can I find the due date and instructions for an assignment on Möbius?",
@@ -208,13 +212,14 @@ when I try to buy the license using PayPal? </h3>
   tell your instructor to modify the link so that the assignment open
   in a new tab. </p>
 
-<p> If you still get error an message or are timed out when trying to pay
+<p> If you still get an error message or are timed out when trying to pay
   your license, you must: </p>
 <ul>
   <li> Make sure that your browser is well supported.  Read the answer to
     <script language="javascript"> 
-      buildLinK("#Quest3a", "Are my operating system and browser supported by Möbius?  How to Troubleshoot my browser issues.",
-      "MMathSStat", "idQuest3a", "_top");
+      buildLinK("#Quest18",
+      "Are my operating system and browser supported by Möbius?",
+      "MMathSStat", "idQuest18", "_top");
     </script>. </li>
   <li> Make sure that your browser accepts third party cookies.  For
     more information on this subject and on other issues that may cause
@@ -248,26 +253,35 @@ when I try to buy the license using PayPal? </h3>
 <hr class="MMathSStat">
 
 <h3 id="Quest3">What should I do if I always get the Möbius login page
-when I click on a link for an assignment in BrightSpace? </h3>
+when I click on a link to an assignment? </h3>
 
+<p>You should first verify that the following conditions are
+satisfied. </p>
+  
 <ul>
-  <li> You must verify that the links to Möbius assignments in
-    BrightSpace open in new tabs of your browser when you click on 
-    them.  If they do not, ask your instructors to make it so. </li>
-  <li> Your browser must allow third party cookies as explained in the
-    question
+  <li> Your browser must be supported by Möbius.  Read the answer to
     <script language="javascript"> 
-      buildLinK("#Quest2", "What should I do if I always get an error message when I try to buy the license using PayPal?",
-      "MMathSStat", "Q2b", "_top");
-    </script>.</li>
-  <li> Some browsers do not respect the industrial standards.  Read
-  the answer to <script language="javascript"> 
-      buildLinK("#Quest3a", "Are my operating system and browser supported by Möbius?  How to Troubleshoot my browser issues.",
-      "MMathSStat", "idQuest3a", "_top");
+      buildLinK("#Quest18",
+      "Are my operating system and browser supported by Möbius?",
+      "MMathSStat", "idQuest18", "_top");
     </script>. </li>
+  <li> When you click on the link to a Möbius assignment in
+    BrightSpace, the content must appear in new tabs in your browser.
+    If they do not, ask your instructors to make it so. </li>
+  <li> Your browser must allow third party cookies.  For more
+    information on this subject and on other issues that may cause
+    problems, consult the website
+    <script language="javascript"> 
+      buildLinK("https://www.digitaled.com/support/help/student/Content/STUD-GEN-FUNCTIONS/Access-using-LMS.htm",
+      "Access using an LMS", "MMathSStat", "accessLMS", "_blank");
+    </script>.</li>
+  <li> Your browser must accept popups. </li>
   <li> You must clear old cookies from Möbius and DigitalEd before
     trying again to access Möbius assignments through the links in
-    BrightSpace. </li>
+    BrightSpace.<br>
+    <em>Warning</em>: Depending on the preferences that you have selected
+    for your browser, closing and reopening your browser may or may
+    not remove the old cookies.</li>
 </ul>
 
 <p>If you still have the same problem after having done all that, then you
@@ -281,8 +295,8 @@ when I click on a link for an assignment in BrightSpace? </h3>
 
 <hr class="MMathSStat">
 
-<h3 id="Quest3a">Are my operating system and browser supported by
-Möbius?  How to Troubleshoot my browser issues. </h3>
+<h3 id="Quest18">Are my operating system and browser supported by
+Möbius?</h3>
 
 <p> You should not have any problem using Möbius if you have the
   latest version of your operating system and browser running on your 
@@ -293,10 +307,67 @@ Möbius?  How to Troubleshoot my browser issues. </h3>
     "Möbius system requirements", "MMathSStat", "required", "_blank");
   </script>. </p>
 
-<p> If your operating system and browser are supported, you should consult the
-  website <script language="javascript">
-    buildLinK("https://www.digitaled.com/support/help/student/Content/STUD-GEN-FUNCTIONS/Troubleshoot-browser.htm",
-    "Troubleshoot my browser issues", "MMathSStat", "issues", "_blank");
+<hr class="MMathSStat">
+
+<h3 id="Quest6">What should I do when I get a message telling me that
+  I do not have the authorisation to start an assignment despite the
+  fact it is still available?</h3>
+
+<p>If there is a maximal number of attempts for an assignment, you
+will be denied access to the assignment after you have reached this 
+maximal number of attempts.  Möbius will inform you if it is this situation.
+There is nothing to do in this situation.</p> 
+
+<p>However, if the assignment is still available and you get an error
+message telling you that you are not authorized to access this
+assignment, then the likely cause of this problem are corrupted
+cookies. You must clear old cookies from Möbius and DigitalEd before
+trying again to access Möbius assignments through the links in
+BrightSpace.<br>
+<em>Warning</em>: Depending on the preferences that you have selected
+for your browser, closing and reopening your browser may or may
+not remove the old cookies.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="Quest20">What can I do when an assignment or a question refuses
+  to load?</h3>
+
+<p>You should have gotten the warning icon
+<img src="problem_loading.png" alt="Triangular icon with an exclamation mark."
+     style="height: 30px;">
+followed by the loading icon
+<img src="loading.png" alt="A rotating circle."
+     style="height: 30px;">.
+After some time, you should have also gotten a popup window with the following
+message.</p>
+
+<div class="center">
+<img src="page_loading.png" alt="A message asking you if you want to continue waiting or abort loading the question or assignment."
+     style="height: 130px;" class="MobiusFig">
+</div>
+  
+<p>As we have seen several times in the previous questions, the likely
+culprits for this problem are corrupted cookies. You should verify
+that the following conditions are satisfied.</p>
+
+<ul>
+<li> Your browser must allow third party cookies.</li>
+<li> Your browser must accept popups. </li>
+<li> You must not have more than one active session on Möbius
+  (e.g. you must not having two assignments open at the same time, or
+  an assignment and the gradebook on Möbius open at the same time, ...)</li>
+<li> You must clear old cookies from Möbius and DigitalEd before
+  trying again to access Möbius assignments through the links in
+  BrightSpace.<br>
+  <em>Warning</em>: Depending on the preferences that you have selected
+  for your browser, closing and reopening your browser may or may
+  not remove the old cookies.</li>
+</ul>
+
+<p>You may also consult the website <script language="javascript">
+buildLinK("https://www.digitaled.com/support/help/student/Content/STUD-GEN-FUNCTIONS/Troubleshoot-browser.htm",
+"Troubleshoot my browser issues", "MMathSStat", "issues", "_blank");
   </script> to get a list of suggestions to address the common
   problems with cookies, JavaScript, ... used by your browser.</p>
 
@@ -353,15 +424,6 @@ BrightSpace? </h3>
   assignments.  Your instructor may refuse to transfer grades from
   Möbius to BrightSpace and may consider that the assignments have not
   been submitted if you do not follow these instructions. </p>
-
-<hr class="MMathSStat">
-
-<h3 id="Quest6">What do I do when I get an authorization error or
-other similar errors?</h3>
-
-<p> If you get such errors, the usual solution is to remove old
-  cookies associated to Möbius and try again to reach the
-  assignment.</p>
 
 <hr class="MMathSStat">
 

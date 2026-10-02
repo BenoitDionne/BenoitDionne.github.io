@@ -127,12 +127,20 @@ document.write("Include javascript file has failed")
     retourner à votre compte sur Möbius. </p>
   -->
   <li><script language="javascript"> 
-      buildLinK("#Quest3", "Que dois-je faire quand j'obtiens toujours la page d'accès de Möbius lorsque je clique sur un lien pour un devoir dans BrightSpace?",
+      buildLinK("#Quest3", "Que dois-je faire quand j'obtiens toujours la page d'accès de Möbius lorsque je clique sur un lien pour un devoir?",
       "MMathSStat", "idQuest3", "_top");
   </script></li>
   <li> <script language="javascript"> 
-      buildLinK("#Quest3a", "Est-ce que mon système d'opération et mon fureteur sont supportés par Möbius?  Comment résoudre les problèmes avec mon fureteur.",
-      "MMathSStat", "idQuest3a", "_top");
+      buildLinK("#Quest18", "Est-ce que mon système d'opération et mon fureteur sont supportés par Möbius?",
+      "MMathSStat", "idQuest18", "_top");
+  </script> </li>
+  <li><script language="javascript"> 
+      buildLinK("#Quest6", "Que dois-je faire quand j'obtiens un message me disant que je n'ai pas l'authorisation de débuter un devoir malgré que celui-ci est toujours disponible?",
+      "MMathSStat", "idQuest6", "_top");
+  </script></li>
+  <li> <script language="javascript"> 
+      buildLinK("#Quest20", "Que dois-je faire lorsqu'un devoir ou une problème refuse d'apparaître?",
+      "MMathSStat", "idQuest20", "_top");
   </script> </li>
   <li> <script language="javascript"> 
       buildLinK("#Quest4", "Que dois-je faire quand les instructions de Möbius sont dans une langue autre que le français (la langue de mon choix)?",
@@ -141,10 +149,6 @@ document.write("Include javascript file has failed")
   <li><script language="javascript"> 
       buildLinK("#Quest5", "Que dois-je faire quand mes notes ne sont pas transférées à BrightSpace?",
       "MMathSStat", "idQuest5", "_top");
-  </script></li>
-  <li><script language="javascript"> 
-      buildLinK("#Quest6", "Que dois-je faire quand j'obtiens une <q lang='fr'>authorization error</q> ou d'autres erreurs de ce genre?",
-      "MMathSStat", "idQuest6", "_top");
   </script></li>
   <li><script language="javascript"> 
       buildLinK("#Quest7", "Où trouve-t-on la date d'échéance et les instructions pour chaque devoir sur Möbius?",
@@ -228,8 +232,9 @@ document.write("Include javascript file has failed")
 <ul>
 <li> Vérifier que vous utilisez un fureteur qui est bien supporté.
   Lire la réponse à la question <script language="javascript">
-    buildLinK("#Quest3a", "Est-ce que mon système d'opération et mon fureteur sont supportés par Möbius?  Comment résoudre les problèmes avec mon fureteur.",
-    "MMathSStat", "idQuest3a1", "_top");
+    buildLinK("#Quest18",
+    "Est-ce que mon système d'opération et mon fureteur sont supportés par Möbius?",
+    "MMathSStat", "idQuest181", "_top");
   </script>. </li>
 <li> Vérifier que votre fureteur accepte les témoins de navigation
   (<q lang="fr">cookies</q>) provenant d'un tiers parti.  Pour plus
@@ -266,32 +271,40 @@ document.write("Include javascript file has failed")
 <hr class="MMathSStat">
 
 <h3 id="Quest3">Que dois-je faire quand j'obtiens toujours la page d'accès de
-  Möbius lorsque je clique sur un lien pour un devoir dans
-  BrightSpace? </h3>
+  Möbius lorsque je clique sur un lien pour un devoir? </h3>
+
+<p>Vous devez premièrement vérifier que les conditions suivantes sont
+satisfaites.</p>
 
 <ul>
-  <li> Vous devez vérifier que, lorsque vous cliquez sur les liens aux
-    devoirs avec Möbius dans BrightSpace, ils ouvrent dans de nouveaux
-    onglets de votre fureteur.  Si ce n'est pas le cas, demandez à
+  <li> Votre fureteur doit être bien supporté par Möbius.
+    Lire la réponse à la question <script language="javascript">
+      buildLinK("#Quest18",
+      "Est-ce que mon système d'opération et mon fureteur sont supportés par Möbius?",
+      "MMathSStat", "idQuest181", "_top");
+    </script>. </li>
+  <li> Lorsque vous cliquez sur un lien pour un devoir avec Möbius
+    dans BrightSpace, le contenu doit apparaître dans un nouvel onglet
+    de votre fureteur.  Si ce n'est pas le cas, demandez à 
     votre enseignant.e de faire le nécessaire pour que ce soit le
     cas. </li>
   <li> Votre fureteur doit accepter les témoins de navigation
-    (<q lang="fr">cookies</q>) provenant d'un tiers parti comme il est
-    expliqué à la question
-    <script language="javascript"> 
-      buildLinK("#Quest2", "Que dois-je faire si j'obtiens toujours un message d'erreur lorsque j'essaye d'acheter la licence pour accéder à Möbius sur le site de PayPal?",
-      "MMathSStat", "Q2b", "_top");
-    </script>.</li>
-  <li> Certains fureteurs ne respectent pas les standards.  Vérifiez que
-    votre fureteur est bien supporté.  Lire la réponse à la
-    question <script language="javascript">
-      buildLinK("#Quest3a", "Est-ce que mon système d'opération et mon fureteur sont supportés par Möbius?  Comment résoudre les problèmes avec mon fureteur.",
-      "MMathSStat", "idQuest3a1", "_top");
-    </script>. </li>
+    (<q lang="fr">cookies</q>) provenant d'un tiers parti.
+    Pour plus d'information à ce sujet et sur d'autres sujets qui
+    peuvent être des sources de problèmes, veuillez consulter le site
+  <script language="javascript">
+    buildLinK("https://www.digitaled.com/support/help/student/Content/STUD-GEN-FUNCTIONS/Access-using-LMS.htm",
+    "Access using an LMS (en anglais)", "MMathSStat", "accessLMS", "_blank");
+  </script>.</li>
+  <li> Votre fureteur doit accepter les fenêtre contextuelles. </li>
   <li> Vous devez effacer les anciens témoins de navigation
     (<q lang="fr">cookies</q>) associés à Möbius
     et DigitalEd avant d'essayer de nouveau d'accéder aux devoirs avec
-    Möbius par l'entremisse des liens dans BrightSpace. </li>
+    Möbius par l'entremisse des liens dans BrightSpace.<br>
+    <em>Attention</em>: Selon les préférences que vous avez choisies
+    pour votre fureteur, fermer et rouvrir votre fureteur peut
+    supprimer ou peut ne pas supprimer les vieux témoins de
+    navigation.</li>
 </ul>
 
 <p>Si vous avez toujours le même problème après avoir fait tout cela,
@@ -305,9 +318,8 @@ document.write("Include javascript file has failed")
 
 <hr class="MMathSStat">
 
-<h3 id="Quest3a">Est-ce que mon système d'opération et mon fureteur
-  sont supportés par Möbius? Comment résoudre les problèmes avec mon
-  fureteur. </h3>
+<h3 id="Quest18">Est-ce que mon système d'opération et mon fureteur
+  sont supportés par Möbius? </h3>
 
 <p> Vous ne devriez pas avoir de problèmes pour utiliser Möbius si vous
   avez les toutes dernières versions de votre système d'opération et
@@ -320,8 +332,73 @@ document.write("Include javascript file has failed")
     "required", "_blank");
   </script>.</p>
 
-<p> Si votre système d'opération et fureteur sont supportés, vous
-  devriez consultez le site <script language="javascript">
+<hr class="MMathSStat">
+
+<h3 id="Quest6">Que dois-je faire quand j'obtiens un message me disant
+  que je n'ai pas l'authorisation de débuter un devoir malgré que
+  celui-ci est toujours disponible?</h3>
+
+<p>S'il y a un nombre maximal d'essais pour une devoir, l'accès au
+devoir vous sera refusé après que vous aurez atteint le numbre maximum
+d'essais.  Möbius va vous informer de cela si c'est le cas.  Il n'y a
+rien à faire dans ce cas.</p> 
+
+<p>Cependant, si le devoir est toujours disponible et que vous obtenez
+un message qui vous informe que vous n'est pas autorisé à accéder à ce
+devoir, alors la cause problabe de ce problèmes est que certains de
+vos démoins de navigation sont corrompus.
+Vous devez effacer les anciens témoins de navigation associés à Möbius
+et DigitalEd avant d'essayer de nouveau d'accéder aux devoirs avec
+Möbius par l'entremisse des liens dans BrightSpace.<br>
+<em>Attention</em>: Selon les préférences que vous avez choisies
+pour votre fureteur, fermer et rouvrir votre fureteur peut
+supprimer ou peut ne pas supprimer les vieux témoins de
+navigation.</p>
+
+<hr class="MMathSStat">
+
+<h3 id="Quest20">Que dois-je faire lorsqu'un devoir ou une problème
+  refuse d'apparaître?</h3>
+
+<p>Vous devriez avoir obtenu l'icône d'avertissement
+<img src="problem_loading.png"
+     alt="icône triangulaire avec un point d'exclamation."
+     style="height: 30px;">
+suivi de l'icône de chargement
+<img src="loading.png" alt="Un cercle qui tourne sur lui-même."
+     style="height: 30px;">.
+Après un certain temps, vous devriez avoir obtenu la fenêtre
+contextuelle avec le message suivant (nos excuse pour la version
+anglais).</p>
+
+<div class="center">
+<img src="page_loading.png" alt="Un message qui vous demande si vous voulez continuer à attendre ou si vous voulez intérompre le chargement du devoir ou de la question."
+     style="height: 130px;" class="MobiusFig">
+</div>
+  
+<p>Comme nous avons vu à plusieurs reprises dans les questions
+précédentes, La cause probable pour ce problèmes est des témoins de
+navigation qui sont corrompus.  Vous devez vérifier que les conditions
+suivantes sont satisfaites.</p>
+
+<ul>
+<li>Votre fureteur doit accepter les témoins de navigation provenant
+  d'un tiers parti.</li>
+<li> Votre fureteur doit accepter les fenêtre contextuelles. </li>
+<li> Vous ne devez pas avoir plus d'une session active sur Möbius
+  (e.g. vous ne devez pas avoir deux devoirs ouverts en même temps, ou
+  un devoir et le <em>GradeBook</em> dans Möbius ouverts en m7e>me
+  temps, ...)</li>
+<li> Vous devez effacer les anciens témoins de navigation associés à Möbius
+et DigitalEd avant d'essayer de nouveau d'accéder aux devoirs avec
+Möbius par l'entremisse des liens dans BrightSpace.<br>
+<em>Attention</em>: Selon les préférences que vous avez choisies
+pour votre fureteur, fermer et rouvrir votre fureteur peut
+supprimer ou peut ne pas supprimer les vieux témoins de
+navigation.</li>
+</ul>
+
+<p> Vous pouvez aussi consulter le site <script language="javascript">
     buildLinK("https://www.digitaled.com/support/help/student/Content/STUD-GEN-FUNCTIONS/Troubleshoot-browser.htm",
     "Troubleshoot my browser issues (en anglais)", "MMathSStat",
     "issues", "_blank"); </script> pour obtenir une liste de
@@ -387,16 +464,6 @@ document.write("Include javascript file has failed")
   transférer les notes de Möbius à BrightSpace et pourrait considérer
   que les devoirs n'ont pas été remis si vous ne suivez pas ces
   instructions. </p>
-  
-<hr class="MMathSStat">
-
-<h3 id="Quest6">Que dois-je faire quand j'obtiens une <q lang="fr">authorization
-    error</q> ou d'autres erreurs de ce genre?</h3>
-
-<p> Si vous obtenez de telles erreurs, la solution la plus fréquente
-  est d'effacer tous les témoins de navigation
-  (<q lang="fr">cookies</q>) associé à Möbius et DigitalEd, et
-  d'essayer de nouveau d'accéder au devoir.</p>
 
 <hr class="MMathSStat">
 
