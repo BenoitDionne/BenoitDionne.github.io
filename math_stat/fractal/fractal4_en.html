@@ -161,28 +161,177 @@ with
 </math>.
 </p>
 
+<div class="Note">
+<p><em>Remark</em>: There are several equivalent ways to look at the
+extended complex number system
+<math display="inline"><mrow><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub><mo>=</mo>
+<mi>&complexes;</mi><mo>&cup;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>&infin;</mi>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+</mrow></math>.
+It is a analytic manifold with
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub><mo>&setminus;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>&infin;</mi>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mo separator="true">,</mo><msub><mi>&phi;</mi><mn class="ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>&complexes;</mi>
+<mi>&infin;</mi></msub><mo>&setminus;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mo separator="true">,</mo><msub><mi>&phi;</mi><mn class="ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></math>
+as a possible <em>Atlas</em>, where
+<math display="inline"><mrow><msub><mi>&phi;</mi><mn class="ss1">1</mn>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>z</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mi>z</mi></mrow></math>
+and
+<math display="inline"><mrow><msub><mi>&phi;</mi><mn class="ss1">2</mn>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>z</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>=</mo><mn>1</mn><mi>/</mi><mi>z</mi></mrow></math>.
+This interpretation of
+<math display="inline"><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub></math>
+is necessary to determine the domain of continuity and differentiability of
+a function.  Using a stereographic projection
+<math display="inline"><mrow><mi>T</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msup><mi>S</mi>
+<mn class="ss1">2</mn></msup><mo>&rarr;</mo><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub></mrow></math>,
+we may also consider that
+<math display="inline"><mrow><msub><mi>&complexes;</mi><mi>&infin;</mi>
+</msub><mo>&cong;</mo><msup><mi>S</mi><mn class="ss1">2</mn></msup>
+</mrow></math>,
+the sphere of radius
+<math display="inline"><mn>1</mn></math>
+centred at the origin in
+<math display="inline"><msup><mi>R</mi><mn class="ss1">3</mn></msup>
+</math>.
+
+<div class="center">
+  <img src="projection.png" style="width: 350px"
+       alt="Stereographic projection of S^2 onto C_\infty."
+       class="framed">
+</div>
+
+<p>The distance between two points
+<math display="inline"><mrow><msub><mi>z</mi><mn class="ss1">1</mn>
+</msub><mo separator="true">,</mo><msub><mi>z</mi><mn class="ss1">2</mn>
+</msub><mo>&in;</mo><msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi>
+</msub></mrow></math>
+is defined as the distance between the corresponding two points on
+<math display="inline"><msup><mi>S</mi><mn class="ss1">2</mn></msup></math>;
+namely, if
+<math display="inline"><mrow><msub><mi>z</mi><mn class="ss1">1</mn></msub>
+<mo>=</mo><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mover><mi>u</mi>
+<mo stretchy="false" class="ss1">&rarr;</mo></mover><mn class="ss1">1</mn>
+</msub><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>
+and
+<math display="inline"><mrow><msub><mi>z</mi><mn class="ss1">2</mn></msub>
+<mo>=</mo><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mover><mi>u</mi>
+<mo stretchy="false" class="ss1">&rarr;</mo></mover><mn class="ss1">2</mn>
+</msub><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+</mrow></math>,
+then
+<math display="inline"><mrow><msub><mi>d</mi><msub>
+<mi class="ss1">&complexes;</mi><mi class="ss2">&infin;</mi></msub>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>z</mi><mn class="ss1">1</mn></msub><mo separator="true">,</mo>
+<msub><mi>z</mi><mn class="ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msub><mi>d</mi><msup><mi class="ss1">S</mi><mn class="ss2">2</mn></msup>
+</msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mover><mi>u</mi><mo stretchy="false" class="ss1">&rarr;</mo></mover>
+<mn class="ss1">1</mn></msub><mo separator="true">,</mo><msub><mover>
+<mi>u</mi><mo stretchy="false" class="ss1">&rarr;</mo></mover>
+<mn class="ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>,
+where for instance the topology on
+<math display="inline"><msup><mi>S</mi><mn class="ss1">2</mn></msup></math>
+is the topology induced from the Euclidean topology on
+<math display="inlie"><msup><mi>R</mi><mn class="ss1">3</mn></msup></math>.
+In this case, we can verify that
+<math display="inline"><mrow><msub><mi>d</mi><msub>
+<mi class="ss1">&complexes;</mi><mi class="ss2">&infin;</mi></msub></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mn class="ss1">1</mn></msub><mo separator="true">,</mo><msub><mi>z</mi>
+<mn class="ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mfrac><mrow><mn>2</mn><mi>|</mi><msub><mi>z</mi><mn class="ss1">1</mn></msub>
+<mo>-</mo><msub><mi>z</mi><mn class="ss1">2</mn></msub><mi>|</mi></mrow><msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>1</mn><mo>+</mo>
+<mi>|</mi><msub><mi>z</mi><mn class="ss1">1</mn></msub><msup><mi>|</mi>
+<mn class="ss1">2</mn></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>1</mn><mo>+</mo>
+<mi>|</mi><msub><mi>z</mi><mn class="ss1">2</mn></msub><msup><mi>|</mi>
+<mn class="ss1">2</mn></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mrow>
+<mn class="ss1">1</mn><mi class="ss1">/</mi><mn class="ss1">2</mn>
+</mrow></msup></mfrac></mrow></math>
+for
+<math display="inline"><mrow><msub><mi>z</mi><mn class="ss1">1</mn></msub>
+<mo separator="true">,</mo><msub><mi>z</mi><mn class="ss1">2</mn></msub>
+<mo>&ne;</mo><mi>&infin;</mi></mrow></math>,
+and
+<math display="inline"><mrow><msub><mi>d</mi><msub>
+<mi class="ss1">&complexes;</mi><mi class="ss1">&infin;</mi></msub></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo separator="true">,</mo><mi>&infin;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mfrac><mn>2</mn><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>1</mn><mo>+</mo>
+<mi>|</mi><mi>z</mi><msup><mi>|</mi><mn class="ss1">2</mn></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mrow>
+<mn class="ss1">1</mn><mi class="ss1">/</mi><mn class="ss1">2</mn></mrow>
+</msup></mfrac></mrow></math>
+for
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>&complexes;</mi>
+<mi calss="ss1">&infin;</mi></msub></mrow></math>.
+The reader may consult the book by
+<script language="javascript">
+  buildLinK("#JBC", "J. B. Conway","MMathSStat", "IBCid5", "_top");
+</script>
+for more information.  Instead of using the Euclidean metric to define
+the distance between two points on
+<math display="inline"><msup><mi>S</mi><mn class="ss1">2</mn></msup></math>,
+we could have used the geodesics on
+<math display="inline"><msup><mi>S</mi><mn class="ss1">2</mn></msup></math>
+to define the distance between two points on
+<math display="inline"><msup><mi>S</mi><mn class="ss1">2</mn></msup></math>.
+The important information to remember is that
+<math display="inline"><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub></math>
+becomes a compact metric space.</p>
+</div>
+
 <p>We consider holomorphic functions
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-where
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
+Since
 <math display="inline"><mrow>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-is the Riemann sphere (an analytic manifold).  Using a stereographic
-projection, we can define a one-to-one conformal map from
-<math display="inline"><mrow>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-onto
-<math display="inline"<mrow><mi>&complexes;</mi><mo>&cup;</mo><mrow>
-<mo fence="true" form="prefix" stretchy="false">{</mo><mi>&infin;</mi>
-<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>,
-the compactification of the complexes plane.  The holomorphic functions
+is a compact analytic manifold, we obtain that the holomorphic functions
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-are therefore rational functions
+are rational functions
 <math display="inline"><mrow><mi>R</mi><mo>=</mo><mi>P</mi><mi>/</mi>
 <mi>Q</mi></mrow></math>
 where
@@ -2413,19 +2562,18 @@ divNumbers("Proposition","","");
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-be a rational function.
-The set of points in
+be a rational function.  The set of points in
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
 with a dense orbit in
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
 is dense.
 </div>
 
-<p><em>Proof</em>: The proof of this result relies eavily on the fact
+<p><em>Proof</em>: The proof of this result relies heavily on the fact
 that 
 <math display="inline"><msub><mi>&complexes;</mi>
 <mi class="ss1">&infin;</mi></msub></math>
-is a complex manifold.
+is a complete complex manifold.
 <span id="proof22A">&nbsp;...</span></p>
 <div id="proof22B" class="moreORless">
 
@@ -2488,7 +2636,7 @@ It also follows from <em>Baire's theorem</em> that
 <msub><mi>U</mi><mrow><mi class="ss1">j</mi>
 <mo separator="true" class="ss1">,</mo><mi class="ss1">m</mi></mrow></msub>
 <mo>&cap;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>
-is dence in
+is dense in
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
 </p>
 
