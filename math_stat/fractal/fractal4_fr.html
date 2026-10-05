@@ -374,7 +374,7 @@ est une <em>préimage</em> de
 de <em>multiplicité</em>
 <math display="inline"><mi>m</mi></math>
 si une des conditions suivantes est satisfaites.
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> Pour
 <math display="inline"><mrow><mi>v</mi><mo>&in;</mo>
 <mi>&complexes;</mi></mrow></math>
@@ -1859,7 +1859,7 @@ avec
 <span id="proof20A">&nbsp;...</span></p>
 <div id="proof20B" class="moreORless">
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li>Si
 <math display="inline"><mrow><mi>w</mi><mo>=</mo><mi>&infin;</mi></mrow>
 </math>,
@@ -3924,7 +3924,7 @@ Il y a plusieurs étapes à cette démonstration.
 est une fonction rationnelle de degré
 <math display="inline"><mrow><mi>d</mi><mo>&geq;</mo><mn>2</mn></mrow></math>.
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li><p><em>Énoncé</em>: Si
 <math display="inline"><mrow><mi>R</mi><mo>&ne;</mo><mtext>Id</mtext>
 </mrow></math>,
@@ -4729,29 +4729,7 @@ est fermé, nous avons que
 <math display="inline"><mrow><mover><msub><mi>&#x211B;</mi><mi>R</mi>
 </msub><mo strectchy="true">&macr;</mo></mover>
 <mo>&subset;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
-En fait, nous avons un résultat plus fort.</p>
-
-<script language="javascript">
-divNumbers("Théorème","theoVI","");
-</script>
-<p class="Theo">Si
-<math display="inline"><mrow><mi>R</mi>
-<mo lspace="0.2222em" rspace="0.2222em">:</mo>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-est une fonction rationnelle, alors
-<math display="inline"><mrow><mover><msub><mi>&#x211B;</mi><mi>R</mi>
-</msub><mo strectchy="true">&macr;</mo></mover>
-<mo>=</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
-</p>
-</div>
-
-<p>La démonstration de ce théorème peut être divisée en plusieurs
-étapes.  Nous énumérons ces étapes ci-dessus sans donner de
-démonstrations.  La démonstration de chaque étape se trouve dans
-<script language="javascript">
-  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid2", "_top");
-</script>.  Nous devons premièrement introduire une
+En fait, nous avons une égalité.  Nous devons premièrement introduire une
 définition et plusieurs résultats préliminaires.</p>
 
 <script language="javascript">
@@ -5253,22 +5231,70 @@ remplacée par la fonction
 <mi class="ss1">k</mi></mrow></msup></math>.
 </p>
 
-<p>Nous sommes maintenant en position d'ébaucher la démonstration du
-<script language="javascript">refNumbers("theoVI");</script> .</p>
+<script language="javascript">
+divNumbers("Corollaire","","");
+</script>
+<p class="Theo">Si
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+est une fonction rationnelle, et
+<math display="inline"><mi>z</mi></math>
+est un point fixe attractif ou super-attractif, alors
+<math display="inline"><mrow><msup><mi>W</mi><mi class="ss1">s</mi></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo separator="true">,</mo><mi>R</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+contient au moins un point critique de
+<math display="inline"><mi>R</mi></math>.
+</p>
+</div>
 
-<p><em>Démonstration du
-<script language="javascript">refNumbers("theoVI");</script>
-(ébauche)</em>: Soit
+<p><em>Démonstration</em>: Cela découle de la proposition précédente car
+<math display="inline"><mrow><msup><mi>W</mi><mi class="ss1">s</mi></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo separator="true">,</mo><mi>R</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+est complètement invariant sous l'action de
+<math display="inline"><mi>R</mi></math>.</p>
+
+<p>Une définition équivalent des ensembles de Julia est fournie par le
+théorème suivant.</p>
+
+<script language="javascript">
+divNumbers("Théorème","theoVI","");
+</script>
+<p class="Theo">Si
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+est une fonction rationnelle, alors
+<math display="inline"><mrow><mover><msub><mi>&#x211B;</mi><mi>R</mi>
+</msub><mo strectchy="true">&macr;</mo></mover>
+<mo>=</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
+</p>
+</div>
+
+<p><em>Démonstration (ébauche)</em>:
+La démonstration de ce théorème peut être divisée en plusieurs
+étapes.  Nous énumérons ces étapes ci-dessus sans donner de
+démonstrations.  La démonstration de chaque étape se trouve dans
+<script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid2", "_top");
+</script>.
+<span id="proof10A">&nbsp;...</span></p>
+<div id="proof10B" class="moreORless">
+
+<p> Soit
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 un fonction rationnelle de degré
 <math display="inline"><mi>d</mi></math>.
-<span id="proof10A">&nbsp;...</span></p>
-<div id="proof10B" class="moreORless">
-
-<p>De plus, soit
+De plus, soit
 <math display="inline"><msub><mi>&#x1D49E;</mi><mi class="ss1">R</mi>
 </msub></math>
 l'<em>ensemble des points critiques</em> de
@@ -5283,7 +5309,7 @@ l'<em>ensemble des pôles</em> de
 <math display="inline"><mi>R</mi></math>.
 </p>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li>Comme nous l'avons mentionné précédemment, il découle du concept
 de déficience que l'ensemble
 <math display="inline"><msub><mi>&#x1D49E;</mi><mi class="ss1">R</mi>
@@ -5369,7 +5395,9 @@ Mais nous avons vu précédemment que
 </div>
 <button onclick="moreORless('proof10A','proof10B','proof10C','fr')" class="mORl" id="proof10C">Pour en savoir plus</button>
 
-<p>Le théorème précédent a un corollaire intéressant.</p>
+<p>Le théorème
+<script language="javascript">refNumbers("theoVI");</script>
+a un corollaire intéressant.</p>
 
 <script language="javascript">
 divNumbers("Corollaire","","");
@@ -5422,6 +5450,8 @@ tel que
 <p><em>Démonstration</em>: Pour démontrer la première partie de ce
 corollaire, il suffit de considérer un point periodic répulsif
 <math display="inline"><mrow><mi>w</mi><mo>&in;</mo><mi>V</mi></mrow></math>.
+L'existence d'un tel point est garantie par le
+<script language="javascript">refNumbers("theoVI");</script>.
 <span id="proof11A">&nbsp;...</span></p>
 <div id="proof11B" class="moreORless">
 
@@ -5603,52 +5633,581 @@ est en <em>expansion</em> si
 </p>
 </div>
 
-<p>Puisque
-<math display="inline"><mrow><mi>&part;</mi><msup><mi>W</mi>
-<mi class="ss1">i</mi></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
-<mo separator="true">,</mo><mi>R</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-<mo>&subset;</mo>
-<msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>,
-la proposition suivante supporte la possibilité que la structure de
-<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
-pourrait être très complexe.</em>
-
 <script language="javascript">
 divNumbers("Proposition","propVIII","");
 </script>
-<p class="Theo">Si
-<math display="inline"><mi>z</mi></math>
-est un point fixe attractif d'une fonction rationnelle
+<p class="Theo">Soit
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>,
-alors
-<math display="inline"><mrow><msup><mi>W</mi><mi class="ss1">i</mi></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
-<mo separator="true">,</mo><mi>R</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
-est soit un ensemble simplement connexe ou un ensemble connexe avec un
-nombre infini de <q lang="fr">trous</q> (représentés par des
-composantes connexes fermées dans
-<math display="inline"><mrow><msub><mi>&complexes;</mi>
-<mi class="ss1">&infin;</mi></msub><mo>&setminus;</mo><msup><mi>W</mi>
-<mi class="ss1">i</mi></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
-<mo separator="true">,</mo><mi>R</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>).
-</p>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+une fonction rationnelle.  Si l'ensemble de Julia
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
+n'est pas un ensemble connexe, alors c'est l'union d'un nombre
+indénombrable de composantes connexes.</p>
 </div>
 
-<p>Dans le dernier cas de la proposition précédente,
-<math display="inline"><mrow><mi>&part;</mi><msup><mi>W</mi>
-<mi class="ss1">i</mi></msup><mrow>
+<p><em>Démonstration</em>: Supposons que
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
+n'est pas un ensemble connexe.  Puisque
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
+est compacte, nous pouvons trouver deux ensembles distincts et compactes
+<math display="inline"><msub><mi>K</mi><mi class="ss1">0</mi></msub></math>
+et
+<math display="inline"><msub><mi>K</mi><mi class="ss1">1</mi></msub></math>
+tels que
+<math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi>
+</msub><mo>=</mo><msub><mi>K</mi><mn class="ss1">0</mn></msub><mo>&cup;</mo>
+<msub><mi>K</mi><mn class="ss1">2</mn></msub></mrow></math>.
+<span id="proof23A">&nbsp;...</span></p>
+<div id="proof23B" class="moreORless">
+
+<p>Puisque
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
+est un ensemble parfait, nous avons que
+<math display="inline"><msub><mi>K</mi><mi class="ss1">0</mi></msub></math>
+et
+<math display="inline"><msub><mi>K</mi><mi class="ss1">1</mi></msub></math>
+ont un nombre infini d'éléments.  Les ensembles
+<math display="inline"><msub><mi>K</mi><mi class="ss1">0</mi></msub></math>
+et
+<math display="inline"><msub><mi>K</mi><mi class="ss1">1</mi></msub></math>
+sont l'union de composantes connexes de
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
+Nous définissons pour chaque
+<math display="inline"><mrow><mi>n</mi><mo>&ge;</mo><mn>0</mn></mrow></math>
+une fonction
+<math display="inline"><mrow><msub><mi>h</mi><mi class="ss1">n</mi></msub>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub><mo>&rarr;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
+de la façon suivante.</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
-<mo separator="true">,</mo><mi>R</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
-est composé d'un nombre infini de composantes connexes fermées.</p>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mrow><mo fence="true" form="prefix" stretchy="true">{</mo><mtable>
+<mtr><mtd style="padding-left:0em;padding-right:0em;text-align:left;">
+<mn>0</mn></mtd>
+<mtd style="padding-left:1em;padding-right:0em;text-align:left;"><mrow>
+<mspace width="1ex"></mspace><mtext>si</mtext><mspace width="1ex"></mspace>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&in;</mo>
+<msub><mi>K</mi><mn class="ss1">0</mn></msub></mrow></mtd></mtr><mtr>
+<mtd style="padding-left:0em;padding-right:0em;text-align:left;"><mn>1</mn>
+</mtd><mtd style="padding-left:1em;padding-right:0em;text-align:left;">
+<mrow><mspace width="1ex"></mspace><mtext>si</mtext>
+<mspace width="1ex"></mspace><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&in;</mo>
+<msub><mi>K</mi><mn class="ss1">1</mn></msub></mrow></mtd></mtr></mtable>
+<mo fence="true" form="postfix" stretchy="true"></mo></mrow></mrow></math>
+</div>
+
+<p>Puisque
+<math display="inline"><mi>R</mi></math>
+est une fonction continue, elle envoie les composantes connexes de
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
+sur les composantes connexes de
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
+En particulier, tous les points
+<math display="inline"><mi>z</mi></math>
+d'une composante connexe vont produire la même suite
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup></math>.
+De plus, il découle de la
+<script language="javascript">refNumbers("propIV");</script>
+que deux composantes connexes et distinctes de
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
+ne peuvent pas produire la même suite
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup></math>.
+pour leurs éléments
+<math display="inline"><mi>z</mi></math>.</p>
+
+<p>Il suffit de démontrer que l'ensemble
+<math display="inline"><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi>&infin;</mi></msubsup><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>z</mi><mo>&in;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></math>
+est indénombrable.  Soit
+<math display="inline"><mrow><msub><mi>U</mi><mn class="ss1">0</mn></msub>
+<mo>=</mo><msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub>
+<mo>&setminus;</mo><msub><mi>K</mi><mn class="ss1">1</mn></msub><mo>=</mo>
+<msub><mi>K</mi><mn class="ss1">0</mn></msub><mo>&cup;</mo><msub><mi>S</mi>
+<mi class="ss1">R</mi></msub></mrow></math>
+et
+<math display="inline"><mrow><msub><mi>U</mi><mn class="ss1">1</mn></msub>
+<mo>=</mo><msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub>
+<mo>&setminus;</mo><msub><mi>K</mi><mn class="ss1">0</mn></msub><mo>=</mo>
+<msub><mi>K</mi><mn class="ss1">1</mn></msub><mo>&cup;</mo><msub><mi>S</mi>
+<mi class="ss1">R</mi></msub></mrow></math>.
+Ce sont deux ensembles ouverts et distincts.  Pour
+<math display="inline"><mrow><mi>k</mi><mo>&ge;</mo><mn>0</mn>
+</mrow></math>,
+soit</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msub><mi>K</mi>
+<mrow><msub><mi class="ss1">j</mi><mn class="ss2">0</mn></msub>
+<mo separator="true">,</mo><msub><mi class="ss1">j</mi><mn class="ss2">1</mn>
+</msub><mo separator="true">,</mo><mo>&hellip;</mo><mo separator="true">,</mo>
+<msub><mi class="ss1">j</mi><mi class="ss1">k</mi></msub></mrow></msub>
+<mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<mi>z</mi><mo>&in;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&in;</mo>
+<msub><mi>K</mi><msub><mi class="ss1">j</mi><mi class="ss2">n</mi></msub>
+</msub><mspace width="1ex"></mspace><mtext>for</mtext>
+<mspace width="1ex"></mspace><mn>0</mn><mo>&le;</mo><mi>n</mi><mo>&le;</mo>
+<mi>k</mi><mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mo>=</mo><mrow><munderover><mo movablelimits="false">&cap;</mo><mrow>
+<mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">n</mi></munderover></mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+<mo form="prefix" stretchy="false" class="ss1">-</mo><mi class="ss1">n</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>K</mi><msub><mi class="ss1">j</mi><mi class="ss1">n</mi></msub></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</math>
+</div>
+
+<p>et</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msub><mi>U</mi>
+<mrow><msub><mi class="ss1">j</mi><mn class="ss2">0</mn></msub>
+<mo separator="true">,</mo><msub><mi class="ss1">j</mi><mn class="ss2">1</mn>
+</msub><mo separator="true">,</mo><mo>&hellip;</mo><mo separator="true">,</mo>
+<msub><mi class="ss1">j</mi><mi class="ss1">k</mi></msub></mrow></msub>
+<mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<mi>z</mi><mo>&in;</mo><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&in;</mo>
+<msub><mi>U</mi><msub><mi class="ss1">j</mi><mi class="ss2">n</mi></msub>
+</msub><mspace width="1ex"></mspace><mtext>for</mtext>
+<mspace width="1ex"></mspace><mn>0</mn><mo>&le;</mo><mi>n</mi><mo>&le;</mo>
+<mi>k</mi><mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mo>=</mo><mrow><munderover><mo movablelimits="false">&cap;</mo><mrow>
+<mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">n</mi></munderover></mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+<mo form="prefix" stretchy="false" class="ss1">-</mo><mi class="ss1">n</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
+<mi>U</mi><msub><mi class="ss1">j</mi><mi class="ss1">n</mi></msub></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mspace width="1ex"></mspace><mtext>,</mtext></mrow></math>
+</div>
+
+<p>où
+<math display="inline"><mrow><msub><mi>j</mi><mi class="ss1">i</mi></msub>
+<mo>&in;</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<mn>0</mn><mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
+pour tout
+<math display="inline"><mi>i</mi></math>.
+Nous avons que
+<math display="inline"><msub><mi>K</mi><mrow><msub><mi class="ss1">j</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">j</mi><mn class="ss2">1</mn></msub><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><msub><mi class="ss1">j</mi>
+<mi class="ss2">k</mi></msub></mrow></msub></math>
+est un ensemble compacte et
+<math display="inline"><msub><mi>V</mi><mrow><msub><mi class="ss1">j</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">j</mi><mn class="ss2">1</mn></msub><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><msub><mi class="ss1">j</mi>
+<mi class="ss2">k</mi></msub></mrow></msub></math>
+est un ensemble ouvert avec
+<math display="inline"><mrow><msub><mi>K</mi><mrow><msub>
+<mi class="ss1">j</mi><mn class="ss2">0</mn></msub>
+<mo separator="true">,</mo><msub><mi class="ss1">j</mi><mn class="ss2">1</mn>
+</msub><mo separator="true">,</mo><mo>&hellip;</mo><mo separator="true">,</mo>
+<msub><mi class="ss1">j</mi><mi class="ss2">k</mi></msub></mrow></msub>
+<mo>&subset;</mo><msub><mi>U</mi><mrow><msub><mi class="ss1">j</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">j</mi><mn class="ss2">1</mn></msub>
+<mo separator="true">,</mo><mo>&hellip;</mo><mo separator="true">,</mo>
+<msub><mi class="ss1">j</mi><mi class="ss2">k</mi></msub></mrow></msub>
+</mrow></math>
+pour tout
+<math display="inline"><mi>k</mi></math>.
+Pour démontrer que
+<math display="inline"><msub><mi>K</mi><mrow><msub><mi class="ss1">j</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">j</mi><mn class="ss2">1</mn></msub><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><msub><mi class="ss1">j</mi>
+<mi class="ss2">k</mi></msub></mrow></msub></math>
+contient deux éléments
+<math display="inline"><msub><mi>z</mi><mn class="ss1">1</mn></msub></math>
+et
+<math display="inline"><msub><mi>z</mi><mn class="ss1">2</mn></msub></math>
+tels que
+<math display="inline"><mrow><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mn class="ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi>&infin;</mi></msubsup><mo>&ne;</mo><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mn class="ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup></mrow></math>,
+nous supposons que ce n'est pas le cas.  Nous remarquons en premier que
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>K</mi>
+<mi class="ss1">i</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<msub><mi>K</mi><mi class="ss1">j</mi></msub></mrow></math>
+implique que
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>U</mi>
+<mi class="ss1">i</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<msub><mi>U</mi><mi class="ss1">j</mi></msub></mrow></math>
+pour
+<math display="inline"><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi>
+<mo>&in;</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<mn>0</mn><mo separator="true">,</mo><mn>1</mn>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>.
+Soit
+<math display="inline"><mrow><msub><mi>n</mi><mn class="ss1">1</mn></msub>
+<mo>&lt;</mo><msub><mi>n</mi><mn class="ss1">2</mn></msub><mo>&lt;</mo>
+<mo>&hellip;</mo></mrow></math>
+la suites des entiers tels que
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">n</mi><mi class="ss2">i</mi></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>U</mi><mrow>
+<msub><mi class="ss1">j</mi><mn class="ss2">0</mn></msub>
+<mo separator="true">,</mo><msub><mi class="ss1">j</mi><mn class="ss2">1</mn>
+</msub><mo separator="true">,</mo><mo>&hellip;</mo><mo separator="true">,</mo>
+<msub><mi class="ss1">j</mi><mi class="ss2">k</mi></msub></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<msub><mi>U</mi><mn class="ss1">0</mn></msub></mrow></math>
+et
+<math display="inline"><mrow><msub><mi>m</mi><mn class="ss1">1</mn></msub>
+<mo>&lt;</mo><msub><mi>m</mi><mn class="ss1">2</mn></msub><mo>&lt;</mo>
+<mo>&hellip;</mo></mrow></math>
+la suites des entiers tels que
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">m</mi><mi class="ss2">i</mi></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>U</mi><mrow>
+<msub><mi class="ss1">j</mi><mn class="ss2">0</mn></msub>
+<mo separator="true">,</mo><msub><mi class="ss1">j</mi><mn class="ss2">1</mn>
+</msub><mo separator="true">,</mo><mo>&hellip;</mo><mo separator="true">,</mo>
+<msub><mi class="ss1">j</mi><mi class="ss2">k</mi></msub></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<msub><mi>U</mi><mn class="ss1">1</mn></msub></mrow></math>.
+Au moins une de ces séquences est infinies.  Nous supposons qu'elles
+sont tout les deux infinies.  Le raisonnement est semblable si
+seulement une de ces suites est infinie.  Il découle du
+<script language="javascript">refNumbers("Montel");</script>
+que les familles
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">n</mi><mi class="ss2">i</mi></msub></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">i</mi><mo class="ss1">=</mo><mn class="ss1">0</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup></math>
+et
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">m</mi><mi class="ss2">i</mi></msub></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">i</mi><mo class="ss1">=</mo><mn class="ss1">0</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup></math>
+sont normales sur l'ensemble ouvert
+<math display="inline"><msub><mi>U</mi><mrow><msub><mi class="ss1">j</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">j</mi><mn class="ss2">1</mn></msub><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><msub><mi class="ss1">j</mi>
+<mi class="ss2">n</mi></msub></mrow></msub></math>.
+Ainsi, la famille
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup></math>
+est normal sur l'ensemble ouvert
+<math display="inline"><msub><mi>U</mi><mrow><msub><mi class="ss1">j</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">j</mi><mn class="ss2">1</mn></msub><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><msub><mi class="ss1">j</mi>
+<mi class="ss2">n</mi></msub></mrow></msub></math>
+car tout sous-suite de
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup></math>
+contient une sous-suite de
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">n</mi><mi class="ss2">i</mi></msub></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">i</mi><mo class="ss1">=</mo><mn class="ss1">0</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup></math>
+ou
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">m</mi><mi class="ss2">i</mi></msub></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">i</mi><mo class="ss1">=</mo><mn class="ss1">0</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup></math>.
+Cependant, puisque
+<math display="inline"><mrow><msub><mi>K</mi><mrow><msub>
+<mi class="ss1">j</mi><mn class="ss2">0</mn></msub>
+<mo separator="true">,</mo><msub><mi class="ss1">j</mi><mn class="ss2">1</mn>
+</msub><mo separator="true">,</mo><mo>&hellip;</mo><mo separator="true">,</mo>
+<msub><mi class="ss1">j</mi><mi class="ss2">k</mi></msub></mrow></msub>
+<mo>&subset;</mo><msub><mi>U</mi><mrow><msub><mi class="ss1">j</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">j</mi><mn class="ss2">1</mn></msub>
+<mo separator="true">,</mo><mo>&hellip;</mo><mo separator="true">,</mo>
+<msub><mi class="ss1">j</mi><mi class="ss2">k</mi></msub></mrow></msub>
+</mrow></math>,
+nous avons que
+<math display="inline"><mrow><msub><mi>U</mi><mrow><msub><mi class="ss1">j</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">j</mi><mn class="ss2">1</mn></msub>
+<mo separator="true">,</mo><mo>&hellip;</mo><mo separator="true">,</mo>
+<msub><mi class="ss1">j</mi><mi class="ss2">k</mi></msub></mrow></msub>
+</mrow></math>
+contient des points de
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
+Ceci est une contradiction.</p>
+
+<p>Il découle du paragraphe précédent que
+<math display="inline"><msub><mi>K</mi><mn class="ss1">0</mn></msub></math>
+contient au moins deux points
+<math display="inline"><msub><mi>z</mi><mn class="ss1">1</mn></msub></math>
+et
+<math display="inline"><msub><mi>z</mi><mn class="ss1">2</mn></msub></math>
+tels que</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>j</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup><mo>&equiv;</mo><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mn class="ss1">1</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi>&infin;</mi></msubsup><mo>&ne;</mo><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>i</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup><mo>&equiv;</mo><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mn class="ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup></mrow>
+<mspace width="1ex"></mspace><mtext>.</mtext></math>
+</div>
+
+<p>Supposons que
+<math display="inline"><msub><mi>n</mi><mn class="ss1">1</mn></msub></math>
+est le plus petit entier tel que
+<math display="inline"><mrow><msub><mi>i</mi><msub><mi class="ss1">n</mi>
+<mn class="ss2">1</mn></msub></msub><mo>&ne;</mo><msub><mi>j</mi><msub>
+<mi class="ss1">n</mi><mn class="ss2">1</mn></msub></msub></mrow></math>.
+Il découle du paragraphe précédent que
+<math display="inline"><msub><mi>K</mi><mrow><msub><mi class="ss1">j</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">j</mi><mn class="ss2">1</mn></msub><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><msub><mi class="ss1">j</mi>
+<msub><mi class="ss1">n</mi><mn class="ss2">1</mn></msub></msub></mrow>
+</msub></math>
+contient au moins deux points
+<math display="inline"><msub><mi>z</mi><mrow><mn class="ss1">1</mn>
+<mo separator="true">,</mo><mn class="ss1">1</mn></mrow></msub></math>
+et
+<math display="inline"><msub><mi>z</mi><mrow><mn class="ss1">1</mn>
+<mo separator="true">,</mo><mn class="ss1">2</mn></mrow></msub></math>
+tels que
+<math display="inline"><mrow><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi><mrow>
+<mn class="ss1">1</mn><mo separator="true">,</mo><mn class="ss1">1</mn>
+</mrow></msub><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup><mo>&ne;</mo><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi><mrow>
+<mn class="ss1">1</mn><mo separator="true">,</mo><mn class="ss1">2</mn>
+</mrow></msub><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup></mrow></math>.
+Si nous répétons le raisonnement précédent avec
+<math display="inline"><msub><mi>K</mi><mrow><msub><mi class="ss1">i</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">i</mi><mn class="ss2">1</mn></msub><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><msub><mi class="ss1">i</mi>
+<msub><mi class="ss1">n</mi><mn class="ss2">1</mn></msub></msub></mrow>
+</msub></math>,
+nous pouvons trouver deux points
+<math display="inline"><msub><mi>z</mi><mrow><mn class="ss1">2</mn>
+<mo separator="true">,</mo><mn class="ss1">1</mn></mrow></msub></math>
+et
+<math display="inline"><msub><mi>z</mi><mrow><mn class="ss1">2</mn>
+<mo separator="true">,</mo><mn class="ss1">2</mn></mrow></msub></math>
+tels que
+<math display="inline"><mrow><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi><mrow>
+<mn class="ss1">2</mn><mo separator="true">,</mo><mn class="ss1">1</mn>
+</mrow></msub><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup><mo>&ne;</mo><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi><mrow>
+<mn class="ss1">2</mn><mo separator="true">,</mo><mn class="ss1">2</mn>
+</mrow></msub><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup></mrow></math>.
+De plus. ces deux suites sont distinctes des deux suites précédentes car
+<math display="inline"><mrow><msub><mi>i</mi><msub><mi class="ss1">n</mi>
+<mn class="ss2">1</mn></msub></msub><mo>&ne;</mo><msub><mi>j</mi><msub>
+<mi class="ss1">n</mi><mn class="ss2">1</mn></msub></msub></mrow></math>.
+Nous avons quatre suites distinctes
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup></math>
+avec
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub></mrow></math>.
+Nous pouvons répéter toute la procédure en débutant avec
+<math display="inline"><msub><mi>K</mi><mrow><msub><mi class="ss1">j</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">j</mi><mn class="ss2">1</mn></msub><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><msub><mi class="ss1">j</mi>
+<msub><mi class="ss1">n</mi><mn class="ss2">1</mn></msub></msub></mrow>
+</msub></math>
+et
+<math display="inline"><msub><mi>K</mi><mrow><msub><mi class="ss1">i</mi>
+<mn class="ss2">0</mn></msub><mo separator="true">,</mo><msub>
+<mi class="ss1">i</mi><mn class="ss2">1</mn></msub><mo separator="true">,</mo>
+<mo>&hellip;</mo><mo separator="true">,</mo><msub><mi class="ss1">i</mi>
+<msub><mi class="ss1">n</mi><mn class="ss2">1</mn></msub></msub></mrow>
+</msub></math>
+au lieu de
+<math display="inline"><msub><mi>K</mi><mn class="ss1">0</mn></msub></math>
+pour obtenir huit suites distinctes
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup></math>
+avec
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub></mrow></math>.
+En procédant par induction, nous obtenons
+<math display="inline"><msup><mn>2</mn><msub><mi class="ss1">&aleph;</mi>
+<mn class="ss2">0</mn></msub></msup></math>
+suites distinctes 
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>h</mi>
+<mi class="ss1">n</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup></math>
+avec
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub></mrow></math>.
+Toute la procédure précédent peut aussi être répétée avec
+<math display="inline"><msub><mi>K</mi><mn class="ss1">1</mn></msub></math>.
+</p>
+</div>
+<button onclick="moreORless('proof23A','proof23B','proof23C','fr')" class="mORl" id="proof23C">Pour en savoir plus</button>
 
 <hr class="MMathSStat">
 
@@ -6074,7 +6633,7 @@ buildLinK("#REF", "références","MMathSStat", "REDid3", "_top");
 </script> à la fin de ce document).</p>
 
 <p>Le résultat suivant est un corollaire du théorème précédent et du
-fait tous les domaines de Sullivan sauf les domaines super-attractifs
+fait que tous les domaines de Sullivan sauf les domaines super-attractifs
 requièrent la présence de l'orbite d'un point critique qui n'est pas
 éventuellement périodique.  De plus, le domaine supper-attractif
 contient un point critique périodique.</p> 
@@ -6206,7 +6765,7 @@ une fonction rationnelle de degré
 <math display="inline"><mi>d</mi></math>.
 </p>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> Il y a au plus deux composantes simplement connexes et
 complètement invariantes de
 <math display="inline"><msub><mi>S</mi><mi class="ss1">R</mi></msub></math>.
@@ -6558,7 +7117,7 @@ ne contient pas de points stables.
 <button onclick="moreORless('proof13A','proof13B','proof13C','en')" class="mORl" id="proof13C">Pour en savoir plus</button>
 
 <p>Les énoncés au sujet de la connexité des ensembles de Julia dans
-l'exemple qui suit sont démontrés à
+les exemples qui suivent sont démontrés à
 <script language="javascript">
 buildLinK("#egE", "l'exemple E", "MMathSStat", "egEID", "_top");
 </script> ci-dessous.</p>
@@ -7148,7 +7707,7 @@ lorsque
 Il découle de la
 <script language="javascript">refNumbers("propVIII");</script>
 et de la
-<script language="javascript">refNumbers("propXIV");</script>
+<script language="javascript">refNumbers("propXIII");</script>
 que
 <math display="inline"><msub><mi>J</mi><msub><mi class="ss1">P</mi>
 <mn class="ss2">0.3</mn></msub></msub></math>
