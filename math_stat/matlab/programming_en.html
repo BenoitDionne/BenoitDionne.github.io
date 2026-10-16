@@ -1512,28 +1512,34 @@ buildLinK("julia1.m", "julia1.m","MMathSStat", "id5", "_blank");
 </script>.  This function implements the method described above.
 The number of backward iterations for this function is limited by the size
 of the computer memory allocated to <em>Matlab</em> because the
-function creates large vectors.  The typical upper
-limit on the number of backward iterations is about 20.  </p>
+function creates large vectors if the tolerance is a very small
+value.  The value of \(0.01\) used by default is usually too large to get
+a good representation of the Julia set.</p>
 
 <div class="Code">
 <pre class="matlab">
-% function julia1(c, N, colour)
+% function julia5(c, N, colour, tol)
 %
 % Draw the Julia set of p_c(z) = z^2 + c.
 %
 % c : Any complex number.  The default value is i.
-% N : The number of backward iterations.  The default value is 17.
+% N : The number of backward iterations.  The default value is 40.
 % colour : One of the colours accepted by Matlab.
 %          The default colour is blue.
-%
+% tol : If two points are at a distance less than tol from each other,
+%       then only one of them is kept.  The default value is 0.01.
+%       Often too small to get a good representation of the Julia set.
 
-<font class="matlab">function julia1(c, N, colour)
-    if ( nargin < 3 )
-        colour = 'blue';
-        if ( nargin < 2 )
-            N = 17;
-            if ( nargin < 1 )
-                c = i;
+<font class="matlab">function julia1(c, N, colour, tol)
+    if ( nargin < 4 ) 
+        tol = 0.01;
+        if ( nargin < 3 )
+            colour = 'blue';
+            if ( nargin < 2 )
+                N = 40;
+                if ( nargin < 1 )
+                    c = i;
+                end
             end
         end
     end
@@ -1555,7 +1561,7 @@ limit on the number of backward iterations is about 20.  </p>
         u = y/(2*v);
     end;
     w = (1 + (u+i*v))/2;
-    fprintf('%f + %f i is a repelling fixed point if c ~= 1/4.\n',real(w),imag(w));
+    fprintf('%f + %f i is a repelling fixed point if c~= 1/4.\n',real(w),imag(w));
     fprintf('We use %f + %f i as starting point.\n',real(w),imag(w));
 
     % Compute the bachward iterations and draw the Julia set.
@@ -1585,14 +1591,29 @@ limit on the number of backward iterations is about 20.  </p>
 
         % Go on with the next iteration (if there is one).
         x = [ u , -u ] - real(c);
-        y = [ v , -v ] - imag(c);        
+        y = [ v , -v ] - imag(c);
+
+        % Ignore points that are too closed to each other.
+        indices = [];
+        for j = 1:length(x)-1
+            if ( sum(find(indices == j)) == 0 )
+                for k = j+1:length(x)
+                    if ( (x(j) - x(k))^2 + (y(j) - y(k))^2 < tol^2 )
+                        indices = [indices,k];
+                    end
+                end
+            end
+        end
+        x(indices) = [];
+        y(indices) = [];
         hold on
     end
     axis equal;
     grid on
-    title(['p(z) = z^2 + ',num2str(real(c)),' + ',num2str(imag(c)),'i']);
+    title(['p(z) = z^2 + (',num2str(real(c)),' + ',num2str(imag(c)),'i)']);
     hold off
     display('The drawing is completed.');
+    fprintf('%d points have been plotted.\n',length(x));
 end
 </font></pre>
 </div>
@@ -1603,10 +1624,11 @@ function \(P_{-1}\) defined by \( P_{-1}(z) = z^2 -1\) is represented in the
 figure below.</p>
 
 <pre class="matlab">
->> <font class="matlab">julia1(-1,20,'k');</font><br>
-1.618034 + 0.000000 i is a repelling fixed point if c ~= 1/4.
+>> <font class="matlab">julia1(-1,50,'k',0.005);</font><br>
+1.618034 + 0.000000 i is a repelling fixed point if c~= 1/4.
 We use 1.618034 + 0.000000 i as starting point.
 The drawing is completed.
+3026 points have been plotted.
 </pre>
 
 <div class="center"> 
@@ -2031,7 +2053,7 @@ We nevertheless get an acceptable figure.</p>
 >> <font class="matlab">r3 = 1/2-sqrt(3)*i/2;</font>
 >> <font class="matlab">julia3(R,[r1 r2 r3],'Tols',[0.001 0.001 0.001], ...
    'Colours',{'black','white','white'},'Density',200,'Region',[-2 2 -2 2],'...
-   NbrItr',30);</font><br>
+   'NbrItr',30);</font><br>
 The drawing is completed.
 </pre>
 
@@ -2160,7 +2182,7 @@ buildLinK("julia4.m", "julia4.m","MMathSStat", "juliaID1", "_blank");
 %          Julia set.  The function looks for level curves
 %          that go through the segment [0, max{2,abs(c),region(2)}].
 %          The default is Levels = [4].
-% 'Colour' is the colour to draw the Julia set.  Only colours
+% 'Colour' is the colour to draw the (filled) Julia set.  Only colours
 %          allowed by Matlab can be used. The default colour is black.
 % 'ColLev' is a cell array of the form  {'col1' ,'col2', ... } where
 %          col1, col2, ... are colours allowed by Matlab.  These
@@ -2178,8 +2200,12 @@ buildLinK("julia4.m", "julia4.m","MMathSStat", "juliaID1", "_blank");
 %          drawn.  If set to false, only the julia set is drawn.
 %          The default value is true.
 % 'BackItr' is the number of backward iterations used to draw the Julia
-%           set if it is required.  The default value is 17.
-%
+%           set if it is required.  The default value is 40.
+% 'tol' is the value such that if two points are at a distance less
+%       than tol from each other, then only one of them is kept.
+%       The default value is 0.01.  Often too small to get a good
+%       representation of the Julia set.
+
 <font class="matlab">function julia4(c,varargin)
     if ( ~isnumeric(c) )
         disp('The value of c must be given.')
@@ -2196,7 +2222,8 @@ buildLinK("julia4.m", "julia4.m","MMathSStat", "juliaID1", "_blank");
     colLev = {};
     maxPts = 40000;
     filled = true;
-    backItr = 17;
+    backItr = 40;
+    tol = 0.01;
     
     while ( ~isempty(varargin) )
         switch lower(varargin{1})
@@ -2218,6 +2245,8 @@ buildLinK("julia4.m", "julia4.m","MMathSStat", "juliaID1", "_blank");
             filled = varargin{2};
           case 'backitr'
             backItr = varargin{2};
+          case 'tol'
+            tol = varargin{2};
           otherwise
             disp("Unknown option: "+varargin{1});
         end
@@ -2364,7 +2393,7 @@ buildLinK("julia4.m", "julia4.m","MMathSStat", "juliaID1", "_blank");
     if ( filled )
         juliaF(c,region,density,nbrItr,colour,Mjulia);
     else
-        juliaJ(c,backItr,colour);
+        juliaJ(c,backItr,colour,tol);
     end
 
     % The Legend.
@@ -2380,6 +2409,9 @@ buildLinK("julia4.m", "julia4.m","MMathSStat", "juliaID1", "_blank");
         end
     end
 
+    xlim([region(1) region(2)]);
+    ylim([region(3) region(4)]);
+    title(['p(z) = z^2 + (',num2str(real(c)),' + ',num2str(imag(c)),'i)']);
     axis equal;
     grid on;
     hold off;
@@ -2425,9 +2457,10 @@ function juliaF(c,region,density,nbrItr,colour,Mjulia)
             end
         end
     end
+    display('The drawing of the filled Julia set is completed.');
 end
 
-function juliaJ(c, N, colour)
+function juliaJ(c, N, colour, tol)
     % Compute the repelling fixed point  (1 + sqrt(1 - 4c))/2 , where
     % sqrt(1 - 4c) is the square root of 1 - 4c with a non negative
     % real part.
@@ -2474,9 +2507,25 @@ function juliaJ(c, N, colour)
 
         % Go on with the next iteration (if there is one).
         x = [ u , -u ] - real(c);
-        y = [ v , -v ] - imag(c);        
+        y = [ v , -v ] - imag(c);
+
+        % Ignore points that are too closed to each other.
+        indices = [];
+        for j = 1:length(x)-1
+            if ( sum(find(indices == j)) == 0 )
+                for k = j+1:length(x)
+                    if ( (x(j) - x(k))^2 + (y(j) - y(k))^2 < tol^2 )
+                        indices = [indices,k];
+                    end
+                end
+            end
+        end
+        x(indices) = [];
+        y(indices) = [];
         hold on
     end
+    display('The drawing of the Julia set is completed.');
+    fprintf('%d points have been plotted.\n',length(x));
 end
 </font></pre>
 </div>
@@ -2492,6 +2541,7 @@ Level curve with j = 4 (4678 points)
 Level curve with j = 6 (3422 points)
 Level curve with j = 8 (3414 points)
 Level curve with j = 10 (3862 points)
+The drawing of the filled Julia set is completed.
 The drawing is completed.
 </pre>
 

@@ -1,20 +1,25 @@
-% function julia1(c, N, colour)
+% function julia5(c, N, colour, tol)
 %
 % Draw the Julia set of p_c(z) = z^2 + c.
 %
 % c : Any complex number.  The default value is i.
-% N : The number of backward iterations.  The default value is 17.
+% N : The number of backward iterations.  The default value is 40.
 % colour : One of the colours accepted by Matlab.
 %          The default colour is blue.
-%
+% tol : If two points are at a distance less than tol from each other,
+%       then only one of them is kept.  The default value is 0.01.
+%       Often too small to get a good representation of the Julia set.
 
-function julia1(c, N, colour)
-    if ( nargin < 3 )
-        colour = 'blue';
-        if ( nargin < 2 )
-            N = 17;
-            if ( nargin < 1 )
-                c = i;
+function julia1(c, N, colour, tol)
+    if ( nargin < 4 ) 
+        tol = 0.01;
+        if ( nargin < 3 )
+            colour = 'blue';
+            if ( nargin < 2 )
+                N = 40;
+                if ( nargin < 1 )
+                    c = i;
+                end
             end
         end
     end
@@ -66,12 +71,27 @@ function julia1(c, N, colour)
 
         % Go on with the next iteration (if there is one).
         x = [ u , -u ] - real(c);
-        y = [ v , -v ] - imag(c);        
+        y = [ v , -v ] - imag(c);
+
+        % Ignore points that are too closed to each other.
+        indices = [];
+        for j = 1:length(x)-1
+            if ( sum(find(indices == j)) == 0 )
+                for k = j+1:length(x)
+                    if ( (x(j) - x(k))^2 + (y(j) - y(k))^2 < tol^2 )
+                        indices = [indices,k];
+                    end
+                end
+            end
+        end
+        x(indices) = [];
+        y(indices) = [];
         hold on
     end
     axis equal;
     grid on
-    title(['p(z) = z^2 + ',num2str(real(c)),' + ',num2str(imag(c)),'i']);
+    title(['p(z) = z^2 + (',num2str(real(c)),' + ',num2str(imag(c)),'i)']);
     hold off
     display('The drawing is completed.');
+    fprintf('%d points have been plotted.\n',length(x));
 end

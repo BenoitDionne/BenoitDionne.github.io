@@ -25,7 +25,7 @@
 %          Julia set.  The function looks for level curves
 %          that go through the segment [0, max{2,abs(c),region(2)}].
 %          The default is Levels = [4].
-% 'Colour' is the colour to draw the Julia set.  Only colours
+% 'Colour' is the colour to draw the (filled) Julia set.  Only colours
 %          allowed by Matlab can be used. The default colour is black.
 % 'ColLev' is a cell array of the form  {'col1' ,'col2', ... } where
 %          col1, col2, ... are colours allowed by Matlab.  These
@@ -43,8 +43,12 @@
 %          drawn.  If set to false, only the julia set is drawn.
 %          The default value is true.
 % 'BackItr' is the number of backward iterations used to draw the Julia
-%           set if it is required.  The default value is 17.
-%
+%           set if it is required.  The default value is 40.
+% 'tol' is the value such that if two points are at a distance less
+%       than tol from each other, then only one of them is kept.
+%       The default value is 0.01.  Often too small to get a good
+%       representation of the Julia set.
+
 function julia4(c,varargin)
     if ( ~isnumeric(c) )
         disp('The value of c must be given.')
@@ -61,7 +65,8 @@ function julia4(c,varargin)
     colLev = {};
     maxPts = 40000;
     filled = true;
-    backItr = 17;
+    backItr = 40;
+    tol = 0.01;
     
     while ( ~isempty(varargin) )
         switch lower(varargin{1})
@@ -83,6 +88,8 @@ function julia4(c,varargin)
             filled = varargin{2};
           case 'backitr'
             backItr = varargin{2};
+          case 'tol'
+            tol = varargin{2};
           otherwise
             disp("Unknown option: "+varargin{1});
         end
@@ -229,7 +236,7 @@ function julia4(c,varargin)
     if ( filled )
         juliaF(c,region,density,nbrItr,colour,Mjulia);
     else
-        juliaJ(c,backItr,colour);
+        juliaJ(c,backItr,colour,tol);
     end
 
     % The Legend.
@@ -245,6 +252,9 @@ function julia4(c,varargin)
         end
     end
 
+    xlim([region(1) region(2)]);
+    ylim([region(3) region(4)]);
+    title(['p(z) = z^2 + (',num2str(real(c)),' + ',num2str(imag(c)),'i)']);
     axis equal;
     grid on;
     hold off;
@@ -290,9 +300,10 @@ function juliaF(c,region,density,nbrItr,colour,Mjulia)
             end
         end
     end
+    display('The drawing of the filled Julia set is completed.');
 end
 
-function juliaJ(c, N, colour)
+function juliaJ(c, N, colour, tol)
     % Compute the repelling fixed point  (1 + sqrt(1 - 4c))/2 , where
     % sqrt(1 - 4c) is the square root of 1 - 4c with a non negative
     % real part.
@@ -339,7 +350,23 @@ function juliaJ(c, N, colour)
 
         % Go on with the next iteration (if there is one).
         x = [ u , -u ] - real(c);
-        y = [ v , -v ] - imag(c);        
+        y = [ v , -v ] - imag(c);
+
+        % Ignore points that are too closed to each other.
+        indices = [];
+        for j = 1:length(x)-1
+            if ( sum(find(indices == j)) == 0 )
+                for k = j+1:length(x)
+                    if ( (x(j) - x(k))^2 + (y(j) - y(k))^2 < tol^2 )
+                        indices = [indices,k];
+                    end
+                end
+            end
+        end
+        x(indices) = [];
+        y(indices) = [];
         hold on
     end
+    display('The drawing of the Julia set is completed.');
+    fprintf('%d points have been plotted.\n',length(x));
 end
