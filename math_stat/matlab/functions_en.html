@@ -81,7 +81,35 @@ main_title( MStext, "MMathSStat");
   <li> <script language="javascript"> 
       buildLinK("#Sect19", "Visual Represenations (continued)",
       "MMathSStat", "sect19ID", "_top");
-  </script> </li>
+    </script>
+    <ul>
+      <li> <script language="javascript"> 
+	  buildLinK("#Sect19A", "Graph of a Function",
+	  "MMathSStat", "sect19AID", "_top");
+	</script>
+      </li>
+      <li> <script language="javascript"> 
+	  buildLinK("#Sect19B", "Drawing of a Curve",
+	  "MMathSStat", "sect19BID", "_top");
+	</script>
+      </li>
+      <li> <script language="javascript"> 
+	  buildLinK("#Sect19C", "Drawing of a Curve Defined Implicitly",
+	  "MMathSStat", "sect19CID", "_top");
+	</script>
+      </li>
+      <li> <script language="javascript"> 
+	  buildLinK("#Sect19D", "Contour Plot",
+	  "MMathSStat", "sect19DID", "_top");
+	</script>
+      </li>
+      <li> <script language="javascript"> 
+	  buildLinK("#Sect19E", "Drawing of some 3-D objects",
+	  "MMathSStat", "sect19EID", "_top");
+	</script>
+      </li>
+    </ul>
+  </li>
 </ul>
 </div>
 
@@ -489,6 +517,8 @@ that there were versions of the functions
 that accept as arguments the mathematical functions that we define.
 We provide examples of these new graphics functions below.</p>
 
+<h4 id="Sect19A">Graph of a Function</h4>
+
 <div class="Example">
 <p><em>Example</em>: We may use the <em>Matlab</em> function
 <font class="matlab">fplot</font> to plot the graph of the function     
@@ -535,6 +565,8 @@ because these points are not included among the mesh points selected
 by <font class="matlab">fplot</font>.  The reader should vary the mesh
 density to see what happen.</p> 
 </div>
+
+<h4 id="Sect19B">Drawing of a Curve</h4>
 
 <div class="Example">
 <p><em>Example</em>: We use <em>Matlab</em> to
@@ -583,6 +615,8 @@ plot the curve given by the parametric representation
 is <font class="matlab">ezplot3</font>.</p>
 </div>
 
+<h4 id="Sect19C">Drawing of a Curve Defined Implicitly</h4>
+
 <div class="Example">
 <p><em>Example</em>: We can draw curves defined implicitly.  For
 instance, we can draw the curve defined by the equation
@@ -603,6 +637,61 @@ instance, we can draw the curve defined by the equation
 <font class="matlab">fimplicit</font> in the present case
 is <font class="matlab">ezplot</font>.</p>
 </div>
+
+<div class="Example">
+<p><em>Example</em>: This example illustrates the behaviour of an
+holomorphic function in the neighbourhood of one of its critical
+points.  This plays an important role in the study of Julia sets as it
+is shown on the site
+<script language="javascript">buildLinK(fractal4.url_en,fractal4.text_en,
+"MMathSStat",fractal4.id,fractal4.target);</script>.</p>
+
+<p>Let \(T : {\mathbb C}_\infty \to {\mathbb C}_\infty\) be a rational
+function and \(\gamma\) be a simple curve that contains the point
+\(T(c)\) where \(c\) is a critical point of \(T\).  We want to draw
+the preimage of \(\gamma\) by \(T\).</p>
+
+<p>If \(T\) is defined by \(T(z) = z^3\), then \(c=0\) is the only
+critical point.  The curve \( \gamma = \{z : |z-1|=1\}\) is a simple
+curve that contains \(T(0) = 0\).  The preimage of \(\gamma\) by
+\(T\) is drawn below.  It is not a simple curve because it intersects
+itself at the origin. </p>
+
+<pre class="matlab">
+>> <font class="matlab">f1 = @(x,y) abs((x+i*y).^3 -1)-1; ...
+   fimplicit(f1,'b'); ...
+   xlabel('x') , ylabel('y'), grid on, axis equal, ...
+   title("|z^3-1|-1 = 0");</font>
+</pre>
+
+<div class="center"> 
+  <img src="implicit_curve_f1.png" style="width: 400px"
+       alt="Drawing of the curve defined implicitly by |z^3-1|-1=0.">
+</div>
+
+<p>If \(T\) is defined by \(T(z) = (z^3+1)/z\), then \(c=2^{-1/3}\) is
+one of the three critical points.  The curve
+\( \gamma = \{z : |z|= 3\times 2^{-2/3} \}\)
+is a simple curve that contains
+\(T(c) = 3\times 2^{-2/3}\).  The preimage of \(\gamma\) by
+\(T\) is drawn below.  It is not a simple curve because it intersects
+itself at each of the critical points.  There is an obvious
+symmetry given by a rotation by \(2\pi/3\) radians as we had for the
+previous figure.  But this is misleading.  If we look closely in
+the neighbourhood of a critical point (one of the points where the
+curve intersects itself), we realize that there are only two leaves.
+One of them folded on itself.  This is expected because \(T\) is a
+rational function of degree \(2\) as defined in the document
+<script language="javascript">buildLinK(fractal4.url_en,fractal4.text_en,
+"MMathSStat",fractal4.id+"A",fractal4.target);</script>.</p>
+
+<div class="center"> 
+  <img src="implicit_curve_f2.png" style="width: 400px"
+       alt="Drawing of the curve defined implicitly by |(z^3+1)/z|=3\times 2^{-2/3}.">
+</div>
+</div>
+
+<h4 id="Sect19D">Contour plot</h4>
 
 <div class="Example">
 <p><em>Example</em>: We use <em>Matlab</em> to
@@ -650,6 +739,8 @@ draw the graph of the function \(f\) defined by
 and <font class="matlab">fcontour</font> have not been implemented
 in <em>Octave</em> yet.</p>
 </div>
+
+<h4 id="Sect19E">Drawing of some 3-D Objects</h4>
 
 <div class="Example">
 <p><em>Example</em>: We can also draw geometric objects in three

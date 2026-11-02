@@ -73,19 +73,54 @@ main_title( MStext, "MMathSStat");
   <li> <script language="javascript">
       buildLinK("#Sect10", "Drawings in &reals;<sup>2</sup>",
       "MMathSStat", "sect10ID", "_top");
-  </script> </li>
-  <li> <script language="javascript">
-      buildLinK("#Sect11", "Interpolation",
-      "MMathSStat", "sect11ID", "_top");
-  </script> </li>
+    </script>
+    <ul>
+      <li> <script language="javascript">
+	  buildLinK("#Sect10A", "Graph of a Function",
+	  "MMathSStat", "sect10AID", "_top");
+	</script>
+      </li>
+      <li> <script language="javascript">
+	  buildLinK("#Sect10B", "Drawing of a Curve",
+	  "MMathSStat", "sect10BID", "_top");
+	</script>
+      </li>
+      <li> <script language="javascript">
+	  buildLinK("#Sect10C", "Interpolation",
+	  "MMathSStat", "sect10CID", "_top");
+      </script> </li>
+      <li> <script language="javascript">
+	  buildLinK("#Sect10D", "Contour Plot",
+	  "MMathSStat", "sect10DID", "_top");
+      </script> </li>
+      <li> <script language="javascript">
+	  buildLinK("#Sect10E", "Drawing of a Curve in Polar Coordinates",
+	  "MMathSStat", "sect10EID", "_top");
+      </script> </li>
+    </ul>
+  </li>
   <li> <script language="javascript"> 
       buildLinK("#Sect18", "Drawings in &reals;<sup>3</sup>",
       "MMathSStat", "sect18ID", "_top");
-  </script> </li>
-  <li> <script language="javascript">
-      buildLinK("#Sect20", "More Drawings",
-      "MMathSStat", "sect20ID", "_top");
-  </script> </li>
+    </script>
+    <ul>
+      <li> <script language="javascript">
+	  buildLinK("#Sect18A", "Graph of a Function",
+	  "MMathSStat", "sect18AID", "_top");
+	</script>
+      </li>
+      <li> <script language="javascript">
+	  buildLinK("#Sect18B", "Drawing of a Curve",
+	  "MMathSStat", "sect18BID", "_top");
+	</script>
+      </li>
+      <li> <script language="javascript">
+	  buildLinK("#Sect18C", "Surface of Revolution",
+	  "MMathSStat", "sect18CID", "_top");
+	</script>
+      </li>
+    </ul>
+  </li>
   <li> <script language="javascript"> 
       buildLinK("#Sect21", "The <font class=\"matlab\">subplot</font> Function",
       "MMathSStat", "sect21ID", "_top");
@@ -106,6 +141,13 @@ visualize mathematical results.  It can plot graphs of functions,
 represents data sets using charts, etc.  The focus of 
 this document is on the representation of function.  This choice is
 motivated by our personal needs. </p>
+
+<p>All types of plots that can be done with <em>Matlab</em> are
+listed on the website
+<script language="javascript"> 
+  buildLinK("https://www.mathworks.com/help/matlab/creating_plots/types-of-matlab-plots.html",
+  "Types or MATLAB Plots", "MMathSStat","matlabID", "_blank");
+</script>.  We are only going to give examples for some of them.</p>
 
 <p>There are versions of the functions
 <font class="matlab">plot</font>, <font class="matlab">surf</font>,
@@ -141,7 +183,7 @@ to the computer screen resolution.</p>
 
 <h3 id="Sect10"> Drawings in &reals;<sup>2</sup> </h3>
 
-<h4>Graph of a Function</h4>
+<h4 id="Sect10A">Graph of a Function</h4>
 
 <p>Suppose that we want to plot the graph of a function \(f\) defined
 on an interval \([a,b]\).</p>
@@ -281,7 +323,7 @@ to obtain the following figure.</p>
 </div>
 </div>
 
-<h4>Drawing of a Curve</h4>
+<h4 id="Sect10B">Drawing a of Curve</h4>
 
 <p>Suppose that we want to draw a curve given by the parametric
 representation \( (x,y) = (f(t),g(t)) \) for \( a \leq t \leq b \).</p>
@@ -349,9 +391,7 @@ tells <em>Matlab</em> to read the next line before executing the
 commands.</p>
 </div>
 
-<hr class="MMathSStat">
-
-<h3 id="Sect11"> Interpolation </h3>
+<h4 id="Sect10C"> Interpolation </h4>
 
 <p>Polynomial interpolation can be used in <em>Matlab</em>.</p>
 
@@ -462,11 +502,80 @@ the steps in the previous example but substituting
 To compare these methods, the reader should try these methods with
 the two previous examples. </p>
 
+<h4 id="Sect10D">Contour plot</h4>
+
+<p>There are situations where it is preferable to plot the level curves
+of a real valued function of two variables then to plot the three
+dimensional graph of this function.  Some of the the best examples
+comes from cartography for the altitude of mountainous 
+regions and climatology for the atmospheric pressure distribution
+over large regions.  The next example illustrates how to plot the
+level curves of a function.</p>
+
+<div class="Example">
+<p><em>Example</em>: To plot 10 level curves of the function \(f\)
+defined by \(f(x,y) = \sin(x+y) x^2 y \) for \(-5 \leq x \leq 5\) and
+\(-3 \leq y \leq 3\), we use the following commands. </p>
+
+<pre class="matlab">
+>> <font class="matlab">close</font>
+>> <font class="matlab">[X,Y] = meshgrid(-5:0.1:5,-3:0.1:3); ...
+   Z = sin(X+Y).*X.^2.*Y; ...
+   contour(X,Y,Z,10,'ShowText','on'); ...
+   grid on , xlabel('x') , ylabel('y');</font>
+</pre>
+
+<div class="center"> 
+  <img src="Matlab_figure12.png" style="width: 400px"
+       alt="10 level curves of the function f(x,y) = sin(x+y) x^2 y">
+</div>
+
+<p>We may select the level curves that we want to plot.  For instance,
+suppose that we want the level curves given by
+\(f(x,y) = -2\) and \(f(x,y) = -6\).  We can plot them with the
+following command. </p>  
+
+<pre class="matlab">
+>> <font class="matlab">close</font>
+>> <font class="matlab">contour(X,Y,Z,[-2,-6],'ShowText','on'); ...
+   grid on , xlabel('x') , ylabel('y');</font>
+</pre>
+
+<div class="center"> 
+  <img src="Matlab_figure13.png" style="width: 400px"
+       alt="Plot of the level curves f(x,y) = -2 and f(x,y) = -6">
+</div>
+</div>
+
+<h4 id="Sect10E">Drawing of a Curve in Polar Coordinates</h4>
+
+<div class="Example">
+<p><em>Example</em>: To plot the curve defined by the equation in
+polar coordinates \( r = 1 + \cos(\theta) \), we use the following
+commands.</p>
+
+<pre class="matlab">
+>> <font class="matlab">close</font>
+>> <font class="matlab">theta = 0:0.01:2*pi; ...
+   r = 1 +cos(theta); ...
+   polarplot(theta,r);</font>
+</pre>
+
+<div class="center"> 
+  <img src="Matlab_figure14.png" style="width: 400px"
+       alt="Drawing of the curve r = 1 + cos(theta) for 0 &le; theta &le; 2 pi">
+</div>
+
+<p>The function <font class="matlab">polarplot</font> is not
+implemented in <em>Octave</em>.  The function <font class="matlab">polar</font>
+may be used instead.</p>
+</div>
+
 <hr class="MMathSStat">
 
 <h3 id="Sect18"> Drawings in &reals;<sup>3</sup> </h3>
 
-<h4>Graph of a Function</h4>
+<h4 id="Sect18A">Graph of a Function</h4>
 
 <p> The procedure to draw the graph of a real valued function of two
 variables is very similar to the procedure to draw the graph of a real
@@ -553,7 +662,7 @@ this option by selecting the option
 Rotate on</em> in the menu on the top of the window displaying the
 figure.</p>
 
-<h4>Drawing of a Curve</h4>
+<h4 id="Sect18B">Drawing of a Curve</h4>
 
 <p> The procedure to draw a curve in \(\mathbb{R}^3\) is basically
 identical to the procedure to draw a curve in \(\mathbb{R}^2\).
@@ -690,73 +799,7 @@ degrees around the axis that contains the vector \( (1,1,1)\), .</p>
 the axis of rotation.</p>
 </div>
 
-<hr class="MMathSStat">
-
-<h3 id="Sect20"> More Drawings</h3>
-
-<p>All types of plots that can be done with <em>Matlab</em> are
-listed on the website
-<script language="javascript"> 
-  buildLinK("https://www.mathworks.com/help/matlab/creating_plots/types-of-matlab-plots.html",
-  "Types or MATLAB Plots", "MMathSStat","matlabID", "_blank");
-</script>.  We are only going to give examples for some of them.</p>
-
-<div class="Example">
-<p><em>Example</em>: To plot 10 level curves of the function \(f\)
-defined by \(f(x,y) = \sin(x+y) x^2 y \) for \(-5 \leq x \leq 5\) and
-\(-3 \leq y \leq 3\), we use the following commands. </p>
-
-<pre class="matlab">
->> <font class="matlab">close</font>
->> <font class="matlab">[X,Y] = meshgrid(-5:0.1:5,-3:0.1:3); ...
-   Z = sin(X+Y).*X.^2.*Y; ...
-   contour(X,Y,Z,10,'ShowText','on'); ...
-   grid on , xlabel('x') , ylabel('y');</font>
-</pre>
-
-<div class="center"> 
-  <img src="Matlab_figure12.png" style="width: 400px"
-       alt="10 level curves of the function f(x,y) = sin(x+y) x^2 y">
-</div>
-
-<p>We may select the level curves that we want to plot.  For instance,
-suppose that we want the level curves given by
-\(f(x,y) = -2\) and \(f(x,y) = -6\).  We can plot them with the
-following command. </p>  
-
-<pre class="matlab">
->> <font class="matlab">close</font>
->> <font class="matlab">contour(X,Y,Z,[-2,-6],'ShowText','on'); ...
-   grid on , xlabel('x') , ylabel('y');</font>
-</pre>
-
-<div class="center"> 
-  <img src="Matlab_figure13.png" style="width: 400px"
-       alt="Plot of the level curves f(x,y) = -2 and f(x,y) = -6">
-</div>
-</div>
-
-<div class="Example">
-<p><em>Example</em>: To plot the curve defined by the equation in
-polar coordinates \( r = 1 + \cos(\theta) \), we use the following
-commands.</p>
-
-<pre class="matlab">
->> <font class="matlab">close</font>
->> <font class="matlab">theta = 0:0.01:2*pi; ...
-   r = 1 +cos(theta); ...
-   polarplot(theta,r);</font>
-</pre>
-
-<div class="center"> 
-  <img src="Matlab_figure14.png" style="width: 400px"
-       alt="Drawing of the curve r = 1 + cos(theta) for 0 &le; theta &le; 2 pi">
-</div>
-
-<p>The function <font class="matlab">polarplot</font> is not
-implemented in <em>Octave</em>.  The function <font class="matlab">polar</font>
-may be used instead.</p>
-</div>
+<h4 id="Sect18C">Surface of Revolution</h4>
 
 <div class="Example">
 <p><em>Example</em>: A popular topic in calculus is drawing surfaces

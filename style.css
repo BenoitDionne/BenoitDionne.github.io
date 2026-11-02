@@ -1,5 +1,8 @@
 /********************************************************************/
 /* Default style                                                    */
+/* The class  MMathSStat  is assigned to a lot of tags but it is    */
+/* not used.  The default is normally used.  There is only one      */
+/* exception.  There is a class  MMathSStat  used for the tag  hr . */
 /********************************************************************/
 body { margin: 0px; background: #eae8e8 url("images/background7.png") repeat;}
 div.page_contents { margin: 0px; padding: 1em; border: 0px; }
@@ -11,12 +14,17 @@ div.page_contents { margin: 0px; padding: 1em; border: 0px; }
 p.footnote { font-weight: normal; font-size: 70%; color: black; font-style: normal; padding-left: 1em; padding-right: 10em;}
 
 /* The hyperlinks */
-a { color: #8F001A; text-decoration: none; }
+/* a { color: #8F001A; text-decoration: none; } */
+a { color: red; text-decoration: none; }
 a:visited { color: purple;}
 a:hover { color: blue;}
-a.MStop { color: #8F001A; text-decoration: none; z-index:1000; }
-a.MStop:visited { color: purple;}
-a.MStop:hover { color: blue;}
+
+/* Only the default style is used. */
+/*
+a.MMathSStat { color: #8F001A; text-decoration: none; z-index:1000; }
+a.MMathSStat:visited { color: purple;}
+a.MMathSStat:hover { color: blue;}
+*/
 
 /* Emphasis */
 em { color: inherit; font-weight: bold; }

@@ -388,7 +388,7 @@ function image_caption(image_src, caption, clasS) {
  * e.g. To create the links, ...,
  **********************************************************************/
 /* Function to create the links in the text. */
-function buildLinK( Url, Text, Class, ID, Target, Name) {
+function buildLinK(Url, Text, Class, ID, Target, Name) {
     if ( Target == null )
 	Target = "_self";
     if ( Name == null )
