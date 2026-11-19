@@ -64,7 +64,43 @@ main_title( MStext, "MMathSStat");
 
 <h2 id="TOP"> Algorithm Section </h2>
 
-<h3> Introduction </h3>
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#Sect1", "Introduction",
+      "MMathSStat", "Sext1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect2", "Random Variables",
+      "MMathSStat", "Sext2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect3", "Switch and Conditions",
+      "MMathSStat", "Sext3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect4", "Formatting a Fraction",
+      "MMathSStat", "Sext4ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect5", "Formatting a Year",
+      "MMathSStat", "Sext5ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect6", "Constants, operators and Functions",
+      "MMathSStat", "Sext6ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect7", "A lot more Functions",
+      "MMathSStat", "Sext7ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect1"> Introduction </h3>
 
 <p>You may use random variables and mathematical formulae, graphs
   (static or animation) produced with Maple, and event text formatted in
@@ -92,7 +128,9 @@ $variable_name = </font> code <font class="matlab">;</font>
     Mbs_algo_maple.id, Mbs_algo_maple.target);
   </script>.</p>
 
-<h3> Random Variables </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect2"> Random Variables </h3>
 
 <p>The following examples illustrate the principal functions used to
   generate <q lang="en">random numbers</q>.</p>
@@ -154,7 +192,9 @@ $a = decimal(k, rand(a,b,m));
   <p>where \(m\) minus the number of digits in
     <font class="matlab">int(b)</font> is at least equal to \(k\). </p>
 
-<h3> Switch and Conditions </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect3"> Switch and Conditions </h3>
 
 <p>The following commands are often used to either add some
   restrictions or generate other random objects than number.</p>
@@ -210,7 +250,9 @@ $a = range(-1,1,2)*range(1,5);
 </font>
 </pre>
 
-<h3> Formatting a Fraction </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect4"> Formatting a Fraction </h3>
 
 <h4> Rational Numbers </h4>
 
@@ -303,7 +345,9 @@ $pqD = "\frac{$p}{$q}";
   then the value of <font class="matlab">$pqD</font> produced by this code
   will be <em>\frac{7\sqrt{6}}{5}<em>.</p>
 
-<h3> Formatting a Year </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect5"> Formatting a Year </h3>
 
 <p>Möbius uses commas to separate thousands, millions, etc.
   This is the normal practice for large numbers with one exception.
@@ -321,7 +365,9 @@ $year = numfmt( "#", $y);
 
 <p>yields <font class="matlab">$year = 2020</font>.</p>
 
-<h3> Constants, operators and Functions </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect6"> Constants, operators and Functions </h3>
 
 <p>We list below some of the important constants, operators and
   functions that you can use in the section <em>Algorithm</em> and that
@@ -460,7 +506,9 @@ $year = numfmt( "#", $y);
 </tr>
 </table>
 
-<h3> A lot more Functions </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect7"> A lot more Functions </h3>
 
 <p>We list below all the functions that can be used in
   the <em>Algorithm</em> section.</p>
@@ -700,7 +748,6 @@ $a = mathml("4/6", "nosimplify");
   n<sup>th</sup> item in the list a, b, c, ..., where a is in position
   0, b in position 1, ..., and \(n\) must be smaller than the number of
   items in the list.</p>
-
 
 <hr class="MMathSStat">
 

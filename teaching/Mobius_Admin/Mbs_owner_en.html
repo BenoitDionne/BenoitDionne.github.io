@@ -35,15 +35,35 @@ document.write("Include javascript file has failed")
 top_function(Mbs_owner,"en");
 </script>
 
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
 <div class="page_contents"> <!--  The contents starts here -->
 
 <script language="javascript">
 main_title( MStext, "MMathSStat");
 </script>
 
-<h2> Who Posted this Assignment? </h2>
+<h2 id="TOP"> Who Posted this Assignment? </h2>
 
-<h3> Introduction </h3>
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#Sect1", "Introduction",
+      "MMathSStat", "Sext1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect2", "Search",
+      "MMathSStat", "Sext2ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect1"> Introduction </h3>
 
 <p>This question comes up if you find that a student has posted (part
   of) their assignment on the net (some discussion groups, ...) to get
@@ -57,12 +77,14 @@ main_title( MStext, "MMathSStat");
   discussion, suppose that Question 4 has 560 variants, Question
   7 has 300 variants, Question 1 has 200 variants, and so on.</p>
 
-<h3> Search </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect2"> Search </h3>
 
 <p>The following procedure was suggested by a
   <em>Technical Support Analyst, Customer Success, DigitalEd</em>.</p>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> <p>Start the search of the owner with the question having the
   largest number of variants, Question 4 in the present context.
   Looking at the statement of the question, you should be able to find

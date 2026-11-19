@@ -219,6 +219,14 @@ var Mbs_adaptive = new item
      null, null, "Mbs_adaptive", "_self", "Mbs_adaptive");
 websites[websites_nbr++] = Mbs_adaptive;
 
+/* Creating assignments */
+var Mbs_cloning = new item
+    ("Clonage", "Cloning", Mbs.url_fr,
+     /*     location_bd+"teaching/Mobius_Admin/Mbs_cloning_fr.html",*/
+     location_bd+"teaching/Mobius_Admin/Mbs_cloning_en.html", null,
+     null, null, "Mbs_cloning", "_self", "Mbs_cloning");
+websites[websites_nbr++] = Mbs_cloning;
+
 /* Proctor tools */
 var Mbs_proctor = new item
     ("Outils pour les surveillants", "Proctor Tools", Mbs.url_fr,
@@ -706,6 +714,9 @@ ROOT[root_nbr] = initItem(welcomeMenu, ROOT_item, ROOT, welcomeLinks);
 		     mobiusLinksB, null);
 		mobiusLinksB[mobius_nbrB++] = initItem
 		    (Mbs_adaptive, mobiusLinksA[mobius_nbrA],
+		     mobiusLinksB, null);
+		mobiusLinksB[mobius_nbrB++] = initItem
+		    (Mbs_cloning, mobiusLinksA[mobius_nbrA],
 		     mobiusLinksB, null);
 		mobiusLinksB[mobius_nbrB++] = initItem
 		    (Mbs_proctor, mobiusLinksA[mobius_nbrA],

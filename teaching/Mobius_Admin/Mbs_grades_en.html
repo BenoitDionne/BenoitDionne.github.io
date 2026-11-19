@@ -35,15 +35,35 @@ document.write("Include javascript file has failed")
 top_function(Mbs_grades,"en");
 </script>
 
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
 <div class="page_contents"> <!--  The contents starts here -->
 
 <script language="javascript">
 main_title( MStext, "MMathSStat");
 </script>
 
-<h2> How to Export Grades </h2>
+<h2 id="TOP"> How to Export Grades </h2>
 
-<h3> Force Grading </h3>
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#Sect1", "Force Grading",
+      "MMathSStat", "Sext1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect2", "Exporting Grades",
+      "MMathSStat", "Sext2ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect1"> Force Grading </h3>
 
 <p>There is something that you <em>must do</em> before exporting
 grades to a CSV file. </p>
@@ -54,7 +74,7 @@ grades to a CSV file. </p>
   students have not submitted yet by following the simple instructions
   below.</p>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li><p>Select <em>content repository</em> in the top menu
     (item <em>1</em> in the figure below).</p>
 
@@ -89,13 +109,15 @@ grades to a CSV file. </p>
 </div></li>
 </ol>
 
-<h3> Exporting Grades </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect2"> Exporting Grades </h3>
 
 <p>Now that all the assignments handed in by the students have been
   graded, you can follow the instruction below to get the student
   grades for the assignments and to download them to a CSV file.</p> 
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> <p> Select <em>Class Grades</em> (item <em>1</em> in the figure
     below) under the drop down menu <em>Gradebook</em> at the top of
     the window.</p>

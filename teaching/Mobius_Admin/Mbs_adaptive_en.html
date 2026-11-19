@@ -47,7 +47,27 @@ main_title( MStext, "MMathSStat");
 
 <h2 id="TOP"> How to create Adaptive Assignments </h2>
 
-<h3> Introduction </h3>
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#Sect1", "Introduction",
+      "MMathSStat", "Sext1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect2", "Procedure",
+      "MMathSStat", "Sext2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect3", "Algorithmic Policies",
+      "MMathSStat", "Sext3ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect1"> Introduction </h3>
 
 <p>We give a summary of the steps to create an adaptive assignment.
   Most of the steps are identical to those used to create a standard
@@ -67,9 +87,11 @@ main_title( MStext, "MMathSStat");
   of upper level of difficulty according to the policies that you
   set.</p>
 
-<h3> Procedure </h3>
+<hr class="MMathSStat">
 
-<ol style="list-style-type: decimal;">
+<h3 id="Sect2"> Procedure </h3>
+
+<ol class="dec">
 <li> <p>As for creating an assignment, you have to access the folder
     under <em>Content repository ==> Assignments</em> where you would
     like to store the adaptive assignment.  Unless you have an
@@ -205,7 +227,7 @@ main_title( MStext, "MMathSStat");
 </div>
 <p>There are four sections to this menu.  The first section, <em>Grade
     Assignment When</em>, gives you three options to choose from.</p>
-<ol style="list-style-type:lower-roman;">
+<ol class="dec">
 <li> Number of <em>Questions Seen<em> (i.e. number of questions
       requested by the student)</li>
 <li> Number of <em>Correct Responses<em></li>
@@ -230,7 +252,7 @@ main_title( MStext, "MMathSStat");
 
 <p>The second section, <em>Grade Policy</em>, offers three options.</p>
 
-<ol style="list-style-type:lower-roman;">
+<ol class="dec">
 <li> <em>Basic<em> </li>
 <li> <em>ELO<em> </li>
 <li> <em>Algorithmic<em> </li>
@@ -255,13 +277,13 @@ main_title( MStext, "MMathSStat");
   according to your algorithm.  We will address the
   option <em>Algorithmic</em> in a section
   <script language="javascript">
-    buildLinK("#AlgorithmicPolicies","Algorithmic Policies","MMathSStat",
+    buildLinK("#Sect3","Algorithmic Policies","MMathSStat",
     "algoP", "_top");
   </script> below.</p>
 
 <p>The third section of the menu is <em>Adaptive Policy</em> and
   offers two options.</p>
-<ol style="list-style-type:lower-roman;">
+<ol class="dec">
 <li> <em>Basic<em> </li>
 <li> <em>Algorithmic<em> </li>
 </ol>
@@ -271,7 +293,7 @@ main_title( MStext, "MMathSStat");
   describe right now.  The option <em>Algorithmic</em> will be the
   subject of the section
   <script language="javascript">
-    buildLinK("#AlgorithmicPolicies","Algorithmic Policies","MMathSStat",
+    buildLinK("#Sect3","Algorithmic Policies","MMathSStat",
     "algoP", "_top");
   </script> below.</p>
 
@@ -366,8 +388,9 @@ main_title( MStext, "MMathSStat");
 </li>
 </ul>
 
-<a name="AlgorithmicPolicies"></a>
-<h3> Algorithmic Policies</h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect3"> Algorithmic Policies</h3>
 
 <p>You may create a Maple algorithm to choose the branch from which
   the next question should be drawn from and, possibly, to determine

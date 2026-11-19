@@ -64,7 +64,47 @@ main_title( MStext, "MMathSStat");
 
 <h2 id="TOP"> Algorithm with Maple </h2>
 
-<h3> Introduction </h3>
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#Sect1", "Introduction",
+      "MMathSStat", "Sext1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect2", "Simple Calls to Maple",
+      "MMathSStat", "Sext2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect3", "Graphs and Figures",
+      "MMathSStat", "Sext3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect4", "MathML and \(\LaTeX\)",
+      "MMathSStat", "Sext4ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect5", "Conditional Statements in Maple",
+      "MMathSStat", "Sext5ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect6", "Reducing the Number of Calls to Maple",
+      "MMathSStat", "Sext6ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect7", "Random Selection Using Maple",
+      "MMathSStat", "Sext7ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect8", "Truth Table",
+      "MMathSStat", "Sext8ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect1"> Introduction </h3>
 
 <p>You can use Maple commands to define a variable with a code of the
   form</p>
@@ -79,7 +119,9 @@ main_title( MStext, "MMathSStat");
   <font class="matlab">Maple code</font>.  The last statement of the
   code returns the value given to the variable.</p>
 
-<h3> Simple Calls to Maple </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect2"> Simple Calls to Maple </h3>
 
 <p>This is obviously not an exhaustive list of Maple functions but
   they have been useful in authoring questions. For a more complete
@@ -149,7 +191,9 @@ $e = maple("simplify( ($a*x^2 - ($b))/($c*x + ($d)) );");
 
 <p>gives  <em>3*x - 4</em>.</p>
 
-<h3> Graphs and Figures </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect3"> Graphs and Figures </h3>
 
 <p>We give only a couple of examples on how to draw the graph of a
   function.  There are too many options to plot graphs in Maple to be
@@ -236,7 +280,9 @@ plotdevice='gif', plotoptions='height=200, width=200'");
 <p>The graph of \(\sin(ax)\) will evolve continuously as \(a\) goes
   from 1 to 4, and this will be repeated for ever.</p>
 
-<h3> MathML and \(\LaTeX\) </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect4"> MathML and \(\LaTeX\) </h3>
 
 <p>If you want to write a mathematical formula in
   your <em>Question</em> area or in the section <em>Feedback</em>,
@@ -293,7 +339,9 @@ $myLaTeX = maple("latex(x^2-3*x+2)");
 
 <p>generates the \(\LaTeX\) code to produce <em>{x}^{2}-3\,x+2</em>.</p>
 
-<h3> Conditional Statement in Maple </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect5"> Conditional Statements in Maple </h3>
 
 <p><em>Example</em>:</p>
 
@@ -310,7 +358,9 @@ $b = maple("if ($a=1) then 1; elif ($a=2) then 2; else 3; fi;");
 
 <p>gives 2.</p>
 
-<h3> Reducing the Number of Calls to Maple </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect6"> Reducing the Number of Calls to Maple </h3>
 
 <p><em>Example</em>:</p>
 
@@ -419,7 +469,9 @@ $m23 = maple("$N[2,3];");
 <p>which is simpler and probably as fast as the previous one since
   only two calls to maple are used.</p>
 
-<h3> Random Selection Using Maple </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect7"> Random Selection Using Maple </h3>
 
 <p><em>Example</em>:</p>
 
@@ -474,7 +526,9 @@ $sum = switch(3,$edges);
   in increasing order.  We use <font class="matlab">randperm()</font>
   to shuffle these combinations.</p>
 
-<h3> Truth Table </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect8"> Truth Table </h3>
 
 <p><em>Example</em>:</p>
 

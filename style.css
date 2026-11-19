@@ -178,7 +178,7 @@ table.header td.activeM ul li::marker { color: white; }
 /********************************************************************/
 
 /* For the clock on the home page */
-div.clock { float: right; }
+div.clock { float: right; padding-bottom: 1em; }
 input.clock { border: 0px; background-color: transparent; font-size: 100%;
   font-weight: bold; }
 
@@ -188,8 +188,8 @@ font-family: Verdana, sans-serif; color: black; }
 
 /* For the history display on the home page */
 img.history { border: 1px black solid; margin: 2px; height: 150px; }
-div.history_box { position: relative; float: right; width: 400px;
-  height: 550px; border: solid 2px #8F001A;
+div.history_box { position: relative; float: right; width: 300px;
+  height: 650px; border: solid 2px #8F001A;
   background-color: white; padding: 5px; margin: 10px;
 }
 div.history_ID { position: absolute; visibility: hidden; padding: 5px;}

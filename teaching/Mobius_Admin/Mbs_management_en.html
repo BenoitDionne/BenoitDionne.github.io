@@ -35,15 +35,40 @@ document.write("Include javascript file has failed")
 top_function(Mbs_management,"en");
 </script>
 
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
 <div class="page_contents"> <!--  The contents starts here -->
 
 <script language="javascript">
 main_title( MStext, "MMathSStat");
 </script>
 
-<h2> Managing Questions and Assignments </h2>
+<h2 id="TOP"> Managing Questions and Assignments </h2>
 
-<h3> Introduction </h3>
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#Sect1", "Introduction",
+      "MMathSStat", "Sext1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect2", "Exporting Questions and Assignments to a zip File",
+      "MMathSStat", "Sext2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect3",
+      "Importing a zip File with Questions and Assignments to a Course",
+      "MMathSStat", "Sext3ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect1"> Introduction </h3>
 
 <p>If you have created your own questions and assignments in a
   previous course and would like to use them in your new course, then you
@@ -51,20 +76,22 @@ main_title( MStext, "MMathSStat");
   that, import this zip file to your new course.  We explain how to do
   it below.</p>
 
-<h3> Exporting Questions and Assignments to a zip File </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect2"> Exporting Questions and Assignments to a zip File </h3>
 
 <p>We explain how to export assignments to a zip file.  The procedure
   is almost identical for questions.   The only difference is to
   select questions instead of assignments.</p>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li><p>In the course where are located the assignments that you will like
     to use in your new course, select <em>Content Repository</em> in the
-    top menu  (item <em>1</em> in the figure below) followed
+    top menu (item <em>1</em> in the figure below) followed
     by <em>Assignments</em> (item <em>2</em> in the figure below).
     Then, select the folder where your assignments can be found.
     Normally, it will be in the folder <em>Default Unit</em>
-    (item <em>3</em> in the figure below) but it could be any
+    (item <em>3</em> in the figure below) but it could be in any
     folder.</p>
 
   <div class="center">
@@ -87,10 +114,13 @@ main_title( MStext, "MMathSStat");
 </li>
 </ol>
 
-<h3> Importing a zip File with Questions and Assignments to a Course </h3>
+<hr class="MMathSStat">
 
-<ol style="list-style-type: decimal;">
-<li><p>On the new course, you select <em>Content Repository</em> in
+<h3 id="Sect3"> Importing a zip File with Questions and Assignments to
+  a Course </h3>
+
+<ol class="dec">
+<li><p>In the new course, you select <em>Content Repository</em> in
     the top menu (item <em>6</em> in the figure below).  Click
     on <em>Import</em> at the top left-corner of the new display
     (item <em>7</em> in the figure below).</p>
@@ -112,7 +142,7 @@ main_title( MStext, "MMathSStat");
     in the figure above) to access the file manager of your computer.
     After you have selected the zip file that you want to import, you
     will go back to the popup window.  This time, the name of the zip
-    file that you want to import appear on the left of
+    file that you want to import appears on the left of
     the button <em>Browse</em> (item <em>9</em> in the figure below).
     Click on <em>Import Content</em> on the bottom right corner of the
     popup window (item <em>10</em> in the figure below) to import the
@@ -123,7 +153,7 @@ main_title( MStext, "MMathSStat");
 	 alt="Screenshot of the popup window after having selected the zip file to import"
 	 class="MobiusFig">
   </div>
-  <p>You will get the following popup window confirming that the
+  <p>You get the following popup window confirming that the
     transfer has been done successfully if you have selected a proper
     zip file.</p>
 
@@ -136,7 +166,7 @@ main_title( MStext, "MMathSStat");
     (item <em>11</em> in the figure above) or click on <em>Done</em>
     (item <em>12</em> in the figure above).</p>
 
-  <p>The assignments that you have imported will be found in the
+  <p>The assignments that you have imported is found in the
     subfolder <em>Default Unit</em> of the <em>Assignments</em> folder of
     the course (item <em>13</em> in the figure below).</p>
 
@@ -152,8 +182,8 @@ main_title( MStext, "MMathSStat");
   figure below.-->  They are the questions that you have to edit if
   ever you need to edit the questions of the assignments that you
   have imported.  If your assignments were using questions from
-  the database of questions, then <em>the imported assignments will not
-    use them</em> but will use the imported questions that you can find
+  the database of questions, then <em>the imported assignments does not
+    use them</em> but it uses the imported questions that you can find
   in the folder <em>Questions</em>.</p>
 
 <p>You can now edit the assignments: change the questions, modify the

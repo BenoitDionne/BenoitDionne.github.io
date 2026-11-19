@@ -47,7 +47,44 @@ main_title( MStext, "MMathSStat");
 
 <h2 id="TOP"> Möbius Structure </h2>
 
-<h3> Introduction </h3>
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#Sect1", "Introduction",
+      "MMathSStat", "Sext1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect2", "Course Directory",
+      "MMathSStat", "Sext2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect3", "Assignment Directory",
+      "MMathSStat", "Sext3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect4", "Question Directory",
+      "MMathSStat", "Sext4ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect5", "Exporting/Importing Questions",
+      "MMathSStat", "Sext5ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect6", "Exporting/Importing Assignments",
+      "MMathSStat", "Sext6ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect7",
+      "<q lang='EN'>Move to</q> versus <q lang='EN'>Add to</q>",
+      "MMathSStat", "Sext7ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect1"> Introduction </h3>
 
 <p>The content of this page is probably more relevant for the person
   who will do the administration of Möbius or will be called upon 
@@ -55,7 +92,9 @@ main_title( MStext, "MMathSStat");
   may be some information useful to the instructors who are more
   adventurous.</p>
 
-<h3> Course Directories </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect2"> Course Directory </h3>
 
 <p> If you select the item <em>List Classes</em> under the drop down
   menu <em>Class Manage</em> at the top of the display, then you will get
@@ -69,7 +108,9 @@ main_title( MStext, "MMathSStat");
 <p>Each course inherits all the questions and assignments of its
   parent, grant-parent, ...</p>
 
-<h3> Assignment Directories </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect3"> Assignment Directory </h3>
 
 <p>If you select the directory <em>Assignments</em> after having
   accessed the <em>Content Repository</em>, then you get a display like the
@@ -129,7 +170,9 @@ main_title( MStext, "MMathSStat");
   have inherited.  By modifying a question, you would then be able to
   modify the assignments in other courses.</p>
 
-<h3> Question Directory </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect4"> Question Directory </h3>
 
 <p>If you select the directory <em>Questions</em> after having
   accessed the <em>Content Repository</em>, then you get a display like the
@@ -162,7 +205,9 @@ main_title( MStext, "MMathSStat");
   familiar to Linux/Unix, what you do when you <em>copy</em> a
   question is equivalent to creating a hard link to a file.</div>
 
-<h3> Exporting/Importing Questions </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect5"> Exporting/Importing Questions </h3>
 
 <p>Detailed instructions to export questions and assignments to a zip
   and to import zip files to a course can be found in the section
@@ -189,7 +234,7 @@ main_title( MStext, "MMathSStat");
 <p>Moreover, suppose that you want to export the
   questions <em>ALG2005e-1</em> and <em>ALG2005e-2</em>.</p>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> <p>First check the box in front
     of the name of each question (item <em>1</em> in 
     the figure above).  A menu will appear at the bottom of the screen
@@ -256,7 +301,9 @@ main_title( MStext, "MMathSStat");
 </div></li>
 </ol>
 
-<h3> Exporting/Importing Assignments </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect6"> Exporting/Importing Assignments </h3>
 
 <p>The procedure to export and import assignment is very similar to
   the procedure to export and import questions but done from the
@@ -272,14 +319,16 @@ main_title( MStext, "MMathSStat");
   This is consistent with the philosophy that assignments have their
   own copies of the questions.</p>
 
-<h3> Subtleties of <q lang="EN">Add to</q> </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect7"><q lang="EN">Move to</q> versus <q lang="EN">Add to</q> </h3>
 
 <p>Suppose that you want to move the questions that you have just
   uploaded to a subdirectory of your directory <em>Questions</em> in
   the <em>Content Repository</em>.  To do that, you proceed as it
   follows.</p>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> <p>Click on the <em>Add to</em> button (item <em>1</em> in
   the figure below) at the bottom of the window after you have
   selected the questions that you want to move.</p>
@@ -321,80 +370,13 @@ main_title( MStext, "MMathSStat");
   display marked <em>Add to</em> (item <em>3</em> in the second figure
   of this section).  If you were to click on this button instead of
   <em>Move to</em>, then links to the original questions would be created
-  in the selected subdirectory.  You would be able to reach each
-  question from two <q lang="en">addresses</q> in the
-  <em>Questions</em> directory.   You could then use any of
+  in the selected subdirectory.  Basically, you would have created two
+  <q lang="en">addresses</q> in the <em>Questions</em> directory
+  to the same question.   You could then use any of
   the <q lang="en">addresses</q> of a question to edit it and even
-  delete it.   Be careful, deleting a question using
-  one <q lang="en">address</q> will delete the question and
+  delete it.  <em>Be careful</em>, deleting a question using
+  one of the <q lang="en">addresses</q> will delete the question and
   the other address.  The question is really lost.</div>
-
-<h3> Cloning Questions and Assignments </h3>
-
-<p>We have mentioned cloning questions several times in the previous
-  sections.  There is not a lot to say about it though is is a really
-  important feature of Möbius.   As we said earlier, copying a
-  question using the <em>Add to</em> button at the bottom of the
-  display is not doing what you are used to when copying a file.   You
-  do not get a new copy of the question but only a new link to it.  If
-  you want to get a copy that you can modify without damaging the
-  original question, then you have to <em>Clone</em> it.</p>
-
-<ol style="list-style-type: decimal;">
-<li> <p>Suppose that you have selected a question (item <em>1</em> in
-    the figure below) like in the figure of the
-    <em>Content Repository</em> below.</p>
-
-  <div class="center">
-  <img src="Mobius_structure_14.png" style="width: 500px"
-       alt="Screenshot of the Questions directory in the Content Repository with one of the questions selected"
-       class="MobiusFig">
-</div></li>
-<li> <p>After having selected a question, a list of buttons appear a
-    the bottom of the screen.  One of them is the
-    button <em>Clone</em> (item <em>2</em> in the figure above).  If
-    you click on this button, then you get the following popup window
-    confirming the success of the operation.</p>
-  <div class="center">
-  <img src="Mobius_structure_15.png" style="width: 500px"
-       alt="Screenshot of the popup window confirming the operation"
-       class="MobiusFig">
-</div></li>
-<li> <p>The text <em>- clone</em> is appended to the title of the
-    questions that you you have cloned.   You can click on the name of
-    the cloned question to edit it, or you can click on <em>Done</em>
-    (item <em>3</em> in the figure above) to return to the <em>Content
-    Repository</em>.
-</li>
-<li> <p>Suppose that you click on <em>Done</em> (item <em>3</em> in
-	the figure above).   You will first notice that the question
-	does not seem to appear any where.  You have to refresh the
-	display.  One way to do it is to reload the
-	<em>Content Repository</em>.  After that you get the following
-	display.</p>
-  <div class="center">
-    <img src="Mobius_structure_16.png" style="width: 500px"
-	 alt="Screenshot of the Content repository with the cloned question in the root directory of Questions"
-	 class="MobiusFig">
-  </div>
-  <p>The cloned question (item <em>4</em> in the figure above) is
-    located in the root directory of the Questions.   You may
-    used <em>Add to</em> to move it to the directory of your choice and
-    then edit it.</p>
-</li>
-</ol>
-
-<p>Everything that we have just said for the questions apply to the
-  assignments.  The only difference is that, after having been cloned,
-  assignments are stored in the directory <em>Default Unit</em>
-  (item <em>5</em> in the figure below) of the <em>Assignments</em>
-  directory in the <em>Content Repository</em>.</p>
-
-<div class="center">
-  <img src="Mobius_structure_17.png" style="width: 500px"
-       alt="Screenshot of the Assignments directory in the Content repository with the default directory Default Unit"
-       class="MobiusFig">
-</div>
 
 <hr class="MMathSStat">
 

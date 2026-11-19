@@ -35,15 +35,44 @@ document.write("Include javascript file has failed")
 top_function(Mbs_link_gradebook,"en");
 </script>
 
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
 <div class="page_contents"> <!--  The contents starts here -->
 
 <script language="javascript">
 main_title( MStext, "MMathSStat");
 </script>
 
-<h2> Creating a Link to Gradebook on Möbius </h2>
+<h2 id="TOP"> Creating a Link to Gradebook on Möbius </h2>
 
-<h3> Introduction </h3>
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#Sect1", "Introduction",
+      "MMathSStat", "Sext1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect2", "Procedure to Create a Link to Gradebook on Möbius",
+      "MMathSStat", "Sext2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect3",
+      "BrightSpace Setup for the Link to the Gradebook on Möbius",
+      "MMathSStat", "Sext3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect4", "Student Access to the Gradebook on Möbius",
+      "MMathSStat", "Sext4ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect1"> Introduction </h3>
 
 <p>If you want your students to access the detailed solutions of your
   assignments after the deadline, then you have to give them access to
@@ -52,12 +81,14 @@ main_title( MStext, "MMathSStat");
   you will note that it is basically the same procedure, even a
   simpler procedure.</p>
 
-<h3> Procedure to Create a Link to Gradebook on Möbius </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect2"> Procedure to Create a Link to Gradebook on Möbius </h3>
 
 <p>You can create this link in the same module on BrightSpace where
   you have posted the links to the assignments on Möbius.</p>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> <p>To add the link to the Gradebook on Möbius.  Select the
     item <em>Mobius LTI</em> (item <em>2</em> in the
     figure below) under the drop down menu <em>Add Activity</em>
@@ -98,9 +129,11 @@ main_title( MStext, "MMathSStat");
 </li>
 </ol>
 
-<h3> BrightSpace Setup for the Link to the Gradebook on Möbius </h3>
+<hr class="MMathSStat">
 
-<ol style="list-style-type: decimal;">
+<h3 id="Sect3"> BrightSpace Setup for the Link to the Gradebook on Möbius </h3>
+
+<ol class="dec">
 <li> Go back to the module where you have created the link to the
   Gradebook on Möbius and select the item
   <em>Edit Properties In-place</em> (item <em>11</em> in the figure
@@ -134,7 +167,9 @@ main_title( MStext, "MMathSStat");
 </li>
 </ol>
 
-<h3> Student Access to the Gradebook on Möbius </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect4"> Student Access to the Gradebook on Möbius </h3>
 
 <p> Students can find on the site
   <script language="javascript">

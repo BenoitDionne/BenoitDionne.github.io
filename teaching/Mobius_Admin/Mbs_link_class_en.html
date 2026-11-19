@@ -35,15 +35,53 @@ document.write("Include javascript file has failed")
 top_function(Mbs_link_class,"en");
 </script>
 
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
 <div class="page_contents"> <!--  The contents starts here -->
 
 <script language="javascript">
 main_title( MStext, "MMathSStat");
 </script>
 
-<h2> Creating a Link to a Class on Möbius </h2>
+<h2 id="TOP"> Creating a Link to a Class on Möbius </h2>
 
-<h3> Introduction </h3>
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#Sect1", "Introduction",
+      "MMathSStat", "Sext1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect2", "Create a Private Module in BrightSpace",
+      "MMathSStat", "Sext2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect3",
+      "Create Your Course on Möbius and Add a Link to its Homepage on Möbius",
+      "MMathSStat", "Sext3ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect4",
+      "Create a Private Link in BrightSpace to the Homepage on Möbius",
+      "MMathSStat", "Sext4ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect5", "Last Touch (optional)",
+      "MMathSStat", "Sext5ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect6", "Appendix",
+      "MMathSStat", "Sext6ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect1"> Introduction </h3>
 
 <p>Before starting to add Möbius assignments to your course on
   BrightSpace, you need to create your course on Möbius and add a link
@@ -81,9 +119,11 @@ create or modify an assignment, you must save and quit this assignment
 before moving on to work on an assignment for another course. </div>
 </div>
 
-<h3> Create a Private Module in BrightSpace </h3>
+<hr class="MMathSStat">
 
-<ol style="list-style-type: decimal;">
+<h3 id="Sect2"> Create a Private Module in BrightSpace </h3>
+
+<ol class="dec">
 <li><p>The first step is to create a module on BrightSpace.  Here, we
     simply added a new item at the bottom of the table of contents (item
     <em>1</em> in the figure below).</p>
@@ -111,8 +151,9 @@ before moving on to work on an assignment for another course. </div>
 </li>
 </ol>
 
-<a name="CreateLink"></a>
-<h3> Create Your Course on Möbius and Add a Link to its Homepage on
+<hr class="MMathSStat">
+
+<h3 id="Sect3"> Create Your Course on Möbius and Add a Link to its Homepage on
   Möbius </h3>
 
 <p>It is now time to create your course on Möbius if the system
@@ -120,7 +161,7 @@ before moving on to work on an assignment for another course. </div>
   to the homepage of your course in Möbius.  Both are done
   simultaneously.</p>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> <p>Select the item <em>Mobius LTI</em> (item <em>5</em> in the
   figure below) under the drop down menu <em>Add Activity</em>
     (item <em>4</em> in the figure below) in your private module.</p>
@@ -213,10 +254,12 @@ before moving on to work on an assignment for another course. </div>
 </li>
 </ol>
 
-<h3 id="CreatPLHP"> Create a Private Link in BrightSpace to the
+<hr class="MMathSStat">
+
+<h3 id="Sect4"> Create a Private Link in BrightSpace to the
   Homepage on Möbius </h3>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> Go back to your private module and select the item
   <em>Edit Properties In-place</em> under the drop down menu beside
   the title of the item <em>Class Home MAT...</em> (item <em>11</em>
@@ -248,7 +291,9 @@ before moving on to work on an assignment for another course. </div>
 </li>
 </ol>
 
-<h3> Last Touch (optional) </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect5"> Last Touch (optional) </h3>
 
 <p>There is something else that you may want to do to improve the
   appearance of the course homepage on Möbius.   This is not really
@@ -301,7 +346,9 @@ before moving on to work on an assignment for another course. </div>
        class="MobiusFig">
 </div>
 
-<h2> Appendix </h2>
+<hr class="MMathSStat">
+
+<h3 id="Sect6"> Appendix </h3>
 
 <div class="LOOK" style="width: 80%; margin-left: 10%;">
 You <em>should not read</em> this section.  It is used only when the
@@ -310,7 +357,7 @@ should never happen. </div>
 
 <p> You only need to add a Link to the course homepage on Möbius.</p>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> <p> After having selected the item <em>Mobius LTI</em> under the
     drop down menu <em>Add Activity</em>, you get the following popup
     window.</p>
@@ -334,9 +381,9 @@ should never happen. </div>
 <li> You can proceed to make private the link to the class homepage on
   Möbius as we explained in Section
   <script language="javascript">
-    buildLinK("#CreatPLHP",
+    buildLinK("#Sect4",
     "Create a Private Link in BrightSpace to the Homepage on Möbius",
-    "MMathSStat", "linkCreatPLHP", "_top");
+    "MMathSStat", "CreatPLHPID", "_top");
   </script> above. </p>
     <!--
     You will get the following warning message.</p>

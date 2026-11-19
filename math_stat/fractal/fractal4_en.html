@@ -558,8 +558,9 @@ is an homeomorphism such that both
 <mi>U</mi><mo>&rarr;</mo><mi>V</mi></mrow></math>
 and
 <math display="inline"><mrow><msup><mi>H</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em">-</mo><mn>1</mn>
-</mrow></msup><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
 <mi>V</mi><mo>&rarr;</mo><mi>U</mi></mrow></math>
 are holomorphic functions.  It follows that conformally conjugate
 functions have many common properties.  In many cases, the
@@ -729,7 +730,7 @@ in the document <script language="javascript">
 </p>
 
 <script language="javascript">
-divNumbers("Theorem","","Riemann Mapping Theorem");
+divNumbers("Theorem","","Uniformization Theorem");
 </script>
 <p class="Theo">Every simply connected Riemann surface of
 <math display="inline"><msub><mi>&complexes;</mi>
@@ -746,8 +747,17 @@ or
 </p>
 </div>
 
-<p>The Riemann Mapping Theorem is also called the
-<em>Uniformization Theorem</em>.</p>
+<p>A corollary of the previous theorem is that any connected open set
+<math display="inline"><mrow><mi>V</mi><mo>&subset;</mo><msub>
+<mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+such that its boundary
+<math display="inline"><mrow><mi>&part;</mi><mi>V</mi></mrow></math>
+contains three points is conformally conjugate to the set
+<math display="inline"><mrow><msub><mi>B</mi>
+<mn class="ss1">1</mn></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+</p>
 
 <div class="Note">
 <p><em>Remark</em>: For the reader who may not have seen Riemann
@@ -868,7 +878,7 @@ book by <script language="javascript">
 divNumbers("Definition","","");
 </script>
 <p class="Theo">A family
-<math display="inline"><mi>&#x2131;</mi></math>
+<math display="inline"><mi>&Fscr;</mi></math>
 of holomorphic functions defined on an open set
 <math display="inline"><mrow><mi>V</mi><mo>&subset;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
@@ -882,7 +892,7 @@ if every sequence of functions
 <mrow><mi class="ss1">n</mi><mo class="ss1">&ge;</mo>
 <mn class="ss1">0</mn></mrow></msub></math>
 from
-<math display="inline"><mi>&#x2131;</mi></math>
+<math display="inline"><mi>&Fscr;</mi></math>
 has a subsequence
 <math display="inline"><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>f</mi>
@@ -912,7 +922,7 @@ every compact subset of <math display="inline"><mi>V</mi></math>.</p>
 divNumbers("Theorem","Montel0","Montel");
 </script>
 <p class="Theo">A family
-<math display="inline"><mi>&#x2131;</mi></math>
+<math display="inline"><mi>&Fscr;</mi></math>
 of holomorphic functions defined on an open set
 <math display="inline"><mrow><mi>V</mi><mo>&subset;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
@@ -930,7 +940,7 @@ such that
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>|</mi>
 <mo>&le;</mo><msub><mi>C</mi><mi class="ss1">K</mi></msub></mrow></math>
 for all
-<math display="inline"><mrow><mi>f</mi><mo>&in;</mo><mi>&#x2131;</mi>
+<math display="inline"><mrow><mi>f</mi><mo>&in;</mo><mi>&Fscr;</mi>
 </mrow></math>.</p>
 </div>
 
@@ -940,7 +950,7 @@ for all
 divNumbers("Theorem","Montel","Montel");
 </script>
 <p class="Theo">Let
-<math display="inline"><mrow><mi>&#x2131;</mi><mo>=</mo><msub><mrow>
+<math display="inline"><mrow><mi>&Fscr;</mi><mo>=</mo><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo><msub>
 <mi>f</mi><mi class="ss1">n</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
@@ -968,7 +978,7 @@ for all
 and
 <math display="inline"><mi>n</mi></math>,
 then
-<math display="inline"><mi>&#x2131;</mi></math>
+<math display="inline"><mi>&Fscr;</mi></math>
 is normal on
 <math display="inline"><mi>V</mi></math>.
 </p>
@@ -1054,7 +1064,7 @@ for some
 
 <p>Our main goal is to study the families of holomorphic
 functions defined by
-<math display="inline"><mrow><mi>&#x2131;</mi><mo>=</mo><msub><mrow>
+<math display="inline"><mrow><mi>&Fscr;</mi><mo>=</mo><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
 <msup><mi>R</mi><mrow>
 <mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
@@ -1200,7 +1210,7 @@ an open neighbourhood
 of
 <math display="inline"><mi>z</mi></math>
 such that
-<math display="inline"><mrow><mi>&#x2131;</mi><mo>=</mo><msub><mrow>
+<math display="inline"><mrow><mi>&Fscr;</mi><mo>=</mo><msub><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo>
 <msup><mi>R</mi><mrow>
 <mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
@@ -1256,7 +1266,8 @@ instead of converging to
 as it should.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof1A','proof1B','proof1C','en')" class="mORl" id="proof1C">Read more</button>
+<button onclick="moreORless('proof1A','proof1B','proof1C','en')"
+class="mORl" id="proof1C">Read more</button>
 
 <p>We will give a more elementary proof of the previous theorem in the next
 section.</p>
@@ -1756,7 +1767,8 @@ and
 </msubsup></mrow></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof2A','proof2B','proof2C','en')" class="mORl" id="proof2C">Read more</button>
+<button onclick="moreORless('proof2A','proof2B','proof2C','en')"
+class="mORl" id="proof2C">Read more</button>
 
 <!--
 Let
@@ -1809,12 +1821,12 @@ is independent of
 and the open neighbourhood
 <math display="inline"><msub><mi>V</mi><mi class="ss1">u</mi></msub></math>
 chosen.  Thus, we may define the <em>set of exceptional points</em>
-<math display="inline"><msub><mi>&#x2130;</mi><mi class="ss1">R</mi>
+<math display="inline"><msub><mi>&Escr;</mi><mi class="ss1">R</mi>
 </msub></math>
 associated to a rational function
 <math display="inline"><mi>R</mi></math>
 as
-<math display="inline"><mrow><msub><mi>&#x2130;</mi><mi class="ss1">R</mi>
+<math display="inline"><mrow><msub><mi>&Escr;</mi><mi class="ss1">R</mi>
 </msub><mo>=</mo>
 <msubsup><mi>E</mi>
 <mrow><msub><mi class="ss1">V</mi><mi class="ss2">u</msub></mrow>
@@ -2080,7 +2092,8 @@ of
 <math display="inline"><mi>u</mi></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof20A','proof20B','proof20C','en')" class="mORl" id="proof20C">Read more</button>
+<button onclick="moreORless('proof20A','proof20B','proof20C','en')"
+class="mORl" id="proof20C">Read more</button>
 
 <script language="javascript">
 divNumbers("Definition","","");
@@ -2265,7 +2278,8 @@ because the total deficiency (i.e. the sum of all deficiencies) is
 </mrow></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof4A','proof4B','proof4C','en')" class="mORl" id="proof4C">Read more</button>
+<button onclick="moreORless('proof4A','proof4B','proof4C','en')"
+class="mORl" id="proof4C">Read more</button>
 
 <p>The next result follows from the previous proposition.</p>
 
@@ -2367,7 +2381,8 @@ are stable points.  This again contradicts the definition of
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof5A','proof5B','proof5C','en')" class="mORl" id="proof5C">Read more</button>
+<button onclick="moreORless('proof5A','proof5B','proof5C','en')"
+class="mORl" id="proof5C">Read more</button>
 
 <p>The behaviour of
 <math display="inline"><mi>R</mi></math>
@@ -2448,7 +2463,7 @@ divNumbers("Proposition","propI","");
 be a rational function.  If
 <math display="inline"><mrow><mi>w</mi><mo>&in;</mo><msub>
 <mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub>
-<mo>&setminus;</mo><msub><mi>&#x2130;</mi><mi class="ss1">R</mi></msub>
+<mo>&setminus;</mo><msub><mi>&Escr;</mi><mi class="ss1">R</mi></msub>
 </mrow></math>,
 then
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
@@ -2508,7 +2523,7 @@ such that
 because
 <math display="inline"><mrow><mi>w</mi><mo>&in;</mo><msub>
 <mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub>
-<mo>&setminus;</mo><msub><mi>&#x2130;</mi><mi class="ss1">R</mi></msub>
+<mo>&setminus;</mo><msub><mi>&Escr;</mi><mi class="ss1">R</mi></msub>
 </mrow></math>.
 Thus
 <math display="inline"><mrow><msup><mi>R</mi><mrow>
@@ -2560,7 +2575,8 @@ is completely invariant under the action of
 <math display="inline"><mi>R</mi></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof3A','proof3B','proof3C','en')" class="mORl" id="proof3C">Read more</button>
+<button onclick="moreORless('proof3A','proof3B','proof3C','en')"
+class="mORl" id="proof3C">Read more</button>
 
 <script language="javascript">
 divNumbers("Proposition","","");
@@ -2699,7 +2715,8 @@ is dense in
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof22A','proof22B','proof22C','en')" class="mORl" id="proof22C">Read more</button>
+<button onclick="moreORless('proof22A','proof22B','proof22C','en')"
+class="mORl" id="proof22C">Read more</button>
 
 <p>The next result follows from
 <script language="javascript">refNumbers("propIII");</script>
@@ -2789,7 +2806,8 @@ that
 </mover><mo>=</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof6A','proof6B','proof6C','en')" class="mORl" id="proof6C">Read more</button>
+<button onclick="moreORless('proof6A','proof6B','proof6C','en')"
+class="mORl" id="proof6C">Read more</button>
 
 <script language="javascript">
 divNumbers("Proposition","","");
@@ -2860,7 +2878,8 @@ is closed, we get that
 </msub></mrow></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof7A','proof7B','proof7C','en')" class="mORl" id="proof7C">Read more</button>
+<button onclick="moreORless('proof7A','proof7B','proof7C','en')"
+class="mORl" id="proof7C">Read more</button>
 
 <script language="javascript">
 divNumbers("Proposition","propVIII","");
@@ -3437,7 +3456,8 @@ The entire previous procedure can also be repeated with
 <math display="inline"><msub><mi>K</mi><mn class="ss1">1</mn></msub></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof23A','proof23B','proof23C','en')" class="mORl" id="proof23C">Read more</button>
+<button onclick="moreORless('proof23A','proof23B','proof23C','en')"
+class="mORl" id="proof23C">Read more</button>
 
 <hr class="MMathSStat">
 
@@ -3918,7 +3938,8 @@ implies that
 This is a contradiction.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof16A','proof16B','proof16C','en')" class="mORl" id="proof16C">Read more</button>
+<button onclick="moreORless('proof16A','proof16B','proof16C','en')"
+class="mORl" id="proof16C">Read more</button>
 
 <p>The previous proposition is also true for periodic points.  It
 suffices to apply the previous proposition to
@@ -3940,7 +3961,7 @@ divNumbers("Proposition","","");
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 is a rational function, then the set of exceptional points
-<math display="inline"><msub><mi>&#x2130;</mi><mi class="ss1">R</mi>
+<math display="inline"><msub><mi>&Escr;</mi><mi class="ss1">R</mi>
 </msub></math>
 is a subset of the Fatou set
 <math display="inline"><msub><mi>S</mi><mi class="ss1">R</mi>
@@ -4000,11 +4021,12 @@ Therefore, they are stable points of
 
 <p>It follows from the conformal conjugacy that the same result is true for
 the elements of
-<math display="inline"><msub><mi>&#x2130;</mi><mi class="ss1">R</mi>
+<math display="inline"><msub><mi>&Escr;</mi><mi class="ss1">R</mi>
 </msub></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof21A','proof21B','proof21C','en')" class="mORl" id="proof21C">Read more</button>
+<button onclick="moreORless('proof21A','proof21B','proof21C','en')"
+class="mORl" id="proof21C">Read more</button>
 
 <p>There is no clear results associated to neutral fixed points of a
 rational function
@@ -4187,7 +4209,8 @@ cannot be a stable point of
 <math display="inline"><mi>R</mi></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof18A','proof18B','proof18C','en')" class="mORl" id="proof18C">Read more</button>
+<button onclick="moreORless('proof18A','proof18B','proof18C','en')"
+class="mORl" id="proof18C">Read more</button>
 
 <p>Since the neutral fixed points considered in the previous
 proposition play an important role later, we give them a special
@@ -4976,7 +4999,8 @@ according to
 </ol>
 <p><span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof17A','proof17B','proof17C','en')" class="mORl" id="proof17C">Read more</button>
+<button onclick="moreORless('proof17A','proof17B','proof17C','en')"
+class="mORl" id="proof17C" style="margin-bottom: 1em">Read more</button>
 </div>
 
 <p>Suppose that
@@ -5169,7 +5193,7 @@ Since
 <mi class="ss1">R</mi></msub><mo>=</mo><mi>&emptyset;</mi></mrow></math>
 and
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
-contains more than two points, we can use the Riemann Mapping Theorem
+contains more than two points, we can use the Uniformization Theorem
 to conclude that there exists a conformal homeomorphism
 <math display="inline"><mrow><mi>H</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>W</mi><mo>&rarr;</mo>
@@ -5239,7 +5263,8 @@ Hence, the function
 satisfying the Schr&ouml;der functional equation.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof19A','proof19B','proof19C','en')" class="mORl" id="proof19C">Read more</button>
+<button onclick="moreORless('proof19A','proof19B','proof19C','en')"
+class="mORl" id="proof19C">Read more</button>
 
 <p>If
 <math display="inline"><mi>w</mi></math>
@@ -5394,7 +5419,7 @@ found by A. D. Brjuno is the set
 <p>It follows from the
 <script language="javascript">refNumbers("propV");</script> that the
 <em>set of repelling periodic points</em>
-<math display="inline"><msub><mi>&#x211B</mi><mi>R</mi></msub></math>
+<math display="inline"><msub><mi>&Rscr;</mi><mi>R</mi></msub></math>
 of a rational function
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo>
@@ -5405,7 +5430,7 @@ is a subset of
 Since
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
 is closed, we have that
-<math display="inline"><mrow><mover><msub><mi>&#x211B;</mi><mi>R</mi>
+<math display="inline"><mrow><mover><msub><mi>&Rscr;</mi><mi>R</mi>
 </msub><mo strectchy="true">&macr;</mo></mover>
 <mo>&subset;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
 In fact, we have equality as we will prove below.  We first need to
@@ -5729,7 +5754,8 @@ It follows from
 <msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof8A','proof8B','proof8C','en')" class="mORl" id="proof8C">Read more</button>
+<button onclick="moreORless('proof8A','proof8B','proof8C','en')"
+class="mORl" id="proof8C">Read more</button>
 
 <div class="Example">
 <p><em>Example</em>: If we use Newton's method to approximate the
@@ -6029,7 +6055,8 @@ is a repelling fixed point for
 <math display="inline"><mi>T</mi></math>.
 <span class="Proof_Right">&#8718;</span> </p>
 </div>
-<button onclick="moreORless('proof9A','proof9B','proof9C','en')" class="mORl" id="proof9C">Read more</button>
+<button onclick="moreORless('proof9A','proof9B','proof9C','en')"
+class="mORl" id="proof9C">Read more</button>
 
 <p>The previous proposition is also true if <q lang="en">fixed point</q>
 is replaced by <q lang="en">periodic orbit</q> of period
@@ -6285,7 +6312,8 @@ should consult the Chapter 12 of the book by
 </script>.
 </p>
 </div>
-<button onclick="moreORless('proof24A','proof24B','proof24C','en')" class="mORl" id="proof24C">Read more</button>
+<button onclick="moreORless('proof24A','proof24B','proof24C','en')"
+class="mORl" id="proof24C">Read more</button>
 
 <hr class="MMathSStat">
 
@@ -6675,7 +6703,7 @@ where the
 <math display="inline"><msub><mi>L</mi><mi class="ss1">j</mi></msub></math>
 are the attracting (for
 <math display="inlie"><mi>j</mi></math>
-odd) and repulsive (for
+odd) and repelling (for
 <math display="inlie"><mi>j</mi></math>
 even) directions described in the presious paragraph for
 <math display="inline"><mrow><mi>j</mi><mo>=</mo><mn>0</mn>
@@ -7080,8 +7108,8 @@ petals are subsets of
 <mo fence="true" form="prefix" stretchy="false">(</mo><mn>0</mn>
 <mo separator="true">,</mo><mi>R</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
-In the figure below, we have represented a possible petal inside a
-set
+In the figure below, we have represented one possible petal inside a
+portion of the set
 <math display="inline"><mi>W</mi></math>.
 The petal and the area in red below the petal are subsets of
 <math display="inline"><mrow><msup><mi>W</mi>
@@ -7391,13 +7419,11 @@ is not a normal family on
 <math display="inline"><mi>V</mi></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof25A','proof25B','proof25C','en')" class="mORl" id="proof25C">Read more</button>
-
+<button onclick="moreORless('proof25A','proof25B','proof25C','en')"
+class="mORl" id="proof25C">Read more</button>
 <!--
 HERE
-
 Do we have  \partial W^s(z,R) = J_R event for parabolic fixed points?
-
 I should read the paper by Camacho.
 -->
 
@@ -7417,7 +7443,7 @@ divNumbers("Theorem","theoVI","");
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
 <msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
 is a rational function, then
-<math display="inline"><mrow><mover><msub><mi>&#x211B;</mi><mi>R</mi>
+<math display="inline"><mrow><mover><msub><mi>&Rscr;</mi><mi>R</mi>
 </msub><mo strectchy="true">&macr;</mo></mover>
 <mo>=</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
 </p>
@@ -7439,16 +7465,16 @@ buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid2", "_top");
 be a rational function of degree
 <math display="inline"><mi>d</mi></math>.
 Moreover, let
-<math display="inline"><msub><mi>&#x1D49E;</mi><mi class="ss1">R</mi>
+<math display="inline"><msub><mi>&Cscr;</mi><mi class="ss1">R</mi>
 </msub></math>
 be the <em>set of critical points</em> of
 <math display="inline"><mi>R</mi></math>,
-<math display="inline"><msub><mi>&#x1D4AB;</mi><mi class="ss1">R</mi>
+<math display="inline"><msub><mi>&Pscr;</mi><mi class="ss1">R</mi>
 </msub></math>
 be the <em>set of periodic points</em> of
 <math display="inline"><mi>R</mi></math>
 and
-<math display="inline"><msub><mi>&#x1D4AC;</mi><mi class="ss1">R</mi>
+<math display="inline"><msub><mi>&Qscr;</mi><mi class="ss1">R</mi>
 </msub></math>
 be the <em>set of poles</em> of
 <math display="inline"><mi>R</mi></math>.
@@ -7457,7 +7483,7 @@ be the <em>set of poles</em> of
 <ol class="dec">
 <li>As we have stated previously, it follows from the concept of
 deficiency that the set
-<math display="inline"><msub><mi>&#x1D49E;</mi><mi class="ss1">R</mi>
+<math display="inline"><msub><mi>&Cscr;</mi><mi class="ss1">R</mi>
 </msub></math>
 has at most
 <math display="inline"><mrow><mn>2</mn><mi>d</mi><mo>-</mo><mn>2</mn>
@@ -7465,7 +7491,7 @@ has at most
 elements.</li>
 <li>We have that
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
-<mo>&subset;</mo><mover><msub><mi>&#x1D4AB;</mi><mi class="ss1">R</mi></msub>
+<mo>&subset;</mo><mover><msub><mi>&Pscr;</mi><mi class="ss1">R</mi></msub>
 <mo strectchy="true">&macr;</mo></mover><mrow></math>.
 To proof this result, we prove that
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
@@ -7473,25 +7499,25 @@ To proof this result, we prove that
 <mrow><mo fence="true" form="prefix" stretchy="false">{</mo><mi>&infin;</mi>
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mo>&cup;</mo>
 <mi>R</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
-<mi>&#x1D49E;</mi><mi class="ss1">R</mi></msub>
+<mi>&Cscr;</mi><mi class="ss1">R</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&cup;</mo>
-<msub><mi>&#x1D4AC;</mi><mi class="ss1">R</mi></msub>
+<msub><mi>&Qscr;</mi><mi class="ss1">R</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
-<mover><msub><mi>&#x1D4AB;</mi><mi class="ss1">R</mi></msub>
+<mover><msub><mi>&Pscr;</mi><mi class="ss1">R</mi></msub>
 <mo strectchy="true">&macr;</mo></mover></mrow></math>.
 Since
 <math display="inline"><mrow>
 <mrow><mo fence="true" form="prefix" stretchy="false">{</mo><mi>&infin;</mi>
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mo>&cup;</mo>
 <mi>R</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub>
-<mi>&#x1D49E;</mi><mi class="ss1">R</mi></msub>
+<mi>&Cscr;</mi><mi class="ss1">R</mi></msub>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&cup;</mo>
-<msub><mi>&#x1D4AC;</mi><mi class="ss1">R</mi></msub></mrow></math>.
+<msub><mi>&Qscr;</mi><mi class="ss1">R</mi></msub></mrow></math>.
 is a finite set and
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>
 is closed and perfect, we get that
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
-<mo>&subset;</mo><mover><msub><mi>&#x1D4AB;</mi><mi class="ss1">R</mi></msub>
+<mo>&subset;</mo><mover><msub><mi>&Pscr;</mi><mi class="ss1">R</mi></msub>
 <mo strectchy="true">&macr;</mo></mover></mrow></math>.
 </li>
 <li>The number of super-attracting and attracting periodic orbits of
@@ -7522,28 +7548,29 @@ of the attracting periodic orbits are
 <li>Since the number of non-repelling periodic orbits is finite
 according to (4), it follows from (2) that
 <math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
-<mo>&subset;</mo><mover><msub><mi>&#x211B</mi><mi class="ss1">R</mi></msub>
+<mo>&subset;</mo><mover><msub><mi>&Rscr;</mi><mi class="ss1">R</mi></msub>
 <mo strectchy="true">&macr;</mo></mover>
 </mrow></math>,
 where
-<math display="inline"><msub><mi>&#x211B</mi><mi>R</mi></msub></math>
+<math display="inline"><msub><mi>&Rscr;</mi><mi>R</mi></msub></math>
 is the set of repelling periodic points, because
 <math display="inline"><msub><mi>J</mi><mi>R</mi></msub></math>
 is closed and perfect.  But, we have seen earlier that
-<math display="inline"><mrow><mover><msub><mi>&#x211B</mi><mi class="ss1">R</mi>
+<math display="inline"><mrow><mover><msub><mi>&Rscr;</mi><mi class="ss1">R</mi>
 </msub><mo strectchy="true">&macr;</mo></mover>
 <mo>&subset;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
 </ol>
 <p>This concludes the sketch of the proof.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof10A','proof10B','proof10C','en')" class="mORl" id="proof10C">Read more</button>
+<button onclick="moreORless('proof10A','proof10B','proof10C','en')"
+class="mORl" id="proof10C">Read more</button>
 
 <p>There is an interesting corollary to
 <script language="javascript">refNumbers("theoVI");</script>.</p>
 
 <script language="javascript">
-divNumbers("Corollary","","");
+divNumbers("Corollary","corED","");
 </script>
 <p class="Theo">Let
 <math display="inline"><mrow><mi>R</mi>
@@ -7557,10 +7584,10 @@ be a closed subset of
 <mi class="ss1">&infin;</mi></msub></mrow></math>
 such that
 <math display="inline"><mrow><mi>K</mi><mo>&cap;</mo>
-<msub><mi>&#x2130;</mi><mi class="ss1">R</mi></msub><mo>=</mo>
+<msub><mi>&Escr;</mi><mi class="ss1">R</mi></msub><mo>=</mo>
 <mi>&emptyset;</mi></mrow></math>
 where
-<math display="inline"><msub><mi>&#x2130;</mi><mi class="ss1">R</mi>
+<math display="inline"><msub><mi>&Escr;</mi><mi class="ss1">R</mi>
 </msub></math>
 is the set of exceptional points of
 <math display="inline"><mi>R</mi></math>.
@@ -7616,7 +7643,7 @@ such that
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
 Since
 <math display="inline"><mrow><mi>K</mi><mo>&cap;</mo>
-<msub><mi>&#x2130;</mi><mi class="ss1">R</mi></msub><mo>=</mo>
+<msub><mi>&Escr;</mi><mi class="ss1">R</mi></msub><mo>=</mo>
 <mi>&emptyset;</mi></mrow></math>
 and
 <math display="inline"><mi>w</mi></math>
@@ -7707,7 +7734,8 @@ we have that
 <msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof11A','proof11B','proof11C','en')" class="mORl" id="proof11C">Read more</button>
+<button onclick="moreORless('proof11A','proof11B','proof11C','en')"
+class="mORl" id="proof11C">Read more</button>
 
 <p>It follows from the previous corollary that a rational function
 <math display="inline"><mi>R</mi></math>
@@ -7729,50 +7757,6 @@ we can conclude that the DDS generated by
 is <em>chaotic</em> on
 <math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
 </p>
-
-<p>The last part of the previous corollary can be considered as a form
-of self-similarity for Julia sets.  There exists a notion
-of <q lang="en">quasi-self-similarity</q> for the Julia sets of
-rational functions that satisfy the next definition.  We will not say
-anything more on this subject in ths document.  The reader could
-consult the <script language="javascript">
-buildLinK("#REF", "references","MMathSStat", "REDid2", "_top");
-</script> at the end of this document for more information.</p>
-
-<script language="javascript">
-divNumbers("Definition","","");
-</script>
-<p class="Theo">Let
-<math display="inline"><mrow><mi>R</mi>
-<mo lspace="0.2222em" rspace="0.2222em">:</mo>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
-<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
-be a rational function, 
-<math display="inline"><msub><mi>&#x1D49E;</mi><mi class="ss1">R</mi>
-</msub></math>
-be the set of all critical points of
-<math display="inline"><mi>R</mi></math>,
-and
-<math display="inline"><mi>K</mi></math>
-be the closure of the set
-<math display="inline"><mrow><mrow><munder><mo movablelimits="false">&cup;</mo>
-<mrow><mi class="ss1">z</mi><mo>&in;</mo><msub><mi class="ss1">&#x1D49E;</mi>
-<mi class="ss2">R</mi></msub></mrow></munder></mrow><msub><mrow>
-<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
-<mi class="ss1">n</mi></mrow></msup><mrow>
-<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
-<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
-<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
-</mrow></msub></mrow></math>.
-The rational function
-<math display="inline"><mi>R</mi></math>
-is <em>expanding</em> if
-<math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi>
-</msub><mo>&cap;</mo><mi>K</mi><mo>=</mo><mi>&emptyset;</mi></mrow></math>.
-</p>
-</div>
 
 <hr class="MMathSStat">
 
@@ -8021,7 +8005,7 @@ is a <em>parabolic domain</em> if the boundary
 <math display="inline"><mrow><mi>&part;</mi><mi>D</mi></mrow></math>
 of
 <math display="inline"><mi>D</mi></math>
-contains a neutral fixed point
+contains a parabolic fixed point
 <math display="inline"><mi>z</mi></math>
 of
 <math display="inline"><msup><mi>R</mi><mrow>
@@ -8175,7 +8159,7 @@ buildLinK("#CTMDSII", "C. T. McMullen and D. Sullivan","MMathSStat",
 holomorphic functions
 <math display="inline"><mrow><mi>R</mi>
 <mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>&complexes;</mi>
-<mi class="ss1">&infin;</mi></msub><mo>&rarr;;</mo><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo><msub><mi>&complexes;</mi>
 <mi class="ss1">&infin;</mi></msub></mrow></math>.
 However, important results about the Fatou sets are obtained from this
 study.  As for the proof of
@@ -8474,7 +8458,8 @@ is a parabolic domain.</li>
 </ul>
 <p><span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof26A','proof26B','proof26C','en')" class="mORl" id="proof26C">Read more</button>
+<button onclick="moreORless('proof26A','proof26B','proof26C','en')"
+class="mORl" id="proof26C">Read more</button>
 
 <p>It does not seem to be easy to find rational functions whose set of
 stable points admit Herman rings.
@@ -8517,7 +8502,8 @@ buildLinK("#REF", "references","MMathSStat", "REDid3", "_top");
 <p>We have the following results.
 <ul>
 <li>The attracting and parabolic domains contain orbits of critical
-points that are not eventually periodic.  It follows from
+points that are not eventually periodic.<br>
+It follows from
 <script language="javascript">refNumbers("propcpInWi");</script> and 
 <script language="javascript">refNumbers("propcpInWipar");</script>
 that there exists a critical periodic point in
@@ -8528,14 +8514,19 @@ that there exists a critical periodic point in
 <mi class="ss1">k</mi></mrow></msup>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
 The orbit of this critical point must converges to
-<math display="inline"><mi>z</mi></math>.  Thus it cannot be
+<math display="inline"><mi>z</mi></math>.  Thus, it cannot be
 eventually periodic.</li>
-<!--
-HERE  Explain the next item.
--->
 <li>The boundaries of the Siegel disks and Herman rings are subsets of
-the closure of orbits of critical points (so these orbits cannot be
-eventually periodic).</li>
+the closure of the orbits of critical points in
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
+The proof of this result uses the fact that the boundary of a Siegel
+disk and a Herman ring is a subset of
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>,
+and shows there is a critical point in
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>,
+with a dense orbit in
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub></math>.
+This orbit cannot be eventually periodic. </li>
 <li>Super-attracting domains obviously contain periodic critical
 points.</li>
 </ul>
@@ -8658,7 +8649,8 @@ that
 <msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof12A','proof12B','proof12C','en')" class="mORl" id="proof12C">Read more</button>
+<button onclick="moreORless('proof12A','proof12B','proof12C','en')"
+class="mORl" id="proof12C">Read more</button>
 
 <script language="javascript">
 divNumbers("Proposition","propX","");
@@ -9019,7 +9011,8 @@ and</p>
 does not contain stable points.  
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof13A','proof13B','proof13C','en')" class="mORl" id="proof13C">Read more</button>
+<button onclick="moreORless('proof13A','proof13B','proof13C','en')"
+class="mORl" id="proof13C">Read more</button>
 
 <p>The statements about the connectedness of the the Julia sets in the
 following examples are proved in the
@@ -9117,6 +9110,1349 @@ set in the <script language="javascript">
 </div>
 </div>
 
+<p>The last part of the
+<script language="javascript">refNumbers("corED");</script>
+can be considered as a form of self-similarity for Julia sets.  There
+exists a notion of <em>quasi-self-similarity</em> for the
+Julia sets of rational functions that satisfy the next definition.</p>
+
+<script language="javascript">
+divNumbers("Definition","","");
+</script>
+<p class="Theo">Let
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+be a rational function, 
+<math display="inline"><msub><mi>&Cscr;</mi><mi class="ss1">R</mi>
+</msub></math>
+be the set of all critical points of
+<math display="inline"><mi>R</mi></math>,
+and
+<math display="inline"><mrow><msub><mrow><mi class="mathcal">&Oscr;</mi>
+<mi class="mathcal">&Cscr;</mi></mrow><mi>R</mi></msub><mo>=</mo>
+<mrow><munder><mo movablelimits="false">&cup;</mo>
+<mrow><mi class="ss1">z</mi><mo>&in;</mo><msub><mi class="ss1">&Cscr;</mi>
+<mi class="ss2">R</mi></msub></mrow></munder></mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
+</mrow></msub></mrow></math>.
+The rational function
+<math display="inline"><mi>R</mi></math>
+is <em>expanding</em> if
+<math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi>
+</msub><mo>&cap;</mo><mover><msub><mrow><mi class="mathcal">&Oscr;</mi>
+<mi class="mathcal">&Cscr;</mi></mrow><mi>R</mi></msub>
+<mo strectchy="true">&macr;</mo></mover><mo>=</mo><mi>&emptyset;</mi>
+</mrow></math>.
+</p>
+</div>
+
+<p>The next theorem justify the use of the term <q lang="en">expanding</q>
+in the previous definition.</p>
+
+<script language="javascript">
+divNumbers("Theorem","theoExpand","");
+</script>
+<p class="Theo">Let
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+be an expanding rational function.  Given
+<math display="inline"><mrow><mi>C</mi><mo>&gt;</mo><mn>1</mn></mrow></math>,
+there exists an integer
+<math display="inline"><mrow><mi>N</mi><mo>&ge;</mo><mn>0</mn>
+</mrow></math>
+such that
+<math display="inline"><mrow><mi>|</mi><msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>|</mi>
+<mo>&gt;</mo><mi>C</mi></mrow></math>
+for
+<math display="inline"><mrow><mi>n</mi><mo>&ge;</mo><mi>N</mi>
+</mrow></math>
+and
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub></mrow></math>.
+</p>
+</div>
+
+<p>The proof of the previous theorem is found in the article by
+<script language="javascript">
+  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBID33", "_top");
+</script> and it is based on the next proposition.  We proof the next
+proposition because it will be used later.</p>
+
+<p>Suppose that
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+is a rational function of degree
+<math display="inline"><mrow><mi>d</mi><mo>&ge;</mo><mn>2</mn></mrow></math>
+and
+<math display="inline"><mrow><mi>V</mi><mo>&subset;</mo><msub><mi>C</mi>
+<mi class="ss1">&infin;</mi></msub></mrow></math>
+is a simply connected open set such that
+<math display="inline"><mrow><mi>V</mi><mo>&cap;</mo>
+<msub><mrow><mi class="mathcal">&Oscr;</mi>
+<mi class="mathcal">&Cscr;</mi></mrow><mi>R</mi></msub>
+<mo>=</mo><mi>&emptyset;</mi></mrow></math>.</p>
+
+<ol class="dec">
+<li>Let
+<math display="inline"><mrow><msub><mi>I</mi><mi class="ss1">0</mi></msub>
+<mo>=</mo><mtext>Id</mtext></mrow></math>.
+</li>
+<li>Since
+<math display="inline"><mi>V</mi></math>
+does not contain any critical value of
+<math display="inline"><mi>R</mi></math>,
+we can define an inverse function for
+<math display="inline"><mi>R</mi></math>
+(in fact more than one) as it follows.  There exist a simply connected
+open set
+<math display="inline"><mrow><msub><mi>V</mi><mn class="ss1">1</mn>
+</msub><mo>&subset;</mo><msub><mi>C</mi><mi class="ss1">&infin;</mi>
+</msub></mrow></math>
+and a holomorphic function
+<math display="inline"><mrow><msub><mi>I</mi><mn class="ss1">1</mn></msub>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>V</mi><mo>&rarr;</mo>
+<msub><mi>V</mi><mn class="ss1">1</mn></msub></mrow></math>
+such that
+<math display="inline"><mrow><mi>R</mi><mo>&compfn;</mo><msub><mi>I</mi>
+<mn class="ss1">1</mn></msub><mo>=</mo><mtext>Id</mtext></mrow></math>
+on
+<math display="inline"><mi>V</mi></math>.</li>
+<li>Since
+<math display="inline"><mi>V</mi></math>
+does not contain any critical value of
+<math display="inline"><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msup></math>,
+we can define an inverse function for
+<math display="inline"><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msup></math>
+as it follows.  There exist a simply connected open set
+<math display="inline"><mrow><msub><mi>V</mi><mn class="ss1">2</mn>
+</msub><mo>&subset;</mo><msub><mi>C</mi><mi class="ss1">&infin;</mi>
+</msub></mrow></math>
+and a holomorphic function
+<math display="inline"><mrow><msub><mi>I</mi><mn class="ss1">2</mn></msub>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>V</mi><mo>&rarr;</mo>
+<msub><mi>V</mi><mn class="ss1">2</mn></msub></mrow></math>
+such that
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msup><mo>&compfn;</mo><msub><mi>I</mi>
+<mn class="ss1">2</mn></msub><mo>=</mo><mtext>Id</mtext></mrow></math>
+on
+<math display="inline"><mi>V</mi></math>
+and
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>V</mi>
+<mn class="ss1">2</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<msub><mi>V</mi><mn class="ss1">1</mn></msub></mrow></math>.
+Hence, we get from
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msup><mo>&compfn;</mo><msub><mi>I</mi>
+<mn class="ss1">2</mn></msub><mo>=</mo><mi>R</mi><mo>&compfn;</mo><msub>
+<mi>I</mi><mn class="ss1">1</mn></msub><mo>=</mo><mtext>Id</mtext></mrow></math>
+that
+<math display="inline"><mrow><mi>R</mi><mo>&compfn;</mo><msub><mi>I</mi>
+<mn class="ss1">2</mn></msub><mo>=</mo><msub><mi>I</mi><mn class="ss1">1</mn>
+</msub></mrow></math>
+on
+<math display="inline"><mi>V</mi></math>
+because
+<math display="inline"><mi>R</mi></math>
+is one-to-one on
+<math display="inline"><msub><mi>V</mi><mn class="ss1">1</mn></msub></math>.
+</li>
+<li>Since
+<math display="inline"><mi>V</mi></math>
+does not contain any critical value of
+<math display="inline"><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">3</mn></mrow></msup></math>,
+we can define an inverse function for
+<math display="inline"><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">3</mn></mrow></msup></math>
+as it follows.  There exist a simply connected open set
+<math display="inline"><mrow><msub><mi>V</mi><mn class="ss1">3</mn>
+</msub><mo>&subset;</mo><msub><mi>C</mi><mi class="ss1">&infin;</mi>
+</msub></mrow></math>
+and a holomorphic function
+<math display="inline"><mrow><msub><mi>I</mi><mn class="ss1">3</mn></msub>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>V</mi><mo>&rarr;</mo>
+<msub><mi>V</mi><mn class="ss1">3</mn></msub></mrow></math>
+such that
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">3</mn></mrow></msup><mo>&compfn;</mo><msub><mi>I</mi>
+<mn class="ss1">3</mn></msub><mo>=</mo><mtext>Id</mtext></mrow></math>
+on
+<math display="inline"><mi>V</mi></math>
+and
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>V</mi>
+<mn class="ss1">3</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<msub><mi>V</mi><mn class="ss1">2</mn></msub></mrow></math>.
+Hence, we get from
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">3</mn></mrow></msup><mo>&compfn;</mo><msub><mi>I</mi>
+<mn class="ss1">3</mn></msub><mo>=</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mn class="ss1">2</mn></mrow></msup><mo>&compfn;</mo><msub><mi>I</mi>
+<mn class="ss1">2</mn></msub><mo>=</mo>
+<mi>R</mi><mo>&compfn;</mo><msub>
+<mi>I</mi><mn class="ss1">1</mn></msub><mo>=</mo><mtext>Id</mtext></mrow></math>
+that
+<math display="inline"><mrow><mi>R</mi><mo>&compfn;</mo><msub><mi>I</mi>
+<mn class="ss1">3</mn></msub><mo>=</mo><msub><mi>I</mi><mn class="ss1">2</mn>
+</msub></mrow></math>
+on
+<math display="inline"><mi>V</mi></math>
+because
+<math display="inline"><mi>R</mi></math>
+is one-to-one on
+<math display="inline"><msub><mi>V</mi><mn class="ss1">2</mn></msub></math>.
+</li>
+<li> And so on.</li>
+</ol>
+
+<p>We get a family of holomorphic functions
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>I</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">j</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn></mrow>
+</msub></math>
+defined on the simply connected open set
+<math display="inline"><mi>V</mi></math>
+and such that
+<math display="inline"><mrow><mi>R</mi><mo>&compfn;</mo><msub><mi>I</mi>
+<mrow><mi class="ss1">j</mi><mo class="ss1">+</mo><mn class="ss1">1</mn>
+</mrow></msub><mo>=</mo><msub><mi>I</mi><mi class="ss1">j</mi></msub>
+</mrow></math>
+for all
+<math display="inline"><mi>j</mi></math>.
+</p>
+
+<script language="javascript">
+divNumbers("Proposition","propSCCCF","");
+</script>
+<p class="Theo">Let
+<math display="inline"><mrow><mi>R</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+be an expanding rational function of degree
+<math display="inline"><mrow><mi>d</mi><mo>&ge;</mo><mn>2</mn></mrow></math>
+and
+<math display="inline"><mrow><mi>V</mi><mo>&subset;</mo><msub>
+<mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>
+be a simply connected open set such that
+<math display="inline"><mrow><mover><mi>V</mi><mo>
+<mo strectchy="true">&macr;</mo></mover><mo>&cap;</mo><mover>
+<msub><mrow><mi class="mathcal">&Oscr;</mi>
+<mi class="mathcal">&Cscr;</mi></mrow><mi>R</mi></msub>
+<mo strectchy="true">&macr;</mo></mover><mo>=</mo>
+<mi>&emptyset;</mi></mrow></math>.
+Moreover, let
+<math display="inline"><mrow><mi class="mathcal">&Iscr;</mi><mo>=</mo>
+<msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>I</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">j</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn></mrow>
+</msub></mrow></math>
+be the family of holomorphic functions defined in the previous
+paragraph.  Then
+<math display="inline"><mi class="mathcal">&Iscr;</mi></math>
+is a normal family on
+<math display="inline"><mi>V</mi></math>
+and any subsequence of
+<math display="inline"><mi class="mathcal">&Iscr;</mi></math>
+that converges uniformly on compact subsets of
+<math display="inline"><mi>V</mi></math>
+convergences to a constant function on
+<math display="inline"><mi>V</mi></math>.
+</p>
+</div>
+
+<p><em>Proof</em>:  We first prove that
+<math display="inline"><mi class="mathcal">&Iscr;</mi></math>
+is a normal family on
+<math display="inline"><mi>V</mi></math>.
+<span id="proof29A">&nbsp;...</span></p>
+<div id="proof29B" class="moreORless">
+
+<p>Let
+<math display="inline"><mrow><msub><mi>p</mi><mn class="ss1">0</mn></msub>
+<mo>&in;</mo><msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi>
+</msub></mrow></math>
+be a repelling periodic point for
+<math display="inline"><mi>R</mi></math>.
+Since
+<math display="inline"><msub><mi>p</mi><mn class="ss1">0</mn></msub></math>
+is not an exceptional point, there exist
+<math display="inline"><mrow><msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub><mo>&in;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mrow></math>
+and
+<math display="inline"><mrow><msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">2</mn></mrow></msub><mo>&in;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub><mrow></math>
+such that
+<math display="inline"><mrow><msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn>
+</mrow></msub><mo>&ne;</mo><msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">2</mn></mrow></msub></mrow></math>,
+<math display="inline"><mrow><msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub><mo>&ne;</mo><msub><mi>p</mi>
+<mn class="ss1">0</mn></msub></mrow></math>,
+<math display="inline"><mrow><msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">2</mn></mrow></msub><mo>&ne;</mo><msub><mi>p</mi>
+<mn class="ss1">0</mn></msub></mrow></math>,
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">2</mn></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub></mrow></math>
+and
+<math display="inline"><mrow><mi>R</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msub><mi>p</mi><mn class="ss1">0</mn></msub></mrow></math>.
+Let
+<math display="inline"><mrow><msub><mi>U</mi><mn class="ss1">1</mn></msub>
+<mo>=</mo><mi>V</mi><mo>&setminus;</mo><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn></mrow>
+</msub></mrow></math>.
+We note that
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
+is a finite set because
+<math display="inline"><msub><mi>p</mi><mn class="ss1">0</mn></msub></math>
+is a periodic point.  Moreover, we note that we may have
+<math display="inline"><mrow><mi>V</mi><mo>&cap;</mo><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn></mrow>
+</msub><mo>=</mo><mi>&emptyset;</mi></mrow></math>
+and thus
+<math display="inline"><mrow><msub><mi>U</mi><mn class="ss1">1</mn></msub>
+<mo>=</mo><mi>V</mi></mrow></math>.
+We have that
+<math display="inline"><mrow><msub><mi>I</mi><mi class="ss1">j</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&notin;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>p</mi>
+<mn class="ss1">0</mn></msub><mo separator="true">,</mo><msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>p</mi>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">2</mn></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
+for all
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>U</mi>
+<mn class="ss1">1</mn></msub></mrow></math>
+and
+<math display="inline"><mrow><mi>j</mi><mo>&gt;</mo><mn>2</mn></mrow></math>
+because
+<math display="inline"><mrow><msub><mi>I</mi><mi class="ss1">j</mi></msub>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">k</mi></mrow></msub></mrow></math>
+implies that
+<math display="inline"><mrow><mi>z</mi><mo>=</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">j</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>I</mi>
+<mi class="ss1">j</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">j</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">k</mi></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi class="ss1">j</mi><mo class="ss1">−</mo><mi class="ss1">k</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&in;</mo>
+<msub><mrow><mo fence="true" form="prefix" stretchy="false">{</mo><msup>
+<mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
+</mrow></msub></mrow></math>.
+It follows from
+<script language="javascript">refNumbers("Montel");</script>
+that
+<math display="inline"><mi class="mathcal">&#8464;</mi></math>
+is a normal family on
+<math display="inline"><msub><mi>U</mi><mn class="ss1">1</mn></msub></math>.
+Repeating the same reasoning with a repelling periodic point
+<math display="inline"><mrow><msub><mi>q</mi><mn class="ss1">0</mn></msub>
+<mo>&ne;</mo><msub><mi>p</mi><mn class="ss1">0</mn></msub></mrow></math>,
+we can show that
+<math display="inline"><mi class="mathcal">&#8464;</mi></math>
+is a normal family on
+<math display="inline"><mrow><msub><mi>U</mi><mn class="ss1">2</mn></msub>
+<mo>=</mo><mi>V</mi><mo>&setminus;</mo><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>q</mi>
+<mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn></mrow>
+</msub></mrow></math>.
+Since
+<math display="inline"><mrow><mi>V</mi><mo>=</mo><msub><mi>U</mi>
+<mn class="ss1">1</mn></msub><mo>&cup;</mo><msub><mi>U</mi>
+<mn class="ss1">2</mn></msub></mrow></math>
+with
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>p</mi>
+<mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn></mrow>
+</msub><mo>&cap;</mo><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>q</mi>
+<mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
+</mrow></msub><mo>=</mo><mi>&emptyset;</mi></mrow></math>,
+we can use
+<script language="javascript">refNumbers("theoArAs");</script>
+to easily deduce that
+<math display="inline"><mi class="mathcal">&#8464;</mi></math>
+is a normal family on
+<math display="inline"><mi>V</mi></math>.</p>
+
+<p>It follows from
+<math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi>
+</msub><mo>&cap;</mo><mover><msub><mrow><mi class="mathcal">&Oscr;</mi>
+<mi class="mathcal">&Cscr;</mi></mrow><mi>R</mi></msub>
+<mo strectchy="true">&macr;</mo></mover><mo>=</mo><mi>&emptyset;</mi>
+</mrow></math>
+that
+<math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+<mo>&ne;</mo><msub><mi>&complexes;</mi><mi class="ss1">R</mi></msub></mrow>
+</math>.
+Furthermore, no Sullivan domain can be a Siegel Disk or an Herman ring
+because their border is a subset of the closure of orbits of critical
+points in
+<math display="inline"><msub><mi>J</mi><mi calls="ss1">R</mi></msub></math>.
+Moreover, no Sullivan domain can be a parabolic domain because the
+immediate basin of attraction
+<math display="inline"><mrow><msup><mi>W</mi><mi class="ss1">i</mi>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>z</mi><mo separator="true">,</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">m</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+of the parabolic fixed point
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub></mrow></math>
+in the definition of a parabolic domain contains a critical point
+whose orbit converges to
+<math display="inline"><mi>z</mi></math>.
+Therefore, the only possible Sullivan domains are attracting or
+super-attracting domains.</p>
+
+<p>Since the immediate basin of attraction
+<math display="inline"><mrow><msup><mi>W</mi><mi class="ss1">i</mi></msup>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo separator="true">,</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">d</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+of the attracting periodic point
+<math display="inline"><mi>z</mi></math>
+in the definition of an attracting domain contains a critical point
+whose orbit converges to
+<math display="inline"><mi>z</mi></math>,
+we have that
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo>
+<mover><msub><mrow><mi class="mathcal">&Oscr;</mi>
+<mi class="mathcal">&Cscr;</mi></mrow><mi>R</mi></msub>
+<mo strectchy="true">&macr;</mo></mover></mrow></math>.
+For the same reason, we have that the super-attracting point
+<math display="inline"><mi>z</mi></math>
+in the definition of a super-attracting domain is in
+<math display="inline"><mover><msub><mrow><mi class="mathcal">&Oscr;</mi>
+<mi class="mathcal">&Cscr;</mi></mrow><mi>R</mi></msub>
+<mo strectchy="true">&macr;</mo></mover></math>.
+Therefore, every orbit
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">n</mi></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">0</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup></math>
+for
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><mi>V</mi><mo>&cap;</mo>
+<msub><mi>S</mi><mi class="ss1">R</mi></msub></mrow></math>
+converges to a periodic orbit in
+<math display="inline"><mover><msub><mrow><mi class="mathcal">&Oscr;</mi>
+<mi class="mathcal">&Cscr;</mi></mrow><mi>R</mi></msub>
+<mo strectchy="true">&macr;</mo></mover></math>.
+It follows from
+<script language="javascript">refNumbers("propcpInWi");</script>
+and
+<script language="javascript">refNumbers("propcpInWipar");</script>
+that the number of such periodic orbits is finite because the number of
+non-repelling periodic orbits is at most
+<math display="inline"><mrow><mn>2</mn><mi>d</mi><mo>-</mo><mn>2</mn>
+</mrow></math>,
+the maximal number of critical points of
+<math display="inline"><mi>R</mi></math>.
+</p>
+
+<p>We now prove by contradiction that
+<math display="inline"><mrow><msub><mi>V</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">j</mi></mrow></msub><mo>=</mo><msub><mi>I</mi>
+<mi class="ss1">j</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&rarr;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+</mrow></math>
+uniformly as
+<math display="inline"><mrow><mi>j</mi><mo>&rarr;</mo><mi>&infin;</mi>
+</mrow></math>; namely,
+<math display="inline"><mrow><munder><mi>max</mi><mrow><mi class="ss1">z</mi>
+<mo class="ss1">&in;</mo><mi class="ss1">V</mi></mrow></munder>
+<mspace width="0.1667em"></mspace><mtext>dist</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>I</mi>
+<mi class="ss1">j</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo separator="true">,</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&rarr;</mo>
+<mn>0</mn></mrow></math>
+as
+<math display="inline"><mrow><mi>j</mi><mo>&rarr;</mo><mi>&infin;</mi>
+</mrow></math>.
+If it is not the case, there exist
+<math display="inline"><mrow><mi>&epsilon;</mi><mo>&gt;</mo><mn>0</mn>
+</mrow></math>,
+an increasing sequence of positive integers
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>j</mi>
+<mi class="ss1">k</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">k</mi><mo class="ss1">=</mo><mn class="ss1">1</mn></mrow>
+<mi class="ss1">&infin;</mi></msubsup></math>,
+and
+<math display="inline"><mrow><msub><mi>z</mi><msub><mi class="ss1">j</mi>
+<mi class="ss2">k</mi></msub></msub><mo>&in;</mo><msub><mi>V</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<msub><mi class="ss1">j</mi><mi class="ss2">k</mi></msub></mrow></msub>
+</mrow></math>
+for all
+<math display="inline"><mi>k</mi></math>,
+such that
+<math display="inline"><mrow><mtext>dist</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi><msub>
+<mi class="ss1">j</mi><mi class="ss1">k</mi></msub></msub>
+<mo separator="true">,</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&gt;</mo>
+<mi>&epsilon;</mi></mrow></math>
+for all
+<math display="inline"><mi>k</mi></math>.
+Let
+<math display="inline"><mi>w</mi></math>
+be an accumulation point of
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>z</mi><msub>
+<mi class="ss1">j</mi><mi class="ss2">k</mi></msub></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">k</mi><mo class="ss1">&gt;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>.
+The existence of the accumulation point is due to the fact that
+<math display="inline"><mrow><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub><mo>&cong;</mo><msup><mi>S</mi>
+<mn class="ss1">2</mn></msup></mrow></math>
+is a compact metric space.  Since
+<math display="inline"><mrow><mtext>dist</mtext><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo separator="true">,</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&ge;</mo>
+<mi>&epsilon;</mi></mrow></math>,
+we have that
+<math display="inline"><mi>w</mi></math>
+is a stable point.  Thus, there exists an open neighbourhood
+<math display="inline"><mi>W</mi></math>
+of
+<math display="inline"><mi>w</mi></math>
+such that
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<mi class="ss1">j</mi></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">j</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
+is a normal family on
+<math display="inline"><mi>W</mi></math>.
+Let
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+<mi class="ss1">n</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">)</mo></mrow>
+</mrow></msub></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&gt;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
+be a uniformly converging subsequence of
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mi class="ss2">k</mi></msub></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">k</mi><mo class="ss1">&gt;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
+on compact subsets of
+<math display="inline"><mi>W</mi></math>.
+Therefore
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">n</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&gt;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
+converges to a point
+<math display="inline"><mi>v</mi></math>.</p>
+
+<p>We prove that
+<math display="inline"><mrow><mi>v</mi><mo>&in;</mo>
+<mover><mi>V</mi><mo><mo strectchy="true">&macr;</mo></mover></mrow></math>.
+This will be a contradiction that there are no non-repelling periodic
+points in
+<math display="inline"><mover><mi>V</mi><mo><mo strectchy="true">&macr;</mo>
+</mover></math>.
+To prove our claim, we choose
+<math display="inline"><mrow><mi>&delta;</mi><mo>&gt;</mo><mn>0</mn></mrow>
+</math>
+small enough to have
+<math display="inline"><mrow><mover><mrow><msub><mi>B</mi>
+<mi class="ss1">&delta;</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+<mo strectchy="true">&macr;</mo></mover><mo>&subset;</mo><mi>W</mi>
+</mrow></math>.
+</p>
+<ul>
+<li>Given
+<math display="inline"><mrow><mi>&epsilon;</mi><mo>&gt;</mo><mn>0</mn>
+</mrow></math>,
+since
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">(</mo>
+<mi class="ss1">n</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">)</mo></mrow>
+</mrow></msub></mrow></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&gt;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
+converges uniformly on
+<math display="inline"><mrow><mover><mrow><msub><mi>B</mi>
+<mi class="ss1">&delta;</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+<mo strectchy="true">&macr;</mo></mover></mrow></math>,
+there exists
+<math display="inline"><mrow><msub><mi>N</mi><mn class="ss1">1</mn>
+</msub><mo>&gt;</mo><mn>0</mn></mrow></math>
+such that
+<math display="inline"><mrow><mi>|</mi><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo>
+</mrow></mrow></msub></mrow></msup><mo form="prefix" stretchy="false">(</mo>
+<mi>v</mi><mo form="postfix" stretchy="false">)</mo><mo>-</mo>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">t</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo>
+</mrow></mrow></msub></mrow></msup><mo form="prefix" stretchy="false">(</mo>
+<mi>v</mi><mo form="postfix" stretchy="false">)</mo><mi>|</mi><mo>&lt;</mo>
+<mi>&epsilon;</mi><mi>/</mi><mn>3</mn></mrow></math>
+for
+<math display="inline"><mrow><mi>s</mi><mo separator="true">,</mo>
+<mi>t</mi><mo>&ge;</mo><msub><mi>N</mi><mn class="ss1">1</mn></msub>
+</mrow></math>
+and all
+<math display="inline"><mrow><mi>v</mi><mo>&in;</mo><mover><mrow><msub>
+<mi>B</mi><mi class="ss1">&delta;</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+<mo strectchy="true">&macr;</mo></mover></mrow></math>.
+</li>
+<li>Since
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">n</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">&gt;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
+converges to
+<math display="inline"><mi>v</mi></math>,
+there exists
+<math display="inline"><mrow><msub><mi>N</mi><mn class="ss1">2</mn></msub>
+<mo>&ge;</mo><msub><mi>N</mi><mn class="ss1">1</mn></msub></mrow></math>
+such that
+<math display="inline"><mrow><mi>|</mi><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo>
+</mrow></mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>v</mi><mi>|</mi><mo>&lt;</mo><mi>&epsilon;</mi><mi>/</mi><mn>3</mn>
+</mrow></math>
+for
+<math display="inline"><mrow><mi>s</mi><mo>&ge;</mo><msub><mi>N</mi>
+<mn class="ss1">2</mn></msub></mrow></math>.
+</li>
+<li>We fix
+<math display="inline"><mrow><mi>t</mi><mo>&ge;</mo><msub><mi>N</mi>
+<mn class="ss1">2</mn></msub></mrow></math>.
+Since
+<math display="inline"><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">t</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">)</mo></mrow>
+</mrow></msub></mrow></msup></math>
+is continuous on
+<math display="inline"><mi>W</mi></math>
+and
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>z</mi>
+<mrow><msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">m</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">)</mo></mrow>
+</mrow></msub></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">m</mi><mo class="ss1">&gt;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>
+converges to
+<math display="inline"><mi>w</mi></math>,
+there exists
+<math display="inline"><mrow><msub><mi>N</mi><mn>3</mn></msub><mo>&gt;</mo>
+<msub><mi>N</mi><mn>2</mn></msub></mrow></math>
+such that
+<math display="inline"><mrow><mi>|</mi><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">t</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi><msub>
+<mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></msub><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>-</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">t</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mi>|</mi>
+<mo>&lt;</mo><mi>&epsilon;</mi><mi>/</mi><mn>3</mn></mrow></math>
+and
+<math display="inline"><mrow><msub><mi>z</mi><msub><mi class="ss1">j</mi>
+<mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></msub><mo>&in;</mo><msub><mi>B</mi>
+<mi class="ss1">&delta;</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+for all
+<math display="inline"><mrow><mi>s</mi><mo>&ge;</mo>
+<msub><mi>N</mi><mn>3</mn></msub></mrow></math>.
+</li>
+</ul>
+<p>Hence</p>
+
+<div class="EQ_center">
+<math display="block" style="display:block math;"><mrow>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi><msub>
+<mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></msub><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>-</mo><mi>v</mi>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<mo>&le;</mo>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></msub><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>-</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">t</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi><msub>
+<mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<mo>+</mo>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">t</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi><msub>
+<mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></msub><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>-</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">t</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<mo>+</mo>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">t</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>-</mo>
+<mi>v</mi>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<mo>&lt;</mo><mi>&epsilon;</mi></mrow></math>
+</div>
+<p>for
+<math display="inline"><mrow><mi>s</mi><mo>&ge;</mo>
+<msub><mi>N</mi><mn>3</mn></msub></mrow></math>.
+Since
+<math display="inline"><mi>&epsilon;</mi></math>
+is arbitrary and
+<math display="inline"><mrow><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi><msub>
+<mi class="ss1">j</mi><mrow><mi class="ss2">k</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss2">(</mo>
+<mi class="ss2">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss2">)</mo></mrow>
+</mrow></msub></msub><mo fence="true" form="postfix" stretchy="false">)</mo>
+</mrow><mo>&in;</mo><mi>V</mi></mrow></math>,
+we get that
+<math display="inline"><mrow><mi>v</mi><mo>&in;</mo>
+<mover><mi>V</mi><mo><mo strectchy="true">&macr;</mo></mover></mrow></math>.
+</p>
+
+<p>Since
+<math display="inline"><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>I</mi>
+<mi class="ss1">j</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">j</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn>
+</mrow></msub></math>  
+is a normal family on
+<math display="inline"><mi>V</mi></math>,
+every convergent subsequence
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>I</mi>
+<msub><mi class="ss1">j</mi><mi class="ss2">k</mi></msub></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">k</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi>&infin;</mi></msubsup></math>
+converges uniformly on compact subsets of
+<math display="inline"><mi>V</mi></math>
+to an holomorphic function
+<math display="inline"><mrow><mi>g</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>V</mi><mo>&rarr;</mo>
+<msub><mi>&complexes;</mi><mi class="ss1">&infin;</mi></msub></mrow></math>.
+Since
+<math display="inline"><mrow><msub><mi>V</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<msub><mi class="ss1">i</mi><mi class="ss1"2>k</mi></msub></mrow></msub>
+<mo>=</mo><msub><mi>I</mi><msub><mi class="ss1">i</mi><mi class="ss2">k</mi>
+</msub></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&rarr;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+</mrow></math>
+uniformly as
+<math display="inline"><mrow><mi>j</mi><mo>&rarr;</mo><mi>&infin;</mi>
+</mrow></math>,
+it follows that
+<math display="inline"><mrow><mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>.
+Therefore,
+<math display="inline"><mrow><mi>g</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+has an empty interior because
+<math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+</mrow></math>
+has an empty interior.  But this not possible unless
+<math display="inline"><mi>g</mi></math>
+is a constant function because
+<math display="inline"><mi>g</mi></math>
+is an holomorphic function defined on the open set
+<math display="inline"><mi>V</mi></math>.
+<span class="Proof_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof29A','proof29B','proof29C','en')"
+class="mORl" id="proof29C">Read more</button>
+
+<!--
+HERE
+The next proof is not correct.
+1) We must have that the sequence \{I_j^{[n]}\}_{j\geq 0}
+   itself converges uniformly on compact subsets of B_{\delta_n}(z_n)
+   to the null function.  Thus this comes from the previous proposition?
+2) We need to show that J_R = \bigcup_{n=1}^M I_m^{[n]}(K_n) .
+
+<p><em>Proof of <script language="javascript">refNumbers("theoExpand");
+</script></em>: Since
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+</math>
+is compact and
+<math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi>
+</msub><mo>&cap;</mo><mover><msub><mrow><mi class="mathcal">&Oscr;</mi>
+<mi class="mathcal">&Cscr;</mi></mrow><mi>R</mi></msub>
+<mo strectchy="true">&macr;</mo></mover><mo>=</mo><mi>&emptyset;</mi>
+</mrow></math>,
+there exists a finite cover
+<math display="inline"><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msub><mi>U</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">1</mn></mrow>
+<mi class="ss1">N</mi></msubsup></math>
+of
+<math display="inline"><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+</math>
+by open balls
+<math display="inline"><mrow><msub><mi>U</mi><mi class="ss1">n</mi></msub>
+<mo>=</mo><msub><mi>B</mi><mrow><msub>
+<mi class="ss1">&delta;</mi><mi class="ss2">n</mi></msub>
+<mo class="ss1">/</mo><mn class="ss1">2</mn></mrow></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+such that
+<math display="inline"><mrow><msub><mi>z</mi><mi class="ss1">n</mi></msub>
+<mo>&in;</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub></mrow></math>
+and
+<math display="inline"><mrow><mover><mrow><msub><mi>B</mi><msub>
+<mi class="ss1">&delta;</mi><mi class="ss2">n</mi></msub></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+<mo strectchy="true">&macr;</mo></mover>
+<mo>&cap;</mo><mover><msub><mrow><mi class="mathcal">&Oscr;</mi>
+<mi class="mathcal">&Cscr;</mi></mrow><mi>R</mi></msub>
+<mo strectchy="true">&macr;</mo></mover><mo>=</mo><mi>&emptyset;</mi>
+</mrow></math>
+for all
+<math display="inline"><mi>n</mi></math>.
+Therefore, for each <math display="inline"><mi>n</mi></math>,
+we can construct a normal family of holomorphic functions
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msubsup><mi>I</mi><mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">n</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">j</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn></mrow>
+</msub></math>
+defined on the simply connected open set
+<math display="inline"><mrow><msub><mi>B</mi><msub>
+<mi class="ss1">&delta;</mi><mi class="ss2">n</mi></msub></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+and such that
+<math display="inline"><mrow><mi>R</mi><mo>&compfn;</mo><msubsup><mi>I</mi>
+<mrow><mi class="ss1">j</mi><mo class="ss1">+</mo><mn class="ss1">1</mn>
+</mrow><mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">n</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup><mo>=</mo><msubsup><mi>I</mi><mi class="ss1">j</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">n</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup></mrow></math>
+for all
+<math display="inline"><mi>j</mi></math>.
+Since
+<math display="inline"><mrow><msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo>
+<msubsup><mi>I</mi><mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">n</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow><mrow>
+<mi class="ss1">j</mi><mo class="ss1">&ge;</mo><mn class="ss1">0</mn></mrow>
+</msub></math>
+is a normal family on
+<math display="inline"><mrow><msub><mi>B</mi><msub>
+<mi class="ss1">&delta;</mi><mi class="ss2">n</mi></msub></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>,
+there exists a subsequence
+<math display="inline"><mrow><msubsup><mrow>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">{</mo>
+<msubsup><mi>I</mi><msub><mi class="ss1">j</mi>
+<mi class="ss2">m</mi></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">n</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">}</mo>
+</mrow><mrow><mi class="ss1">m</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup></math>
+that converges uniformely on compact subsets of
+<math display="inline"><mrow><msub><mi>B</mi><msub>
+<mi class="ss1">&delta;</mi><mi class="ss2">n</mi></msub></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+to a constant function according to the previous proposition.  Therefore
+<math display="inline"><mrow><msubsup><mrow>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">{</mo>
+<msup><mrow>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">(</mo>
+<msubsup><mi>I</mi><msub><mi class="ss1">j</mi><mi class="ss2">m</mi>
+</msub><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">[</mo>
+<mi class="ss1">n</mi>
+<mo form="postfix" stretchy="false" lspace="0em" rspace="0em" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">)</mo>
+</mrow><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup>
+<mspace width="0.5ex"></mspace>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">}</mo>
+</mrow><mrow><mi class="ss1">m</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup></mrow></math>
+converges uniformely on compact subsets of
+<math display="inline"><mrow><msub><mi>B</mi><msub>
+<mi class="ss1">&delta;</mi><mi class="ss2">n</mi></msub></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+to the function that takes only the value
+<math display="inline"><mn>0</mn></math>
+on
+<math display="inline"><mrow><msub><mi>B</mi><msub>
+<mi class="ss1">&delta;</mi><mi class="ss2">n</mi></msub></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+Let
+<math display="inline"><mrow><msub><mi>K</mi><mi class="ss1">n</mi></msub>
+<mo>=</mo><msub><mi>J</mi><mi class="ss1">R</mi></msub><mo>&cap;</mo><mover>
+<mrow><msub><mi>B</mi><mrow><msub><mi class="ss1">&delta;</mi>
+<mi class="ss2">n</mi></msub><mi class="ss1">/</mi><mn class="ss1">2</mn>
+</mrow></msub><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>z</mi><mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+<mo strectchy="true">&macr;</mo></mover></mrow></math>.
+Since
+<math display="inline"><mrow><msub><mi>K</mi><mi class="ss1">n</mi></msub>
+<mo>&subset;</mo><msub><mi>B</mi><msub><mi class="ss1">&delta;</mi>
+<mi class="ss2">n</mi></msub></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>z</mi>
+<mi class="ss1">n</mi></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+is compact, we have that
+<math display="inline"><mrow><msubsup><mrow>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">{</mo>
+<msup><mrow>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">(</mo>
+<msubsup><mi>I</mi><msub><mi class="ss1">j</mi><mi class="ss2">m</mi>
+</msub><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">[</mo>
+<mi class="ss1">n</mi>
+<mo form="postfix" stretchy="false" lspace="0em" rspace="0em" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">)</mo>
+</mrow><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup>
+<mspace width="0.5ex"></mspace>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">}</mo>
+</mrow><mrow><mi class="ss1">m</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup></mrow></math>
+converges uniformly on
+<math display="inline"><msub><mi>K</mi><mi class="ss1">n</mi></msub></math>
+to the function that takes only the value
+<math display="inline"><mn>0</mn></math>
+on
+<math display="inline"><msub><mi>K</mi><mi class="ss1">n</mi></msub></math>.
+Therefore, there exists an integer
+<math display="inline"><mrow><msub><mi>M</mi><mi class="ss1">n</mi></msub>
+<mo>&gt;</mo><mn>0</mn></mrow></math>
+such that
+<math display="inline"><mrow>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<msup><mrow>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">(</mo>
+<msubsup><mi>I</mi><msub><mi class="ss1">j</mi><mi class="ss2">m</mi></msub>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">[</mo>
+<mi class="ss1">n</mi>
+<mo form="postfix" stretchy="false" lspace="0em" rspace="0em" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">)</mo>
+</mrow><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup>
+<mo form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo form="postfix" stretchy="false">)</mo>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<mo>&lt;</mo><mn>1</mn><mi>/</mi><mi>C</mi></mrow></math>
+for all
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>K</mi>
+<mi class="ss1">n</mi></msub></mrow></math>
+and
+<math display="inline"><mrow><mi>m</mi><mo>&gt;</mo><msub><mi>M</mi>
+<mi class="ss1">n</mi></msub></mrow></math>.
+Hence
+<math display="inline"><mrow>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<msup><mrow><mo form="prefix" stretchy="false">(</mo><msup><mi>R</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">&compfn;</mo>
+<msub><mi class="ss1">j</mi><mi class="ss2">m</mi></msub></mrow></msup>
+<mo form="postfix" stretchy="false">)</mo></mrow>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msup>
+<mo form="prefix" stretchy="false">(</mo><msubsup><mi>I</mi><msub>
+<mi class="ss1">j</mi><mi class="ss2">m</mi></msub><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">[</mo>
+<mi class="ss1">n</mi>
+<mo form="postfix" stretchy="false" lspace="0em" rspace="0em" class="ss1">]</mo>
+</mrow></msubsup><mo form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo form="postfix" stretchy="false">)</mo>
+<mo form="postfix" stretchy="false">)</mo>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<mo>=</mo>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<msup><mrow>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">(</mo>
+<msubsup><mi>I</mi><msub><mi class="ss1">j</mi><mi class="ss2">m</mi></msub>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">[</mo>
+<mi class="ss1">n</mi>
+<mo form="postfix" stretchy="false" lspace="0em" rspace="0em" class="ss1">]</mo>
+</mrow></msubsup>
+<mo fence="false" symmetric="true" minsize="1.4em" maxsize="1.4em">)</mo>
+</mrow><mo lspace="0em" rspace="0em" class="ss3">'</mo></msup>
+<mo form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo form="postfix" stretchy="false">)</mo><msup>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mo>&gt;</mo><mi>C</mi></mrow></math>
+for all
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>K</mi>
+<mi class="ss1">n</mi></msub></mrow></math>
+and
+<math display="inline"><mrow><mi>m</mi><mo>&gt;</mo><msub><mi>M</mi>
+<mi class="ss1">n</mi></msub></mrow></math>.
+If we set
+<math display="inline"><mrow><mi>M</mi><mo>=</mo><munder><mi>max</mi><mrow>
+<mn class="ss1">1</mn><mo class="ss1">&le;</mo><mi class="ss1">n</mi>
+<mo class="ss1">&le;</mo><mi class="ss1">N</mi></mrow></munder>
+<mspace width="0.1667em"></mspace><msub><mi>M</mi><mi class="ss1">n</mi>
+</msub></mrow></math>,
+then
+<math display="inline"><mrow>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<msubsup><mi>R</mi><msub><mi class="ss1">j</mi><mi class="ss2">m</mi></msub>
+<mo lspace="0em" rspace="0em" class="ss3">'</mo></msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>w</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<mo>&gt;</mo><mi>C</mi></mrow></math>
+for all
+<math display="inline"><mrow><mi>w</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">R</mi></msub></mrow></math>
+and
+<math display="inline"><mrow><mi>m</mi><mo>&gt;</mo><mi>M</mi></mrow></math>
+because
+<math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">R</mi></msub>
+<mo>=</mo><mrow><munderover><mo movablelimits="false">&cup;</mo>
+<mrow><mi class="ss1">n</mi><mo class="ss1">=</mo><mn class="ss1">1</mn>
+</mrow><mi class="ss1">N</mi></munderover></mrow><msub><mi>K</mi>
+<mi class="ss1">n</mi></msub></mrow></math>.</p>
+-->
+
+<p>We will not say anything more on the subject of
+quasi-self-similarity in this document.  The
+reader could consult the <script language="javascript">
+buildLinK("#REF", "references","MMathSStat", "REDid2", "_top");
+</script> at the end of this document for more information.</p>
+
 <hr class="MMathSStat">
 
 <h3 id="SS5">Polynomial Functions</h3>
@@ -9207,7 +10543,8 @@ Thus, the set
 cannot be bounded.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof27A','proof27B','proof27C','en')" class="mORl" id="proof27C">Read more</button>
+<button onclick="moreORless('proof27A','proof27B','proof27C','en')"
+class="mORl" id="proof27C">Read more</button>
 
 <p>A proof similar to the proof of
 <script language="javascript">refNumbers("propX");</script>
@@ -9332,7 +10669,7 @@ Moreover, it follows from the fundamental theorem of algebra that the
 set of exceptional points associated to
 <math display="inline"><mi>P</mi></math>
 is
-<math display="inline"><mrow><msub><mi>&#x2130;</mi><mi class="ss1">P</mi>
+<math display="inline"><mrow><msub><mi>&Escr;</mi><mi class="ss1">P</mi>
 </msub><mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
 <mi>&infin;</mi><mo fence="true" form="postfix" stretchy="false">}</mo>
 </mrow></math>.
@@ -9352,8 +10689,7 @@ functions which says that the maximum of
 <mi class="ss1">j</mi></mrow></msup><mi>|</mi></mrow></math>
 on
 <math display="inline"><mover><mi>U</mi>
-<mo strectchy="true">&macr;</mo>
-</mover></math>
+<mo strectchy="true">&macr;</mo></mover></math>
 is reached on the boundary
 <math display="inline"><mrow><mi>&part;</mi><mi>U</mi><mo>=</mo>
 <mi>&gamma;</mi></math>
@@ -9379,7 +10715,8 @@ for all
 <math display="inline"><mi>j</mi></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof14A','proof14B','proof14C','en')" class="mORl" id="proof14C">Read more</button>
+<button onclick="moreORless('proof14A','proof14B','proof14C','en')"
+class="mORl" id="proof14C">Read more</button>
 
 <p>There is a similar result to
 <script language="javascript">refNumbers("corIX");</script>
@@ -9522,7 +10859,7 @@ is connected.</li>
 <mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>&infin;</mi>
 <mo separator="true">,</mo><mi>P</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
-<mo>&cap;</mo><msub><mi>&#x1D49E;</mi><mi class="ss1">P</mi></msub>
+<mo>&cap;</mo><msub><mi>&Cscr;</mi><mi class="ss1">P</mi></msub>
 <mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
 <mi>&infin;</mi><mo fence="true" form="postfix" stretchy="false">}</mo>
 </mrow></mrow></math>.
@@ -9577,14 +10914,14 @@ we get from (2) that
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
 is connected.</li>
 <li> <em>(3) &rArr; (4)</em>: The proof is by contradiction.  Let
-<math display="inline"><mrow><msub><mover><mi>&#x1D49E;</mi>
+<math display="inline"><mrow><msub><mover><mi>&Cscr;</mi>
 <mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
-<mi class="ss1">P</mi></msub><mo>=</mo><msub><mi>&#x1D49E;</mi>
+<mi class="ss1">P</mi></msub><mo>=</mo><msub><mi>&Cscr;</mi>
 <mi class="ss1">P</mi></msub><mo>&setminus;</mo><mrow>
 <mo fence="true" form="prefix" stretchy="false">{</mo><mi>&infin;</mi>
 <mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>
 and suppose that
-<math display="inline"><mrow><msub><mover><mi>&#x1D49E;</mi>
+<math display="inline"><mrow><msub><mover><mi>&Cscr;</mi>
 <mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
 <mi class="ss1">P</mi></msub><mo>&cap;</mo><msup><mi>W</mi>
 <mi class="ss1">i</mi></msup><mrow>
@@ -9700,7 +11037,7 @@ More precisely, if we generalize to
 <math display="inline"><mi>P</mi><msub></math>
 acting on
 <math display="inline"><mrow><msub><mi>A</mi><mrow>
-<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">1</mo>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
 <mn class="ss1">1</mn></mrow></msub></mrow></math>
 the concept of Riemann surface associated to
 <math display="inline"><mi>T</mi></math>
@@ -9794,6 +11131,29 @@ This is illustrated in the figure below for the case
        alt="Illustration of the commutative graph \tilde{H} \circ P = T \circ \tilde{H} incluing the sets A_0, A_{-1}, G_j amd F_j."
        class="framed">
 </div>
+The boundaries between the sets
+<math display="inline"><msub><mi>G</mi><mi class="ss1">j</mi></msub></math>
+are defined by
+<math display="inline"><mrow><msup><mi>P</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&alpha;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>,
+where
+<math display="inline"><mrow><mi>&alpha;</mi><mo>=</mo><msup><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&beta;</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+with
+<math display="inline"><mrow><mi>&beta;</mi><mo>=</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>x</mi><mo>&in;</mo>
+<mi>&reals;</mi><mo lspace="0.2222em" rspace="0.2222em">:</mo>
+<mi>r</mi><mo>&lt;</mo><mi>x</mi><mo>&le;</mo><msup><mi>r</mi>
+<mi class="ss1">d</mi></msup>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow></mrow></math>.
 </li>
 <li> Let
 <math display="inline"><mrow><msub><mi>A</mi><mrow>
@@ -9860,7 +11220,7 @@ on
 <mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
 </math>
 cannot be repeated indefinitely because we have assumed that
-<math display="inline"><mrow><msub><mover><mi>&#x1D49E;</mi>
+<math display="inline"><mrow><msub><mover><mi>&Cscr;</mi>
 <mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
 <mi class="ss1">P</mi></msub><mo>&cap;</mo><msup><mi>W</mi>
 <mi class="ss1">i</mi></msup><mrow>
@@ -9967,7 +11327,7 @@ needed to satisfy (1), we proceed exactly as we have done in
 <mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
 </math>.
 Since we now assume that
-<math display="inline"><mrow><msub><mover><mi>&#x1D49E;</mi>
+<math display="inline"><mrow><msub><mover><mi>&Cscr;</mi>
 <mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
 <mi class="ss1">P</mi></msub><mo>&cap;</mo><msup><mi>W</mi>
 <mi class="ss1">i</mi></msup><mrow>
@@ -9995,10 +11355,11 @@ we get that
 This completes the sketch of the proof.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof28A','proof28B','proof28C','en')" class="mORl" id="proof28C">Read more</button>
+<button onclick="moreORless('proof28A','proof28B','proof28C','en')"
+class="mORl" id="proof28C">Read more</button>
 
 <p>Recall that
-<math display="inline"><msub><mi>&#x1D49E;</mi><mi class="ss1">P</mi></msub>
+<math display="inline"><msub><mi>&Cscr;</mi><mi class="ss1">P</mi></msub>
 </math>
 is the set of critical points of
 <math display="inline"><mi>P</mi></math>.
@@ -10090,13 +11451,13 @@ divNumbers("Propostion","propXIV","");
 be a polynomial function of degree
 <math display="inline"><mi>d</mi></math>.
 If
-<math display="inline"><mrow><msub><mi>&#x1D49E;</mi><mi class="ss1">P</mi>
+<math display="inline"><mrow><msub><mi>&Cscr;</mi><mi class="ss1">P</mi>
 </msub><mo>&subset;</mo>
 <msup><mi>W</mi><mi class="ss1">i</mi></msup>
 <mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>&infin;</mi>
 <mo separator="true">,</mo><mi>P</mi>
 <mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>,
-then
+then the set
 <math display="inline"><msub><mi>J</mi><mi class="ss1">P</mi></msub></math>
 is totally disconnected and
 <math display="inline"><mrow><mi>P</mi><msub>
@@ -10108,9 +11469,607 @@ symbols.
 </p>
 </div>
 
-<p>The full proof is given in <script language="javascript">
-  buildLinK("#PB", "P. Blanchard","MMathSStat", "PBid5", "_top");
-</script>.</p>
+<p><em>Proof (sketch)</em>: We first sketch the proof in the case
+<math display="inline"><mrow><mi>d</mi><mo>=</mo><mn>2</mn></mrow></math>.
+It is in fact the most important case for our study of the
+<script language="javascript">
+  buildLinK(fractal5.url_en, fractal5.text_en,"MMathSStat",
+  fractal5.id+"Smap", fractal5.target);
+</script>.
+<span id="proof30A">&nbsp;...</span></p>
+<div id="proof30B" class="moreORless">
+
+<p>We proceed as we did in the proof of <em>(3) &rArr; (4)</em> in
+<script language="javascript">refNumbers("propXIII");</script>.
+Let
+<math display="inline"><mrow><msub><mover><mi>&Cscr;</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mi class="ss1">P</mi></msub><mo>=</mo><msub><mi>&Cscr;</mi>
+<mi class="ss1">P</mi></msub><mo>&setminus;</mo><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><mi>&infin;</mi>
+<mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mo>=</mo><mrow><mo fence="true" form="prefix" stretchy="false">{</mo>
+<mi>c</mi><mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+</mrow></math>.
+Moreover, let
+<math display="inline"><mrow><mi>T</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub><mo>&rarr;</mo><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub></mrow></math>
+be the function defined by
+<math display="inline"><mrow><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<msup><mi>z</mi><mn class="ss1">2</mn></msup></mrow></math>.
+It is known that there exist an open neighbourhood
+<math display="inline"><mi>U</mi></math>
+of
+<math display="inline"><mi>&infin;</mi></math>
+in
+<math display="inline"><mrow><msup><mi>W</mi><mi class="ss1">i</mi>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&infin;</mi><mo separator="true">,</mo><mi>P</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+and a conformal homeomorphism
+<math display="inline"><mrow><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>U</mi><mo>&rarr;</mo>
+<msub><mi>D</mi><mi class="ss1">r</mi></msub></mrow></math>
+with
+<math display="inline"><mrow><mi>r</mi><mo>&gt;</mo><mn>1</mn></mrow></math>
+such that
+<math display="inline"><mrow><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mo>&compfn;</mo><mi>P</mi><mo>&compfn;</mo><msup><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mo>=</mo><mi>T</mi></mrow></math>
+on
+<math display="inline"><msub><mi>D</mi><mi class="ss1">r</mi></msub></math>.
+</p>
+<ol>
+<li> Let
+<math display="inline"><mrow><msub><mi>A</mi><mn class="ss1">0</mn></msub>
+<mo>=</mo><msup><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo>
+<msub><mi>D</mi><mi class="ss1">r</mi></msub><mo>&setminus;</mo>
+<msub><mi>D</mi><msup><mi class="ss1">r</mi><mn class="ss2">2</mn></msup></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+</li>
+<li> Let
+<math display="inline"><mrow><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub><mo>=</mo><msup><mi>P</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>A</mi>
+<mn class="ss1">0</mn></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+If
+<math display="inline"><mrow><mi>c</mi><mo>&notin;</mo><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub></mrow></math>,
+then
+<math display="inline"><mrow><mi>P</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub><mo>&rarr;</mo><msub><mi>A</mi>
+<mn class="ss1">0</mn></msub></mrow></math>
+is
+<math display="inline"><mn>2</mn></math>
+to
+<math display="inline"><mn>1</mn></math>.
+We can therefore expand
+<math display="inline"><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+</math>
+to a conformal homeomorphism, that we still call
+<math display="inline"><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+</math>,
+between an open neighbourhood
+<math display="inline"><mrow><msub><mi>U</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub><mo>&supset;</mo><mi>U</mi></mrow></math>
+of
+<math display="inline"><mi>&infin;</mi></math>
+and
+<math display="inline"><msub><mi>D</mi><msup><mi class="ss1">r</mi><mrow>
+<mn class="ss2">1</mn><mi class="ss2">/</mi><mn class="ss2">2</mn></mrow>
+</msup></msub></math>,
+such that
+<math display="inline"><mrow><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mo>&compfn;</mo><mi>P</mi><mo>&compfn;</mo><msup><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mo>=</mo><mi>T</mi></mrow></math>
+on
+<math display="inline"><msub><mi>D</mi><msup><mi class="ss1">r</mi><mrow>
+<mn class="ss2">1</mn><mi class="ss2">/</mi><mn class="ss2">2</mn></mrow>
+</msup></msub></math>.
+More precisely, we have that
+<math display="inline"><mrow><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub><mo>=</mo><msub><mi>G</mi>
+<mn class="ss1">0</mn></msub><mo>&cup;</mo><msub><mi>G</mi>
+<mn class="ss1">1</mn></msub></mrow></math>
+where
+<math display="inline"><mrow><mi>P</mi><msub>
+<mo fence="false" stretchy="true" symmetric="true" minsize="1.4em" maxsize="1.4em">|</mo>
+<msub><mi>G</mi><mi class="ss1">j</mi></msub></msub>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>G</mi>
+<mi class="ss1">j</mi></msub><mo>&rarr;</mo><msub><mi>A</mi>
+<mn class="ss1">0</mn></msub></mrow></math>
+is a conformal homeomorphism,
+<math display="inline"><mrow><msub><mi>G</mi><mn class="ss1">0</mn>
+</msub><mo>&cap;</mo><msub><mi>G</mi><mn class="ss1">1</mn></msub>
+<mo>=</mo><mi>&emptyset;</mi></mrow></math>,
+and
+<math display="inline"><mrow><mi>&part;</mi><msub><mi>G</mi>
+<mn class="ss1">0</mn></msub><mo>&cap;</mo><mi>&part;</mi><msub><mi>G</mi>
+<mn class="ss1">1</mn></msub><mo>&ne;</mo><mi>&emptyset;</mi></mrow></math>.
+We define
+<math display="inline"><mrow><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+for
+<math display="inline"><mrow><mi>y</mi><mo>&in;</mo><msub><mi>Q</mi>
+<mi class="ss1">j</mi></msub></mrow></math>
+as the unique value in
+<math display="inline"><mrow><msub><mi>F</mi><mi class="ss1">j</mi></msub>
+<mo>=</mo>
+<mo fence="false" symmetric="true" minsize="1.2em" maxsize="1.2em">{</mo>
+<mi>z</mi><mo>&in;</mo><msub><mi>D</mi><msup><mi class="ss1">r</mi>
+<mrow><mn class="ss2">1</mn><mi class="ss2">/</mi><mn class="ss2">2</mn>
+</mrow></msup></msub><mo>&setminus;</mo><msub><mi>D</mi>
+<mi class="ss1">r</mi></msub>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mtext>arg</mtext>
+<mo form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo form="postfix" stretchy="false">)</mo><mo>&in;</mo>
+<mo form="prefix" stretchy="false">[</mo><mi>&pi;</mi><mi>j</mi>
+<mo separator="true">,</mo><mi>&pi;</mi>
+<mo form="prefix" stretchy="false">(</mo><mi>j</mi><mo>+</mo><mn>1</mn>
+<mo form="postfix" stretchy="false">)</mo>
+<mo form="prefix" stretchy="false">[</mo><mspace width="0.5ex"></mspace>
+<mo fence="false" symmetric="true" minsize="1.2em" maxsize="1.2em">}</mo>
+</mrow></math>
+such that
+<math display="inline"><mrow><mi>T</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>x</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+where
+<math display="inline"><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>y</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>x</mi></mrow></math>.
+This is illustrated in the figure below.
+<div class="center">
+  <img src="stable3.png" style="width: 400px"
+       alt="Illustration of the commutative graph \tilde{H} \circ P = T \circ \tilde{H} incluing the sets A_0, A_{-1}, G_j amd F_j."
+       class="framed">
+</div>
+</li>
+<li> Let
+<math display="inline"><mrow><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">2</mn></mrow></msub><mo>=</mo><msup><mi>P</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+If
+<math display="inline"><mrow><mi>c</mi><mo>&notin;</mo><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">2</mn></mrow></msub></mrow></math>,
+then
+<math display="inline"><mrow><mi>P</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">2</mn></mrow></msub><mo>&rarr;</mo><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub></mrow></math>
+is
+<math display="inline"><mn>2</mn></math>
+to
+<math display="inline"><mn>1</mn></math>.
+As in the previous step, we can therefore expand
+<math display="inline"><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+</math>
+to a conformal homeomorphism, that we still call
+<math display="inline"><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+</math>,
+between an open neighbourhood
+<math display="inline"><mrow><msub><mi>U</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">2</mn></mrow></msub><mo>&supset;</mo><msub><mi>U</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msub></mrow></math>
+of
+<math display="inline"><mi>&infin;</mi></math>
+and
+<math display="inline"><msub><mi>D</mi><msup><mi class="ss1">r</mi><mrow>
+<mn class="ss2">1</mn><mi class="ss2">/</mi><msup><mn class="ss2">2</mn>
+<mn class="ss2">2</mn></msup></mrow></msup></msub></math>,
+such that
+<math display="inline"><mrow><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mo>&compfn;</mo><mi>P</mi><mo>&compfn;</mo><msup><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+<mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mo>=</mo><mi>T</mi></mrow></math>
+on
+<math display="inline"><msub><mi>D</mi><msup><mi class="ss1">r</mi><mrow>
+<mn class="ss2">1</mn><mi class="ss2">/</mi><msup><mn class="ss2">2</mn>
+<mn class="ss2">2</mn></msup></mrow></msup></msub></math>.
+</li>
+<li> Unfortunately, the procedure used in the previous steps to expand
+<math display="inline"><mover><mi>H</mi>
+<mo stretchy="false" class="ss4" style="math-depth:0;">&tilde;</mo></mover>
+</math>
+cannot be repeated indefinitely because we have assumed that
+<math display="inline"><mrow><mi>c</mi><mo>&in;</mo><msup><mi>W</mi>
+<mi class="ss1">i</mi></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>&infin;</mi>
+<mo separator="true">,</mo><mi>P</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+Therefore, there exists an integer
+<math display="inline"><mrow><mi>n</mi><mo>&gt;</mo><mn>0</mn></mrow></math>
+such that
+<math display="inline"><mrow><mi>c</mi><mo>&in;</mo><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">n</mi></mrow></msub></mrow></math>.
+We have that
+<math display="inline"><mrow><mi>P</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">n</mi></mrow></msub><mo>&rarr;</mo><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">n</mi><mo class="ss1">+</mo><mn class="ss1">1</mn></mrow>
+</msub></mrow></math>
+is not
+<math display="inline"><mn>2</mn></math>
+to
+<math display="inline"><mn>1</mn></math>.
+Let
+<math display="inline"><mi>&alpha;</mi></math>
+be a simple curve in
+<math display="inlice"><msub><mi>A</mi><mn class="ss1">0</mn></msub></math>
+that contains
+<math display="inline"><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>c</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow>
+</math>.
+The curve
+<math display="inline"><mi>&alpha;</mi></math>
+is the image of a non-simple curve
+<math display="inline"><mi>&beta;</mi></math>
+in
+<math display="inline"><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">n</mi></mrow></msub></math>;
+that intersects itself at the point
+<math display="inline"><mi>c</mi></math>.
+The point
+<math display="inline"><mi>c</mi></math>
+is a branch point for the Riemann surface associated to
+<math display="inline"><mi>P</mi></math>
+acting on
+<math display="inline"><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">n</mi></mrow></msub></math>.
+The curve
+<math display="inline"><mi>&beta;</mi></math>
+is the boundary of two bounded and connected open subsets.
+Each one of these sets contains a portion of
+<math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">P</mi>
+</msub><mo>=</mo><mi>&part;</mi><msup><mi>W</mi><mi class="ss1">i</mi>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&infin;</mi><mo separator="true">,</mo><mi>P</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>.
+<div class="center">
+  <img src="stable2.png" style="width: 350px"
+       alt="Illustration of the curves \alpha and \beta including A_{-n} and A_{-n+1}."
+       class="framed">
+</div>
+</li>
+</ol>
+<p>The set
+<math display="inline"><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">n</mi></mrow></msub></math>
+looks like a disk with two holes in it; namely, the open sets
+<math display="inline"><msub><mi>V</mi><mn class="ss1">0</mn></msub></math>
+and
+<math display="inline"><msub><mi>V</mi><mn class="ss1">1</mn></msub></math>.
+Let
+<math display="inline"><mrow><mi>V</mi><mo>=</mo><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub><mo>&setminus;</mo><mover><mrow><mrow>
+<mo fence="false" symmetric="true" minsize="1.2em" maxsize="1.2em">(</mo>
+<mi>U</mi><mo>&cup;</mo><mrow><munderover><mo movablelimits="false">&cup;</mo>
+<mrow><mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">1</mn>
+</mrow><mrow><mi class="ss1">n</mi><mo class="ss1">-</mo><mn class="ss1">1</mn>
+</mrow></munderover></mrow><msub><mi>A</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mi class="ss1">j</mi></mrow></msub>
+<mo fence="false" symmetric="true" minsize="1.2em" maxsize="1.2em">)</mo></mrow>
+</mrow><mo strectchy="true">&macr;</mo></mover></mrow></math>.
+Since
+<math display="inline"><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>c</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&notin;</mo><mi>V</mi><row></math>,
+we have that
+<math display="inline"><mrow><mi>P</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msup><mi>P</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&rarr;</mo>
+<mi>V</mi></mrow></math>
+is
+<math display="inline"><mn>2</mn></math>
+to
+<math display="inline"><mn>1</mn></math>.
+Note that
+<math display="inline"><mrow><msup><mi>P</mi><mrow>
+<mo form="prefix" stretchy="false" lspace="0em" rspace="0em" class="ss1">-</mo>
+<mn class="ss1">1</mn></mrow></msup><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>V</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&subset;</mo>
+<mi>V</mi></mrow></math>
+because
+<math display="inline"><mrow><msub><mi>&complexes;</mi>
+<mi class="ss1">&infin;</mi></msub><mo>&setminus;</mo>
+<msup><mi>W</mi><mi class="ss1">i</mi>
+</msup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>&infin;</mi><mo separator="true">,</mo><mi>P</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+is completely invariant under the action of
+<math display="inline"><mi>P</mi></math>.
+Thus, there exist two holomorphic functions
+<math display="inline"><mrow><msub><mi>J</mi><mi class="ss1">j</mi></msub>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>V</mi><mo>&rarr;</mo>
+<msub><mi>V</mi><mi class="ss1">j</mi></msub></mrow></math>
+for
+<math display="inline"><mrow><mi>j</mi><mo>=</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn></mrow></math>,
+such that
+<math display="inline"><mrow><mi>P</mi><mo>&compfn;</mo><msub><mi>J</mi>
+<mi class="ss1">j</mi></msub><mo>=</mo><mtext>Id</mtext></mrow></math>
+on
+<math display="inline"><mi>V</mi></math>
+for
+<math display="inline"><mrow><mi>j</mi><mo>=</mo><mn>0</mn>
+<mo separator="true">,</mo><mn>1</mn></mrow></math>.</p>
+
+<div class="center">
+  <img src="stable4.png" style="width: 450px"
+       alt="Illustration of the compositions of the functions J_j."
+       class="framed">
+</div>
+
+<p>Given
+<math display="inline"><mrow><mi>s</mi><mo>&in;</mo><msub><mi>&Sigma;</mi>
+<mn class="ss1">2</mn></msub></mrow></math>,
+the sequence space on two symbols, we consider the sequence of functions
+<math display="inline"><mrow><msup><mi class="mathcal">&Iscr;</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msup><mo>=</mo><msubsup><mrow>
+<mo fence="true" form="prefix" stretchy="false">{</mo><msubsup><mi>I</mi>
+<mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup><mo fence="true" form="postfix" stretchy="false">}</mo></mrow>
+<mrow><mi class="ss1">j</mi><mo class="ss1">=</mo><mn class="ss1">0</mn>
+</mrow><mi class="ss1">&infin;</mi></msubsup></math>,
+where
+<math display="inline"><mrow><msubsup><mi>I</mi><mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup><mo>=</mo><msub><mi>J</mi><msub><mi class="ss1">s</mi>
+<mi class="ss2">j</mi></msub></msub><mo>&compfn;</mo><msub><mi>J</mi>
+<msub><mi class="ss1">s</mi><mrow><mi class="ss2">j</mi>
+<mo class="ss2">-</mo><mn class="ss2">1</mn>
+</mrow></msub></msub><mo>&compfn;</mo><mi>&hellip;</mi><mo>&compfn;</mo>
+<msub><mi>J</mi><msub><mi class="ss1">s</mi><mn class="ss2">1</mn></msub>
+</msub><mo>&compfn;</mo><msub><mi>J</mi><msub><mi class="ss1">s</mi>
+<mn class="ss1">0</mn></msub></msub>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><mi>V</mi><mo>&rarr;</mo>
+<mi>&complexes;</mi></mrow></math>
+for all
+<math display="inline"><mi>j</mi></math>.
+Since sequences like
+<math display="inline"><mrow><msup><mi class="mathcal">&Iscr;</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msup></mrow></math>
+restricted to
+<math display="inline"><msub><mi>V</mi><mn class="ss1">0</mn></msub></math>
+or
+<math display="inline"><msub><mi>V</mi><mn class="ss1">1</mn></msub></math>
+satisfy the hypotheses of
+<script language="javascript">refNumbers("propSCCCF");</script>,
+they converge to constant functions.  Thus, the sequence
+<math display="inline"><mrow><msup><mi class="mathcal">&Iscr;</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msup></mrow></math>
+converge to a constant functions on
+<math display="inline"><mi>V</mi></math>.
+By construction, this constant value is a point in
+<math display="inline"><msub><mi>J</mi><mi class="ss1">P</mi></msub></math>.
+Recall that we have seen in the proof of
+<script language="javascript">refNumbers("propSCCCF");</script>
+that
+<math display="inline"><mrow><msubsup><mi>I</mi><mi class="ss1">j</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msubsup><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>V</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo>&rarr;</mo><msub><mi>J</mi><mi class="ss1">P</mi></msub></mrow></math>
+uniformly as
+<math display="inline"><mrow><mi>j</mi><mo>&rarr;</mo><mi>&infin;</mi></mrow>
+</math>.
+Every point in
+<math display="inline"><msub><mi>J</mi><mi class="ss1">P</mi></msub></math>.
+is associated in this fashion to a unique element of
+<math display="inline"><mrow><mi>s</mi><mo>&in;</mo><msub><mi>&Sigma;</mi>
+<mn clss="ss1">2</mn></msub></mrow></math>
+and vice-versa.  Therefore, we may define an isomorphism
+<math display="inline"><mrow><mi>&phi;</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>&Sigma;</mi>
+<mn class="ss1">2</mn></msub><mo>&rarr;</mo>
+<msub><mi>J</mi><mi class="ss1">P</mi></msub></mrow></math>
+by
+<math display="inline"><mrow><mi>&phi;</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>s</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+is the value of the constant function that is the limite of the
+sequence
+<math display="inline"><mrow><msup><mi class="mathcal">&Iscr;</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false" class="ss1">[</mo>
+<mi class="ss1">s</mi>
+<mo fence="true" form="postfix" stretchy="false" class="ss1">]</mo></mrow>
+</msup></mrow></math>.
+It can be proved that
+<math display="inline"><mrow><mi>&phi;</mi>
+<mo lspace="0.2222em" rspace="0.2222em">:</mo><msub><mi>&Sigma;</mi>
+<mn class="ss1">2</mn></msub><mo>&rarr;</mo>
+<msub><mi>J</mi><mi class="ss1">P</mi></msub></mrow></math>
+is an homeomorphism.  We have already proved a similar
+result in the section
+<script language="javascript">
+buildLinK(fractal1.url_en+"#SS3", "Logistic Function", "MMathSStat",
+fractal1.id+"DDSId1", fractal1.target);
+</script>
+of the document
+<script language="javascript">
+buildLinK(fractal1.url_en, fractal1.text_en, "MMathSStat",
+fractal1.id+"01", fractal1.target);
+</script>.  This homeomorphism between
+<math display="inline"><msub><mi>&Sigma;</mi><mn class="ss1">2</mn></msub>
+</math>
+and
+<math><msub><mi>J</mi><mi class="ss1">P</mi></msub></math>
+implies that
+<math><msub><mi>J</mi><mi class="ss1">P</mi></msub></math>
+is totally disconnected because
+<math display="inline"><msub><mi>&Sigma;</mi><mn class="ss1">2</mn></msub>
+</math>
+is totally disconnected.</p>
+
+<p>We define the action of
+<math display="inline"><mrow><mi>s</mi><mo>&in;</mo><msub><mi>&Sigma;</mi>
+<mn class="ss1">2</mn></msub></mrow></math>
+on
+<math display="inline"><mi>V</mi></math>
+as
+<math display="inline"><mrow><mi>s</mi><mi>.</mi><mi>x</mi><mo>=</mo>
+<munder><mi>lim</mi><mrow><mi class="ss1">j</mi><mo class="ss1">&rarr;</mo>
+<mi class="ss1">&infin;</mi></mrow></munder><mspace width="0.1667em"></mspace>
+<msub><mi>J</mi><msub><mi class="ss1">s</mi><mi class="ss2">j</mi>
+</msub></msub><mo>&compfn;</mo><msub><mi>J</mi><msub><mi class="ss1">s</mi>
+<mrow><mi class="ss2">j</mi><mo class="ss2">-</mo><mn class="ss2">1</mn>
+</mrow></msub></msub><mo>&compfn;</mo><mi>&hellip;</mi><mo>&compfn;</mo><msub>
+<mi>J</mi><msub><mi class="ss1">s</mi><mn class="ss1">1</mn></msub></msub>
+<mo>&compfn;</mo><msub><mi>J</mi><msub><mi class="ss1">s</mi>
+<mn class="ss2">0</mn></msub></msub><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow></mrow></math>
+for all
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><mi>V</mi></mrow></math>.
+We have that</p>
+
+<div class+"EQ_center">
+<math display="block" style="display:block math;"><mrow><mi>s</mi><mi>.</mi>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<munder><mi>lim</mi><mrow><mi class="ss1">j</mi><mo class="ss1">&rarr;</mo>
+<mi class="ss1">&infin;</mi></mrow></munder><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>J</mi><msub>
+<mi class="ss1">s</mi><mi class="ss2">j</mi></msub></msub><mo>&compfn;</mo>
+<mi>&hellip;</mi><mo>&compfn;</mo><msub><mi>J</mi><msub><mi class="ss1">s</mi>
+<mn class="ss2">1</mn></msub></msub><mo>&compfn;</mo><msub><mi>J</mi><msub>
+<mi class="ss1">s</mi><mn class="ss2">0</mn></msub></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<munder><mi>lim</mi><mrow><mi class="ss1">j</mi><mo class="ss1">&rarr;</mo>
+<mi class="ss1">&infin;</mi></mrow></munder><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>J</mi><msub>
+<mi class="ss1">s</mi><mi class="ss2">j</mi></msub></msub><mo>&compfn;</mo>
+<mi>&hellip;</mi><mo>&compfn;</mo><msub><mi>J</mi><msub><mi class="ss1">s</mi>
+<mn class="ss2">2</mn></msub></msub><mo>&compfn;</mo><msub><mi>J</mi><msub>
+<mi class="ss1">s</mi><mn class="ss2">1</mn></msub></msub>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>&sigma;</mi><mrow><mo fence="true" form="prefix" stretchy="false">(</mo>
+<mi>s</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mi>.</mi><mi>z</mi></mrow></math>
+</div>
+for all
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">P</mi></msub></mrow></math>
+because
+<math display="inline"><mrow><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><msub><mi>J</mi><msub>
+<mi class="ss1">s</mi><mn class="ss1">0</mn></msub></msub><mo>&compfn;</mo>
+<mi>P</mi><mo fence="true" form="postfix" stretchy="false">)</mo></mrow>
+<mrow><mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>=</mo>
+<mi>z</mi></mrow></math>
+for all
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">P</mi></msub></mrow></math>
+since
+<math display="inline"><mrow><mi>P</mi><mrow>
+<mo fence="true" form="prefix" stretchy="false">(</mo><mi>z</mi>
+<mo fence="true" form="postfix" stretchy="false">)</mo></mrow><mo>&in;</mo>
+<msub><mi>V</mi><mn class="ss1">0</mn></msub><mo>&cup;</mo><msub><mi>V</mi>
+<mn class="ss1">1</mn></msub></mrow></math>
+for all
+<math display="inline"><mrow><mi>z</mi><mo>&in;</mo><msub><mi>J</mi>
+<mi class="ss1">P</mi></msub></mrow></math>.
+<!--
+HERE
+Add the information concerning the case d>2.
+-->
+<span class="Proof_Right">&#8718;</span></p>
+</div>
+<button onclick="moreORless('proof30A','proof30B','proof30C','en')"
+class="mORl" id="proof30C">Read more</button>
 
 <div class="Example" id="egE">
 <p><em>Example E</em>: In <script language="javascript">
@@ -10591,7 +12550,8 @@ Hence, we have that</p>
 </mrow></math>.
 <span class="Proof_Right">&#8718;</span></p>
 </div>
-<button onclick="moreORless('proof15A','proof15B','proof15C','en')" class="mORl" id="proof15C">Read more</button>
+<button onclick="moreORless('proof15A','proof15B','proof15C','en')"
+class="mORl" id="proof15C">Read more</button>
 
 <p>We therefore have that
 <math display="inline"><mrow><msup><mi>W</mi><mi class="ss1">s</mi></msup>

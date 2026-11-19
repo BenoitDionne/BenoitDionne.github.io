@@ -35,20 +35,40 @@ document.write("Include javascript file has failed")
 top_function(Mbs_grade_review,"en");
 </script>
 
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
 <div class="page_contents"> <!--  The contents starts here -->
 
 <script language="javascript">
 main_title( MStext, "MMathSStat");
 </script>
 
-<h2> Reviewing Grades </h2>
+<h2 id="TOP"> Reviewing Grades </h2>
 
-<div class="LOOK" style="width: 80%; margin-left: 10%;">
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#Sect1", "Introduction",
+      "MMathSStat", "Sext1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect2", "Procedure",
+      "MMathSStat", "Sext2ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<div class="LOOK" style="float: left; width: 60%;  margin-left: 5%;">
 You must use <em>force Grade</em> on the assignment before modifying
 grades.  If you do not do that, then new grades will not be transferred to
 BrightSpace. </div>
 
-<h3> Introduction </h3>
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect1"> Introduction </h3>
 
 <p>You should not normally have to review the answers of the students.
   You should use the following procedure only to mark the questions
@@ -56,9 +76,11 @@ BrightSpace. </div>
   at the solutions given by the students to find out their common
   mistakes.</p>
 
-<h3> Procedure </h3>
+<hr class="MMathSStat">
 
-<ol style="list-style-type: decimal;">
+<h3 id="Sect2"> Procedure </h3>
+
+<ol class="dec">
 <li> <p>To review the grades given by Möbius to the assignments of
     your students, first select <em>Class Grades</em> under the
     item <em>Gradebook</em> of the top menu (item <em>1</em> of the

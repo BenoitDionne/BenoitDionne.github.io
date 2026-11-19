@@ -66,14 +66,14 @@ image_list_en[image_nbr_en++] = new image_item
      image_collection+"tulips.jpg",
      image_collection+"tulips.jpg",
      "Tulips Festival - May",
-     "The Ottawa Tulips festival", null, null, null, null, "0/05/0");
+     "The Ottawa Tulips festival.", null, null, null, null, "0/05/0");
 
 image_list_en[image_nbr_en++] = new image_item
     (image_collection+"Winterlude.jpg",
      image_collection+"Winterlude.jpg",
      image_collection+"Winterlude.jpg",
      "Winterlude - February",
-     "Winterlude", null, null, null, null, "0/02/0");
+     "Winterlude in Ottawa.", null, null, null, null, "0/02/0");
 
 image_list_en[image_nbr_en++] = new image_item
     (image_collection+"kristallnacht.jpg",
@@ -249,7 +249,7 @@ image_list_en[image_nbr_en++] = new image_item
      "Apollo 11 - July 24, 1969",
      "On July 24, 1969, the three astronauts of Apollo 11 were back on Earth "
      +"after a little more than eight days in space.  The splashdown of the "
-     +"command module took place in the Pacific Ocean (sources: NASA)",
+     +"command module took place in the Pacific Ocean. (sources: NASA)",
      null, null, null, null, "1969/07/24");
 
 image_list_en[image_nbr_en++] = new image_item
@@ -287,7 +287,7 @@ image_list_fr[image_nbr_fr++] = new image_item
      image_collection+"tulips.jpg",
      image_collection+"tulips.jpg",
      "Festival des tulipes - Mai",
-     "Le festival des Tulipes de la ville d'Ottawa",
+     "Le festival des Tulipes de la ville d'Ottawa.",
      null, null, null, null, "0/05/0");
 
 image_list_fr[image_nbr_fr++] = new image_item
@@ -295,7 +295,7 @@ image_list_fr[image_nbr_fr++] = new image_item
      image_collection+"Winterlude.jpg",
      image_collection+"Winterlude.jpg",
      "Bal des neiges - février",
-     "Le Bal des neiges", null, null, null, null, "0/02/0");
+     "Le Bal des neiges à Ottawa.", null, null, null, null, "0/02/0");
 
 image_list_fr[image_nbr_fr++] = new image_item
     (image_collection+"kristallnacht.jpg",
@@ -324,7 +324,7 @@ image_list_fr[image_nbr_fr++] = new image_item
      +"personnes détenues à Auschwitz furent libérées le 27 janvier 1945. "
      +"Une résolution de l'Organisation des Nations Unies a désignée le "
      +"27 janvier comme la <em class='MMathSStat'>Journée internationale "
-     +"dédiée à la mémoire des victimes de l’Holocauste</em> (United States "
+     +"dédiée à la mémoire des victimes de l’Holocauste</em>. (United States "
      +"Holocaust Memorial Museum, Washington, D.C., and Wikipédia)",
      null, null, null, null, "1945/01/27-1945/01/27");
 
@@ -490,5 +490,5 @@ image_list_fr[image_nbr_fr++] = new image_item
      image_collection+"50pc_off.gif",
      image_collection+"50pc_off.gif",
      "Solde - Juin 2011",
-     "Dans un magasin d'équipement électronique du centre ville",
+     "Dans un magasin d'équipement électronique du centre ville.",
      null, null, null, null, "0/06/0");

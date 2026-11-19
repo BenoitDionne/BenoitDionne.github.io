@@ -35,15 +35,39 @@ document.write("Include javascript file has failed")
 top_function(Mbs_proctor,"en");
 </script>
 
+<script language="javascript"> 
+  topPage("TOP", "en");
+</script>
+
 <div class="page_contents"> <!--  The contents starts here -->
 
 <script language="javascript">
 main_title( MStext, "MMathSStat");
 </script>
 
-<h2> Proctor Tools </h2>
+<h2 id="TOP"> Proctor Tools </h2>
 
-<h3> Introduction </h3>
+<div style="float: left; margin-right: 20px">
+<div class="center"><em>Content</em></div>
+<ul>
+  <li> <script language="javascript">
+      buildLinK("#Sect1", "Introduction",
+      "MMathSStat", "Sext1ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect2", "Procedure",
+      "MMathSStat", "Sext2ID", "_top");
+  </script> </li>
+  <li> <script language="javascript">
+      buildLinK("#Sect3", "Roster Search",
+      "MMathSStat", "Sext3ID", "_top");
+  </script> </li>
+</ul>
+</div>
+
+<hr class="MMathSStat" style="clear: both;">
+
+<h3 id="Sect1"> Introduction </h3>
 
 <p>It may happen that you need to set special accessibility conditions
   to an assignment for some students.  For instance, students with
@@ -51,7 +75,9 @@ main_title( MStext, "MMathSStat");
   for some students.  To do all that, you need to use the <em>Proctor
     Tools</em> (item <em>1</em> in the figure below). 
 
-<h3> Procedure </h3>
+<hr class="MMathSStat">
+  
+<h3 id="Sect2"> Procedure </h3>
 
 <div class="center">
   <img src="Mobius_proctor_1.png" style="width: 500px"
@@ -59,7 +85,7 @@ main_title( MStext, "MMathSStat");
        class="MobiusFig">
 </div>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> <p>After clicking on the item <em>Proctor Tools</em> of the upper
     menu (item <em>1</em> in the figure above), you get the following
     form.</p>
@@ -170,7 +196,9 @@ main_title( MStext, "MMathSStat");
 </li>
 </ol>
 
-<h3> Roster Search </h3>
+<hr class="MMathSStat">
+
+<h3 id="Sect3"> Roster Search </h3>
 
 <p> In the previous section, we ignored the link <em>Roster
     Search</em> (item <em>2.5</em> in the second and third figures of
@@ -179,7 +207,7 @@ main_title( MStext, "MMathSStat");
   looking for many students for whom you know the <em>User
     Login</em>.</p>
 
-<ol style="list-style-type: decimal;">
+<ol class="dec">
 <li> <p>If you click on the link <em>Roster Search</em>, then you get the
     following form.</p>
 
